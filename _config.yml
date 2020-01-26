@@ -1,4 +1,4 @@
-	name: Catherine Arnett
-	markdown: kramdown
+name: Catherine Arnett
+markdown: kramdown
 	
-	permalink: /blog/:year/:month/:day/:title
+permalink: /blog/:year/:month/:day/:title
