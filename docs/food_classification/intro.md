@@ -26,13 +26,13 @@ We have many ways that we already classify foods, such as plant-based, raw, 'hea
 
 Tomatoes are botanically fruits, but as the addage goes "“Knowledge is knowing that a tomato is a fruit. Wisdom is knowing not to put it in a fruit salad.” (Brian O’Driscoll, 2009). While *technically* tomatoes are a fruit, culinarily we do not consider them to be fruits. 
 
-<center>
+<p align="center">
 
 <img src="/assets/images/Botanical_Fruit_and_Culinary_Vegetables.png" width="600">
 
 *Is a tomato a fruit or a vegetable ([LinguaFile](http://www.thelinguafile.com/2016/10/are-tomatoes-fruits-or-vegetables-or.html#.YoVYx-jMKUk))*
   
- </center>
+ </p>
 
 
 
