@@ -28,9 +28,10 @@ Tomatoes are botanically fruits, but as the addage goes "“Knowledge is knowing
 
 <p align="center">
 <img src="/assets/images/Botanical_Fruit_and_Culinary_Vegetables.png" width="600">
-  Is a tomato a fruit or a vegetable [LinguaFile](https://www.thelinguafile.com/2016/10/are-tomatoes-fruits-or-vegetables-or.html#.YoWEP6jMJPb)
 </p>
-  
 
+<p align="center">
+Is a tomato a fruit or a vegetable? ([LinguaFile](https://www.thelinguafile.com/2016/10/are-tomatoes-fruits-or-vegetables-or.html#.YoWEP6jMJPb))
+</p>
 
 ## Why should you care?
