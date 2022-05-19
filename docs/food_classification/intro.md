@@ -42,6 +42,8 @@ The difference between this kind of classification and the soup-salad-sandwich t
 
 ## Why should you care?
 
+### Food Universals
+
 One of the most interesting insights that food classification gives us is that around the world people have created foods that are fundamentally very similar. For example, in many places around the world, people eat something that is essentially fried bread or a dumpling. Food classification offers the opportunity to find the core similarities of foods around the world. The fact that many different cultures have a food that is dumpling-like has already been pointed out:
 
 <p align="center">
@@ -58,7 +60,32 @@ But I have also found many examples of cultures that have some kind of fried bre
 <img src="/assets/images/fried_breads_final.png" width="700">
 </p>
 
+### Food Wars
 
+Another reason that this debate gets so heated and people get so invested is because people have really strong opinions about food. I couldn't possibly make a comprehensive list of food debates that have taken over the internet at some point even just within the last decade, but some notable food debates include:
 
-
+- Some version of which goes in the vessel first:
+  -  Do you put the cereal or the milk in the bowl first?
+  - Do you put the cream or the jam on a scone first?
+  - Do you put tea or milk in the mug first?
+- How do you eat X?
+  - Eat a KitKat by bar or bite into it?
+  - Eat pizza with hands or fork and knife?
+  - Fold pizza slide or not?
+  - Do you cut your sandwich vertically, diagonally, into squares, etc.?
+  - Do you eat the Oreo whole or lick the cream off first or dunk it in milk, etc.?
+  - Do you like the crust/edge piece or the middle piece (e.g. of a brownie)?
+  - Do you eat macaroni and cheese with a spoon or a fork?
+- What is the best X?
+  - What is the best chicken sandwich?
+  - Deep dish or thin crust pizza?
+  - What is the best style of french fry?
+  - What is the best regional burger chain in the US?
+  - Coke vs. Pepsi?
+- Food combinations
+  - Is it acceptable to put pineapple on pizza?
+- Names for foods
+  - pop vs. soda vs. coke
+  - hero vs. sub vs. hoagie
+  - are noodles and pasta the same thing?
 
