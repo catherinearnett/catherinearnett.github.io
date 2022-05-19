@@ -43,3 +43,8 @@ The difference between this kind of classification and the soup-salad-sandwich t
 ## Why should you care?
 
 One of the most interesting insights that food classification gives us is that around the world people have created foods that are fundamentally very similar. For example, in many places around the world, people eat something that is essentially fried bread or a dumpling. Food classification offers the opportunity to find the core similarities of foods around the world. 
+
+<p align="center">
+<img src="/assets/images/fried_breads_test.png" width="700">
+</p>
+
