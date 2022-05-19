@@ -42,13 +42,23 @@ The difference between this kind of classification and the soup-salad-sandwich t
 
 ## Why should you care?
 
-One of the most interesting insights that food classification gives us is that around the world people have created foods that are fundamentally very similar. For example, in many places around the world, people eat something that is essentially fried bread or a dumpling. Food classification offers the opportunity to find the core similarities of foods around the world. 
+One of the most interesting insights that food classification gives us is that around the world people have created foods that are fundamentally very similar. For example, in many places around the world, people eat something that is essentially fried bread or a dumpling. Food classification offers the opportunity to find the core similarities of foods around the world. The fact that many different cultures have a food that is dumpling-like has already been pointed out:
+
+<p align="center">
+<img src="/assets/images/dumplings_of_world.png" width="700">
+</p>
+
+<p align="center">
+Found on <a href="https://www.reddit.com/r/coolguides/comments/mf5u4r/dumplings_of_the_world/">Reddit</a>
+</p>
+
+But I have also found many examples of cultures that have some kind of fried bread. Here I make the distinction between filled breads (which are basically dumplings) and unfilled breads.
 
 <p align="center">
 <img src="/assets/images/fried_breads_final.png" width="700">
 </p>
 
-<p align="center">
-<img src="/assets/images/dumplings_of_world.png" width="700">
-</p>
+
+
+
 
