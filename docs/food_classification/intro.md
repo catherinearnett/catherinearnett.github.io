@@ -89,3 +89,15 @@ Another reason that this debate gets so heated and people get so invested is bec
   - hero vs. sub vs. hoagie
   - are noodles and pasta the same thing?
 
+These debates relate to cultural, linguistic, culinary differences. For example, the difference between pasta and noodles is cultural. Some noodles and some types of pasta may be indistinguishable from each other in terms of ingredients, but pasta originated in present-day Italy and noodles originated in present-day China. These foods are associated with two different cultures - both with strong cultural identities. There is also a culinary aspect, since you probably wouldn't put soy sauce on pasta or alfredo sauce on rice noodles. **CITATIONS**
+
+With respect to the order of toppings on a scone, while you could argue there are practical differences between putting the cream or the jam on your scone first, if you're from Devon, you probably put the cream on first, and if you're from Cornwall, you probably put the jam on first <a href="https://wiselivingmagazine.co.uk/food-and-drink/inspiration/cream-tea-wars-is-it-cream-or-jam-first/">(Source).</a>
+
+some of these debates are linguisitic
+soda vs. pop vs. coke
+chai vs. tea
+
+
+some of these are culinary
+pineapple on pizza
+the best chicken sandwich
