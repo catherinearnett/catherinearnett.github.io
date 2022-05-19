@@ -48,3 +48,7 @@ One of the most interesting insights that food classification gives us is that a
 <img src="/assets/images/fried_breads_final.png" width="700">
 </p>
 
+<p align="center">
+<img src="/assets/images/dumplings_of_world.png" width="700">
+</p>
+
