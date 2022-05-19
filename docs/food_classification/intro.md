@@ -31,7 +31,7 @@ Tomatoes are botanically fruits, but as the addage goes "Knowledge is knowing th
 </p>
 
 <p align="center">
-Is a tomato a fruit or a vegetable? ([LinguaFile](https://www.thelinguafile.com/2016/10/are-tomatoes-fruits-or-vegetables-or.html#.YoWEP6jMJPb))
+Is a tomato a fruit or a vegetable? <a href="https://www.thelinguafile.com/2016/10/are-tomatoes-fruits-or-vegetables-or.html#.YoWEP6jMJPb">(LinguaFile)</a>
 </p>
 
 Another similar question is the status of corn. Is it a fruit, a vegetable, or a cereal? The maize plant is a grass, which would make its fruit a cereal, like wheat. However, botanically it is a fruit because it develops from the flower of the plant and contains seeds. But corn could also be classified as a vegetable. According to the USDA, if corn is harvested when it is fully matured and then dried, it is considered a grain (or cereal) and can be milled. Fresh corn is harvested when the kernels are still full of liquid. When it is harvested at this stage, it is considered a starchy vegetable ([USDA](https://ask.usda.gov/s/article/Is-corn-a-grain-or-a-vegetable)).
