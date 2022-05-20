@@ -9,5 +9,6 @@ permalink: /research
 ---
 
 # Research
+{: .no_toc }
 
 
