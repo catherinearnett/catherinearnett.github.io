@@ -8,9 +8,9 @@ permalink: /about
 
 # About
 
-<img src="/assets/images/headshot.jpg" ALIGN="right" width="300" HSPACE="50" VSPACE="50" />
-
 I'm Catherine. I'm currently a grad student in [Linguistics at the University of California at San Diego](https://linguistics.ucsd.edu/). I'm interested in the syntax-semantics interface, psycholinguistics, dialectal variation, language variation and change, and corpus linguistic, among other things.
+
+<img src="/assets/images/headshot.jpg" ALIGN="right" width="300" HSPACE="50" VSPACE="50" />
 
 I am currently looking at verbal reduplication in Mandarin Chinese. I am interested in event construal when there is verbal reduplication: how long people perceive events to be, how many subevents listeners imagine, if there are any Manner changes, etc. 
 
