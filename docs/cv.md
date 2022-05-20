@@ -8,6 +8,7 @@ permalink: /cv
 
 # Curriculum Vitae
 
+<html>
 <iframe src="/assets/CV_Spring_Quarter_2020.pdf" height="1000" width="800"></iframe>
 
 <object data="/assets/CV_Spring_Quarter_2020.pdf" type="application/pdf" width=100% height="700px">
@@ -15,6 +16,7 @@ permalink: /cv
         <p>You can download the PDF: <a href="/assets/CV_Spring_Quarter_2020.pdf">Download PDF</a>.</p>
     </embed>
 </object>
+</html>
 
 # Education
 
