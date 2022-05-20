@@ -16,6 +16,8 @@ I am currently looking at verbal reduplication in Mandarin Chinese. I am interes
 
 I did my undergraduate degree at the University of Edinburgh in Chinese and Linguistics (MAHons), including one year at Zhejiang University in Hangzhou, China. 
 
+<br clear="right"/>
+
 You can download a copy of my CV here [[pdf](https://drive.google.com/file/d/100Jl-P8D4dM7fXt_Lkd1dW2lY5gQURb9/view)]. 
 
 Contact me: ccarnett [at] ucsd [dot] edu.
