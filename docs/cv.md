@@ -8,8 +8,10 @@ permalink: /cv
 
 # Curriculum Vitae
 
+xfun::embed_file("/assets/CV_Spring_Quarter_2020.pdf")
+
 <object data="/assets/CV_Spring_Quarter_2020.pdf" type="application/pdf" width=100% height="700px">
     <embed src="/assets/CV_Spring_Quarter_2020.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/CV_Spring_Quarter_2020.pdf">Download PDF</a>.</p>
+        <p>You can download the PDF to view it: <a href="/assets/CV_Spring_Quarter_2020.pdf">Download PDF</a>.</p>
     </embed>
 </object>
