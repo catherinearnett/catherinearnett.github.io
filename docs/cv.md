@@ -8,7 +8,7 @@ permalink: /cv
 
 # Curriculum Vitae
 
-<object data="/assets/CV_Spring_Quarter_2020.pdf" type="application/pdf" width="800px" height="1000px"></object>
+<iframe src="/assets/CV_Spring_Quarter_2020.pdf" height="1000" width="800"></iframe>
 
 <object data="/assets/CV_Spring_Quarter_2020.pdf" type="application/pdf" width=100% height="700px">
     <embed src="/assets/CV_Spring_Quarter_2020.pdf">
