@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Soup-Salad-Sandwich: The History of Food Classification
+title: The History of Food Classification
 parent: Food Classification
 nav_order: 2
 
@@ -8,4 +8,3 @@ nav_order: 2
 
 # Soup-Salad-Sandwich: The History of Food Classification
 
-{: .no_toc }
