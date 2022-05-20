@@ -8,8 +8,8 @@ permalink: /cv
 
 # Curriculum Vitae
 
-<object data="https://drive.google.com/file/d/100Jl-P8D4dM7fXt_Lkd1dW2lY5gQURb9/view" type="application/pdf" width=100% height="700px">
-    <embed src="https://drive.google.com/file/d/100Jl-P8D4dM7fXt_Lkd1dW2lY5gQURb9/view">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="[http://yoursite.com/the.pdf](https://drive.google.com/file/d/100Jl-P8D4dM7fXt_Lkd1dW2lY5gQURb9/view)">Download PDF</a>.</p>
+<object data="/assets/CV_Spring_Quarter_2020.pdf" type="application/pdf" width=100% height="700px">
+    <embed src="/assets/CV_Spring_Quarter_2020.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/CV_Spring_Quarter_2020.pdf">Download PDF</a>.</p>
     </embed>
 </object>
