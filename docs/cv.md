@@ -8,11 +8,28 @@ permalink: /cv
 
 # Curriculum Vitae
 
-<embed src="/assets/CV_Spring_Quarter_2020.pdf" width="800" height="1000" frameborder="0" allowfullscreen>
-
-
 <object data="/assets/CV_Spring_Quarter_2020.pdf" type="application/pdf" width=100% height="700px">
     <embed src="/assets/CV_Spring_Quarter_2020.pdf">
         <p>You can download the PDF: <a href="/assets/CV_Spring_Quarter_2020.pdf">Download PDF</a>.</p>
     </embed>
 </object>
+
+# Education
+
+# Teaching
+
+# Publications
+
+# Presentations
+
+# Work Experience
+
+# Mentoring
+
+# Funding
+
+# Service
+
+# Awards and Certifications
+
+# Skills and Interests
