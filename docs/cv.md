@@ -6,4 +6,4 @@ has_children: false
 permalink: /cv
 ---
 
-# Curriculum Veritae
+# Curriculum Vitae
