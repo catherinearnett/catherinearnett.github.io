@@ -14,8 +14,10 @@ permalink: /research
 ## Verbal Reduplication in Mandarin
 I am investigating the properties of verbal reduplication in Mandarin Chinese, and I am especially interested in the conceptual and semantic effects of verbal reduplication. 
 
+For more information, see the [https://catherinearnett.github.io/docs/research/reduplication/]{: #Reduplication} page. 
+
 If you want to learn more about this project, check out my [https://osf.io/y83c6/]{AMLaP} and 
-and [NACCL-32]{https://docs.google.com/presentation/d/1lzP9tlZ54oGApyQEBIUxcP1svdDr7uUNcg7_qlcfRnA/edit} presentations. 
+and [NACCL-32]{https://docs.google.com/presentation/d/1lzP9tlZ54oGApyQEBIUxcP1svdDr7uUNcg7_qlcfRnA/edit} presentations. You can a
 
 
 ## Previous Work
