@@ -91,7 +91,11 @@ Another reason that this debate gets so heated and people get so invested is bec
   - hero vs. sub vs. hoagie
   - are noodles and pasta the same thing?
 
-These debates relate to cultural, linguistic, culinary differences. For example, the difference between pasta and noodles is cultural. Some noodles and some types of pasta may be indistinguishable from each other in terms of ingredients, but pasta originated in present-day Italy and noodles originated in present-day China. These foods are associated with two different cultures - both with strong cultural identities. There is also a culinary aspect, since you probably wouldn't put soy sauce on pasta or alfredo sauce on rice noodles. **CITATIONS**
+These debates relate to cultural, linguistic, culinary differences. For example, the difference between pasta and noodles is cultural. Some noodles and some types of pasta may be indistinguishable from each other in terms of look and even ingredients. Pasta probably didn't originate in Italy. It has been speculated that it came from China, Greece, or the Arab world. There is archaelogical evidence for noodles in China as long ago as 4,000 years ago and in Greece as long ago as 3,000 years ago.  
+
+(Shelke, 2016)
+
+These foods are associated with two different cultures - both with strong cultural identities. There is also a culinary aspect, since you probably wouldn't put soy sauce on pasta or alfredo sauce on rice noodles. **CITATIONS**
 
 With respect to the order of toppings on a scone, while you could argue there are practical differences between putting the cream or the jam on your scone first, if you're from Devon, you probably put the cream on first, and if you're from Cornwall, you probably put the jam on first <a href="https://wiselivingmagazine.co.uk/food-and-drink/inspiration/cream-tea-wars-is-it-cream-or-jam-first/">(Source).</a>
 
@@ -112,3 +116,7 @@ chai vs. tea
 some of these are culinary
 pineapple on pizza
 the best chicken sandwich
+
+## References
+
+Shelke, K. (2016). Pasta and Noodles: A Global History. Reaktion Books.
