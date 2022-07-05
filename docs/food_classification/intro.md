@@ -26,7 +26,7 @@ There are a variety of classifications of foods into three categories: soup, sal
 
 We have many ways that we already classify foods, such as plant-based, raw, 'healthy', keto, dessert, savory, etc. One way that ingredients have historically been classified is according to the food pyramid. There are some notable controversial examples within the food pyramid, namely with the fruit-vegetable distinction. One of the most famous examples of this controversial distinction is the tomato. Is a tomato a fruit or a vegetable?
 
-Tomatoes are botanically fruits, but as the addage goes "Knowledge is knowing that a tomato is a fruit. Wisdom is knowing not to put it in a fruit salad." (Brian O’Driscoll, 2009). While *technically* tomatoes are a fruit, culinarily we do not consider them to be fruits. 
+Tomatoes are botanically fruits, but as the addage goes "Knowledge is knowing that a tomato is a fruit. Wisdom is knowing not to put it in a fruit salad." [[Video](https://www.youtube.com/watch?v=kpLd-Vi8qZA)] . While *technically* tomatoes are a fruit, culinarily we do not consider them to be fruits. 
 
 <p align="center">
 <img src="/assets/images/Botanical_Fruit_and_Culinary_Vegetables.png" width="600">
@@ -43,6 +43,12 @@ An important takeaway here is that it is important to specify the criteria used 
 The difference between this kind of classification and the soup-salad-sandwich type classification is that the food pyramid mostly categorizes ingredients, whereas food classification is able to classify complex dishes. 
 
 ## Why should you care?
+
+You have a lot of opinions about food. We all do. If you are fortunate, you eat food every day. You have probably spent countless hours in your life thinking about food, planning meals, sharing a meal with friends and family, etc. Food is deeply tied to our cultural identities, memories of family time or travel experiences, notalgia for a comfort meal you ate as a child, and more. Because we all have difference experiences with food, we all have different opinions about classifying foods or grouping foods together. And when someome has a different opinion about food, you may feel attacked because your feelings and beliefs about food are core to who you are. 
+
+I don't really feel I have to convince you that you should care about food classification, because you probably do care. 
+
+I think I may have to convince people of a few other things, though. It is important whenever you talk about other people's cultures to be respectful. We can have opinions about food without saying "All food from X place is terrible" or "that is so gross I can't believe those people eat that." This applies to aspects of culture not relating to food, too, by the way. I also am trying in this endeavor to be open-minded and inclusive. I think talking about '[calzone](https://cuberule.com/)' as a universal food category furthers eurocentrism in this debate and subtly implies Italian cuisine, for instance, as more pure or original than other cuisines. I make an effort to include as many different cuisines as possible into my Typology of Food Classification, because this will help to better understand commonalities of food cultures around the world. 
 
 ### Food Universals
 
@@ -89,13 +95,15 @@ Another reason that this debate gets so heated and people get so invested is bec
 - Names for foods
   - pop vs. soda vs. coke
   - hero vs. sub vs. hoagie
-  - are noodles and pasta the same thing?
+- Are these foods the same/different?
+  - Are noodles and pasta the same thing?
+  - yam vs. sweet potato
 
-These debates relate to cultural, linguistic, culinary differences. For example, the difference between pasta and noodles is cultural. Some noodles and some types of pasta may be indistinguishable from each other in terms of look and even ingredients. Pasta probably didn't originate in Italy. It has been speculated that it came from China, Greece, or the Arab world. There is archaelogical evidence for noodles in China as long ago as 4,000 years ago and in Greece as long ago as 3,000 years ago.  
+These debates relate to cultural, linguistic, culinary differences. 
 
-(Shelke, 2016)
+### Cultural Differences
 
-These foods are associated with two different cultures - both with strong cultural identities. There is also a culinary aspect, since you probably wouldn't put soy sauce on pasta or alfredo sauce on rice noodles. **CITATIONS**
+For example, the difference between pasta and noodles is cultural. Some noodles and some types of pasta may be indistinguishable from each other in terms of look and even ingredients. Pasta probably didn't originate in Italy. It has been speculated that it came from China, Greece, or the Arab world. There is archaelogical evidence for noodles in China as long ago as 4,000 years ago, which predates any other direct archaeological evidence for noodles in Europe or Western Asia (Shelke, 2016). This does not preclude the possibility of there being pasta/noodle like foods elsewhere in the world before this, but it is hard to know. Whether or not there is a shared history between the type of noodles you have in China and pasta you find in Italy, our conception of these foods and the pairings we might make with them are culturally driven. I don't think it would taste bad to put marinara sauce on ramen noodles, but we don't because that feels "wrong." These kinds of food opinions are culturally driven.
 
 With respect to the order of toppings on a scone, while you could argue there are practical differences between putting the cream or the jam on your scone first, if you're from Devon, you probably put the cream on first, and if you're from Cornwall, you probably put the jam on first <a href="https://wiselivingmagazine.co.uk/food-and-drink/inspiration/cream-tea-wars-is-it-cream-or-jam-first/">(Source).</a>
 
@@ -108,15 +116,28 @@ With respect to the order of toppings on a scone, while you could argue there ar
 </p>
 
 
-some of these debates are linguisitic
-soda vs. pop vs. coke
-chai vs. tea
+### Linguistic
 
+Some of these debates are linguisitic. For example, when discussing the difference between soda, pop, and coke, the beverage being referred to is exactly the same. It comes down, more or less, to a naming problem. This contrasts with the issue about the difference between a yam and a sweet potato. Most people in the US referring to a starchy orange food as yams are probably talking about sweet potatoes, and have probably never eaten a yam <a href="https://ncsweetpotatoes.com/sweet-potatoes-101/difference-between-yam-and-sweet-potato/">(more info).</a> This is also a naming problem, except there are two different foods and the names are being used incorrectly.
 
-some of these are culinary
-pineapple on pizza
-the best chicken sandwich
+### Culinary
+
+Finally, there are culinary differences. I have already mentioned the issue about the classification of tomatoes as fruits or vegetables and corn as starches or vegetables. These are classification problems that can be solved culinarily (e.g. tomato is a vegetable culinarily). Some of these food wars also have to do with culinary opinions. Whether pineapple belongs on pizza or what the best fast food chicken sandwich is are culinary questions. These are often more subjective questions, depending on an individual's tastes and also cultural factors. 
+
+## Conclusion
 
 ## References
 
+eimhin. (2009, February 28). Brian O'Driscoll press conference tomato [Video]. _YouTube_. https://www.youtube.com/watch?v=kpLd-Vi8qZA
+
+Hartley, E. Dumplings of the World [PNG]. Reddit. https://www.reddit.com/r/coolguides/comments/mf5u4r/dumplings_of_the_world/.
+
+Is corn a grain or a vegetable? (2019, July 17). Retrieved from https://ask.usda.gov/s/article/Is-corn-a-grain-or-a-vegetable.
+
+Joseph (2016, October 17). Are Tomatoes Fruits or Vegetables? Or Both? _The Lingua File_. https://www.thelinguafile.com/2016/10/are-tomatoes-fruits-or-vegetables-or.html#.YsR7zHbMKUn
+
 Shelke, K. (2016). Pasta and Noodles: A Global History. Reaktion Books.
+
+Walker, E. (2020, June 26). Cream tea wars: is it cream or jam first? _Wise Living Magazine_. https://wiselivingmagazine.co.uk/food-and-drink/inspiration/cream-tea-wars-is-it-cream-or-jam-first/.
+
+What Is The Difference Between A Sweetpotato And A Yam? Retrieved from https://ncsweetpotatoes.com/sweet-potatoes-101/difference-between-yam-and-sweet-potato/.
