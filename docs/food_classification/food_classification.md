@@ -1,7 +1,6 @@
 ---
 
 layout: default
-title: Food Classification
 has_children: true
 permalink: /food_classification
 
