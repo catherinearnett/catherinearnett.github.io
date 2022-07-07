@@ -8,10 +8,12 @@ permalink: /portfolio
 
 # Portfolio
 
-## Linguistics
+## Science Communication
 
-## Non-Linguistics
+## Data
 
-### [Food Classification](https://catherinearnett.github.io/food_classification)
+## Misc.
+
+[Food Classification](https://catherinearnett.github.io/food_classification)
 
 
