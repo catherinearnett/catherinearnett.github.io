@@ -2,6 +2,7 @@
 
 layout: default
 has_children: true
+title: Food Classification
 show_in_nav: false
 permalink: /food_classification
 
