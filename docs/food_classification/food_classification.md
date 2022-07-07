@@ -3,7 +3,7 @@
 layout: default
 title: Food Classification
 has_children: true
-permalink: /docs/food_classification
+permalink: /food_classification
 
 ---
 
