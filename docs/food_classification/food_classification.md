@@ -2,7 +2,6 @@
 
 layout: default
 title: Food Classification
-nav_order: 0
 has_children: true
 permalink: /docs/food_classification
 
