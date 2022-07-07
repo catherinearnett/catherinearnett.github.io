@@ -48,6 +48,11 @@ layout: table_wrappers
       </a>
     </div>
     <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      {% for p in pages %}
+        {% unless show_in_nav == false %}
+          <li><a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a></li>
+        {% endunless %}
+      {% endfor %}
       {% if site.just_the_docs.collections %}
         {% assign collections_size = site.just_the_docs.collections | size %}
         {% for collection_entry in site.just_the_docs.collections %}
