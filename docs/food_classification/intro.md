@@ -20,11 +20,13 @@ nav_order: 1
 
 ## What is Food Classification?
 
-Food classification is the quest to create a concise taxonomy of foods. A taxonomy is a classification, especially a hierarchical classification of things into different types or groups. In this case, the goal is to classify foods into categories. 
+Food classification is the quest to create a concise taxonomy of foods that covers all the foods of the world. Ideally it will give us greater insights into the cross-cultural similarities of foods. A taxonomy is a classification, especially a hierarchical classification of things into different types or groups. In this case, the goal is to classify foods into categories. 
 
-There are a variety of classifications of foods into three categories: soup, salad, sandwich (and sometimes meat). 
+This task lies at the intersection of linguistics, philosophy, cookery, sociology, and many other disciplines. 
 
-We have many ways that we already classify foods, such as plant-based, raw, 'healthy', keto, dessert, savory, etc. One way that ingredients have historically been classified is according to the food pyramid. There are some notable controversial examples within the food pyramid, namely with the fruit-vegetable distinction. One of the most famous examples of this controversial distinction is the tomato. Is a tomato a fruit or a vegetable?
+Various people have sought to classify foods into three (or four) categories: soup, salad, sandwich (and sometimes meat). 
+
+Outside of the task of Food Classification, there are many ways that we already classify foods, such as plant-based, raw, 'healthy', keto, dessert, savory, etc. One way that ingredients have historically been classified is according to the food pyramid. There are some notable controversial examples within the food pyramid, namely with the fruit-vegetable distinction. One of the most famous examples of this controversial distinction is the tomato. Is a tomato a fruit or a vegetable?
 
 Tomatoes are botanically fruits, but as the addage goes "Knowledge is knowing that a tomato is a fruit. Wisdom is knowing not to put it in a fruit salad." [[Video](https://www.youtube.com/watch?v=kpLd-Vi8qZA)] . While *technically* tomatoes are a fruit, culinarily we do not consider them to be fruits. 
 
