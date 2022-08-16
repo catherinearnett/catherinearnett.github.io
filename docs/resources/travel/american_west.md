@@ -3,7 +3,7 @@ layout: default
 title: American West
 parent: Travel
 nav_order: 1
-permalink: /travel/american_west
+
 ---
 
 # American West
