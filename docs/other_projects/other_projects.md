@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Portfolio
+title: Other Projects
 nav_order: 6
 has_children: false
-permalink: /portfolio
+permalink: /other
 ---
 
-# Portfolio
+# Other Projects
 
 ## Science Communication
 
