@@ -9,5 +9,4 @@ nav_order: 3
 
 # A New Theory of Food Classification
 
-## TL;DR
 
