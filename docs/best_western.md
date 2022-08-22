@@ -5,6 +5,7 @@ has_children: false
 title: Best Western Best Western
 show_in_nav: true
 permalink: /best_western_2
+nav_order: 8
 
 ---
 
