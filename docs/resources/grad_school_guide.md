@@ -70,6 +70,7 @@ permalink: /grad_school_survival_guide
   * Housing
     - 
   * Fun Things off Campus
+    - My [favorite restaurants and stores](https://www.google.com/maps/d/u/0/edit?mid=1pQW4Qv_jFWNWGCOLCKem9S5rIr33bMU&usp=sharing)
 
 ## General
 
