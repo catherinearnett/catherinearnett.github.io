@@ -81,9 +81,9 @@ permalink: /grad_school_survival_guide
 *  Coffee: Art of Espresso (best), Sixth College Market coffeeshop (very cheap)
 *  [Mailing Center](https://www.google.com/maps/place/Mailing+Center+at+UC+San+Diego/@32.8799891,-117.2375077,21z/data=!3m1!5s0x80dc06c0e88b2833:0xec427d64b06282ab!4m5!3m4!1s0x80dc06c59f9c0a05:0x1622933a00cfcc66!8m2!3d32.8800771!4d-117.2373776?shorturl=1)
 *  Fun things:
-  - [Fallen Star](https://stuartcollection.ucsd.edu/artist/suh.html) and other art in the Stuart Collection 
-  - Walk to the [Gliderport](https://goo.gl/maps/P2r1SbbMCiobJSiq8) - views of the ocean, watch paragliders 
-  - [Hammocks near Price Center](https://universitycenters.ucsd.edu/services/amenities.html)
+    *  [Fallen Star](https://stuartcollection.ucsd.edu/artist/suh.html) and other art in the Stuart Collection 
+    *  Walk to the [Gliderport](https://goo.gl/maps/P2r1SbbMCiobJSiq8) - views of the ocean, watch paragliders 
+    *  [Hammocks near Price Center](https://universitycenters.ucsd.edu/services/amenities.html)
 
 ### Housing
 
