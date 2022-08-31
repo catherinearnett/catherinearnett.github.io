@@ -2,11 +2,15 @@
 layout: default
 title: Travel
 parent: Resources
-nav_order: 5
+nav_order: 3
 
 ---
 
 # Travel
+
+## San Diego
+
+My recommendations for [San Diego](https://www.google.com/maps/d/u/0/edit?mid=1pQW4Qv_jFWNWGCOLCKem9S5rIr33bMU&usp=sharing). 
 
 ## American West
   
