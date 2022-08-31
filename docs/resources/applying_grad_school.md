@@ -3,7 +3,7 @@
 layout: default
 parent: Resources
 title: Applying to Grad School
-nav_order: 3
+nav_order: 5
 permalink: /applying_to_grad_school
 
 ---
