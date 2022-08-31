@@ -8,6 +8,6 @@ permalink: /resources
 
 ---
 
-# Research
+# Resources
 {: .no_toc }
 
