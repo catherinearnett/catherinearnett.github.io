@@ -9,7 +9,8 @@ permalink: /ras
 
 # Links
 
-[Google Drive](https://drive.google.com/drive/folders/1PJ4JndbOMVfRj0A2wCl2M4SWh9r6SCuc?usp=sharing)
+*   [Google Drive](https://drive.google.com/drive/folders/1PJ4JndbOMVfRj0A2wCl2M4SWh9r6SCuc?usp=sharing)
+*   [Intro to R](https://catherinearnett.github.io/docs/R-Tutorial-FA22.html)
 
 # Fall 2022 Schedule
 
