@@ -23,8 +23,8 @@ permalink: /ras
 |  | 10/13         | Background Info Session: Reduplication  |
 | Week 4   | 10/17        | Updates (5 mins), Present stims spreadsheets (15 minutes), R or Python tutorial with Xie (2020) data (40 mins) |
 | Week 5   | 10/24        | Hartsuiker et al. (2004) results (10 mins); QALMRI presentations; R Tutorial, cont'd (if time) |
-| Week 6   | 10/31        | Olivia presents database and workflow; how to find sources |
-| Week 7   | 11/7        | TBD |
+| Week 6   | 10/31        | Finish QALMRI to spreadsheet; invite to Olivia's sharing session; R Tutorial, cont'd (if time) |
+| Week 7   | 11/7        | Olivia presents database and workflow; how to find sources |
 |   | 11/10        | Sharing Session (with Olivia's group) |
-| Week 8   | 11/14        | TBD        |
+| Week 8   | 11/14        | TBD; Who is staying next quarter?    |
 | Week 9   | 11/21        | Wrap-Up  |
