@@ -21,7 +21,7 @@ For a brief overview, you can check out my [AMLaP](https://osf.io/y83c6/) and [N
 My collaborator, [Maho Takahashi](https://matakahas.github.io/), and I are working on a reanalysis of the work on the relationship between language and the environment in which a language is spoken. 
 
 We have a poster, entitled [_Creating a Baseline to Evaluate Correlations Between
-Language and Environment_](https://drive.google.com/file/d/1k5Qi1377JDDmC9g53YbXD3TEj-DZnV94/view?usp=sharing) at the [Machine Learning for Language Evolution Workshop](https://ml4evolang.github.io/) at the [Joint Conference on Language Evolution 2022](https://sites.google.com/view/joint-conf-language-evolution).
+Language and Environment_](https://drive.google.com/file/d/1k5Qi1377JDDmC9g53YbXD3TEj-DZnV94/view?usp=sharing) [[poster](https://drive.google.com/file/d/1o1F6IQKiuEkR8uZ7ZeUyurbWZAILl1pL/view?usp=sharing)] at the [Machine Learning for Language Evolution Workshop](https://ml4evolang.github.io/) at the [Joint Conference on Language Evolution 2022](https://sites.google.com/view/joint-conf-language-evolution).
 
 ## Previous Work
 
