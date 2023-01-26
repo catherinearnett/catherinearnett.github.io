@@ -10,5 +10,5 @@ permalink: /transformers
 # Transformers
 
 <html>
-<iframe src="/assets/Transformer_Architecture.pdf" height="1000" width="800"></iframe>
+<iframe src="/assets/Transformer_Architecture_updated.pdf" height="1000" width="800"></iframe>
 </html>
