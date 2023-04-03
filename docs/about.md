@@ -8,11 +8,11 @@ permalink: /about
 
 # About
 
-I'm Catherine. I'm currently a grad student in [Linguistics at the University of California at San Diego](https://linguistics.ucsd.edu/). I'm interested in the syntax-semantics interface, psycholinguistics, dialectal variation, language variation and change, and corpus linguistic, among other things.
+I'm Catherine. I'm currently a PhD Candidate in [Linguistics at the University of California at San Diego](https://linguistics.ucsd.edu/). I'm interested in the syntax-semantics interface, psycholinguistics, dialectal variation, language variation and change, and corpus linguistic, among other things.
 
 <img src="/assets/images/headshot.jpg" ALIGN="right" width="300" HSPACE="50" VSPACE="50" />
 
-I am currently looking at verbal reduplication in Mandarin Chinese. I am interested in event construal when there is verbal reduplication: how long people perceive events to be, how many subevents listeners imagine, if there are any Manner changes, etc. 
+My dissertation aims to describe the form-meaning correspondence in Mandarin Chinese predicate reduplication. My research combines linguistic theory with tools from psycholinguistics, corpus linguistics, and NLP. 
 
 I did my undergraduate degree at the University of Edinburgh in Chinese and Linguistics (MAHons), including one year at Zhejiang University in Hangzhou, China. 
 
