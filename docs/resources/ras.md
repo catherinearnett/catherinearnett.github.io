@@ -19,38 +19,22 @@ permalink: /ras
 *   CV [in progress]
 *   Writing [in progress]
 *   Grad School Applications [in progress]
-*   Honors Projects [in progress]
 
 
-# Winter 2023 Schedule (Crosslinguistic Priming Group)
+# Spring 2023 Schedule 
 
-Meeting Times: Thursdays 1:30-2:30pm
-
-| Week      | Date | Event | Task |
-| ----------- | ----------- | ----------- | ----------- |
-| Week 1   | 1/12        | Introductory Meeting  | Add 3-5 papers to the [Replications Database](https://docs.google.com/document/d/1pLtFCXbgM8JpehJCyusK24-F30IpSiShWkWgImKrOUg/edit?usp=sharing) |
-| Week 2   | 1/19        | QALMRI, Experimental Design  | Add 3-5 papers to the [Replications Database](https://docs.google.com/document/d/1pLtFCXbgM8JpehJCyusK24-F30IpSiShWkWgImKrOUg/edit?usp=sharing) |
-| Week 3   | 1/26        | How to transcribe stimuli  | Transcribe stimuli for 1 paper  |
-| Week 4   | 2/2        | TBD |   |
-| Week 5   | 2/9        | TBD |  |
-| Week 6   | 2/16        | TBD |  |
-| Week 7   | 2/23        | TBD; Who is staying next quarter?   |  |
-| Week 8   | 3/2        | Wrap-Up  |  |
-| Week 9   | 3/9        | TBD |  |
-
-# Winter 2023 Schedule (Reduplication Group)
-
-Meeting times: Tuesdays 5-6pm, Wednesdays 4-5pm
+Meeting Times: Wednesdays 4-5pm
 
 | Week      | Date | Event | Task |
 | ----------- | ----------- | ----------- | ----------- |
-| Week 1   | 1/10 and 1/11       | Introductory Meeting | Group 1: read guide document, reduplication slides |
-|   |  | | Group 2: prepare to share work from fall quarter |
-| Week 2   | 1/17 and 1/18        | Go over guide document, entries from Fall 2022   | Choose a language, work on language reading |
-| Week 3   | 1/24 and 1/25        |  Check-in meeting    |   |
-| Week 4   | 1/31 and 2/1        |  Check-in meeting |   |
-| Week 5   | 2/7 and 2/8        |  Check-in meeting |   |
-| Week 6   | 2/14 and 2/15        |  Check-in meeting |  |
-| Week 7   | 2/21 and 2/22        |  Check-in meeting; Who is staying next quarter?   |  |
-| Week 8   | 2/28 and 3/1        |  Check-in meeting   |  |
-| Week 9   | 3/7 and 3/8        | Wrap-Up  |  |
+| Week 1   | 4/5        | Introductory Meeting  | Project overview, updates. **Task**: Fiona and Jason: Add emails to list; Emily and Jiawei: find subtitles |
+| Week 2   | 4/12        | TBD  |  |
+| Week 3   | 4/19        | TBD  |   |
+| Week 4   | 4/26        | TBD |   |
+| Week 5   | 5/3        | TBD |  |
+| Week 6   | 5/10        | TBD |  |
+| Week 7   | 5/17        | TBD; Who is staying next quarter?   |  |
+| Week 8   | 5/24       | TBD  |  |
+| Week 9   | 5/31       | TBD |  |
+| Week 10   | 6/7        | TBD |  |
+
