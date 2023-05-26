@@ -20,21 +20,3 @@ permalink: /ras
 *   Writing [in progress]
 *   Grad School Applications [in progress]
 
-
-# Spring 2023 Schedule 
-
-Meeting Times: Wednesdays 4-5pm
-
-| Week      | Date | Event | Task |
-| ----------- | ----------- | ----------- | ----------- |
-| Week 1   | 4/5        | Introductory Meeting  | Project overview, updates. **Task**: Fiona and Jason: Add emails to list; Emily and Jiawei: find subtitles |
-| Week 2   | 4/12        | TBD  |  |
-| Week 3   | 4/19        | TBD  |   |
-| Week 4   | 4/26        | TBD |   |
-| Week 5   | 5/3        | TBD |  |
-| Week 6   | 5/10        | TBD |  |
-| Week 7   | 5/17        | TBD; Who is staying next quarter?   |  |
-| Week 8   | 5/24       | TBD  |  |
-| Week 9   | 5/31       | TBD |  |
-| Week 10   | 6/7        | TBD |  |
-
