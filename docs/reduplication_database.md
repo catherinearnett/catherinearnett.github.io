@@ -1,6 +1,6 @@
 --
 layout: default
-title: Reduplication Database
+title: Database
 nav_order: 5
 has_children: false
 permalink: /reduplication_database
@@ -9,4 +9,3 @@ permalink: /reduplication_database
 # Reduplication Database
 
 ## Geographical Distribution of Languages
-                                                                                                  |
