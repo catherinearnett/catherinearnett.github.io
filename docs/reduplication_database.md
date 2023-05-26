@@ -10,7 +10,17 @@ permalink: /reduplication_database
 
 ## Geographical Distribution of Languages
 
-<iframe src="/assets/red_database_map.pdf" height="500" width="800"></iframe>
+
+## Download CSV
+
+## Data Sample
+
+| Areal location             | Status     | Productivity      | Type    | Unit     | Length       | Fixed segments          | Fixed segment notes | Copy site                    | Attachment site | Attachment site notes         | Attachment adjacency | Underapplication | Triggering      | Overapplication | Base alternation | Multiple copies | Multiple patterns                                                        | Syntactic category         | Meaning            | Phi features                              |
+|----------------------------|------------|-------------------|---------|----------|--------------|-------------------------|---------------------|------------------------------|-----------------|-------------------------------|----------------------|------------------|-----------------|-----------------|------------------|-----------------|--------------------------------------------------------------------------|----------------------------|--------------------|-------------------------------------------|
+| micronesia                 | non-creole | productive        |         |          |              |                         |                     |                              |                 |                               |                      |                  |                 |                 |                  |                 |                                                                          |                            |                    |                                           |
+| Abkahzia (Rep. of Georgia) | non-creole | productive        | partial | segments | 1 segment    | no                      | -                   | 1st consonant of verbal root | infix           | next to base, gemination-like | yes                  | no               | vowel insertion | no              | no               | no              | no                                                                       | verbs                      | action intensifier | n/a                                       |
+| Abkahzia (Rep. of Georgia) | non-creole | productive        | full    | n/a      | -            | no                      | -                   | n/a                          | prefix          |                               | yes                  | no               | no              | no              | no               | no              | yes,  one example has word-final   vowel deleted in copy (or not copied) | nouns, adverbs, adjectives | adverbalization    | n/a                                       |
+| Abkahzia (Rep. of Georgia) | non-creole | *not productive | partial | segments | 1-4 segments | à-o, k'-m, l-J̌, x-j | unpredictable       | **                           | **              | infix                         | yes                  | no               | no              | no              | no               | no              | yes                                                                      | ***                        | ***                | *** may have example of number and person |
 
 ## Features
 
