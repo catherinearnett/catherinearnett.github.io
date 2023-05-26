@@ -9,7 +9,7 @@ permalink: /database
 # Reduplication Database
 
 ## Geographical Distribution of Languages
-<iframe src="/assets/red_database_map.png" height="400" width="600"></iframe>
+<iframe src="catherinearnett.github.io/assets/red_database_map.png" height="400" width="600"></iframe>
 
 
 ## Download CSV
