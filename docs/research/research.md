@@ -16,6 +16,13 @@ I am investigating the properties of verbal reduplication in Mandarin Chinese, a
 
 For a brief overview, you can check out my [AMLaP](https://osf.io/y83c6/) and [NACCL-32](https://docs.google.com/presentation/d/1lzP9tlZ54oGApyQEBIUxcP1svdDr7uUNcg7_qlcfRnA/edit) presentations. For more information, see the [Reduplication](https://catherinearnett.github.io/docs/research/reduplication/) page.
 
+## Multilingual Language Models
+With my collaborators [James Michaelov](https://jmichaelov.com/about/), [Tyler Chang](https://tylerachang.github.io/), and [Benjamin Bergen](https://pages.ucsd.edu/~bkbergen/), we have applied the structural priming experimental paradigm from psycholinguistics to evaluate multilingual language models and their cross-linguistic abstract grammatical representations. 
+
+We're presenting the full paper "Structural Priming Demonstrates Abstract Grammatical Representations in Multilingual Language Models" at EMNLP 2023. 
+
+We will also be presenting an extended abstract "[Crosslingual Structural Priming and the Pre-Training Dynamics of Bilingual Language Models](https://arxiv.org/abs/2310.07929)" at the Multilingual Representations Learning Workshop co-located with EMNLP 2023. 
+
 ## Language and Environment
 
 My collaborator, [Maho Takahashi](https://matakahas.github.io/), and I are working on a reanalysis of the work on the relationship between language and the environment in which a language is spoken. 
