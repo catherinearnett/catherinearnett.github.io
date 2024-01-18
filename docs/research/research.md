@@ -19,9 +19,9 @@ For a brief overview, you can check out my [AMLaP](https://osf.io/y83c6/) and [N
 ## Multilingual Language Models
 With my collaborators [James Michaelov](https://jmichaelov.com/about/), [Tyler Chang](https://tylerachang.github.io/), and [Benjamin Bergen](https://pages.ucsd.edu/~bkbergen/), we have applied the structural priming experimental paradigm from psycholinguistics to evaluate multilingual language models and their cross-linguistic abstract grammatical representations. 
 
-We're presenting the full paper "Structural Priming Demonstrates Abstract Grammatical Representations in Multilingual Language Models" at EMNLP 2023. 
+We presented the full paper "[Structural Priming Demonstrates Abstract Grammatical Representations in Multilingual Language Models](https://aclanthology.org/2023.emnlp-main.227/)" at EMNLP 2023. 
 
-We will also be presenting an extended abstract "[Crosslingual Structural Priming and the Pre-Training Dynamics of Bilingual Language Models](https://arxiv.org/abs/2310.07929)" at the Multilingual Representations Learning Workshop co-located with EMNLP 2023. 
+We also presented an extended abstract "[Crosslingual Structural Priming and the Pre-Training Dynamics of Bilingual Language Models](https://arxiv.org/abs/2310.07929)" at the Multilingual Representations Learning Workshop co-located with EMNLP 2023. 
 
 ## Language and Environment
 
