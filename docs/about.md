@@ -8,7 +8,7 @@ permalink: /about
 
 # About
 
-I'm Catherine. I'm currently a PhD Candidate in [Linguistics at the University of California at San Diego](https://linguistics.ucsd.edu/). I'm interested in the syntax-semantics interface, psycholinguistics, dialectal variation, language variation and change, and corpus linguistic, among other things.
+I'm Catherine. I'm currently a PhD Candidate in [Linguistics at the University of California at San Diego](https://linguistics.ucsd.edu/) with a specialization in [Computational Social Science](https://css.ucsd.edu/). I'm interested in psycholinguistics, corpus linguistics, and Natural Language Processing.
 
 <img src="/assets/images/headshot.jpg" ALIGN="right" width="300" HSPACE="50" VSPACE="50" />
 
