@@ -52,6 +52,8 @@ I don't really feel I have to convince you that you should care about food class
 
 I think I may have to convince people of a few other things, though. It is important whenever you talk about other people's cultures to be respectful. We can have opinions about food without saying "All food from X place is terrible" or "that is so gross I can't believe those people eat that." This applies to aspects of culture not relating to food, too, by the way. I also am trying in this endeavor to be open-minded and inclusive. I think talking about '[calzone](https://cuberule.com/)' as a universal food category furthers eurocentrism in this debate and subtly implies Italian cuisine, for instance, as more pure or original than other cuisines. I make an effort to include as many different cuisines as possible into my Typology of Food Classification, because this will help to better understand commonalities of food cultures around the world. 
 
+!! Hot dogs / sandwiches has financial ramifications https://knowyourmeme.com/memes/is-a-hot-dog-a-sandwich
+
 ### Food Universals
 
 One of the most interesting insights that food classification gives us is that around the world people have created foods that are fundamentally very similar. For example, in many places around the world, people eat something that is essentially fried bread or a dumpling. Food classification offers the opportunity to find the core similarities of foods around the world. The fact that many different cultures have a food that is dumpling-like has already been pointed out:
