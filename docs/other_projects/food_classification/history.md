@@ -9,7 +9,7 @@ nav_order: 2
 
 # Soup-Salad-Sandwich: The History of Food Classification
 
-hot dog, poptart, cereal
+hot dog, poptart, cereal as memes
 
 ## Existing Theories
 
