@@ -21,6 +21,5 @@ To contact me, you can email me at ccarnett [at] ucsd [dot] edu or find me on [T
 
 I recently presented a poster at EMNLP [[poster](https://drive.google.com/file/d/1HHUPe3y2X8dqqxh6NtnV6LPZQgJsrhS-/view?usp=sharing)][[paper](https://aclanthology.org/2023.emnlp-main.227/)] and a poster at the MRL workshop co-located with EMNLP [[poster](https://drive.google.com/file/d/1HHLF2RHIYeFBkHF0jTG-LsxC5QVg8pD-/view?usp=sharing)][[extended abstract](https://arxiv.org/pdf/2310.07929.pdf)]. 
 
-<img src="/assets/images/singpoare_bay.jpg" ALIGN="left" width="300" HSPACE="50" VSPACE="50" />
-<img src="/assets/images/singapore_poster.jpg" ALIGN="right" width="300" HSPACE="50" VSPACE="50" />
+<img src="/assets/images/singapore_poster.jpg" ALIGN="center" width="300" HSPACE="50" VSPACE="50" />
 
