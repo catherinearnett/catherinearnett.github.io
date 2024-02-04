@@ -9,9 +9,17 @@ nav_order: 2
 
 # Soup-Salad-Sandwich: The History of Food Classification
 
+The history of the discourse surrounding Soup-Salad-Sandwich classification dates back at least to 2011, when 
+
 hot dog, poptart, cereal as memes
 
+2011: hot dog (https://knowyourmeme.com/memes/is-a-hot-dog-a-sandwich)
+Poptart is ravioli
+
+
 ## Existing Theories
+
+What do these theories do well? What do they not capture?
 
 ### Cube Rule
 
