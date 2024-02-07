@@ -12,7 +12,7 @@ I'm Catherine. I'm currently a PhD Candidate in [Linguistics at the University o
 
 <img src="/assets/images/headshot.jpg" ALIGN="right" width="300" HSPACE="50" VSPACE="50" />
 
-My dissertation aims to describe the form-meaning correspondence in Mandarin Chinese predicate reduplication. My research combines linguistic theory with tools from psycholinguistics, corpus linguistics, and NLP. 
+My dissertation is about multilingual language models. I'm especially interested in language modeling in low-resource contexts. I also am interested in the intersection of psycholinguistics and NLP.
 
 I did my undergraduate degree at the University of Edinburgh in Chinese and Linguistics (MAHons), including one year at Zhejiang University in Hangzhou, China. 
 
