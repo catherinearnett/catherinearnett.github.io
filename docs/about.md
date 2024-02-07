@@ -16,7 +16,7 @@ My dissertation is about multilingual language models. I'm especially interested
 
 I did my undergraduate degree at the University of Edinburgh in Chinese and Linguistics (MAHons), including one year at Zhejiang University in Hangzhou, China. 
 
-You can download a copy of my CV here [[pdf](https://drive.google.com/file/d/1HFhX5I3RLdiGyn8gfNPrnKUs-bQIWirp/view?usp=sharing)]. 
+You can download a copy of my CV [here](https://catherinearnett.github.io/cv). 
 
 Contact me: ccarnett [at] ucsd [dot] edu.
 
