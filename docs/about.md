@@ -27,7 +27,7 @@ Office Hours: by appointment
 Links:
 - [ResearchGate](https://www.researchgate.net/profile/Catherine_Arnett) 
 - [Orcid](https://orcid.org/0000-0003-0448-5415)
-- [Google Scholar](https://scholar.google.com/citations?user=bLS_8RAAAAAJ&hl=en) 
+- [Google Scholar](https://scholar.google.com/citations?user=gIDJdFAAAAAJ&hl=en&oi=ao) 
 - [GitHub](https://github.com/catherinearnett)
 - [LinkedIn](https://www.linkedin.com/in/catherine-arnett96/)
 
