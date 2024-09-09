@@ -8,11 +8,7 @@ permalink: /
 
 # Welcome
 
-My name is [Catherine Arnett](https://catherinearnett.github.io/about) and this is my website and portfolio. 
-
-I'm currently a Linguistics PhD Candidate at UC San Diego and a research scientist at [PleIAs](https://pleias.fr/). 
-
-My [research interests](https://catherinearnett.github.io/research) are multilingual NLP, psycholinguistics, Mandarin Chinese morphology, and corpus linguistics. 
+My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm currently a Linguistics PhD Candidate at UC San Diego and a research scientist at [PleIAs](https://pleias.fr/). My main [research interest](https://catherinearnett.github.io/research) is multilingual NLP. 
 
 To contact me, you can email me at ccarnett [at] ucsd [dot] edu or find me on [Twitter](https://twitter.com/linguist_cat). You can find my work on [ResearchGate](https://www.researchgate.net/profile/Catherine-Arnett), [Orcid](https://orcid.org/0000-0003-0448-5415), and [Google Scholar](https://scholar.google.com/citations?user=bLS_8RAAAAAJ&hl=en). I theoretically post my code on [GitHub](https://github.com/catherinearnett). 
 
