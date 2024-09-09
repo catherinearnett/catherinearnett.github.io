@@ -10,7 +10,7 @@ permalink: /
 
 My name is [Catherine Arnett](https://catherinearnett.github.io/about) and this is my website and portfolio. 
 
-I am a PhD Candidate in the Linguistics with [Computational Social Science](https://css.ucsd.edu/) at [the University of California, San Diego](https://linguistics.ucsd.edu/). 
+I'm currently a Linguistics PhD Candidate at UC San Diego and a research scientist at [PleIAs](https://pleias.fr/). 
 
 My [research interests](https://catherinearnett.github.io/research) are multilingual NLP, psycholinguistics, Mandarin Chinese morphology, and corpus linguistics. 
 
