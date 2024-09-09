@@ -9,5 +9,5 @@ permalink: /cv
 # Curriculum Vitae
 
 <html>
-<iframe src="/assets/Summer_2024_Academic_CV.pdf" height="1000" width="800"></iframe>
+<iframe src="/assets/CV_Sep_2024.pdf" height="1000" width="800"></iframe>
 </html>
