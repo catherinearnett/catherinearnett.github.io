@@ -8,11 +8,11 @@ permalink: /about
 
 # About
 
-I'm Catherine. I'm currently a PhD Candidate in [Linguistics at the University of California at San Diego](https://linguistics.ucsd.edu/) with a specialization in [Computational Social Science](https://css.ucsd.edu/). 
+I'm Catherine. I'm currently a PhD Candidate in [Linguistics at the University of California at San Diego](https://linguistics.ucsd.edu/) with a specialization in [Computational Social Science](https://css.ucsd.edu/). My dissertation is about multilingual language models. I'm especially interested in language modeling in low-resource contexts and cross-lingual differences that affect language modeling. I also am interested in the intersection of psycholinguistics and NLP.
+
+I'm also a research scientist at [PleIAs](https://pleias.fr/), where I am contributing to the development of multilingual open-source language models, with a particular emphasis on open and public domain training data. I have been working on tokenization in a multilingual context, with an emphasis on OCR data. I have also helped develop a pipeline for toxicity filtering our training data. 
 
 <img src="/assets/images/headshot.jpg" ALIGN="right" width="300" HSPACE="50" VSPACE="50" />
-
-My dissertation is about multilingual language models. I'm especially interested in language modeling in low-resource contexts and cross-lingual differences that affect language modeling. I also am interested in the intersection of psycholinguistics and NLP.
 
 I did my undergraduate degree at the University of Edinburgh in Chinese and Linguistics (MAHons), including one year at Zhejiang University in Hangzhou, China. 
 
