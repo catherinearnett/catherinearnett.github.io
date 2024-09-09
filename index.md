@@ -15,4 +15,5 @@ To contact me, you can email me at ccarnett [at] ucsd [dot] edu or find me on [T
 # News
 
 *  I am attending the [Schmidt Sciences Humanities and AI Virtual Institute](https://www.schmidtsciences.org/humanities-and-ai-virtual-institute/) at Oxford University, where I will be talking about the work we're doing at PleIAs and how it can help researchers in the Humanities. 
-*  [Tyler Chang](https://tylerachang.github.io/) and I released [Goldfish Models](https://huggingface.co/goldfish-models), small comparable monolingual models for 350 languages. Check out the [Twitter thread overview](https://x.com/linguist_cat/status/1826267170952863885) of the release. 
+*  [Tyler Chang](https://tylerachang.github.io/) and I released [Goldfish Models](https://huggingface.co/goldfish-models), small comparable monolingual models for 350 languages. Check out the [Twitter thread overview](https://x.com/linguist_cat/status/1826267170952863885) of the release.
+*  Our paper, [Revenge of the Fallen? Recurrent Models Match Transformers at Predicting Human Language Comprehension Metrics](https://arxiv.org/pdf/2404.19178) was accepted and will be presented at the first Conference on Language Modeling (COLM).
