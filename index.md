@@ -14,5 +14,8 @@ To contact me, you can email me at ccarnett [at] ucsd [dot] edu or find me on [T
 
 # News
 
+*  Two of my papers were accepted to EMNLP:
+    -  "[BPE Gets Picky: Efficient Vocabulary Refinement During Tokenizer Training](https://arxiv.org/pdf/2409.04599)", which was done with my colleagues at PleIAs
+    -  "[When is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://arxiv.org/pdf/2311.09205)" which was done with my collaborators at UCSD CogSci
 *  [Tyler Chang](https://tylerachang.github.io/) and I released [Goldfish Models](https://huggingface.co/goldfish-models), small comparable monolingual models for 350 languages. Check out the [Twitter thread overview](https://x.com/linguist_cat/status/1826267170952863885) of the release.
 *  Our paper, [Revenge of the Fallen? Recurrent Models Match Transformers at Predicting Human Language Comprehension Metrics](https://arxiv.org/pdf/2404.19178) was accepted and will be presented at the first Conference on Language Modeling (COLM).
