@@ -1,14 +1,3 @@
----
-
-layout: default
-has_children: false
-title: Best Western Best Western
-parent: Other Projects
-show_in_nav: true
-permalink: /best_western_2
-nav_order: 8
-
----
 
 # Best Western Best Western
 
