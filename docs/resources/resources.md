@@ -9,7 +9,7 @@ permalink: /resources
 ---
 
 # Resources
-{: .no_toc }
+[comment]: <> ({: .no_toc })
 
 <a href="https://github.com/catherinearnett/morphscore">
   <img src="https://github.com/catherinearnett/catherinearnett.github.io/blob/main/assets/thumbnails/morphscore.png" width="325" />
