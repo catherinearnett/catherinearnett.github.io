@@ -11,3 +11,12 @@ permalink: /resources
 # Resources
 {: .no_toc }
 
+<a href="https://github.com/catherinearnett/morphscore">
+  <img src="https://github.com/catherinearnett/catherinearnett.github.io/blob/main/assets/thumbnails/morphscore.png" width="325" />
+</a>
+<a href="https://github.com/catherinearnett/byte-premium-tool">
+  <img src="https://github.com/catherinearnett/catherinearnett.github.io/blob/main/assets/thumbnails/byte-premium-tool.png" width="325" />
+</a>
+<a href="https://huggingface.co/goldfish-models">
+  <img src="https://github.com/catherinearnett/catherinearnett.github.io/blob/main/assets/thumbnails/goldfish-models.png" width="325" />
+</a>
