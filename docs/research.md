@@ -30,8 +30,8 @@ You can view my full CV here:
 ## Manuscripts
 
 *  **Catherine Arnett** and Benjamin K. Bergen (under review). Why do language models perform worse for morphologically complex languages?
-5. **Catherine Arnett***, Eliot Jones*, Ivan P. Yamshchikov, Pierre-Carl Langlais (under review). [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/abs/2410.22587). *equal contribution
-6. Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (under review). [Goldfish: Monolingual Language Models for 350 Languages](https://arxiv.org/abs/2408.10441).
+*  **Catherine Arnett***, Eliot Jones*, Ivan P. Yamshchikov, Pierre-Carl Langlais (under review). [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/abs/2410.22587). *equal contribution
+*  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (under review). [Goldfish: Monolingual Language Models for 350 Languages](https://arxiv.org/abs/2408.10441).
 
 ## Conference Presentations
 
