@@ -10,7 +10,7 @@ permalink: /
 
 My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm currently Lead Research Scientist at [PleIAs](https://pleias.fr/) and I'm finishing my PhD in Linguistics with Computational Social Science at UC San Diego. My main [research interest](https://catherinearnett.github.io/research) is multilingual NLP. 
 
-To contact me, you can email me at catherine [at] pleias [dot] fr or find me on 🦋 [BlueSky]([https://twitter.com/linguist_cat](https://bsky.app/profile/catherinearnett.bsky.social)). 
+To contact me, you can email me at catherine [at] pleias [dot] fr or find me on 🦋 [BlueSky](https://bsky.app/profile/catherinearnett.bsky.social). 
 
 Other links:
 
