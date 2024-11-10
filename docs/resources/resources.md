@@ -9,7 +9,7 @@ has_toc: false
 
 ---
 
-# Resources
+# Tools
 [comment]: <> ({: .no_toc })
 
 <a href="https://github.com/catherinearnett/morphscore">
@@ -18,6 +18,8 @@ has_toc: false
 <a href="https://github.com/catherinearnett/byte-premium-tool">
   <img src="./assets/thumbnails/byte-premium-tool.png" width="350" target="_blank" rel="noopener noreferrer" />
 </a>
+
+# Models
 <a href="https://huggingface.co/goldfish-models">
   <img src="./assets/thumbnails/goldfish-models.png" width="350" target="_blank" rel="noopener noreferrer" />
 </a>
@@ -26,7 +28,7 @@ has_toc: false
 </a>
 
 
-## Travel Recommendations
+# Travel Recommendations
 
 ## San Diego
 
