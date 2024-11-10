@@ -31,6 +31,17 @@ You can view my full CV here:
 
 ## Manuscripts
 
+*  **Catherine Arnett** and Benjamin K. Bergen (under review). Why do language models perform worse for morphologically complex languages?
+5. **Catherine Arnett***, Eliot Jones*, Ivan P. Yamshchikov, Pierre-Carl Langlais (under review). [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/abs/2410.22587). *equal contribution
+6. Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (under review). [Goldfish: Monolingual Language Models for 350 Languages](https://arxiv.org/abs/2408.10441).
+
 ## Conference Presentations
+
+* Catherine Arnett, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (2023). Crosslingual Structural Priming and the Pre-Training Dynamics of Bilingual Language Models. The 3rd Workshop on Multilingual Representation Learning co-located with EMNLP 2023. Singapore. \[[abstract](https://arxiv.org/abs/2310.07929)\]
+* Catherine Arnett & Maho Takahashi (2022). Creating a Baseline to Evaluate Correlations Between Language and Environment. Machine Learning and the Evolution of Language. Kanagawa/online.
+* Catherine Arnett & Eva Wittenberg (2020). Multiple Meanings of Doubling Up: Mandarin Verbal Reduplication. The 26th Architectures And Mechanisms for Language Processing Conference (AMLaP). Potsdam/online.
+* Catherine Arnett & Eva Wittenberg (2020). Conceptual Effects of Verbal Reduplication in Mandarin Chinese. North American Conference on Chinese Linguistics 32. Storrs, CT/online.
+* Catherine Arnett & Eva Wittenberg (2019). Conceptual Effects of Verbal Reduplication in Mandarin Chinese. California Meeting on Psycholinguistics. Santa Cruz, California. 
+* Catherine Arnett (2018). Diachronic study of the typology of motion verbs in the Romance languages. Undergraduate Linguistics Association of Britain Conference, University of Edinburgh.
 
 ### Psycholinguistics
