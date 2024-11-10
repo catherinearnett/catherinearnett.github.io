@@ -5,6 +5,7 @@ title: Resources
 nav_order: 6
 has_children: true
 permalink: /resources
+has_toc: false
 
 ---
 
