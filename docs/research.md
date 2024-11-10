@@ -6,8 +6,6 @@ has_children: false
 permalink: /research
 ---
 
-# CV
-
 You can view my full CV here:
 <form method="get" action="./assets/CV_Sep_2024.pdf">
    <button type="submit">View PDF</button>
