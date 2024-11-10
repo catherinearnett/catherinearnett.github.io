@@ -5,7 +5,7 @@ nav_order: 3
 has_children: false
 permalink: /teaching
 has_toc: false
-\
+
 ---
 
 # Teaching
