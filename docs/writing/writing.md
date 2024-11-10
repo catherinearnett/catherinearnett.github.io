@@ -4,7 +4,7 @@ layout: default
 title: Writing
 nav_order: 6
 has_children: false
-permalink: /resources
+permalink: /writing
 has_toc: false
 
 ---
