@@ -13,11 +13,11 @@ has_toc: false
 [comment]: <> ({: .no_toc })
 
 <a href="https://github.com/catherinearnett/morphscore">
-  <img src="./assets/thumbnails/morphscore.png" width="200" target="_blank" rel="noopener noreferrer" />
+  <img src="./assets/thumbnails/morphscore.png" width="500" target="_blank" rel="noopener noreferrer" />
 </a>
 <a href="https://github.com/catherinearnett/byte-premium-tool">
-  <img src="./assets/thumbnails/byte-premium-tool.png" width="200" target="_blank" rel="noopener noreferrer" />
+  <img src="./assets/thumbnails/byte-premium-tool.png" width="500" target="_blank" rel="noopener noreferrer" />
 </a>
 <a href="https://huggingface.co/goldfish-models">
-  <img src="./assets/thumbnails/goldfish-models.png" width="200" target="_blank" rel="noopener noreferrer" />
+  <img src="./assets/thumbnails/goldfish-models.png" width="500" target="_blank" rel="noopener noreferrer" />
 </a>
