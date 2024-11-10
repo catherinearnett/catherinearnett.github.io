@@ -1,14 +1,12 @@
 ---
 layout: default
 title: Other Projects
-nav_order: 8
 has_children: false
 permalink: /other
+has_toc: false
 ---
 
 # Other Projects
-
-
 
 ## Data
 
