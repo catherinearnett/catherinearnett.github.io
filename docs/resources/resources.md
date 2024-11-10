@@ -21,3 +21,8 @@ has_toc: false
 <a href="https://huggingface.co/goldfish-models">
   <img src="./assets/thumbnails/goldfish-models.png" width="350" target="_blank" rel="noopener noreferrer" />
 </a>
+<a href="https://huggingface.co/collections/catherinearnett/b-gpt-66f4b80e8fa8e95491948556">
+  <img src="./assets/thumbnails/bgpt.png" width="350" target="_blank" rel="noopener noreferrer" />
+</a>
+
+
