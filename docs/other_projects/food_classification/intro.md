@@ -1,11 +1,3 @@
----
-
-layout: default
-title: Introduction to Food Classification
-parent: Food Classification
-nav_order: 1
-
----
 
 # Introduction to Food Classification
 {: .no_toc }
