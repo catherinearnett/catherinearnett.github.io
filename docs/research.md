@@ -16,7 +16,7 @@ You can view my full CV here:
 
 ## Publications
 
-#### NLP
+### NLP
 
 *  Pavel Chizhov☆, **Catherine Arnett**☆, Elizaveta Korotkova, Ivan P. Yamshchikov (2024). [BPE Gets Picky: Efficient Vocabulary Refinement During Tokenizer Training](https://aclanthology.org/2024.emnlp-main.925/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA. ☆equal contribution.
 *  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (2024). [When Is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://aclanthology.org/2024.emnlp-main.236/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA.
@@ -25,7 +25,7 @@ You can view my full CV here:
 *  **Catherine Arnett**☆, Tyler A. Chang☆, Benjamin K. Bergen (2024). [A Bit of a Problem: Measurement Disparities in Dataset Sizes Across Languages](https://aclanthology.org/2024.sigul-1.1/). 3rd Annual Meeting of the Special Interest Group on Under-resourced Languages (SIGUL), co-located at LREC-COLING. Torino, Italy. ☆equal contribution
 *  James A. Michaelov☆, **Catherine Arnett**☆, Tyler A. Chang, Benjamin K. Bergen (2023). [Structural Priming Demonstrates Abstract Grammatical Representations in Multilingual Language Models](https://aclanthology.org/2023.emnlp-main.227/). Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP). Singapore. ☆equal contribution
 
-#### Linguistics and Psycholinguistics
+### Linguistics and Psycholinguistics
 
 * Jesse Quinn, Matthew Goldrick, **Catherine Arnett**, Victor S. Ferreira, Tamar H. Gollan (2024). [Syntax Drives Default Language Selection in Bilingual Connected Speech Production](https://psycnet.apa.org/record/2025-36216-001). Journal of Experimental Psychology: Learning, Memory, and Cognition.
 * **Catherine Arnett** (2019). [Pathways of Change in Romance Motion Events: A Corpus-based Comparison](https://drive.google.com/file/d/1l8Y6_LKuEDk1AI_QaetaSTfGeU6sIyO1/view?usp=sharing). Proceedings of the Thirtieth Western Conference on Linguistics (WeCOL). Vol 23. Fresno, CA, USA.
@@ -38,11 +38,15 @@ You can view my full CV here:
 
 ## Conference Presentations
 
+### NLP
+
 * Catherine Arnett, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (2023). Crosslingual Structural Priming and the Pre-Training Dynamics of Bilingual Language Models. The 3rd Workshop on Multilingual Representation Learning co-located with EMNLP 2023. Singapore. \[[abstract](https://arxiv.org/abs/2310.07929)\]
+
+### Psycholinguistics
+
 * Catherine Arnett & Maho Takahashi (2022). Creating a Baseline to Evaluate Correlations Between Language and Environment. Machine Learning and the Evolution of Language. Kanagawa/online.
 * Catherine Arnett & Eva Wittenberg (2020). Multiple Meanings of Doubling Up: Mandarin Verbal Reduplication. The 26th Architectures And Mechanisms for Language Processing Conference (AMLaP). Potsdam/online.
 * Catherine Arnett & Eva Wittenberg (2020). Conceptual Effects of Verbal Reduplication in Mandarin Chinese. North American Conference on Chinese Linguistics 32. Storrs, CT/online.
 * Catherine Arnett & Eva Wittenberg (2019). Conceptual Effects of Verbal Reduplication in Mandarin Chinese. California Meeting on Psycholinguistics. Santa Cruz, California. 
 * Catherine Arnett (2018). Diachronic study of the typology of motion verbs in the Romance languages. Undergraduate Linguistics Association of Britain Conference, University of Edinburgh.
 
-### Psycholinguistics
