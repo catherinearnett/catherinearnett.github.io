@@ -1,11 +1,3 @@
----
-layout: default
-title: Other Projects
-has_children: false
-permalink: /other
-has_toc: false
----
-
 # Other Projects
 
 ## Data
