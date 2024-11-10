@@ -8,6 +8,6 @@ permalink: /cv
 
 # Curriculum Vitae
 
-<html>
-<iframe src="/assets/CV_Sep_2024.pdf" height="1000" width="800"></iframe>
-</html>
+<form method="get" action="./assets/CV_Sep_2024.pdf">
+   <button type="submit">Download PDF</button>
+</form>
