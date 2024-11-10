@@ -2,7 +2,7 @@
 
 layout: default
 title: Resources
-nav_order: 6
+nav_order: 7
 has_children: false
 permalink: /resources
 has_toc: false
