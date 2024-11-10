@@ -8,12 +8,22 @@ permalink: /
 
 # Welcome
 
-My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm currently a Linguistics PhD Candidate at UC San Diego and a research scientist at [PleIAs](https://pleias.fr/). My main [research interest](https://catherinearnett.github.io/research) is multilingual NLP. 
+My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm currently Lead Research Scientist at [PleIAs](https://pleias.fr/) and I'm finishing my PhD in Linguistics with Computational Social Science at UC San Diego. My main [research interest](https://catherinearnett.github.io/research) is multilingual NLP. 
 
-To contact me, you can email me at ccarnett [at] ucsd [dot] edu or find me on [Twitter](https://twitter.com/linguist_cat). You can find my work on [ResearchGate](https://www.researchgate.net/profile/Catherine-Arnett), [Orcid](https://orcid.org/0000-0003-0448-5415), and [Google Scholar](https://scholar.google.com/citations?user=bLS_8RAAAAAJ&hl=en). I theoretically post my code on [GitHub](https://github.com/catherinearnett). 
+To contact me, you can email me at catherine [at] pleias [dot] fr or find me on 🦋 [BlueSky]([https://twitter.com/linguist_cat](https://bsky.app/profile/catherinearnett.bsky.social)). 
+
+Other links:
+
+<img src="https://github.com/catherinearnett/catherinearnett.github.io/blob/main/assets/logos/huggingface-logo.png" width="20" /> [HuggingFace](https://huggingface.co/catherinearnett) 
+<img src="https://github.com/catherinearnett/catherinearnett.github.io/blob/main/assets/logos/github-mark.png" width="20" /> [GitHub](https://github.com/catherinearnett)
+<img src="https://github.com/catherinearnett/catherinearnett.github.io/blob/main/assets/logos/google-scholar-logo.png" width="20" /> [Google Scholar](https://scholar.google.com/citations?user=bLS_8RAAAAAJ&hl=en)
+<img src="https://github.com/catherinearnett/catherinearnett.github.io/blob/main/assets/logos/semantic-scholar-logo.png" width="20" /> [Semantic Scholar](https://www.semanticscholar.org/author/Catherine-Arnett/2257347764)
+<img src="https://github.com/catherinearnett/catherinearnett.github.io/blob/main/assets/logos/orcid-logo.png" width="20" /> [Orcid](https://orcid.org/0000-0003-0448-5415)
+
 
 # News
 
+* I have a new pre-print about toxicity detection in multilingual and historical text data: [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/pdf/2410.22587).
 *  Two of my papers were accepted to EMNLP:
     -  "[BPE Gets Picky: Efficient Vocabulary Refinement During Tokenizer Training](https://arxiv.org/pdf/2409.04599)", which was done with my colleagues at PleIAs
     -  "[When is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://arxiv.org/pdf/2311.09205)" which was done with my collaborators at UCSD CogSci
