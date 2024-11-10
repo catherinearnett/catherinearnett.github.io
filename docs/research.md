@@ -28,7 +28,7 @@ You can view my full CV here:
 #### Linguistics and Psycholinguistics
 
 * Jesse Quinn, Matthew Goldrick, **Catherine Arnett**, Victor S. Ferreira, Tamar H. Gollan (2024). [Syntax Drives Default Language Selection in Bilingual Connected Speech Production](https://psycnet.apa.org/record/2025-36216-001). Journal of Experimental Psychology: Learning, Memory, and Cognition.
-* **Catherine Arnett** (2019). [Pathways of Change in Romance Motion Events: A Corpus-based Comparison](https://drive.google.com/file/d/1l8Y6_LKuEDk1AI_QaetaSTfGeU6sIyO1/view?usp=sharing). _Proceedings of the Thirtieth Western Conference on Linguistics_ (WeCOL). Vol 23. Fresno, CA, USA.
+* **Catherine Arnett** (2019). [Pathways of Change in Romance Motion Events: A Corpus-based Comparison](https://drive.google.com/file/d/1l8Y6_LKuEDk1AI_QaetaSTfGeU6sIyO1/view?usp=sharing). Proceedings of the Thirtieth Western Conference on Linguistics (WeCOL). Vol 23. Fresno, CA, USA.
 
 ## Manuscripts
 
