@@ -23,8 +23,6 @@ Other links:
 
 # News
 
+* Tyler Chang and my paper, "[When is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://arxiv.org/pdf/2311.09205)" was awarded Outstanding Paper at EMNLP!🥇
 * I have a new pre-print about toxicity detection in multilingual and historical text data: [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/pdf/2410.22587).
-*  Two of my papers were accepted to EMNLP:
-    -  "[BPE Gets Picky: Efficient Vocabulary Refinement During Tokenizer Training](https://arxiv.org/pdf/2409.04599)", which was done with my colleagues at PleIAs
-    -  "[When is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://arxiv.org/pdf/2311.09205)" which was done with my collaborators at UCSD CogSci
 *  [Tyler Chang](https://tylerachang.github.io/) and I released [Goldfish Models](https://huggingface.co/goldfish-models), small comparable monolingual models for 350 languages. Check out the [Twitter thread overview](https://x.com/linguist_cat/status/1826267170952863885) of the release.
