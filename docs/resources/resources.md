@@ -28,6 +28,11 @@ has_toc: false
 </a>
 
 
+## Goldfish in the Wild:
+
+*  [Tetum](https://huggingface.co/goldfish-models/tet_latn_full): [Merx et al. (2024) Low-resource Machine Translation: what for? who for? An observational study on a dedicated Tetun language translation service](https://www.researchgate.net/publication/385944683_Low-resource_Machine_Translation_what_for_who_for_An_observational_study_on_a_dedicated_Tetun_language_translation_service/references)
+
+
 # Travel Recommendations
 
 ## San Diego
