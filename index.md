@@ -23,6 +23,7 @@ Other links:
 
 # News
 
+* I have a new pre-print: "[Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198)"
 * Tyler Chang and my paper, "[When is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://arxiv.org/pdf/2311.09205)" was awarded Outstanding Paper at EMNLP!🥇
 * I have a new pre-print about toxicity detection in multilingual and historical text data: [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/pdf/2410.22587). Read the [blog post](https://huggingface.co/blog/catherinearnett/toxic-commons) for an overview. 
 *  [Tyler Chang](https://tylerachang.github.io/) and I released [Goldfish Models](https://huggingface.co/goldfish-models), small comparable monolingual models for 350 languages. Check out the [Twitter thread overview](https://x.com/linguist_cat/status/1826267170952863885) of the release.
