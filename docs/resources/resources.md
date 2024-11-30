@@ -18,6 +18,10 @@ has_toc: false
 <a href="https://github.com/catherinearnett/byte-premium-tool">
   <img src="./assets/thumbnails/byte-premium-tool.png" width="350" target="_blank" rel="noopener noreferrer" />
 </a>
+<a href="https://github.com/catherinearnett/byte-premium-tool">
+  <img src="./assets/thumbnails/celadon.png" width="350" target="_blank" rel="noopener noreferrer" />
+</a>
+
 
 # Models
 <a href="https://huggingface.co/goldfish-models">
