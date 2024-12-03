@@ -18,6 +18,7 @@ You can view my full CV here:
 
 ### NLP
 
+*  **Catherine Arnett** and Benjamin K. Bergen (to appear). [Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198) The 31st International Conference on Computational Linguistics (COLING). Abu Dhabi, UAE and online.
 *  Pavel Chizhov☆, **Catherine Arnett**☆, Elizaveta Korotkova, Ivan P. Yamshchikov (2024). [BPE Gets Picky: Efficient Vocabulary Refinement During Tokenizer Training](https://aclanthology.org/2024.emnlp-main.925/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA. ☆equal contribution.
 *  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (2024). [When Is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://aclanthology.org/2024.emnlp-main.236/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA.
 *  James Michaelov, **Catherine Arnett**, Benjamin K. Bergen (2024). [Revenge of the Fallen? Recurrent Models Match Transformers at Predicting Human Language Comprehension Metrics](https://arxiv.org/abs/2404.19178). The First Conference on Language Modeling (COLM). Philadelphia, USA.
