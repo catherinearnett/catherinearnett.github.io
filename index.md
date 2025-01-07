@@ -23,6 +23,7 @@ Other links:
 
 # News
 
+* I will be representing PleIAs at the International Association for Safe & Ethical AI Workshop as part of the AI Action Summit in Paris
 * My paper "[Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198)" is accepted to COLING 2025!
 * Tyler Chang and my paper, "[When is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://arxiv.org/pdf/2311.09205)" was awarded Outstanding Paper at EMNLP!🥇
 * I have a new pre-print about toxicity detection in multilingual and historical text data: [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/pdf/2410.22587). Read the [blog post](https://huggingface.co/blog/catherinearnett/toxic-commons) for an overview. 
