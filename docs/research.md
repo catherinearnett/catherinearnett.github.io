@@ -10,7 +10,7 @@ has_toc: false
 # Research
 
 You can view my full CV here:
-<form method="get" action="./assets/CV_Dec_2024.pdf">
+<form method="get" action="./assets/Arnett_CV_Jan_2025.pdf">
    <button type="submit">View PDF</button>
 </form>
 
@@ -18,9 +18,9 @@ You can view my full CV here:
 
 ### NLP
 
-*  **Catherine Arnett** and Benjamin K. Bergen (to appear). [Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198) The 31st International Conference on Computational Linguistics (COLING). Abu Dhabi, UAE and online.
+*  **Catherine Arnett** and Benjamin K. Bergen (2025). [Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198) The 31st International Conference on Computational Linguistics (COLING). Abu Dhabi, UAE and online.
 *  Pavel Chizhov☆, **Catherine Arnett**☆, Elizaveta Korotkova, Ivan P. Yamshchikov (2024). [BPE Gets Picky: Efficient Vocabulary Refinement During Tokenizer Training](https://aclanthology.org/2024.emnlp-main.925/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA. ☆equal contribution.
-*  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (2024). [When Is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://aclanthology.org/2024.emnlp-main.236/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA.
+*  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (2024). [When Is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://aclanthology.org/2024.emnlp-main.236/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA. **Outstanding Paper Award**
 *  James Michaelov, **Catherine Arnett**, Benjamin K. Bergen (2024). [Revenge of the Fallen? Recurrent Models Match Transformers at Predicting Human Language Comprehension Metrics](https://arxiv.org/abs/2404.19178). The First Conference on Language Modeling (COLM). Philadelphia, USA.
 *  **Catherine Arnett**☆, Pamela D. Rivière☆, Tyler A. Chang, and Sean Trott (2024). [Different Tokenization Schemes Lead to Comparable Performance in Spanish Number Agreement](https://aclanthology.org/2024.sigmorphon-1.4/). Special Interest Group on Computational Morphology and Phonology (SIGMORPHON) co-located at NAACL. Mexico City, Mexico. ☆equal contribution
 *  **Catherine Arnett**☆, Tyler A. Chang☆, Benjamin K. Bergen (2024). [A Bit of a Problem: Measurement Disparities in Dataset Sizes Across Languages](https://aclanthology.org/2024.sigul-1.1/). 3rd Annual Meeting of the Special Interest Group on Under-resourced Languages (SIGUL), co-located at LREC-COLING. Torino, Italy. ☆equal contribution
