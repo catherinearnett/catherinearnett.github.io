@@ -18,7 +18,7 @@ You can view my full CV here:
 
 ### NLP
 
-*  **Catherine Arnett** and Benjamin K. Bergen (2025). [Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198) The 31st International Conference on Computational Linguistics (COLING). Abu Dhabi, UAE and online.
+*  **Catherine Arnett** and Benjamin K. Bergen (2025). [Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198) The 31st International Conference on Computational Linguistics (COLING). Abu Dhabi, UAE and online. **Best Paper Award**
 *  Pavel Chizhov☆, **Catherine Arnett**☆, Elizaveta Korotkova, Ivan P. Yamshchikov (2024). [BPE Gets Picky: Efficient Vocabulary Refinement During Tokenizer Training](https://aclanthology.org/2024.emnlp-main.925/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA. ☆equal contribution.
 *  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (2024). [When Is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://aclanthology.org/2024.emnlp-main.236/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA. **Outstanding Paper Award**
 *  James Michaelov, **Catherine Arnett**, Benjamin K. Bergen (2024). [Revenge of the Fallen? Recurrent Models Match Transformers at Predicting Human Language Comprehension Metrics](https://arxiv.org/abs/2404.19178). The First Conference on Language Modeling (COLM). Philadelphia, USA.
@@ -33,6 +33,7 @@ You can view my full CV here:
 
 ## Manuscripts
 
+*  **Catherine Arnett**, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (under review). On the Acquisition of Shared Grammatical Representations in Bilingual Language Models.
 *  **Catherine Arnett**☆, Eliot Jones☆, Ivan P. Yamshchikov, Pierre-Carl Langlais (under review). [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/abs/2410.22587). *equal contribution
 *  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (under review). [Goldfish: Monolingual Language Models for 350 Languages](https://arxiv.org/abs/2408.10441).
 
@@ -40,7 +41,8 @@ You can view my full CV here:
 
 ### NLP
 
-* Catherine Arnett, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (2023). Crosslingual Structural Priming and the Pre-Training Dynamics of Bilingual Language Models. The 3rd Workshop on Multilingual Representation Learning co-located with EMNLP 2023. Singapore. \[[abstract](https://arxiv.org/abs/2310.07929)\]
+* **Catherine Arnett** (2025). Toxic Commons: Toxicity of the Commons: Curating Open-Source Pre-Training Data. The First Conference of the International Association for Safe & Ethical AI. Official event of the AI Action Summit. Paris, France.
+* **Catherine Arnett**, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (2023). Crosslingual Structural Priming and the Pre-Training Dynamics of Bilingual Language Models. The 3rd Workshop on Multilingual Representation Learning co-located with EMNLP 2023. Singapore. \[[abstract](https://arxiv.org/abs/2310.07929)\]
 
 ### Psycholinguistics
 
