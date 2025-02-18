@@ -11,8 +11,9 @@ has_toc: false
 
 # Blog Posts
 
-## Language Models
+## Language Models and NLP
 
+*  [Small is Beautiful](https://substack.com/home/post/p-152665466)
 *  [Detoxifying the Commons](https://huggingface.co/blog/catherinearnett/toxic-commons)
 *  [wHy DoNt YoU jUsT uSe ThE lLaMa ToKeNiZeR??](https://huggingface.co/blog/catherinearnett/dangers-of-tokenizer-recycling)
 
