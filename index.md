@@ -8,9 +8,9 @@ permalink: /
 
 # Welcome
 
-My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm currently Lead Research Scientist at [PleIAs](https://pleias.fr/) and am completing my PhD in Linguistics with Computational Social Science at UC San Diego. My main [research interest](https://catherinearnett.github.io/research) is multilingual NLP. 
+My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm a research scientist, mainly interested in cross-lingual and multilingual NLP (see the [research](https://catherinearnett.github.io/research) page for more information). I recently finished my PhD in Linguistics with a specialization in Computational Social Science at UC San Diego. I previously was Lead Research Scientist at [PleIAs](https://pleias.fr/). 
 
-To contact me, you can email me at catherine [at] pleias [dot] fr or find me on 🦋 [BlueSky](https://bsky.app/profile/catherinearnett.bsky.social). 
+To contact me, you can email me at catherine [dot] arnett [at] gmail [dot] com or find me on 🦋 [BlueSky](https://bsky.app/profile/catherinearnett.bsky.social). 
 
 Other links:
 
@@ -22,7 +22,7 @@ Other links:
 
 
 # News
-* I will be representing PleIAs at the First Conference of the International Association for Safe & Ethical AI, as part of the AI Action Summit in Paris
+* I will be presenting at the First Conference of the International Association for Safe & Ethical AI, as part of the AI Action Summit in Paris
 * My paper "[Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198)" was awarded Best Paper at COLING 2025!🏆
 * Tyler Chang and my paper, "[When is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://arxiv.org/pdf/2311.09205)" was awarded Outstanding Paper at EMNLP!🥇
 * I have a new pre-print about toxicity detection in multilingual and historical text data: [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/pdf/2410.22587). Read the [blog post](https://huggingface.co/blog/catherinearnett/toxic-commons) for an overview. 
