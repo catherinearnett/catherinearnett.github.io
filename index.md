@@ -8,7 +8,7 @@ permalink: /
 
 # Welcome
 
-My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm a research scientist, mainly interested in cross-lingual and multilingual NLP (see the [research](https://catherinearnett.github.io/research) page for more information). I recently finished my PhD in Linguistics with a specialization in Computational Social Science at UC San Diego. I previously was Lead Research Scientist at [PleIAs](https://pleias.fr/). 
+My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm an NLP Researcher at [EleutherAI](https://www.eleuther.ai/). I am mainly interested in cross-lingual and multilingual NLP (see the [research](https://catherinearnett.github.io/research) page for more information). I recently finished my PhD in Linguistics with a specialization in Computational Social Science at UC San Diego. I previously was Lead Research Scientist at [PleIAs](https://pleias.fr/). 
 
 To contact me, you can email me at catherine [dot] arnett [at] gmail [dot] com or find me on 🦋 [BlueSky](https://bsky.app/profile/catherinearnett.bsky.social). 
 
