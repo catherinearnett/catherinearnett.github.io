@@ -33,7 +33,7 @@ You can view my full CV here:
 
 ## Manuscripts
 
-*  **Catherine Arnett**, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (under review). On the Acquisition of Shared Grammatical Representations in Bilingual Language Models.
+*  **Catherine Arnett**, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (under review). [On the Acquisition of Shared Grammatical Representations in Bilingual Language Models](https://arxiv.org/pdf/2503.03962).
 *  **Catherine Arnett**☆, Eliot Jones☆, Ivan P. Yamshchikov, Pierre-Carl Langlais (under review). [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/abs/2410.22587). *equal contribution
 *  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (under review). [Goldfish: Monolingual Language Models for 350 Languages](https://arxiv.org/abs/2408.10441).
 
