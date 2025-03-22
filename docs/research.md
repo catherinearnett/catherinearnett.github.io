@@ -10,7 +10,7 @@ has_toc: false
 # Research
 
 You can view my full CV here:
-<form method="get" action="./assets/CV_Feb_28_2025.pdf">
+<form method="get" action="./assets/CV_March_2025.pdf">
    <button type="submit">View PDF</button>
 </form>
 
