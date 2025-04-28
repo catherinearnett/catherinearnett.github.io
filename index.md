@@ -22,6 +22,7 @@ Other links:
 
 
 # News
+* I'm giving a talk at [PyTorch Day](https://events.linuxfoundation.org/pytorch-day-france/?__hstc=132719121.d672a29357bc14081cdec457930e48a6.1745277258569.1745277258569.1745854087292.2&__hssc=132719121.1.1745854087292&__hsfp=481258620) in Paris about best practices for multilingual evaluation
 * My paper "[Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198)" was awarded Best Paper at COLING 2025!🏆
 * Tyler Chang and my paper, "[When is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://arxiv.org/pdf/2311.09205)" was awarded Outstanding Paper at EMNLP!🥇
 * I have a new pre-print about toxicity detection in multilingual and historical text data: [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/pdf/2410.22587). Read the [blog post](https://huggingface.co/blog/catherinearnett/toxic-commons) for an overview. 
