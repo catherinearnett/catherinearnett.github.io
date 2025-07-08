@@ -1,7 +1,7 @@
 ---
 
 layout: default
-title: An Introduction to Food Classification
+title: A Taxonomy of Food
 nav_order: 10
 has_children: false
 permalink: /food_court
