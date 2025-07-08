@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Writing
+title: Food Wars: Pizza
 has_children: false
-parent: An Introduction to Food Classification
+parent: A Taxonomy of Food
 permalink: /food_wars_pizza
 has_toc: false
 
