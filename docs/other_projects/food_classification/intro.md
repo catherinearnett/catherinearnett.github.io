@@ -54,7 +54,7 @@ I don't really feel I have to convince you that you should care about food class
 
 I think I may have to convince people of a few other things, though. It is important whenever you talk about other people's cultures to be respectful. We can have opinions about food without saying "All food from X place is terrible" or "that is so gross I can't believe those people eat that." This applies to aspects of culture not relating to food, too, by the way. I also am trying in this endeavor to be open-minded and inclusive. I think talking about '[calzone](https://cuberule.com/)' as a universal food category furthers eurocentrism in this debate and subtly implies Italian cuisine, for instance, as more pure or original than other cuisines. I make an effort to include as many different cuisines as possible into my Typology of Food Classification, because this will help to better understand commonalities of food cultures around the world. 
 
-!! Hot dogs / sandwiches has financial ramifications https://knowyourmeme.com/memes/is-a-hot-dog-a-sandwich
+Food classification can also have financial ramifications. According to [New York state tax code](https://www.tax.ny.gov/pubs_and_bulls/tg_bulletins/st/sandwiches.htm), hot dogs are sandwiches (Caldwell, 2017). That means they're subject to taxation the same as sandwiches, along with burritos and open-face sandwiches. 
 
 ### Food Universals
 
@@ -133,6 +133,8 @@ Finally, there are culinary differences. I have already mentioned the issue abou
 ## Conclusion
 
 ## References
+
+Caldwell, Don. (2017) Is a Hot Dog a Sandwich? https://knowyourmeme.com/memes/is-a-hot-dog-a-sandwich
 
 eimhin. (2009, February 28). Brian O'Driscoll press conference tomato [Video]. _YouTube_. https://www.youtube.com/watch?v=kpLd-Vi8qZA
 
