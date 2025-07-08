@@ -1,3 +1,13 @@
+---
+
+layout: default
+title: An Introduction to Food Classification
+nav_order: 10
+has_children: false
+permalink: /food_court
+has_toc: false
+
+---
 
 # Introduction to Food Classification
 {: .no_toc }
