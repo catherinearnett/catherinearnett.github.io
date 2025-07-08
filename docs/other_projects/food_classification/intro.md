@@ -90,6 +90,7 @@ Another reason that this debate gets so heated and people get so invested is bec
   - Do you eat the Oreo whole or lick the cream off first or dunk it in milk, etc.?
   - Do you like the crust/edge piece or the middle piece (e.g. of a brownie)?
   - Do you eat macaroni and cheese with a spoon or a fork?
+  - [Do you put the cream or the jam on the scone first?](https://catherinearnett.github.io/food_wars_scones)
 - What is the best X?
   - What is the best chicken sandwich?
   - [Deep dish or thin crust pizza?](https://catherinearnett.github.io/food_wars_pizza)
@@ -110,17 +111,6 @@ These debates relate to cultural, linguistic, culinary differences.
 ### Cultural Differences
 
 For example, the difference between pasta and noodles is cultural. Some noodles and some types of pasta may be indistinguishable from each other in terms of look and even ingredients. Pasta probably didn't originate in Italy. It has been speculated that it came from China, Greece, or the Arab world. There is archaelogical evidence for noodles in China as long ago as 4,000 years ago, which predates any other direct archaeological evidence for noodles in Europe or Western Asia (Shelke, 2016). This does not preclude the possibility of there being pasta/noodle like foods elsewhere in the world before this, but it is hard to know. Whether or not there is a shared history between the type of noodles you have in China and pasta you find in Italy, our conception of these foods and the pairings we might make with them are culturally driven. I don't think it would taste bad to put marinara sauce on ramen noodles, but we don't because that feels "wrong." These kinds of food opinions are culturally driven.
-
-With respect to the order of toppings on a scone, while you could argue there are practical differences between putting the cream or the jam on your scone first, if you're from Devon, you probably put the cream on first, and if you're from Cornwall, you probably put the jam on first <a href="https://wiselivingmagazine.co.uk/food-and-drink/inspiration/cream-tea-wars-is-it-cream-or-jam-first/">(Source).</a>
-
-<p align="center">
-<img src="/assets/images/scones.jpg" width="450">
-</p>
-
-<p align="center">
-<a href="https://static.guim.co.uk/sys-images/Guardian/About/General/2010/5/20/1274361964828/A-composite-of-two-scones-005.jpg">(Guardian)</a>
-</p>
-
 
 ### Linguistic
 
