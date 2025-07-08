@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Food Wars: Pizza
+title: Food Wars, Pizza
 has_children: false
 parent: A Taxonomy of Food
 permalink: /food_wars_pizza
