@@ -3,7 +3,7 @@
 layout: default
 title: A Taxonomy of Food
 nav_order: 10
-has_children: false
+has_children: true
 permalink: /food_court
 has_toc: false
 
@@ -79,8 +79,8 @@ But I have also found many examples of cultures that have some kind of fried bre
 Another reason that this debate gets so heated and people get so invested is because people have really strong opinions about food. I couldn't possibly make a comprehensive list of food debates that have taken over the internet at some point even just within the last decade, but some notable food debates include:
 
 - Some version of which goes in the vessel first:
-  -  Do you put the cereal or the milk in the bowl first?
-  - Do you put the cream or the jam on a scone first?
+  - Do you put the cereal or the milk in the bowl first?
+  - [Do you put the cream or the jam on a scone first?](https://catherinearnett.github.io/food_wars_scones)
   - Do you put tea or milk in the mug first?
 - How do you eat X?
   - Eat a KitKat by bar or bite into it?
@@ -90,7 +90,6 @@ Another reason that this debate gets so heated and people get so invested is bec
   - Do you eat the Oreo whole or lick the cream off first or dunk it in milk, etc.?
   - Do you like the crust/edge piece or the middle piece (e.g. of a brownie)?
   - Do you eat macaroni and cheese with a spoon or a fork?
-  - [Do you put the cream or the jam on the scone first?](https://catherinearnett.github.io/food_wars_scones)
 - What is the best X?
   - What is the best chicken sandwich?
   - [Deep dish or thin crust pizza?](https://catherinearnett.github.io/food_wars_pizza)
@@ -102,9 +101,6 @@ Another reason that this debate gets so heated and people get so invested is bec
 - Names for foods
   - pop vs. soda vs. coke
   - hero vs. sub vs. hoagie
-- Are these foods the same/different?
-  - Are noodles and pasta the same thing?
-  - yam vs. sweet potato
 
 These debates relate to cultural, linguistic, culinary differences. 
 
