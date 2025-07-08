@@ -92,7 +92,7 @@ Another reason that this debate gets so heated and people get so invested is bec
   - Do you eat macaroni and cheese with a spoon or a fork?
 - What is the best X?
   - What is the best chicken sandwich?
-  - [Deep dish or thin crust pizza?](https://catherinearnett.github.io/best_pizza)
+  - [Deep dish or thin crust pizza?](https://catherinearnett.github.io/food_wars_pizza)
   - What is the best style of french fry?
   - What is the best regional burger chain in the US?
   - Coke vs. Pepsi?
