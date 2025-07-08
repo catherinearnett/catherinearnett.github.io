@@ -108,11 +108,11 @@ These debates relate to cultural, linguistic, culinary differences.
 
 For example, the difference between pasta and noodles is cultural. Some noodles and some types of pasta may be indistinguishable from each other in terms of look and even ingredients. Pasta probably didn't originate in Italy. It has been speculated that it came from China, Greece, or the Arab world. There is archaelogical evidence for noodles in China as long ago as 4,000 years ago, which predates any other direct archaeological evidence for noodles in Europe or Western Asia (Shelke, 2016). This does not preclude the possibility of there being pasta/noodle like foods elsewhere in the world before this, but it is hard to know. Whether or not there is a shared history between the type of noodles you have in China and pasta you find in Italy, our conception of these foods and the pairings we might make with them are culturally driven. I don't think it would taste bad to put marinara sauce on ramen noodles, but we don't because that feels "wrong." These kinds of food opinions are culturally driven.
 
-### Linguistic
+### Linguistic Differences
 
 Some of these debates are linguisitic. For example, when discussing the difference between soda, pop, and coke, the beverage being referred to is exactly the same. It comes down, more or less, to a naming problem. This contrasts with the issue about the difference between a yam and a sweet potato. Most people in the US referring to a starchy orange food as yams are probably talking about sweet potatoes, and have probably never eaten a yam <a href="https://ncsweetpotatoes.com/sweet-potatoes-101/difference-between-yam-and-sweet-potato/">(more info).</a> This is also a naming problem, except there are two different foods and the names are being used incorrectly.
 
-### Culinary
+### Culinary Differences
 
 Finally, there are culinary differences. I have already mentioned the issue about the classification of tomatoes as fruits or vegetables and corn as starches or vegetables. These are classification problems that can be solved culinarily (e.g. tomato is a vegetable culinarily). Some of these food wars also have to do with culinary opinions. Whether pineapple belongs on pizza or what the best fast food chicken sandwich is are culinary questions. These are often more subjective questions, depending on an individual's tastes and also cultural factors. 
 
