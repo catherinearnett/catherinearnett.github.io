@@ -10,9 +10,10 @@ has_toc: false
 
 # A New Theory of Food Classification
 
-<p align="center">
-<img src="assets/food_classification/food_classification.png" width="600">
-</p>
+<figure style="text-align: center;">
+  <img src="assets/food_classification/food_classification.png" width="600" alt="Food Classification Pipeline">
+  <figcaption><strong>Figure 1:</strong> Taxonomy of food.</figcaption>
+</figure>
 
 ## Just Food
 
