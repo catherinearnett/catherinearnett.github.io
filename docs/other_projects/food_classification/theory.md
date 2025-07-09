@@ -17,6 +17,8 @@ Here propose an all-encompassing taxonomy of foods. I will work through each par
   <figcaption><strong>Figure 1:</strong> Taxonomy of food.</figcaption>
 </figure>
 
+A note on formalisms. Capitalized terms are final categories. Lowercase terms are super-categories and may also be used in specific food terms.
+
 ## Just Food
 
 The first important point to establish is that the proposed taxonomy of food only encompasses edible things, to which I assign a [+edible] feature. So, in the following tweet, items in the "preparation rebel" row would not be classifiable in this taxonomy.
@@ -26,7 +28,19 @@ The first important point to establish is that the proposed taxonomy of food onl
 Similarly, a sandwich composed of two pieces of bread with Earth in the middle (Fig. 2), would not be considered under this taxonomy because not all ingredients are edible.
 
 <p align="center">
-<img src="/assets/images/food_classification/earth_sandwich.png" width="700">
+<img src="/assets/food_classification/earth_sandwich.png" width="700">
 <figcaption><strong>Figure 2:</strong> 'Earth sandwich' made by two men 20,000km apart ([BBC Article](https://www.bbc.com/news/world-asia-51171834)).</figcaption>
 </p>
 
+## meat vs. salad
+
+Another core distinction to make is the difference between meat and salad. meats are foods that are composed of a single atomic substance. This category can be further subdivided into Meat and Bread based on the number of ingredients (see below). meat as a category encompasses any food substance that cannot be further broken down or separated. This includes:
+
+* steak, carrot, tofu, milk
+* smoothies, bisques, ice cream
+
+### Meat vs. Bread
+
+* steak with butter
+
+## Everything is salad
