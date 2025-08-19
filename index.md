@@ -16,7 +16,7 @@ Other links:
 
 <img src="./assets/logos/huggingface-logo.png" width="20" /> [HuggingFace](https://huggingface.co/catherinearnett) 
 <img src="./assets/logos/github-mark.png" width="20" /> [GitHub](https://github.com/catherinearnett)
-<img src="./assets/logos/google-scholar-logo.png" width="20" /> [Google Scholar](https://scholar.google.com/citations?user=bLS_8RAAAAAJ&hl=en)
+<img src="./assets/logos/google-scholar-logo.png" width="20" /> [Google Scholar](https://scholar.google.com/citations?user=gIDJdFAAAAAJ&hl=en&oi=ao)
 <img src="./assets/logos/semantic-scholar-logo.png" width="20" /> [Semantic Scholar](https://www.semanticscholar.org/author/Catherine-Arnett/2257347764)
 <img src="./assets/logos/orcid-logo.png" width="20" /> [Orcid](https://orcid.org/0000-0003-0448-5415)
 
