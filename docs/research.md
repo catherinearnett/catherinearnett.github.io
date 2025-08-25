@@ -20,7 +20,7 @@ Updated August 2025.
 
 ### NLP
 
-* **Catherine Arnett**, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (accepted). [On the Acquisition of Shared Grammatical Representations in Bilingual Language Models](https://aclanthology.org/2025.acl-long.1010/). The 63rd Annual Meeting of the Association for Computational Linguistics (ACL). Vienna, Austria.
+* **Catherine Arnett**, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (2025). [On the Acquisition of Shared Grammatical Representations in Bilingual Language Models](https://aclanthology.org/2025.acl-long.1010/). The 63rd Annual Meeting of the Association for Computational Linguistics (ACL). Vienna, Austria.
 * **Catherine Arnett**, Marisa Hudspeth, and Brendan O’Connor (2025). [Evaluating Morphological Alignment of Tokenizers in 70 Languages](https://openreview.net/forum?id=XYRri1s6pP&noteId=XYRri1s6pP). Tokenizer Workshop at ICML. Vancouver, Canada.
 * Sander Land and **Catherine Arnett** (2025). [BPE Stays on SCRIPT: Structured Encoding for Robust Multilingual Pretokenization](https://openreview.net/forum?id=AO78CqwaUO). Tokenizer Workshop at ICML. Vancouver, Canada. **Best Paper Award**.
 *  **Catherine Arnett** and Benjamin K. Bergen (2025). [Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198) The 31st International Conference on Computational Linguistics (COLING). Abu Dhabi, UAE and online. **Best Paper Award**
