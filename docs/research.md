@@ -10,14 +10,19 @@ has_toc: false
 # Research
 
 You can view my full CV here:
-<form method="get" action="./assets/CV_March_2025.pdf">
+<form method="get" action="./assets/CV_August_2025.pdf">
    <button type="submit">View PDF</button>
 </form>
 
 ## Publications
 
+Updated August 2025.
+
 ### NLP
 
+* **Catherine Arnett**, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (accepted). [On the Acquisition of Shared Grammatical Representations in Bilingual Language Models](https://aclanthology.org/2025.acl-long.1010/). The 63rd Annual Meeting of the Association for Computational Linguistics (ACL). Vienna, Austria.
+* **Catherine Arnett**, Marisa Hudspeth, and Brendan O’Connor (2025). [Evaluating Morphological Alignment of Tokenizers in 70 Languages](https://openreview.net/forum?id=XYRri1s6pP&noteId=XYRri1s6pP). Tokenizer Workshop at ICML. Vancouver, Canada.
+* Sander Land and **Catherine Arnett** (2025). [BPE Stays on SCRIPT: Structured Encoding for Robust Multilingual Pretokenization](https://openreview.net/forum?id=AO78CqwaUO). Tokenizer Workshop at ICML. Vancouver, Canada. **Best Paper Award**.
 *  **Catherine Arnett** and Benjamin K. Bergen (2025). [Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198) The 31st International Conference on Computational Linguistics (COLING). Abu Dhabi, UAE and online. **Best Paper Award**
 *  Pavel Chizhov☆, **Catherine Arnett**☆, Elizaveta Korotkova, Ivan P. Yamshchikov (2024). [BPE Gets Picky: Efficient Vocabulary Refinement During Tokenizer Training](https://aclanthology.org/2024.emnlp-main.925/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA. ☆equal contribution.
 *  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (2024). [When Is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://aclanthology.org/2024.emnlp-main.236/). Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP). Miami, FL, USA. **Outstanding Paper Award**
@@ -33,14 +38,13 @@ You can view my full CV here:
 
 ## Manuscripts
 
-*  **Catherine Arnett**, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (under review). [On the Acquisition of Shared Grammatical Representations in Bilingual Language Models](https://arxiv.org/pdf/2503.03962).
-*  **Catherine Arnett**☆, Eliot Jones☆, Ivan P. Yamshchikov, Pierre-Carl Langlais (under review). [Toxicity of the Commons: Curating Open-Source Pre-Training Data](https://arxiv.org/abs/2410.22587). *equal contribution
 *  Tyler A. Chang, **Catherine Arnett**, Zhuowen Tu, Benjamin K. Bergen (under review). [Goldfish: Monolingual Language Models for 350 Languages](https://arxiv.org/abs/2408.10441).
 
 ## Conference Presentations
 
 ### NLP
 
+* Jennifer Meng Lu, **Catherine Arnett**, Ruochen Zhang. (2025) Mechanisms of In-Context Syntactic Generalization in Language Models. New England Mechanistic Interpretability Workshop (NEMI). Boston, MA.
 * **Catherine Arnett** (2025). Toxic Commons: Toxicity of the Commons: Curating Open-Source Pre-Training Data. The First Conference of the International Association for Safe & Ethical AI. Official event of the AI Action Summit. Paris, France.
 * **Catherine Arnett**, Tyler A. Chang, James A. Michaelov, and Benjamin K. Bergen (2023). Crosslingual Structural Priming and the Pre-Training Dynamics of Bilingual Language Models. The 3rd Workshop on Multilingual Representation Learning co-located with EMNLP 2023. Singapore. \[[abstract](https://arxiv.org/abs/2310.07929)\]
 
