@@ -8,9 +8,9 @@ permalink: /
 
 # Welcome
 
-My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm an NLP Researcher at [EleutherAI](https://www.eleuther.ai/). I am mainly interested in cross-lingual and multilingual NLP (see the [research](https://catherinearnett.github.io/research) page for more information). I recently finished my PhD in Linguistics with a specialization in Computational Social Science at UC San Diego. I previously was Lead Research Scientist at [PleIAs](https://pleias.fr/). 
+My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm an NLP Researcher at [EleutherAI](https://www.eleuther.ai/). I am interested in cross-lingual and multilingual NLP. I received PhD in Linguistics with a specialization in Computational Social Science at UC San Diego. I previously was Lead Research Scientist at [PleIAs](https://pleias.fr/). 
 
-To contact me, you can email me at catherine [dot] arnett [at] gmail [dot] com or find me on 🦋 [BlueSky](https://bsky.app/profile/catherinearnett.bsky.social). 
+To contact me, you can email me at catherine [dot] arnett [at] gmail [dot] com or find me on 🦋 [BlueSky](https://bsky.app/profile/catherinearnett.bsky.social) or [Twitter](https://x.com/linguist_cat). 
 
 Other links:
 
@@ -22,7 +22,7 @@ Other links:
 
 
 # News
+* My paper with [Tyler Chang](https://tylerachang.github.io/), [Stella Biderman](https://www.stellabiderman.ai/), and [Ben Bergen](https://langcoglab.ucsd.edu/people/) got accepted to NeurIPS! Preprint coming soon 👀
 * [Sander Land](https://x.com/magikarp_tokens?lang=en) and my paper, [BPE Stays on SCRIPT: Structured Encoding for Robust Multilingual Pretokenization](https://arxiv.org/abs/2505.24689?), won Best Paper at [the first Tokenization Workshop](https://tokenization-workshop.github.io/) at ICML 2025! 🏆
-* I released [MorphScore v2](https://github.com/catherinearnett/morphscore) with [Marisa Hudspeth](https://www.marisahudspeth.com/) and [Brendan O'Connor](https://brenocon.com/). Check out the new preprint about the updates: [Evaluating Morphological Alignment of Tokenizers in 70 Languages](https://arxiv.org/abs/2507.06378).
 * My paper "[Why do language models perform worse for morphologically complex languages?](https://arxiv.org/abs/2411.14198)" was awarded Best Paper at COLING 2025! 🏆
 * Tyler Chang and my paper, "[When is Multilinguality a Curse? Language Modeling for 250 High- and Low-Resource Languages](https://arxiv.org/pdf/2311.09205)" was awarded Outstanding Paper at EMNLP! 🥇
