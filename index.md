@@ -22,6 +22,7 @@ Other links:
 
 
 # News
+* Our new benchmark, Global PIQA, is out in collaboration with over 300 authors. See the [preprint](https://arxiv.org/abs/2510.24081) or use the [dataset](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) now!
 * I have a new blog post out called "[There is no such thing as a tokenizer-free lunch](https://huggingface.co/blog/catherinearnett/in-defense-of-tokenizers)"
 * My paper with [Tyler Chang](https://tylerachang.github.io/), [Stella Biderman](https://www.stellabiderman.ai/), and [Ben Bergen](https://langcoglab.ucsd.edu/people/) got accepted to NeurIPS! Preprint coming soon 👀
 * [Sander Land](https://x.com/magikarp_tokens?lang=en) and my paper, [BPE Stays on SCRIPT: Structured Encoding for Robust Multilingual Pretokenization](https://arxiv.org/abs/2505.24689?), won Best Paper at [the first Tokenization Workshop](https://tokenization-workshop.github.io/) at ICML 2025! 🏆
