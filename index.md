@@ -22,6 +22,9 @@ Other links:
 
 
 # News
+* New preprint: [Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs](https://arxiv.org/abs/2605.09063)
+* Our paper [CommonLID](https://arxiv.org/abs/2601.18026) has been accepted to ACL 2026!
+* Our paper [Weight Tying Biases Token Embeddings Towards the Output Space](https://arxiv.org/abs/2603.26663) was accepted to Findings of ACL 2026!
 * Our new benchmark, Global PIQA, is out in collaboration with over 300 authors. See the [preprint](https://arxiv.org/abs/2510.24081) or use the [dataset](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) now!
 * I have a new blog post out called "[There is no such thing as a tokenizer-free lunch](https://huggingface.co/blog/catherinearnett/in-defense-of-tokenizers)"
 * My paper with [Tyler Chang](https://tylerachang.github.io/), [Stella Biderman](https://www.stellabiderman.ai/), and [Ben Bergen](https://langcoglab.ucsd.edu/people/) got accepted to NeurIPS! The [preprint](https://arxiv.org/abs/2510.21909) is out now!
