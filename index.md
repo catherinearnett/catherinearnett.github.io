@@ -22,6 +22,8 @@ Other links:
 
 
 # News
+* New preprint: [How Open Must Language Models be to Enable Reliable Scientific Inference?](https://arxiv.org/abs/2603.26539)
+* Our paper [Position: Don't Just "Fix it in Post": A Science of AI Must Study Training Dynamics](https://arxiv.org/abs/2606.06533) was accepted as an Oral at ICML Position Paper Track!
 * New preprint: [Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs](https://arxiv.org/abs/2605.09063)
 * Our paper [CommonLID](https://arxiv.org/abs/2601.18026) has been accepted to ACL 2026!
 * Our paper [Weight Tying Biases Token Embeddings Towards the Output Space](https://arxiv.org/abs/2603.26663) was accepted to Findings of ACL 2026!
