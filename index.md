@@ -20,15 +20,11 @@ Other links:
 <img src="./assets/logos/semantic-scholar-logo.png" width="20" /> [Semantic Scholar](https://www.semanticscholar.org/author/Catherine-Arnett/2257347764)
 <img src="./assets/logos/orcid-logo.png" width="20" /> [Orcid](https://orcid.org/0000-0003-0448-5415)
 
-
 # News
+* Global PIQA is accepted to NeurIPS E&D! See the [preprint](https://arxiv.org/abs/2510.24081) or use the [dataset](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) now!
+* My collaborators and I have five papers that will appear at EMNLP, including one oral! See my [research](https://catherinearnett.github.io/research) page for preprints. 
 * New preprint: [How Open Must Language Models be to Enable Reliable Scientific Inference?](https://arxiv.org/abs/2603.26539)
-* Our paper [Position: Don't Just "Fix it in Post": A Science of AI Must Study Training Dynamics](https://arxiv.org/abs/2606.06533) was accepted as an Oral at ICML Position Paper Track!
-* New preprint: [Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs](https://arxiv.org/abs/2605.09063)
 * Our paper [CommonLID](https://arxiv.org/abs/2601.18026) has been accepted to ACL 2026!
 * Our paper [Weight Tying Biases Token Embeddings Towards the Output Space](https://arxiv.org/abs/2603.26663) was accepted to Findings of ACL 2026!
-* Our new benchmark, Global PIQA, is out in collaboration with over 300 authors. See the [preprint](https://arxiv.org/abs/2510.24081) or use the [dataset](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) now!
-* I have a new blog post out called "[There is no such thing as a tokenizer-free lunch](https://huggingface.co/blog/catherinearnett/in-defense-of-tokenizers)"
-* My paper with [Tyler Chang](https://tylerachang.github.io/), [Stella Biderman](https://www.stellabiderman.ai/), and [Ben Bergen](https://langcoglab.ucsd.edu/people/) got accepted to NeurIPS! The [preprint](https://arxiv.org/abs/2510.21909) is out now!
-* [Sander Land](https://x.com/magikarp_tokens?lang=en) and my paper, [BPE Stays on SCRIPT: Structured Encoding for Robust Multilingual Pretokenization](https://arxiv.org/abs/2505.24689?), won Best Paper at [the first Tokenization Workshop](https://tokenization-workshop.github.io/) at ICML 2025! 🏆
+
 
