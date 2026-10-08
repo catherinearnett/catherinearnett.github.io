@@ -1,0 +1,76 @@
+# robots.txt
+# Allows traditional search engines; blocks AI training, AI assistant and AI search crawlers.
+ 
+# --- AI crawlers: blocked ---
+ 
+# OpenAI
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+ 
+# Anthropic
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: claude-web
+ 
+# Google AI (does NOT affect Google Search / Googlebot)
+User-agent: Google-Extended
+User-agent: Google-CloudVertexBot
+User-agent: GoogleOther
+User-agent: GoogleOther-Image
+User-agent: GoogleOther-Video
+ 
+# Apple AI (does NOT affect Applebot / Siri & Spotlight search)
+User-agent: Applebot-Extended
+ 
+# Meta
+User-agent: meta-externalagent
+User-agent: meta-externalfetcher
+User-agent: FacebookBot
+ 
+# Perplexity
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+  
+# ByteDance
+User-agent: Bytespider
+User-agent: TikTokSpider
+ 
+# Amazon
+User-agent: Amazonbot
+ 
+# Cohere
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+ 
+# Mistral
+User-agent: MistralAI-User
+ 
+# DuckDuckGo AI answers (does NOT affect DuckDuckBot)
+User-agent: DuckAssistBot
+  
+# Other AI / dataset crawlers
+User-agent: Diffbot
+User-agent: YouBot
+User-agent: Omgilibot
+User-agent: omgili
+User-agent: Webzio-Extended
+User-agent: ImagesiftBot
+User-agent: img2dataset
+User-agent: Timpibot
+User-agent: PanguBot
+User-agent: Kangaroo Bot
+User-agent: iaskspider/2.0
+User-agent: VelenPublicWebCrawler
+User-agent: Brightbot 1.0
+User-agent: Scrapy
+Disallow: /
+ 
+# --- Search engines and everyone else: allowed ---
+User-agent: *
+Allow: /
+ 
+# Replace with your sitemap URL
+Sitemap: https://catherinearnett.github.io/sitemap.xml
