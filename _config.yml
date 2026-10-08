@@ -109,6 +109,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+webmaster_verifications:
+  google: K_lK364Ik5uWHCaPUzHudZQW5cWHbjGoYdRYs4v6zNg
+
 kramdown:
   syntax_highlighter_opts:
     block:
