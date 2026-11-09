@@ -82,7 +82,8 @@ Here are 'report cards' for language model development in different categories (
   fetch(BASE + "languages.json")
     .then(function (r) { return r.json(); })
     .then(function (langs) {
-      document.getElementById("rc-count").textContent = langs.length;
+      var count = document.getElementById("rc-count");
+      if (count) count.textContent = langs.length;
       select.innerHTML = "";
       var first = document.createElement("option");
       first.value = "";
