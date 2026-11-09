@@ -7,7 +7,7 @@ permalink: /report-cards/
 # Language Report Cards
 {: .no_toc }
 
-Limiting to institutional languages (inspired by [https://aclanthology.org/2024.acl-long.797.pdf](https://aclanthology.org/2024.acl-long.797.pdf)): <span id="rc-count">322</span> unique ISO 639-3 in my set, Official national or regional languages for all countries.
+Here are 'report cards' for language model development in different categories (data, models, evals, research) for the ~300 official languages in the world (including regional official languages. 
 
 <div class="rc-picker">
   <label for="rc-select"><strong>Choose a language:</strong></label>
