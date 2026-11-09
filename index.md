@@ -1,30 +1,114 @@
 ---
 layout: default
-title: Home
-nav_order: 1
-description: "Catherine Arnett"
-permalink: /
+title: Language Report Cards
+permalink: /report-cards/
 ---
 
-# Welcome
+# Language Report Cards
+{: .no_toc }
 
-My name is [Catherine Arnett](https://catherinearnett.github.io/about). I'm an NLP Researcher at [EleutherAI](https://www.eleuther.ai/). I am interested in cross-lingual and multilingual NLP. I received PhD in Linguistics with a specialization in Computational Social Science at UC San Diego. 
+Limiting to institutional languages (inspired by [https://aclanthology.org/2024.acl-long.797.pdf](https://aclanthology.org/2024.acl-long.797.pdf)): <span id="rc-count">322</span> unique ISO 639-3 in my set, Official national or regional languages for all countries.
 
-To contact me, you can email me at catherine [dot] arnett [at] gmail [dot] com or find me on 🦋 [BlueSky](https://bsky.app/profile/catherinearnett.bsky.social) or [Twitter](https://x.com/linguist_cat). 
+<div class="rc-picker">
+  <label for="rc-select"><strong>Choose a language:</strong></label>
+  <select id="rc-select" aria-label="Choose a language">
+    <option value="">Loading languages…</option>
+  </select>
+</div>
 
-Other links:
+## Methodological details
 
-<img src="./assets/logos/huggingface-logo.png" width="20" /> [HuggingFace](https://huggingface.co/catherinearnett) 
-<img src="./assets/logos/github-mark.png" width="20" /> [GitHub](https://github.com/catherinearnett)
-<img src="./assets/logos/google-scholar-logo.png" width="20" /> [Google Scholar](https://scholar.google.com/citations?user=gIDJdFAAAAAJ&hl=en&oi=ao)
-<img src="./assets/logos/semantic-scholar-logo.png" width="20" /> [Semantic Scholar](https://www.semanticscholar.org/author/Catherine-Arnett/2257347764)
-<img src="./assets/logos/orcid-logo.png" width="20" /> [Orcid](https://orcid.org/0000-0003-0448-5415)
+<!-- Fill in later. -->
+*Coming soon.*
 
-# News
-* Global PIQA is accepted to NeurIPS E&D! See the [preprint](https://arxiv.org/abs/2510.24081) or use the [dataset](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) now!
-* My collaborators and I have five papers that will appear at EMNLP, including one oral! See my [research](https://catherinearnett.github.io/research) page for preprints. 
-* New preprint: [How Open Must Language Models be to Enable Reliable Scientific Inference?](https://arxiv.org/abs/2603.26539)
-* Our paper [CommonLID](https://arxiv.org/abs/2601.18026) has been accepted to ACL 2026!
-* Our paper [Weight Tying Biases Token Embeddings Towards the Output Space](https://arxiv.org/abs/2603.26663) was accepted to Findings of ACL 2026!
+<div id="rc-report" aria-live="polite"></div>
 
+<style>
+  .rc-picker { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+  .rc-picker select { font-size: 1rem; padding: .35rem .5rem; max-width: 100%; min-width: 16rem; }
+  #rc-report { margin-top: 2rem; border-top: 1px solid #eeebee; padding-top: 1rem; }
+  #rc-report:empty { display: none; }
+  #rc-report pre { line-height: 1.25; }
+  .rc-status { color: #5c5962; font-style: italic; }
+</style>
 
+<script>
+(function () {
+  var BASE = "/report-cards/reports/";
+  var select = document.getElementById("rc-select");
+  var target = document.getElementById("rc-report");
+
+  function setStatus(text) {
+    target.innerHTML = "";
+    var p = document.createElement("p");
+    p.className = "rc-status";
+    p.textContent = text;
+    target.appendChild(p);
+  }
+
+  function tidy(container) {
+    /* Give tables the theme's horizontal-scroll wrapper. */
+    container.querySelectorAll("table").forEach(function (t) {
+      if (t.parentElement.classList.contains("table-wrapper")) return;
+      var w = document.createElement("div");
+      w.className = "table-wrapper";
+      t.parentNode.insertBefore(w, t);
+      w.appendChild(t);
+    });
+    /* Relative image paths (e.g. img/uzn_uploads.png) are relative to the reports folder. */
+    container.querySelectorAll("img").forEach(function (img) {
+      var src = img.getAttribute("src") || "";
+      if (src && !/^([a-z]+:|\/|#)/i.test(src)) img.setAttribute("src", BASE + src);
+    });
+    /* External links open in a new tab. */
+    container.querySelectorAll("a[href^='http']").forEach(function (a) {
+      a.target = "_blank";
+      a.rel = "noopener";
+    });
+  }
+
+  function show(iso) {
+    if (!iso) { target.innerHTML = ""; return; }
+    setStatus("Loading report…");
+    fetch(BASE + encodeURIComponent(iso) + ".html")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function (html) {
+        target.innerHTML = html;
+        tidy(target);
+      })
+      .catch(function () { setStatus("Sorry, the report for " + iso + " could not be loaded."); });
+  }
+
+  fetch(BASE + "languages.json")
+    .then(function (r) { return r.json(); })
+    .then(function (langs) {
+      document.getElementById("rc-count").textContent = langs.length;
+      select.innerHTML = "";
+      var first = document.createElement("option");
+      first.value = "";
+      first.textContent = "Select a language (" + langs.length + ")";
+      select.appendChild(first);
+      langs.forEach(function (l) {
+        var o = document.createElement("option");
+        o.value = l.iso;
+        o.textContent = l.name + " (" + l.iso + ")";
+        select.appendChild(o);
+      });
+      /* Deep links: /report-cards/#uzn opens the Uzbek report. */
+      var fromHash = decodeURIComponent(location.hash.slice(1));
+      if (fromHash && langs.some(function (l) { return l.iso === fromHash; })) {
+        select.value = fromHash;
+        show(fromHash);
+      }
+    })
+    .catch(function () {
+      select.innerHTML = '<option value="">Could not load the language list</option>';
+    });
+
+  select.addEventListener("change", function () {
+    var iso = select.value;
+    history.replaceState(null, "", iso ? "#" + iso : location.pathname);
+    show(iso);
+  });
+})();
+</script>
