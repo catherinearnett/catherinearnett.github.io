@@ -60,12 +60,14 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                           | What exists                                                                                                                                                 |
-|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
+| Resource                                                                                 | What exists                                                                                                                                                                                                     |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                         |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                     |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                      |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                               |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                               |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_bik) en → bik: 3,993 lexicon entries ⚠️ Listed under the macrolanguage code `bik`, so this may cover other varieties as well as Bikol. |
 
 ### How good are we at identifying data?
 
@@ -175,14 +177,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                    | # test items   | construction                                   |
-|:-------------------------|:-------------------|:---------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 5,000          | Synthetic (LLM-generated) on native Wikipedia  |
-| Machine translation      |                    | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)              | —              | Human translation (professional, from English) |
+| level                    | task               | dataset                                                                    |   # test items | construction                                  |
+|:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |          5,000 | Synthetic (LLM-generated) on native Wikipedia |
 
 ### Standard machine translation test sets
 
-_Not computed yet: run `python -m lrc build mt-sets`._
+| Test set                                                                                           | Direction(s)   | Size                  | Human reference   |
+|:---------------------------------------------------------------------------------------------------|:---------------|:----------------------|:------------------|
+| [SMOL GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_bik) (training data) | en → bik       | 3,993 lexicon entries | ✅                |
+
+_⚠️ Listed under the macrolanguage code `bik`, so this may cover other varieties as well as Bikol._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -190,6 +195,7 @@ _Not computed yet: run `python -m lrc build mt-sets`._
 - **3. Commonsense reasoning:** COPA, HellaSwag, PIQA, Physical commonsense, Social commonsense, StoryCloze, Temporal reasoning, World knowledge
 - **4. Reading comprehension:** Multiple-choice reading comprehension (Belebele-style)
 - **5. Knowledge & open-domain QA:** Knowledge/exam MCQ (MMLU-style), Open-domain / closed-book QA
+- **Machine translation:** Machine translation
 
 ### Community benchmarks you can contribute to
 

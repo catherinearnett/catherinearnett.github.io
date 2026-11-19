@@ -58,12 +58,14 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                           | What exists                                                                                                                       |
-|:-----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                           |
-| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament + parts of the Old Testament ([aii](https://ebible.org/details.php?id=aii), by-nc-nd 4.0). |
-| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                        |
-| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                            |
+| Resource                                                                                 | What exists                                                                                                                       |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                           |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament + parts of the Old Testament ([aii](https://ebible.org/details.php?id=aii), by-nc-nd 4.0). |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                        |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                 |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                 |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_aii) en → aii: 3,717 lexicon entries                     |
 
 ### How good are we at identifying data?
 
@@ -140,13 +142,13 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task   | dataset                                                       | # test items   | construction                                   |
-|:--------------------|:-------|:--------------------------------------------------------------|:---------------|:-----------------------------------------------|
-| Machine translation |        | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol) | —              | Human translation (professional, from English) |
+_None found._
 
 ### Standard machine translation test sets
 
-_Not computed yet: run `python -m lrc build mt-sets`._
+| Test set                                                                                           | Direction(s)   | Size                  | Human reference   |
+|:---------------------------------------------------------------------------------------------------|:---------------|:----------------------|:------------------|
+| [SMOL GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_aii) (training data) | en → aii       | 3,717 lexicon entries | ✅                |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -154,6 +156,7 @@ _Not computed yet: run `python -m lrc build mt-sets`._
 - **3. Commonsense reasoning:** COPA, HellaSwag, PIQA, Physical commonsense, Social commonsense, StoryCloze, Temporal reasoning, World knowledge
 - **4. Reading comprehension:** Multiple-choice reading comprehension (Belebele-style), Extractive reading comprehension (SQuAD-style)
 - **5. Knowledge & open-domain QA:** Knowledge/exam MCQ (MMLU-style), Open-domain / closed-book QA
+- **Machine translation:** Machine translation
 
 ### Community benchmarks you can contribute to
 

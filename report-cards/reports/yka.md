@@ -64,12 +64,14 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                           | What exists                                                                                                                       |
-|:-----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                           |
-| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament + parts of the Old Testament ([yka](https://ebible.org/details.php?id=yka), by-nc-nd 4.0). |
-| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                        |
-| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                            |
+| Resource                                                                                 | What exists                                                                                                                       |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                           |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament + parts of the Old Testament ([yka](https://ebible.org/details.php?id=yka), by-nc-nd 4.0). |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                        |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                 |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                 |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                 |
 
 ### How good are we at identifying data?
 
@@ -127,7 +129,7 @@ _None found._
 
 ### Standard machine translation test sets
 
-_Not computed yet: run `python -m lrc build mt-sets`._
+Yakan isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005–2026).
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA

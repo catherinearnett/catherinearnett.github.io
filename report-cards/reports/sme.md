@@ -60,12 +60,14 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                           | What exists                                                                                                                                                 |
-|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                         |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_se) en → se: size not listed                                                       |
 
 ### How good are we at identifying data?
 
@@ -176,17 +178,21 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                              | # test items   | construction                                   |
-|:-------------------------|:-------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP              | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 2,536          | Treebank-based (automatic, UD + UniMorph)      |
-| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 4,257          | Synthetic (LLM-generated) on native Wikipedia  |
-| Machine translation      |                    | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot            |
-| Machine translation      |                    | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English) |
-| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 64             | Native (crowdsourced Tatoeba sentence pairs)   |
+| level                    | task               | dataset                                                                              |   # test items | construction                                  |
+|:-------------------------|:-------------------|:-------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP              | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |          2,536 | Treebank-based (automatic, UD + UniMorph)     |
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          4,257 | Synthetic (LLM-generated) on native Wikipedia |
+| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             64 | Native (crowdsourced Tatoeba sentence pairs)  |
 
 ### Standard machine translation test sets
 
-_Not computed yet: run `python -m lrc build mt-sets`._
+Sámi has been part of the WMT translation task in **1** year (2026).
+
+| Test set                                                                                          | Direction(s)                      | Size                                | Human reference   |
+|:--------------------------------------------------------------------------------------------------|:----------------------------------|:------------------------------------|:------------------|
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                       | ↔ English (and 8 pivot languages) | 1,358 sentences (Latn)              | ✅                |
+| [WMT26 general task](https://github.com/wmt-conference/wmt26-general-mt)                          | English → Sámi                    | 198 documents (28,523 source words) | ✅                |
+| [SMOL GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_se) (training data) | en → se                           | size not listed                     | ✅                |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA

@@ -69,12 +69,14 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                           | What exists                                                                                    |
-|:-----------------------------------|:-----------------------------------------------------------------------------------------------|
-| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                        |
-| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([ory](https://ebible.org/details.php?id=ory), by-sa 4.0). |
-| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                     |
-| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                         |
+| Resource                                                                                 | What exists                                                                                    |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                        |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([ory](https://ebible.org/details.php?id=ory), by-sa 4.0). |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                     |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Orya script) — the same sentences in 200+ languages                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Orya script) — paired with English                                            |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                              |
 
 ### How good are we at identifying data?
 
@@ -197,18 +199,20 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension      | QA – extractive RC            | [IndicQA (AI4Bharat, IndicXTREME)](https://huggingface.co/datasets/ai4bharat/IndicQA)               |          1,680 | Native                                                           |
 | 4. Reading comprehension      | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ       | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                              |          4,525 | Native (Indian exams; some translated)                           |
-| Machine translation           |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         |            854 | Human translation via English pivot                              |
-| Machine translation           |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             |          1,012 | Human translation (professional, from English Wikimedia sources) |
 
 ### Standard machine translation test sets
 
-_Not computed yet: run `python -m lrc build mt-sets`._
+| Test set                                                                | Direction(s)                      | Size                   | Human reference   |
+|:------------------------------------------------------------------------|:----------------------------------|:-----------------------|:------------------|
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) | multi-way (all languages)         | 2,009 sentences (Orya) | ✅                |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)             | ↔ English (and 8 pivot languages) | 1,358 sentences (Orya) | ✅                |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
 - **2. Pragmatics, discourse & coreference:** Coherence & discourse, Figurative language & idioms, Gender-bias diagnostic (Winograd-format), Implicature & indirect answers, Negation, Presupposition & scalar implicature, Pronoun/coref (WSC-style), WNLI, WSC, WinoGrande
 - **3. Commonsense reasoning:** HellaSwag, Physical commonsense, Social commonsense, StoryCloze, Temporal reasoning, World knowledge
 - **5. Knowledge & open-domain QA:** Open-domain / closed-book QA
+- **Machine translation:** Machine translation
 
 ### Community benchmarks you can contribute to
 

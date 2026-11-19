@@ -64,12 +64,14 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                           | What exists                                                                                                                                                 |
-|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                 |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_tiv) en → tiv: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_tiv) en → tiv: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_tiv) en → tiv: size not listed |
 
 ### How good are we at identifying data?
 
@@ -179,15 +181,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task   | dataset                                                        | # test items   | construction                                                        |
-|:--------------------|:-------|:---------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
-| Machine translation |        | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional, from English)                      |
-| Machine translation |        | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation |        | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) | —              | Human translation (professional, from English)                      |
+_None found._
 
 ### Standard machine translation test sets
 
-_Not computed yet: run `python -m lrc build mt-sets`._
+| Test set                                                                                             | Direction(s)   | Size            | Human reference   |
+|:-----------------------------------------------------------------------------------------------------|:---------------|:----------------|:------------------|
+| [SMOL GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_tiv) (training data)   | en → tiv       | size not listed | ✅                |
+| [SMOL SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_tiv) (training data)   | en → tiv       | size not listed | ✅                |
+| [SMOL SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_tiv) (training data) | en → tiv       | size not listed | ✅                |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -195,6 +197,7 @@ _Not computed yet: run `python -m lrc build mt-sets`._
 - **3. Commonsense reasoning:** COPA, HellaSwag, PIQA, Physical commonsense, Social commonsense, StoryCloze, Temporal reasoning, World knowledge
 - **4. Reading comprehension:** Multiple-choice reading comprehension (Belebele-style), Extractive reading comprehension (SQuAD-style)
 - **5. Knowledge & open-domain QA:** Knowledge/exam MCQ (MMLU-style), Open-domain / closed-book QA
+- **Machine translation:** Machine translation
 
 ### Community benchmarks you can contribute to
 

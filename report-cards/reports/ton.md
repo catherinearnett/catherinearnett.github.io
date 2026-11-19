@@ -66,12 +66,14 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                           | What exists                                                                                        |
-|:-----------------------------------|:---------------------------------------------------------------------------------------------------|
-| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                            |
-| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([ton](https://ebible.org/details.php?id=ton), Public Domain). |
-| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                         |
-| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                             |
+| Resource                                                                                 | What exists                                                                                           |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                               |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([ton](https://ebible.org/details.php?id=ton), Public Domain).    |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                            |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                     |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                     |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_to) en → to: size not listed |
 
 ### How good are we at identifying data?
 
@@ -181,16 +183,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                              | # test items   | construction                                   |
-|:-------------------------|:-------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 1,187          | Synthetic (LLM-generated) on native Wikipedia  |
-| Machine translation      |                    | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English) |
-| Machine translation      |                    | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English) |
-| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 20             | Native (crowdsourced Tatoeba sentence pairs)   |
+| level                    | task               | dataset                                                                              |   # test items | construction                                   |
+|:-------------------------|:-------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          1,187 | Synthetic (LLM-generated) on native Wikipedia  |
+| Machine translation      |                    | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English) |
+| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             20 | Native (crowdsourced Tatoeba sentence pairs)   |
 
 ### Standard machine translation test sets
 
-_Not computed yet: run `python -m lrc build mt-sets`._
+| Test set                                                                                          | Direction(s)   | Size            | Human reference   |
+|:--------------------------------------------------------------------------------------------------|:---------------|:----------------|:------------------|
+| [SMOL GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_to) (training data) | en → to        | size not listed | ✅                |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
