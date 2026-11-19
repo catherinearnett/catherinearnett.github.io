@@ -244,17 +244,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Macedonian. None of the 39 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                             | paper                                                                  | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems                  | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)               | body only      |
-| Large-scale Multilingual News Image Captioning with LLMs                                                          | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/) | body only      |
-| INCLUDE-2.0: Disentangling Knowledge Gaps in Multilingual LLM Evaluation                                          | [2026.emnlp-main.1344](https://aclanthology.org/2026.emnlp-main.1344/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                        | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)         | body only      |
-| A Corpus of Persuasion Techniques in Slavic Languages                                                             | [2026.lrec-1.289](https://aclanthology.org/2026.lrec-1.289/)           | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                        | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)           | body only      |
-| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                         | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)           | body only      |
-| The Growing Gains and Pains of Iterative Web Corpora Crawling: Insights from South Slavic CLASSLA-web 2.0 Corpora | [2026.lrec-1.598](https://aclanthology.org/2026.lrec-1.598/)           | body only      |
-| AMR Parsing beyond English: An Experiment on Bulgarian, French, Hungarian and Ukrainian                           | [2026.lrec-1.764](https://aclanthology.org/2026.lrec-1.764/)           | body only      |
-| TildeOpen LLM: Leveraging Curriculum Learning to Achieve Equitable Language Representation                        | [2026.lrec-1.834](https://aclanthology.org/2026.lrec-1.834/)           | body only      |
+| title                                                                                                             | paper                                                                  |
+|:------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems                  | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)               |
+| Large-scale Multilingual News Image Captioning with LLMs                                                          | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/) |
+| INCLUDE-2.0: Disentangling Knowledge Gaps in Multilingual LLM Evaluation                                          | [2026.emnlp-main.1344](https://aclanthology.org/2026.emnlp-main.1344/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                        | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)         |
+| A Corpus of Persuasion Techniques in Slavic Languages                                                             | [2026.lrec-1.289](https://aclanthology.org/2026.lrec-1.289/)           |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                        | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)           |
+| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                         | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)           |
+| The Growing Gains and Pains of Iterative Web Corpora Crawling: Insights from South Slavic CLASSLA-web 2.0 Corpora | [2026.lrec-1.598](https://aclanthology.org/2026.lrec-1.598/)           |
+| AMR Parsing beyond English: An Experiment on Bulgarian, French, Hungarian and Ukrainian                           | [2026.lrec-1.764](https://aclanthology.org/2026.lrec-1.764/)           |
+| TildeOpen LLM: Leveraging Curriculum Learning to Achieve Equitable Language Representation                        | [2026.lrec-1.834](https://aclanthology.org/2026.lrec-1.834/)           |
 
 {% endraw %}

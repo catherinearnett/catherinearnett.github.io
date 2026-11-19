@@ -223,13 +223,13 @@ Inuktitut has been part of the WMT translation task in **1** year (2020).
 
 Here are up to ten papers published in 2026 that mention Inuktitut. None of the 6 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                    | paper                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------|:---------------|
-| Goldfish: Monolingual Language Models for 350 Languages                                  | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)   | body only      |
-| GlossMATE: Multi-Agent Translator Explanations for Glosses                               | [2026.lrec-1.709](https://aclanthology.org/2026.lrec-1.709/)   | body only      |
-| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets    | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)         | body only      |
-| Language Identification for Low-Resource Formosan Languages                              | [2026.sigul-1.24](https://aclanthology.org/2026.sigul-1.24/)   | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)   | body only      |
-| AmanaMT: Translation Direction Predicts Automatic Metric Reliability                     | [2026.wmt-main.42](https://aclanthology.org/2026.wmt-main.42/) | body only      |
+| title                                                                                    | paper                                                          |
+|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------|
+| Goldfish: Monolingual Language Models for 350 Languages                                  | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)   |
+| GlossMATE: Multi-Agent Translator Explanations for Glosses                               | [2026.lrec-1.709](https://aclanthology.org/2026.lrec-1.709/)   |
+| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets    | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)         |
+| Language Identification for Low-Resource Formosan Languages                              | [2026.sigul-1.24](https://aclanthology.org/2026.sigul-1.24/)   |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)   |
+| AmanaMT: Translation Direction Predicts Automatic Metric Reliability                     | [2026.wmt-main.42](https://aclanthology.org/2026.wmt-main.42/) |
 
 {% endraw %}

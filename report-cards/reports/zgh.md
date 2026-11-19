@@ -206,17 +206,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Tamazight. None of the 12 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| TranslatePsy-AfriSLM: High-Quality Data Scaling For Low-Resource Machine Translation                                                          | [2026.emnlp-main.1686](https://aclanthology.org/2026.emnlp-main.1686/)     | body only      |
-| An Empirical Study of Many-Shot In-Context Learning for Machine Translation of Low-Resource Languages                                         | [2026.findings-aacl.142](https://aclanthology.org/2026.findings-aacl.142/) | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Completely Modular Fine-tuning for Dynamic Language Adaptation                                                                                | [2026.findings-eacl.252](https://aclanthology.org/2026.findings-eacl.252/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)               | body only      |
-| DATASHI: A Parallel English–Tashlhiyt Corpus for Orthography Normalization and Low-Resource Language Processing.                              | [2026.lrec-1.153](https://aclanthology.org/2026.lrec-1.153/)               | body only      |
-| Structured Partial Predictability in Non-Concatenative Morphology: The Case of Tashlhiyt Berber                                               | [2026.slide-1.11](https://aclanthology.org/2026.slide-1.11/)               | body only      |
-| Syllable Structures Across Arabic Varieties                                                                                                   | [2026.vardial-1.21](https://aclanthology.org/2026.vardial-1.21/)           | body only      |
-| FIÙR: A Benchmark Dataset for Eastern Lombard Machine Translation                                                                             | [2026.wmt-main.199](https://aclanthology.org/2026.wmt-main.199/)           | body only      |
+| title                                                                                                                                         | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| TranslatePsy-AfriSLM: High-Quality Data Scaling For Low-Resource Machine Translation                                                          | [2026.emnlp-main.1686](https://aclanthology.org/2026.emnlp-main.1686/)     |
+| An Empirical Study of Many-Shot In-Context Learning for Machine Translation of Low-Resource Languages                                         | [2026.findings-aacl.142](https://aclanthology.org/2026.findings-aacl.142/) |
+| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Completely Modular Fine-tuning for Dynamic Language Adaptation                                                                                | [2026.findings-eacl.252](https://aclanthology.org/2026.findings-eacl.252/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)               |
+| DATASHI: A Parallel English–Tashlhiyt Corpus for Orthography Normalization and Low-Resource Language Processing.                              | [2026.lrec-1.153](https://aclanthology.org/2026.lrec-1.153/)               |
+| Structured Partial Predictability in Non-Concatenative Morphology: The Case of Tashlhiyt Berber                                               | [2026.slide-1.11](https://aclanthology.org/2026.slide-1.11/)               |
+| Syllable Structures Across Arabic Varieties                                                                                                   | [2026.vardial-1.21](https://aclanthology.org/2026.vardial-1.21/)           |
+| FIÙR: A Benchmark Dataset for Eastern Lombard Machine Translation                                                                             | [2026.wmt-main.199](https://aclanthology.org/2026.wmt-main.199/)           |
 
 {% endraw %}

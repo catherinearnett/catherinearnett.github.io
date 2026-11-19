@@ -210,11 +210,11 @@ Edo isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005â€
 
 Here are up to ten papers published in 2026 that mention Edo. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                        | paper                                                                      | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs | [2026.findings-aacl.227](https://aclanthology.org/2026.findings-aacl.227/) | body only      |
-| Assessing the Persuasive Effect of AI-Generated Image Support of Arguments                                   | [2026.lrec-1.641](https://aclanthology.org/2026.lrec-1.641/)               | body only      |
-| Categorical Emotions or Appraisals - Which Emotion Model Explains Argument Convincingness Better?            | [2026.lrec-1.649](https://aclanthology.org/2026.lrec-1.649/)               | body only      |
-| Trust Me, I Can Convince You: The Contextualized Argument Appraisal Framework and the ContArgA Corpus        | [2026.lrec-1.659](https://aclanthology.org/2026.lrec-1.659/)               | body only      |
+| title                                                                                                        | paper                                                                      |
+|:-------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs | [2026.findings-aacl.227](https://aclanthology.org/2026.findings-aacl.227/) |
+| Assessing the Persuasive Effect of AI-Generated Image Support of Arguments                                   | [2026.lrec-1.641](https://aclanthology.org/2026.lrec-1.641/)               |
+| Categorical Emotions or Appraisals - Which Emotion Model Explains Argument Convincingness Better?            | [2026.lrec-1.649](https://aclanthology.org/2026.lrec-1.649/)               |
+| Trust Me, I Can Convince You: The Contextualized Argument Appraisal Framework and the ContArgA Corpus        | [2026.lrec-1.659](https://aclanthology.org/2026.lrec-1.659/)               |
 
 {% endraw %}

@@ -227,17 +227,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Chewa. None of the 17 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                             | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)         | body only      |
-| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages                | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)           | body only      |
-| Safety of Large Language Models Beyond English: A Systematic Literature Review of Risks, Biases, and Safeguards       | [2026.eacl-long.44](https://aclanthology.org/2026.eacl-long.44/)           | body only      |
-| TranslatePsy-AfriSLM: High-Quality Data Scaling For Low-Resource Machine Translation                                  | [2026.emnlp-main.1686](https://aclanthology.org/2026.emnlp-main.1686/)     | body only      |
-| Text4Speech: Text-Driven Training for Massively Multilingual Speech Understanding                                     | [2026.emnlp-main.2427](https://aclanthology.org/2026.emnlp-main.2427/)     | body only      |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)     | body only      |
-| TukaBench: A Culturally Grounded Jailbreak Benchmark for African Languages                                            | [2026.emnlp-main.692](https://aclanthology.org/2026.emnlp-main.692/)       | body only      |
-| UbuntuGuard: A Culturally-Grounded Policy Benchmark for Equitable AI Safety in African Languages.                     | [2026.findings-acl.1663](https://aclanthology.org/2026.findings-acl.1663/) | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                            | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               | body only      |
-| RunyaNER: Auxiliary Language Selection for Runyankore NER                                                             | [2026.mrl-1.38](https://aclanthology.org/2026.mrl-1.38/)                   | body only      |
+| title                                                                                                                 | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                             | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)         |
+| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages                | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)           |
+| Safety of Large Language Models Beyond English: A Systematic Literature Review of Risks, Biases, and Safeguards       | [2026.eacl-long.44](https://aclanthology.org/2026.eacl-long.44/)           |
+| TranslatePsy-AfriSLM: High-Quality Data Scaling For Low-Resource Machine Translation                                  | [2026.emnlp-main.1686](https://aclanthology.org/2026.emnlp-main.1686/)     |
+| Text4Speech: Text-Driven Training for Massively Multilingual Speech Understanding                                     | [2026.emnlp-main.2427](https://aclanthology.org/2026.emnlp-main.2427/)     |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)     |
+| TukaBench: A Culturally Grounded Jailbreak Benchmark for African Languages                                            | [2026.emnlp-main.692](https://aclanthology.org/2026.emnlp-main.692/)       |
+| UbuntuGuard: A Culturally-Grounded Policy Benchmark for Equitable AI Safety in African Languages.                     | [2026.findings-acl.1663](https://aclanthology.org/2026.findings-acl.1663/) |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                            | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               |
+| RunyaNER: Auxiliary Language Selection for Runyankore NER                                                             | [2026.mrl-1.38](https://aclanthology.org/2026.mrl-1.38/)                   |
 
 {% endraw %}

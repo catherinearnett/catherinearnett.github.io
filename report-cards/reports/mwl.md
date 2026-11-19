@@ -229,8 +229,8 @@ Mirandese isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (
 
 Here are up to ten papers published in 2026 that mention Mirandese. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                   | paper                                                        | mentioned in   |
-|:--------------------------------------------------------|:-------------------------------------------------------------|:---------------|
-| Goldfish: Monolingual Language Models for 350 Languages | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/) | body only      |
+| title                                                   | paper                                                        |
+|:--------------------------------------------------------|:-------------------------------------------------------------|
+| Goldfish: Monolingual Language Models for 350 Languages | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/) |
 
 {% endraw %}

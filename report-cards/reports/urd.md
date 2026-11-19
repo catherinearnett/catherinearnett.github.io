@@ -250,17 +250,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Urdu. None of the 287 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                | paper                                                                      | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| A Stylometric and Statistical Pipeline for Urdu AI-Generated Text Classification                                                     | [2026.abjadnlp-1.58](https://aclanthology.org/2026.abjadnlp-1.58/)         | body only      |
-| AbjadStyleTransfer: Authorship Style Transfer for Arabic-Script Languages at AbjadNLP 2026                                           | [2026.abjadnlp-1.70](https://aclanthology.org/2026.abjadnlp-1.70/)         | body only      |
-| IndicMedDialog: A Parallel Multi-Turn Medical Dialogue Dataset for Accessible Healthcare in Indic Languages                          | [2026.bionlp-1.84](https://aclanthology.org/2026.bionlp-1.84/)             | body only      |
-| Cross-Domain Evaluation of Transformer-Based Models for Punjabi Speech Emotion Recognition                                           | [2026.chipsal-1.7](https://aclanthology.org/2026.chipsal-1.7/)             | body only      |
-| Camellia: Benchmarking Cultural Biases in LLMs for Asian Languages                                                                   | [2026.emnlp-main.783](https://aclanthology.org/2026.emnlp-main.783/)       | body only      |
-| Indic-CodecFake meets SATYAM: Towards Detecting Neural Audio Codec Synthesized Speech Deepfakes in Indic Languages                   | [2026.findings-acl.2159](https://aclanthology.org/2026.findings-acl.2159/) | body only      |
-| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                                            | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)               | body only      |
-| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                                 | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)               | body only      |
-| ShahiEmotion: A Benchmark Dataset for Punjabi Shahmukhi Emotion Detection                                                            | [2026.mellm-1.20](https://aclanthology.org/2026.mellm-1.20/)               | body only      |
-| PingAn-NLP at SemEval-2026 Task 9: Multi-Stage Alignment via GRPO and Tiered Ensemble Voting for Multilingual Polarization Detection | [2026.semeval-1.354](https://aclanthology.org/2026.semeval-1.354/)         | body only      |
+| title                                                                                                                                | paper                                                                      |
+|:-------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| A Stylometric and Statistical Pipeline for Urdu AI-Generated Text Classification                                                     | [2026.abjadnlp-1.58](https://aclanthology.org/2026.abjadnlp-1.58/)         |
+| AbjadStyleTransfer: Authorship Style Transfer for Arabic-Script Languages at AbjadNLP 2026                                           | [2026.abjadnlp-1.70](https://aclanthology.org/2026.abjadnlp-1.70/)         |
+| IndicMedDialog: A Parallel Multi-Turn Medical Dialogue Dataset for Accessible Healthcare in Indic Languages                          | [2026.bionlp-1.84](https://aclanthology.org/2026.bionlp-1.84/)             |
+| Cross-Domain Evaluation of Transformer-Based Models for Punjabi Speech Emotion Recognition                                           | [2026.chipsal-1.7](https://aclanthology.org/2026.chipsal-1.7/)             |
+| Camellia: Benchmarking Cultural Biases in LLMs for Asian Languages                                                                   | [2026.emnlp-main.783](https://aclanthology.org/2026.emnlp-main.783/)       |
+| Indic-CodecFake meets SATYAM: Towards Detecting Neural Audio Codec Synthesized Speech Deepfakes in Indic Languages                   | [2026.findings-acl.2159](https://aclanthology.org/2026.findings-acl.2159/) |
+| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                                            | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)               |
+| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                                 | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)               |
+| ShahiEmotion: A Benchmark Dataset for Punjabi Shahmukhi Emotion Detection                                                            | [2026.mellm-1.20](https://aclanthology.org/2026.mellm-1.20/)               |
+| PingAn-NLP at SemEval-2026 Task 9: Multi-Stage Alignment via GRPO and Tiered Ensemble Voting for Multilingual Polarization Detection | [2026.semeval-1.354](https://aclanthology.org/2026.semeval-1.354/)         |
 
 {% endraw %}

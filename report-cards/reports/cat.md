@@ -256,17 +256,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Catalan. None of the 170 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                       | paper                                                                      | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Post Hoc Agentic Refinement for Improving Precision in Multilingual Clinical Text De-identification                                         | [2026.bionlp-1.11](https://aclanthology.org/2026.bionlp-1.11/)             | body only      |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                                         | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/) | body only      |
-| QFrBLiMP: a Quebec-French Benchmark of Linguistic Minimal Pairs                                                                             | [2026.findings-eacl.224](https://aclanthology.org/2026.findings-eacl.224/) | body only      |
-| How Much Noise Can BERT Handle? Insights from Multilingual Sentence Difficulty Detection                                                    | [2026.lrec-1.485](https://aclanthology.org/2026.lrec-1.485/)               | body only      |
-| Beyond Fake News Detection: A Community-based Study of the Multicultural Nature of Information Disorder                                     | [2026.lrec-1.515](https://aclanthology.org/2026.lrec-1.515/)               | body only      |
-| Merge and Conquer: Instructing Multilingual Models by Adding Target Language Weights                                                        | [2026.lrec-1.800](https://aclanthology.org/2026.lrec-1.800/)               | body only      |
-| Exploring Cross-Lingual Transfer in Transformer-Based Fraud Detection Models                                                                | [2026.nlpaics-1.1](https://aclanthology.org/2026.nlpaics-1.1/)             | body only      |
-| Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification | [2026.politicalnlp-1.11](https://aclanthology.org/2026.politicalnlp-1.11/) | body only      |
-| The Construction of the CORALSE Corpus, Now and Beyond: A Tool for Documenting Spanish Sign Language                                        | [2026.signlang-1.15](https://aclanthology.org/2026.signlang-1.15/)         | body only      |
-| Zero-Shot Cross-Lingual Recognition of Sign Language Handshapes                                                                             | [2026.wslp-1.18](https://aclanthology.org/2026.wslp-1.18/)                 | body only      |
+| title                                                                                                                                       | paper                                                                      |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Post Hoc Agentic Refinement for Improving Precision in Multilingual Clinical Text De-identification                                         | [2026.bionlp-1.11](https://aclanthology.org/2026.bionlp-1.11/)             |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                                         | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/) |
+| QFrBLiMP: a Quebec-French Benchmark of Linguistic Minimal Pairs                                                                             | [2026.findings-eacl.224](https://aclanthology.org/2026.findings-eacl.224/) |
+| How Much Noise Can BERT Handle? Insights from Multilingual Sentence Difficulty Detection                                                    | [2026.lrec-1.485](https://aclanthology.org/2026.lrec-1.485/)               |
+| Beyond Fake News Detection: A Community-based Study of the Multicultural Nature of Information Disorder                                     | [2026.lrec-1.515](https://aclanthology.org/2026.lrec-1.515/)               |
+| Merge and Conquer: Instructing Multilingual Models by Adding Target Language Weights                                                        | [2026.lrec-1.800](https://aclanthology.org/2026.lrec-1.800/)               |
+| Exploring Cross-Lingual Transfer in Transformer-Based Fraud Detection Models                                                                | [2026.nlpaics-1.1](https://aclanthology.org/2026.nlpaics-1.1/)             |
+| Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification | [2026.politicalnlp-1.11](https://aclanthology.org/2026.politicalnlp-1.11/) |
+| The Construction of the CORALSE Corpus, Now and Beyond: A Tool for Documenting Spanish Sign Language                                        | [2026.signlang-1.15](https://aclanthology.org/2026.signlang-1.15/)         |
+| Zero-Shot Cross-Lingual Recognition of Sign Language Handshapes                                                                             | [2026.wslp-1.18](https://aclanthology.org/2026.wslp-1.18/)                 |
 
 {% endraw %}

@@ -230,17 +230,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Sinhala. None of the 74 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                        | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Leveraging CoHere Multilingual Embeddings and Inverted Softmax Retrieval for Automatic Parallel Sentence Alignment in Low-Resource Languages | [2026.africanlp-main.4](https://aclanthology.org/2026.africanlp-main.4/)       | body only      |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                        | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)         | body only      |
-| XQ-MEval: A Dataset with Cross-lingual Parallel Quality for Benchmarking Translation Metrics                                                 | [2026.findings-acl.1846](https://aclanthology.org/2026.findings-acl.1846/)     | body only      |
-| Speak No Evil, Just Prompt: Low-resource Multilingual Toxic Speech Detection with Audio Language Model                                       | [2026.findings-acl.439](https://aclanthology.org/2026.findings-acl.439/)       | body only      |
-| Confident but Wrong: A Constrained Decoding Diagnostic for Low-Resource Automatic Post-Editing                                               | [2026.findings-emnlp.1079](https://aclanthology.org/2026.findings-emnlp.1079/) | body only      |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                                 | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               | body only      |
-| OasisSimp: An Open-source Asian-English Sentence Simplification Dataset                                                                      | [2026.lrec-1.483](https://aclanthology.org/2026.lrec-1.483/)                   | body only      |
-| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                                          | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)                   | body only      |
-| Do LLMs Judge Distantly Supervised Named Entity Labels Well? Constructing the JudgeWEL Dataset                                               | [2026.lrec-1.612](https://aclanthology.org/2026.lrec-1.612/)                   | body only      |
-| PlurVA-LLM-2026 Shared Task Track-2: PluriGuide—Principle Distillation and Identifier-Bound Demonstrations for Pluralistic Value Alignment   | [2026.plurvallm-1.7](https://aclanthology.org/2026.plurvallm-1.7/)             | body only      |
+| title                                                                                                                                        | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Leveraging CoHere Multilingual Embeddings and Inverted Softmax Retrieval for Automatic Parallel Sentence Alignment in Low-Resource Languages | [2026.africanlp-main.4](https://aclanthology.org/2026.africanlp-main.4/)       |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                        | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)         |
+| XQ-MEval: A Dataset with Cross-lingual Parallel Quality for Benchmarking Translation Metrics                                                 | [2026.findings-acl.1846](https://aclanthology.org/2026.findings-acl.1846/)     |
+| Speak No Evil, Just Prompt: Low-resource Multilingual Toxic Speech Detection with Audio Language Model                                       | [2026.findings-acl.439](https://aclanthology.org/2026.findings-acl.439/)       |
+| Confident but Wrong: A Constrained Decoding Diagnostic for Low-Resource Automatic Post-Editing                                               | [2026.findings-emnlp.1079](https://aclanthology.org/2026.findings-emnlp.1079/) |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                                 | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               |
+| OasisSimp: An Open-source Asian-English Sentence Simplification Dataset                                                                      | [2026.lrec-1.483](https://aclanthology.org/2026.lrec-1.483/)                   |
+| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                                          | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)                   |
+| Do LLMs Judge Distantly Supervised Named Entity Labels Well? Constructing the JudgeWEL Dataset                                               | [2026.lrec-1.612](https://aclanthology.org/2026.lrec-1.612/)                   |
+| PlurVA-LLM-2026 Shared Task Track-2: PluriGuide—Principle Distillation and Identifier-Bound Demonstrations for Pluralistic Value Alignment   | [2026.plurvallm-1.7](https://aclanthology.org/2026.plurvallm-1.7/)             |
 
 {% endraw %}

@@ -165,8 +165,8 @@ Moqoit isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 Here are up to ten papers published in 2026 that mention Moqoit. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                          | paper                                                                    | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| QomL’aqtaqa: A Qom–Spanish Parallel Corpus for Natural Language Processing with Machine Translation Evaluation | [2026.americasnlp-6.17](https://aclanthology.org/2026.americasnlp-6.17/) | body only      |
+| title                                                                                                          | paper                                                                    |
+|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| QomL’aqtaqa: A Qom–Spanish Parallel Corpus for Natural Language Processing with Machine Translation Evaluation | [2026.americasnlp-6.17](https://aclanthology.org/2026.americasnlp-6.17/) |
 
 {% endraw %}

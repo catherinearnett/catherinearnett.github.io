@@ -246,17 +246,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Norwegian. None of the 174 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Retrievals Can Be Detrimental: Unveiling the Backdoor Vulnerability of Retrieval-Augmented Diffusion Models          | [2026.acl-long.242](https://aclanthology.org/2026.acl-long.242/)               | body only      |
-| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages                        | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/)       | body only      |
-| Rethinking Research on Stereotypes: An Analysis through Social Psychological and Computational Perspectives          | [2026.findings-acl.85](https://aclanthology.org/2026.findings-acl.85/)         | body only      |
-| Improving Language Identification for Code-Switched Utterances with Integer Linear Programming                       | [2026.findings-emnlp.1429](https://aclanthology.org/2026.findings-emnlp.1429/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                              | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| Towards a Diagnostic and Predictive Evaluation Methodology for Sequence Labeling Tasks                               | [2026.lrec-1.472](https://aclanthology.org/2026.lrec-1.472/)                   | body only      |
-| TildeOpen LLM: Leveraging Curriculum Learning to Achieve Equitable Language Representation                           | [2026.lrec-1.834](https://aclanthology.org/2026.lrec-1.834/)                   | body only      |
-| OldBERTur: Named Entity Recognition for Medieval Icelandic                                                           | [2026.lt4hala-1.49](https://aclanthology.org/2026.lt4hala-1.49/)               | body only      |
-| Disfluencies and ASR Performance on Swedish Spontaneous Speech from the ‘Trip to Stockholm’ Discourse Narrative Task | [2026.rapid-1.3](https://aclanthology.org/2026.rapid-1.3/)                     | body only      |
-| Stage-Aware Cross-Lingual Transfer for Faroese ASR: When and Which Languages Matter                                  | [2026.speakable-1.17](https://aclanthology.org/2026.speakable-1.17/)           | body only      |
+| title                                                                                                                | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Retrievals Can Be Detrimental: Unveiling the Backdoor Vulnerability of Retrieval-Augmented Diffusion Models          | [2026.acl-long.242](https://aclanthology.org/2026.acl-long.242/)               |
+| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages                        | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/)       |
+| Rethinking Research on Stereotypes: An Analysis through Social Psychological and Computational Perspectives          | [2026.findings-acl.85](https://aclanthology.org/2026.findings-acl.85/)         |
+| Improving Language Identification for Code-Switched Utterances with Integer Linear Programming                       | [2026.findings-emnlp.1429](https://aclanthology.org/2026.findings-emnlp.1429/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                              | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| Towards a Diagnostic and Predictive Evaluation Methodology for Sequence Labeling Tasks                               | [2026.lrec-1.472](https://aclanthology.org/2026.lrec-1.472/)                   |
+| TildeOpen LLM: Leveraging Curriculum Learning to Achieve Equitable Language Representation                           | [2026.lrec-1.834](https://aclanthology.org/2026.lrec-1.834/)                   |
+| OldBERTur: Named Entity Recognition for Medieval Icelandic                                                           | [2026.lt4hala-1.49](https://aclanthology.org/2026.lt4hala-1.49/)               |
+| Disfluencies and ASR Performance on Swedish Spontaneous Speech from the ‘Trip to Stockholm’ Discourse Narrative Task | [2026.rapid-1.3](https://aclanthology.org/2026.rapid-1.3/)                     |
+| Stage-Aware Cross-Lingual Transfer for Faroese ASR: When and Which Languages Matter                                  | [2026.speakable-1.17](https://aclanthology.org/2026.speakable-1.17/)           |
 
 {% endraw %}

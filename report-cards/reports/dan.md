@@ -246,17 +246,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Danish. None of the 214 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                           | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                       | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/)             | body only      |
-| Learning Nested Named Entity Recognition from Flat Annotations                                                  | [2026.eacl-srw.50](https://aclanthology.org/2026.eacl-srw.50/)                 | body only      |
-| Speak No Evil, Just Prompt: Low-resource Multilingual Toxic Speech Detection with Audio Language Model          | [2026.findings-acl.439](https://aclanthology.org/2026.findings-acl.439/)       | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation  | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| Multi-turn Conversational AI from Text to Multimodal Interaction: Data, Models, Evaluation, and Open Challenges | [2026.findings-emnlp.2467](https://aclanthology.org/2026.findings-emnlp.2467/) | body only      |
-| Scenario-based Probing and Steering Cultural Values in Large Language Models                                    | [2026.findings-emnlp.858](https://aclanthology.org/2026.findings-emnlp.858/)   | body only      |
-| GPT-NL Public Corpus: A Permissively Licensed, Dutch-First Dataset for LLM Pre-training                         | [2026.lrec-1.548](https://aclanthology.org/2026.lrec-1.548/)                   | body only      |
-| Multilingual Datasets for Augmentative and Alternative Communication                                            | [2026.mrl-1.31](https://aclanthology.org/2026.mrl-1.31/)                       | body only      |
-| Naturalistic Measure of Social Norms Alignment                                                                  | [2026.oracle-main.34](https://aclanthology.org/2026.oracle-main.34/)           | body only      |
-| Byte-pair Encoding Captures Aspects of Word Meaning that Distributional Semantics Overlooks                     | [2026.tacl-1.113](https://aclanthology.org/2026.tacl-1.113/)                   | body only      |
+| title                                                                                                           | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                       | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/)             |
+| Learning Nested Named Entity Recognition from Flat Annotations                                                  | [2026.eacl-srw.50](https://aclanthology.org/2026.eacl-srw.50/)                 |
+| Speak No Evil, Just Prompt: Low-resource Multilingual Toxic Speech Detection with Audio Language Model          | [2026.findings-acl.439](https://aclanthology.org/2026.findings-acl.439/)       |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation  | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| Multi-turn Conversational AI from Text to Multimodal Interaction: Data, Models, Evaluation, and Open Challenges | [2026.findings-emnlp.2467](https://aclanthology.org/2026.findings-emnlp.2467/) |
+| Scenario-based Probing and Steering Cultural Values in Large Language Models                                    | [2026.findings-emnlp.858](https://aclanthology.org/2026.findings-emnlp.858/)   |
+| GPT-NL Public Corpus: A Permissively Licensed, Dutch-First Dataset for LLM Pre-training                         | [2026.lrec-1.548](https://aclanthology.org/2026.lrec-1.548/)                   |
+| Multilingual Datasets for Augmentative and Alternative Communication                                            | [2026.mrl-1.31](https://aclanthology.org/2026.mrl-1.31/)                       |
+| Naturalistic Measure of Social Norms Alignment                                                                  | [2026.oracle-main.34](https://aclanthology.org/2026.oracle-main.34/)           |
+| Byte-pair Encoding Captures Aspects of Word Meaning that Distributional Semantics Overlooks                     | [2026.tacl-1.113](https://aclanthology.org/2026.tacl-1.113/)                   |
 
 {% endraw %}

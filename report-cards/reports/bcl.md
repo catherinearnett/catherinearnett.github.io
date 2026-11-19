@@ -221,11 +221,11 @@ _⚠️ Listed under the macrolanguage code `bik`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Bikol. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                | paper                                                              | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                    | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                              | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       | body only      |
-| Algebraic Classification of Reduplicative Processes                                                  | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)   | body only      |
-| Syntax is the Key to Semantics: Combining Universal Dependencies and Abstract Meaning Representation | [2026.udw-1.27](https://aclanthology.org/2026.udw-1.27/)           | body only      |
+| title                                                                                                | paper                                                              |
+|:-----------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                    | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                              | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       |
+| Algebraic Classification of Reduplicative Processes                                                  | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)   |
+| Syntax is the Key to Semantics: Combining Universal Dependencies and Abstract Meaning Representation | [2026.udw-1.27](https://aclanthology.org/2026.udw-1.27/)           |
 
 {% endraw %}

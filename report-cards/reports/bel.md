@@ -246,17 +246,17 @@ Belarusian has been part of the WMT translation task in **1** year (2026).
 
 Here are up to ten papers published in 2026 that mention Belarusian. None of the 53 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                              | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                                   | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/) | body only      |
-| Presentation of the Project CLingS: Cross-lingual information retrieval for scientific datasets in less-resourced languages | [2026.eamt-2.6](https://aclanthology.org/2026.eamt-2.6/)           | body only      |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)   | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                     | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                            | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)       | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)       | body only      |
-| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets                                       | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)             | body only      |
-| Probing the Dynamics of Syntactic Ability Acquisition Throughout LLM Pretraining                                            | [2026.udw-1.1](https://aclanthology.org/2026.udw-1.1/)             | body only      |
-| From Treebank Metadata to Sentence-Level Genre in Universal Dependencies: A Reproducible, Versioned Resource                | [2026.udw-1.24](https://aclanthology.org/2026.udw-1.24/)           | body only      |
-| Evaluation Framework for Transfer Learning between Closely Related Lects: A Case Study of Lemko                             | [2026.vardial-1.25](https://aclanthology.org/2026.vardial-1.25/)   | body only      |
+| title                                                                                                                       | paper                                                              |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                                   | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/) |
+| Presentation of the Project CLingS: Cross-lingual information retrieval for scientific datasets in less-resourced languages | [2026.eamt-2.6](https://aclanthology.org/2026.eamt-2.6/)           |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)   |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                     | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                            | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)       |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)       |
+| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets                                       | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)             |
+| Probing the Dynamics of Syntactic Ability Acquisition Throughout LLM Pretraining                                            | [2026.udw-1.1](https://aclanthology.org/2026.udw-1.1/)             |
+| From Treebank Metadata to Sentence-Level Genre in Universal Dependencies: A Reproducible, Versioned Resource                | [2026.udw-1.24](https://aclanthology.org/2026.udw-1.24/)           |
+| Evaluation Framework for Transfer Learning between Closely Related Lects: A Case Study of Lemko                             | [2026.vardial-1.25](https://aclanthology.org/2026.vardial-1.25/)   |
 
 {% endraw %}

@@ -230,17 +230,17 @@ _⚠️ Listed under the macrolanguage code `pus`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Pashto. None of the 49 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                      | paper                                                              | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| Framing Political Bias in Multilingual LLMs Across Pakistani Languages                                                     | [2026.acl-long.1689](https://aclanthology.org/2026.acl-long.1689/) | body only      |
-| SearchGym: Bootstrapping Real-World Search Agents via Cost-Effective and High-Fidelity Environment Simulation              | [2026.acl-long.848](https://aclanthology.org/2026.acl-long.848/)   | body only      |
-| Reaching multilingual communities: a survey mapping MT use in the West Midlands (UK) third and public sector organisations | [2026.eamt-1.38](https://aclanthology.org/2026.eamt-1.38/)         | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                 | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)     | body only      |
-| Comparing Approaches to Automatic Summarization in Less-Resourced Languages                                                | [2026.lrec-1.270](https://aclanthology.org/2026.lrec-1.270/)       | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                    | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       | body only      |
-| The Limits of Data Scaling: Sub-token Utilization and Acoustic Saturation in Multilingual ASR                              | [2026.lrec-1.457](https://aclanthology.org/2026.lrec-1.457/)       | body only      |
-| OasisSimp: An Open-source Asian-English Sentence Simplification Dataset                                                    | [2026.lrec-1.483](https://aclanthology.org/2026.lrec-1.483/)       | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                           | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)       | body only      |
-| When Cross-Lingual Consistency Is Not Enough: Diagnostics for Low-Resource Political Actor Portrayal                       | [2026.mrl-1.25](https://aclanthology.org/2026.mrl-1.25/)           | body only      |
+| title                                                                                                                      | paper                                                              |
+|:---------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Framing Political Bias in Multilingual LLMs Across Pakistani Languages                                                     | [2026.acl-long.1689](https://aclanthology.org/2026.acl-long.1689/) |
+| SearchGym: Bootstrapping Real-World Search Agents via Cost-Effective and High-Fidelity Environment Simulation              | [2026.acl-long.848](https://aclanthology.org/2026.acl-long.848/)   |
+| Reaching multilingual communities: a survey mapping MT use in the West Midlands (UK) third and public sector organisations | [2026.eamt-1.38](https://aclanthology.org/2026.eamt-1.38/)         |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                 | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)     |
+| Comparing Approaches to Automatic Summarization in Less-Resourced Languages                                                | [2026.lrec-1.270](https://aclanthology.org/2026.lrec-1.270/)       |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                    | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       |
+| The Limits of Data Scaling: Sub-token Utilization and Acoustic Saturation in Multilingual ASR                              | [2026.lrec-1.457](https://aclanthology.org/2026.lrec-1.457/)       |
+| OasisSimp: An Open-source Asian-English Sentence Simplification Dataset                                                    | [2026.lrec-1.483](https://aclanthology.org/2026.lrec-1.483/)       |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                           | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)       |
+| When Cross-Lingual Consistency Is Not Enough: Diagnostics for Low-Resource Political Actor Portrayal                       | [2026.mrl-1.25](https://aclanthology.org/2026.mrl-1.25/)           |
 
 {% endraw %}

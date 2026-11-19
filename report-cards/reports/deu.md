@@ -294,17 +294,17 @@ German has been part of the WMT translation task in **22** years (2005, 2006, 20
 
 Here are up to ten papers published in 2026 that mention German. None of the 2,098 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                        | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Multilingual and Cross-Lingual Citation Needed Detection on Wikipedia for Lower-Resource Languages                    | [2026.acl-long.1291](https://aclanthology.org/2026.acl-long.1291/)           | body only      |
-| Developing and Validating an Automatic Scoring Model for Chatbot-Based Conversational Speech                          | [2026.aimecon-main.11](https://aclanthology.org/2026.aimecon-main.11/)       | body only      |
-| AMResources: Cataloging Argument Mining Datasets                                                                      | [2026.argmining-1.5](https://aclanthology.org/2026.argmining-1.5/)           | body only      |
-| Similar, but why? A Toolkit for Explaining Text Similarity                                                            | [2026.eacl-demo.16](https://aclanthology.org/2026.eacl-demo.16/)             | body only      |
-| When to Defer: Scope-Aware Cascades for Structured Attribute Generation in E-commerce Product Catalogs                | [2026.emnlp-industry.187](https://aclanthology.org/2026.emnlp-industry.187/) | body only      |
-| Reviewing the Reviewer : LLM-Assisted Reviewer Feedback Generation for Guideline Compliance                           | [2026.emnlp-main.1317](https://aclanthology.org/2026.emnlp-main.1317/)       | body only      |
-| Cross-Lingual Alignment Without Joint Training: Do Monolingual Language Models Converge on Universal Representations? | [2026.emnlp-main.947](https://aclanthology.org/2026.emnlp-main.947/)         | body only      |
-| Reasoning about In-Context Samples for Machine-Translation                                                            | [2026.findings-emnlp.168](https://aclanthology.org/2026.findings-emnlp.168/) | body only      |
-| What Do We Talk About When We Talk About Tokenization?                                                                | [2026.mrl-1.26](https://aclanthology.org/2026.mrl-1.26/)                     | body only      |
-| HU at SemEval-2026 Task 6: A Hybrid Discriminative Modeling of Political Clarity and Evasion                          | [2026.semeval-1.34](https://aclanthology.org/2026.semeval-1.34/)             | body only      |
+| title                                                                                                                 | paper                                                                        |
+|:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Multilingual and Cross-Lingual Citation Needed Detection on Wikipedia for Lower-Resource Languages                    | [2026.acl-long.1291](https://aclanthology.org/2026.acl-long.1291/)           |
+| Developing and Validating an Automatic Scoring Model for Chatbot-Based Conversational Speech                          | [2026.aimecon-main.11](https://aclanthology.org/2026.aimecon-main.11/)       |
+| AMResources: Cataloging Argument Mining Datasets                                                                      | [2026.argmining-1.5](https://aclanthology.org/2026.argmining-1.5/)           |
+| Similar, but why? A Toolkit for Explaining Text Similarity                                                            | [2026.eacl-demo.16](https://aclanthology.org/2026.eacl-demo.16/)             |
+| When to Defer: Scope-Aware Cascades for Structured Attribute Generation in E-commerce Product Catalogs                | [2026.emnlp-industry.187](https://aclanthology.org/2026.emnlp-industry.187/) |
+| Reviewing the Reviewer : LLM-Assisted Reviewer Feedback Generation for Guideline Compliance                           | [2026.emnlp-main.1317](https://aclanthology.org/2026.emnlp-main.1317/)       |
+| Cross-Lingual Alignment Without Joint Training: Do Monolingual Language Models Converge on Universal Representations? | [2026.emnlp-main.947](https://aclanthology.org/2026.emnlp-main.947/)         |
+| Reasoning about In-Context Samples for Machine-Translation                                                            | [2026.findings-emnlp.168](https://aclanthology.org/2026.findings-emnlp.168/) |
+| What Do We Talk About When We Talk About Tokenization?                                                                | [2026.mrl-1.26](https://aclanthology.org/2026.mrl-1.26/)                     |
+| HU at SemEval-2026 Task 6: A Hybrid Discriminative Modeling of Political Clarity and Evasion                          | [2026.semeval-1.34](https://aclanthology.org/2026.semeval-1.34/)             |
 
 {% endraw %}

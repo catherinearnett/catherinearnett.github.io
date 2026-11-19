@@ -232,17 +232,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Afrikaans. None of the 64 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                           | paper                                                                          | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Speak No Evil, Just Prompt: Low-resource Multilingual Toxic Speech Detection with Audio Language Model                          | [2026.findings-acl.439](https://aclanthology.org/2026.findings-acl.439/)       | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                              | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                  | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| Identifying Crucial Attention Heads for Multilingual Language Models: Retrieval and Retrieval-Transition Heads                  | [2026.findings-emnlp.2114](https://aclanthology.org/2026.findings-emnlp.2114/) | body only      |
-| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                                   | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) | body only      |
-| Prompts in the Wild: A Large Analyzed Collection of Transactional Prompts in Code                                               | [2026.law-main.19](https://aclanthology.org/2026.law-main.19/)                 | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                      | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                         | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| Which languages are "hot", and which are "cool"? Using Universal Dependencies for large-scale comparisons of subject expression | [2026.udw-1.2](https://aclanthology.org/2026.udw-1.2/)                         | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                       | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                         | body only      |
+| title                                                                                                                           | paper                                                                          |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Speak No Evil, Just Prompt: Low-resource Multilingual Toxic Speech Detection with Audio Language Model                          | [2026.findings-acl.439](https://aclanthology.org/2026.findings-acl.439/)       |
+| TIPA: Typologically Informed Parameter Aggregation                                                                              | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                  | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| Identifying Crucial Attention Heads for Multilingual Language Models: Retrieval and Retrieval-Transition Heads                  | [2026.findings-emnlp.2114](https://aclanthology.org/2026.findings-emnlp.2114/) |
+| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                                   | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) |
+| Prompts in the Wild: A Large Analyzed Collection of Transactional Prompts in Code                                               | [2026.law-main.19](https://aclanthology.org/2026.law-main.19/)                 |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                      | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                         | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| Which languages are "hot", and which are "cool"? Using Universal Dependencies for large-scale comparisons of subject expression | [2026.udw-1.2](https://aclanthology.org/2026.udw-1.2/)                         |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                       | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                         |
 
 {% endraw %}

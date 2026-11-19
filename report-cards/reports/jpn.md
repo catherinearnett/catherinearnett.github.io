@@ -260,17 +260,17 @@ Japanese has been part of the WMT translation task in **7** years (2020, 2021, 2
 
 Here are up to ten papers published in 2026 that mention Japanese. None of the 1,116 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                     | paper                                                                      | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Soft Prompts for Adapting LLMs to Cultural Commonsense Knowledge                                                                          | [2026.c3nlp-1.6](https://aclanthology.org/2026.c3nlp-1.6/)                 | body only      |
-| Multi-Agent Debate for Machine Translation: A Case Study on English-Japanese Translation                                                  | [2026.eamt-1.16](https://aclanthology.org/2026.eamt-1.16/)                 | body only      |
-| MM-COMPLIANCE: A Multilingual Multimodal Dataset for Sustainability Compliance Auditing                                                   | [2026.emnlp-main.802](https://aclanthology.org/2026.emnlp-main.802/)       | body only      |
-| The Overlooked Role of Graded Relevance Thresholds in Multilingual Dense Retrieval                                                        | [2026.findings-acl.382](https://aclanthology.org/2026.findings-acl.382/)   | body only      |
-| ILSIC: Corpora for Identifying Indian Legal Statutes from Queries by Laymen                                                               | [2026.findings-eacl.354](https://aclanthology.org/2026.findings-eacl.354/) | body only      |
-| Adapting Pretrained Models to Endangered Languages in Japan: A Comparative Study on Ryukyuan and Ainu Speech Recognition                  | [2026.lrec-1.112](https://aclanthology.org/2026.lrec-1.112/)               | body only      |
-| Revisiting the Effectiveness of Word-level Tokenization in Language Model Pretraining                                                     | [2026.mrl-1.44](https://aclanthology.org/2026.mrl-1.44/)                   | body only      |
-| Borrowed Words, Borrowed Minds: Probing LLM Choice of English-Derived Loanwords in Japanese                                               | [2026.nlpcss-1.2](https://aclanthology.org/2026.nlpcss-1.2/)               | body only      |
-| Takoyaki at SemEval-2026 Task 3: Ensembling LLM Predictions using Demonstration Retrieval for Dimensional Aspect-based Sentiment Analysis | [2026.semeval-1.219](https://aclanthology.org/2026.semeval-1.219/)         | body only      |
-| Do Multilingual Encoders Produce Language-Consistent Semantic IDs?                                                                        | [2026.winlp-main.12](https://aclanthology.org/2026.winlp-main.12/)         | body only      |
+| title                                                                                                                                     | paper                                                                      |
+|:------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Soft Prompts for Adapting LLMs to Cultural Commonsense Knowledge                                                                          | [2026.c3nlp-1.6](https://aclanthology.org/2026.c3nlp-1.6/)                 |
+| Multi-Agent Debate for Machine Translation: A Case Study on English-Japanese Translation                                                  | [2026.eamt-1.16](https://aclanthology.org/2026.eamt-1.16/)                 |
+| MM-COMPLIANCE: A Multilingual Multimodal Dataset for Sustainability Compliance Auditing                                                   | [2026.emnlp-main.802](https://aclanthology.org/2026.emnlp-main.802/)       |
+| The Overlooked Role of Graded Relevance Thresholds in Multilingual Dense Retrieval                                                        | [2026.findings-acl.382](https://aclanthology.org/2026.findings-acl.382/)   |
+| ILSIC: Corpora for Identifying Indian Legal Statutes from Queries by Laymen                                                               | [2026.findings-eacl.354](https://aclanthology.org/2026.findings-eacl.354/) |
+| Adapting Pretrained Models to Endangered Languages in Japan: A Comparative Study on Ryukyuan and Ainu Speech Recognition                  | [2026.lrec-1.112](https://aclanthology.org/2026.lrec-1.112/)               |
+| Revisiting the Effectiveness of Word-level Tokenization in Language Model Pretraining                                                     | [2026.mrl-1.44](https://aclanthology.org/2026.mrl-1.44/)                   |
+| Borrowed Words, Borrowed Minds: Probing LLM Choice of English-Derived Loanwords in Japanese                                               | [2026.nlpcss-1.2](https://aclanthology.org/2026.nlpcss-1.2/)               |
+| Takoyaki at SemEval-2026 Task 3: Ensembling LLM Predictions using Demonstration Retrieval for Dimensional Aspect-based Sentiment Analysis | [2026.semeval-1.219](https://aclanthology.org/2026.semeval-1.219/)         |
+| Do Multilingual Encoders Produce Language-Consistent Semantic IDs?                                                                        | [2026.winlp-main.12](https://aclanthology.org/2026.winlp-main.12/)         |
 
 {% endraw %}

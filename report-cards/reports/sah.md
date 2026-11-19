@@ -222,15 +222,15 @@ Yakut has been part of the WMT translation task in **1** year (2022).
 
 Here are up to ten papers published in 2026 that mention Yakut. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                             | paper                                                                      | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Private-Use Area Characters in the Wild: Signal or Noise?                                                         | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| SrcMix: Mixing of Related Source Languages Benefits Extremely Low-resource Machine Translation                    | [2026.findings-eacl.332](https://aclanthology.org/2026.findings-eacl.332/) | body only      |
-| Bootstrapping NLP for Sakha: Named Entity Recognition and Sentiment Analysis in an Extremely Low-Resource Setting | [2026.lrec-1.259](https://aclanthology.org/2026.lrec-1.259/)               | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                           | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| Tokenisation of Turkic Copula Constructions in Universal Dependencies                                             | [2026.sigturk-1.14](https://aclanthology.org/2026.sigturk-1.14/)           | body only      |
-| Negation of Turkic non-verbal clauses: Analysis and Universal Dependencies Implementation                         | [2026.udw-1.7](https://aclanthology.org/2026.udw-1.7/)                     | body only      |
-| ReMova: Fine-tuning LLMs for English to Belarusian translation                                                    | [2026.wmt-main.75](https://aclanthology.org/2026.wmt-main.75/)             | body only      |
+| title                                                                                                             | paper                                                                      |
+|:------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                         | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   |
+| TIPA: Typologically Informed Parameter Aggregation                                                                | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| SrcMix: Mixing of Related Source Languages Benefits Extremely Low-resource Machine Translation                    | [2026.findings-eacl.332](https://aclanthology.org/2026.findings-eacl.332/) |
+| Bootstrapping NLP for Sakha: Named Entity Recognition and Sentiment Analysis in an Extremely Low-Resource Setting | [2026.lrec-1.259](https://aclanthology.org/2026.lrec-1.259/)               |
+| Goldfish: Monolingual Language Models for 350 Languages                                                           | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| Tokenisation of Turkic Copula Constructions in Universal Dependencies                                             | [2026.sigturk-1.14](https://aclanthology.org/2026.sigturk-1.14/)           |
+| Negation of Turkic non-verbal clauses: Analysis and Universal Dependencies Implementation                         | [2026.udw-1.7](https://aclanthology.org/2026.udw-1.7/)                     |
+| ReMova: Fine-tuning LLMs for English to Belarusian translation                                                    | [2026.wmt-main.75](https://aclanthology.org/2026.wmt-main.75/)             |
 
 {% endraw %}

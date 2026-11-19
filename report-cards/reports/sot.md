@@ -238,17 +238,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Sesotho. None of the 27 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                                                     | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)         | body only      |
-| Sample-Size Scaling of the African Languages NLI Evaluation                                                                                   | [2026.africanlp-main.22](https://aclanthology.org/2026.africanlp-main.22/) | body only      |
-| The Geometry of Low-Resource Language Representations                                                                                         | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)     | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Multi-Hall-SA: A Cross-lingual Benchmark for Multi-Type Hallucination Detection in Low-Resource South African Languages                       | [2026.findings-eacl.330](https://aclanthology.org/2026.findings-eacl.330/) | body only      |
-| Learning from Scarcity: Building and Benchmarking Speech Technology for Sukuma.                                                               | [2026.loreslm-1.25](https://aclanthology.org/2026.loreslm-1.25/)           | body only      |
-| MzansiText and MzansiLM: An Open Corpus and Decoder-Only Language Model for South African Languages                                           | [2026.lrec-1.109](https://aclanthology.org/2026.lrec-1.109/)               | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)               | body only      |
-| Code-Switching in End-to-End Automatic Speech Recognition: A Systematic Literature Review                                                     | [2026.lrec-1.768](https://aclanthology.org/2026.lrec-1.768/)               | body only      |
-| Extension of Linguistic Resources for South African Languages: Part-of-Speech Annotated Domain-Specific Data                                  | [2026.rail-1.2](https://aclanthology.org/2026.rail-1.2/)                   | body only      |
+| title                                                                                                                                         | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                                                     | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)         |
+| Sample-Size Scaling of the African Languages NLI Evaluation                                                                                   | [2026.africanlp-main.22](https://aclanthology.org/2026.africanlp-main.22/) |
+| The Geometry of Low-Resource Language Representations                                                                                         | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)     |
+| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Multi-Hall-SA: A Cross-lingual Benchmark for Multi-Type Hallucination Detection in Low-Resource South African Languages                       | [2026.findings-eacl.330](https://aclanthology.org/2026.findings-eacl.330/) |
+| Learning from Scarcity: Building and Benchmarking Speech Technology for Sukuma.                                                               | [2026.loreslm-1.25](https://aclanthology.org/2026.loreslm-1.25/)           |
+| MzansiText and MzansiLM: An Open Corpus and Decoder-Only Language Model for South African Languages                                           | [2026.lrec-1.109](https://aclanthology.org/2026.lrec-1.109/)               |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)               |
+| Code-Switching in End-to-End Automatic Speech Recognition: A Systematic Literature Review                                                     | [2026.lrec-1.768](https://aclanthology.org/2026.lrec-1.768/)               |
+| Extension of Linguistic Resources for South African Languages: Part-of-Speech Annotated Domain-Specific Data                                  | [2026.rail-1.2](https://aclanthology.org/2026.rail-1.2/)                   |
 
 {% endraw %}

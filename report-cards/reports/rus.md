@@ -285,17 +285,17 @@ Russian has been part of the WMT translation task in **14** years (2013, 2014, 2
 
 Here are up to ten papers published in 2026 that mention Russian. None of the 951 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                              | paper                                                                        | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Closing the Bilingual Gap: Cross-lingual Semantic Scaffolding for Fine-Grained Machine Translation Evaluation in Taiwanese Hokkien | [2026.aacl-short.43](https://aclanthology.org/2026.aacl-short.43/)           | body only      |
-| One Tokenizer To Rule Them All: Emergent Language Plasticity via Multilingual Tokenizers                                           | [2026.acl-long.141](https://aclanthology.org/2026.acl-long.141/)             | body only      |
-| Cloud and On-Premises Deployment of Uzbek Legal RAG via Targeted Retriever Fine-Tuning                                             | [2026.emnlp-industry.266](https://aclanthology.org/2026.emnlp-industry.266/) | body only      |
-| Translation-Induced Label Drift in Natural Language Inference: Evidence from Nine Languages                                        | [2026.emnlp-main.817](https://aclanthology.org/2026.emnlp-main.817/)         | body only      |
-| Adaptive Information Control for Search-Augmented LLM Reasoning                                                                    | [2026.findings-emnlp.52](https://aclanthology.org/2026.findings-emnlp.52/)   | body only      |
-| Script Correction and Synthetic Pivoting: Adapting Tencent HY-MT for Low-Resource Turkic Translation                               | [2026.loresmt-1.20](https://aclanthology.org/2026.loresmt-1.20/)             | body only      |
-| ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                               | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                     | body only      |
-| Pluralistic Annotation of Cultural Weaponization on Wikipedia: A Multi-Annotator Case Study across Ukraine and Armenia             | [2026.pandora-1.5](https://aclanthology.org/2026.pandora-1.5/)               | body only      |
-| Emotion Recognition in German Sign Language with Facial Action Units                                                               | [2026.signlang-1.31](https://aclanthology.org/2026.signlang-1.31/)           | body only      |
-| Automated Essay Scoring and Language Certification: Assessing Generalizability, Agreement and Validity for French                  | [2026.tacl-1.44](https://aclanthology.org/2026.tacl-1.44/)                   | body only      |
+| title                                                                                                                              | paper                                                                        |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Closing the Bilingual Gap: Cross-lingual Semantic Scaffolding for Fine-Grained Machine Translation Evaluation in Taiwanese Hokkien | [2026.aacl-short.43](https://aclanthology.org/2026.aacl-short.43/)           |
+| One Tokenizer To Rule Them All: Emergent Language Plasticity via Multilingual Tokenizers                                           | [2026.acl-long.141](https://aclanthology.org/2026.acl-long.141/)             |
+| Cloud and On-Premises Deployment of Uzbek Legal RAG via Targeted Retriever Fine-Tuning                                             | [2026.emnlp-industry.266](https://aclanthology.org/2026.emnlp-industry.266/) |
+| Translation-Induced Label Drift in Natural Language Inference: Evidence from Nine Languages                                        | [2026.emnlp-main.817](https://aclanthology.org/2026.emnlp-main.817/)         |
+| Adaptive Information Control for Search-Augmented LLM Reasoning                                                                    | [2026.findings-emnlp.52](https://aclanthology.org/2026.findings-emnlp.52/)   |
+| Script Correction and Synthetic Pivoting: Adapting Tencent HY-MT for Low-Resource Turkic Translation                               | [2026.loresmt-1.20](https://aclanthology.org/2026.loresmt-1.20/)             |
+| ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                               | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                     |
+| Pluralistic Annotation of Cultural Weaponization on Wikipedia: A Multi-Annotator Case Study across Ukraine and Armenia             | [2026.pandora-1.5](https://aclanthology.org/2026.pandora-1.5/)               |
+| Emotion Recognition in German Sign Language with Facial Action Units                                                               | [2026.signlang-1.31](https://aclanthology.org/2026.signlang-1.31/)           |
+| Automated Essay Scoring and Language Certification: Assessing Generalizability, Agreement and Validity for French                  | [2026.tacl-1.44](https://aclanthology.org/2026.tacl-1.44/)                   |
 
 {% endraw %}

@@ -211,16 +211,16 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Efik. None of the 9 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                    | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                        | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             | body only      |
-| Developing an English–Efik Corpus and Machine Translation System for Digitization Inclusion              | [2026.africanlp-main.6](https://aclanthology.org/2026.africanlp-main.6/)       | body only      |
-| AfriSUD: A Dependency Treebank Collection for Evaluating Models on African Languages                     | [2026.emnlp-main.1896](https://aclanthology.org/2026.emnlp-main.1896/)         | body only      |
-| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models              | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)         | body only      |
-| An Empirical Study of Many-Shot In-Context Learning for Machine Translation of Low-Resource Languages    | [2026.findings-aacl.142](https://aclanthology.org/2026.findings-aacl.142/)     | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                   | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems            | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings           | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   | body only      |
-| Adapting Foundational ASR Models to Efik: An Empirical Study of an Extremely Low-Resource Tonal Language | [2026.speakable-1.1](https://aclanthology.org/2026.speakable-1.1/)             | body only      |
+| title                                                                                                    | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                        | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             |
+| Developing an English–Efik Corpus and Machine Translation System for Digitization Inclusion              | [2026.africanlp-main.6](https://aclanthology.org/2026.africanlp-main.6/)       |
+| AfriSUD: A Dependency Treebank Collection for Evaluating Models on African Languages                     | [2026.emnlp-main.1896](https://aclanthology.org/2026.emnlp-main.1896/)         |
+| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models              | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)         |
+| An Empirical Study of Many-Shot In-Context Learning for Machine Translation of Low-Resource Languages    | [2026.findings-aacl.142](https://aclanthology.org/2026.findings-aacl.142/)     |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                   | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems            | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings           | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
+| Adapting Foundational ASR Models to Efik: An Empirical Study of an Extremely Low-Resource Tonal Language | [2026.speakable-1.1](https://aclanthology.org/2026.speakable-1.1/)             |
 
 {% endraw %}

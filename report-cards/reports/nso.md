@@ -223,17 +223,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Sepedi. None of the 22 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                   | paper                                                                          | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                                                      | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)             | body only      |
-| AfriScience-MT: Towards Decolonizing Science in Africa through Text Translation                                         | [2026.emnlp-main.757](https://aclanthology.org/2026.emnlp-main.757/)           | body only      |
-| Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models      | [2026.findings-acl.937](https://aclanthology.org/2026.findings-acl.937/)       | body only      |
-| Multi-Hall-SA: A Cross-lingual Benchmark for Multi-Type Hallucination Detection in Low-Resource South African Languages | [2026.findings-eacl.330](https://aclanthology.org/2026.findings-eacl.330/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation          | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                              | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| MzansiText and MzansiLM: An Open Corpus and Decoder-Only Language Model for South African Languages                     | [2026.lrec-1.109](https://aclanthology.org/2026.lrec-1.109/)                   | body only      |
-| Benchmarking Text Embedding Models for South African Languages                                                          | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       | body only      |
-| Word segmentation for UD: a comparison of isiZulu and Sepedi                                                            | [2026.udw-1.10](https://aclanthology.org/2026.udw-1.10/)                       | body only      |
-| FIÙR: A Benchmark Dataset for Eastern Lombard Machine Translation                                                       | [2026.wmt-main.199](https://aclanthology.org/2026.wmt-main.199/)               | body only      |
+| title                                                                                                                   | paper                                                                          |
+|:------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                                                      | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)             |
+| AfriScience-MT: Towards Decolonizing Science in Africa through Text Translation                                         | [2026.emnlp-main.757](https://aclanthology.org/2026.emnlp-main.757/)           |
+| Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models      | [2026.findings-acl.937](https://aclanthology.org/2026.findings-acl.937/)       |
+| Multi-Hall-SA: A Cross-lingual Benchmark for Multi-Type Hallucination Detection in Low-Resource South African Languages | [2026.findings-eacl.330](https://aclanthology.org/2026.findings-eacl.330/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation          | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                              | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| MzansiText and MzansiLM: An Open Corpus and Decoder-Only Language Model for South African Languages                     | [2026.lrec-1.109](https://aclanthology.org/2026.lrec-1.109/)                   |
+| Benchmarking Text Embedding Models for South African Languages                                                          | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       |
+| Word segmentation for UD: a comparison of isiZulu and Sepedi                                                            | [2026.udw-1.10](https://aclanthology.org/2026.udw-1.10/)                       |
+| FIÙR: A Benchmark Dataset for Eastern Lombard Machine Translation                                                       | [2026.wmt-main.199](https://aclanthology.org/2026.wmt-main.199/)               |
 
 {% endraw %}

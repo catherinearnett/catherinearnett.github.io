@@ -237,17 +237,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Uyghur. None of the 43 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Diversity in Unity, Theory in Practice: Hierarchical Multitask Benchmarks for Chinese Minority Languages             | [2026.acl-long.1684](https://aclanthology.org/2026.acl-long.1684/)             | body only      |
-| Processing Inconsistency Predicts Language Competence: LLM Evaluation Without Answer Labels on Turkic Languages      | [2026.acl-srw.94](https://aclanthology.org/2026.acl-srw.94/)                   | body only      |
-| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                  | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)             | body only      |
-| Which Language Should a Skeleton Speak? Language Choices in Multilingual Reasoning                                   | [2026.findings-emnlp.1500](https://aclanthology.org/2026.findings-emnlp.1500/) | body only      |
-| RING: Retrieval-Internalized Generation for Continual Large-Scale Knowledge Injection                                | [2026.findings-emnlp.1940](https://aclanthology.org/2026.findings-emnlp.1940/) | body only      |
-| Clustering Analysis for Error Detection in Named Entity Recognition Datasets                                         | [2026.law-main.17](https://aclanthology.org/2026.law-main.17/)                 | body only      |
-| A Comprehensive Full-Form Lexicon for Arabic NLP and Speech Technology                                               | [2026.lrec-1.108](https://aclanthology.org/2026.lrec-1.108/)                   | body only      |
-| Investigating the Role of Synthetic Data Augmentation and Training Strategies on Improving Low-Resource Language ASR | [2026.lrec-1.442](https://aclanthology.org/2026.lrec-1.442/)                   | body only      |
-| Quantifying mutual intelligibility gradients in Turkic languages using language models                               | [2026.scil-main.41](https://aclanthology.org/2026.scil-main.41/)               | body only      |
-| A Unified Turkic Idiom Understanding Benchmark: Idiom Detection and Semantic Retrieval Across Five Turkic Languages  | [2026.sigturk-1.4](https://aclanthology.org/2026.sigturk-1.4/)                 | body only      |
+| title                                                                                                                | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Diversity in Unity, Theory in Practice: Hierarchical Multitask Benchmarks for Chinese Minority Languages             | [2026.acl-long.1684](https://aclanthology.org/2026.acl-long.1684/)             |
+| Processing Inconsistency Predicts Language Competence: LLM Evaluation Without Answer Labels on Turkic Languages      | [2026.acl-srw.94](https://aclanthology.org/2026.acl-srw.94/)                   |
+| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                  | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)             |
+| Which Language Should a Skeleton Speak? Language Choices in Multilingual Reasoning                                   | [2026.findings-emnlp.1500](https://aclanthology.org/2026.findings-emnlp.1500/) |
+| RING: Retrieval-Internalized Generation for Continual Large-Scale Knowledge Injection                                | [2026.findings-emnlp.1940](https://aclanthology.org/2026.findings-emnlp.1940/) |
+| Clustering Analysis for Error Detection in Named Entity Recognition Datasets                                         | [2026.law-main.17](https://aclanthology.org/2026.law-main.17/)                 |
+| A Comprehensive Full-Form Lexicon for Arabic NLP and Speech Technology                                               | [2026.lrec-1.108](https://aclanthology.org/2026.lrec-1.108/)                   |
+| Investigating the Role of Synthetic Data Augmentation and Training Strategies on Improving Low-Resource Language ASR | [2026.lrec-1.442](https://aclanthology.org/2026.lrec-1.442/)                   |
+| Quantifying mutual intelligibility gradients in Turkic languages using language models                               | [2026.scil-main.41](https://aclanthology.org/2026.scil-main.41/)               |
+| A Unified Turkic Idiom Understanding Benchmark: Idiom Detection and Semantic Retrieval Across Five Turkic Languages  | [2026.sigturk-1.4](https://aclanthology.org/2026.sigturk-1.4/)                 |
 
 {% endraw %}

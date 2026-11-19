@@ -201,8 +201,8 @@ Chavacano isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (
 
 Here are up to ten papers published in 2026 that mention Chavacano. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                   | paper                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------|:---------------------------------------------------------------|:---------------|
-| Findings of the Second Shared Task for Creole Language Machine Translation, at WMT 2026 | [2026.wmt-main.56](https://aclanthology.org/2026.wmt-main.56/) | body only      |
+| title                                                                                   | paper                                                          |
+|:----------------------------------------------------------------------------------------|:---------------------------------------------------------------|
+| Findings of the Second Shared Task for Creole Language Machine Translation, at WMT 2026 | [2026.wmt-main.56](https://aclanthology.org/2026.wmt-main.56/) |
 
 {% endraw %}

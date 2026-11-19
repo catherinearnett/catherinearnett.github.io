@@ -231,17 +231,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Bambara. None of the 43 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                          | paper                                                                    | mentioned in   |
-|:-----------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Dealing with the Hard Facts of Low-Resource African NLP                                        | [2026.africanlp-main.1](https://aclanthology.org/2026.africanlp-main.1/) | body only      |
-| Private-Use Area Characters in the Wild: Signal or Noise?                                      | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                 | body only      |
-| On Natural Language Stringsets, Senses, and Generative Capacity                                | [2026.cl-2.10](https://aclanthology.org/2026.cl-2.10/)                   | body only      |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)   | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)         | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?     | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)           | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                        | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             | body only      |
-| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages     | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)             | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             | body only      |
-| Open Machine Translation for Esperanto                                                         | [2026.sigul-1.31](https://aclanthology.org/2026.sigul-1.31/)             | body only      |
-| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande         | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)     | body only      |
+| title                                                                                          | paper                                                                    |
+|:-----------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Dealing with the Hard Facts of Low-Resource African NLP                                        | [2026.africanlp-main.1](https://aclanthology.org/2026.africanlp-main.1/) |
+| Private-Use Area Characters in the Wild: Signal or Noise?                                      | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                 |
+| On Natural Language Stringsets, Senses, and Generative Capacity                                | [2026.cl-2.10](https://aclanthology.org/2026.cl-2.10/)                   |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)   | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)         |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?     | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)           |
+| Goldfish: Monolingual Language Models for 350 Languages                                        | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             |
+| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages     | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)             |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             |
+| Open Machine Translation for Esperanto                                                         | [2026.sigul-1.31](https://aclanthology.org/2026.sigul-1.31/)             |
+| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande         | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)     |
 
 {% endraw %}

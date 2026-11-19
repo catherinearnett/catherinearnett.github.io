@@ -230,10 +230,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention West Frisian. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                  | paper                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------|:---------------------------------------------------------------|:---------------|
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia             | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)   | body only      |
-| Combining Real and Synthetic Speech for ASR Adaptation in Brazilian Portuguese         | [2026.propor-1.83](https://aclanthology.org/2026.propor-1.83/) | body only      |
-| Improving Urdu ASR with Fine-Tuned Small Language Models for Post-ASR Error Correction | [2026.salma-1.7](https://aclanthology.org/2026.salma-1.7/)     | body only      |
+| title                                                                                  | paper                                                          |
+|:---------------------------------------------------------------------------------------|:---------------------------------------------------------------|
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia             | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)   |
+| Combining Real and Synthetic Speech for ASR Adaptation in Brazilian Portuguese         | [2026.propor-1.83](https://aclanthology.org/2026.propor-1.83/) |
+| Improving Urdu ASR with Fine-Tuned Small Language Models for Post-ASR Error Correction | [2026.salma-1.7](https://aclanthology.org/2026.salma-1.7/)     |
 
 {% endraw %}

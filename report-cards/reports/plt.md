@@ -241,17 +241,17 @@ _⚠️ Listed under the macrolanguage code `mlg`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Malagasy. None of the 16 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                          | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages         | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)               | body only      |
-| AfriMTEB and AfriE5: Benchmarking and Adapting Text Embedding Models for African Languages                     | [2026.eacl-long.171](https://aclanthology.org/2026.eacl-long.171/)             | body only      |
-| Multilinguality after Quantization: Low-Bits, Calibration Languages, Mixed-Precisions, and Cross-Linguality    | [2026.findings-aacl.9](https://aclanthology.org/2026.findings-aacl.9/)         | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                             | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                            | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                         | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| On the Robustness of Code LLM Guardrails to Code-mixed and Transliterated Inputs                               | [2026.findings-emnlp.568](https://aclanthology.org/2026.findings-emnlp.568/)   | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                     | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                               | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                   | body only      |
+| title                                                                                                          | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages         | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)               |
+| AfriMTEB and AfriE5: Benchmarking and Adapting Text Embedding Models for African Languages                     | [2026.eacl-long.171](https://aclanthology.org/2026.eacl-long.171/)             |
+| Multilinguality after Quantization: Low-Bits, Calibration Languages, Mixed-Precisions, and Cross-Linguality    | [2026.findings-aacl.9](https://aclanthology.org/2026.findings-aacl.9/)         |
+| TIPA: Typologically Informed Parameter Aggregation                                                             | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                            | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                         | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| On the Robustness of Code LLM Guardrails to Code-mixed and Transliterated Inputs                               | [2026.findings-emnlp.568](https://aclanthology.org/2026.findings-emnlp.568/)   |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                     | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                               | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                   |
 
 {% endraw %}

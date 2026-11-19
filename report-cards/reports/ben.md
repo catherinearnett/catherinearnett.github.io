@@ -263,17 +263,17 @@ Bengali has been part of the WMT translation task in **2** years (2021, 2025).
 
 Here are up to ten papers published in 2026 that mention Bengali. None of the 427 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                      | paper                                                                          | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Structure-Guided Entity Resolution: Fine-Tuning LLMs for Robust Name Matching in Complex Linguistic Contexts                               | [2026.acl-industry.101](https://aclanthology.org/2026.acl-industry.101/)       | body only      |
-| Private-Use Area Characters in the Wild: Signal or Noise?                                                                                  | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                       | body only      |
-| Indic-CodecFake meets SATYAM: Towards Detecting Neural Audio Codec Synthesized Speech Deepfakes in Indic Languages                         | [2026.findings-acl.2159](https://aclanthology.org/2026.findings-acl.2159/)     | body only      |
-| A Comprehensive Evaluation of Multilingual Chain-of-Thought Reasoning: Performance, Consistency, and Faithfulness Across Languages         | [2026.findings-eacl.276](https://aclanthology.org/2026.findings-eacl.276/)     | body only      |
-| Code-Switching Reveals Language Anchoring in Multilingual LLMs                                                                             | [2026.findings-emnlp.1719](https://aclanthology.org/2026.findings-emnlp.1719/) | body only      |
-| Can NLP Tackle Hate Speech in the Real World? Stakeholder-Informed Feedback and Survey on Counterspeech                                    | [2026.lrec-1.655](https://aclanthology.org/2026.lrec-1.655/)                   | body only      |
-| MLingualFC: Evaluating Jailbreak Vulnerabilities in Multilingual Vision-Language Models                                                    | [2026.mellm-1.22](https://aclanthology.org/2026.mellm-1.22/)                   | body only      |
-| AIvengers at SemEval-2026 Task 9: Utilizing Language Specific Encoders for Multilingual Text Classification                                | [2026.semeval-1.108](https://aclanthology.org/2026.semeval-1.108/)             | body only      |
-| PolAR Bears at SemEval-2026 Task 9: Parameter-Efficient Fine-Tuning and Cross-Lingual Augmentation for Multilingual Polarization Detection | [2026.semeval-1.279](https://aclanthology.org/2026.semeval-1.279/)             | body only      |
-| Data-Efficient Adaptation of Multilingual LLMs to Ukrainian                                                                                | [2026.unlp-1.14](https://aclanthology.org/2026.unlp-1.14/)                     | body only      |
+| title                                                                                                                                      | paper                                                                          |
+|:-------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Structure-Guided Entity Resolution: Fine-Tuning LLMs for Robust Name Matching in Complex Linguistic Contexts                               | [2026.acl-industry.101](https://aclanthology.org/2026.acl-industry.101/)       |
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                                                  | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                       |
+| Indic-CodecFake meets SATYAM: Towards Detecting Neural Audio Codec Synthesized Speech Deepfakes in Indic Languages                         | [2026.findings-acl.2159](https://aclanthology.org/2026.findings-acl.2159/)     |
+| A Comprehensive Evaluation of Multilingual Chain-of-Thought Reasoning: Performance, Consistency, and Faithfulness Across Languages         | [2026.findings-eacl.276](https://aclanthology.org/2026.findings-eacl.276/)     |
+| Code-Switching Reveals Language Anchoring in Multilingual LLMs                                                                             | [2026.findings-emnlp.1719](https://aclanthology.org/2026.findings-emnlp.1719/) |
+| Can NLP Tackle Hate Speech in the Real World? Stakeholder-Informed Feedback and Survey on Counterspeech                                    | [2026.lrec-1.655](https://aclanthology.org/2026.lrec-1.655/)                   |
+| MLingualFC: Evaluating Jailbreak Vulnerabilities in Multilingual Vision-Language Models                                                    | [2026.mellm-1.22](https://aclanthology.org/2026.mellm-1.22/)                   |
+| AIvengers at SemEval-2026 Task 9: Utilizing Language Specific Encoders for Multilingual Text Classification                                | [2026.semeval-1.108](https://aclanthology.org/2026.semeval-1.108/)             |
+| PolAR Bears at SemEval-2026 Task 9: Parameter-Efficient Fine-Tuning and Cross-Lingual Augmentation for Multilingual Polarization Detection | [2026.semeval-1.279](https://aclanthology.org/2026.semeval-1.279/)             |
+| Data-Efficient Adaptation of Multilingual LLMs to Ukrainian                                                                                | [2026.unlp-1.14](https://aclanthology.org/2026.unlp-1.14/)                     |
 
 {% endraw %}

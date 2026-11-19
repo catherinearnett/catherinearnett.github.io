@@ -211,10 +211,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Marshallese. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                          | paper                                                              | mentioned in   |
-|:-----------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                              | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)       | body only      |
-| Algebraic Classification of Reduplicative Processes                                            | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)   | body only      |
+| title                                                                                          | paper                                                              |
+|:-----------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                              | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)       |
+| Algebraic Classification of Reduplicative Processes                                            | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)   |
 
 {% endraw %}

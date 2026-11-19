@@ -245,17 +245,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Slovak. None of the 118 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                            | paper                                                                    | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Apertus: Democratizing Open and Compliant LLMs for Global Language Environments                                  | [2026.acl-long.2172](https://aclanthology.org/2026.acl-long.2172/)       | body only      |
-| Reframing Responsibility: Framing-Aware Event Causality Identification                                           | [2026.acl-long.2173](https://aclanthology.org/2026.acl-long.2173/)       | body only      |
-| LLM as a Meta-Judge: Synthetic Data for NLP Evaluation Metric Validation                                         | [2026.acl-srw.125](https://aclanthology.org/2026.acl-srw.125/)           | body only      |
-| CONGRAD: Conflicting Gradient Filtering for Multilingual Preference Alignment                                    | [2026.eacl-long.299](https://aclanthology.org/2026.eacl-long.299/)       | body only      |
-| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages                    | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             | body only      |
-| mmPISA-bench: Do LLMs Reason Equally Well Across 43 Languages?                                                   | [2026.mellm-1.16](https://aclanthology.org/2026.mellm-1.16/)             | body only      |
-| Multilingual Datasets for Augmentative and Alternative Communication                                             | [2026.mrl-1.31](https://aclanthology.org/2026.mrl-1.31/)                 | body only      |
-| IdiomRanker-X at MWE-2026 AdMIRe 2: Multilingual Idiom-Image Alignment via Low-Rank Adaptation of Cross-Encoders | [2026.mwe-1.16](https://aclanthology.org/2026.mwe-1.16/)                 | body only      |
-| ITUNLP2 at MWE-2026 AdMIRe 2: Modular Zero-Shot Pipelines for Multimodal Idiom Grounding and Ranking             | [2026.mwe-1.32](https://aclanthology.org/2026.mwe-1.32/)                 | body only      |
+| title                                                                                                            | paper                                                                    |
+|:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Apertus: Democratizing Open and Compliant LLMs for Global Language Environments                                  | [2026.acl-long.2172](https://aclanthology.org/2026.acl-long.2172/)       |
+| Reframing Responsibility: Framing-Aware Event Causality Identification                                           | [2026.acl-long.2173](https://aclanthology.org/2026.acl-long.2173/)       |
+| LLM as a Meta-Judge: Synthetic Data for NLP Evaluation Metric Validation                                         | [2026.acl-srw.125](https://aclanthology.org/2026.acl-srw.125/)           |
+| CONGRAD: Conflicting Gradient Filtering for Multilingual Preference Alignment                                    | [2026.eacl-long.299](https://aclanthology.org/2026.eacl-long.299/)       |
+| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages                    | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             |
+| mmPISA-bench: Do LLMs Reason Equally Well Across 43 Languages?                                                   | [2026.mellm-1.16](https://aclanthology.org/2026.mellm-1.16/)             |
+| Multilingual Datasets for Augmentative and Alternative Communication                                             | [2026.mrl-1.31](https://aclanthology.org/2026.mrl-1.31/)                 |
+| IdiomRanker-X at MWE-2026 AdMIRe 2: Multilingual Idiom-Image Alignment via Low-Rank Adaptation of Cross-Encoders | [2026.mwe-1.16](https://aclanthology.org/2026.mwe-1.16/)                 |
+| ITUNLP2 at MWE-2026 AdMIRe 2: Modular Zero-Shot Pipelines for Multimodal Idiom Grounding and Ranking             | [2026.mwe-1.32](https://aclanthology.org/2026.mwe-1.32/)                 |
 
 {% endraw %}

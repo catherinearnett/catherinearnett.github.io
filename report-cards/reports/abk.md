@@ -230,14 +230,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Abkhaz. None of the 7 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                                    | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)       | body only      |
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems                            | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                 | body only      |
-| Adapting Where It Matters: Depth-Aware Adaptation for Efficient Multilingual Speech Recognition in Low-Resource Languages   | [2026.findings-acl.827](https://aclanthology.org/2026.findings-acl.827/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                     | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                    | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)             | body only      |
-| Complex Predicates in Universal Dependencies                                                                                | [2026.udw-1.19](https://aclanthology.org/2026.udw-1.19/)                 | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                   | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                   | body only      |
+| title                                                                                                                       | paper                                                                    |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)       |
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems                            | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                 |
+| Adapting Where It Matters: Depth-Aware Adaptation for Efficient Multilingual Speech Recognition in Low-Resource Languages   | [2026.findings-acl.827](https://aclanthology.org/2026.findings-acl.827/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                     | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                    | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)             |
+| Complex Predicates in Universal Dependencies                                                                                | [2026.udw-1.19](https://aclanthology.org/2026.udw-1.19/)                 |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                   | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                   |
 
 {% endraw %}

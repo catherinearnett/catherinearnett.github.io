@@ -210,10 +210,10 @@ Bislama isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (20
 
 Here are up to ten papers published in 2026 that mention Bislama. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                   | paper                                                            | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------------|
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                          | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)     | body only      |
-| The University of Melbourne WMT 2026 CreoleMT Submission: A Domain-Balanced Approach to Low-Resource Pacific Creole Machine Translation | [2026.wmt-main.189](https://aclanthology.org/2026.wmt-main.189/) | body only      |
-| Findings of the Second Shared Task for Creole Language Machine Translation, at WMT 2026                                                 | [2026.wmt-main.56](https://aclanthology.org/2026.wmt-main.56/)   | body only      |
+| title                                                                                                                                   | paper                                                            |
+|:----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                          | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)     |
+| The University of Melbourne WMT 2026 CreoleMT Submission: A Domain-Balanced Approach to Low-Resource Pacific Creole Machine Translation | [2026.wmt-main.189](https://aclanthology.org/2026.wmt-main.189/) |
+| Findings of the Second Shared Task for Creole Language Machine Translation, at WMT 2026                                                 | [2026.wmt-main.56](https://aclanthology.org/2026.wmt-main.56/)   |
 
 {% endraw %}

@@ -187,8 +187,8 @@ Mi'kmawi'simk isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation ta
 
 Here are up to ten papers published in 2026 that mention Mi'kmawi'simk. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                     | paper                                                                  | mentioned in   |
-|:------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| Neural Text-to-Speech for Myaamia: Speech Synthesis for an Indigenous Algonquian Language | [2026.americasnlp-6.1](https://aclanthology.org/2026.americasnlp-6.1/) | body only      |
+| title                                                                                     | paper                                                                  |
+|:------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| Neural Text-to-Speech for Myaamia: Speech Synthesis for an Indigenous Algonquian Language | [2026.americasnlp-6.1](https://aclanthology.org/2026.americasnlp-6.1/) |
 
 {% endraw %}

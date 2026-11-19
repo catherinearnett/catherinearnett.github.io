@@ -254,17 +254,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Bulgarian. None of the 144 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                        | paper                                                                                | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|:---------------|
-| Authorship Attribution in Multilingual Machine-Generated Texts                                               | [2026.acl-long.2091](https://aclanthology.org/2026.acl-long.2091/)                   | body only      |
-| A Large Dataset Representing Bulgarian, with the Bulgarian National Corpus as Its Core                       | [2026.cmlc-1.2](https://aclanthology.org/2026.cmlc-1.2/)                             | body only      |
-| cantnlp@DravidianLangTech 2026: organic domain adaptation improves multi-class hope speech detection in Tulu | [2026.dravidianlangtech-1.21](https://aclanthology.org/2026.dravidianlangtech-1.21/) | body only      |
-| Finding Culture-Sensitive Neurons in Vision-Language Models                                                  | [2026.eacl-long.155](https://aclanthology.org/2026.eacl-long.155/)                   | body only      |
-| To Each Language Its Tokenizer: Modular Tokenizers for Efficient Multilingual LLMs                           | [2026.findings-emnlp.1019](https://aclanthology.org/2026.findings-emnlp.1019/)       | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                         | body only      |
-| Linguistic and Demographic Factors in an Online Free Translation Task                                        | [2026.lrec-1.678](https://aclanthology.org/2026.lrec-1.678/)                         | body only      |
-| From Form to Meaning: Interlingua Sense-Alignment of Offensive Language with LLMs                            | [2026.ltedi-1.6](https://aclanthology.org/2026.ltedi-1.6/)                           | body only      |
-| GUIR at SemEval-2026 Task 7: Probing Cultural Knowledge in LLMs via Multi-Agent Debate                       | [2026.semeval-1.438](https://aclanthology.org/2026.semeval-1.438/)                   | body only      |
-| SemEval-2026 Task 7: Everyday Knowledge Across Diverse Languages and Cultures                                | [2026.semeval-1.455](https://aclanthology.org/2026.semeval-1.455/)                   | body only      |
+| title                                                                                                        | paper                                                                                |
+|:-------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
+| Authorship Attribution in Multilingual Machine-Generated Texts                                               | [2026.acl-long.2091](https://aclanthology.org/2026.acl-long.2091/)                   |
+| A Large Dataset Representing Bulgarian, with the Bulgarian National Corpus as Its Core                       | [2026.cmlc-1.2](https://aclanthology.org/2026.cmlc-1.2/)                             |
+| cantnlp@DravidianLangTech 2026: organic domain adaptation improves multi-class hope speech detection in Tulu | [2026.dravidianlangtech-1.21](https://aclanthology.org/2026.dravidianlangtech-1.21/) |
+| Finding Culture-Sensitive Neurons in Vision-Language Models                                                  | [2026.eacl-long.155](https://aclanthology.org/2026.eacl-long.155/)                   |
+| To Each Language Its Tokenizer: Modular Tokenizers for Efficient Multilingual LLMs                           | [2026.findings-emnlp.1019](https://aclanthology.org/2026.findings-emnlp.1019/)       |
+| Goldfish: Monolingual Language Models for 350 Languages                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                         |
+| Linguistic and Demographic Factors in an Online Free Translation Task                                        | [2026.lrec-1.678](https://aclanthology.org/2026.lrec-1.678/)                         |
+| From Form to Meaning: Interlingua Sense-Alignment of Offensive Language with LLMs                            | [2026.ltedi-1.6](https://aclanthology.org/2026.ltedi-1.6/)                           |
+| GUIR at SemEval-2026 Task 7: Probing Cultural Knowledge in LLMs via Multi-Agent Debate                       | [2026.semeval-1.438](https://aclanthology.org/2026.semeval-1.438/)                   |
+| SemEval-2026 Task 7: Everyday Knowledge Across Diverse Languages and Cultures                                | [2026.semeval-1.455](https://aclanthology.org/2026.semeval-1.455/)                   |
 
 {% endraw %}

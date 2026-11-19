@@ -216,13 +216,13 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Papiamento. None of the 6 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)         | body only      |
-| Grammar as Control: Modular Language Generation for the Long Tail                                                           | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)         | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                          | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                  | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             | body only      |
-| Radio Haiti-Inter: A Large-Scale Annotated Corpus of Spoken Haitian Creole                                                  | [2026.lrec-1.241](https://aclanthology.org/2026.lrec-1.241/)               | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                     | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
+| title                                                                                                                       | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)         |
+| Grammar as Control: Modular Language Generation for the Long Tail                                                           | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)         |
+| TIPA: Typologically Informed Parameter Aggregation                                                                          | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                  | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             |
+| Radio Haiti-Inter: A Large-Scale Annotated Corpus of Spoken Haitian Creole                                                  | [2026.lrec-1.241](https://aclanthology.org/2026.lrec-1.241/)               |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                     | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
 
 {% endraw %}

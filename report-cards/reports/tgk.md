@@ -223,17 +223,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Tajik. None of the 34 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                               | paper                                                                          | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| POWSM: A Phonetic Open Whisper-Style Speech Foundation Model                                                        | [2026.acl-long.813](https://aclanthology.org/2026.acl-long.813/)               | body only      |
-| ParsBench: A Benchmark for Evaluating Fine-Grained Culturally Grounded Commonsense Reasoning in Persian             | [2026.emnlp-main.2635](https://aclanthology.org/2026.emnlp-main.2635/)         | body only      |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                 | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)     | body only      |
-| Computationally Invisible: Charting the NLP Landscape of Iranic Languages                                           | [2026.findings-emnlp.2362](https://aclanthology.org/2026.findings-emnlp.2362/) | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation        | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   | body only      |
-| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)               | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                          | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                      | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   | body only      |
-| Shughni Machine Translation Enhanced by Donor Languages                                                             | [2026.silkroadnlp-1.12](https://aclanthology.org/2026.silkroadnlp-1.12/)       | body only      |
-| A Computational Approach to Language Contact – A Case Study of Persian                                              | [2026.silkroadnlp-1.5](https://aclanthology.org/2026.silkroadnlp-1.5/)         | body only      |
+| title                                                                                                               | paper                                                                          |
+|:--------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| POWSM: A Phonetic Open Whisper-Style Speech Foundation Model                                                        | [2026.acl-long.813](https://aclanthology.org/2026.acl-long.813/)               |
+| ParsBench: A Benchmark for Evaluating Fine-Grained Culturally Grounded Commonsense Reasoning in Persian             | [2026.emnlp-main.2635](https://aclanthology.org/2026.emnlp-main.2635/)         |
+| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                 | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)     |
+| Computationally Invisible: Charting the NLP Landscape of Iranic Languages                                           | [2026.findings-emnlp.2362](https://aclanthology.org/2026.findings-emnlp.2362/) |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation        | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   |
+| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)               |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                          | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                      | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
+| Shughni Machine Translation Enhanced by Donor Languages                                                             | [2026.silkroadnlp-1.12](https://aclanthology.org/2026.silkroadnlp-1.12/)       |
+| A Computational Approach to Language Contact – A Case Study of Persian                                              | [2026.silkroadnlp-1.5](https://aclanthology.org/2026.silkroadnlp-1.5/)         |
 
 {% endraw %}

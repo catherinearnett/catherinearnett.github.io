@@ -234,14 +234,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Chechen. None of the 7 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                            | paper                                                                      | mentioned in   |
-|:-------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Private-Use Area Characters in the Wild: Signal or Noise?                                        | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   | body only      |
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings         | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)               | body only      |
-| Expanding Chechen Machine Translation Resources: SMOL, BOUQuET, and WMT24++ Extensions           | [2026.wmt-main.195](https://aclanthology.org/2026.wmt-main.195/)           | body only      |
-| Findings of the WMT 2026 Shared Task of the Open Language Data Initiative                        | [2026.wmt-main.57](https://aclanthology.org/2026.wmt-main.57/)             | body only      |
+| title                                                                                            | paper                                                                      |
+|:-------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Private-Use Area Characters in the Wild: Signal or Noise?                                        | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   |
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   |
+| TIPA: Typologically Informed Parameter Aggregation                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings         | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)               |
+| Expanding Chechen Machine Translation Resources: SMOL, BOUQuET, and WMT24++ Extensions           | [2026.wmt-main.195](https://aclanthology.org/2026.wmt-main.195/)           |
+| Findings of the WMT 2026 Shared Task of the Open Language Data Initiative                        | [2026.wmt-main.57](https://aclanthology.org/2026.wmt-main.57/)             |
 
 {% endraw %}

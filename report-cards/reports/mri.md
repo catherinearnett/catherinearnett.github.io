@@ -239,17 +239,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Māori. None of the 18 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                           | paper                                                                      | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| GeoArena: Evaluating Open-World Geographic Reasoning in Large Vision-Language Models                                            | [2026.acl-long.956](https://aclanthology.org/2026.acl-long.956/)           | body only      |
-| Toward a Coarse-Labeled Spoken Language Identification Dataset for Central Alaskan Yup’ik and Samoan from US Broadcast Archives | [2026.americasnlp-6.18](https://aclanthology.org/2026.americasnlp-6.18/)   | body only      |
-| Speech Recognition and Synthesis Technologies Applied to Preservation and Revitalization of the Ainu Language                   | [2026.computel-1.2](https://aclanthology.org/2026.computel-1.2/)           | body only      |
-| When Flores Bloomz Wrong: Cross-Direction Contamination in Machine Translation Evaluation                                       | [2026.eacl-short.26](https://aclanthology.org/2026.eacl-short.26/)         | body only      |
-| Training free Cross-Modal Alignment for Multilingual Image Retrieval                                                            | [2026.findings-aacl.203](https://aclanthology.org/2026.findings-aacl.203/) | body only      |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                             | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/) | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                              | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| FormosanMT: A Multilingual Parallel Corpus of the Formosan Language Family                                                      | [2026.lrec-1.273](https://aclanthology.org/2026.lrec-1.273/)               | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                         | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                      | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               | body only      |
+| title                                                                                                                           | paper                                                                      |
+|:--------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| GeoArena: Evaluating Open-World Geographic Reasoning in Large Vision-Language Models                                            | [2026.acl-long.956](https://aclanthology.org/2026.acl-long.956/)           |
+| Toward a Coarse-Labeled Spoken Language Identification Dataset for Central Alaskan Yup’ik and Samoan from US Broadcast Archives | [2026.americasnlp-6.18](https://aclanthology.org/2026.americasnlp-6.18/)   |
+| Speech Recognition and Synthesis Technologies Applied to Preservation and Revitalization of the Ainu Language                   | [2026.computel-1.2](https://aclanthology.org/2026.computel-1.2/)           |
+| When Flores Bloomz Wrong: Cross-Direction Contamination in Machine Translation Evaluation                                       | [2026.eacl-short.26](https://aclanthology.org/2026.eacl-short.26/)         |
+| Training free Cross-Modal Alignment for Multilingual Image Retrieval                                                            | [2026.findings-aacl.203](https://aclanthology.org/2026.findings-aacl.203/) |
+| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                             | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/) |
+| TIPA: Typologically Informed Parameter Aggregation                                                                              | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| FormosanMT: A Multilingual Parallel Corpus of the Formosan Language Family                                                      | [2026.lrec-1.273](https://aclanthology.org/2026.lrec-1.273/)               |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                         | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                      | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               |
 
 {% endraw %}

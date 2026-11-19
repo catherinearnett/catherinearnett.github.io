@@ -164,10 +164,10 @@ Tsou isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005â
 
 Here are up to ten papers published in 2026 that mention Tsou. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                            | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------------|
-| Translation or Recitation? Calibrating Evaluation Scores for Machine Translation of Extremely Low-Resource Languages | [2026.acl-short.29](https://aclanthology.org/2026.acl-short.29/) | body only      |
-| Dialectometry and Evaluation of the ePark Corpus for Low-Resource Formosan Language Dialects                         | [2026.dialres-1.13](https://aclanthology.org/2026.dialres-1.13/) | body only      |
-| FormosanMT: A Multilingual Parallel Corpus of the Formosan Language Family                                           | [2026.lrec-1.273](https://aclanthology.org/2026.lrec-1.273/)     | body only      |
+| title                                                                                                                | paper                                                            |
+|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
+| Translation or Recitation? Calibrating Evaluation Scores for Machine Translation of Extremely Low-Resource Languages | [2026.acl-short.29](https://aclanthology.org/2026.acl-short.29/) |
+| Dialectometry and Evaluation of the ePark Corpus for Low-Resource Formosan Language Dialects                         | [2026.dialres-1.13](https://aclanthology.org/2026.dialres-1.13/) |
+| FormosanMT: A Multilingual Parallel Corpus of the Formosan Language Family                                           | [2026.lrec-1.273](https://aclanthology.org/2026.lrec-1.273/)     |
 
 {% endraw %}

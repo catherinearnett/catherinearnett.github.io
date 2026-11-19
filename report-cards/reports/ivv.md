@@ -157,8 +157,8 @@ Ivatan isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 Here are up to ten papers published in 2026 that mention Ivatan. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                               | paper                                                          | mentioned in   |
-|:------------------------------------------------------------------------------------|:---------------------------------------------------------------|:---------------|
-| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/) | body only      |
+| title                                                                               | paper                                                          |
+|:------------------------------------------------------------------------------------|:---------------------------------------------------------------|
+| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/) |
 
 {% endraw %}

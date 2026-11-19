@@ -206,10 +206,10 @@ Tonga isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 Here are up to ten papers published in 2026 that mention Tonga. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                  | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| ARB: A Comprehensive Arabic Multimodal Reasoning Benchmark             | [2026.lrec-1.723](https://aclanthology.org/2026.lrec-1.723/)                   | body only      |
+| title                                                                  | paper                                                                          |
+|:-----------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Goldfish: Monolingual Language Models for 350 Languages                | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| ARB: A Comprehensive Arabic Multimodal Reasoning Benchmark             | [2026.lrec-1.723](https://aclanthology.org/2026.lrec-1.723/)                   |
 
 {% endraw %}

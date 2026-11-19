@@ -236,17 +236,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Igbo. None of the 89 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                   | paper                                                                        | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                   | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)           | body only      |
-| Full Fine-Tuning vs. Parameter-Efficient Adaptation for Low-Resource African ASR: A Controlled Study with Whisper-Small | [2026.africanlp-main.19](https://aclanthology.org/2026.africanlp-main.19/)   | body only      |
-| Parallel Tokenizers: Rethinking Vocabulary Design in Cross-Lingual Transfer of Low-Resource Languages                   | [2026.emnlp-main.117](https://aclanthology.org/2026.emnlp-main.117/)         | body only      |
-| PUMA: Projected Universal Multilingual ASR for Low-Resource Settings. Application to Diverse African Languages          | [2026.findings-acl.17](https://aclanthology.org/2026.findings-acl.17/)       | body only      |
-| Pseudo2Real: Task Arithmetic for Pseudo-Label Correction in Automatic Speech Recognition                                | [2026.findings-acl.59](https://aclanthology.org/2026.findings-acl.59/)       | body only      |
-| Active Learning with Non-Uniform Costs for African Natural Language Processing                                          | [2026.findings-eacl.349](https://aclanthology.org/2026.findings-eacl.349/)   | body only      |
-| AFRILANGTUTOR: Advancing Language Tutoring and Culture Education in Low-Resource Languages with Large Language Models   | [2026.findings-emnlp.546](https://aclanthology.org/2026.findings-emnlp.546/) | body only      |
-| Using Multimodal and Language-Agnostic Sentence Embeddings for Abstractive Summarization                                | [2026.lrec-1.774](https://aclanthology.org/2026.lrec-1.774/)                 | body only      |
-| MWE-2026 Shared Task: AdMIRe 2 Advancing Multimodal Idiomaticity Representation                                         | [2026.mwe-1.34](https://aclanthology.org/2026.mwe-1.34/)                     | body only      |
-| HurtNet: a Multilingual Dictionary of Hurtful Words                                                                     | [2026.woah-1.43](https://aclanthology.org/2026.woah-1.43/)                   | body only      |
+| title                                                                                                                   | paper                                                                        |
+|:------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                   | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)           |
+| Full Fine-Tuning vs. Parameter-Efficient Adaptation for Low-Resource African ASR: A Controlled Study with Whisper-Small | [2026.africanlp-main.19](https://aclanthology.org/2026.africanlp-main.19/)   |
+| Parallel Tokenizers: Rethinking Vocabulary Design in Cross-Lingual Transfer of Low-Resource Languages                   | [2026.emnlp-main.117](https://aclanthology.org/2026.emnlp-main.117/)         |
+| PUMA: Projected Universal Multilingual ASR for Low-Resource Settings. Application to Diverse African Languages          | [2026.findings-acl.17](https://aclanthology.org/2026.findings-acl.17/)       |
+| Pseudo2Real: Task Arithmetic for Pseudo-Label Correction in Automatic Speech Recognition                                | [2026.findings-acl.59](https://aclanthology.org/2026.findings-acl.59/)       |
+| Active Learning with Non-Uniform Costs for African Natural Language Processing                                          | [2026.findings-eacl.349](https://aclanthology.org/2026.findings-eacl.349/)   |
+| AFRILANGTUTOR: Advancing Language Tutoring and Culture Education in Low-Resource Languages with Large Language Models   | [2026.findings-emnlp.546](https://aclanthology.org/2026.findings-emnlp.546/) |
+| Using Multimodal and Language-Agnostic Sentence Embeddings for Abstractive Summarization                                | [2026.lrec-1.774](https://aclanthology.org/2026.lrec-1.774/)                 |
+| MWE-2026 Shared Task: AdMIRe 2 Advancing Multimodal Idiomaticity Representation                                         | [2026.mwe-1.34](https://aclanthology.org/2026.mwe-1.34/)                     |
+| HurtNet: a Multilingual Dictionary of Hurtful Words                                                                     | [2026.woah-1.43](https://aclanthology.org/2026.woah-1.43/)                   |
 
 {% endraw %}

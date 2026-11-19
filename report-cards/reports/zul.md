@@ -246,17 +246,17 @@ Zulu has been part of the WMT translation task in **1** year (2021).
 
 Here are up to ten papers published in 2026 that mention Zulu. None of the 74 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| NaturalSloth: Revisiting Denial-of-Service Attacks on Large Language Models                                           | [2026.acl-long.901](https://aclanthology.org/2026.acl-long.901/)               | body only      |
-| AfrIFact: Cultural Information Retrieval, Evidence Extraction And Fact Checking for African Languages                 | [2026.emnlp-main.133](https://aclanthology.org/2026.emnlp-main.133/)           | body only      |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)         | body only      |
-| TukaBench: A Culturally Grounded Jailbreak Benchmark for African Languages                                            | [2026.emnlp-main.692](https://aclanthology.org/2026.emnlp-main.692/)           | body only      |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                   | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)     | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Are Multilingual Models Improving? Revisiting Cross-Lingual Transfer                                                  | [2026.findings-emnlp.2388](https://aclanthology.org/2026.findings-emnlp.2388/) | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation          | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   | body only      |
-| Speech Translation and Metrics in 2026: Findings of the IWSLT Campaign                                                | [2026.iwslt-1.39](https://aclanthology.org/2026.iwslt-1.39/)                   | body only      |
-| Evaluating Open-Source LLMs for Text Summarization and Named Entity Recognition in Long, Unstructured Text            | [2026.nlp4dh-1.35](https://aclanthology.org/2026.nlp4dh-1.35/)                 | body only      |
+| title                                                                                                                 | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| NaturalSloth: Revisiting Denial-of-Service Attacks on Large Language Models                                           | [2026.acl-long.901](https://aclanthology.org/2026.acl-long.901/)               |
+| AfrIFact: Cultural Information Retrieval, Evidence Extraction And Fact Checking for African Languages                 | [2026.emnlp-main.133](https://aclanthology.org/2026.emnlp-main.133/)           |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)         |
+| TukaBench: A Culturally Grounded Jailbreak Benchmark for African Languages                                            | [2026.emnlp-main.692](https://aclanthology.org/2026.emnlp-main.692/)           |
+| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                   | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)     |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Are Multilingual Models Improving? Revisiting Cross-Lingual Transfer                                                  | [2026.findings-emnlp.2388](https://aclanthology.org/2026.findings-emnlp.2388/) |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation          | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   |
+| Speech Translation and Metrics in 2026: Findings of the IWSLT Campaign                                                | [2026.iwslt-1.39](https://aclanthology.org/2026.iwslt-1.39/)                   |
+| Evaluating Open-Source LLMs for Text Summarization and Named Entity Recognition in Long, Unstructured Text            | [2026.nlp4dh-1.35](https://aclanthology.org/2026.nlp4dh-1.35/)                 |
 
 {% endraw %}

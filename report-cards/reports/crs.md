@@ -205,11 +205,11 @@ _None found._
 
 Here are up to ten papers published in 2026 that mention Seychellois Creole. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                     | paper                                                              | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) | body only      |
-| HT WMT 2026 CreoleMT System Description: Learning Hierarchies for Low-Resource Creole Language Identification             | [2026.wmt-main.185](https://aclanthology.org/2026.wmt-main.185/)   | body only      |
-| KYX WMT 2026 CreoleMT System Description: A Contamination- and Orthography-Aware Evaluation for Réunion Creole to English | [2026.wmt-main.190](https://aclanthology.org/2026.wmt-main.190/)   | body only      |
-| Findings of the Second Shared Task for Creole Language Machine Translation, at WMT 2026                                   | [2026.wmt-main.56](https://aclanthology.org/2026.wmt-main.56/)     | body only      |
+| title                                                                                                                     | paper                                                              |
+|:--------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) |
+| HT WMT 2026 CreoleMT System Description: Learning Hierarchies for Low-Resource Creole Language Identification             | [2026.wmt-main.185](https://aclanthology.org/2026.wmt-main.185/)   |
+| KYX WMT 2026 CreoleMT System Description: A Contamination- and Orthography-Aware Evaluation for Réunion Creole to English | [2026.wmt-main.190](https://aclanthology.org/2026.wmt-main.190/)   |
+| Findings of the Second Shared Task for Creole Language Machine Translation, at WMT 2026                                   | [2026.wmt-main.56](https://aclanthology.org/2026.wmt-main.56/)     |
 
 {% endraw %}

@@ -255,17 +255,17 @@ Marathi has been part of the WMT translation task in **1** year (2025).
 
 Here are up to ten papers published in 2026 that mention Marathi. None of the 157 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                    | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                             | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/)             | body only      |
-| Polyglot Teachers: Evaluating Language Models for Multilingual Synthetic Data Generation                 | [2026.emnlp-main.440](https://aclanthology.org/2026.emnlp-main.440/)           | body only      |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                      | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)     | body only      |
-| The Geometry of LLM-as-Judge: Why Inter-LLM Consensus Is Not Human Alignment                             | [2026.findings-emnlp.1696](https://aclanthology.org/2026.findings-emnlp.1696/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?               | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| APTFiNER: Annotation Preserving Translation for Fine-grained Named Entity Recognition                    | [2026.lrec-1.608](https://aclanthology.org/2026.lrec-1.608/)                   | body only      |
-| STAR-IL: A Dataset for Style-Aware Machine Translation of Product Reviews in Indian Languages            | [2026.lrec-1.691](https://aclanthology.org/2026.lrec-1.691/)                   | body only      |
-| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation     | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)                   | body only      |
-| Beyond Accuracy: A Structured Error Analysis of Multilingual LLMs on Marathi Script Variation and Syntax | [2026.mellm-1.11](https://aclanthology.org/2026.mellm-1.11/)                   | body only      |
-| An improved Code-Switching Detection System for some Indic Languages                                     | [2026.mme-main.3](https://aclanthology.org/2026.mme-main.3/)                   | body only      |
+| title                                                                                                    | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                             | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/)             |
+| Polyglot Teachers: Evaluating Language Models for Multilingual Synthetic Data Generation                 | [2026.emnlp-main.440](https://aclanthology.org/2026.emnlp-main.440/)           |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                      | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)     |
+| The Geometry of LLM-as-Judge: Why Inter-LLM Consensus Is Not Human Alignment                             | [2026.findings-emnlp.1696](https://aclanthology.org/2026.findings-emnlp.1696/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?               | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| APTFiNER: Annotation Preserving Translation for Fine-grained Named Entity Recognition                    | [2026.lrec-1.608](https://aclanthology.org/2026.lrec-1.608/)                   |
+| STAR-IL: A Dataset for Style-Aware Machine Translation of Product Reviews in Indian Languages            | [2026.lrec-1.691](https://aclanthology.org/2026.lrec-1.691/)                   |
+| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation     | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)                   |
+| Beyond Accuracy: A Structured Error Analysis of Multilingual LLMs on Marathi Script Variation and Syntax | [2026.mellm-1.11](https://aclanthology.org/2026.mellm-1.11/)                   |
+| An improved Code-Switching Detection System for some Indic Languages                                     | [2026.mme-main.3](https://aclanthology.org/2026.mme-main.3/)                   |
 
 {% endraw %}

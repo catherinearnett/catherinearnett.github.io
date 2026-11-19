@@ -225,17 +225,17 @@ Scots isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 Here are up to ten papers published in 2026 that mention Scots. None of the 11 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                   | paper                                                                      | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| CHASE: Adversarial Red-Blue Teaming for Improving LLM Safety using Reinforcement Learning               | [2026.aacl-long.36](https://aclanthology.org/2026.aacl-long.36/)           | body only      |
-| Validator-Guided Hard Negative Mining for Masked Language Modeling in Low-Resource Ancient Languages    | [2026.acl-srw.69](https://aclanthology.org/2026.acl-srw.69/)               | body only      |
-| Why Low-Resource NLP Needs More Than Cross-Lingual Transfer: Lessons Learned from Luxembourgish         | [2026.bigpicture-main.7](https://aclanthology.org/2026.bigpicture-main.7/) | body only      |
-| Voices from the Margins: Modeling Linguistic Diversity in Spontaneous Speech for Low-Resource Languages | [2026.computel-1.5](https://aclanthology.org/2026.computel-1.5/)           | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                      | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                 | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| Proffiliadur: Welsh Language Text Profiling Toolkit                                                     | [2026.lrec-1.88](https://aclanthology.org/2026.lrec-1.88/)                 | body only      |
-| Building a Corpus and Database for Rare and Undeciphered Scripts                                        | [2026.lt4hala-1.17](https://aclanthology.org/2026.lt4hala-1.17/)           | body only      |
-| MLingualFC: Evaluating Jailbreak Vulnerabilities in Multilingual Vision-Language Models                 | [2026.mellm-1.22](https://aclanthology.org/2026.mellm-1.22/)               | body only      |
-| Wiktionary as a Crowdsourced Lexicon for English Dialects                                               | [2026.wac-1.23](https://aclanthology.org/2026.wac-1.23/)                   | body only      |
+| title                                                                                                   | paper                                                                      |
+|:--------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| CHASE: Adversarial Red-Blue Teaming for Improving LLM Safety using Reinforcement Learning               | [2026.aacl-long.36](https://aclanthology.org/2026.aacl-long.36/)           |
+| Validator-Guided Hard Negative Mining for Masked Language Modeling in Low-Resource Ancient Languages    | [2026.acl-srw.69](https://aclanthology.org/2026.acl-srw.69/)               |
+| Why Low-Resource NLP Needs More Than Cross-Lingual Transfer: Lessons Learned from Luxembourgish         | [2026.bigpicture-main.7](https://aclanthology.org/2026.bigpicture-main.7/) |
+| Voices from the Margins: Modeling Linguistic Diversity in Spontaneous Speech for Low-Resource Languages | [2026.computel-1.5](https://aclanthology.org/2026.computel-1.5/)           |
+| TIPA: Typologically Informed Parameter Aggregation                                                      | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                 | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| Proffiliadur: Welsh Language Text Profiling Toolkit                                                     | [2026.lrec-1.88](https://aclanthology.org/2026.lrec-1.88/)                 |
+| Building a Corpus and Database for Rare and Undeciphered Scripts                                        | [2026.lt4hala-1.17](https://aclanthology.org/2026.lt4hala-1.17/)           |
+| MLingualFC: Evaluating Jailbreak Vulnerabilities in Multilingual Vision-Language Models                 | [2026.mellm-1.22](https://aclanthology.org/2026.mellm-1.22/)               |
+| Wiktionary as a Crowdsourced Lexicon for English Dialects                                               | [2026.wac-1.23](https://aclanthology.org/2026.wac-1.23/)                   |
 
 {% endraw %}

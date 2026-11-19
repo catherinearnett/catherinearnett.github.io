@@ -231,17 +231,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Fijian. None of the 11 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                     | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)         | body only      |
-| Towards Trustworthy AI-Mediated Communication Across Languages and Cultures                               | [2026.bigpicture-main.5](https://aclanthology.org/2026.bigpicture-main.5/) | body only      |
-| Creating ConLangs to Probe the Metalinguistic Grammatical Knowledge of LLMs                               | [2026.findings-acl.1455](https://aclanthology.org/2026.findings-acl.1455/) | body only      |
-| Many-Shot Scaling of In-Context Learning with Self-Generated Demonstrations                               | [2026.findings-acl.2013](https://aclanthology.org/2026.findings-acl.2013/) | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                        | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| Progressing beyond Art Masterpieces or Touristic Clichés: how to assess your LLMs for cultural alignment? | [2026.resourceful-4.13](https://aclanthology.org/2026.resourceful-4.13/)   | body only      |
-| Algebraic Classification of Reduplicative Processes                                                       | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)           | body only      |
-| Speech Act Constructions in Universal Dependencies                                                        | [2026.udw-1.29](https://aclanthology.org/2026.udw-1.29/)                   | body only      |
-| Wiktionary as a Crowdsourced Lexicon for English Dialects                                                 | [2026.wac-1.23](https://aclanthology.org/2026.wac-1.23/)                   | body only      |
+| title                                                                                                     | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)         |
+| Towards Trustworthy AI-Mediated Communication Across Languages and Cultures                               | [2026.bigpicture-main.5](https://aclanthology.org/2026.bigpicture-main.5/) |
+| Creating ConLangs to Probe the Metalinguistic Grammatical Knowledge of LLMs                               | [2026.findings-acl.1455](https://aclanthology.org/2026.findings-acl.1455/) |
+| Many-Shot Scaling of In-Context Learning with Self-Generated Demonstrations                               | [2026.findings-acl.2013](https://aclanthology.org/2026.findings-acl.2013/) |
+| TIPA: Typologically Informed Parameter Aggregation                                                        | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| Progressing beyond Art Masterpieces or Touristic Clichés: how to assess your LLMs for cultural alignment? | [2026.resourceful-4.13](https://aclanthology.org/2026.resourceful-4.13/)   |
+| Algebraic Classification of Reduplicative Processes                                                       | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)           |
+| Speech Act Constructions in Universal Dependencies                                                        | [2026.udw-1.29](https://aclanthology.org/2026.udw-1.29/)                   |
+| Wiktionary as a Crowdsourced Lexicon for English Dialects                                                 | [2026.wac-1.23](https://aclanthology.org/2026.wac-1.23/)                   |
 
 {% endraw %}

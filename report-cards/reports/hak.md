@@ -212,17 +212,17 @@ Hakka isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 Here are up to ten papers published in 2026 that mention Hakka. None of the 12 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                         | paper                                                                      | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| MMAC: A Multilingual, Multimodal Alignment Framework for Cultural Grounding Evaluation                                        | [2026.acl-long.989](https://aclanthology.org/2026.acl-long.989/)           | body only      |
-| Anchoring Speech with Semantics: A Multimodal Adapter Mechanism for Automatic Speech Recognition in Low-Resource Languages    | [2026.emnlp-main.1380](https://aclanthology.org/2026.emnlp-main.1380/)     | body only      |
-| FuzhouBench: A Benchmark for Eastern Min Chinese with Tone Sandhi Annotations                                                 | [2026.emnlp-main.618](https://aclanthology.org/2026.emnlp-main.618/)       | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| What Drives Dialectal Jailbreaks? An Ablation of Surface Form, Cultural Framing, and Strategy Banks                           | [2026.impactspeech-1.10](https://aclanthology.org/2026.impactspeech-1.10/) | body only      |
-| Efficient Dialect-Aware Modeling and Conditioning for Low-Resource Taiwanese Hakka Speech Processing                          | [2026.lrec-1.491](https://aclanthology.org/2026.lrec-1.491/)               | body only      |
-| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages                                    | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)               | body only      |
-| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets                                         | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)                     | body only      |
-| FLANS at SemEval-2026 Task 7: RAG with Open-Sourced Smaller LLMs for Everyday Knowledge Across Diverse Languages and Cultures | [2026.semeval-1.119](https://aclanthology.org/2026.semeval-1.119/)         | body only      |
-| Benchmarking Multilingual LLM Translation Accuracy for Fuzhounese                                                             | [2026.sigul-1.20](https://aclanthology.org/2026.sigul-1.20/)               | body only      |
+| title                                                                                                                         | paper                                                                      |
+|:------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| MMAC: A Multilingual, Multimodal Alignment Framework for Cultural Grounding Evaluation                                        | [2026.acl-long.989](https://aclanthology.org/2026.acl-long.989/)           |
+| Anchoring Speech with Semantics: A Multimodal Adapter Mechanism for Automatic Speech Recognition in Low-Resource Languages    | [2026.emnlp-main.1380](https://aclanthology.org/2026.emnlp-main.1380/)     |
+| FuzhouBench: A Benchmark for Eastern Min Chinese with Tone Sandhi Annotations                                                 | [2026.emnlp-main.618](https://aclanthology.org/2026.emnlp-main.618/)       |
+| TIPA: Typologically Informed Parameter Aggregation                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| What Drives Dialectal Jailbreaks? An Ablation of Surface Form, Cultural Framing, and Strategy Banks                           | [2026.impactspeech-1.10](https://aclanthology.org/2026.impactspeech-1.10/) |
+| Efficient Dialect-Aware Modeling and Conditioning for Low-Resource Taiwanese Hakka Speech Processing                          | [2026.lrec-1.491](https://aclanthology.org/2026.lrec-1.491/)               |
+| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages                                    | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)               |
+| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets                                         | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)                     |
+| FLANS at SemEval-2026 Task 7: RAG with Open-Sourced Smaller LLMs for Everyday Knowledge Across Diverse Languages and Cultures | [2026.semeval-1.119](https://aclanthology.org/2026.semeval-1.119/)         |
+| Benchmarking Multilingual LLM Translation Accuracy for Fuzhounese                                                             | [2026.sigul-1.20](https://aclanthology.org/2026.sigul-1.20/)               |
 
 {% endraw %}

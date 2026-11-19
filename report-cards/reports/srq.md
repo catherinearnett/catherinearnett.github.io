@@ -157,8 +157,8 @@ Sirionó isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2
 
 Here are up to ten papers published in 2026 that mention Sirionó. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                               | paper                                                            | mentioned in   |
-|:----------------------------------------------------|:-----------------------------------------------------------------|:---------------|
-| Algebraic Classification of Reduplicative Processes | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/) | body only      |
+| title                                               | paper                                                            |
+|:----------------------------------------------------|:-----------------------------------------------------------------|
+| Algebraic Classification of Reduplicative Processes | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/) |
 
 {% endraw %}

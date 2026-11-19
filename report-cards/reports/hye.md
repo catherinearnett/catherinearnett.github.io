@@ -236,17 +236,17 @@ Armenian has been part of the WMT translation task in **1** year (2026).
 
 Here are up to ten papers published in 2026 that mention Armenian. None of the 75 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                        | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Automatic translation in public services: A survey of the Finnish public sector                                              | [2026.eamt-1.45](https://aclanthology.org/2026.eamt-1.45/)                     | body only      |
-| Script Choice in LLMs: Evidence for Late-Layer Commitment                                                                    | [2026.findings-emnlp.1173](https://aclanthology.org/2026.findings-emnlp.1173/) | body only      |
-| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/)   | body only      |
-| From Corpus to Concept Scheme: Developing a SKOS Vocabulary for Armenian Epigraphic Heritage                                 | [2026.latechclfl-1.1](https://aclanthology.org/2026.latechclfl-1.1/)           | body only      |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                 | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               | body only      |
-| We’re Cooked! – Probing LLM Political Alignment Via Conflict-Framed Recipe Translation                                       | [2026.oracle-main.18](https://aclanthology.org/2026.oracle-main.18/)           | body only      |
-| Population-Grounded Evaluation of Multilingual LLM Alignment with European Societal Values                                   | [2026.pandora-1.6](https://aclanthology.org/2026.pandora-1.6/)                 | body only      |
-| Frequency modulates structural choice in Turkish suspended affixation: a latent-process account                              | [2026.scil-main.32](https://aclanthology.org/2026.scil-main.32/)               | body only      |
-| Towards Universal Dependencies for L2 Learners of Modern Greek: Annotation and Challenges                                    | [2026.udw-1.8](https://aclanthology.org/2026.udw-1.8/)                         | body only      |
-| Yandex at WMT26: Translation Adaptation at 235B and Hard-Label Distillation to 8B                                            | [2026.wmt-main.77](https://aclanthology.org/2026.wmt-main.77/)                 | body only      |
+| title                                                                                                                        | paper                                                                          |
+|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Automatic translation in public services: A survey of the Finnish public sector                                              | [2026.eamt-1.45](https://aclanthology.org/2026.eamt-1.45/)                     |
+| Script Choice in LLMs: Evidence for Late-Layer Commitment                                                                    | [2026.findings-emnlp.1173](https://aclanthology.org/2026.findings-emnlp.1173/) |
+| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/)   |
+| From Corpus to Concept Scheme: Developing a SKOS Vocabulary for Armenian Epigraphic Heritage                                 | [2026.latechclfl-1.1](https://aclanthology.org/2026.latechclfl-1.1/)           |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                 | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               |
+| We’re Cooked! – Probing LLM Political Alignment Via Conflict-Framed Recipe Translation                                       | [2026.oracle-main.18](https://aclanthology.org/2026.oracle-main.18/)           |
+| Population-Grounded Evaluation of Multilingual LLM Alignment with European Societal Values                                   | [2026.pandora-1.6](https://aclanthology.org/2026.pandora-1.6/)                 |
+| Frequency modulates structural choice in Turkish suspended affixation: a latent-process account                              | [2026.scil-main.32](https://aclanthology.org/2026.scil-main.32/)               |
+| Towards Universal Dependencies for L2 Learners of Modern Greek: Annotation and Challenges                                    | [2026.udw-1.8](https://aclanthology.org/2026.udw-1.8/)                         |
+| Yandex at WMT26: Translation Adaptation at 235B and Hard-Label Distillation to 8B                                            | [2026.wmt-main.77](https://aclanthology.org/2026.wmt-main.77/)                 |
 
 {% endraw %}

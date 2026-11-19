@@ -157,17 +157,17 @@ Tukano isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 Here are up to ten papers published in 2026 that mention Tukano. None of the 15 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                        | paper                                                                | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:---------------|
-| Cross-Lingual Alignment Without Joint Training: Do Monolingual Language Models Converge on Universal Representations?        | [2026.emnlp-main.947](https://aclanthology.org/2026.emnlp-main.947/) | body only      |
-| PHEB: An European Portuguese High School-Level LLM Benchmark                                                                 | [2026.lrec-1.367](https://aclanthology.org/2026.lrec-1.367/)         | body only      |
-| NegNLI-BR: A Brazilian Portuguese Benchmark for Negation in Natural Language Inference                                       | [2026.lrec-1.97](https://aclanthology.org/2026.lrec-1.97/)           | body only      |
-| CURUPIRA: Clever guard for harm and linguistic prompt mitigation in Brazilian Portuguese                                     | [2026.propor-1.107](https://aclanthology.org/2026.propor-1.107/)     | body only      |
-| NorBERTo: A ModernBERT Model Trained for Portuguese with 331 Billion Tokens Corpus                                           | [2026.propor-1.18](https://aclanthology.org/2026.propor-1.18/)       | body only      |
-| LegalSim-PT: Building a Dataset for Legal Document Simplification in Portuguese Leveraging Linguistic Metrics                | [2026.propor-1.39](https://aclanthology.org/2026.propor-1.39/)       | body only      |
-| Global vs. Local Sentence Embeddings for Brazilian Portuguese: Revisiting Monolingual Models in the Age of Foundation Models | [2026.propor-1.52](https://aclanthology.org/2026.propor-1.52/)       | body only      |
-| Biatron: A Parameter-Efficient Small Language Model for Brazilian Portuguese with Integrated Mathematical Reasoning          | [2026.propor-1.86](https://aclanthology.org/2026.propor-1.86/)       | body only      |
-| Desafios Tipológicos na Construção de Treebanks: O Mapeamento Morfossintático da Língua Kubeo no Padrão UD                   | [2026.stil-1.53](https://aclanthology.org/2026.stil-1.53/)           | body only      |
-| Exploring Hybrid Pre-training for Automatic Essay Scoring                                                                    | [2026.stil-1.6](https://aclanthology.org/2026.stil-1.6/)             | body only      |
+| title                                                                                                                        | paper                                                                |
+|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
+| Cross-Lingual Alignment Without Joint Training: Do Monolingual Language Models Converge on Universal Representations?        | [2026.emnlp-main.947](https://aclanthology.org/2026.emnlp-main.947/) |
+| PHEB: An European Portuguese High School-Level LLM Benchmark                                                                 | [2026.lrec-1.367](https://aclanthology.org/2026.lrec-1.367/)         |
+| NegNLI-BR: A Brazilian Portuguese Benchmark for Negation in Natural Language Inference                                       | [2026.lrec-1.97](https://aclanthology.org/2026.lrec-1.97/)           |
+| CURUPIRA: Clever guard for harm and linguistic prompt mitigation in Brazilian Portuguese                                     | [2026.propor-1.107](https://aclanthology.org/2026.propor-1.107/)     |
+| NorBERTo: A ModernBERT Model Trained for Portuguese with 331 Billion Tokens Corpus                                           | [2026.propor-1.18](https://aclanthology.org/2026.propor-1.18/)       |
+| LegalSim-PT: Building a Dataset for Legal Document Simplification in Portuguese Leveraging Linguistic Metrics                | [2026.propor-1.39](https://aclanthology.org/2026.propor-1.39/)       |
+| Global vs. Local Sentence Embeddings for Brazilian Portuguese: Revisiting Monolingual Models in the Age of Foundation Models | [2026.propor-1.52](https://aclanthology.org/2026.propor-1.52/)       |
+| Biatron: A Parameter-Efficient Small Language Model for Brazilian Portuguese with Integrated Mathematical Reasoning          | [2026.propor-1.86](https://aclanthology.org/2026.propor-1.86/)       |
+| Desafios Tipológicos na Construção de Treebanks: O Mapeamento Morfossintático da Língua Kubeo no Padrão UD                   | [2026.stil-1.53](https://aclanthology.org/2026.stil-1.53/)           |
+| Exploring Hybrid Pre-training for Automatic Essay Scoring                                                                    | [2026.stil-1.6](https://aclanthology.org/2026.stil-1.6/)             |
 
 {% endraw %}

@@ -228,17 +228,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Haitian Creole. None of the 29 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                              | paper                                                                  | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| Child Support: Leveraging Lexifiers Resources to Support Creoles ASR                                               | [2026.computel-1.12](https://aclanthology.org/2026.computel-1.12/)     | body only      |
-| Large-scale Multilingual News Image Captioning with LLMs                                                           | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/) | body only      |
-| Annotating Clinical Risk and Variation in Haitian Creole Medical Translation                                       | [2026.law-main.1](https://aclanthology.org/2026.law-main.1/)           | body only      |
-| Radio Haiti-Inter: A Large-Scale Annotated Corpus of Spoken Haitian Creole                                         | [2026.lrec-1.241](https://aclanthology.org/2026.lrec-1.241/)           | body only      |
-| Comparing Approaches to Automatic Summarization in Less-Resourced Languages                                        | [2026.lrec-1.270](https://aclanthology.org/2026.lrec-1.270/)           | body only      |
-| How Should We Model the Probability of a Language?                                                                 | [2026.vardial-1.18](https://aclanthology.org/2026.vardial-1.18/)       | body only      |
-| HT WMT 2026 CreoleMT System Description: Learning Hierarchies for Low-Resource Creole Language Identification      | [2026.wmt-main.185](https://aclanthology.org/2026.wmt-main.185/)       | body only      |
-| ChapsVision (CHV) at WMT 2026 CreoleMT: Shifting Creole MT from Train-Time to Test-Time Compute for Haitian Creole | [2026.wmt-main.187](https://aclanthology.org/2026.wmt-main.187/)       | body only      |
-| Gwo-K Kreyol Classifier: Rock Pidgins (RP) Submission to the WMT 2026 CreoleMT Language Identification Shared Task | [2026.wmt-main.191](https://aclanthology.org/2026.wmt-main.191/)       | body only      |
-| Findings of the WMT26 Multilingual Instruction Shared Task: Small Models Are Not Yet Polyglots                     | [2026.wmt-main.50](https://aclanthology.org/2026.wmt-main.50/)         | body only      |
+| title                                                                                                              | paper                                                                  |
+|:-------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| Child Support: Leveraging Lexifiers Resources to Support Creoles ASR                                               | [2026.computel-1.12](https://aclanthology.org/2026.computel-1.12/)     |
+| Large-scale Multilingual News Image Captioning with LLMs                                                           | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/) |
+| Annotating Clinical Risk and Variation in Haitian Creole Medical Translation                                       | [2026.law-main.1](https://aclanthology.org/2026.law-main.1/)           |
+| Radio Haiti-Inter: A Large-Scale Annotated Corpus of Spoken Haitian Creole                                         | [2026.lrec-1.241](https://aclanthology.org/2026.lrec-1.241/)           |
+| Comparing Approaches to Automatic Summarization in Less-Resourced Languages                                        | [2026.lrec-1.270](https://aclanthology.org/2026.lrec-1.270/)           |
+| How Should We Model the Probability of a Language?                                                                 | [2026.vardial-1.18](https://aclanthology.org/2026.vardial-1.18/)       |
+| HT WMT 2026 CreoleMT System Description: Learning Hierarchies for Low-Resource Creole Language Identification      | [2026.wmt-main.185](https://aclanthology.org/2026.wmt-main.185/)       |
+| ChapsVision (CHV) at WMT 2026 CreoleMT: Shifting Creole MT from Train-Time to Test-Time Compute for Haitian Creole | [2026.wmt-main.187](https://aclanthology.org/2026.wmt-main.187/)       |
+| Gwo-K Kreyol Classifier: Rock Pidgins (RP) Submission to the WMT 2026 CreoleMT Language Identification Shared Task | [2026.wmt-main.191](https://aclanthology.org/2026.wmt-main.191/)       |
+| Findings of the WMT26 Multilingual Instruction Shared Task: Small Models Are Not Yet Polyglots                     | [2026.wmt-main.50](https://aclanthology.org/2026.wmt-main.50/)         |
 
 {% endraw %}

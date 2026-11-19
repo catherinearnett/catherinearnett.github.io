@@ -223,17 +223,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Erzya. None of the 10 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                               | paper                                                                      | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Beyond Hallucination: Reframing LLM Quality Assessment as Task-Output Alignment                                     | [2026.bigpicture-main.3](https://aclanthology.org/2026.bigpicture-main.3/) | body only      |
-| Private-Use Area Characters in the Wild: Signal or Noise?                                                           | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   | body only      |
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems                    | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   | body only      |
-| The Two Towers for Estonian-Centric and Finno-Ugric Machine Translation                                             | [2026.eamt-1.32](https://aclanthology.org/2026.eamt-1.32/)                 | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                  | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)           | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                             | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| LLM as a Morphological Disambiguator for Belarusian: A Preliminary Study                                            | [2026.sigul-1.4](https://aclanthology.org/2026.sigul-1.4/)                 | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                           | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                     | body only      |
-| FIÙR: A Benchmark Dataset for Eastern Lombard Machine Translation                                                   | [2026.wmt-main.199](https://aclanthology.org/2026.wmt-main.199/)           | body only      |
+| title                                                                                                               | paper                                                                      |
+|:--------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Beyond Hallucination: Reframing LLM Quality Assessment as Task-Output Alignment                                     | [2026.bigpicture-main.3](https://aclanthology.org/2026.bigpicture-main.3/) |
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                           | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   |
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems                    | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   |
+| The Two Towers for Estonian-Centric and Finno-Ugric Machine Translation                                             | [2026.eamt-1.32](https://aclanthology.org/2026.eamt-1.32/)                 |
+| TIPA: Typologically Informed Parameter Aggregation                                                                  | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)           |
+| Goldfish: Monolingual Language Models for 350 Languages                                                             | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| LLM as a Morphological Disambiguator for Belarusian: A Preliminary Study                                            | [2026.sigul-1.4](https://aclanthology.org/2026.sigul-1.4/)                 |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                           | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                     |
+| FIÙR: A Benchmark Dataset for Eastern Lombard Machine Translation                                                   | [2026.wmt-main.199](https://aclanthology.org/2026.wmt-main.199/)           |
 
 {% endraw %}

@@ -230,17 +230,17 @@ Upper Sorbian isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation ta
 
 Here are up to ten papers published in 2026 that mention Upper Sorbian. None of the 14 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                         | paper                                                                          | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                           | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)             | body only      |
-| Dialects of Translationese Shape Language Model Learning                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                    | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   | body only      |
-| SNAPP: Segment-Level Neural Alignment Post-Processing for Low-Resource Parallel Sentence Mining                               | [2026.wmt-main.14](https://aclanthology.org/2026.wmt-main.14/)                 | body only      |
-| One Model, Five Tasks, Two RTX 3090 GPUs: The HSE System for the Sorbian Track of WMT26 Multitask LLMs with Limited Resources | [2026.wmt-main.209](https://aclanthology.org/2026.wmt-main.209/)               | body only      |
-| HeyBusan at WMT26: A System for the Sorbian Track                                                                             | [2026.wmt-main.210](https://aclanthology.org/2026.wmt-main.210/)               | body only      |
-| Getting More from Small LLMs and Limited Data: Fuzzy-Match Retrieval and Candidate Scoring for Multitask Sorbian NLP          | [2026.wmt-main.211](https://aclanthology.org/2026.wmt-main.211/)               | body only      |
-| TUMHN@WMT2026: LLMs with Limited Resources for Slavic Languages                                                               | [2026.wmt-main.212](https://aclanthology.org/2026.wmt-main.212/)               | body only      |
-| HITSZ at WMT 2026: Mixed Continued Pre-training and Supervised Fine-tuning for Low-Resource Sorbian                           | [2026.wmt-main.214](https://aclanthology.org/2026.wmt-main.214/)               | body only      |
-| Findings of the WMT 2026 Shared Task: Multitask LLMs with Limited Resources                                                   | [2026.wmt-main.59](https://aclanthology.org/2026.wmt-main.59/)                 | body only      |
+| title                                                                                                                         | paper                                                                          |
+|:------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                           | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)             |
+| Dialects of Translationese Shape Language Model Learning                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                    | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   |
+| SNAPP: Segment-Level Neural Alignment Post-Processing for Low-Resource Parallel Sentence Mining                               | [2026.wmt-main.14](https://aclanthology.org/2026.wmt-main.14/)                 |
+| One Model, Five Tasks, Two RTX 3090 GPUs: The HSE System for the Sorbian Track of WMT26 Multitask LLMs with Limited Resources | [2026.wmt-main.209](https://aclanthology.org/2026.wmt-main.209/)               |
+| HeyBusan at WMT26: A System for the Sorbian Track                                                                             | [2026.wmt-main.210](https://aclanthology.org/2026.wmt-main.210/)               |
+| Getting More from Small LLMs and Limited Data: Fuzzy-Match Retrieval and Candidate Scoring for Multitask Sorbian NLP          | [2026.wmt-main.211](https://aclanthology.org/2026.wmt-main.211/)               |
+| TUMHN@WMT2026: LLMs with Limited Resources for Slavic Languages                                                               | [2026.wmt-main.212](https://aclanthology.org/2026.wmt-main.212/)               |
+| HITSZ at WMT 2026: Mixed Continued Pre-training and Supervised Fine-tuning for Low-Resource Sorbian                           | [2026.wmt-main.214](https://aclanthology.org/2026.wmt-main.214/)               |
+| Findings of the WMT 2026 Shared Task: Multitask LLMs with Limited Resources                                                   | [2026.wmt-main.59](https://aclanthology.org/2026.wmt-main.59/)                 |
 
 {% endraw %}

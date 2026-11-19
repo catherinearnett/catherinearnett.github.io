@@ -266,17 +266,17 @@ Vietnamese has been part of the WMT translation task in **2** years (2025, 2026)
 
 Here are up to ten papers published in 2026 that mention Vietnamese. None of the 317 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                           | paper                                                                    | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| AraDetox: A Multi-Dialect Arabic Detoxification Dataset                                                         | [2026.arabicnlp-main.4](https://aclanthology.org/2026.arabicnlp-main.4/) | body only      |
-| Intent vs. Surface: Recovering Acoustic Realization from Modern ASR for Pronunciation Training                  | [2026.bea-1.23](https://aclanthology.org/2026.bea-1.23/)                 | body only      |
-| When Flores Bloomz Wrong: Cross-Direction Contamination in Machine Translation Evaluation                       | [2026.eacl-short.26](https://aclanthology.org/2026.eacl-short.26/)       | body only      |
-| Text4Speech: Text-Driven Training for Massively Multilingual Speech Understanding                               | [2026.emnlp-main.2427](https://aclanthology.org/2026.emnlp-main.2427/)   | body only      |
-| Polyglot Teachers: Evaluating Language Models for Multilingual Synthetic Data Generation                        | [2026.emnlp-main.440](https://aclanthology.org/2026.emnlp-main.440/)     | body only      |
-| Anthropogenic Regional Adaptation in Multimodal Vision-Language Model                                           | [2026.findings-aacl.36](https://aclanthology.org/2026.findings-aacl.36/) | body only      |
-| ViKhoMT: A Vietnamese–K’Ho Neural Machine Translation Dataset and Evaluation for Community Health Communication | [2026.lrec-1.687](https://aclanthology.org/2026.lrec-1.687/)             | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)             | body only      |
-| Instruction-Tuned Urdu LLMs: Efficient Adaptation of Llama Models and Evaluation Resources for Urdu             | [2026.lrec-1.832](https://aclanthology.org/2026.lrec-1.832/)             | body only      |
-| SCIR-TG-MT’s Submission for the WMT 2026 General Machine Translation Task                                       | [2026.wmt-main.61](https://aclanthology.org/2026.wmt-main.61/)           | body only      |
+| title                                                                                                           | paper                                                                    |
+|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| AraDetox: A Multi-Dialect Arabic Detoxification Dataset                                                         | [2026.arabicnlp-main.4](https://aclanthology.org/2026.arabicnlp-main.4/) |
+| Intent vs. Surface: Recovering Acoustic Realization from Modern ASR for Pronunciation Training                  | [2026.bea-1.23](https://aclanthology.org/2026.bea-1.23/)                 |
+| When Flores Bloomz Wrong: Cross-Direction Contamination in Machine Translation Evaluation                       | [2026.eacl-short.26](https://aclanthology.org/2026.eacl-short.26/)       |
+| Text4Speech: Text-Driven Training for Massively Multilingual Speech Understanding                               | [2026.emnlp-main.2427](https://aclanthology.org/2026.emnlp-main.2427/)   |
+| Polyglot Teachers: Evaluating Language Models for Multilingual Synthetic Data Generation                        | [2026.emnlp-main.440](https://aclanthology.org/2026.emnlp-main.440/)     |
+| Anthropogenic Regional Adaptation in Multimodal Vision-Language Model                                           | [2026.findings-aacl.36](https://aclanthology.org/2026.findings-aacl.36/) |
+| ViKhoMT: A Vietnamese–K’Ho Neural Machine Translation Dataset and Evaluation for Community Health Communication | [2026.lrec-1.687](https://aclanthology.org/2026.lrec-1.687/)             |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)             |
+| Instruction-Tuned Urdu LLMs: Efficient Adaptation of Llama Models and Evaluation Resources for Urdu             | [2026.lrec-1.832](https://aclanthology.org/2026.lrec-1.832/)             |
+| SCIR-TG-MT’s Submission for the WMT 2026 General Machine Translation Task                                       | [2026.wmt-main.61](https://aclanthology.org/2026.wmt-main.61/)           |
 
 {% endraw %}

@@ -270,17 +270,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Arabic. None of the 1,556 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                            | paper                                                                                      | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|:---------------|
-| AKARROUCH at DialectSentEval 2026: A Generate-and-Rerank Approach for Arabic Dialect Sentiment Swapping          | [2026.arabicnlp-sharedtasks.174](https://aclanthology.org/2026.arabicnlp-sharedtasks.174/) | body only      |
-| Tarjih at StanceEval-2026: Argument-Guided Arabic Stance Detection                                               | [2026.arabicnlp-sharedtasks.69](https://aclanthology.org/2026.arabicnlp-sharedtasks.69/)   | body only      |
-| Lightweight Multilingual Coreference Resolution without LLMs @CRAC2026                                           | [2026.codi-1.26](https://aclanthology.org/2026.codi-1.26/)                                 | body only      |
-| Do Political Opinions Transfer Between Western Languages? An Analysis of Unaligned and Aligned Multilingual LLMs | [2026.eacl-long.14](https://aclanthology.org/2026.eacl-long.14/)                           | body only      |
-| Artificial intelligence language technologies in multilingual healthcare: Grand challenges ahead                 | [2026.eamt-1.48](https://aclanthology.org/2026.eamt-1.48/)                                 | body only      |
-| MultiSynt/MT: Trillion-Token Multi-Parallel Pretraining Data Translated Across 36 Languages                      | [2026.emnlp-main.2185](https://aclanthology.org/2026.emnlp-main.2185/)                     | body only      |
-| A Survey of Incorporating Gaze Data into Natural Language Processing Models and Applications                     | [2026.gaze4nlp-1.10](https://aclanthology.org/2026.gaze4nlp-1.10/)                         | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                               | body only      |
-| Using Valency Inheritance in Building a Valency Lexicon                                                          | [2026.lrec-1.900](https://aclanthology.org/2026.lrec-1.900/)                               | body only      |
-| Hate Speech as a Conflict-Period Marker: Evidence from Arabic Telegram in Sudan                                  | [2026.nlp4pi-1.20](https://aclanthology.org/2026.nlp4pi-1.20/)                             | body only      |
+| title                                                                                                            | paper                                                                                      |
+|:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|
+| AKARROUCH at DialectSentEval 2026: A Generate-and-Rerank Approach for Arabic Dialect Sentiment Swapping          | [2026.arabicnlp-sharedtasks.174](https://aclanthology.org/2026.arabicnlp-sharedtasks.174/) |
+| Tarjih at StanceEval-2026: Argument-Guided Arabic Stance Detection                                               | [2026.arabicnlp-sharedtasks.69](https://aclanthology.org/2026.arabicnlp-sharedtasks.69/)   |
+| Lightweight Multilingual Coreference Resolution without LLMs @CRAC2026                                           | [2026.codi-1.26](https://aclanthology.org/2026.codi-1.26/)                                 |
+| Do Political Opinions Transfer Between Western Languages? An Analysis of Unaligned and Aligned Multilingual LLMs | [2026.eacl-long.14](https://aclanthology.org/2026.eacl-long.14/)                           |
+| Artificial intelligence language technologies in multilingual healthcare: Grand challenges ahead                 | [2026.eamt-1.48](https://aclanthology.org/2026.eamt-1.48/)                                 |
+| MultiSynt/MT: Trillion-Token Multi-Parallel Pretraining Data Translated Across 36 Languages                      | [2026.emnlp-main.2185](https://aclanthology.org/2026.emnlp-main.2185/)                     |
+| A Survey of Incorporating Gaze Data into Natural Language Processing Models and Applications                     | [2026.gaze4nlp-1.10](https://aclanthology.org/2026.gaze4nlp-1.10/)                         |
+| Goldfish: Monolingual Language Models for 350 Languages                                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                               |
+| Using Valency Inheritance in Building a Valency Lexicon                                                          | [2026.lrec-1.900](https://aclanthology.org/2026.lrec-1.900/)                               |
+| Hate Speech as a Conflict-Period Marker: Evidence from Arabic Telegram in Sudan                                  | [2026.nlp4pi-1.20](https://aclanthology.org/2026.nlp4pi-1.20/)                             |
 
 {% endraw %}

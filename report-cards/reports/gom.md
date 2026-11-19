@@ -230,17 +230,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Konkani. None of the 27 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Paramanu: Compact and Competitive Monolingual Language Models for Low-Resource Morphologically Rich Indian Languages | [2026.acl-long.1922](https://aclanthology.org/2026.acl-long.1922/)             | body only      |
-| BhashaSutra: A Task-Centric Unified Survey of Indian NLP Datasets, Corpora, and Resources                            | [2026.acl-long.551](https://aclanthology.org/2026.acl-long.551/)               | body only      |
-| Evaluating Cross-lingual Knowledge Consistency in Code-Mixed vis-a-vis Indian Languages using IndicKLAR              | [2026.findings-emnlp.1655](https://aclanthology.org/2026.findings-emnlp.1655/) | body only      |
-| Mining Naturally Romanized Seed Corpora without Romanizations                                                        | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)                   | body only      |
-| CEFR-Annotated WordNet: LLM-Based Proficiency-Guided Semantic Database for Language Learning                         | [2026.lrec-1.292](https://aclanthology.org/2026.lrec-1.292/)                   | body only      |
-| When Words Don’t Mean What They Say: Figurative Understanding in Bengali Idioms                                      | [2026.lrec-1.546](https://aclanthology.org/2026.lrec-1.546/)                   | body only      |
-| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               | body only      |
-| An Idiom Benchmark for Turkish                                                                                       | [2026.mwe-1.12](https://aclanthology.org/2026.mwe-1.12/)                       | body only      |
-| Dialect Matters: Cross-Lingual ASR Transfer for Low-Resource Indic Language Varieties                                | [2026.vardial-1.12](https://aclanthology.org/2026.vardial-1.12/)               | body only      |
-| Konkani Daan: A Community-Driven Culturally Grounded Speech Corpus for Low-Resource ASR                              | [2026.wildre-1.3](https://aclanthology.org/2026.wildre-1.3/)                   | body only      |
+| title                                                                                                                | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Paramanu: Compact and Competitive Monolingual Language Models for Low-Resource Morphologically Rich Indian Languages | [2026.acl-long.1922](https://aclanthology.org/2026.acl-long.1922/)             |
+| BhashaSutra: A Task-Centric Unified Survey of Indian NLP Datasets, Corpora, and Resources                            | [2026.acl-long.551](https://aclanthology.org/2026.acl-long.551/)               |
+| Evaluating Cross-lingual Knowledge Consistency in Code-Mixed vis-a-vis Indian Languages using IndicKLAR              | [2026.findings-emnlp.1655](https://aclanthology.org/2026.findings-emnlp.1655/) |
+| Mining Naturally Romanized Seed Corpora without Romanizations                                                        | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)                   |
+| CEFR-Annotated WordNet: LLM-Based Proficiency-Guided Semantic Database for Language Learning                         | [2026.lrec-1.292](https://aclanthology.org/2026.lrec-1.292/)                   |
+| When Words Don’t Mean What They Say: Figurative Understanding in Bengali Idioms                                      | [2026.lrec-1.546](https://aclanthology.org/2026.lrec-1.546/)                   |
+| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               |
+| An Idiom Benchmark for Turkish                                                                                       | [2026.mwe-1.12](https://aclanthology.org/2026.mwe-1.12/)                       |
+| Dialect Matters: Cross-Lingual ASR Transfer for Low-Resource Indic Language Varieties                                | [2026.vardial-1.12](https://aclanthology.org/2026.vardial-1.12/)               |
+| Konkani Daan: A Community-Driven Culturally Grounded Speech Corpus for Low-Resource ASR                              | [2026.wildre-1.3](https://aclanthology.org/2026.wildre-1.3/)                   |
 
 {% endraw %}

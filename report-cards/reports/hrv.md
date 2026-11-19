@@ -248,17 +248,17 @@ Croatian has been part of the WMT translation task in **1** year (2022).
 
 Here are up to ten papers published in 2026 that mention Croatian. None of the 129 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                       | paper                                                                          | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Different types of syntactic agreement recruit the same units within large language models                                                  | [2026.acl-long.7](https://aclanthology.org/2026.acl-long.7/)                   | body only      |
-| One Workflow Does Not Fit All Relations: A System Description for the AKBC 2026 LM-KBC Shared Task                                          | [2026.akbc-1.41](https://aclanthology.org/2026.akbc-1.41/)                     | body only      |
-| Polyglot Teachers: Evaluating Language Models for Multilingual Synthetic Data Generation                                                    | [2026.emnlp-main.440](https://aclanthology.org/2026.emnlp-main.440/)           | body only      |
-| Sequence Repetition Enhances Token Embeddings and Improves Sequence Labeling with Decoder-only Language Models                              | [2026.findings-eacl.339](https://aclanthology.org/2026.findings-eacl.339/)     | body only      |
-| What Makes Blood Thicker than Water: Related Word Discrimination in Romance Languages from a Multi-dimensional Perspective                  | [2026.findings-emnlp.1916](https://aclanthology.org/2026.findings-emnlp.1916/) | body only      |
-| From Oral History to Structured Data: The MalachNER Dataset                                                                                 | [2026.htres-2.7](https://aclanthology.org/2026.htres-2.7/)                     | body only      |
-| Exploring Social Bias in Slovenia: The EEC-SL Dataset                                                                                       | [2026.lrec-1.318](https://aclanthology.org/2026.lrec-1.318/)                   | body only      |
-| Pluralistic Annotation of Cultural Weaponization on Wikipedia: A Multi-Annotator Case Study across Ukraine and Armenia                      | [2026.pandora-1.5](https://aclanthology.org/2026.pandora-1.5/)                 | body only      |
-| Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification | [2026.politicalnlp-1.11](https://aclanthology.org/2026.politicalnlp-1.11/)     | body only      |
-| OpenLID-v3: Improving the Precision of Closely Related Language Identification – An Experience Report                                       | [2026.vardial-1.23](https://aclanthology.org/2026.vardial-1.23/)               | body only      |
+| title                                                                                                                                       | paper                                                                          |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Different types of syntactic agreement recruit the same units within large language models                                                  | [2026.acl-long.7](https://aclanthology.org/2026.acl-long.7/)                   |
+| One Workflow Does Not Fit All Relations: A System Description for the AKBC 2026 LM-KBC Shared Task                                          | [2026.akbc-1.41](https://aclanthology.org/2026.akbc-1.41/)                     |
+| Polyglot Teachers: Evaluating Language Models for Multilingual Synthetic Data Generation                                                    | [2026.emnlp-main.440](https://aclanthology.org/2026.emnlp-main.440/)           |
+| Sequence Repetition Enhances Token Embeddings and Improves Sequence Labeling with Decoder-only Language Models                              | [2026.findings-eacl.339](https://aclanthology.org/2026.findings-eacl.339/)     |
+| What Makes Blood Thicker than Water: Related Word Discrimination in Romance Languages from a Multi-dimensional Perspective                  | [2026.findings-emnlp.1916](https://aclanthology.org/2026.findings-emnlp.1916/) |
+| From Oral History to Structured Data: The MalachNER Dataset                                                                                 | [2026.htres-2.7](https://aclanthology.org/2026.htres-2.7/)                     |
+| Exploring Social Bias in Slovenia: The EEC-SL Dataset                                                                                       | [2026.lrec-1.318](https://aclanthology.org/2026.lrec-1.318/)                   |
+| Pluralistic Annotation of Cultural Weaponization on Wikipedia: A Multi-Annotator Case Study across Ukraine and Armenia                      | [2026.pandora-1.5](https://aclanthology.org/2026.pandora-1.5/)                 |
+| Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification | [2026.politicalnlp-1.11](https://aclanthology.org/2026.politicalnlp-1.11/)     |
+| OpenLID-v3: Improving the Precision of Closely Related Language Identification – An Experience Report                                       | [2026.vardial-1.23](https://aclanthology.org/2026.vardial-1.23/)               |
 
 {% endraw %}

@@ -211,17 +211,17 @@ Zhuang isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 Here are up to ten papers published in 2026 that mention Zhuang. None of the 20 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                    | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR          | [2026.acl-long.1392](https://aclanthology.org/2026.acl-long.1392/)             | body only      |
-| Diversity in Unity, Theory in Practice: Hierarchical Multitask Benchmarks for Chinese Minority Languages | [2026.acl-long.1684](https://aclanthology.org/2026.acl-long.1684/)             | body only      |
-| A Catalog of Basque Dialectal Resources: Online Collections and Standard-to-Dialectal Adaptations        | [2026.dialres-1.16](https://aclanthology.org/2026.dialres-1.16/)               | body only      |
-| SUNDER: Selective Unmasking for Text Understanding                                                       | [2026.emnlp-main.825](https://aclanthology.org/2026.emnlp-main.825/)           | body only      |
-| HiMed: Incentivizing Hindi Reasoning in Medical LLMs                                                     | [2026.findings-emnlp.117](https://aclanthology.org/2026.findings-emnlp.117/)   | body only      |
-| Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation                        | [2026.findings-emnlp.2096](https://aclanthology.org/2026.findings-emnlp.2096/) | body only      |
-| Reasoning over Object Descriptions Improves Coreference Resolution in Task-Based Dialogue Systems        | [2026.lrec-1.224](https://aclanthology.org/2026.lrec-1.224/)                   | body only      |
-| A Single Model Ensemble Framework for Neural Machine Translation Using Pivot Translation                 | [2026.lrec-1.672](https://aclanthology.org/2026.lrec-1.672/)                   | body only      |
-| ManufactuBERT: Efficient Continual Pretraining for Manufacturing                                         | [2026.lrec-1.827](https://aclanthology.org/2026.lrec-1.827/)                   | body only      |
-| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande                   | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)           | body only      |
+| title                                                                                                    | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR          | [2026.acl-long.1392](https://aclanthology.org/2026.acl-long.1392/)             |
+| Diversity in Unity, Theory in Practice: Hierarchical Multitask Benchmarks for Chinese Minority Languages | [2026.acl-long.1684](https://aclanthology.org/2026.acl-long.1684/)             |
+| A Catalog of Basque Dialectal Resources: Online Collections and Standard-to-Dialectal Adaptations        | [2026.dialres-1.16](https://aclanthology.org/2026.dialres-1.16/)               |
+| SUNDER: Selective Unmasking for Text Understanding                                                       | [2026.emnlp-main.825](https://aclanthology.org/2026.emnlp-main.825/)           |
+| HiMed: Incentivizing Hindi Reasoning in Medical LLMs                                                     | [2026.findings-emnlp.117](https://aclanthology.org/2026.findings-emnlp.117/)   |
+| Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation                        | [2026.findings-emnlp.2096](https://aclanthology.org/2026.findings-emnlp.2096/) |
+| Reasoning over Object Descriptions Improves Coreference Resolution in Task-Based Dialogue Systems        | [2026.lrec-1.224](https://aclanthology.org/2026.lrec-1.224/)                   |
+| A Single Model Ensemble Framework for Neural Machine Translation Using Pivot Translation                 | [2026.lrec-1.672](https://aclanthology.org/2026.lrec-1.672/)                   |
+| ManufactuBERT: Efficient Continual Pretraining for Manufacturing                                         | [2026.lrec-1.827](https://aclanthology.org/2026.lrec-1.827/)                   |
+| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande                   | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)           |
 
 {% endraw %}

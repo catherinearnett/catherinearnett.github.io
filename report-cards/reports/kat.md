@@ -230,17 +230,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Georgian. None of the 90 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                   | paper                                                                      | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                   | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)         | body only      |
-| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                        | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/)         | body only      |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation     | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/) | body only      |
-| From Corpus to Concept Scheme: Developing a SKOS Vocabulary for Armenian Epigraphic Heritage            | [2026.latechclfl-1.1](https://aclanthology.org/2026.latechclfl-1.1/)       | body only      |
-| Targeted Syntactic Evaluation of Language Models on Georgian Case Alignment                             | [2026.loreslm-1.23](https://aclanthology.org/2026.loreslm-1.23/)           | body only      |
-| Less is More: Adapting Text Embeddings for Low-Resource Languages with Small Scale Noisy Synthetic Data | [2026.loreslm-1.31](https://aclanthology.org/2026.loreslm-1.31/)           | body only      |
-| PARSEME 2.0 Multilingual Corpus of Multiword Expressions                                                | [2026.lrec-1.378](https://aclanthology.org/2026.lrec-1.378/)               | body only      |
-| tiberiucarp at MWE-2026 AdMIRe 2: GLIMMER-Gloss-based Image Multiword Meaning Expression Ranker         | [2026.mwe-1.23](https://aclanthology.org/2026.mwe-1.23/)                   | body only      |
-| Omnivorous Agreement, like Uyghur Backness Harmony, is a Challenge for Tier-Based Strict Locality       | [2026.scil-main.13](https://aclanthology.org/2026.scil-main.13/)           | body only      |
-| ImgMT: Wikipedia-based Dataset For Evaluating Text-in-Image Translation                                 | [2026.wmt-main.43](https://aclanthology.org/2026.wmt-main.43/)             | body only      |
+| title                                                                                                   | paper                                                                      |
+|:--------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                   | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)         |
+| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                        | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/)         |
+| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation     | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/) |
+| From Corpus to Concept Scheme: Developing a SKOS Vocabulary for Armenian Epigraphic Heritage            | [2026.latechclfl-1.1](https://aclanthology.org/2026.latechclfl-1.1/)       |
+| Targeted Syntactic Evaluation of Language Models on Georgian Case Alignment                             | [2026.loreslm-1.23](https://aclanthology.org/2026.loreslm-1.23/)           |
+| Less is More: Adapting Text Embeddings for Low-Resource Languages with Small Scale Noisy Synthetic Data | [2026.loreslm-1.31](https://aclanthology.org/2026.loreslm-1.31/)           |
+| PARSEME 2.0 Multilingual Corpus of Multiword Expressions                                                | [2026.lrec-1.378](https://aclanthology.org/2026.lrec-1.378/)               |
+| tiberiucarp at MWE-2026 AdMIRe 2: GLIMMER-Gloss-based Image Multiword Meaning Expression Ranker         | [2026.mwe-1.23](https://aclanthology.org/2026.mwe-1.23/)                   |
+| Omnivorous Agreement, like Uyghur Backness Harmony, is a Challenge for Tier-Based Strict Locality       | [2026.scil-main.13](https://aclanthology.org/2026.scil-main.13/)           |
+| ImgMT: Wikipedia-based Dataset For Evaluating Text-in-Image Translation                                 | [2026.wmt-main.43](https://aclanthology.org/2026.wmt-main.43/)             |
 
 {% endraw %}

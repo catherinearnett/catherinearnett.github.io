@@ -157,8 +157,8 @@ Chácobo isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2
 
 Here are up to ten papers published in 2026 that mention Chácobo. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                   | paper                                                                | mentioned in   |
-|:----------------------------------------|:---------------------------------------------------------------------|:---------------|
-| LLM Agents as Computational Typologists | [2026.emnlp-main.514](https://aclanthology.org/2026.emnlp-main.514/) | body only      |
+| title                                   | paper                                                                |
+|:----------------------------------------|:---------------------------------------------------------------------|
+| LLM Agents as Computational Typologists | [2026.emnlp-main.514](https://aclanthology.org/2026.emnlp-main.514/) |
 
 {% endraw %}

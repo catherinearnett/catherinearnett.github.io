@@ -231,13 +231,13 @@ _⚠️ Listed under the macrolanguage code `kom`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Komi-Zyrian. None of the 6 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                            | paper                                                                      | mentioned in   |
-|:-------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   | body only      |
-| The Two Towers for Estonian-Centric and Finno-Ugric Machine Translation                          | [2026.eamt-1.32](https://aclanthology.org/2026.eamt-1.32/)                 | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Tokenization and Morphological Fidelity in Uralic NLP: A Cross-Lingual Evaluation                | [2026.loreslm-1.43](https://aclanthology.org/2026.loreslm-1.43/)           | body only      |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)     | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)           | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
+| title                                                                                            | paper                                                                      |
+|:-------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   |
+| The Two Towers for Estonian-Centric and Finno-Ugric Machine Translation                          | [2026.eamt-1.32](https://aclanthology.org/2026.eamt-1.32/)                 |
+| TIPA: Typologically Informed Parameter Aggregation                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Tokenization and Morphological Fidelity in Uralic NLP: A Cross-Lingual Evaluation                | [2026.loreslm-1.43](https://aclanthology.org/2026.loreslm-1.43/)           |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)     | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)           |
+| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
 
 {% endraw %}

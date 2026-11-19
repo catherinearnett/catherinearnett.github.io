@@ -239,17 +239,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Sanskrit. None of the 106 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                              | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:---------------|
-| ThaiEditBench: A Mechanism-Typed, Length-Stratified Benchmark for Thai Orthographic Error Correction                 | [2026.aacl-short.17](https://aclanthology.org/2026.aacl-short.17/)                 | body only      |
-| Paramanu: Compact and Competitive Monolingual Language Models for Low-Resource Morphologically Rich Indian Languages | [2026.acl-long.1922](https://aclanthology.org/2026.acl-long.1922/)                 | body only      |
-| Digitizing Nepal’s Written Heritage: A Comprehensive HTR Pipeline for Old Nepali Manuscripts                         | [2026.acl-long.671](https://aclanthology.org/2026.acl-long.671/)                   | body only      |
-| LIMP: Linguistically-Informed Multi-Strategy Prompting for Telugu Multi-Turn Dialogue Generation                     | [2026.dravidianlangtech-1.5](https://aclanthology.org/2026.dravidianlangtech-1.5/) | body only      |
-| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                          | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)             | body only      |
-| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                  | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)                       | body only      |
-| Paradigms over Surface Cues: Inflection Class Drives Hindi Gender Assignment in Expert-Annotated Noun Paradigms      | [2026.mrl-1.9](https://aclanthology.org/2026.mrl-1.9/)                             | body only      |
-| Integrating Cultural Wisdom and Digital Technologies for Children’s Moral and Emotional Development                  | [2026.wildre-1.15](https://aclanthology.org/2026.wildre-1.15/)                     | body only      |
-| Konkani Wordnet Resources                                                                                            | [2026.wildre-1.6](https://aclanthology.org/2026.wildre-1.6/)                       | body only      |
-| StalePO: Anchored Token-Level Preference Optimization using Legacy Post-Edits in Machine Translation                 | [2026.wmt-main.8](https://aclanthology.org/2026.wmt-main.8/)                       | body only      |
+| title                                                                                                                | paper                                                                              |
+|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| ThaiEditBench: A Mechanism-Typed, Length-Stratified Benchmark for Thai Orthographic Error Correction                 | [2026.aacl-short.17](https://aclanthology.org/2026.aacl-short.17/)                 |
+| Paramanu: Compact and Competitive Monolingual Language Models for Low-Resource Morphologically Rich Indian Languages | [2026.acl-long.1922](https://aclanthology.org/2026.acl-long.1922/)                 |
+| Digitizing Nepal’s Written Heritage: A Comprehensive HTR Pipeline for Old Nepali Manuscripts                         | [2026.acl-long.671](https://aclanthology.org/2026.acl-long.671/)                   |
+| LIMP: Linguistically-Informed Multi-Strategy Prompting for Telugu Multi-Turn Dialogue Generation                     | [2026.dravidianlangtech-1.5](https://aclanthology.org/2026.dravidianlangtech-1.5/) |
+| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                          | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)             |
+| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                  | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)                       |
+| Paradigms over Surface Cues: Inflection Class Drives Hindi Gender Assignment in Expert-Annotated Noun Paradigms      | [2026.mrl-1.9](https://aclanthology.org/2026.mrl-1.9/)                             |
+| Integrating Cultural Wisdom and Digital Technologies for Children’s Moral and Emotional Development                  | [2026.wildre-1.15](https://aclanthology.org/2026.wildre-1.15/)                     |
+| Konkani Wordnet Resources                                                                                            | [2026.wildre-1.6](https://aclanthology.org/2026.wildre-1.6/)                       |
+| StalePO: Anchored Token-Level Preference Optimization using Legacy Post-Edits in Machine Translation                 | [2026.wmt-main.8](https://aclanthology.org/2026.wmt-main.8/)                       |
 
 {% endraw %}

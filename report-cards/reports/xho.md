@@ -241,17 +241,17 @@ Xhosa has been part of the WMT translation task in **1** year (2021).
 
 Here are up to ten papers published in 2026 that mention Xhosa. None of the 42 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                        | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| LLM as a Meta-Judge: Synthetic Data for NLP Evaluation Metric Validation                                                     | [2026.acl-srw.125](https://aclanthology.org/2026.acl-srw.125/)                 | body only      |
-| Calibrating Beyond English: Language Diversity for Better Quantized Multilingual LLMs                                        | [2026.eacl-long.223](https://aclanthology.org/2026.eacl-long.223/)             | body only      |
-| MERLIN: Multi-Stage Curriculum Alignment for Multilingual Encoder-LLM Integration in Cross-Lingual Reasoning                 | [2026.eacl-long.277](https://aclanthology.org/2026.eacl-long.277/)             | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                           | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation               | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                       | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                 | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   | body only      |
-| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/)   | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                             | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                   | body only      |
-| Evaluating Open-Source LLMs for Text Summarization and Named Entity Recognition in Long, Unstructured Text                   | [2026.nlp4dh-1.35](https://aclanthology.org/2026.nlp4dh-1.35/)                 | body only      |
+| title                                                                                                                        | paper                                                                          |
+|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| LLM as a Meta-Judge: Synthetic Data for NLP Evaluation Metric Validation                                                     | [2026.acl-srw.125](https://aclanthology.org/2026.acl-srw.125/)                 |
+| Calibrating Beyond English: Language Diversity for Better Quantized Multilingual LLMs                                        | [2026.eacl-long.223](https://aclanthology.org/2026.eacl-long.223/)             |
+| MERLIN: Multi-Stage Curriculum Alignment for Multilingual Encoder-LLM Integration in Cross-Lingual Reasoning                 | [2026.eacl-long.277](https://aclanthology.org/2026.eacl-long.277/)             |
+| TIPA: Typologically Informed Parameter Aggregation                                                                           | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation               | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                       | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                 | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   |
+| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/)   |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                             | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                   |
+| Evaluating Open-Source LLMs for Text Summarization and Named Entity Recognition in Long, Unstructured Text                   | [2026.nlp4dh-1.35](https://aclanthology.org/2026.nlp4dh-1.35/)                 |
 
 {% endraw %}

@@ -239,17 +239,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Uzbek. None of the 52 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                | paper                                                                  | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| Multilingual and Cross-Lingual Citation Needed Detection on Wikipedia for Lower-Resource Languages   | [2026.acl-long.1291](https://aclanthology.org/2026.acl-long.1291/)     | body only      |
-| Private-Use Area Characters in the Wild: Signal or Noise?                                            | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)               | body only      |
-| Do LLMs Cross Alphabets? A Cross-Script Audit of LLMs Across Four Kazakh Latin Proposals             | [2026.emnlp-main.1479](https://aclanthology.org/2026.emnlp-main.1479/) | body only      |
-| Data-Centric Approach at the LoResMT 2026 Turkic Translation Challenge: Russian-Kyrgyz               | [2026.loresmt-1.22](https://aclanthology.org/2026.loresmt-1.22/)       | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                           | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)           | body only      |
-| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)           | body only      |
-| A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding                         | [2026.lrec-1.741](https://aclanthology.org/2026.lrec-1.741/)           | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings       | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)           | body only      |
-| UzLitAttr:ABenchmarkforClosed-SetAuthorshipAttributioninUzbek LiteraryTexts                          | [2026.mrl-1.48](https://aclanthology.org/2026.mrl-1.48/)               | body only      |
-| alexandru412 at MWE-2026 AdMIRe 2.0: Advancing Multimodal Idiomaticity Representation                | [2026.mwe-1.17](https://aclanthology.org/2026.mwe-1.17/)               | body only      |
+| title                                                                                                | paper                                                                  |
+|:-----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| Multilingual and Cross-Lingual Citation Needed Detection on Wikipedia for Lower-Resource Languages   | [2026.acl-long.1291](https://aclanthology.org/2026.acl-long.1291/)     |
+| Private-Use Area Characters in the Wild: Signal or Noise?                                            | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)               |
+| Do LLMs Cross Alphabets? A Cross-Script Audit of LLMs Across Four Kazakh Latin Proposals             | [2026.emnlp-main.1479](https://aclanthology.org/2026.emnlp-main.1479/) |
+| Data-Centric Approach at the LoResMT 2026 Turkic Translation Challenge: Russian-Kyrgyz               | [2026.loresmt-1.22](https://aclanthology.org/2026.loresmt-1.22/)       |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                           | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)           |
+| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)           |
+| A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding                         | [2026.lrec-1.741](https://aclanthology.org/2026.lrec-1.741/)           |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings       | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)           |
+| UzLitAttr:ABenchmarkforClosed-SetAuthorshipAttributioninUzbek LiteraryTexts                          | [2026.mrl-1.48](https://aclanthology.org/2026.mrl-1.48/)               |
+| alexandru412 at MWE-2026 AdMIRe 2.0: Advancing Multimodal Idiomaticity Representation                | [2026.mwe-1.17](https://aclanthology.org/2026.mwe-1.17/)               |
 
 {% endraw %}

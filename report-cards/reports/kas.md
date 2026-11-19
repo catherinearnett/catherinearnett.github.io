@@ -230,17 +230,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Kashmiri. None of the 16 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| BhashaSutra: A Task-Centric Unified Survey of Indian NLP Datasets, Corpora, and Resources                                                     | [2026.acl-long.551](https://aclanthology.org/2026.acl-long.551/)               | body only      |
-| Thesis Proposal: Development of End-to-End Speech Translation Models for Indian Languages                                                     | [2026.eacl-srw.41](https://aclanthology.org/2026.eacl-srw.41/)                 | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Evaluating Cross-lingual Knowledge Consistency in Code-Mixed vis-a-vis Indian Languages using IndicKLAR                                       | [2026.findings-emnlp.1655](https://aclanthology.org/2026.findings-emnlp.1655/) | body only      |
-| UrHiOdSynth: A Multilingual Synthetic Corpus for Speech-to-Speech Translation in Low-Resource Indic Languages                                 | [2026.loreslm-1.50](https://aclanthology.org/2026.loreslm-1.50/)               | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                                         | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               | body only      |
-| Algebraic Classification of Reduplicative Processes                                                                                           | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)               | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| BhashaSutra: A Task-Centric Unified Survey of Indian NLP Datasets, Corpora, and Resources                                                     | [2026.acl-long.551](https://aclanthology.org/2026.acl-long.551/)               |
+| Thesis Proposal: Development of End-to-End Speech Translation Models for Indian Languages                                                     | [2026.eacl-srw.41](https://aclanthology.org/2026.eacl-srw.41/)                 |
+| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Evaluating Cross-lingual Knowledge Consistency in Code-Mixed vis-a-vis Indian Languages using IndicKLAR                                       | [2026.findings-emnlp.1655](https://aclanthology.org/2026.findings-emnlp.1655/) |
+| UrHiOdSynth: A Multilingual Synthetic Corpus for Speech-to-Speech Translation in Low-Resource Indic Languages                                 | [2026.loreslm-1.50](https://aclanthology.org/2026.loreslm-1.50/)               |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                                         | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               |
+| Algebraic Classification of Reduplicative Processes                                                                                           | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)               |
 
 {% endraw %}

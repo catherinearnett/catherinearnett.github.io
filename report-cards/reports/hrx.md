@@ -179,8 +179,8 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Hunsrik. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                             | paper                                                              | mentioned in   |
-|:------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) | body only      |
+| title                                                             | paper                                                              |
+|:------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) |
 
 {% endraw %}

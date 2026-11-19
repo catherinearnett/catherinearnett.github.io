@@ -231,13 +231,13 @@ _⚠️ Listed under the macrolanguage code `bua`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Buryat. None of the 6 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                            | paper                                                                      | mentioned in   |
-|:-------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| Towards Corpus-Grounded Agentic LLMs for Multilingual Grammatical Analysis                       | [2026.slide-1.12](https://aclanthology.org/2026.slide-1.12/)               | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings         | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)               | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                        | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                     | body only      |
+| title                                                                                            | paper                                                                      |
+|:-------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   |
+| TIPA: Typologically Informed Parameter Aggregation                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| Towards Corpus-Grounded Agentic LLMs for Multilingual Grammatical Analysis                       | [2026.slide-1.12](https://aclanthology.org/2026.slide-1.12/)               |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings         | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)               |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                        | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                     |
 
 {% endraw %}

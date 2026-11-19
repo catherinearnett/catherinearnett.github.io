@@ -243,17 +243,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Albanian. None of the 56 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                                         | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)             | body only      |
-| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                                                              | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/)             | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                                | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                                    | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   | body only      |
-| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                                                     | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)                   | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   | body only      |
-| Lexical Innovation in Business Colour Idioms: Evidence from Large Language Models in Five Languages                                           | [2026.neollm-1.4](https://aclanthology.org/2026.neollm-1.4/)                   | body only      |
-| Tokenization Sets the Measurement Scale for Cross-Lingual Diagnostics                                                                         | [2026.oracle-main.24](https://aclanthology.org/2026.oracle-main.24/)           | body only      |
-| Population-Grounded Evaluation of Multilingual LLM Alignment with European Societal Values                                                    | [2026.pandora-1.6](https://aclanthology.org/2026.pandora-1.6/)                 | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                                         | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)             |
+| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                                                              | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/)             |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                                | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                                    | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   |
+| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                                                     | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)                   |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
+| Lexical Innovation in Business Colour Idioms: Evidence from Large Language Models in Five Languages                                           | [2026.neollm-1.4](https://aclanthology.org/2026.neollm-1.4/)                   |
+| Tokenization Sets the Measurement Scale for Cross-Lingual Diagnostics                                                                         | [2026.oracle-main.24](https://aclanthology.org/2026.oracle-main.24/)           |
+| Population-Grounded Evaluation of Multilingual LLM Alignment with European Societal Values                                                    | [2026.pandora-1.6](https://aclanthology.org/2026.pandora-1.6/)                 |
 
 {% endraw %}

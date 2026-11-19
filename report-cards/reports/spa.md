@@ -284,17 +284,17 @@ Spanish has been part of the WMT translation task in **10** years (2005, 2006, 2
 
 Here are up to ten papers published in 2026 that mention Spanish. None of the 1,532 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                | paper                                                                    | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| A Novel Typology of Mutually Intelligible Words: The Case of Slavic Languages                                                        | [2026.dialres-1.33](https://aclanthology.org/2026.dialres-1.33/)         | body only      |
-| Revisiting the Estimation of Unigram Surprisal in Computational Psycholinguistics                                                    | [2026.emnlp-main.2399](https://aclanthology.org/2026.emnlp-main.2399/)   | body only      |
-| Visual Preference Optimization with Rubric Rewards                                                                                   | [2026.emnlp-main.2552](https://aclanthology.org/2026.emnlp-main.2552/)   | body only      |
-| Breaking Language Preference in Multilingual RAG via Language-Controllable Retrieval and Language-Agnostic Reasoning                 | [2026.findings-acl.374](https://aclanthology.org/2026.findings-acl.374/) | body only      |
-| Code-switching as a Bias Indicator in LLMs: "the Consequences Are Not the Same Para Nosotros"                                        | [2026.lrec-1.662](https://aclanthology.org/2026.lrec-1.662/)             | body only      |
-| Across Generations: A Comparative Analysis of NER for Latin Inscriptions from Classical Machine Learning to LLMs                     | [2026.lt4hala-1.11](https://aclanthology.org/2026.lt4hala-1.11/)         | body only      |
-| Where Are Language-Specific Features Represented in Multilingual LLMs? Everywhere                                                    | [2026.mrl-1.27](https://aclanthology.org/2026.mrl-1.27/)                 | body only      |
-| Decomposing Creativity: Two Small Datasets Combining Originality Ratings and Metaphor Annotations                                    | [2026.nonliteral-1.11](https://aclanthology.org/2026.nonliteral-1.11/)   | body only      |
-| Learning Stress in Arabic Low-Resource Settings                                                                                      | [2026.scil-main.24](https://aclanthology.org/2026.scil-main.24/)         | body only      |
-| YNU-HPCC at SemEval-2026 Task 9: Hybrid Augmentation and Regularization Strategies for Multilingual Polarization Type Classification | [2026.semeval-1.99](https://aclanthology.org/2026.semeval-1.99/)         | body only      |
+| title                                                                                                                                | paper                                                                    |
+|:-------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| A Novel Typology of Mutually Intelligible Words: The Case of Slavic Languages                                                        | [2026.dialres-1.33](https://aclanthology.org/2026.dialres-1.33/)         |
+| Revisiting the Estimation of Unigram Surprisal in Computational Psycholinguistics                                                    | [2026.emnlp-main.2399](https://aclanthology.org/2026.emnlp-main.2399/)   |
+| Visual Preference Optimization with Rubric Rewards                                                                                   | [2026.emnlp-main.2552](https://aclanthology.org/2026.emnlp-main.2552/)   |
+| Breaking Language Preference in Multilingual RAG via Language-Controllable Retrieval and Language-Agnostic Reasoning                 | [2026.findings-acl.374](https://aclanthology.org/2026.findings-acl.374/) |
+| Code-switching as a Bias Indicator in LLMs: "the Consequences Are Not the Same Para Nosotros"                                        | [2026.lrec-1.662](https://aclanthology.org/2026.lrec-1.662/)             |
+| Across Generations: A Comparative Analysis of NER for Latin Inscriptions from Classical Machine Learning to LLMs                     | [2026.lt4hala-1.11](https://aclanthology.org/2026.lt4hala-1.11/)         |
+| Where Are Language-Specific Features Represented in Multilingual LLMs? Everywhere                                                    | [2026.mrl-1.27](https://aclanthology.org/2026.mrl-1.27/)                 |
+| Decomposing Creativity: Two Small Datasets Combining Originality Ratings and Metaphor Annotations                                    | [2026.nonliteral-1.11](https://aclanthology.org/2026.nonliteral-1.11/)   |
+| Learning Stress in Arabic Low-Resource Settings                                                                                      | [2026.scil-main.24](https://aclanthology.org/2026.scil-main.24/)         |
+| YNU-HPCC at SemEval-2026 Task 9: Hybrid Augmentation and Regularization Strategies for Multilingual Polarization Type Classification | [2026.semeval-1.99](https://aclanthology.org/2026.semeval-1.99/)         |
 
 {% endraw %}

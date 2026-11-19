@@ -228,17 +228,17 @@ Ladin has been part of the WMT translation task in **1** year (2026).
 
 Here are up to ten papers published in 2026 that mention Ladin. None of the 26 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| An Empirical Study of Many-Shot In-Context Learning for Machine Translation of Low-Resource Languages                                         | [2026.findings-aacl.142](https://aclanthology.org/2026.findings-aacl.142/) | body only      |
-| Modeling Topics as Linguistic Linked Open Data: A First Attempt Using BERTopic, Ontolex-Lemon and FrAC                                        | [2026.ldl-1.1](https://aclanthology.org/2026.ldl-1.1/)                     | body only      |
-| Rebelòt: Datasets and Token-Level Language Identification for Lombard-Italian-English Code-Mixing                                             | [2026.sigul-1.25](https://aclanthology.org/2026.sigul-1.25/)               | body only      |
-| Leveraging Verbalized Confidence in LLM-as-a-Judge for Automated Translation Quality Evaluation                                               | [2026.wmt-main.107](https://aclanthology.org/2026.wmt-main.107/)           | body only      |
-| SpinPop: A Fast Spin Metric for the WMT26 Metrics Shared Task                                                                                 | [2026.wmt-main.110](https://aclanthology.org/2026.wmt-main.110/)           | body only      |
-| Findings of the WMT26 General Machine Translation Shared Task: Contrastive Dynamic Human Evaluation at Scale                                  | [2026.wmt-main.48](https://aclanthology.org/2026.wmt-main.48/)             | body only      |
-| Findings of the WMT26 Shared Task on Automated Translation Quality Evaluation Systems: Compact Open Models are Competitive Quality Evaluators | [2026.wmt-main.49](https://aclanthology.org/2026.wmt-main.49/)             | body only      |
-| Findings of the WMT 2026 Shared Task of the Open Language Data Initiative                                                                     | [2026.wmt-main.57](https://aclanthology.org/2026.wmt-main.57/)             | body only      |
-| LiLa at WMT 2026 General MT Task: Exploring Beyond NMT and Learning the Limits of LLM Adaptation for Ligurian and Ladin                       | [2026.wmt-main.60](https://aclanthology.org/2026.wmt-main.60/)             | body only      |
-| Grammatist at WMT 2026 General MT Task: An Agentic LLM Framework for Machine Translation with Explicit Linguistic Knowledge                   | [2026.wmt-main.65](https://aclanthology.org/2026.wmt-main.65/)             | body only      |
+| title                                                                                                                                         | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| An Empirical Study of Many-Shot In-Context Learning for Machine Translation of Low-Resource Languages                                         | [2026.findings-aacl.142](https://aclanthology.org/2026.findings-aacl.142/) |
+| Modeling Topics as Linguistic Linked Open Data: A First Attempt Using BERTopic, Ontolex-Lemon and FrAC                                        | [2026.ldl-1.1](https://aclanthology.org/2026.ldl-1.1/)                     |
+| Rebelòt: Datasets and Token-Level Language Identification for Lombard-Italian-English Code-Mixing                                             | [2026.sigul-1.25](https://aclanthology.org/2026.sigul-1.25/)               |
+| Leveraging Verbalized Confidence in LLM-as-a-Judge for Automated Translation Quality Evaluation                                               | [2026.wmt-main.107](https://aclanthology.org/2026.wmt-main.107/)           |
+| SpinPop: A Fast Spin Metric for the WMT26 Metrics Shared Task                                                                                 | [2026.wmt-main.110](https://aclanthology.org/2026.wmt-main.110/)           |
+| Findings of the WMT26 General Machine Translation Shared Task: Contrastive Dynamic Human Evaluation at Scale                                  | [2026.wmt-main.48](https://aclanthology.org/2026.wmt-main.48/)             |
+| Findings of the WMT26 Shared Task on Automated Translation Quality Evaluation Systems: Compact Open Models are Competitive Quality Evaluators | [2026.wmt-main.49](https://aclanthology.org/2026.wmt-main.49/)             |
+| Findings of the WMT 2026 Shared Task of the Open Language Data Initiative                                                                     | [2026.wmt-main.57](https://aclanthology.org/2026.wmt-main.57/)             |
+| LiLa at WMT 2026 General MT Task: Exploring Beyond NMT and Learning the Limits of LLM Adaptation for Ligurian and Ladin                       | [2026.wmt-main.60](https://aclanthology.org/2026.wmt-main.60/)             |
+| Grammatist at WMT 2026 General MT Task: An Agentic LLM Framework for Machine Translation with Explicit Linguistic Knowledge                   | [2026.wmt-main.65](https://aclanthology.org/2026.wmt-main.65/)             |
 
 {% endraw %}

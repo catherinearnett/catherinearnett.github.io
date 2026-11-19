@@ -183,8 +183,8 @@ Upper Tanana isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation tas
 
 Here are up to ten papers published in 2026 that mention Upper Tanana. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                          | paper                                                        | mentioned in   |
-|:-----------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:---------------|
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/) | body only      |
+| title                                                                                          | paper                                                        |
+|:-----------------------------------------------------------------------------------------------|:-------------------------------------------------------------|
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/) |
 
 {% endraw %}

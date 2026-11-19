@@ -244,17 +244,17 @@ Hebrew has been part of the WMT translation task in **1** year (2023).
 
 Here are up to ten papers published in 2026 that mention Hebrew. None of the 213 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                  | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| New Terms, New Toxicity: Consensus-based Chinese Neologism Toxicity Detection via Search-Augmented LLMs                | [2026.acl-long.1602](https://aclanthology.org/2026.acl-long.1602/)             | body only      |
-| Translation from the Information Bottleneck Perspective: an Efficiency Analysis of Spatial Prepositions in Bitexts     | [2026.cmcl-1.20](https://aclanthology.org/2026.cmcl-1.20/)                     | body only      |
-| NaijaS2ST: A Multi-Accent Benchmark for Speech-to-Speech Translation in Low-Resource Nigerian Languages                | [2026.emnlp-main.665](https://aclanthology.org/2026.emnlp-main.665/)           | body only      |
-| HSS-Synth: Humanities and Social Sciences Data Synthesis for LLMs                                                      | [2026.findings-acl.1880](https://aclanthology.org/2026.findings-acl.1880/)     | body only      |
-| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)     | body only      |
-| Loci Similes: A Benchmark for Extracting Intertextualities in Latin Literature                                         | [2026.findings-emnlp.1224](https://aclanthology.org/2026.findings-emnlp.1224/) | body only      |
-| ROG: A Multi-Layer Manually Annotated Corpus of Spoken Slovenian                                                       | [2026.lrec-1.449](https://aclanthology.org/2026.lrec-1.449/)                   | body only      |
-| Preserving Endangered Linguistic Heritage: Developing a Corpus for the Study of Contact-induced Changes in Corfioto    | [2026.lrec-1.76](https://aclanthology.org/2026.lrec-1.76/)                     | body only      |
-| Beyond Aggregate Loss: Training Dynamics and Language-Specific Scaling Laws for Multilingual Language Models           | [2026.mrl-1.23](https://aclanthology.org/2026.mrl-1.23/)                       | body only      |
-| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande                                 | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)           | body only      |
+| title                                                                                                                  | paper                                                                          |
+|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| New Terms, New Toxicity: Consensus-based Chinese Neologism Toxicity Detection via Search-Augmented LLMs                | [2026.acl-long.1602](https://aclanthology.org/2026.acl-long.1602/)             |
+| Translation from the Information Bottleneck Perspective: an Efficiency Analysis of Spatial Prepositions in Bitexts     | [2026.cmcl-1.20](https://aclanthology.org/2026.cmcl-1.20/)                     |
+| NaijaS2ST: A Multi-Accent Benchmark for Speech-to-Speech Translation in Low-Resource Nigerian Languages                | [2026.emnlp-main.665](https://aclanthology.org/2026.emnlp-main.665/)           |
+| HSS-Synth: Humanities and Social Sciences Data Synthesis for LLMs                                                      | [2026.findings-acl.1880](https://aclanthology.org/2026.findings-acl.1880/)     |
+| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)     |
+| Loci Similes: A Benchmark for Extracting Intertextualities in Latin Literature                                         | [2026.findings-emnlp.1224](https://aclanthology.org/2026.findings-emnlp.1224/) |
+| ROG: A Multi-Layer Manually Annotated Corpus of Spoken Slovenian                                                       | [2026.lrec-1.449](https://aclanthology.org/2026.lrec-1.449/)                   |
+| Preserving Endangered Linguistic Heritage: Developing a Corpus for the Study of Contact-induced Changes in Corfioto    | [2026.lrec-1.76](https://aclanthology.org/2026.lrec-1.76/)                     |
+| Beyond Aggregate Loss: Training Dynamics and Language-Specific Scaling Laws for Multilingual Language Models           | [2026.mrl-1.23](https://aclanthology.org/2026.mrl-1.23/)                       |
+| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande                                 | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)           |
 
 {% endraw %}

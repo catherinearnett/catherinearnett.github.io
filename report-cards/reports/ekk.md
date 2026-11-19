@@ -256,17 +256,17 @@ _⚠️ Listed under the macrolanguage code `est`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Estonian. None of the 131 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                             | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Neural Text-to-Speech for Myaamia: Speech Synthesis for an Indigenous Algonquian Language                                         | [2026.americasnlp-6.1](https://aclanthology.org/2026.americasnlp-6.1/)         | body only      |
-| Efficient Low-Resource Language Models Using Tokenizer Transfer                                                                   | [2026.eacl-srw.49](https://aclanthology.org/2026.eacl-srw.49/)                 | body only      |
-| Automatic translation in public services: A survey of the Finnish public sector                                                   | [2026.eamt-1.45](https://aclanthology.org/2026.eamt-1.45/)                     | body only      |
-| Presentation of the Project CLingS: Cross-lingual information retrieval for scientific datasets in less-resourced languages       | [2026.eamt-2.6](https://aclanthology.org/2026.eamt-2.6/)                       | body only      |
-| Gold vs. Translation: Are We Measuring Language, Knowledge, or Locality in Translated Benchmarks?                                 | [2026.emnlp-main.32](https://aclanthology.org/2026.emnlp-main.32/)             | body only      |
-| Dialects of Translationese Shape Language Model Learning                                                                          | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                      | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                        | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| Prompt-Based Stance Control in German: An Evaluation of LLMs for Experimental Research on Attitude Change                         | [2026.lrec-1.644](https://aclanthology.org/2026.lrec-1.644/)                   | body only      |
-| How Well Do Commodity Text-to-Speech Systems Evade Acoustic Perturbation Detection? A Multi-Engine Evaluation Across 21 Languages | [2026.nlpaics-1.18](https://aclanthology.org/2026.nlpaics-1.18/)               | body only      |
+| title                                                                                                                             | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Neural Text-to-Speech for Myaamia: Speech Synthesis for an Indigenous Algonquian Language                                         | [2026.americasnlp-6.1](https://aclanthology.org/2026.americasnlp-6.1/)         |
+| Efficient Low-Resource Language Models Using Tokenizer Transfer                                                                   | [2026.eacl-srw.49](https://aclanthology.org/2026.eacl-srw.49/)                 |
+| Automatic translation in public services: A survey of the Finnish public sector                                                   | [2026.eamt-1.45](https://aclanthology.org/2026.eamt-1.45/)                     |
+| Presentation of the Project CLingS: Cross-lingual information retrieval for scientific datasets in less-resourced languages       | [2026.eamt-2.6](https://aclanthology.org/2026.eamt-2.6/)                       |
+| Gold vs. Translation: Are We Measuring Language, Knowledge, or Locality in Translated Benchmarks?                                 | [2026.emnlp-main.32](https://aclanthology.org/2026.emnlp-main.32/)             |
+| Dialects of Translationese Shape Language Model Learning                                                                          | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                      | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                        | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| Prompt-Based Stance Control in German: An Evaluation of LLMs for Experimental Research on Attitude Change                         | [2026.lrec-1.644](https://aclanthology.org/2026.lrec-1.644/)                   |
+| How Well Do Commodity Text-to-Speech Systems Evade Acoustic Perturbation Detection? A Multi-Engine Evaluation Across 21 Languages | [2026.nlpaics-1.18](https://aclanthology.org/2026.nlpaics-1.18/)               |
 
 {% endraw %}

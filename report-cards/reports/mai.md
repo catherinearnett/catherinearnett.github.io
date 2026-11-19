@@ -219,17 +219,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Maithili. None of the 37 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                          | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| MUTANT: A Recipe for Multilingual Tokenizer Design                                                             | [2026.acl-long.2146](https://aclanthology.org/2026.acl-long.2146/)             | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                             | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| MaiBERT: A Pre-training Corpus and Language Model for Low-Resourced Maithili Language                          | [2026.loreslm-1.38](https://aclanthology.org/2026.loreslm-1.38/)               | body only      |
-| UrHiOdSynth: A Multilingual Synthetic Corpus for Speech-to-Speech Translation in Low-Resource Indic Languages  | [2026.loreslm-1.50](https://aclanthology.org/2026.loreslm-1.50/)               | body only      |
-| Same-Language Subtitles for Low-resource Languages: A Case of Bundelkhandi                                     | [2026.lrec-1.246](https://aclanthology.org/2026.lrec-1.246/)                   | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                        | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| FiNERVINER: Fine-grained Named Entity Recognition for Vulnerable Languages of India’s North Eastern Region     | [2026.lrec-1.607](https://aclanthology.org/2026.lrec-1.607/)                   | body only      |
-| NepTam: A Nepali-Tamang Parallel Corpus and Baseline Machine Translation Experiments                           | [2026.lrec-1.696](https://aclanthology.org/2026.lrec-1.696/)                   | body only      |
-| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies          | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               | body only      |
+| title                                                                                                          | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| MUTANT: A Recipe for Multilingual Tokenizer Design                                                             | [2026.acl-long.2146](https://aclanthology.org/2026.acl-long.2146/)             |
+| TIPA: Typologically Informed Parameter Aggregation                                                             | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| MaiBERT: A Pre-training Corpus and Language Model for Low-Resourced Maithili Language                          | [2026.loreslm-1.38](https://aclanthology.org/2026.loreslm-1.38/)               |
+| UrHiOdSynth: A Multilingual Synthetic Corpus for Speech-to-Speech Translation in Low-Resource Indic Languages  | [2026.loreslm-1.50](https://aclanthology.org/2026.loreslm-1.50/)               |
+| Same-Language Subtitles for Low-resource Languages: A Case of Bundelkhandi                                     | [2026.lrec-1.246](https://aclanthology.org/2026.lrec-1.246/)                   |
+| Goldfish: Monolingual Language Models for 350 Languages                                                        | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| FiNERVINER: Fine-grained Named Entity Recognition for Vulnerable Languages of India’s North Eastern Region     | [2026.lrec-1.607](https://aclanthology.org/2026.lrec-1.607/)                   |
+| NepTam: A Nepali-Tamang Parallel Corpus and Baseline Machine Translation Experiments                           | [2026.lrec-1.696](https://aclanthology.org/2026.lrec-1.696/)                   |
+| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies          | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               |
 
 {% endraw %}

@@ -289,17 +289,17 @@ Standard Chinese has been part of the WMT translation task in **10** years (2017
 
 Here are up to ten papers published in 2026 that mention Standard Chinese. None of the 396 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                        | paper                                                            | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------------|
-| Findings of the BEA 2026 Shared Task on Vocabulary Difficulty Prediction for English Learners                                                | [2026.bea-1.65](https://aclanthology.org/2026.bea-1.65/)         | body only      |
-| SATLab at BEA 2026 Shared Task 1: Predicting the Difficulty of English Words for Three L1 Learners Using Primarily Psycholinguistic Features | [2026.bea-1.66](https://aclanthology.org/2026.bea-1.66/)         | body only      |
-| uogal at BEA 2026 Shared Task 1: Ensemble of Multilingual Encoders with NMT Augmentation for L1-Aware Vocabulary Difficulty Prediction       | [2026.bea-1.75](https://aclanthology.org/2026.bea-1.75/)         | body only      |
-| Cygnet: Refactoring the Open Multilingual Wordnet                                                                                            | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)     | body only      |
-| Dynamic Layer Selection for Efficient Tone Recognition in Self-Supervised Speech Models                                                      | [2026.lrec-1.792](https://aclanthology.org/2026.lrec-1.792/)     | body only      |
-| Axiom@MMLow 2026: Cascaded Prompting with QLoRA-Tuned Qwen2-VL for Hierarchical Tamil Political Meme Classification                          | [2026.mmlow-main.6](https://aclanthology.org/2026.mmlow-main.6/) | body only      |
-| Evaluating and Debiasing Multilingual Backpack Language Model Representations                                                                | [2026.mrl-1.24](https://aclanthology.org/2026.mrl-1.24/)         | body only      |
-| Large Language Models Put to the Test on Chinese Noun Compounds: Experiments on Natural Language Inference and Compound Semantics            | [2026.mwe-1.1](https://aclanthology.org/2026.mwe-1.1/)           | body only      |
-| DialogueSidon: Recovering Full-Duplex Dialogue Tracks from In-the-Wild Dialogue Audio                                                        | [2026.sigdial-1.1](https://aclanthology.org/2026.sigdial-1.1/)   | body only      |
-| Unseen Harm: Measuring Cross-Script Safety Inconsistency with "Missed-in-Urdu" Scores in LLM Hate Speech Detection.                          | [2026.woah-1.6](https://aclanthology.org/2026.woah-1.6/)         | body only      |
+| title                                                                                                                                        | paper                                                            |
+|:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
+| Findings of the BEA 2026 Shared Task on Vocabulary Difficulty Prediction for English Learners                                                | [2026.bea-1.65](https://aclanthology.org/2026.bea-1.65/)         |
+| SATLab at BEA 2026 Shared Task 1: Predicting the Difficulty of English Words for Three L1 Learners Using Primarily Psycholinguistic Features | [2026.bea-1.66](https://aclanthology.org/2026.bea-1.66/)         |
+| uogal at BEA 2026 Shared Task 1: Ensemble of Multilingual Encoders with NMT Augmentation for L1-Aware Vocabulary Difficulty Prediction       | [2026.bea-1.75](https://aclanthology.org/2026.bea-1.75/)         |
+| Cygnet: Refactoring the Open Multilingual Wordnet                                                                                            | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)     |
+| Dynamic Layer Selection for Efficient Tone Recognition in Self-Supervised Speech Models                                                      | [2026.lrec-1.792](https://aclanthology.org/2026.lrec-1.792/)     |
+| Axiom@MMLow 2026: Cascaded Prompting with QLoRA-Tuned Qwen2-VL for Hierarchical Tamil Political Meme Classification                          | [2026.mmlow-main.6](https://aclanthology.org/2026.mmlow-main.6/) |
+| Evaluating and Debiasing Multilingual Backpack Language Model Representations                                                                | [2026.mrl-1.24](https://aclanthology.org/2026.mrl-1.24/)         |
+| Large Language Models Put to the Test on Chinese Noun Compounds: Experiments on Natural Language Inference and Compound Semantics            | [2026.mwe-1.1](https://aclanthology.org/2026.mwe-1.1/)           |
+| DialogueSidon: Recovering Full-Duplex Dialogue Tracks from In-the-Wild Dialogue Audio                                                        | [2026.sigdial-1.1](https://aclanthology.org/2026.sigdial-1.1/)   |
+| Unseen Harm: Measuring Cross-Script Safety Inconsistency with "Missed-in-Urdu" Scores in LLM Hate Speech Detection.                          | [2026.woah-1.6](https://aclanthology.org/2026.woah-1.6/)         |
 
 {% endraw %}

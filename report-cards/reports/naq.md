@@ -188,11 +188,11 @@ _None found._
 
 Here are up to ten papers published in 2026 that mention Nama. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                    | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| AfriSUD: A Dependency Treebank Collection for Evaluating Models on African Languages     | [2026.emnlp-main.1896](https://aclanthology.org/2026.emnlp-main.1896/)         | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                   | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                   | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                         | body only      |
+| title                                                                                    | paper                                                                          |
+|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AfriSUD: A Dependency Treebank Collection for Evaluating Models on African Languages     | [2026.emnlp-main.1896](https://aclanthology.org/2026.emnlp-main.1896/)         |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                   | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                   |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                         |
 
 {% endraw %}

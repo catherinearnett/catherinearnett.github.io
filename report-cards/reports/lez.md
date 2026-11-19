@@ -212,10 +212,10 @@ Lezgi isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 Here are up to ten papers published in 2026 that mention Lezgi. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                            | paper                                                                | mentioned in   |
-|:-----------------------------------------------------------------|:---------------------------------------------------------------------|:---------------|
-| Massively Multilingual Joint Segmentation and Glossing           | [2026.acl-long.1657](https://aclanthology.org/2026.acl-long.1657/)   | body only      |
-| CWoMP: Morpheme Representation Learning for Interlinear Glossing | [2026.emnlp-main.675](https://aclanthology.org/2026.emnlp-main.675/) | body only      |
-| GlossMATE: Multi-Agent Translator Explanations for Glosses       | [2026.lrec-1.709](https://aclanthology.org/2026.lrec-1.709/)         | body only      |
+| title                                                            | paper                                                                |
+|:-----------------------------------------------------------------|:---------------------------------------------------------------------|
+| Massively Multilingual Joint Segmentation and Glossing           | [2026.acl-long.1657](https://aclanthology.org/2026.acl-long.1657/)   |
+| CWoMP: Morpheme Representation Learning for Interlinear Glossing | [2026.emnlp-main.675](https://aclanthology.org/2026.emnlp-main.675/) |
+| GlossMATE: Multi-Agent Translator Explanations for Glosses       | [2026.lrec-1.709](https://aclanthology.org/2026.lrec-1.709/)         |
 
 {% endraw %}

@@ -222,17 +222,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Dzongkha. None of the 13 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| IndicJR: A Judge-Free Benchmark of Jailbreak Robustness in South Asian Languages                                                              | [2026.eacl-industry.50](https://aclanthology.org/2026.eacl-industry.50/)       | body only      |
-| Seeing the Unseen: Visual Similarity for Pixel Language Model Adaptation                                                                      | [2026.emnlp-main.1509](https://aclanthology.org/2026.emnlp-main.1509/)         | body only      |
-| FineWeb-CLaR: Culture, Language, and Region Annotations for Benchmark-Aligned Corpus Auditing                                                 | [2026.emnlp-main.2216](https://aclanthology.org/2026.emnlp-main.2216/)         | body only      |
-| Towards the Roof of the World: NLP Progress in Tibetan Languages                                                                              | [2026.findings-aacl.56](https://aclanthology.org/2026.findings-aacl.56/)       | body only      |
-| IndicSafe: A Benchmark for Evaluating Multilingual LLM Safety in South Asia                                                                   | [2026.findings-emnlp.2135](https://aclanthology.org/2026.findings-emnlp.2135/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| NepTam: A Nepali-Tamang Parallel Corpus and Baseline Machine Translation Experiments                                                          | [2026.lrec-1.696](https://aclanthology.org/2026.lrec-1.696/)                   | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                                      | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                   | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| IndicJR: A Judge-Free Benchmark of Jailbreak Robustness in South Asian Languages                                                              | [2026.eacl-industry.50](https://aclanthology.org/2026.eacl-industry.50/)       |
+| Seeing the Unseen: Visual Similarity for Pixel Language Model Adaptation                                                                      | [2026.emnlp-main.1509](https://aclanthology.org/2026.emnlp-main.1509/)         |
+| FineWeb-CLaR: Culture, Language, and Region Annotations for Benchmark-Aligned Corpus Auditing                                                 | [2026.emnlp-main.2216](https://aclanthology.org/2026.emnlp-main.2216/)         |
+| Towards the Roof of the World: NLP Progress in Tibetan Languages                                                                              | [2026.findings-aacl.56](https://aclanthology.org/2026.findings-aacl.56/)       |
+| IndicSafe: A Benchmark for Evaluating Multilingual LLM Safety in South Asia                                                                   | [2026.findings-emnlp.2135](https://aclanthology.org/2026.findings-emnlp.2135/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| NepTam: A Nepali-Tamang Parallel Corpus and Baseline Machine Translation Experiments                                                          | [2026.lrec-1.696](https://aclanthology.org/2026.lrec-1.696/)                   |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                                      | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                   |
 
 {% endraw %}

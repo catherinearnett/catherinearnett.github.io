@@ -260,17 +260,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Swahili. None of the 323 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                      | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                                          | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             | body only      |
-| Calibrating Beyond English: Language Diversity for Better Quantized Multilingual LLMs                                      | [2026.eacl-long.223](https://aclanthology.org/2026.eacl-long.223/)             | body only      |
-| MERLIN: Multi-Stage Curriculum Alignment for Multilingual Encoder-LLM Integration in Cross-Lingual Reasoning               | [2026.eacl-long.277](https://aclanthology.org/2026.eacl-long.277/)             | body only      |
-| Localizing Cross-Lingual Generalization in Parameter Space                                                                 | [2026.emnlp-main.2625](https://aclanthology.org/2026.emnlp-main.2625/)         | body only      |
-| KnowledgeBerg: Evaluating Systematic Knowledge Coverage and Compositional Reasoning in Large Language Models               | [2026.findings-acl.548](https://aclanthology.org/2026.findings-acl.548/)       | body only      |
-| Science Across Languages: Assessing LLM Multilingual Translation of Scientific Papers                                      | [2026.findings-eacl.204](https://aclanthology.org/2026.findings-eacl.204/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation             | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| Cross-Lingual Bias in Large Language Models: A Comparative Analysis of English and Swahili                                 | [2026.mellm-1.17](https://aclanthology.org/2026.mellm-1.17/)                   | body only      |
-| CYUT at SemEval-2026 Task 3: Multi-Task Dimensional Aspect Sentiment Regression with Polar Multi-Zone Labeling in VA Space | [2026.semeval-1.23](https://aclanthology.org/2026.semeval-1.23/)               | body only      |
-| TUCNLP at SemEval-2026 Task 11: Neuro-Symbolic Content Stripping for Debiased Syllogistic Reasoning                        | [2026.semeval-1.423](https://aclanthology.org/2026.semeval-1.423/)             | body only      |
+| title                                                                                                                      | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                                          | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             |
+| Calibrating Beyond English: Language Diversity for Better Quantized Multilingual LLMs                                      | [2026.eacl-long.223](https://aclanthology.org/2026.eacl-long.223/)             |
+| MERLIN: Multi-Stage Curriculum Alignment for Multilingual Encoder-LLM Integration in Cross-Lingual Reasoning               | [2026.eacl-long.277](https://aclanthology.org/2026.eacl-long.277/)             |
+| Localizing Cross-Lingual Generalization in Parameter Space                                                                 | [2026.emnlp-main.2625](https://aclanthology.org/2026.emnlp-main.2625/)         |
+| KnowledgeBerg: Evaluating Systematic Knowledge Coverage and Compositional Reasoning in Large Language Models               | [2026.findings-acl.548](https://aclanthology.org/2026.findings-acl.548/)       |
+| Science Across Languages: Assessing LLM Multilingual Translation of Scientific Papers                                      | [2026.findings-eacl.204](https://aclanthology.org/2026.findings-eacl.204/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation             | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| Cross-Lingual Bias in Large Language Models: A Comparative Analysis of English and Swahili                                 | [2026.mellm-1.17](https://aclanthology.org/2026.mellm-1.17/)                   |
+| CYUT at SemEval-2026 Task 3: Multi-Task Dimensional Aspect Sentiment Regression with Polar Multi-Zone Labeling in VA Space | [2026.semeval-1.23](https://aclanthology.org/2026.semeval-1.23/)               |
+| TUCNLP at SemEval-2026 Task 11: Neuro-Symbolic Content Stripping for Debiased Syllogistic Reasoning                        | [2026.semeval-1.423](https://aclanthology.org/2026.semeval-1.423/)             |
 
 {% endraw %}

@@ -257,17 +257,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Telugu. None of the 256 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                   | paper                                                                              | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:---------------|
-| The Reasoning Lingua Franca: A Double-Edged Sword for Multilingual AI                                                   | [2026.eacl-short.25](https://aclanthology.org/2026.eacl-short.25/)                 | body only      |
-| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                             | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)             | body only      |
-| VLURes: Benchmarking Long-Text Grounding and Cross-Lingual Robustness in Vision Language Models                         | [2026.findings-acl.1367](https://aclanthology.org/2026.findings-acl.1367/)         | body only      |
-| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification  | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)         | body only      |
-| XLGoBench: Detecting cross-lingual skill gaps with algorithmic tasks                                                    | [2026.findings-emnlp.2139](https://aclanthology.org/2026.findings-emnlp.2139/)     | body only      |
-| Mind the Gap... or Not? How Translation Errors and Evaluation Details Skew Multilingual Results                         | [2026.gem-main.22](https://aclanthology.org/2026.gem-main.22/)                     | body only      |
-| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                              | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)                     | body only      |
-| Contextualizing Toxicity: An Annotation Framework for Unveiling Pragmatics in Conversations of Online Discussion Forums | [2026.lrec-1.314](https://aclanthology.org/2026.lrec-1.314/)                       | body only      |
-| Algebraic Classification of Reduplicative Processes                                                                     | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)                   | body only      |
-| Annotating Indian Regional Biases using Large Language Models: Evaluation and Analysis                                  | [2026.starsem-conference.16](https://aclanthology.org/2026.starsem-conference.16/) | body only      |
+| title                                                                                                                   | paper                                                                              |
+|:------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| The Reasoning Lingua Franca: A Double-Edged Sword for Multilingual AI                                                   | [2026.eacl-short.25](https://aclanthology.org/2026.eacl-short.25/)                 |
+| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                             | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)             |
+| VLURes: Benchmarking Long-Text Grounding and Cross-Lingual Robustness in Vision Language Models                         | [2026.findings-acl.1367](https://aclanthology.org/2026.findings-acl.1367/)         |
+| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification  | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)         |
+| XLGoBench: Detecting cross-lingual skill gaps with algorithmic tasks                                                    | [2026.findings-emnlp.2139](https://aclanthology.org/2026.findings-emnlp.2139/)     |
+| Mind the Gap... or Not? How Translation Errors and Evaluation Details Skew Multilingual Results                         | [2026.gem-main.22](https://aclanthology.org/2026.gem-main.22/)                     |
+| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                              | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)                     |
+| Contextualizing Toxicity: An Annotation Framework for Unveiling Pragmatics in Conversations of Online Discussion Forums | [2026.lrec-1.314](https://aclanthology.org/2026.lrec-1.314/)                       |
+| Algebraic Classification of Reduplicative Processes                                                                     | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)                   |
+| Annotating Indian Regional Biases using Large Language Models: Evaluation and Analysis                                  | [2026.starsem-conference.16](https://aclanthology.org/2026.starsem-conference.16/) |
 
 {% endraw %}

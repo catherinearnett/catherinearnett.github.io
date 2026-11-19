@@ -234,17 +234,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Tagalog. None of the 67 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| CultureConverse: A Multilingual Multi-turn Simulation Harness for Culturally Grounded Assistance in East and Southeast Asia | [2026.emnlp-main.976](https://aclanthology.org/2026.emnlp-main.976/)           | body only      |
-| SEA-SafeguardBench: Culturally Grounded Safety Benchmark for Southeast Asian Languages                                      | [2026.findings-acl.194](https://aclanthology.org/2026.findings-acl.194/)       | body only      |
-| Idiom Understanding as a Tool to Measure the Dialect Gap                                                                    | [2026.findings-acl.24](https://aclanthology.org/2026.findings-acl.24/)         | body only      |
-| EchoLens: A Human-Speech Dataset for Auditing Demographic Sensitivity in Audio-Language Models                              | [2026.findings-emnlp.2027](https://aclanthology.org/2026.findings-emnlp.2027/) | body only      |
-| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                               | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) | body only      |
-| On the Robustness of Code LLM Guardrails to Code-mixed and Transliterated Inputs                                            | [2026.findings-emnlp.568](https://aclanthology.org/2026.findings-emnlp.568/)   | body only      |
-| MultiCoS: A Multilingual Dataset of Connective Semantics with Context–Sentence Compatibility                                | [2026.lrec-1.381](https://aclanthology.org/2026.lrec-1.381/)                   | body only      |
-| APODICTUS: Automatic Processing of DICTionary Update candidateS                                                             | [2026.lrec-1.924](https://aclanthology.org/2026.lrec-1.924/)                   | body only      |
-| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                               | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)                   | body only      |
-| Algebraic Classification of Reduplicative Processes                                                                         | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)               | body only      |
+| title                                                                                                                       | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| CultureConverse: A Multilingual Multi-turn Simulation Harness for Culturally Grounded Assistance in East and Southeast Asia | [2026.emnlp-main.976](https://aclanthology.org/2026.emnlp-main.976/)           |
+| SEA-SafeguardBench: Culturally Grounded Safety Benchmark for Southeast Asian Languages                                      | [2026.findings-acl.194](https://aclanthology.org/2026.findings-acl.194/)       |
+| Idiom Understanding as a Tool to Measure the Dialect Gap                                                                    | [2026.findings-acl.24](https://aclanthology.org/2026.findings-acl.24/)         |
+| EchoLens: A Human-Speech Dataset for Auditing Demographic Sensitivity in Audio-Language Models                              | [2026.findings-emnlp.2027](https://aclanthology.org/2026.findings-emnlp.2027/) |
+| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                               | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) |
+| On the Robustness of Code LLM Guardrails to Code-mixed and Transliterated Inputs                                            | [2026.findings-emnlp.568](https://aclanthology.org/2026.findings-emnlp.568/)   |
+| MultiCoS: A Multilingual Dataset of Connective Semantics with Context–Sentence Compatibility                                | [2026.lrec-1.381](https://aclanthology.org/2026.lrec-1.381/)                   |
+| APODICTUS: Automatic Processing of DICTionary Update candidateS                                                             | [2026.lrec-1.924](https://aclanthology.org/2026.lrec-1.924/)                   |
+| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                               | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)                   |
+| Algebraic Classification of Reduplicative Processes                                                                         | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)               |
 
 {% endraw %}

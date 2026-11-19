@@ -206,13 +206,13 @@ Paiwan isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 Here are up to ten papers published in 2026 that mention Paiwan. None of the 6 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                  | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| Translation or Recitation? Calibrating Evaluation Scores for Machine Translation of Extremely Low-Resource Languages | [2026.acl-short.29](https://aclanthology.org/2026.acl-short.29/)       | body only      |
-| Dialectometry and Evaluation of the ePark Corpus for Low-Resource Formosan Language Dialects                         | [2026.dialres-1.13](https://aclanthology.org/2026.dialres-1.13/)       | body only      |
-| A Family Affair: Counterintuitive transfer effects in ASR for endangered languages                                   | [2026.emnlp-main.1246](https://aclanthology.org/2026.emnlp-main.1246/) | body only      |
-| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings                                  | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/)         | body only      |
-| FormosanMT: A Multilingual Parallel Corpus of the Formosan Language Family                                           | [2026.lrec-1.273](https://aclanthology.org/2026.lrec-1.273/)           | body only      |
-| Language Identification for Low-Resource Formosan Languages                                                          | [2026.sigul-1.24](https://aclanthology.org/2026.sigul-1.24/)           | body only      |
+| title                                                                                                                | paper                                                                  |
+|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| Translation or Recitation? Calibrating Evaluation Scores for Machine Translation of Extremely Low-Resource Languages | [2026.acl-short.29](https://aclanthology.org/2026.acl-short.29/)       |
+| Dialectometry and Evaluation of the ePark Corpus for Low-Resource Formosan Language Dialects                         | [2026.dialres-1.13](https://aclanthology.org/2026.dialres-1.13/)       |
+| A Family Affair: Counterintuitive transfer effects in ASR for endangered languages                                   | [2026.emnlp-main.1246](https://aclanthology.org/2026.emnlp-main.1246/) |
+| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings                                  | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/)         |
+| FormosanMT: A Multilingual Parallel Corpus of the Formosan Language Family                                           | [2026.lrec-1.273](https://aclanthology.org/2026.lrec-1.273/)           |
+| Language Identification for Low-Resource Formosan Languages                                                          | [2026.sigul-1.24](https://aclanthology.org/2026.sigul-1.24/)           |
 
 {% endraw %}

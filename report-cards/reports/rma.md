@@ -186,15 +186,15 @@ Rama isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005�
 
 Here are up to ten papers published in 2026 that mention Rama. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                              | paper                                                              | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| Media Bias within Information Disorder: Bridging Two Research Communities through a Systematic Review                              | [2026.indor-1.5](https://aclanthology.org/2026.indor-1.5/)         | body only      |
-| Sentential Parsing of Upamā                                                                                                        | [2026.iscls-1.17](https://aclanthology.org/2026.iscls-1.17/)       | body only      |
-| Transparency as Architecture: Structural Compliance Gaps in EU AI Act Article 50 II                                                | [2026.legal-1.1](https://aclanthology.org/2026.legal-1.1/)         | body only      |
-| SACRED: A Faithful Annotated Multimedia Multimodal Multilingual Dataset for Classifying Connectedness Types in Online Spirituality | [2026.llms4ssh-1.13](https://aclanthology.org/2026.llms4ssh-1.13/) | body only      |
-| HNS2CF: A Mapping Tool from HamNoSys to SL CatForm                                                                                 | [2026.signlang-1.30](https://aclanthology.org/2026.signlang-1.30/) | body only      |
-| Improving phonological distance measures for signs: the CatFormCompare tool                                                        | [2026.signlang-1.36](https://aclanthology.org/2026.signlang-1.36/) | body only      |
-| The SignBeach Dataset of Dutch Sign Language (NGT) signs                                                                           | [2026.signlang-1.46](https://aclanthology.org/2026.signlang-1.46/) | body only      |
-| Naamah: A Large Scale Synthetic Sanskrit NER Corpus via DBpedia Seeding and LLM Generation                                         | [2026.wildre-1.11](https://aclanthology.org/2026.wildre-1.11/)     | body only      |
+| title                                                                                                                              | paper                                                              |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Media Bias within Information Disorder: Bridging Two Research Communities through a Systematic Review                              | [2026.indor-1.5](https://aclanthology.org/2026.indor-1.5/)         |
+| Sentential Parsing of Upamā                                                                                                        | [2026.iscls-1.17](https://aclanthology.org/2026.iscls-1.17/)       |
+| Transparency as Architecture: Structural Compliance Gaps in EU AI Act Article 50 II                                                | [2026.legal-1.1](https://aclanthology.org/2026.legal-1.1/)         |
+| SACRED: A Faithful Annotated Multimedia Multimodal Multilingual Dataset for Classifying Connectedness Types in Online Spirituality | [2026.llms4ssh-1.13](https://aclanthology.org/2026.llms4ssh-1.13/) |
+| HNS2CF: A Mapping Tool from HamNoSys to SL CatForm                                                                                 | [2026.signlang-1.30](https://aclanthology.org/2026.signlang-1.30/) |
+| Improving phonological distance measures for signs: the CatFormCompare tool                                                        | [2026.signlang-1.36](https://aclanthology.org/2026.signlang-1.36/) |
+| The SignBeach Dataset of Dutch Sign Language (NGT) signs                                                                           | [2026.signlang-1.46](https://aclanthology.org/2026.signlang-1.46/) |
+| Naamah: A Large Scale Synthetic Sanskrit NER Corpus via DBpedia Seeding and LLM Generation                                         | [2026.wildre-1.11](https://aclanthology.org/2026.wildre-1.11/)     |
 
 {% endraw %}

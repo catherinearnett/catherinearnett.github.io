@@ -239,17 +239,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Quechua. None of the 44 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                 | paper                                                                        | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Building Community-Centred NLP Resources for Puno Quechua                                                                             | [2026.americasnlp-6.13](https://aclanthology.org/2026.americasnlp-6.13/)     | body only      |
-| What Resources Matter for Interlinear Glossing? Using LLMs and RAG for the Low-Resource Mapudungun Language                           | [2026.americasnlp-6.6](https://aclanthology.org/2026.americasnlp-6.6/)       | body only      |
-| Deer, Deities, and Dancing: Culturally Biased LLM Hallucination in Low-Resource Wixárika Translation                                  | [2026.americasnlp-6.7](https://aclanthology.org/2026.americasnlp-6.7/)       | body only      |
-| Team QUESPA System Submission for the IWSLT 2026 Dialectal and Low-resource Speech Translation Task                                   | [2026.iwslt-1.5](https://aclanthology.org/2026.iwslt-1.5/)                   | body only      |
-| OpenCor: Latin American and Iberian Languages Open Corpora Forum                                                                      | [2026.lanlp-1.4](https://aclanthology.org/2026.lanlp-1.4/)                   | body only      |
-| "We Are (Language) Family”: Adapting Transformer models to related minority languages with linguistic data                            | [2026.loreslm-1.26](https://aclanthology.org/2026.loreslm-1.26/)             | body only      |
-| Improving Indigenous Language Machine Translation with Synthetic Data and Language-Specific Preprocessing                             | [2026.loresmt-1.10](https://aclanthology.org/2026.loresmt-1.10/)             | body only      |
-| Semi-Automatic construction of a Quechua-Spanish dictionary                                                                           | [2026.loresmt-1.9](https://aclanthology.org/2026.loresmt-1.9/)               | body only      |
-| Geometric Representations of African Languages: A Regional Semantic Hub and Cultural Steering                                         | [2026.mrl-1.18](https://aclanthology.org/2026.mrl-1.18/)                     | body only      |
-| Structured Disagreement in Health-Literacy Annotation: Epistemic Stability, Conceptual Difficulty, and Agreement-Stratified Inference | [2026.nlperspectives-1.8](https://aclanthology.org/2026.nlperspectives-1.8/) | body only      |
+| title                                                                                                                                 | paper                                                                        |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Building Community-Centred NLP Resources for Puno Quechua                                                                             | [2026.americasnlp-6.13](https://aclanthology.org/2026.americasnlp-6.13/)     |
+| What Resources Matter for Interlinear Glossing? Using LLMs and RAG for the Low-Resource Mapudungun Language                           | [2026.americasnlp-6.6](https://aclanthology.org/2026.americasnlp-6.6/)       |
+| Deer, Deities, and Dancing: Culturally Biased LLM Hallucination in Low-Resource Wixárika Translation                                  | [2026.americasnlp-6.7](https://aclanthology.org/2026.americasnlp-6.7/)       |
+| Team QUESPA System Submission for the IWSLT 2026 Dialectal and Low-resource Speech Translation Task                                   | [2026.iwslt-1.5](https://aclanthology.org/2026.iwslt-1.5/)                   |
+| OpenCor: Latin American and Iberian Languages Open Corpora Forum                                                                      | [2026.lanlp-1.4](https://aclanthology.org/2026.lanlp-1.4/)                   |
+| "We Are (Language) Family”: Adapting Transformer models to related minority languages with linguistic data                            | [2026.loreslm-1.26](https://aclanthology.org/2026.loreslm-1.26/)             |
+| Improving Indigenous Language Machine Translation with Synthetic Data and Language-Specific Preprocessing                             | [2026.loresmt-1.10](https://aclanthology.org/2026.loresmt-1.10/)             |
+| Semi-Automatic construction of a Quechua-Spanish dictionary                                                                           | [2026.loresmt-1.9](https://aclanthology.org/2026.loresmt-1.9/)               |
+| Geometric Representations of African Languages: A Regional Semantic Hub and Cultural Steering                                         | [2026.mrl-1.18](https://aclanthology.org/2026.mrl-1.18/)                     |
+| Structured Disagreement in Health-Literacy Annotation: Epistemic Stability, Conceptual Difficulty, and Agreement-Stratified Inference | [2026.nlperspectives-1.8](https://aclanthology.org/2026.nlperspectives-1.8/) |
 
 {% endraw %}

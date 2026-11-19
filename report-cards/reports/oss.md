@@ -222,11 +222,11 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Ossetian. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                     | paper                                                                          | mentioned in   |
-|:--------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| TIPA: Typologically Informed Parameter Aggregation                        | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Computationally Invisible: Charting the NLP Landscape of Iranic Languages | [2026.findings-emnlp.2362](https://aclanthology.org/2026.findings-emnlp.2362/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| MultiWikiQA: A Reading Comprehension Benchmark in 300+ Languages          | [2026.lrec-1.499](https://aclanthology.org/2026.lrec-1.499/)                   | body only      |
+| title                                                                     | paper                                                                          |
+|:--------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| TIPA: Typologically Informed Parameter Aggregation                        | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Computationally Invisible: Charting the NLP Landscape of Iranic Languages | [2026.findings-emnlp.2362](https://aclanthology.org/2026.findings-emnlp.2362/) |
+| Goldfish: Monolingual Language Models for 350 Languages                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| MultiWikiQA: A Reading Comprehension Benchmark in 300+ Languages          | [2026.lrec-1.499](https://aclanthology.org/2026.lrec-1.499/)                   |
 
 {% endraw %}

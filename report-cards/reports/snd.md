@@ -239,17 +239,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Sindhi. None of the 44 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                        | paper                                                                      | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Revisiting Evaluation of Question Answering Systems in Low-Resource Indic Languages: Bridging Human and Metric Alignment     | [2026.acl-short.58](https://aclanthology.org/2026.acl-short.58/)           | body only      |
-| Multilingual Tokenization through the Lens of Indian Languages: Challenges and Insights                                      | [2026.findings-acl.1632](https://aclanthology.org/2026.findings-acl.1632/) | body only      |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                          | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                   | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             | body only      |
-| Common Voice for Pakistan: Developing an Open Speech Corpus for Low-Resource Pakistani Languages                             | [2026.lrec-1.265](https://aclanthology.org/2026.lrec-1.265/)               | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                   | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)               | body only      |
-| MaskedVerbalizer: Automatic Verbalizer Construction for Few-Shot Text Classification in Low-Resource Right-to-Left Languages | [2026.lrec-1.59](https://aclanthology.org/2026.lrec-1.59/)                 | body only      |
-| SdQuAD: A Large Benchmark Question Answering Dataset for Low-resource Sindhi Language                                        | [2026.resourceful-4.6](https://aclanthology.org/2026.resourceful-4.6/)     | body only      |
-| Beyond Fine-Tuning: Procrustes Alignment of Multilingual Embeddings for Low-Resource Cross-Lingual Retrieval                 | [2026.sigul-1.23](https://aclanthology.org/2026.sigul-1.23/)               | body only      |
+| title                                                                                                                        | paper                                                                      |
+|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Revisiting Evaluation of Question Answering Systems in Low-Resource Indic Languages: Bridging Human and Metric Alignment     | [2026.acl-short.58](https://aclanthology.org/2026.acl-short.58/)           |
+| Multilingual Tokenization through the Lens of Indian Languages: Challenges and Insights                                      | [2026.findings-acl.1632](https://aclanthology.org/2026.findings-acl.1632/) |
+| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                          | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                   | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             |
+| Common Voice for Pakistan: Developing an Open Speech Corpus for Low-Resource Pakistani Languages                             | [2026.lrec-1.265](https://aclanthology.org/2026.lrec-1.265/)               |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                   | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)               |
+| MaskedVerbalizer: Automatic Verbalizer Construction for Few-Shot Text Classification in Low-Resource Right-to-Left Languages | [2026.lrec-1.59](https://aclanthology.org/2026.lrec-1.59/)                 |
+| SdQuAD: A Large Benchmark Question Answering Dataset for Low-resource Sindhi Language                                        | [2026.resourceful-4.6](https://aclanthology.org/2026.resourceful-4.6/)     |
+| Beyond Fine-Tuning: Procrustes Alignment of Multilingual Embeddings for Low-Resource Cross-Lingual Retrieval                 | [2026.sigul-1.23](https://aclanthology.org/2026.sigul-1.23/)               |
 
 {% endraw %}

@@ -263,17 +263,17 @@ Turkish has been part of the WMT translation task in **4** years (2016, 2017, 20
 
 Here are up to ten papers published in 2026 that mention Turkish. None of the 540 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                         | paper                                                                          | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Private-Use Area Characters in the Wild: Signal or Noise?                                                                     | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                       | body only      |
-| When Does Hate Transfer? A Large-Scale Study of Cross-Lingual Hate Speech Detection                                           | [2026.emnlp-main.1491](https://aclanthology.org/2026.emnlp-main.1491/)         | body only      |
-| BioELX: Context-Aware Cross-lingual Biomedical Entity Linking without Task-Specific Supervision                               | [2026.findings-emnlp.1109](https://aclanthology.org/2026.findings-emnlp.1109/) | body only      |
-| Morphological Analysis and Disambiguation of Agglutinative Assamese through Rule-Based Synthesis and Neural Candidate Ranking | [2026.findings-emnlp.2118](https://aclanthology.org/2026.findings-emnlp.2118/) | body only      |
-| M4FC: a Multimodal, Multilingual, Multicultural, Multitask Real-World Fact-Checking Dataset                                   | [2026.findings-emnlp.42](https://aclanthology.org/2026.findings-emnlp.42/)     | body only      |
-| Diversity patterns run deep: Impact of diversity intake on multiword expression identification                                | [2026.mwe-1.13](https://aclanthology.org/2026.mwe-1.13/)                       | body only      |
-| ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                          | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                       | body only      |
-| Tralaleros at SemEval-2026 Task 9: Multilingual Polarization Detection with Transformer-based Models                          | [2026.semeval-1.51](https://aclanthology.org/2026.semeval-1.51/)               | body only      |
-| SupraTok: Cross-Boundary Tokenization for Enhanced Language Model Performance                                                 | [2026.tacl-1.80](https://aclanthology.org/2026.tacl-1.80/)                     | body only      |
-| Multilingual Steering by Design: Multilingual Sparse Autoencoders and Principled Layer Selection                              | [2026.trustnlp-main.24](https://aclanthology.org/2026.trustnlp-main.24/)       | body only      |
+| title                                                                                                                         | paper                                                                          |
+|:------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                                     | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                       |
+| When Does Hate Transfer? A Large-Scale Study of Cross-Lingual Hate Speech Detection                                           | [2026.emnlp-main.1491](https://aclanthology.org/2026.emnlp-main.1491/)         |
+| BioELX: Context-Aware Cross-lingual Biomedical Entity Linking without Task-Specific Supervision                               | [2026.findings-emnlp.1109](https://aclanthology.org/2026.findings-emnlp.1109/) |
+| Morphological Analysis and Disambiguation of Agglutinative Assamese through Rule-Based Synthesis and Neural Candidate Ranking | [2026.findings-emnlp.2118](https://aclanthology.org/2026.findings-emnlp.2118/) |
+| M4FC: a Multimodal, Multilingual, Multicultural, Multitask Real-World Fact-Checking Dataset                                   | [2026.findings-emnlp.42](https://aclanthology.org/2026.findings-emnlp.42/)     |
+| Diversity patterns run deep: Impact of diversity intake on multiword expression identification                                | [2026.mwe-1.13](https://aclanthology.org/2026.mwe-1.13/)                       |
+| ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                          | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                       |
+| Tralaleros at SemEval-2026 Task 9: Multilingual Polarization Detection with Transformer-based Models                          | [2026.semeval-1.51](https://aclanthology.org/2026.semeval-1.51/)               |
+| SupraTok: Cross-Boundary Tokenization for Enhanced Language Model Performance                                                 | [2026.tacl-1.80](https://aclanthology.org/2026.tacl-1.80/)                     |
+| Multilingual Steering by Design: Multilingual Sparse Autoencoders and Principled Layer Selection                              | [2026.trustnlp-main.24](https://aclanthology.org/2026.trustnlp-main.24/)       |
 
 {% endraw %}

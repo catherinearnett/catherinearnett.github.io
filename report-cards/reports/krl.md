@@ -193,10 +193,10 @@ Karelian isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2
 
 Here are up to ten papers published in 2026 that mention Karelian. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                         | paper                                                                  | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| The Two Towers for Estonian-Centric and Finno-Ugric Machine Translation                                                                                       | [2026.eamt-1.32](https://aclanthology.org/2026.eamt-1.32/)             | body only      |
-| Emotions In Oral History Interviews: A Multimodal Approach to Holocaust Testimonies                                                                           | [2026.htres-2.8](https://aclanthology.org/2026.htres-2.8/)             | body only      |
-| Measuring Social Integration Through Participation: Categorizing Organizations and Leisure Activities in the Displaced Karelians Interview Archive using LLMs | [2026.latechclfl-1.11](https://aclanthology.org/2026.latechclfl-1.11/) | body only      |
+| title                                                                                                                                                         | paper                                                                  |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| The Two Towers for Estonian-Centric and Finno-Ugric Machine Translation                                                                                       | [2026.eamt-1.32](https://aclanthology.org/2026.eamt-1.32/)             |
+| Emotions In Oral History Interviews: A Multimodal Approach to Holocaust Testimonies                                                                           | [2026.htres-2.8](https://aclanthology.org/2026.htres-2.8/)             |
+| Measuring Social Integration Through Participation: Categorizing Organizations and Leisure Activities in the Displaced Karelians Interview Archive using LLMs | [2026.latechclfl-1.11](https://aclanthology.org/2026.latechclfl-1.11/) |
 
 {% endraw %}

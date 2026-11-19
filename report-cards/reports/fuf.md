@@ -179,17 +179,17 @@ _⚠️ Listed under the macrolanguage code `ful`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Fulani. None of the 12 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                       | paper                                                                    | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Language Choice in Nigerian Social Media Hate Speech                                                        | [2026.africanlp-main.9](https://aclanthology.org/2026.africanlp-main.9/) | body only      |
-| Indigenous Writing Systems Matter: Rethinking NLP beyond Alphabetic Bias through Script-Aware Modeling      | [2026.computel-1.13](https://aclanthology.org/2026.computel-1.13/)       | body only      |
-| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                                          | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)       | body only      |
-| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)       | body only      |
-| AfriStereo: A Culturally Grounded Dataset for Evaluating Stereotypical Bias in Large Language Models        | [2026.lrec-1.18](https://aclanthology.org/2026.lrec-1.18/)               | body only      |
-| SALAN: A Massive ASR Dataset for the Languages of Niger                                                     | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)             | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             | body only      |
-| Open but Unvetted: The Ethics of African Language Data                                                      | [2026.rail-1.13](https://aclanthology.org/2026.rail-1.13/)               | body only      |
-| HaYo: Repurposing DiaSafety Dataset for Dialogue Safety Evaluation in Hausa and Yoruba                      | [2026.rail-1.9](https://aclanthology.org/2026.rail-1.9/)                 | body only      |
-| HurtNet: a Multilingual Dictionary of Hurtful Words                                                         | [2026.woah-1.43](https://aclanthology.org/2026.woah-1.43/)               | body only      |
+| title                                                                                                       | paper                                                                    |
+|:------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Language Choice in Nigerian Social Media Hate Speech                                                        | [2026.africanlp-main.9](https://aclanthology.org/2026.africanlp-main.9/) |
+| Indigenous Writing Systems Matter: Rethinking NLP beyond Alphabetic Bias through Script-Aware Modeling      | [2026.computel-1.13](https://aclanthology.org/2026.computel-1.13/)       |
+| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                                          | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)       |
+| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)       |
+| AfriStereo: A Culturally Grounded Dataset for Evaluating Stereotypical Bias in Large Language Models        | [2026.lrec-1.18](https://aclanthology.org/2026.lrec-1.18/)               |
+| SALAN: A Massive ASR Dataset for the Languages of Niger                                                     | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)             |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             |
+| Open but Unvetted: The Ethics of African Language Data                                                      | [2026.rail-1.13](https://aclanthology.org/2026.rail-1.13/)               |
+| HaYo: Repurposing DiaSafety Dataset for Dialogue Safety Evaluation in Hausa and Yoruba                      | [2026.rail-1.9](https://aclanthology.org/2026.rail-1.9/)                 |
+| HurtNet: a Multilingual Dictionary of Hurtful Words                                                         | [2026.woah-1.43](https://aclanthology.org/2026.woah-1.43/)               |
 
 {% endraw %}

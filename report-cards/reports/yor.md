@@ -238,17 +238,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Yoruba. None of the 161 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                                          | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             | body only      |
-| Beyond Understanding: Evaluating the Pragmatic Gap in LLMs’ Cultural Processing of Figurative Language                                        | [2026.eacl-long.341](https://aclanthology.org/2026.eacl-long.341/)             | body only      |
-| The Dialect Tax: Dialectal Biases Persist throughout the Language Modeling Pipeline                                                           | [2026.emnlp-main.701](https://aclanthology.org/2026.emnlp-main.701/)           | body only      |
-| Energy-Aware Benchmarking of Generative Information Extraction                                                                                | [2026.findings-emnlp.2002](https://aclanthology.org/2026.findings-emnlp.2002/) | body only      |
-| Challenges and Recommendations for LLM-as-a-Judge in Multilingual Settings and for Low-Resource Languages                                     | [2026.findings-emnlp.2021](https://aclanthology.org/2026.findings-emnlp.2021/) | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| Diacritic Restoration for Low-Resource Indigenous Languages: Case Study with Bribri and Cook Islands Māori                                    | [2026.lrec-1.276](https://aclanthology.org/2026.lrec-1.276/)                   | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| Geometric Representations of African Languages: A Regional Semantic Hub and Cultural Steering                                                 | [2026.mrl-1.18](https://aclanthology.org/2026.mrl-1.18/)                       | body only      |
-| Adapting Foundational ASR Models to Efik: An Empirical Study of an Extremely Low-Resource Tonal Language                                      | [2026.speakable-1.1](https://aclanthology.org/2026.speakable-1.1/)             | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                                          | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             |
+| Beyond Understanding: Evaluating the Pragmatic Gap in LLMs’ Cultural Processing of Figurative Language                                        | [2026.eacl-long.341](https://aclanthology.org/2026.eacl-long.341/)             |
+| The Dialect Tax: Dialectal Biases Persist throughout the Language Modeling Pipeline                                                           | [2026.emnlp-main.701](https://aclanthology.org/2026.emnlp-main.701/)           |
+| Energy-Aware Benchmarking of Generative Information Extraction                                                                                | [2026.findings-emnlp.2002](https://aclanthology.org/2026.findings-emnlp.2002/) |
+| Challenges and Recommendations for LLM-as-a-Judge in Multilingual Settings and for Low-Resource Languages                                     | [2026.findings-emnlp.2021](https://aclanthology.org/2026.findings-emnlp.2021/) |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| Diacritic Restoration for Low-Resource Indigenous Languages: Case Study with Bribri and Cook Islands Māori                                    | [2026.lrec-1.276](https://aclanthology.org/2026.lrec-1.276/)                   |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| Geometric Representations of African Languages: A Regional Semantic Hub and Cultural Steering                                                 | [2026.mrl-1.18](https://aclanthology.org/2026.mrl-1.18/)                       |
+| Adapting Foundational ASR Models to Efik: An Empirical Study of an Extremely Low-Resource Tonal Language                                      | [2026.speakable-1.1](https://aclanthology.org/2026.speakable-1.1/)             |
 
 {% endraw %}

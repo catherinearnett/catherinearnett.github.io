@@ -230,17 +230,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Kyrgyz. None of the 43 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                  | paper                                                                  | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| Mitigating Catastrophic Forgetting in Target Language Adaptation of LLMs via Source-Shielded Updates                                   | [2026.acl-long.865](https://aclanthology.org/2026.acl-long.865/)       | body only      |
-| Large-scale Multilingual News Image Captioning with LLMs                                                                               | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/) | body only      |
-| Do LLMs Cross Alphabets? A Cross-Script Audit of LLMs Across Four Kazakh Latin Proposals                                               | [2026.emnlp-main.1479](https://aclanthology.org/2026.emnlp-main.1479/) | body only      |
-| No One-Size-Fits-All: Building Systems For Translation to Bashkir, Kazakh, Kyrgyz, Tatar and Chuvash Using Synthetic And Original Data | [2026.loresmt-1.17](https://aclanthology.org/2026.loresmt-1.17/)       | body only      |
-| Data-Centric Approach at the LoResMT 2026 Turkic Translation Challenge: Russian-Kyrgyz                                                 | [2026.loresmt-1.22](https://aclanthology.org/2026.loresmt-1.22/)       | body only      |
-| LoResMT 2026 Shared Task System Description                                                                                            | [2026.loresmt-1.23](https://aclanthology.org/2026.loresmt-1.23/)       | body only      |
-| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                             | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)           | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                                       | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)           | body only      |
-| Omnivorous Agreement, like Uyghur Backness Harmony, is a Challenge for Tier-Based Strict Locality                                      | [2026.scil-main.13](https://aclanthology.org/2026.scil-main.13/)       | body only      |
-| Quantifying mutual intelligibility gradients in Turkic languages using language models                                                 | [2026.scil-main.41](https://aclanthology.org/2026.scil-main.41/)       | body only      |
+| title                                                                                                                                  | paper                                                                  |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| Mitigating Catastrophic Forgetting in Target Language Adaptation of LLMs via Source-Shielded Updates                                   | [2026.acl-long.865](https://aclanthology.org/2026.acl-long.865/)       |
+| Large-scale Multilingual News Image Captioning with LLMs                                                                               | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/) |
+| Do LLMs Cross Alphabets? A Cross-Script Audit of LLMs Across Four Kazakh Latin Proposals                                               | [2026.emnlp-main.1479](https://aclanthology.org/2026.emnlp-main.1479/) |
+| No One-Size-Fits-All: Building Systems For Translation to Bashkir, Kazakh, Kyrgyz, Tatar and Chuvash Using Synthetic And Original Data | [2026.loresmt-1.17](https://aclanthology.org/2026.loresmt-1.17/)       |
+| Data-Centric Approach at the LoResMT 2026 Turkic Translation Challenge: Russian-Kyrgyz                                                 | [2026.loresmt-1.22](https://aclanthology.org/2026.loresmt-1.22/)       |
+| LoResMT 2026 Shared Task System Description                                                                                            | [2026.loresmt-1.23](https://aclanthology.org/2026.loresmt-1.23/)       |
+| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                             | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)           |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                                       | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)           |
+| Omnivorous Agreement, like Uyghur Backness Harmony, is a Challenge for Tier-Based Strict Locality                                      | [2026.scil-main.13](https://aclanthology.org/2026.scil-main.13/)       |
+| Quantifying mutual intelligibility gradients in Turkic languages using language models                                                 | [2026.scil-main.41](https://aclanthology.org/2026.scil-main.41/)       |
 
 {% endraw %}

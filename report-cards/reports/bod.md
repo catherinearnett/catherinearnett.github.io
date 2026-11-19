@@ -226,17 +226,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Tibetan. None of the 153 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                        | paper                                                                      | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Where the Cat Sat: A Multilingual Framework for Spatial Language Understanding                               | [2026.acl-long.1633](https://aclanthology.org/2026.acl-long.1633/)         | body only      |
-| Findings of the Second Workshop on Challenges in Processing South Asian Languages (CHiPSAL 2026)             | [2026.chipsal-1.1](https://aclanthology.org/2026.chipsal-1.1/)             | body only      |
-| A Morphological Transducer for the Limbu Language                                                            | [2026.chipsal-1.4](https://aclanthology.org/2026.chipsal-1.4/)             | body only      |
-| Large-scale Multilingual News Image Captioning with LLMs                                                     | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)     | body only      |
-| IndicParam: Benchmark to evaluate LLMs on low-resource Indic Languages                                       | [2026.emnlp-main.250](https://aclanthology.org/2026.emnlp-main.250/)       | body only      |
-| Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs | [2026.findings-aacl.227](https://aclanthology.org/2026.findings-aacl.227/) | body only      |
-| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                   | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)             | body only      |
-| Insights from Romanized Manipuri Social Media Text: A Transliteration Corpus and Variation Analysis          | [2026.lrec-1.147](https://aclanthology.org/2026.lrec-1.147/)               | body only      |
-| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                    | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)               | body only      |
-| Benchmarking Multilingual LLM Translation Accuracy for Fuzhounese                                            | [2026.sigul-1.20](https://aclanthology.org/2026.sigul-1.20/)               | body only      |
+| title                                                                                                        | paper                                                                      |
+|:-------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Where the Cat Sat: A Multilingual Framework for Spatial Language Understanding                               | [2026.acl-long.1633](https://aclanthology.org/2026.acl-long.1633/)         |
+| Findings of the Second Workshop on Challenges in Processing South Asian Languages (CHiPSAL 2026)             | [2026.chipsal-1.1](https://aclanthology.org/2026.chipsal-1.1/)             |
+| A Morphological Transducer for the Limbu Language                                                            | [2026.chipsal-1.4](https://aclanthology.org/2026.chipsal-1.4/)             |
+| Large-scale Multilingual News Image Captioning with LLMs                                                     | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)     |
+| IndicParam: Benchmark to evaluate LLMs on low-resource Indic Languages                                       | [2026.emnlp-main.250](https://aclanthology.org/2026.emnlp-main.250/)       |
+| Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs | [2026.findings-aacl.227](https://aclanthology.org/2026.findings-aacl.227/) |
+| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                   | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)             |
+| Insights from Romanized Manipuri Social Media Text: A Transliteration Corpus and Variation Analysis          | [2026.lrec-1.147](https://aclanthology.org/2026.lrec-1.147/)               |
+| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                    | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)               |
+| Benchmarking Multilingual LLM Translation Accuracy for Fuzhounese                                            | [2026.sigul-1.20](https://aclanthology.org/2026.sigul-1.20/)               |
 
 {% endraw %}

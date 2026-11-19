@@ -157,10 +157,10 @@ Creole English isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation t
 
 Here are up to ten papers published in 2026 that mention Creole English. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                              | paper                                                                | mentioned in   |
-|:---------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:---------------|
-| DIA-HARM: Dialectal Disparities in Harmful Content Detection Across 50 English Dialects            | [2026.acl-long.144](https://aclanthology.org/2026.acl-long.144/)     | body only      |
-| PathSoft: Hybrid Soft Prompting with Ranked Reasoning Paths for Knowledge Graph Question Answering | [2026.emnlp-main.482](https://aclanthology.org/2026.emnlp-main.482/) | body only      |
-| Evaluating Cultural Awareness of LLMs for Haitian Creole                                           | [2026.pandora-1.21](https://aclanthology.org/2026.pandora-1.21/)     | body only      |
+| title                                                                                              | paper                                                                |
+|:---------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
+| DIA-HARM: Dialectal Disparities in Harmful Content Detection Across 50 English Dialects            | [2026.acl-long.144](https://aclanthology.org/2026.acl-long.144/)     |
+| PathSoft: Hybrid Soft Prompting with Ranked Reasoning Paths for Knowledge Graph Question Answering | [2026.emnlp-main.482](https://aclanthology.org/2026.emnlp-main.482/) |
+| Evaluating Cultural Awareness of LLMs for Haitian Creole                                           | [2026.pandora-1.21](https://aclanthology.org/2026.pandora-1.21/)     |
 
 {% endraw %}

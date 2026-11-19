@@ -271,17 +271,17 @@ Czech has been part of the WMT translation task in **20** years (2007, 2008, 200
 
 Here are up to ten papers published in 2026 that mention Czech. None of the 455 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                            | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| IGenBench: Benchmarking the Reliability of Text-to-Infographic Generation                                                        | [2026.acl-long.1713](https://aclanthology.org/2026.acl-long.1713/)             | body only      |
-| CorPipe at CRAC 2026: Empty Nodes and Cross-Lingual Transfer in Multilingual Coreference Resolution                              | [2026.codi-1.27](https://aclanthology.org/2026.codi-1.27/)                     | body only      |
-| Generative Models Enhanced by Sequence Labelling and Aspect-Code Switching Improve Cross-lingual Aspect-Based Sentiment Analysis | [2026.emnlp-main.1531](https://aclanthology.org/2026.emnlp-main.1531/)         | body only      |
-| Assessment of Generative Named Entity Recognition in the Era of Large Language Models                                            | [2026.findings-emnlp.1706](https://aclanthology.org/2026.findings-emnlp.1706/) | body only      |
-| Large Language Models for Citation Function Classification                                                                       | [2026.lrec-1.191](https://aclanthology.org/2026.lrec-1.191/)                   | body only      |
-| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                                        | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)                   | body only      |
-| Proffiliadur: Welsh Language Text Profiling Toolkit                                                                              | [2026.lrec-1.88](https://aclanthology.org/2026.lrec-1.88/)                     | body only      |
-| Fluency and Faithfulness in Human and Machine Literary Translation                                                               | [2026.nlp4dh-1.17](https://aclanthology.org/2026.nlp4dh-1.17/)                 | body only      |
-| Overview of the SIGTURK 2026 Shared Task: Terminology-Aware Machine Translation for English–Turkish Scientific Texts             | [2026.sigturk-1.20](https://aclanthology.org/2026.sigturk-1.20/)               | body only      |
-| CUNI-UFAL at WMT26 Multilingual Instruction Shared Task                                                                          | [2026.wmt-main.130](https://aclanthology.org/2026.wmt-main.130/)               | body only      |
+| title                                                                                                                            | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| IGenBench: Benchmarking the Reliability of Text-to-Infographic Generation                                                        | [2026.acl-long.1713](https://aclanthology.org/2026.acl-long.1713/)             |
+| CorPipe at CRAC 2026: Empty Nodes and Cross-Lingual Transfer in Multilingual Coreference Resolution                              | [2026.codi-1.27](https://aclanthology.org/2026.codi-1.27/)                     |
+| Generative Models Enhanced by Sequence Labelling and Aspect-Code Switching Improve Cross-lingual Aspect-Based Sentiment Analysis | [2026.emnlp-main.1531](https://aclanthology.org/2026.emnlp-main.1531/)         |
+| Assessment of Generative Named Entity Recognition in the Era of Large Language Models                                            | [2026.findings-emnlp.1706](https://aclanthology.org/2026.findings-emnlp.1706/) |
+| Large Language Models for Citation Function Classification                                                                       | [2026.lrec-1.191](https://aclanthology.org/2026.lrec-1.191/)                   |
+| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                                        | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)                   |
+| Proffiliadur: Welsh Language Text Profiling Toolkit                                                                              | [2026.lrec-1.88](https://aclanthology.org/2026.lrec-1.88/)                     |
+| Fluency and Faithfulness in Human and Machine Literary Translation                                                               | [2026.nlp4dh-1.17](https://aclanthology.org/2026.nlp4dh-1.17/)                 |
+| Overview of the SIGTURK 2026 Shared Task: Terminology-Aware Machine Translation for English–Turkish Scientific Texts             | [2026.sigturk-1.20](https://aclanthology.org/2026.sigturk-1.20/)               |
+| CUNI-UFAL at WMT26 Multilingual Instruction Shared Task                                                                          | [2026.wmt-main.130](https://aclanthology.org/2026.wmt-main.130/)               |
 
 {% endraw %}

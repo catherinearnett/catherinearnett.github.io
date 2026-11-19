@@ -259,17 +259,17 @@ Ukrainian has been part of the WMT translation task in **5** years (2022, 2023, 
 
 Here are up to ten papers published in 2026 that mention Ukrainian. None of the 292 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                          | paper                                                                        | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Simultaneous Speech-to-Text Translation Web Application for Estonian                                                           | [2026.eacl-demo.40](https://aclanthology.org/2026.eacl-demo.40/)             | body only      |
-| Prompt Revision as a Source of Cultural Bias in Text-to-Image Systems                                                          | [2026.emnlp-main.1599](https://aclanthology.org/2026.emnlp-main.1599/)       | body only      |
-| xVerify: Efficient Answer Verifier for Reasoning Model Evaluations                                                             | [2026.findings-emnlp.159](https://aclanthology.org/2026.findings-emnlp.159/) | body only      |
-| Modeling the Language of Holocaust Survivors’ Testimony with Domain-Adapted Transformers                                       | [2026.htres-2.9](https://aclanthology.org/2026.htres-2.9/)                   | body only      |
-| A Longitudinal, Multinational, and Multilingual Corpus of News Coverage of the Russo-Ukrainian War                             | [2026.lrec-1.512](https://aclanthology.org/2026.lrec-1.512/)                 | body only      |
-| An Exploration-Analysis-Disambiguation Reasoning Framework for Word Sense Disambiguation with Low-Parameter LLMs               | [2026.lrec-1.816](https://aclanthology.org/2026.lrec-1.816/)                 | body only      |
-| TeamLasse at SemEval-2026 Task 3: A Hybrid Generative-Discriminative Framework for Dimensional Aspect-Based Sentiment Analysis | [2026.semeval-1.273](https://aclanthology.org/2026.semeval-1.273/)           | body only      |
-| What does Surprisal have to do with Information Status?                                                                        | [2026.sigtyp-main.4](https://aclanthology.org/2026.sigtyp-main.4/)           | body only      |
-| LAND: Learning an Adaptive Number of Draws for Bayesian Best-of-N Selection                                                    | [2026.wmt-main.28](https://aclanthology.org/2026.wmt-main.28/)               | body only      |
-| ReMova: Fine-tuning LLMs for English to Belarusian translation                                                                 | [2026.wmt-main.75](https://aclanthology.org/2026.wmt-main.75/)               | body only      |
+| title                                                                                                                          | paper                                                                        |
+|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Simultaneous Speech-to-Text Translation Web Application for Estonian                                                           | [2026.eacl-demo.40](https://aclanthology.org/2026.eacl-demo.40/)             |
+| Prompt Revision as a Source of Cultural Bias in Text-to-Image Systems                                                          | [2026.emnlp-main.1599](https://aclanthology.org/2026.emnlp-main.1599/)       |
+| xVerify: Efficient Answer Verifier for Reasoning Model Evaluations                                                             | [2026.findings-emnlp.159](https://aclanthology.org/2026.findings-emnlp.159/) |
+| Modeling the Language of Holocaust Survivors’ Testimony with Domain-Adapted Transformers                                       | [2026.htres-2.9](https://aclanthology.org/2026.htres-2.9/)                   |
+| A Longitudinal, Multinational, and Multilingual Corpus of News Coverage of the Russo-Ukrainian War                             | [2026.lrec-1.512](https://aclanthology.org/2026.lrec-1.512/)                 |
+| An Exploration-Analysis-Disambiguation Reasoning Framework for Word Sense Disambiguation with Low-Parameter LLMs               | [2026.lrec-1.816](https://aclanthology.org/2026.lrec-1.816/)                 |
+| TeamLasse at SemEval-2026 Task 3: A Hybrid Generative-Discriminative Framework for Dimensional Aspect-Based Sentiment Analysis | [2026.semeval-1.273](https://aclanthology.org/2026.semeval-1.273/)           |
+| What does Surprisal have to do with Information Status?                                                                        | [2026.sigtyp-main.4](https://aclanthology.org/2026.sigtyp-main.4/)           |
+| LAND: Learning an Adaptive Number of Draws for Bayesian Best-of-N Selection                                                    | [2026.wmt-main.28](https://aclanthology.org/2026.wmt-main.28/)               |
+| ReMova: Fine-tuning LLMs for English to Belarusian translation                                                                 | [2026.wmt-main.75](https://aclanthology.org/2026.wmt-main.75/)               |
 
 {% endraw %}

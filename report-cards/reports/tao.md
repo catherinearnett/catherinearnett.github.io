@@ -164,17 +164,17 @@ Tao isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005â€
 
 Here are up to ten papers published in 2026 that mention Tao. None of the 115 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                         | paper                                                                | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:---------------|
-| WisPerMed at ArchEHR-QA 2026: Retrieval-Augmented Prompting for Grounded EHR Question Answering                               | [2026.cl4health-1.42](https://aclanthology.org/2026.cl4health-1.42/) | body only      |
-| Neural at ArchEHR-QA 2026: One Method Fits All: Unified Prompt Optimization for Clinical QA over EHRs                         | [2026.cl4health-1.50](https://aclanthology.org/2026.cl4health-1.50/) | body only      |
-| Automatic Speech Recognition for Documenting Endangered Languages: Case Study of Ikema Miyakoan                               | [2026.lrec-1.284](https://aclanthology.org/2026.lrec-1.284/)         | body only      |
-| Southern Kurdish Speech Recognition Resources and Benchmarking                                                                | [2026.lrec-1.432](https://aclanthology.org/2026.lrec-1.432/)         | body only      |
-| Listening for Ideology: Automatic Analysis of Character Speech in Historical Nazi Propaganda Films                            | [2026.lrec-1.461](https://aclanthology.org/2026.lrec-1.461/)         | body only      |
-| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages                                    | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)         | body only      |
-| Do Multimodal LLMs Understand Order? Measuring the Fragility of Multimodal Reasoning under Input Order Perturbations          | [2026.lrec-1.716](https://aclanthology.org/2026.lrec-1.716/)         | body only      |
-| Reason-to-Learn (R2L): Multi-Agent Knowledge Distillation for Lightweight LLMs in Sentiment Analysis                          | [2026.lrec-1.809](https://aclanthology.org/2026.lrec-1.809/)         | body only      |
-| Is Biomedical Specialization Still Worth It? Insights from Domain-Adaptive Language Modelling with a New French Health Corpus | [2026.lrec-1.833](https://aclanthology.org/2026.lrec-1.833/)         | body only      |
-| A Meta-evaluation of Automatic Metrics for Elaborative Simplification                                                         | [2026.readi-1.15](https://aclanthology.org/2026.readi-1.15/)         | body only      |
+| title                                                                                                                         | paper                                                                |
+|:------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
+| WisPerMed at ArchEHR-QA 2026: Retrieval-Augmented Prompting for Grounded EHR Question Answering                               | [2026.cl4health-1.42](https://aclanthology.org/2026.cl4health-1.42/) |
+| Neural at ArchEHR-QA 2026: One Method Fits All: Unified Prompt Optimization for Clinical QA over EHRs                         | [2026.cl4health-1.50](https://aclanthology.org/2026.cl4health-1.50/) |
+| Automatic Speech Recognition for Documenting Endangered Languages: Case Study of Ikema Miyakoan                               | [2026.lrec-1.284](https://aclanthology.org/2026.lrec-1.284/)         |
+| Southern Kurdish Speech Recognition Resources and Benchmarking                                                                | [2026.lrec-1.432](https://aclanthology.org/2026.lrec-1.432/)         |
+| Listening for Ideology: Automatic Analysis of Character Speech in Historical Nazi Propaganda Films                            | [2026.lrec-1.461](https://aclanthology.org/2026.lrec-1.461/)         |
+| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages                                    | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)         |
+| Do Multimodal LLMs Understand Order? Measuring the Fragility of Multimodal Reasoning under Input Order Perturbations          | [2026.lrec-1.716](https://aclanthology.org/2026.lrec-1.716/)         |
+| Reason-to-Learn (R2L): Multi-Agent Knowledge Distillation for Lightweight LLMs in Sentiment Analysis                          | [2026.lrec-1.809](https://aclanthology.org/2026.lrec-1.809/)         |
+| Is Biomedical Specialization Still Worth It? Insights from Domain-Adaptive Language Modelling with a New French Health Corpus | [2026.lrec-1.833](https://aclanthology.org/2026.lrec-1.833/)         |
+| A Meta-evaluation of Automatic Metrics for Elaborative Simplification                                                         | [2026.readi-1.15](https://aclanthology.org/2026.readi-1.15/)         |
 
 {% endraw %}

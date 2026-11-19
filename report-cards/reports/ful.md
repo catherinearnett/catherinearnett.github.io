@@ -233,17 +233,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Fula. None of the 19 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP     | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)             | body only      |
-| InstructLR: A Scalable Approach to Create Instruction Dataset for Under-Resourced Languages   | [2026.africanlp-main.3](https://aclanthology.org/2026.africanlp-main.3/)       | body only      |
-| Translation-CoT: A Human-Inspired Chain-of-Thought Framework for Multilingual LLM Translation | [2026.amta-research.2](https://aclanthology.org/2026.amta-research.2/)         | body only      |
-| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                            | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)             | body only      |
-| INCLUDE-2.0: Disentangling Knowledge Gaps in Multilingual LLM Evaluation                      | [2026.emnlp-main.1344](https://aclanthology.org/2026.emnlp-main.1344/)         | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| SALAN: A Massive ASR Dataset for the Languages of Niger                                       | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)                   | body only      |
-| Reclaiming African Voices: Surveying Indigenous Writing Systems for Inclusive NLP             | [2026.rail-1.10](https://aclanthology.org/2026.rail-1.10/)                     | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings      | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                   | body only      |
+| title                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP     | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)             |
+| InstructLR: A Scalable Approach to Create Instruction Dataset for Under-Resourced Languages   | [2026.africanlp-main.3](https://aclanthology.org/2026.africanlp-main.3/)       |
+| Translation-CoT: A Human-Inspired Chain-of-Thought Framework for Multilingual LLM Translation | [2026.amta-research.2](https://aclanthology.org/2026.amta-research.2/)         |
+| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                            | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)             |
+| INCLUDE-2.0: Disentangling Knowledge Gaps in Multilingual LLM Evaluation                      | [2026.emnlp-main.1344](https://aclanthology.org/2026.emnlp-main.1344/)         |
+| TIPA: Typologically Informed Parameter Aggregation                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| SALAN: A Massive ASR Dataset for the Languages of Niger                                       | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)                   |
+| Reclaiming African Voices: Surveying Indigenous Writing Systems for Inclusive NLP             | [2026.rail-1.10](https://aclanthology.org/2026.rail-1.10/)                     |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings      | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                   |
 
 {% endraw %}

@@ -223,12 +223,12 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Dhivehi. None of the 5 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                          | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| IndicJR: A Judge-Free Benchmark of Jailbreak Robustness in South Asian Languages                               | [2026.eacl-industry.50](https://aclanthology.org/2026.eacl-industry.50/)       | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                             | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| IndicSafe: A Benchmark for Evaluating Multilingual LLM Safety in South Asia                                    | [2026.findings-emnlp.2135](https://aclanthology.org/2026.findings-emnlp.2135/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                        | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
+| title                                                                                                          | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| IndicJR: A Judge-Free Benchmark of Jailbreak Robustness in South Asian Languages                               | [2026.eacl-industry.50](https://aclanthology.org/2026.eacl-industry.50/)       |
+| TIPA: Typologically Informed Parameter Aggregation                                                             | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| IndicSafe: A Benchmark for Evaluating Multilingual LLM Safety in South Asia                                    | [2026.findings-emnlp.2135](https://aclanthology.org/2026.findings-emnlp.2135/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                        | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
 
 {% endraw %}

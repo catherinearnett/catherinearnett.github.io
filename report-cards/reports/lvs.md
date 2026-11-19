@@ -248,17 +248,17 @@ _⚠️ Listed under the macrolanguage code `lav`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Latvian. None of the 78 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                         | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Multilingual Refusal Alignment for Safer Large Language Models                                | [2026.findings-acl.1537](https://aclanthology.org/2026.findings-acl.1537/) | body only      |
-| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/)   | body only      |
-| Confabulations from ACL Publications (CAP): A Dataset for Scientific Hallucination Detection  | [2026.lrec-1.197](https://aclanthology.org/2026.lrec-1.197/)               | body only      |
-| PARSEME 2.0 Multilingual Corpus of Multiword Expressions                                      | [2026.lrec-1.378](https://aclanthology.org/2026.lrec-1.378/)               | body only      |
-| IMaSC: A Malayalam Speech Corpus for High-Quality Text-to-Speech Synthesis                    | [2026.lrec-1.465](https://aclanthology.org/2026.lrec-1.465/)               | body only      |
-| TildeOpen LLM: Leveraging Curriculum Learning to Achieve Equitable Language Representation    | [2026.lrec-1.834](https://aclanthology.org/2026.lrec-1.834/)               | body only      |
-| SinFoS: A Parallel Dataset for Translating Sinhala Figures of Speech                          | [2026.mwe-1.2](https://aclanthology.org/2026.mwe-1.2/)                     | body only      |
-| Language Identification for Low-Resource Formosan Languages                                   | [2026.sigul-1.24](https://aclanthology.org/2026.sigul-1.24/)               | body only      |
-| Teaching NLP in the AI Era: Experiences from the University of Latvia                         | [2026.teachingnlp-1.6](https://aclanthology.org/2026.teachingnlp-1.6/)     | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                     | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                     | body only      |
+| title                                                                                         | paper                                                                      |
+|:----------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Multilingual Refusal Alignment for Safer Large Language Models                                | [2026.findings-acl.1537](https://aclanthology.org/2026.findings-acl.1537/) |
+| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/)   |
+| Confabulations from ACL Publications (CAP): A Dataset for Scientific Hallucination Detection  | [2026.lrec-1.197](https://aclanthology.org/2026.lrec-1.197/)               |
+| PARSEME 2.0 Multilingual Corpus of Multiword Expressions                                      | [2026.lrec-1.378](https://aclanthology.org/2026.lrec-1.378/)               |
+| IMaSC: A Malayalam Speech Corpus for High-Quality Text-to-Speech Synthesis                    | [2026.lrec-1.465](https://aclanthology.org/2026.lrec-1.465/)               |
+| TildeOpen LLM: Leveraging Curriculum Learning to Achieve Equitable Language Representation    | [2026.lrec-1.834](https://aclanthology.org/2026.lrec-1.834/)               |
+| SinFoS: A Parallel Dataset for Translating Sinhala Figures of Speech                          | [2026.mwe-1.2](https://aclanthology.org/2026.mwe-1.2/)                     |
+| Language Identification for Low-Resource Formosan Languages                                   | [2026.sigul-1.24](https://aclanthology.org/2026.sigul-1.24/)               |
+| Teaching NLP in the AI Era: Experiences from the University of Latvia                         | [2026.teachingnlp-1.6](https://aclanthology.org/2026.teachingnlp-1.6/)     |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                     | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                     |
 
 {% endraw %}

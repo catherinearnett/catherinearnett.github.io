@@ -243,17 +243,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Assamese. None of the 94 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                           | paper                                                                          | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| How Good is Your Wikipedia? Auditing Data Quality for Low-resource and Multilingual NLP                                         | [2026.acl-long.1373](https://aclanthology.org/2026.acl-long.1373/)             | body only      |
-| BornoDrishti: Leveraging Vision Encoders and Domain-Adaptive Learning for Bangla OCR on Diverse Documents                       | [2026.eacl-industry.20](https://aclanthology.org/2026.eacl-industry.20/)       | body only      |
-| NE-MultiSpeech: A Multilingual Speech Corpus and ASR Benchmark for Northeast Indian Languages                                   | [2026.emnlp-main.2471](https://aclanthology.org/2026.emnlp-main.2471/)         | body only      |
-| Morphological Analysis and Disambiguation of Agglutinative Assamese through Rule-Based Synthesis and Neural Candidate Ranking   | [2026.findings-emnlp.2118](https://aclanthology.org/2026.findings-emnlp.2118/) | body only      |
-| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                                      | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)                 | body only      |
-| One Vector, Thirty-Eight Languages: Benchmark-Derived Anti-Sycophancy Steering Works Worst Where Sycophancy Is Worst            | [2026.oracle-main.12](https://aclanthology.org/2026.oracle-main.12/)           | body only      |
-| Models Without Borders at SemEval-2026 Task 7: Bridging Cultural Contexts with Search-Grounded QA                               | [2026.semeval-1.407](https://aclanthology.org/2026.semeval-1.407/)             | body only      |
-| GUIR at SemEval-2026 Task 7: Probing Cultural Knowledge in LLMs via Multi-Agent Debate                                          | [2026.semeval-1.438](https://aclanthology.org/2026.semeval-1.438/)             | body only      |
-| TIP-RBG-AI: Overcoming Orthographic Discrepancies via Algorithmic Translinear Pipelines and Phylogenetic Script Mapping         | [2026.wmt-main.152](https://aclanthology.org/2026.wmt-main.152/)               | body only      |
-| MTG-LIRA: Scaling Neural Machine Translation for Low-Resource Indian Languages through Multilingual Learning and Synthetic Data | [2026.wmt-main.153](https://aclanthology.org/2026.wmt-main.153/)               | body only      |
+| title                                                                                                                           | paper                                                                          |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| How Good is Your Wikipedia? Auditing Data Quality for Low-resource and Multilingual NLP                                         | [2026.acl-long.1373](https://aclanthology.org/2026.acl-long.1373/)             |
+| BornoDrishti: Leveraging Vision Encoders and Domain-Adaptive Learning for Bangla OCR on Diverse Documents                       | [2026.eacl-industry.20](https://aclanthology.org/2026.eacl-industry.20/)       |
+| NE-MultiSpeech: A Multilingual Speech Corpus and ASR Benchmark for Northeast Indian Languages                                   | [2026.emnlp-main.2471](https://aclanthology.org/2026.emnlp-main.2471/)         |
+| Morphological Analysis and Disambiguation of Agglutinative Assamese through Rule-Based Synthesis and Neural Candidate Ranking   | [2026.findings-emnlp.2118](https://aclanthology.org/2026.findings-emnlp.2118/) |
+| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                                      | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)                 |
+| One Vector, Thirty-Eight Languages: Benchmark-Derived Anti-Sycophancy Steering Works Worst Where Sycophancy Is Worst            | [2026.oracle-main.12](https://aclanthology.org/2026.oracle-main.12/)           |
+| Models Without Borders at SemEval-2026 Task 7: Bridging Cultural Contexts with Search-Grounded QA                               | [2026.semeval-1.407](https://aclanthology.org/2026.semeval-1.407/)             |
+| GUIR at SemEval-2026 Task 7: Probing Cultural Knowledge in LLMs via Multi-Agent Debate                                          | [2026.semeval-1.438](https://aclanthology.org/2026.semeval-1.438/)             |
+| TIP-RBG-AI: Overcoming Orthographic Discrepancies via Algorithmic Translinear Pipelines and Phylogenetic Script Mapping         | [2026.wmt-main.152](https://aclanthology.org/2026.wmt-main.152/)               |
+| MTG-LIRA: Scaling Neural Machine Translation for Low-Resource Indian Languages through Multilingual Learning and Synthetic Data | [2026.wmt-main.153](https://aclanthology.org/2026.wmt-main.153/)               |
 
 {% endraw %}

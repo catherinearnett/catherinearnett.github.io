@@ -224,11 +224,11 @@ _None found._
 
 Here are up to ten papers published in 2026 that mention Susu. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                             | paper                                                                          | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                                 | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             | body only      |
-| Evaluating Machine Translation and Automatic Metrics in Subtitling: A Case Study on Spanish Multiword Expressions | [2026.eamt-1.29](https://aclanthology.org/2026.eamt-1.29/)                     | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                            | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                          | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                   | body only      |
+| title                                                                                                             | paper                                                                          |
+|:------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                                 | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             |
+| Evaluating Machine Translation and Automatic Metrics in Subtitling: A Case Study on Spanish Multiword Expressions | [2026.eamt-1.29](https://aclanthology.org/2026.eamt-1.29/)                     |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                            | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                          | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                   |
 
 {% endraw %}

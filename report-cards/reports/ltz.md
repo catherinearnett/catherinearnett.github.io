@@ -234,17 +234,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Luxembourgish. None of the 36 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                          | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Bi-Text Mining across German Dialects: On the Role of Synthetic Training Data for Dialect Adaptation           | [2026.bucc-1.9](https://aclanthology.org/2026.bucc-1.9/)                       | body only      |
-| Testing Low-Resource Language Support in LLMs Using Language Proficiency Exams: the Case of Luxembourgish      | [2026.findings-eacl.128](https://aclanthology.org/2026.findings-eacl.128/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                   | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                     | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource                   | [2026.lrec-1.287](https://aclanthology.org/2026.lrec-1.287/)                   | body only      |
-| Do LLMs Judge Distantly Supervised Named Entity Labels Well? Constructing the JudgeWEL Dataset                 | [2026.lrec-1.612](https://aclanthology.org/2026.lrec-1.612/)                   | body only      |
-| Do LLMs Know What Luxembourgish Borrows? Probing Lexical Neology in Low-Resource Multilingual Models           | [2026.neollm-1.3](https://aclanthology.org/2026.neollm-1.3/)                   | body only      |
-| Language Ideologies in a Multilingual Society: An LLM-based Analysis of Luxembourgish News Comments            | [2026.socon-1.12](https://aclanthology.org/2026.socon-1.12/)                   | body only      |
-| Data Augmentation for Historical NER: A Systematic Comparison of Lexical and LLM-based Approaches              | [2026.swisstext-1.14](https://aclanthology.org/2026.swisstext-1.14/)           | body only      |
+| title                                                                                                          | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Bi-Text Mining across German Dialects: On the Role of Synthetic Training Data for Dialect Adaptation           | [2026.bucc-1.9](https://aclanthology.org/2026.bucc-1.9/)                       |
+| Testing Low-Resource Language Support in LLMs Using Language Proficiency Exams: the Case of Luxembourgish      | [2026.findings-eacl.128](https://aclanthology.org/2026.findings-eacl.128/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                   | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                     | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource                   | [2026.lrec-1.287](https://aclanthology.org/2026.lrec-1.287/)                   |
+| Do LLMs Judge Distantly Supervised Named Entity Labels Well? Constructing the JudgeWEL Dataset                 | [2026.lrec-1.612](https://aclanthology.org/2026.lrec-1.612/)                   |
+| Do LLMs Know What Luxembourgish Borrows? Probing Lexical Neology in Low-Resource Multilingual Models           | [2026.neollm-1.3](https://aclanthology.org/2026.neollm-1.3/)                   |
+| Language Ideologies in a Multilingual Society: An LLM-based Analysis of Luxembourgish News Comments            | [2026.socon-1.12](https://aclanthology.org/2026.socon-1.12/)                   |
+| Data Augmentation for Historical NER: A Systematic Comparison of Lexical and LLM-based Approaches              | [2026.swisstext-1.14](https://aclanthology.org/2026.swisstext-1.14/)           |
 
 {% endraw %}

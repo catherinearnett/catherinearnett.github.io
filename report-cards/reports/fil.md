@@ -226,17 +226,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Filipino. None of the 53 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                            | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                        | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/)             | body only      |
-| Translation-CoT: A Human-Inspired Chain-of-Thought Framework for Multilingual LLM Translation                    | [2026.amta-research.2](https://aclanthology.org/2026.amta-research.2/)         | body only      |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation              | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)     | body only      |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                              | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)     | body only      |
-| SEA-LION-Embedding: Open and Reproducible Text Embeddings for Southeast Asia                                     | [2026.findings-emnlp.1205](https://aclanthology.org/2026.findings-emnlp.1205/) | body only      |
-| Tracing the Latent Threads: A Mechanistic Study of How LLMs Represent and Operationalize Race and Ethnicity Cues | [2026.findings-emnlp.1388](https://aclanthology.org/2026.findings-emnlp.1388/) | body only      |
-| CultureVLM: Characterizing and Improving Cultural Understanding of Vision-Language Models                        | [2026.findings-emnlp.1603](https://aclanthology.org/2026.findings-emnlp.1603/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| Cygnet: Refactoring the Open Multilingual Wordnet                                                                | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)                   | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                   | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   | body only      |
+| title                                                                                                            | paper                                                                          |
+|:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                        | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/)             |
+| Translation-CoT: A Human-Inspired Chain-of-Thought Framework for Multilingual LLM Translation                    | [2026.amta-research.2](https://aclanthology.org/2026.amta-research.2/)         |
+| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation              | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)     |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                              | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)     |
+| SEA-LION-Embedding: Open and Reproducible Text Embeddings for Southeast Asia                                     | [2026.findings-emnlp.1205](https://aclanthology.org/2026.findings-emnlp.1205/) |
+| Tracing the Latent Threads: A Mechanistic Study of How LLMs Represent and Operationalize Race and Ethnicity Cues | [2026.findings-emnlp.1388](https://aclanthology.org/2026.findings-emnlp.1388/) |
+| CultureVLM: Characterizing and Improving Cultural Understanding of Vision-Language Models                        | [2026.findings-emnlp.1603](https://aclanthology.org/2026.findings-emnlp.1603/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| Cygnet: Refactoring the Open Multilingual Wordnet                                                                | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)                   |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                   | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
 
 {% endraw %}

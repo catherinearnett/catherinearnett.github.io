@@ -220,13 +220,13 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Kabardian. None of the 6 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                            | paper                                                        | mentioned in   |
-|:-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:---------------|
-| Private-Use Area Characters in the Wild: Signal or Noise?                                        | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)     | body only      |
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)     | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/) | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                       | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/) | body only      |
-| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets            | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)       | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings         | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/) | body only      |
+| title                                                                                            | paper                                                        |
+|:-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|
+| Private-Use Area Characters in the Wild: Signal or Noise?                                        | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)     |
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)     |
+| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/) |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                       | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/) |
+| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets            | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)       |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings         | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/) |
 
 {% endraw %}

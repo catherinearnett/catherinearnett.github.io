@@ -215,17 +215,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Dari. None of the 23 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                    | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Sharing is Caring: Advantages of Sharing a Language Background with Learners as an Annotator of Learner Data in UD                            | [2026.bea-1.35](https://aclanthology.org/2026.bea-1.35/)                 | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)           | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)             | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             | body only      |
-| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                                                 | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)             | body only      |
-| When Cross-Lingual Consistency Is Not Enough: Diagnostics for Low-Resource Political Actor Portrayal                                          | [2026.mrl-1.25](https://aclanthology.org/2026.mrl-1.25/)                 | body only      |
-| Segmentation Strategy Matters: Benchmarking Whisper on Persian YouTube Content                                                                | [2026.silkroadnlp-1.13](https://aclanthology.org/2026.silkroadnlp-1.13/) | body only      |
-| TajPersLexon: A Tajik–Persian Lexical Resource and Hybrid Model for Cross-Script Low-Resource NLP                                             | [2026.silkroadnlp-1.4](https://aclanthology.org/2026.silkroadnlp-1.4/)   | body only      |
-| APARSIN: A Multi-Variety Sentiment and Translation Benchmark for Iranic Languages                                                             | [2026.silkroadnlp-1.9](https://aclanthology.org/2026.silkroadnlp-1.9/)   | body only      |
+| title                                                                                                                                         | paper                                                                    |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Sharing is Caring: Advantages of Sharing a Language Background with Learners as an Annotator of Learner Data in UD                            | [2026.bea-1.35](https://aclanthology.org/2026.bea-1.35/)                 |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)           |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)             |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             |
+| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                                                 | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)             |
+| When Cross-Lingual Consistency Is Not Enough: Diagnostics for Low-Resource Political Actor Portrayal                                          | [2026.mrl-1.25](https://aclanthology.org/2026.mrl-1.25/)                 |
+| Segmentation Strategy Matters: Benchmarking Whisper on Persian YouTube Content                                                                | [2026.silkroadnlp-1.13](https://aclanthology.org/2026.silkroadnlp-1.13/) |
+| TajPersLexon: A Tajik–Persian Lexical Resource and Hybrid Model for Cross-Script Low-Resource NLP                                             | [2026.silkroadnlp-1.4](https://aclanthology.org/2026.silkroadnlp-1.4/)   |
+| APARSIN: A Multi-Variety Sentiment and Translation Benchmark for Iranic Languages                                                             | [2026.silkroadnlp-1.9](https://aclanthology.org/2026.silkroadnlp-1.9/)   |
 
 {% endraw %}

@@ -228,17 +228,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Shangani. None of the 19 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                            | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| AfriMTEB and AfriE5: Benchmarking and Adapting Text Embedding Models for African Languages                                       | [2026.eacl-long.171](https://aclanthology.org/2026.eacl-long.171/)             | body only      |
-| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context                      | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| JPhonABX: Japanese Phonological Discrimination Dataset for Moraic and Accentual Minimal Pairs                                    | [2026.findings-emnlp.1072](https://aclanthology.org/2026.findings-emnlp.1072/) | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                   | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                       | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| Benchmarking Text Embedding Models for South African Languages                                                                   | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       | body only      |
-| Measuring the Cost of Variety Conflation in Multilingual MT Evaluation: Adding Mozambican Xichangana, Nyanja and Sena to FLORES+ | [2026.wmt-main.193](https://aclanthology.org/2026.wmt-main.193/)               | body only      |
-| Findings of the WMT 2026 Shared Task of the Open Language Data Initiative                                                        | [2026.wmt-main.57](https://aclanthology.org/2026.wmt-main.57/)                 | body only      |
+| title                                                                                                                            | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AfriMTEB and AfriE5: Benchmarking and Adapting Text Embedding Models for African Languages                                       | [2026.eacl-long.171](https://aclanthology.org/2026.eacl-long.171/)             |
+| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context                      | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             |
+| TIPA: Typologically Informed Parameter Aggregation                                                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| JPhonABX: Japanese Phonological Discrimination Dataset for Moraic and Accentual Minimal Pairs                                    | [2026.findings-emnlp.1072](https://aclanthology.org/2026.findings-emnlp.1072/) |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                   | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                       | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| Benchmarking Text Embedding Models for South African Languages                                                                   | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       |
+| Measuring the Cost of Variety Conflation in Multilingual MT Evaluation: Adding Mozambican Xichangana, Nyanja and Sena to FLORES+ | [2026.wmt-main.193](https://aclanthology.org/2026.wmt-main.193/)               |
+| Findings of the WMT 2026 Shared Task of the Open Language Data Initiative                                                        | [2026.wmt-main.57](https://aclanthology.org/2026.wmt-main.57/)                 |
 
 {% endraw %}

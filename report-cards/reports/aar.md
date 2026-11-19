@@ -222,8 +222,8 @@ _None found._
 
 Here are up to ten papers published in 2026 that mention Afar. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                  | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
+| title                                                                  | paper                                                                          |
+|:-----------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
 
 {% endraw %}

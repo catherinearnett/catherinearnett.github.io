@@ -225,17 +225,17 @@ Sámi has been part of the WMT translation task in **1** year (2026).
 
 Here are up to ten papers published in 2026 that mention Sámi. None of the 68 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Dialects of Translationese Shape Language Model Learning                                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) | body only      |
-| How multilingual are multilingual LLMs? A case study in Northern Sámi-Finnish Translation                                                     | [2026.loreslm-1.42](https://aclanthology.org/2026.loreslm-1.42/)               | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| Slovene Morphological and Word Formation Segmentation: A Novel Dataset and Evaluation                                                         | [2026.lrec-1.140](https://aclanthology.org/2026.lrec-1.140/)                   | body only      |
-| ConceptKT: A Benchmark for Concept-Level Deficiency Prediction in Knowledge Tracing                                                           | [2026.lrec-1.22](https://aclanthology.org/2026.lrec-1.22/)                     | body only      |
-| Neural Machine Translation for Coptic-French: Strategies for Low-Resource Ancient Languages                                                   | [2026.lt4hala-1.50](https://aclanthology.org/2026.lt4hala-1.50/)               | body only      |
-| The Linguist’s Lie Detector: Linguistic Knowledge in Large Language Models                                                                    | [2026.nslp-1.23](https://aclanthology.org/2026.nslp-1.23/)                     | body only      |
-| Effects of Speaker Bias in Dialect Identification and Automatic Transcription with Self-Supervised Speech Models                              | [2026.vardial-1.3](https://aclanthology.org/2026.vardial-1.3/)                 | body only      |
-| Findings of the WMT26 General Machine Translation Shared Task: Contrastive Dynamic Human Evaluation at Scale                                  | [2026.wmt-main.48](https://aclanthology.org/2026.wmt-main.48/)                 | body only      |
-| BSC Submission for WMT26 General Machine Translation Shared Task                                                                              | [2026.wmt-main.72](https://aclanthology.org/2026.wmt-main.72/)                 | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Dialects of Translationese Shape Language Model Learning                                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) |
+| How multilingual are multilingual LLMs? A case study in Northern Sámi-Finnish Translation                                                     | [2026.loreslm-1.42](https://aclanthology.org/2026.loreslm-1.42/)               |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| Slovene Morphological and Word Formation Segmentation: A Novel Dataset and Evaluation                                                         | [2026.lrec-1.140](https://aclanthology.org/2026.lrec-1.140/)                   |
+| ConceptKT: A Benchmark for Concept-Level Deficiency Prediction in Knowledge Tracing                                                           | [2026.lrec-1.22](https://aclanthology.org/2026.lrec-1.22/)                     |
+| Neural Machine Translation for Coptic-French: Strategies for Low-Resource Ancient Languages                                                   | [2026.lt4hala-1.50](https://aclanthology.org/2026.lt4hala-1.50/)               |
+| The Linguist’s Lie Detector: Linguistic Knowledge in Large Language Models                                                                    | [2026.nslp-1.23](https://aclanthology.org/2026.nslp-1.23/)                     |
+| Effects of Speaker Bias in Dialect Identification and Automatic Transcription with Self-Supervised Speech Models                              | [2026.vardial-1.3](https://aclanthology.org/2026.vardial-1.3/)                 |
+| Findings of the WMT26 General Machine Translation Shared Task: Contrastive Dynamic Human Evaluation at Scale                                  | [2026.wmt-main.48](https://aclanthology.org/2026.wmt-main.48/)                 |
+| BSC Submission for WMT26 General Machine Translation Shared Task                                                                              | [2026.wmt-main.72](https://aclanthology.org/2026.wmt-main.72/)                 |
 
 {% endraw %}

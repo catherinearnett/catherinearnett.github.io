@@ -220,9 +220,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Swazi. None of the 2 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                           | paper                                                                      | mentioned in   |
-|:------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/)         | body only      |
-| VLURes: Benchmarking Long-Text Grounding and Cross-Lingual Robustness in Vision Language Models | [2026.findings-acl.1367](https://aclanthology.org/2026.findings-acl.1367/) | body only      |
+| title                                                                                           | paper                                                                      |
+|:------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/)         |
+| VLURes: Benchmarking Long-Text Grounding and Cross-Lingual Robustness in Vision Language Models | [2026.findings-acl.1367](https://aclanthology.org/2026.findings-acl.1367/) |
 
 {% endraw %}

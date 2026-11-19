@@ -235,17 +235,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Welsh. None of the 65 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification                        | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)     | body only      |
-| A Tree-based RAG Framework for Evidence-Intensive QA via Adaptive Planning and Topology-Aware Evidence Gathering                              | [2026.findings-emnlp.1553](https://aclanthology.org/2026.findings-emnlp.1553/) | body only      |
-| Token Merging for Multilingual Speech Recognition: A Systematic Study Across Model Scale and Fine-Tuning                                      | [2026.icnlsp-1.13](https://aclanthology.org/2026.icnlsp-1.13/)                 | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| Multi-SimLex for Dutch: Benchmarking Embedding- and Prompt-Based Model Performance on Semantic Similarity                                     | [2026.lrec-1.380](https://aclanthology.org/2026.lrec-1.380/)                   | body only      |
-| IMaSC: A Malayalam Speech Corpus for High-Quality Text-to-Speech Synthesis                                                                    | [2026.lrec-1.465](https://aclanthology.org/2026.lrec-1.465/)                   | body only      |
-| FreeTxt-Vi: A Benchmarked Vietnamese-English Toolkit for Segmentation, Sentiment, and Summarisation                                           | [2026.lrec-1.516](https://aclanthology.org/2026.lrec-1.516/)                   | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                                     | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                         | body only      |
-| Language Mixture to Develop Accurate Galician Dependency Parsers: An Exploration of Its Effects                                               | [2026.vardial-1.5](https://aclanthology.org/2026.vardial-1.5/)                 | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification                        | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)     |
+| A Tree-based RAG Framework for Evidence-Intensive QA via Adaptive Planning and Topology-Aware Evidence Gathering                              | [2026.findings-emnlp.1553](https://aclanthology.org/2026.findings-emnlp.1553/) |
+| Token Merging for Multilingual Speech Recognition: A Systematic Study Across Model Scale and Fine-Tuning                                      | [2026.icnlsp-1.13](https://aclanthology.org/2026.icnlsp-1.13/)                 |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| Multi-SimLex for Dutch: Benchmarking Embedding- and Prompt-Based Model Performance on Semantic Similarity                                     | [2026.lrec-1.380](https://aclanthology.org/2026.lrec-1.380/)                   |
+| IMaSC: A Malayalam Speech Corpus for High-Quality Text-to-Speech Synthesis                                                                    | [2026.lrec-1.465](https://aclanthology.org/2026.lrec-1.465/)                   |
+| FreeTxt-Vi: A Benchmarked Vietnamese-English Toolkit for Segmentation, Sentiment, and Summarisation                                           | [2026.lrec-1.516](https://aclanthology.org/2026.lrec-1.516/)                   |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                                     | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                         |
+| Language Mixture to Develop Accurate Galician Dependency Parsers: An Exploration of Its Effects                                               | [2026.vardial-1.5](https://aclanthology.org/2026.vardial-1.5/)                 |
 
 {% endraw %}

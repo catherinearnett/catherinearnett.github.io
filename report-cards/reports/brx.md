@@ -234,17 +234,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Bodo. None of the 45 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                    | paper                                                                  | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| FoodClimNER: A Manually Annotated Corpus for Food Practice Entities Related to Climate Change                                            | [2026.climatenlp-1.11](https://aclanthology.org/2026.climatenlp-1.11/) | body only      |
-| A Fine-tuned ASR Model for Historical American Dialect Recordings                                                                        | [2026.lrec-1.107](https://aclanthology.org/2026.lrec-1.107/)           | body only      |
-| Toward Conversational Hungarian Speech Recognition: Introducing the BEA-Large and BEA-Dialogue Datasets                                  | [2026.lrec-1.121](https://aclanthology.org/2026.lrec-1.121/)           | body only      |
-| The Shabd Portal – Searchable Lexical Resources for Indian Languages by Government of India                                              | [2026.wildre-1.8](https://aclanthology.org/2026.wildre-1.8/)           | body only      |
-| BVSLP: Enhancing Machine Translation through NMT Fine-Tuning, Back-Translation, and LLM-Assisted Synthetic Data Generation               | [2026.wmt-main.147](https://aclanthology.org/2026.wmt-main.147/)       | body only      |
-| EROL: Transformer-Based Multilingual Translation for Northeastern Indian Language Pairs                                                  | [2026.wmt-main.148](https://aclanthology.org/2026.wmt-main.148/)       | body only      |
-| gators: BM25-Augmented Many-Shot Translation for Low-Resource North-Eastern Indian Languages                                             | [2026.wmt-main.150](https://aclanthology.org/2026.wmt-main.150/)       | body only      |
-| AkibaNLP-TUT: Improving Low-Resource Machine Translation via Language-Specific and Length-Adaptive Noise Injection                       | [2026.wmt-main.151](https://aclanthology.org/2026.wmt-main.151/)       | body only      |
-| Decepticons-IIITH : Morphology-Aware Lexicon Filtering of Back-Translated Data for Low-Resource English-to-Indic Translation             | [2026.wmt-main.160](https://aclanthology.org/2026.wmt-main.160/)       | body only      |
-| An LLM-Driven Pipeline for Extremely Low-Resource English-to-Indic Translation — From Vocabulary Injection to Post-Training and Decoding | [2026.wmt-main.162](https://aclanthology.org/2026.wmt-main.162/)       | body only      |
+| title                                                                                                                                    | paper                                                                  |
+|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| FoodClimNER: A Manually Annotated Corpus for Food Practice Entities Related to Climate Change                                            | [2026.climatenlp-1.11](https://aclanthology.org/2026.climatenlp-1.11/) |
+| A Fine-tuned ASR Model for Historical American Dialect Recordings                                                                        | [2026.lrec-1.107](https://aclanthology.org/2026.lrec-1.107/)           |
+| Toward Conversational Hungarian Speech Recognition: Introducing the BEA-Large and BEA-Dialogue Datasets                                  | [2026.lrec-1.121](https://aclanthology.org/2026.lrec-1.121/)           |
+| The Shabd Portal – Searchable Lexical Resources for Indian Languages by Government of India                                              | [2026.wildre-1.8](https://aclanthology.org/2026.wildre-1.8/)           |
+| BVSLP: Enhancing Machine Translation through NMT Fine-Tuning, Back-Translation, and LLM-Assisted Synthetic Data Generation               | [2026.wmt-main.147](https://aclanthology.org/2026.wmt-main.147/)       |
+| EROL: Transformer-Based Multilingual Translation for Northeastern Indian Language Pairs                                                  | [2026.wmt-main.148](https://aclanthology.org/2026.wmt-main.148/)       |
+| gators: BM25-Augmented Many-Shot Translation for Low-Resource North-Eastern Indian Languages                                             | [2026.wmt-main.150](https://aclanthology.org/2026.wmt-main.150/)       |
+| AkibaNLP-TUT: Improving Low-Resource Machine Translation via Language-Specific and Length-Adaptive Noise Injection                       | [2026.wmt-main.151](https://aclanthology.org/2026.wmt-main.151/)       |
+| Decepticons-IIITH : Morphology-Aware Lexicon Filtering of Back-Translated Data for Low-Resource English-to-Indic Translation             | [2026.wmt-main.160](https://aclanthology.org/2026.wmt-main.160/)       |
+| An LLM-Driven Pipeline for Extremely Low-Resource English-to-Indic Translation — From Vocabulary Injection to Post-Training and Decoding | [2026.wmt-main.162](https://aclanthology.org/2026.wmt-main.162/)       |
 
 {% endraw %}

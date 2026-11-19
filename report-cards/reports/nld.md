@@ -257,17 +257,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Dutch. None of the 588 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                    | paper                                                                  | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| ALIGN: Word Association Learning for Cultural Alignment in Large Language Models                                                         | [2026.acl-long.130](https://aclanthology.org/2026.acl-long.130/)       | body only      |
-| Augustinian BabyLM: What Ostensive Definition Can and Cannot Teach a Small Language Model                                                | [2026.babylm-main.13](https://aclanthology.org/2026.babylm-main.13/)   | body only      |
-| MIMO: Multilingual Information Retrieval via Monolingual Objectives                                                                      | [2026.emnlp-main.156](https://aclanthology.org/2026.emnlp-main.156/)   | body only      |
-| The Masked Advantage: Uncovering Local-Language Access to Cultural Knowledge in LLMs                                                     | [2026.emnlp-main.1754](https://aclanthology.org/2026.emnlp-main.1754/) | body only      |
-| Right Diagnoses, Decorative Reasoning: A Perturbation Audit of Medical Chain-of-Thought                                                  | [2026.emnlp-main.334](https://aclanthology.org/2026.emnlp-main.334/)   | body only      |
-| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                                      | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)           | body only      |
-| Towards an Interoperable Corpus of Austrian Historical Newspapers: The case of PressMint-AT                                              | [2026.pressmint-1.7](https://aclanthology.org/2026.pressmint-1.7/)     | body only      |
-| SemEval-2026 Task 4: Narrative Story Similarity and Narrative Representation Learning                                                    | [2026.semeval-1.429](https://aclanthology.org/2026.semeval-1.429/)     | body only      |
-| A Morphology-Aware Evaluation of Turkish Syntax in Large Language Models                                                                 | [2026.sigturk-1.9](https://aclanthology.org/2026.sigturk-1.9/)         | body only      |
-| ICB-UMA at #SMM4H–HeaRD 2026: Hybrid Clinical Entity Projection for MultiClinAI: Adaptive Candidate Windows, XGBoost, and LLM Refinement | [2026.smm4h-1.21](https://aclanthology.org/2026.smm4h-1.21/)           | body only      |
+| title                                                                                                                                    | paper                                                                  |
+|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| ALIGN: Word Association Learning for Cultural Alignment in Large Language Models                                                         | [2026.acl-long.130](https://aclanthology.org/2026.acl-long.130/)       |
+| Augustinian BabyLM: What Ostensive Definition Can and Cannot Teach a Small Language Model                                                | [2026.babylm-main.13](https://aclanthology.org/2026.babylm-main.13/)   |
+| MIMO: Multilingual Information Retrieval via Monolingual Objectives                                                                      | [2026.emnlp-main.156](https://aclanthology.org/2026.emnlp-main.156/)   |
+| The Masked Advantage: Uncovering Local-Language Access to Cultural Knowledge in LLMs                                                     | [2026.emnlp-main.1754](https://aclanthology.org/2026.emnlp-main.1754/) |
+| Right Diagnoses, Decorative Reasoning: A Perturbation Audit of Medical Chain-of-Thought                                                  | [2026.emnlp-main.334](https://aclanthology.org/2026.emnlp-main.334/)   |
+| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                                      | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)           |
+| Towards an Interoperable Corpus of Austrian Historical Newspapers: The case of PressMint-AT                                              | [2026.pressmint-1.7](https://aclanthology.org/2026.pressmint-1.7/)     |
+| SemEval-2026 Task 4: Narrative Story Similarity and Narrative Representation Learning                                                    | [2026.semeval-1.429](https://aclanthology.org/2026.semeval-1.429/)     |
+| A Morphology-Aware Evaluation of Turkish Syntax in Large Language Models                                                                 | [2026.sigturk-1.9](https://aclanthology.org/2026.sigturk-1.9/)         |
+| ICB-UMA at #SMM4H–HeaRD 2026: Hybrid Clinical Entity Projection for MultiClinAI: Adaptive Candidate Windows, XGBoost, and LLM Refinement | [2026.smm4h-1.21](https://aclanthology.org/2026.smm4h-1.21/)           |
 
 {% endraw %}

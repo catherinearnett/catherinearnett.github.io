@@ -233,17 +233,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Maltese. None of the 57 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Mem-Gallery: Benchmarking Multimodal Long-Term Conversational Memory for MLLM Agents                                                          | [2026.acl-long.1892](https://aclanthology.org/2026.acl-long.1892/)             | body only      |
-| LEMUR: A Corpus for Robust Fine-Tuning of Multilingual Law Embedding Models for Retrieval                                                     | [2026.eacl-srw.18](https://aclanthology.org/2026.eacl-srw.18/)                 | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Dialects of Translationese Shape Language Model Learning                                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) | body only      |
-| Balancing Fluency and Adherence: Hybrid Fallback Term Injection in Low-Resource Terminology Translation                                       | [2026.loresmt-1.6](https://aclanthology.org/2026.loresmt-1.6/)                 | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| Assessing the Political Fairness of Multilingual LLMs: A Case Study Based on a 21-Way Multiparallel EuroParl Dataset                          | [2026.lrec-1.17](https://aclanthology.org/2026.lrec-1.17/)                     | body only      |
-| Phonetic-based Ranking for Improved Pseudo-Labeling in Low-Resource ASR                                                                       | [2026.lrec-1.795](https://aclanthology.org/2026.lrec-1.795/)                   | body only      |
-| Lost in Translation: Structured-Span Corruption in Machine-Translated Multilingual Web Corpora                                                | [2026.wac-1.9](https://aclanthology.org/2026.wac-1.9/)                         | body only      |
-| North Small Translate: Advanced Cost-Effective Translation (Cohere CAT+)                                                                      | [2026.wmt-main.70](https://aclanthology.org/2026.wmt-main.70/)                 | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Mem-Gallery: Benchmarking Multimodal Long-Term Conversational Memory for MLLM Agents                                                          | [2026.acl-long.1892](https://aclanthology.org/2026.acl-long.1892/)             |
+| LEMUR: A Corpus for Robust Fine-Tuning of Multilingual Law Embedding Models for Retrieval                                                     | [2026.eacl-srw.18](https://aclanthology.org/2026.eacl-srw.18/)                 |
+| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Dialects of Translationese Shape Language Model Learning                                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) |
+| Balancing Fluency and Adherence: Hybrid Fallback Term Injection in Low-Resource Terminology Translation                                       | [2026.loresmt-1.6](https://aclanthology.org/2026.loresmt-1.6/)                 |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| Assessing the Political Fairness of Multilingual LLMs: A Case Study Based on a 21-Way Multiparallel EuroParl Dataset                          | [2026.lrec-1.17](https://aclanthology.org/2026.lrec-1.17/)                     |
+| Phonetic-based Ranking for Improved Pseudo-Labeling in Low-Resource ASR                                                                       | [2026.lrec-1.795](https://aclanthology.org/2026.lrec-1.795/)                   |
+| Lost in Translation: Structured-Span Corruption in Machine-Translated Multilingual Web Corpora                                                | [2026.wac-1.9](https://aclanthology.org/2026.wac-1.9/)                         |
+| North Small Translate: Advanced Cost-Effective Translation (Cohere CAT+)                                                                      | [2026.wmt-main.70](https://aclanthology.org/2026.wmt-main.70/)                 |
 
 {% endraw %}

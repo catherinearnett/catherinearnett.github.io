@@ -261,17 +261,17 @@ Kazakh has been part of the WMT translation task in **2** years (2019, 2026).
 
 Here are up to ten papers published in 2026 that mention Kazakh. None of the 130 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                               | paper                                                                      | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Efficient Low-Resource Language Adaptation via Multi-Source Dynamic Logit Fusion                                    | [2026.acl-long.207](https://aclanthology.org/2026.acl-long.207/)           | body only      |
-| LLM Reasoning for Machine Translation: Synthetic Data Generation over Thinking Tokens                               | [2026.emnlp-main.1302](https://aclanthology.org/2026.emnlp-main.1302/)     | body only      |
-| A Survey on Representing Linguistic Style: Challenges and Opportunities                                             | [2026.emnlp-main.295](https://aclanthology.org/2026.emnlp-main.295/)       | body only      |
-| Are Language Models Script-Aware?                                                                                   | [2026.findings-aacl.12](https://aclanthology.org/2026.findings-aacl.12/)   | body only      |
-| MathMist: A Parallel Multilingual Benchmark Dataset for Mathematical Problem Solving and Reasoning                  | [2026.findings-eacl.131](https://aclanthology.org/2026.findings-eacl.131/) | body only      |
-| Qomhrá: A Bilingual Irish and English Large Language Model                                                          | [2026.loreslm-1.18](https://aclanthology.org/2026.loreslm-1.18/)           | body only      |
-| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)           | body only      |
-| IdiomRanker-X at MWE-2026 AdMIRe 2: Multilingual Idiom-Image Alignment via Low-Rank Adaptation of Cross-Encoders    | [2026.mwe-1.16](https://aclanthology.org/2026.mwe-1.16/)                   | body only      |
-| ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                   | body only      |
-| Lost in Speech: Trilingual Spoken Hallucination Detection Across Audio and Transcripts                              | [2026.salma-1.6](https://aclanthology.org/2026.salma-1.6/)                 | body only      |
+| title                                                                                                               | paper                                                                      |
+|:--------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Efficient Low-Resource Language Adaptation via Multi-Source Dynamic Logit Fusion                                    | [2026.acl-long.207](https://aclanthology.org/2026.acl-long.207/)           |
+| LLM Reasoning for Machine Translation: Synthetic Data Generation over Thinking Tokens                               | [2026.emnlp-main.1302](https://aclanthology.org/2026.emnlp-main.1302/)     |
+| A Survey on Representing Linguistic Style: Challenges and Opportunities                                             | [2026.emnlp-main.295](https://aclanthology.org/2026.emnlp-main.295/)       |
+| Are Language Models Script-Aware?                                                                                   | [2026.findings-aacl.12](https://aclanthology.org/2026.findings-aacl.12/)   |
+| MathMist: A Parallel Multilingual Benchmark Dataset for Mathematical Problem Solving and Reasoning                  | [2026.findings-eacl.131](https://aclanthology.org/2026.findings-eacl.131/) |
+| Qomhrá: A Bilingual Irish and English Large Language Model                                                          | [2026.loreslm-1.18](https://aclanthology.org/2026.loreslm-1.18/)           |
+| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)           |
+| IdiomRanker-X at MWE-2026 AdMIRe 2: Multilingual Idiom-Image Alignment via Low-Rank Adaptation of Cross-Encoders    | [2026.mwe-1.16](https://aclanthology.org/2026.mwe-1.16/)                   |
+| ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                   |
+| Lost in Speech: Trilingual Spoken Hallucination Detection Across Audio and Transcripts                              | [2026.salma-1.6](https://aclanthology.org/2026.salma-1.6/)                 |
 
 {% endraw %}

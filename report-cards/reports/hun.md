@@ -256,17 +256,17 @@ Hungarian has been part of the WMT translation task in **2** years (2008, 2009).
 
 Here are up to ten papers published in 2026 that mention Hungarian. None of the 296 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                  | paper                                                                    | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Evaluation Pitfalls and Challenges in Multimedia Event Extraction                                                      | [2026.acl-long.1426](https://aclanthology.org/2026.acl-long.1426/)       | body only      |
-| Private-Use Area Characters in the Wild: Signal or Noise?                                                              | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                 | body only      |
-| Improving Medical Hallucination Detection with System Combination and Rule-based Customization                         | [2026.customnlp4u-1.14](https://aclanthology.org/2026.customnlp4u-1.14/) | body only      |
-| NeuronMoE: Efficient Cross-Lingual Extension via Neuron-Guided Mixture-of-Experts                                      | [2026.eacl-long.117](https://aclanthology.org/2026.eacl-long.117/)       | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                             | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)             | body only      |
-| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                    | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)             | body only      |
-| Modular Approach to Automating Morphological Components in Grammar Engineering                                         | [2026.lrec-1.898](https://aclanthology.org/2026.lrec-1.898/)             | body only      |
-| AmDi - Ambiguous Words Diachronic Dataset                                                                              | [2026.lrec-1.934](https://aclanthology.org/2026.lrec-1.934/)             | body only      |
-| POS Tagging with Generative LLMs for Historical Germanic Low-Resource Languages: An Evaluation Against Fine-Tuned BERT | [2026.lt4hala-1.12](https://aclanthology.org/2026.lt4hala-1.12/)         | body only      |
-| Omnivorous Agreement, like Uyghur Backness Harmony, is a Challenge for Tier-Based Strict Locality                      | [2026.scil-main.13](https://aclanthology.org/2026.scil-main.13/)         | body only      |
+| title                                                                                                                  | paper                                                                    |
+|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Evaluation Pitfalls and Challenges in Multimedia Event Extraction                                                      | [2026.acl-long.1426](https://aclanthology.org/2026.acl-long.1426/)       |
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                              | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                 |
+| Improving Medical Hallucination Detection with System Combination and Rule-based Customization                         | [2026.customnlp4u-1.14](https://aclanthology.org/2026.customnlp4u-1.14/) |
+| NeuronMoE: Efficient Cross-Lingual Extension via Neuron-Guided Mixture-of-Experts                                      | [2026.eacl-long.117](https://aclanthology.org/2026.eacl-long.117/)       |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                             | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)             |
+| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                    | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)             |
+| Modular Approach to Automating Morphological Components in Grammar Engineering                                         | [2026.lrec-1.898](https://aclanthology.org/2026.lrec-1.898/)             |
+| AmDi - Ambiguous Words Diachronic Dataset                                                                              | [2026.lrec-1.934](https://aclanthology.org/2026.lrec-1.934/)             |
+| POS Tagging with Generative LLMs for Historical Germanic Low-Resource Languages: An Evaluation Against Fine-Tuned BERT | [2026.lt4hala-1.12](https://aclanthology.org/2026.lt4hala-1.12/)         |
+| Omnivorous Agreement, like Uyghur Backness Harmony, is a Challenge for Tier-Based Strict Locality                      | [2026.scil-main.13](https://aclanthology.org/2026.scil-main.13/)         |
 
 {% endraw %}

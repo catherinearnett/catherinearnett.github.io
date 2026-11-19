@@ -266,17 +266,17 @@ Serbian has been part of the WMT translation task in **1** year (2025).
 
 Here are up to ten papers published in 2026 that mention Serbian. None of the 115 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                           | paper                                                            | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------------|
-| Adam’s Law: Textual Frequency Law on Large Language Models                                                      | [2026.acl-long.188](https://aclanthology.org/2026.acl-long.188/) | body only      |
-| The Degree of Language Diacriticity and Its Effect on Tasks                                                     | [2026.cawl-1.1](https://aclanthology.org/2026.cawl-1.1/)         | body only      |
-| State of the Art in Text Classification for South Slavic Languages: Fine-Tuning or Prompting?                   | [2026.llms4ssh-1.1](https://aclanthology.org/2026.llms4ssh-1.1/) | body only      |
-| Who Benchmarks the Benchmarks? A Case Study of LLM Evaluation in Icelandic                                      | [2026.lrec-1.369](https://aclanthology.org/2026.lrec-1.369/)     | body only      |
-| ROG: A Multi-Layer Manually Annotated Corpus of Spoken Slovenian                                                | [2026.lrec-1.449](https://aclanthology.org/2026.lrec-1.449/)     | body only      |
-| A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding                                    | [2026.lrec-1.741](https://aclanthology.org/2026.lrec-1.741/)     | body only      |
-| Where Are Language-Specific Features Represented in Multilingual LLMs? Everywhere                               | [2026.mrl-1.27](https://aclanthology.org/2026.mrl-1.27/)         | body only      |
-| Edition 2.0 of the PARSEME shared task on multilingual identification and paraphrasing of multiword expressions | [2026.mwe-1.33](https://aclanthology.org/2026.mwe-1.33/)         | body only      |
-| OPENER: A Frugal Open-World NER Pipeline for the Legal Domain                                                   | [2026.nllp-1.40](https://aclanthology.org/2026.nllp-1.40/)       | body only      |
-| Towards Universal Dependencies for L2 Learners of Modern Greek: Annotation and Challenges                       | [2026.udw-1.8](https://aclanthology.org/2026.udw-1.8/)           | body only      |
+| title                                                                                                           | paper                                                            |
+|:----------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
+| Adam’s Law: Textual Frequency Law on Large Language Models                                                      | [2026.acl-long.188](https://aclanthology.org/2026.acl-long.188/) |
+| The Degree of Language Diacriticity and Its Effect on Tasks                                                     | [2026.cawl-1.1](https://aclanthology.org/2026.cawl-1.1/)         |
+| State of the Art in Text Classification for South Slavic Languages: Fine-Tuning or Prompting?                   | [2026.llms4ssh-1.1](https://aclanthology.org/2026.llms4ssh-1.1/) |
+| Who Benchmarks the Benchmarks? A Case Study of LLM Evaluation in Icelandic                                      | [2026.lrec-1.369](https://aclanthology.org/2026.lrec-1.369/)     |
+| ROG: A Multi-Layer Manually Annotated Corpus of Spoken Slovenian                                                | [2026.lrec-1.449](https://aclanthology.org/2026.lrec-1.449/)     |
+| A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding                                    | [2026.lrec-1.741](https://aclanthology.org/2026.lrec-1.741/)     |
+| Where Are Language-Specific Features Represented in Multilingual LLMs? Everywhere                               | [2026.mrl-1.27](https://aclanthology.org/2026.mrl-1.27/)         |
+| Edition 2.0 of the PARSEME shared task on multilingual identification and paraphrasing of multiword expressions | [2026.mwe-1.33](https://aclanthology.org/2026.mwe-1.33/)         |
+| OPENER: A Frugal Open-World NER Pipeline for the Legal Domain                                                   | [2026.nllp-1.40](https://aclanthology.org/2026.nllp-1.40/)       |
+| Towards Universal Dependencies for L2 Learners of Modern Greek: Annotation and Challenges                       | [2026.udw-1.8](https://aclanthology.org/2026.udw-1.8/)           |
 
 {% endraw %}

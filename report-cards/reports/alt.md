@@ -216,9 +216,9 @@ Altai isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 Here are up to ten papers published in 2026 that mention Altai. None of the 2 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                            | paper                                                        | mentioned in   |
-|:-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:---------------|
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)     | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/) | body only      |
+| title                                                                                            | paper                                                        |
+|:-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)     |
+| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/) |
 
 {% endraw %}

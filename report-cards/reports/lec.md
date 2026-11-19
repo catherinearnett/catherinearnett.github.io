@@ -185,8 +185,8 @@ Leco isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005â
 
 Here are up to ten papers published in 2026 that mention Leco. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                  | paper                                                                    | mentioned in   |
-|:---------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| LTRC-IIIT at MEDIQA-SYNUR 2026: Benchmarking a Fully Local, Training-Free RAG Pipeline | [2026.clinicalnlp-1.15](https://aclanthology.org/2026.clinicalnlp-1.15/) | body only      |
+| title                                                                                  | paper                                                                    |
+|:---------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| LTRC-IIIT at MEDIQA-SYNUR 2026: Benchmarking a Fully Local, Training-Free RAG Pipeline | [2026.clinicalnlp-1.15](https://aclanthology.org/2026.clinicalnlp-1.15/) |
 
 {% endraw %}

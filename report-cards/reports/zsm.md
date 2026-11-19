@@ -253,17 +253,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Malay. None of the 161 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                        | paper                                                                          | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR              | [2026.acl-long.1392](https://aclanthology.org/2026.acl-long.1392/)             | body only      |
-| IndicWinoBias: Measuring Occupational Gender Bias and Error Asymmetry in Indian Languages                    | [2026.emnlp-main.122](https://aclanthology.org/2026.emnlp-main.122/)           | body only      |
-| Stylistic Evolution and LLM Neutrality in Singlish Language                                                  | [2026.findings-aacl.41](https://aclanthology.org/2026.findings-aacl.41/)       | body only      |
-| CultureVLM: Characterizing and Improving Cultural Understanding of Vision-Language Models                    | [2026.findings-emnlp.1603](https://aclanthology.org/2026.findings-emnlp.1603/) | body only      |
-| VakyArth: Evaluating Pragmatic Competence in LLMs across Indic Languages                                     | [2026.findings-emnlp.2022](https://aclanthology.org/2026.findings-emnlp.2022/) | body only      |
-| CoachLah: A Singlish–English Parallel Corpus of Health Coaching Conversations with Behavior Goal Annotations | [2026.lrec-1.3](https://aclanthology.org/2026.lrec-1.3/)                       | body only      |
-| Task-Lens: Cross-Task Utility Based Speech Dataset Profiling for Low-Resource Indian Languages               | [2026.lrec-1.467](https://aclanthology.org/2026.lrec-1.467/)                   | body only      |
-| Cygnet: Refactoring the Open Multilingual Wordnet                                                            | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)                   | body only      |
-| A Foundational Study of Multimodal Speech–Text Alignment in Malayalam                                        | [2026.mmlow-main.2](https://aclanthology.org/2026.mmlow-main.2/)               | body only      |
-| Preserving Civilisation Memory: A Digital Humanities Approach to the Ramayan                                 | [2026.wildre-1.10](https://aclanthology.org/2026.wildre-1.10/)                 | body only      |
+| title                                                                                                        | paper                                                                          |
+|:-------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR              | [2026.acl-long.1392](https://aclanthology.org/2026.acl-long.1392/)             |
+| IndicWinoBias: Measuring Occupational Gender Bias and Error Asymmetry in Indian Languages                    | [2026.emnlp-main.122](https://aclanthology.org/2026.emnlp-main.122/)           |
+| Stylistic Evolution and LLM Neutrality in Singlish Language                                                  | [2026.findings-aacl.41](https://aclanthology.org/2026.findings-aacl.41/)       |
+| CultureVLM: Characterizing and Improving Cultural Understanding of Vision-Language Models                    | [2026.findings-emnlp.1603](https://aclanthology.org/2026.findings-emnlp.1603/) |
+| VakyArth: Evaluating Pragmatic Competence in LLMs across Indic Languages                                     | [2026.findings-emnlp.2022](https://aclanthology.org/2026.findings-emnlp.2022/) |
+| CoachLah: A Singlish–English Parallel Corpus of Health Coaching Conversations with Behavior Goal Annotations | [2026.lrec-1.3](https://aclanthology.org/2026.lrec-1.3/)                       |
+| Task-Lens: Cross-Task Utility Based Speech Dataset Profiling for Low-Resource Indian Languages               | [2026.lrec-1.467](https://aclanthology.org/2026.lrec-1.467/)                   |
+| Cygnet: Refactoring the Open Multilingual Wordnet                                                            | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)                   |
+| A Foundational Study of Multimodal Speech–Text Alignment in Malayalam                                        | [2026.mmlow-main.2](https://aclanthology.org/2026.mmlow-main.2/)               |
+| Preserving Civilisation Memory: A Digital Humanities Approach to the Ramayan                                 | [2026.wildre-1.10](https://aclanthology.org/2026.wildre-1.10/)                 |
 
 {% endraw %}

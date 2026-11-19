@@ -223,15 +223,15 @@ _None found._
 
 Here are up to ten papers published in 2026 that mention Tiv. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                         | paper                                                                          | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                             | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             | body only      |
-| INFACT: A Diagnostic Benchmark for Induced Faithfulness and Factuality Hallucinations in Video-LLMs           | [2026.acl-long.2062](https://aclanthology.org/2026.acl-long.2062/)             | body only      |
-| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context   | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             | body only      |
-| PACE: A Unified Condense-and-Extract Paradigm for Fast VLM Inference                                          | [2026.findings-emnlp.1138](https://aclanthology.org/2026.findings-emnlp.1138/) | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                 | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) | body only      |
-| Are Language Models Borrowing-Blind? A Multilingual Evaluation of Loanword Identification across 10 Languages | [2026.lrec-1.269](https://aclanthology.org/2026.lrec-1.269/)                   | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
+| title                                                                                                         | paper                                                                          |
+|:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                             | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             |
+| INFACT: A Diagnostic Benchmark for Induced Faithfulness and Factuality Hallucinations in Video-LLMs           | [2026.acl-long.2062](https://aclanthology.org/2026.acl-long.2062/)             |
+| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context   | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             |
+| PACE: A Unified Condense-and-Extract Paradigm for Fast VLM Inference                                          | [2026.findings-emnlp.1138](https://aclanthology.org/2026.findings-emnlp.1138/) |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                 | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) |
+| Are Language Models Borrowing-Blind? A Multilingual Evaluation of Loanword Identification across 10 Languages | [2026.lrec-1.269](https://aclanthology.org/2026.lrec-1.269/)                   |
+| Goldfish: Monolingual Language Models for 350 Languages                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
 
 {% endraw %}

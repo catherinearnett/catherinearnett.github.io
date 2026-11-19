@@ -242,17 +242,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Tigrinya. None of the 41 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                  | paper                                                                | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:---------------|
-| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)     | body only      |
-| MaTIAS – Machine Translation to Inform Asylum Seekers: final results                                   | [2026.eamt-2.2](https://aclanthology.org/2026.eamt-2.2/)             | body only      |
-| Parallel Tokenizers: Rethinking Vocabulary Design in Cross-Lingual Transfer of Low-Resource Languages  | [2026.emnlp-main.117](https://aclanthology.org/2026.emnlp-main.117/) | body only      |
-| Mining Naturally Romanized Seed Corpora without Romanizations                                          | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)         | body only      |
-| Amharic DBpedia Chapter: A Knowledge Graph for a Low-Resource Language                                 | [2026.lrec-1.627](https://aclanthology.org/2026.lrec-1.627/)         | body only      |
-| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages             | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)         | body only      |
-| What Triggers My Model? Contrastive Explanations Inform Gender Choices by Translation Models           | [2026.lrec-1.686](https://aclanthology.org/2026.lrec-1.686/)         | body only      |
-| LGSE: Lexically Grounded Subword Embedding Initialization for Low-Resource Language Adaptation         | [2026.lrec-1.812](https://aclanthology.org/2026.lrec-1.812/)         | body only      |
-| Reclaiming African Voices: Surveying Indigenous Writing Systems for Inclusive NLP                      | [2026.rail-1.10](https://aclanthology.org/2026.rail-1.10/)           | body only      |
-| Open but Unvetted: The Ethics of African Language Data                                                 | [2026.rail-1.13](https://aclanthology.org/2026.rail-1.13/)           | body only      |
+| title                                                                                                  | paper                                                                |
+|:-------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
+| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)     |
+| MaTIAS – Machine Translation to Inform Asylum Seekers: final results                                   | [2026.eamt-2.2](https://aclanthology.org/2026.eamt-2.2/)             |
+| Parallel Tokenizers: Rethinking Vocabulary Design in Cross-Lingual Transfer of Low-Resource Languages  | [2026.emnlp-main.117](https://aclanthology.org/2026.emnlp-main.117/) |
+| Mining Naturally Romanized Seed Corpora without Romanizations                                          | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)         |
+| Amharic DBpedia Chapter: A Knowledge Graph for a Low-Resource Language                                 | [2026.lrec-1.627](https://aclanthology.org/2026.lrec-1.627/)         |
+| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages             | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)         |
+| What Triggers My Model? Contrastive Explanations Inform Gender Choices by Translation Models           | [2026.lrec-1.686](https://aclanthology.org/2026.lrec-1.686/)         |
+| LGSE: Lexically Grounded Subword Embedding Initialization for Low-Resource Language Adaptation         | [2026.lrec-1.812](https://aclanthology.org/2026.lrec-1.812/)         |
+| Reclaiming African Voices: Surveying Indigenous Writing Systems for Inclusive NLP                      | [2026.rail-1.10](https://aclanthology.org/2026.rail-1.10/)           |
+| Open but Unvetted: The Ethics of African Language Data                                                 | [2026.rail-1.13](https://aclanthology.org/2026.rail-1.13/)           |
 
 {% endraw %}

@@ -176,9 +176,9 @@ Malinke isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (20
 
 Here are up to ten papers published in 2026 that mention Malinke. None of the 2 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                   | paper                                                                    | mentioned in   |
-|:--------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Dealing with the Hard Facts of Low-Resource African NLP | [2026.africanlp-main.1](https://aclanthology.org/2026.africanlp-main.1/) | body only      |
-| CAIRE: Cultural Attribution of Images with Retrieval    | [2026.eacl-long.389](https://aclanthology.org/2026.eacl-long.389/)       | body only      |
+| title                                                   | paper                                                                    |
+|:--------------------------------------------------------|:-------------------------------------------------------------------------|
+| Dealing with the Hard Facts of Low-Resource African NLP | [2026.africanlp-main.1](https://aclanthology.org/2026.africanlp-main.1/) |
+| CAIRE: Cultural Attribution of Images with Retrieval    | [2026.eacl-long.389](https://aclanthology.org/2026.eacl-long.389/)       |
 
 {% endraw %}

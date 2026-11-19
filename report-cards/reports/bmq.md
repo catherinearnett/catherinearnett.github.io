@@ -158,13 +158,13 @@ Bobo isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005â
 
 Here are up to ten papers published in 2026 that mention Bobo. None of the 6 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                              | paper                                                                          | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                             | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Disentangling Approaches to Conversation Disentanglement: Fine-Tune or Learn from Scratch?                         | [2026.lrec-1.229](https://aclanthology.org/2026.lrec-1.229/)                   | body only      |
-| Piecing Together Cross-Document Coreference Resolution Datasets: Systematic Dataset Analysis and Unification       | [2026.lrec-1.328](https://aclanthology.org/2026.lrec-1.328/)                   | body only      |
-| Multilingual Structured Sentiment Analysis for Environmental Sustainability                                        | [2026.lrec-1.631](https://aclanthology.org/2026.lrec-1.631/)                   | body only      |
-| LLM-as-an-Annotator: Training Lightweight Models with LLM-Annotated Examples for Aspect Sentiment Tuple Prediction | [2026.lrec-1.632](https://aclanthology.org/2026.lrec-1.632/)                   | body only      |
-| Link Prediction for Event Logs in the Process Industry                                                             | [2026.resourceful-4.11](https://aclanthology.org/2026.resourceful-4.11/)       | body only      |
+| title                                                                                                              | paper                                                                          |
+|:-------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                             | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Disentangling Approaches to Conversation Disentanglement: Fine-Tune or Learn from Scratch?                         | [2026.lrec-1.229](https://aclanthology.org/2026.lrec-1.229/)                   |
+| Piecing Together Cross-Document Coreference Resolution Datasets: Systematic Dataset Analysis and Unification       | [2026.lrec-1.328](https://aclanthology.org/2026.lrec-1.328/)                   |
+| Multilingual Structured Sentiment Analysis for Environmental Sustainability                                        | [2026.lrec-1.631](https://aclanthology.org/2026.lrec-1.631/)                   |
+| LLM-as-an-Annotator: Training Lightweight Models with LLM-Annotated Examples for Aspect Sentiment Tuple Prediction | [2026.lrec-1.632](https://aclanthology.org/2026.lrec-1.632/)                   |
+| Link Prediction for Event Logs in the Process Industry                                                             | [2026.resourceful-4.11](https://aclanthology.org/2026.resourceful-4.11/)       |
 
 {% endraw %}

@@ -156,10 +156,10 @@ Khoisan isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (20
 
 Here are up to ten papers published in 2026 that mention Khoisan. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Power Asymmetries, Bias, and AI, a Reflection of Society on Low-Resourced Languages - African Languages as Case Study | [2026.africanlp-main.24](https://aclanthology.org/2026.africanlp-main.24/) | body only      |
-| AfriCaption: Establishing a New Paradigm for Image Captioning in African Languages                                    | [2026.africanlp-main.5](https://aclanthology.org/2026.africanlp-main.5/)   | body only      |
-| Comparing Source Language Selection Strategies for Multi-Source Cross-Lingual Transfer to African Languages           | [2026.rail-1.4](https://aclanthology.org/2026.rail-1.4/)                   | body only      |
+| title                                                                                                                 | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Power Asymmetries, Bias, and AI, a Reflection of Society on Low-Resourced Languages - African Languages as Case Study | [2026.africanlp-main.24](https://aclanthology.org/2026.africanlp-main.24/) |
+| AfriCaption: Establishing a New Paradigm for Image Captioning in African Languages                                    | [2026.africanlp-main.5](https://aclanthology.org/2026.africanlp-main.5/)   |
+| Comparing Source Language Selection Strategies for Multi-Source Cross-Lingual Transfer to African Languages           | [2026.rail-1.4](https://aclanthology.org/2026.rail-1.4/)                   |
 
 {% endraw %}

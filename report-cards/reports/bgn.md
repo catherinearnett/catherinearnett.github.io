@@ -208,14 +208,14 @@ _⚠️ Listed under the macrolanguage code `bal`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Balochi. None of the 7 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                     | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Framing Political Bias in Multilingual LLMs Across Pakistani Languages                                    | [2026.acl-long.1689](https://aclanthology.org/2026.acl-long.1689/)             | body only      |
-| Fairness Evaluation and Inference Level Mitigation in LLMs                                                | [2026.findings-acl.1452](https://aclanthology.org/2026.findings-acl.1452/)     | body only      |
-| Computationally Invisible: Charting the NLP Landscape of Iranic Languages                                 | [2026.findings-emnlp.2362](https://aclanthology.org/2026.findings-emnlp.2362/) | body only      |
-| From Press to Pixels: Evolving Urdu Text Recognition                                                      | [2026.lrec-1.235](https://aclanthology.org/2026.lrec-1.235/)                   | body only      |
-| Common Voice for Pakistan: Developing an Open Speech Corpus for Low-Resource Pakistani Languages          | [2026.lrec-1.265](https://aclanthology.org/2026.lrec-1.265/)                   | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| Progressing beyond Art Masterpieces or Touristic Clichés: how to assess your LLMs for cultural alignment? | [2026.resourceful-4.13](https://aclanthology.org/2026.resourceful-4.13/)       | body only      |
+| title                                                                                                     | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Framing Political Bias in Multilingual LLMs Across Pakistani Languages                                    | [2026.acl-long.1689](https://aclanthology.org/2026.acl-long.1689/)             |
+| Fairness Evaluation and Inference Level Mitigation in LLMs                                                | [2026.findings-acl.1452](https://aclanthology.org/2026.findings-acl.1452/)     |
+| Computationally Invisible: Charting the NLP Landscape of Iranic Languages                                 | [2026.findings-emnlp.2362](https://aclanthology.org/2026.findings-emnlp.2362/) |
+| From Press to Pixels: Evolving Urdu Text Recognition                                                      | [2026.lrec-1.235](https://aclanthology.org/2026.lrec-1.235/)                   |
+| Common Voice for Pakistan: Developing an Open Speech Corpus for Low-Resource Pakistani Languages          | [2026.lrec-1.265](https://aclanthology.org/2026.lrec-1.265/)                   |
+| Goldfish: Monolingual Language Models for 350 Languages                                                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| Progressing beyond Art Masterpieces or Touristic Clichés: how to assess your LLMs for cultural alignment? | [2026.resourceful-4.13](https://aclanthology.org/2026.resourceful-4.13/)       |
 
 {% endraw %}

@@ -163,8 +163,8 @@ Central Siberian Yupik isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT trans
 
 Here are up to ten papers published in 2026 that mention Central Siberian Yupik. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                           | paper                                                                    | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Toward a Coarse-Labeled Spoken Language Identification Dataset for Central Alaskan Yup’ik and Samoan from US Broadcast Archives | [2026.americasnlp-6.18](https://aclanthology.org/2026.americasnlp-6.18/) | body only      |
+| title                                                                                                                           | paper                                                                    |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Toward a Coarse-Labeled Spoken Language Identification Dataset for Central Alaskan Yup’ik and Samoan from US Broadcast Archives | [2026.americasnlp-6.18](https://aclanthology.org/2026.americasnlp-6.18/) |
 
 {% endraw %}

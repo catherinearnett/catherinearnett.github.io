@@ -196,9 +196,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Gilbertese. None of the 2 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                         | paper                                                                    | mentioned in   |
-|:----------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Unintended Effects of Geographic Conditioning in Large Language Models                        | [2026.customnlp4u-1.18](https://aclanthology.org/2026.customnlp4u-1.18/) | body only      |
-| From Rosetta to Match-Up: A Paired Corpus of Linguistic Puzzles with Human and LLM Benchmarks | [2026.lrec-1.509](https://aclanthology.org/2026.lrec-1.509/)             | body only      |
+| title                                                                                         | paper                                                                    |
+|:----------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Unintended Effects of Geographic Conditioning in Large Language Models                        | [2026.customnlp4u-1.18](https://aclanthology.org/2026.customnlp4u-1.18/) |
+| From Rosetta to Match-Up: A Paired Corpus of Linguistic Puzzles with Human and LLM Benchmarks | [2026.lrec-1.509](https://aclanthology.org/2026.lrec-1.509/)             |
 
 {% endraw %}

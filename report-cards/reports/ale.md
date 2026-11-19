@@ -174,11 +174,11 @@ Aleut isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 Here are up to ten papers published in 2026 that mention Aleut. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                           | paper                                                                    | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models     | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)       | body only      |
-| Toward a Coarse-Labeled Spoken Language Identification Dataset for Central Alaskan Yup’ik and Samoan from US Broadcast Archives | [2026.americasnlp-6.18](https://aclanthology.org/2026.americasnlp-6.18/) | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                  | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                        | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)             | body only      |
+| title                                                                                                                           | paper                                                                    |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models     | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)       |
+| Toward a Coarse-Labeled Spoken Language Identification Dataset for Central Alaskan Yup’ik and Samoan from US Broadcast Archives | [2026.americasnlp-6.18](https://aclanthology.org/2026.americasnlp-6.18/) |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                  | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                        | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)             |
 
 {% endraw %}

@@ -232,17 +232,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Scottish Gaelic. None of the 20 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                              | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data                                          | [2026.acl-long.1527](https://aclanthology.org/2026.acl-long.1527/)             | body only      |
-| A Benchmark and Evaluation of Automated Language of Study Extraction from Computational Linguistics Publications                   | [2026.eacl-srw.26](https://aclanthology.org/2026.eacl-srw.26/)                 | body only      |
-| Large-scale Multilingual News Image Captioning with LLMs                                                                           | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)         | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                     | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| GaelEval: Benchmarking LLM Performance for Scottish Gaelic                                                                         | [2026.llms4ssh-1.8](https://aclanthology.org/2026.llms4ssh-1.8/)               | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                            | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                                   | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                   | body only      |
-| We’re Cooked! – Probing LLM Political Alignment Via Conflict-Framed Recipe Translation                                             | [2026.oracle-main.18](https://aclanthology.org/2026.oracle-main.18/)           | body only      |
-| Doing More with Less: Determining Optimal Pre-training Model for Irish Automatic Speech Recognition through Multi-step Fine-tuning | [2026.speakable-1.18](https://aclanthology.org/2026.speakable-1.18/)           | body only      |
-| Scaling ASR for Hutsul Dialect: Multi-Speaker Data Collection, Enhanced Transcription and Cross-Speaker Evaluation                 | [2026.unlp-1.16](https://aclanthology.org/2026.unlp-1.16/)                     | body only      |
+| title                                                                                                                              | paper                                                                          |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data                                          | [2026.acl-long.1527](https://aclanthology.org/2026.acl-long.1527/)             |
+| A Benchmark and Evaluation of Automated Language of Study Extraction from Computational Linguistics Publications                   | [2026.eacl-srw.26](https://aclanthology.org/2026.eacl-srw.26/)                 |
+| Large-scale Multilingual News Image Captioning with LLMs                                                                           | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)         |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                     | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| GaelEval: Benchmarking LLM Performance for Scottish Gaelic                                                                         | [2026.llms4ssh-1.8](https://aclanthology.org/2026.llms4ssh-1.8/)               |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                            | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                                   | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                   |
+| We’re Cooked! – Probing LLM Political Alignment Via Conflict-Framed Recipe Translation                                             | [2026.oracle-main.18](https://aclanthology.org/2026.oracle-main.18/)           |
+| Doing More with Less: Determining Optimal Pre-training Model for Irish Automatic Speech Recognition through Multi-step Fine-tuning | [2026.speakable-1.18](https://aclanthology.org/2026.speakable-1.18/)           |
+| Scaling ASR for Hutsul Dialect: Multi-Speaker Data Collection, Enhanced Transcription and Cross-Speaker Evaluation                 | [2026.unlp-1.16](https://aclanthology.org/2026.unlp-1.16/)                     |
 
 {% endraw %}

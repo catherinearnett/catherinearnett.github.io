@@ -225,11 +225,11 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Greenlandic. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                     | paper                                                              | mentioned in   |
-|:------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)       | body only      |
-| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)       | body only      |
+| title                                                                                     | paper                                                              |
+|:------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)       |
+| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)       |
 
 {% endraw %}

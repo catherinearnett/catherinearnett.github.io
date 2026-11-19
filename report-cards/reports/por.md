@@ -275,17 +275,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Portuguese. None of the 766 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                   | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Location Not Found: Exposing Implicit Local and Global Biases in Multilingual LLMs                                                      | [2026.acl-long.1344](https://aclanthology.org/2026.acl-long.1344/)         | body only      |
-| Continual-learning for Modelling Low-Resource Languages from Large Language Models                                                      | [2026.eacl-long.293](https://aclanthology.org/2026.eacl-long.293/)         | body only      |
-| A Benchmark and Evaluation of Automated Language of Study Extraction from Computational Linguistics Publications                        | [2026.eacl-srw.26](https://aclanthology.org/2026.eacl-srw.26/)             | body only      |
-| A Multilingual Red Teaming–Driven Safety Analysis of LLMs                                                                               | [2026.eamt-1.46](https://aclanthology.org/2026.eamt-1.46/)                 | body only      |
-| Worldwide LiveVQA: Real-Time Visual Knowledge Seeking and Updating Across Languages                                                     | [2026.findings-acl.1984](https://aclanthology.org/2026.findings-acl.1984/) | body only      |
-| Benchmark Data Contamination in Underrepresented Languages: A Comprehensive Analysis Using Brazilian Data                               | [2026.lrec-1.374](https://aclanthology.org/2026.lrec-1.374/)               | body only      |
-| Evaluating Large Language Models for Text-to-Gloss Translation in Kazakh-Russian Sign Language: A Pilot Study                           | [2026.lrec-1.781](https://aclanthology.org/2026.lrec-1.781/)               | body only      |
-| JabuticaBERT: Modern Portuguese Encoders from Scratch with RTD and Long-Context Training                                                | [2026.propor-1.93](https://aclanthology.org/2026.propor-1.93/)             | body only      |
-| Viés e Justiça em Modelos de Linguagem: Evidências de Uma Literatura Linguística, Social e Culturalmente Assimétrica                    | [2026.propor-2.27](https://aclanthology.org/2026.propor-2.27/)             | body only      |
-| Clonagem de Voz por IA para o Português Brasileiro em Contexto Assistivo: Desafios Comparativos em Cinco Ferramentas de Síntese de Fala | [2026.stil-1.29](https://aclanthology.org/2026.stil-1.29/)                 | body only      |
+| title                                                                                                                                   | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Location Not Found: Exposing Implicit Local and Global Biases in Multilingual LLMs                                                      | [2026.acl-long.1344](https://aclanthology.org/2026.acl-long.1344/)         |
+| Continual-learning for Modelling Low-Resource Languages from Large Language Models                                                      | [2026.eacl-long.293](https://aclanthology.org/2026.eacl-long.293/)         |
+| A Benchmark and Evaluation of Automated Language of Study Extraction from Computational Linguistics Publications                        | [2026.eacl-srw.26](https://aclanthology.org/2026.eacl-srw.26/)             |
+| A Multilingual Red Teaming–Driven Safety Analysis of LLMs                                                                               | [2026.eamt-1.46](https://aclanthology.org/2026.eamt-1.46/)                 |
+| Worldwide LiveVQA: Real-Time Visual Knowledge Seeking and Updating Across Languages                                                     | [2026.findings-acl.1984](https://aclanthology.org/2026.findings-acl.1984/) |
+| Benchmark Data Contamination in Underrepresented Languages: A Comprehensive Analysis Using Brazilian Data                               | [2026.lrec-1.374](https://aclanthology.org/2026.lrec-1.374/)               |
+| Evaluating Large Language Models for Text-to-Gloss Translation in Kazakh-Russian Sign Language: A Pilot Study                           | [2026.lrec-1.781](https://aclanthology.org/2026.lrec-1.781/)               |
+| JabuticaBERT: Modern Portuguese Encoders from Scratch with RTD and Long-Context Training                                                | [2026.propor-1.93](https://aclanthology.org/2026.propor-1.93/)             |
+| Viés e Justiça em Modelos de Linguagem: Evidências de Uma Literatura Linguística, Social e Culturalmente Assimétrica                    | [2026.propor-2.27](https://aclanthology.org/2026.propor-2.27/)             |
+| Clonagem de Voz por IA para o Português Brasileiro em Contexto Assistivo: Desafios Comparativos em Cinco Ferramentas de Síntese de Fala | [2026.stil-1.29](https://aclanthology.org/2026.stil-1.29/)                 |
 
 {% endraw %}

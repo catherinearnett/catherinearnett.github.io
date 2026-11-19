@@ -256,17 +256,17 @@ Finnish has been part of the WMT translation task in **6** years (2005, 2015, 20
 
 Here are up to ten papers published in 2026 that mention Finnish. None of the 253 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                        | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| The Language–Energy Divide: Measuring Energy Costs of Multilingual LLM Inference                                                              | [2026.emnlp-main.2113](https://aclanthology.org/2026.emnlp-main.2113/)       | body only      |
-| SAFE: An LLM-as-Verifier Framework for Evidence-Grounded Multi-Hop Reasoning                                                                  | [2026.emnlp-main.853](https://aclanthology.org/2026.emnlp-main.853/)         | body only      |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                                           | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)   | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                                  | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                 | body only      |
-| ConGA: Guidelines for Contextual Gender Annotation. a Framework for Annotating Gender in Machine Translation                                  | [2026.lrec-1.320](https://aclanthology.org/2026.lrec-1.320/)                 | body only      |
-| A Semi-Automatic Workflow for Transcribing and Annotating Broadcast News                                                                      | [2026.lrec-1.508](https://aclanthology.org/2026.lrec-1.508/)                 | body only      |
-| Simple Additions, Substantial Gains: Expanding Scripts, Languages, and Lineage Coverage in URIEL+                                             | [2026.lrec-1.863](https://aclanthology.org/2026.lrec-1.863/)                 | body only      |
-| PressMint: Towards Interoperable Corpora of Historical Newspapers                                                                             | [2026.pressmint-1.1](https://aclanthology.org/2026.pressmint-1.1/)           | body only      |
-| Probing the Dynamics of Syntactic Ability Acquisition Throughout LLM Pretraining                                                              | [2026.udw-1.1](https://aclanthology.org/2026.udw-1.1/)                       | body only      |
+| title                                                                                                                                         | paper                                                                        |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| The Language–Energy Divide: Measuring Energy Costs of Multilingual LLM Inference                                                              | [2026.emnlp-main.2113](https://aclanthology.org/2026.emnlp-main.2113/)       |
+| SAFE: An LLM-as-Verifier Framework for Evidence-Grounded Multi-Hop Reasoning                                                                  | [2026.emnlp-main.853](https://aclanthology.org/2026.emnlp-main.853/)         |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                                           | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)   |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                                  | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                 |
+| ConGA: Guidelines for Contextual Gender Annotation. a Framework for Annotating Gender in Machine Translation                                  | [2026.lrec-1.320](https://aclanthology.org/2026.lrec-1.320/)                 |
+| A Semi-Automatic Workflow for Transcribing and Annotating Broadcast News                                                                      | [2026.lrec-1.508](https://aclanthology.org/2026.lrec-1.508/)                 |
+| Simple Additions, Substantial Gains: Expanding Scripts, Languages, and Lineage Coverage in URIEL+                                             | [2026.lrec-1.863](https://aclanthology.org/2026.lrec-1.863/)                 |
+| PressMint: Towards Interoperable Corpora of Historical Newspapers                                                                             | [2026.pressmint-1.1](https://aclanthology.org/2026.pressmint-1.1/)           |
+| Probing the Dynamics of Syntactic Ability Acquisition Throughout LLM Pretraining                                                              | [2026.udw-1.1](https://aclanthology.org/2026.udw-1.1/)                       |
 
 {% endraw %}

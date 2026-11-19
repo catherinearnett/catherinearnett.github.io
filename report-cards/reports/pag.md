@@ -222,15 +222,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Pangasinan. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                      | paper                                                                      | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| How Good is Your Wikipedia? Auditing Data Quality for Low-resource and Multilingual NLP                    | [2026.acl-long.1373](https://aclanthology.org/2026.acl-long.1373/)         | body only      |
-| Grammar as Control: Modular Language Generation for the Long Tail                                          | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)         | body only      |
-| Adam’s Law: Textual Frequency Law on Large Language Models                                                 | [2026.acl-long.188](https://aclanthology.org/2026.acl-long.188/)           | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                         | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                 | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             | body only      |
-| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings                        | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/)             | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                    | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| Disambiguating Geographic Names in Biodiversity Occurrence Data: A Retrieval-Augmented Generation Approach | [2026.nlp4ecology-1.4](https://aclanthology.org/2026.nlp4ecology-1.4/)     | body only      |
+| title                                                                                                      | paper                                                                      |
+|:-----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| How Good is Your Wikipedia? Auditing Data Quality for Low-resource and Multilingual NLP                    | [2026.acl-long.1373](https://aclanthology.org/2026.acl-long.1373/)         |
+| Grammar as Control: Modular Language Generation for the Long Tail                                          | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)         |
+| Adam’s Law: Textual Frequency Law on Large Language Models                                                 | [2026.acl-long.188](https://aclanthology.org/2026.acl-long.188/)           |
+| TIPA: Typologically Informed Parameter Aggregation                                                         | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                 | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             |
+| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings                        | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/)             |
+| Goldfish: Monolingual Language Models for 350 Languages                                                    | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| Disambiguating Geographic Names in Biodiversity Occurrence Data: A Retrieval-Augmented Generation Approach | [2026.nlp4ecology-1.4](https://aclanthology.org/2026.nlp4ecology-1.4/)     |
 
 {% endraw %}

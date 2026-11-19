@@ -171,9 +171,9 @@ Dëne Sųłıné isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation
 
 Here are up to ten papers published in 2026 that mention Dëne Sųłıné. None of the 2 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                              | paper                                                                  | mentioned in   |
-|:---------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| A data-centric approach to performance improvement in under-resourced ASR: The case of Dënë Sųłıné | [2026.americasnlp-6.9](https://aclanthology.org/2026.americasnlp-6.9/) | body only      |
-| Choosing an ASR model for Dënë Sųłıné: Navigating polysynthesis and unstandardized orthography     | [2026.computel-1.3](https://aclanthology.org/2026.computel-1.3/)       | body only      |
+| title                                                                                              | paper                                                                  |
+|:---------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| A data-centric approach to performance improvement in under-resourced ASR: The case of Dënë Sųłıné | [2026.americasnlp-6.9](https://aclanthology.org/2026.americasnlp-6.9/) |
+| Choosing an ASR model for Dënë Sųłıné: Navigating polysynthesis and unstandardized orthography     | [2026.computel-1.3](https://aclanthology.org/2026.computel-1.3/)       |
 
 {% endraw %}

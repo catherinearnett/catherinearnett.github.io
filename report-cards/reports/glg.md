@@ -244,17 +244,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Galician. None of the 101 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Apertus: Democratizing Open and Compliant LLMs for Global Language Environments                                       | [2026.acl-long.2172](https://aclanthology.org/2026.acl-long.2172/)             | body only      |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)         | body only      |
-| Why are all LLMs Obsessed with Japanese Culture? On the Hidden Cultural and Regional Biases of LLMs                   | [2026.findings-emnlp.1307](https://aclanthology.org/2026.findings-emnlp.1307/) | body only      |
-| ACAData: Parallel Dataset of Academic Data for Machine Translation                                                    | [2026.lrec-1.671](https://aclanthology.org/2026.lrec-1.671/)                   | body only      |
-| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                  | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)                   | body only      |
-| UniBO at MWE-2026 PARSEME 2.0 Subtask 2: A Cross-lingual Approach to Multiword Expression Paraphrasing                | [2026.mwe-1.28](https://aclanthology.org/2026.mwe-1.28/)                       | body only      |
-| ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                  | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                       | body only      |
-| The PROPOR Ecosystem: Structure, Roles, and Evolution of Portuguese-Language NLP                                      | [2026.propor-1.34](https://aclanthology.org/2026.propor-1.34/)                 | body only      |
-| SpeechLM for Automatic Speech Recognition in Low-resource Languages                                                   | [2026.speakable-1.14](https://aclanthology.org/2026.speakable-1.14/)           | body only      |
-| Syntax is the Key to Semantics: Combining Universal Dependencies and Abstract Meaning Representation                  | [2026.udw-1.27](https://aclanthology.org/2026.udw-1.27/)                       | body only      |
+| title                                                                                                                 | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Apertus: Democratizing Open and Compliant LLMs for Global Language Environments                                       | [2026.acl-long.2172](https://aclanthology.org/2026.acl-long.2172/)             |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)         |
+| Why are all LLMs Obsessed with Japanese Culture? On the Hidden Cultural and Regional Biases of LLMs                   | [2026.findings-emnlp.1307](https://aclanthology.org/2026.findings-emnlp.1307/) |
+| ACAData: Parallel Dataset of Academic Data for Machine Translation                                                    | [2026.lrec-1.671](https://aclanthology.org/2026.lrec-1.671/)                   |
+| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                  | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)                   |
+| UniBO at MWE-2026 PARSEME 2.0 Subtask 2: A Cross-lingual Approach to Multiword Expression Paraphrasing                | [2026.mwe-1.28](https://aclanthology.org/2026.mwe-1.28/)                       |
+| ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                  | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                       |
+| The PROPOR Ecosystem: Structure, Roles, and Evolution of Portuguese-Language NLP                                      | [2026.propor-1.34](https://aclanthology.org/2026.propor-1.34/)                 |
+| SpeechLM for Automatic Speech Recognition in Low-resource Languages                                                   | [2026.speakable-1.14](https://aclanthology.org/2026.speakable-1.14/)           |
+| Syntax is the Key to Semantics: Combining Universal Dependencies and Abstract Meaning Representation                  | [2026.udw-1.27](https://aclanthology.org/2026.udw-1.27/)                       |
 
 {% endraw %}

@@ -226,17 +226,17 @@ _None found._
 
 Here are up to ten papers published in 2026 that mention nēhiyawēwin. None of the 10 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                        | paper                                                                  | mentioned in   |
-|:---------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------|
-| Neural Text-to-Speech for Myaamia: Speech Synthesis for an Indigenous Algonquian Language    | [2026.americasnlp-6.1](https://aclanthology.org/2026.americasnlp-6.1/) | body only      |
-| Kelvi: A Morphological Parser to Support Tamil Literacy                                      | [2026.bea-1.21](https://aclanthology.org/2026.bea-1.21/)               | body only      |
-| Private-Use Area Characters in the Wild: Signal or Noise?                                    | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)               | body only      |
-| Developing A Hawaiian Corpus Toolkit for Data-Driven Language Learning                       | [2026.computel-1.18](https://aclanthology.org/2026.computel-1.18/)     | body only      |
-| Exploring Cross-Lingual Voice Conversion Methods for Anonymizing Low-Resource Text-to-Speech | [2026.eacl-short.16](https://aclanthology.org/2026.eacl-short.16/)     | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)           | body only      |
-| Two Ojibwe Constraint Grammars: Morphological Disambiguation and Dependency Parsing          | [2026.lrec-1.766](https://aclanthology.org/2026.lrec-1.766/)           | body only      |
-| Keyboards for the Endangered Idu Mishmi Language                                             | [2026.sigul-1.5](https://aclanthology.org/2026.sigul-1.5/)             | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings     | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)           | body only      |
-| The Crawl Gap: Where Endangered-Language Web Content Is Lost Before It Reaches a Corpus      | [2026.wac-1.21](https://aclanthology.org/2026.wac-1.21/)               | body only      |
+| title                                                                                        | paper                                                                  |
+|:---------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| Neural Text-to-Speech for Myaamia: Speech Synthesis for an Indigenous Algonquian Language    | [2026.americasnlp-6.1](https://aclanthology.org/2026.americasnlp-6.1/) |
+| Kelvi: A Morphological Parser to Support Tamil Literacy                                      | [2026.bea-1.21](https://aclanthology.org/2026.bea-1.21/)               |
+| Private-Use Area Characters in the Wild: Signal or Noise?                                    | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)               |
+| Developing A Hawaiian Corpus Toolkit for Data-Driven Language Learning                       | [2026.computel-1.18](https://aclanthology.org/2026.computel-1.18/)     |
+| Exploring Cross-Lingual Voice Conversion Methods for Anonymizing Low-Resource Text-to-Speech | [2026.eacl-short.16](https://aclanthology.org/2026.eacl-short.16/)     |
+| Goldfish: Monolingual Language Models for 350 Languages                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)           |
+| Two Ojibwe Constraint Grammars: Morphological Disambiguation and Dependency Parsing          | [2026.lrec-1.766](https://aclanthology.org/2026.lrec-1.766/)           |
+| Keyboards for the Endangered Idu Mishmi Language                                             | [2026.sigul-1.5](https://aclanthology.org/2026.sigul-1.5/)             |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings     | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)           |
+| The Crawl Gap: Where Endangered-Language Web Content Is Lost Before It Reaches a Corpus      | [2026.wac-1.21](https://aclanthology.org/2026.wac-1.21/)               |
 
 {% endraw %}

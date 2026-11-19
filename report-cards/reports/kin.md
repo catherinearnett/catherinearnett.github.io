@@ -234,17 +234,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Kinyarwanda. None of the 52 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                            | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                             | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             | body only      |
-| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                                        | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)             | body only      |
-| SALT-31: A Machine Translation Benchmark Dataset for 31 Ugandan Languages                                                        | [2026.africanlp-main.21](https://aclanthology.org/2026.africanlp-main.21/)     | body only      |
-| The Geometry of Low-Resource Language Representations                                                                            | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)         | body only      |
-| Bridging the Culture Gap: A Framework for LLM-Driven Socio-Cultural Localization of Math Word Problems in Low-Resource Languages | [2026.findings-acl.42](https://aclanthology.org/2026.findings-acl.42/)         | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                   | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| CultureVLM: Characterizing and Improving Cultural Understanding of Vision-Language Models                                        | [2026.findings-emnlp.1603](https://aclanthology.org/2026.findings-emnlp.1603/) | body only      |
-| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                                    | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) | body only      |
-| Amulwe Kimün: A Community-Grounded Demo, Resource, and ASR Baseline for Mapuzugun                                                | [2026.lrec-1.266](https://aclanthology.org/2026.lrec-1.266/)                   | body only      |
+| title                                                                                                                            | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                             | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             |
+| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                                        | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)             |
+| SALT-31: A Machine Translation Benchmark Dataset for 31 Ugandan Languages                                                        | [2026.africanlp-main.21](https://aclanthology.org/2026.africanlp-main.21/)     |
+| The Geometry of Low-Resource Language Representations                                                                            | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)         |
+| Bridging the Culture Gap: A Framework for LLM-Driven Socio-Cultural Localization of Math Word Problems in Low-Resource Languages | [2026.findings-acl.42](https://aclanthology.org/2026.findings-acl.42/)         |
+| TIPA: Typologically Informed Parameter Aggregation                                                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                   | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| CultureVLM: Characterizing and Improving Cultural Understanding of Vision-Language Models                                        | [2026.findings-emnlp.1603](https://aclanthology.org/2026.findings-emnlp.1603/) |
+| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                                    | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) |
+| Amulwe Kimün: A Community-Grounded Demo, Resource, and ASR Baseline for Mapuzugun                                                | [2026.lrec-1.266](https://aclanthology.org/2026.lrec-1.266/)                   |
 
 {% endraw %}

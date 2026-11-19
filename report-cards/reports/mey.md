@@ -195,13 +195,13 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Hassaniya. None of the 6 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                            | paper                                                                                      | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|:---------------|
-| Alexandria: A Multi-Domain Dialectal Arabic Machine Translation Dataset for Culturally Inclusive and Linguistically Diverse LLMs | [2026.acl-long.1503](https://aclanthology.org/2026.acl-long.1503/)                         | body only      |
-| NAMAA Community at AlexandriaX-2026: Prompting, Fine-Tuning and Agreement Voting for Dialectal Arabic Translation and Evaluation | [2026.arabicnlp-sharedtasks.102](https://aclanthology.org/2026.arabicnlp-sharedtasks.102/) | body only      |
-| Arab Voices: Mapping Standard and Dialectal Arabic Speech Technology                                                             | [2026.findings-acl.575](https://aclanthology.org/2026.findings-acl.575/)                   | body only      |
-| A Multi-Task Learning Framework for Modeling Engagement and Topic-Sensitive Responses in Arabic Women’s Discourse                | [2026.findings-eacl.253](https://aclanthology.org/2026.findings-eacl.253/)                 | body only      |
-| WhiteHouse: Translation of the Casablanca Corpus for Multi-dialectal Arabic Speech Translation                                   | [2026.lrec-1.463](https://aclanthology.org/2026.lrec-1.463/)                               | body only      |
-| Syllable Structures Across Arabic Varieties                                                                                      | [2026.vardial-1.21](https://aclanthology.org/2026.vardial-1.21/)                           | body only      |
+| title                                                                                                                            | paper                                                                                      |
+|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|
+| Alexandria: A Multi-Domain Dialectal Arabic Machine Translation Dataset for Culturally Inclusive and Linguistically Diverse LLMs | [2026.acl-long.1503](https://aclanthology.org/2026.acl-long.1503/)                         |
+| NAMAA Community at AlexandriaX-2026: Prompting, Fine-Tuning and Agreement Voting for Dialectal Arabic Translation and Evaluation | [2026.arabicnlp-sharedtasks.102](https://aclanthology.org/2026.arabicnlp-sharedtasks.102/) |
+| Arab Voices: Mapping Standard and Dialectal Arabic Speech Technology                                                             | [2026.findings-acl.575](https://aclanthology.org/2026.findings-acl.575/)                   |
+| A Multi-Task Learning Framework for Modeling Engagement and Topic-Sensitive Responses in Arabic Women’s Discourse                | [2026.findings-eacl.253](https://aclanthology.org/2026.findings-eacl.253/)                 |
+| WhiteHouse: Translation of the Casablanca Corpus for Multi-dialectal Arabic Speech Translation                                   | [2026.lrec-1.463](https://aclanthology.org/2026.lrec-1.463/)                               |
+| Syllable Structures Across Arabic Varieties                                                                                      | [2026.vardial-1.21](https://aclanthology.org/2026.vardial-1.21/)                           |
 
 {% endraw %}

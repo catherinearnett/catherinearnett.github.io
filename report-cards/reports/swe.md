@@ -251,17 +251,17 @@ Swedish has been part of the WMT translation task in **1** year (2025).
 
 Here are up to ten papers published in 2026 that mention Swedish. None of the 321 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                       | paper                                                                        | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Apertus: Democratizing Open and Compliant LLMs for Global Language Environments                                                             | [2026.acl-long.2172](https://aclanthology.org/2026.acl-long.2172/)           | body only      |
-| Adaptive CAT-embedded MT for low-memory, low-compute end-user devices                                                                       | [2026.eamt-2.14](https://aclanthology.org/2026.eamt-2.14/)                   | body only      |
-| Reading the News: Adapting Large Language Models to Swedish Journalism Through Continued Pre-Training                                       | [2026.emnlp-industry.255](https://aclanthology.org/2026.emnlp-industry.255/) | body only      |
-| IREKIER: An Easy Read Corpus for Basque and Spanish                                                                                         | [2026.lrec-1.128](https://aclanthology.org/2026.lrec-1.128/)                 | body only      |
-| Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource                                                | [2026.lrec-1.287](https://aclanthology.org/2026.lrec-1.287/)                 | body only      |
-| Universal NER v2: Towards a Massively Multilingual Named Entity Recognition Benchmark                                                       | [2026.lrec-1.525](https://aclanthology.org/2026.lrec-1.525/)                 | body only      |
-| APODICTUS: Automatic Processing of DICTionary Update candidateS                                                                             | [2026.lrec-1.924](https://aclanthology.org/2026.lrec-1.924/)                 | body only      |
-| BEReshiT: an Ancient Hebrew Model based on DictaBERT                                                                                        | [2026.lt4hala-1.7](https://aclanthology.org/2026.lt4hala-1.7/)               | body only      |
-| Exploring the syntactic parsing of learner texts in Modern Greek: Variety trumps size, genre trumps grammaticality                          | [2026.nlp4call-1.11](https://aclanthology.org/2026.nlp4call-1.11/)           | body only      |
-| Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification | [2026.politicalnlp-1.11](https://aclanthology.org/2026.politicalnlp-1.11/)   | body only      |
+| title                                                                                                                                       | paper                                                                        |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Apertus: Democratizing Open and Compliant LLMs for Global Language Environments                                                             | [2026.acl-long.2172](https://aclanthology.org/2026.acl-long.2172/)           |
+| Adaptive CAT-embedded MT for low-memory, low-compute end-user devices                                                                       | [2026.eamt-2.14](https://aclanthology.org/2026.eamt-2.14/)                   |
+| Reading the News: Adapting Large Language Models to Swedish Journalism Through Continued Pre-Training                                       | [2026.emnlp-industry.255](https://aclanthology.org/2026.emnlp-industry.255/) |
+| IREKIER: An Easy Read Corpus for Basque and Spanish                                                                                         | [2026.lrec-1.128](https://aclanthology.org/2026.lrec-1.128/)                 |
+| Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource                                                | [2026.lrec-1.287](https://aclanthology.org/2026.lrec-1.287/)                 |
+| Universal NER v2: Towards a Massively Multilingual Named Entity Recognition Benchmark                                                       | [2026.lrec-1.525](https://aclanthology.org/2026.lrec-1.525/)                 |
+| APODICTUS: Automatic Processing of DICTionary Update candidateS                                                                             | [2026.lrec-1.924](https://aclanthology.org/2026.lrec-1.924/)                 |
+| BEReshiT: an Ancient Hebrew Model based on DictaBERT                                                                                        | [2026.lt4hala-1.7](https://aclanthology.org/2026.lt4hala-1.7/)               |
+| Exploring the syntactic parsing of learner texts in Modern Greek: Variety trumps size, genre trumps grammaticality                          | [2026.nlp4call-1.11](https://aclanthology.org/2026.nlp4call-1.11/)           |
+| Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification | [2026.politicalnlp-1.11](https://aclanthology.org/2026.politicalnlp-1.11/)   |
 
 {% endraw %}

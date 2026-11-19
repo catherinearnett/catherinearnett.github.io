@@ -272,17 +272,17 @@ Hindi has been part of the WMT translation task in **4** years (2014, 2021, 2024
 
 Here are up to ten papers published in 2026 that mention Hindi. None of the 775 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                              | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| When Does Knowledge Distillation Hurt? Reliability-Aware Distillation for Low-Resource Language Summarization                      | [2026.aacl-short.4](https://aclanthology.org/2026.aacl-short.4/)               | body only      |
-| Multi-Modal-Minds@CHiPSAL 2026: A Comparative Study of Textual, Visual and Multimodal Architecture for Nepali Meme Moderation      | [2026.chipsal-1.26](https://aclanthology.org/2026.chipsal-1.26/)               | body only      |
-| Reaching multilingual communities: a survey mapping MT use in the West Midlands (UK) third and public sector organisations         | [2026.eamt-1.38](https://aclanthology.org/2026.eamt-1.38/)                     | body only      |
-| Pak3H: Evaluating the Cost of Cultural Mismatch in LLM Alignment with a Human-Contextualized Urdu Benchmark                        | [2026.emnlp-main.883](https://aclanthology.org/2026.emnlp-main.883/)           | body only      |
-| Using large language models to provide effective embeddings for native language identification                                     | [2026.findings-emnlp.1251](https://aclanthology.org/2026.findings-emnlp.1251/) | body only      |
-| ARJUN: A Parameter-Efficient Multi-Objective Pre-Training Framework for Language Models                                            | [2026.findings-emnlp.1877](https://aclanthology.org/2026.findings-emnlp.1877/) | body only      |
-| Democratic ICAI: Debating Our Way to Steering Principles from Preferences                                                          | [2026.findings-emnlp.2355](https://aclanthology.org/2026.findings-emnlp.2355/) | body only      |
-| Does Safety Reasoning Travel? A Multilingual Measurement of Prompt-Injection Attacks and Runtime Monitors in Tool-Using LLM Agents | [2026.oracle-main.13](https://aclanthology.org/2026.oracle-main.13/)           | body only      |
-| The Shabd Portal – Searchable Lexical Resources for Indian Languages by Government of India                                        | [2026.wildre-1.8](https://aclanthology.org/2026.wildre-1.8/)                   | body only      |
-| BVSLP at WMT 2026: An Empirical Study of Multilingual Transfer for Low-Resource Arabic-Centric Translation                         | [2026.wmt-main.168](https://aclanthology.org/2026.wmt-main.168/)               | body only      |
+| title                                                                                                                              | paper                                                                          |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| When Does Knowledge Distillation Hurt? Reliability-Aware Distillation for Low-Resource Language Summarization                      | [2026.aacl-short.4](https://aclanthology.org/2026.aacl-short.4/)               |
+| Multi-Modal-Minds@CHiPSAL 2026: A Comparative Study of Textual, Visual and Multimodal Architecture for Nepali Meme Moderation      | [2026.chipsal-1.26](https://aclanthology.org/2026.chipsal-1.26/)               |
+| Reaching multilingual communities: a survey mapping MT use in the West Midlands (UK) third and public sector organisations         | [2026.eamt-1.38](https://aclanthology.org/2026.eamt-1.38/)                     |
+| Pak3H: Evaluating the Cost of Cultural Mismatch in LLM Alignment with a Human-Contextualized Urdu Benchmark                        | [2026.emnlp-main.883](https://aclanthology.org/2026.emnlp-main.883/)           |
+| Using large language models to provide effective embeddings for native language identification                                     | [2026.findings-emnlp.1251](https://aclanthology.org/2026.findings-emnlp.1251/) |
+| ARJUN: A Parameter-Efficient Multi-Objective Pre-Training Framework for Language Models                                            | [2026.findings-emnlp.1877](https://aclanthology.org/2026.findings-emnlp.1877/) |
+| Democratic ICAI: Debating Our Way to Steering Principles from Preferences                                                          | [2026.findings-emnlp.2355](https://aclanthology.org/2026.findings-emnlp.2355/) |
+| Does Safety Reasoning Travel? A Multilingual Measurement of Prompt-Injection Attacks and Runtime Monitors in Tool-Using LLM Agents | [2026.oracle-main.13](https://aclanthology.org/2026.oracle-main.13/)           |
+| The Shabd Portal – Searchable Lexical Resources for Indian Languages by Government of India                                        | [2026.wildre-1.8](https://aclanthology.org/2026.wildre-1.8/)                   |
+| BVSLP at WMT 2026: An Empirical Study of Multilingual Transfer for Low-Resource Arabic-Centric Translation                         | [2026.wmt-main.168](https://aclanthology.org/2026.wmt-main.168/)               |
 
 {% endraw %}

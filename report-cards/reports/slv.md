@@ -245,17 +245,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Slovene. None of the 57 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                              | paper                                                            | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------------|
-| A Lightweight N-gram Approach to Abbreviation Expansion in Large Corpora                                                           | [2026.cawl-1.10](https://aclanthology.org/2026.cawl-1.10/)       | body only      |
-| Environmental, Social and Governance Sentiment Analysis on Slovene News: A Novel Dataset and Models                                | [2026.fnp-1.5](https://aclanthology.org/2026.fnp-1.5/)           | body only      |
-| Modeling the Human Lexicon under Temperature Variations: Linguistic Factors, Diversity and Typicality in LLM Word Associations     | [2026.lrec-1.179](https://aclanthology.org/2026.lrec-1.179/)     | body only      |
-| PARSEME 2.0 Multilingual Corpus of Multiword Expressions                                                                           | [2026.lrec-1.378](https://aclanthology.org/2026.lrec-1.378/)     | body only      |
-| A Large-Scale Instruction-Tuning Dataset and Models for Slovenian Vision-Language Tasks                                            | [2026.lrec-1.740](https://aclanthology.org/2026.lrec-1.740/)     | body only      |
-| SemiAdapt: Semi-Supervised and Efficient LoRA-Based Domain Adaptation for Low-Resource Irish Machine Translation with Transformers | [2026.lrec-1.801](https://aclanthology.org/2026.lrec-1.801/)     | body only      |
-| MorfFlex: Handling Rich Morphology                                                                                                 | [2026.lrec-1.899](https://aclanthology.org/2026.lrec-1.899/)     | body only      |
-| Edition 2.0 of the PARSEME shared task on multilingual identification and paraphrasing of multiword expressions                    | [2026.mwe-1.33](https://aclanthology.org/2026.mwe-1.33/)         | body only      |
-| What Persists across Web Crawls? Genre and News Topic Variation in South Slavic Web Corpora                                        | [2026.wac-1.5](https://aclanthology.org/2026.wac-1.5/)           | body only      |
-| One Model, Five Tasks, Two RTX 3090 GPUs: The HSE System for the Sorbian Track of WMT26 Multitask LLMs with Limited Resources      | [2026.wmt-main.209](https://aclanthology.org/2026.wmt-main.209/) | body only      |
+| title                                                                                                                              | paper                                                            |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
+| A Lightweight N-gram Approach to Abbreviation Expansion in Large Corpora                                                           | [2026.cawl-1.10](https://aclanthology.org/2026.cawl-1.10/)       |
+| Environmental, Social and Governance Sentiment Analysis on Slovene News: A Novel Dataset and Models                                | [2026.fnp-1.5](https://aclanthology.org/2026.fnp-1.5/)           |
+| Modeling the Human Lexicon under Temperature Variations: Linguistic Factors, Diversity and Typicality in LLM Word Associations     | [2026.lrec-1.179](https://aclanthology.org/2026.lrec-1.179/)     |
+| PARSEME 2.0 Multilingual Corpus of Multiword Expressions                                                                           | [2026.lrec-1.378](https://aclanthology.org/2026.lrec-1.378/)     |
+| A Large-Scale Instruction-Tuning Dataset and Models for Slovenian Vision-Language Tasks                                            | [2026.lrec-1.740](https://aclanthology.org/2026.lrec-1.740/)     |
+| SemiAdapt: Semi-Supervised and Efficient LoRA-Based Domain Adaptation for Low-Resource Irish Machine Translation with Transformers | [2026.lrec-1.801](https://aclanthology.org/2026.lrec-1.801/)     |
+| MorfFlex: Handling Rich Morphology                                                                                                 | [2026.lrec-1.899](https://aclanthology.org/2026.lrec-1.899/)     |
+| Edition 2.0 of the PARSEME shared task on multilingual identification and paraphrasing of multiword expressions                    | [2026.mwe-1.33](https://aclanthology.org/2026.mwe-1.33/)         |
+| What Persists across Web Crawls? Genre and News Topic Variation in South Slavic Web Corpora                                        | [2026.wac-1.5](https://aclanthology.org/2026.wac-1.5/)           |
+| One Model, Five Tasks, Two RTX 3090 GPUs: The HSE System for the Sorbian Track of WMT26 Multitask LLMs with Limited Resources      | [2026.wmt-main.209](https://aclanthology.org/2026.wmt-main.209/) |
 
 {% endraw %}

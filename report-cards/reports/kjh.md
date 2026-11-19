@@ -220,9 +220,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Khakas. None of the 2 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                     | paper                                                          | mentioned in   |
-|:--------------------------------------------------------------------------|:---------------------------------------------------------------|:---------------|
-| Goldfish: Monolingual Language Models for 350 Languages                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)   | body only      |
-| Findings of the WMT 2026 Shared Task of the Open Language Data Initiative | [2026.wmt-main.57](https://aclanthology.org/2026.wmt-main.57/) | body only      |
+| title                                                                     | paper                                                          |
+|:--------------------------------------------------------------------------|:---------------------------------------------------------------|
+| Goldfish: Monolingual Language Models for 350 Languages                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)   |
+| Findings of the WMT 2026 Shared Task of the Open Language Data Initiative | [2026.wmt-main.57](https://aclanthology.org/2026.wmt-main.57/) |
 
 {% endraw %}

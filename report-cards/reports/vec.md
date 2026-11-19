@@ -228,8 +228,8 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Talian. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                               | paper                                                      | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:---------------|
-| Preserving Endangered Linguistic Heritage: Developing a Corpus for the Study of Contact-induced Changes in Corfioto | [2026.lrec-1.76](https://aclanthology.org/2026.lrec-1.76/) | body only      |
+| title                                                                                                               | paper                                                      |
+|:--------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|
+| Preserving Endangered Linguistic Heritage: Developing a Corpus for the Study of Contact-induced Changes in Corfioto | [2026.lrec-1.76](https://aclanthology.org/2026.lrec-1.76/) |
 
 {% endraw %}

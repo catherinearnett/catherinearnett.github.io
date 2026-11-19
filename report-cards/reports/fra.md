@@ -292,17 +292,17 @@ French has been part of the WMT translation task in **15** years (2005, 2006, 20
 
 Here are up to ten papers published in 2026 that mention French. None of the 1,703 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                         | paper                                                                          | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Multidimensional Consistency Improves Reasoning in Language Models                                            | [2026.aacl-long.177](https://aclanthology.org/2026.aacl-long.177/)             | body only      |
-| Morphologically-informed Somali Lemmatization Corpus built with a Web-based Crowdsourcing Platform            | [2026.africanlp-main.17](https://aclanthology.org/2026.africanlp-main.17/)     | body only      |
-| Logic Haystacks: Probing LLMs’ Long-Context Logical Reasoning (Without Easily Identifiable Unrelated Padding) | [2026.eacl-short.3](https://aclanthology.org/2026.eacl-short.3/)               | body only      |
-| Understanding Toxic Behavior in Gaming Communities Using AI to Promote Healthier Digital Spaces               | [2026.eeuca-1.2](https://aclanthology.org/2026.eeuca-1.2/)                     | body only      |
-| The Geometry of Low-Resource Language Representations                                                         | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)         | body only      |
-| DualGuard: Dual-stream Large Language Model Watermarking Defense against Paraphrase and Spoofing Attack       | [2026.findings-acl.1169](https://aclanthology.org/2026.findings-acl.1169/)     | body only      |
-| Do You Get the Hint? Benchmarking LLMs on the Board Game Concept                                              | [2026.findings-acl.1219](https://aclanthology.org/2026.findings-acl.1219/)     | body only      |
-| Why are all LLMs Obsessed with Japanese Culture? On the Hidden Cultural and Regional Biases of LLMs           | [2026.findings-emnlp.1307](https://aclanthology.org/2026.findings-emnlp.1307/) | body only      |
-| MUNIChus: MUltilingual News Image Captioning Benchmark                                                        | [2026.lrec-1.708](https://aclanthology.org/2026.lrec-1.708/)                   | body only      |
-| Irums at SHROOM-Visions 2026: When One Fix Doesn’t Fit All — Category-Aware Hallucination Span Detection      | [2026.uncertainlp-main.49](https://aclanthology.org/2026.uncertainlp-main.49/) | body only      |
+| title                                                                                                         | paper                                                                          |
+|:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Multidimensional Consistency Improves Reasoning in Language Models                                            | [2026.aacl-long.177](https://aclanthology.org/2026.aacl-long.177/)             |
+| Morphologically-informed Somali Lemmatization Corpus built with a Web-based Crowdsourcing Platform            | [2026.africanlp-main.17](https://aclanthology.org/2026.africanlp-main.17/)     |
+| Logic Haystacks: Probing LLMs’ Long-Context Logical Reasoning (Without Easily Identifiable Unrelated Padding) | [2026.eacl-short.3](https://aclanthology.org/2026.eacl-short.3/)               |
+| Understanding Toxic Behavior in Gaming Communities Using AI to Promote Healthier Digital Spaces               | [2026.eeuca-1.2](https://aclanthology.org/2026.eeuca-1.2/)                     |
+| The Geometry of Low-Resource Language Representations                                                         | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)         |
+| DualGuard: Dual-stream Large Language Model Watermarking Defense against Paraphrase and Spoofing Attack       | [2026.findings-acl.1169](https://aclanthology.org/2026.findings-acl.1169/)     |
+| Do You Get the Hint? Benchmarking LLMs on the Board Game Concept                                              | [2026.findings-acl.1219](https://aclanthology.org/2026.findings-acl.1219/)     |
+| Why are all LLMs Obsessed with Japanese Culture? On the Hidden Cultural and Regional Biases of LLMs           | [2026.findings-emnlp.1307](https://aclanthology.org/2026.findings-emnlp.1307/) |
+| MUNIChus: MUltilingual News Image Captioning Benchmark                                                        | [2026.lrec-1.708](https://aclanthology.org/2026.lrec-1.708/)                   |
+| Irums at SHROOM-Visions 2026: When One Fix Doesn’t Fit All — Category-Aware Hallucination Span Detection      | [2026.uncertainlp-main.49](https://aclanthology.org/2026.uncertainlp-main.49/) |
 
 {% endraw %}

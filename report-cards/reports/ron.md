@@ -262,17 +262,17 @@ Romanian has been part of the WMT translation task in **2** years (2016, 2025).
 
 Here are up to ten papers published in 2026 that mention Romanian. None of the 211 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                                              | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:---------------|
-| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)                 | body only      |
-| Disentangling Meaning and Language Components in Diverse Multilingual Sentence Embeddings                                   | [2026.acl-srw.102](https://aclanthology.org/2026.acl-srw.102/)                     | body only      |
-| MemeLens: Multilingual Multitask VLMs for Memes                                                                             | [2026.emnlp-main.2290](https://aclanthology.org/2026.emnlp-main.2290/)             | body only      |
-| PolERo: Studying Political Evasion in Romanian                                                                              | [2026.emnlp-main.2688](https://aclanthology.org/2026.emnlp-main.2688/)             | body only      |
-| Representation Collapse in Machine Translation Through the Lens of Angular Dispersion                                       | [2026.findings-eacl.126](https://aclanthology.org/2026.findings-eacl.126/)         | body only      |
-| PATCH: Mitigating PII Leakage in Language Models with Privacy-Aware Targeted Circuit PatcHing                               | [2026.findings-eacl.271](https://aclanthology.org/2026.findings-eacl.271/)         | body only      |
-| Register-based data selection for multilingual LLMs                                                                         | [2026.findings-emnlp.4](https://aclanthology.org/2026.findings-emnlp.4/)           | body only      |
-| Estonian WinoGrande Dataset: Comparative Analysis of LLM Performance on Human and Machine Translation                       | [2026.lrec-1.549](https://aclanthology.org/2026.lrec-1.549/)                       | body only      |
-| asetclarity at SemEval-2026 Task 6: An Imbalance-Aware RoBERTa Cross-Encoder for Political Response Clarity Classification  | [2026.semeval-1.146](https://aclanthology.org/2026.semeval-1.146/)                 | body only      |
-| Mitigating Language Bias in Multilingual Sentence Embeddings for Cross-Lingual Similarity Estimation                        | [2026.starsem-conference.26](https://aclanthology.org/2026.starsem-conference.26/) | body only      |
+| title                                                                                                                       | paper                                                                              |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)                 |
+| Disentangling Meaning and Language Components in Diverse Multilingual Sentence Embeddings                                   | [2026.acl-srw.102](https://aclanthology.org/2026.acl-srw.102/)                     |
+| MemeLens: Multilingual Multitask VLMs for Memes                                                                             | [2026.emnlp-main.2290](https://aclanthology.org/2026.emnlp-main.2290/)             |
+| PolERo: Studying Political Evasion in Romanian                                                                              | [2026.emnlp-main.2688](https://aclanthology.org/2026.emnlp-main.2688/)             |
+| Representation Collapse in Machine Translation Through the Lens of Angular Dispersion                                       | [2026.findings-eacl.126](https://aclanthology.org/2026.findings-eacl.126/)         |
+| PATCH: Mitigating PII Leakage in Language Models with Privacy-Aware Targeted Circuit PatcHing                               | [2026.findings-eacl.271](https://aclanthology.org/2026.findings-eacl.271/)         |
+| Register-based data selection for multilingual LLMs                                                                         | [2026.findings-emnlp.4](https://aclanthology.org/2026.findings-emnlp.4/)           |
+| Estonian WinoGrande Dataset: Comparative Analysis of LLM Performance on Human and Machine Translation                       | [2026.lrec-1.549](https://aclanthology.org/2026.lrec-1.549/)                       |
+| asetclarity at SemEval-2026 Task 6: An Imbalance-Aware RoBERTa Cross-Encoder for Political Response Clarity Classification  | [2026.semeval-1.146](https://aclanthology.org/2026.semeval-1.146/)                 |
+| Mitigating Language Bias in Multilingual Sentence Embeddings for Cross-Lingual Similarity Estimation                        | [2026.starsem-conference.26](https://aclanthology.org/2026.starsem-conference.26/) |
 
 {% endraw %}

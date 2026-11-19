@@ -164,17 +164,17 @@ Yuki isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005�
 
 Here are up to ten papers published in 2026 that mention Yuki. None of the 23 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                   | paper                                                                    | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Talent or Luck? Evaluating Attribution Bias in Large Language Models                                                    | [2026.findings-acl.534](https://aclanthology.org/2026.findings-acl.534/) | body only      |
-| HatePrototypes: Interpretable and Transferable Representations for Implicit and Explicit Hate Speech Detection          | [2026.lrec-1.343](https://aclanthology.org/2026.lrec-1.343/)             | body only      |
-| Controllable Sentence Simplification in Italian: Fine-Tuning Large Language Models on Automatically Generated Resources | [2026.lrec-1.570](https://aclanthology.org/2026.lrec-1.570/)             | body only      |
-| When Translations Surprise: Human Awareness of Predictability in Translations                                           | [2026.lrec-1.680](https://aclanthology.org/2026.lrec-1.680/)             | body only      |
-| Building Effective Japanese Medical LLMs with an Open Recipe for Domain Adaptation through Continued Pre-training       | [2026.lrec-1.817](https://aclanthology.org/2026.lrec-1.817/)             | body only      |
-| Semantic Information: A Difference That Makes a Difference                                                              | [2026.lrec-1.883](https://aclanthology.org/2026.lrec-1.883/)             | body only      |
-| Pragmatic Modelling in Language Learning: Caregiver Question-Answer Feedback in Child-Directed Dialogue                 | [2026.lrec-1.897](https://aclanthology.org/2026.lrec-1.897/)             | body only      |
-| SemEval-2026 Task 10: PsyCoMark – Psycholinguistic Conspiracy Marker Extraction and Detection                           | [2026.semeval-1.444](https://aclanthology.org/2026.semeval-1.444/)       | body only      |
-| Paraphrase Acquisition via Bilingual Pivoting Based on Neural Word Alignment                                            | [2026.slide-1.14](https://aclanthology.org/2026.slide-1.14/)             | body only      |
-| A Proposal for a More Universal Annotation of Relative Clauses in Universal Dependencies                                | [2026.udw-1.16](https://aclanthology.org/2026.udw-1.16/)                 | body only      |
+| title                                                                                                                   | paper                                                                    |
+|:------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Talent or Luck? Evaluating Attribution Bias in Large Language Models                                                    | [2026.findings-acl.534](https://aclanthology.org/2026.findings-acl.534/) |
+| HatePrototypes: Interpretable and Transferable Representations for Implicit and Explicit Hate Speech Detection          | [2026.lrec-1.343](https://aclanthology.org/2026.lrec-1.343/)             |
+| Controllable Sentence Simplification in Italian: Fine-Tuning Large Language Models on Automatically Generated Resources | [2026.lrec-1.570](https://aclanthology.org/2026.lrec-1.570/)             |
+| When Translations Surprise: Human Awareness of Predictability in Translations                                           | [2026.lrec-1.680](https://aclanthology.org/2026.lrec-1.680/)             |
+| Building Effective Japanese Medical LLMs with an Open Recipe for Domain Adaptation through Continued Pre-training       | [2026.lrec-1.817](https://aclanthology.org/2026.lrec-1.817/)             |
+| Semantic Information: A Difference That Makes a Difference                                                              | [2026.lrec-1.883](https://aclanthology.org/2026.lrec-1.883/)             |
+| Pragmatic Modelling in Language Learning: Caregiver Question-Answer Feedback in Child-Directed Dialogue                 | [2026.lrec-1.897](https://aclanthology.org/2026.lrec-1.897/)             |
+| SemEval-2026 Task 10: PsyCoMark – Psycholinguistic Conspiracy Marker Extraction and Detection                           | [2026.semeval-1.444](https://aclanthology.org/2026.semeval-1.444/)       |
+| Paraphrase Acquisition via Bilingual Pivoting Based on Neural Word Alignment                                            | [2026.slide-1.14](https://aclanthology.org/2026.slide-1.14/)             |
+| A Proposal for a More Universal Annotation of Relative Clauses in Universal Dependencies                                | [2026.udw-1.16](https://aclanthology.org/2026.udw-1.16/)                 |
 
 {% endraw %}

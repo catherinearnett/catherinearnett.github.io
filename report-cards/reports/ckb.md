@@ -231,17 +231,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Kurdish. None of the 71 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                     | paper                                                                          | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Private-Use Area Characters in the Wild: Signal or Noise?                                                                 | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                       | body only      |
-| Entropic properties of languages in phonetic versus orthographic alphabets                                                | [2026.emnlp-main.92](https://aclanthology.org/2026.emnlp-main.92/)             | body only      |
-| Adapting Where It Matters: Depth-Aware Adaptation for Efficient Multilingual Speech Recognition in Low-Resource Languages | [2026.findings-acl.827](https://aclanthology.org/2026.findings-acl.827/)       | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                        | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Dialects of Translationese Shape Language Model Learning                                                                  | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation              | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   | body only      |
-| English to Central Kurdish Speech Translation: Corpus Creation, Evaluation, and Orthographic Standardization              | [2026.lrec-1.436](https://aclanthology.org/2026.lrec-1.436/)                   | body only      |
-| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)                   | body only      |
-| A corpus of written Swedish texts and keystroke data from deaf and hard-of-hearing children and adolescents               | [2026.nlp4call-1.17](https://aclanthology.org/2026.nlp4call-1.17/)             | body only      |
-| Findings of the WMT26 Multilingual Instruction Shared Task: Small Models Are Not Yet Polyglots                            | [2026.wmt-main.50](https://aclanthology.org/2026.wmt-main.50/)                 | body only      |
+| title                                                                                                                     | paper                                                                          |
+|:--------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                                 | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                       |
+| Entropic properties of languages in phonetic versus orthographic alphabets                                                | [2026.emnlp-main.92](https://aclanthology.org/2026.emnlp-main.92/)             |
+| Adapting Where It Matters: Depth-Aware Adaptation for Efficient Multilingual Speech Recognition in Low-Resource Languages | [2026.findings-acl.827](https://aclanthology.org/2026.findings-acl.827/)       |
+| TIPA: Typologically Informed Parameter Aggregation                                                                        | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Dialects of Translationese Shape Language Model Learning                                                                  | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation              | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   |
+| English to Central Kurdish Speech Translation: Corpus Creation, Evaluation, and Orthographic Standardization              | [2026.lrec-1.436](https://aclanthology.org/2026.lrec-1.436/)                   |
+| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)                   |
+| A corpus of written Swedish texts and keystroke data from deaf and hard-of-hearing children and adolescents               | [2026.nlp4call-1.17](https://aclanthology.org/2026.nlp4call-1.17/)             |
+| Findings of the WMT26 Multilingual Instruction Shared Task: Small Models Are Not Yet Polyglots                            | [2026.wmt-main.50](https://aclanthology.org/2026.wmt-main.50/)                 |
 
 {% endraw %}

@@ -248,17 +248,17 @@ Greek has been part of the WMT translation task in **1** year (2025).
 
 Here are up to ten papers published in 2026 that mention Greek. None of the 426 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                  | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             | body only      |
-| Hellenic National Corpus: The Current State                                                                           | [2026.cmlc-1.7](https://aclanthology.org/2026.cmlc-1.7/)                       | body only      |
-| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages                         | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/)       | body only      |
-| Thinking While Speaking: Inference-Time Knowledge Transfer for Responsive and Intelligent Conversational Voice Agents | [2026.findings-emnlp.1371](https://aclanthology.org/2026.findings-emnlp.1371/) | body only      |
-| ConvDeck: Conversational Paper-to-Slide Generation via Stage-Specific User Feedback                                   | [2026.findings-emnlp.541](https://aclanthology.org/2026.findings-emnlp.541/)   | body only      |
-| Universal NER v2: Towards a Massively Multilingual Named Entity Recognition Benchmark                                 | [2026.lrec-1.525](https://aclanthology.org/2026.lrec-1.525/)                   | body only      |
-| WikIPA: Integrating WikiPron and Lingua Libre for Multilingual IPA Transcription                                      | [2026.lrec-1.668](https://aclanthology.org/2026.lrec-1.668/)                   | body only      |
-| Building a Corpus and Database for Rare and Undeciphered Scripts                                                      | [2026.lt4hala-1.17](https://aclanthology.org/2026.lt4hala-1.17/)               | body only      |
-| When Retrieval Hurts: Evidence Utilization, Script Fidelity, and Knowledge Conflicts in Multilingual RAG              | [2026.mellm-1.9](https://aclanthology.org/2026.mellm-1.9/)                     | body only      |
-| Decoding News Narratives: A Critical Analysis of Large Language Models in Framing Detection                           | [2026.politicalnlp-1.2](https://aclanthology.org/2026.politicalnlp-1.2/)       | body only      |
+| title                                                                                                                 | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                  | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             |
+| Hellenic National Corpus: The Current State                                                                           | [2026.cmlc-1.7](https://aclanthology.org/2026.cmlc-1.7/)                       |
+| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages                         | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/)       |
+| Thinking While Speaking: Inference-Time Knowledge Transfer for Responsive and Intelligent Conversational Voice Agents | [2026.findings-emnlp.1371](https://aclanthology.org/2026.findings-emnlp.1371/) |
+| ConvDeck: Conversational Paper-to-Slide Generation via Stage-Specific User Feedback                                   | [2026.findings-emnlp.541](https://aclanthology.org/2026.findings-emnlp.541/)   |
+| Universal NER v2: Towards a Massively Multilingual Named Entity Recognition Benchmark                                 | [2026.lrec-1.525](https://aclanthology.org/2026.lrec-1.525/)                   |
+| WikIPA: Integrating WikiPron and Lingua Libre for Multilingual IPA Transcription                                      | [2026.lrec-1.668](https://aclanthology.org/2026.lrec-1.668/)                   |
+| Building a Corpus and Database for Rare and Undeciphered Scripts                                                      | [2026.lt4hala-1.17](https://aclanthology.org/2026.lt4hala-1.17/)               |
+| When Retrieval Hurts: Evidence Utilization, Script Fidelity, and Knowledge Conflicts in Multilingual RAG              | [2026.mellm-1.9](https://aclanthology.org/2026.mellm-1.9/)                     |
+| Decoding News Narratives: A Critical Analysis of Large Language Models in Framing Detection                           | [2026.politicalnlp-1.2](https://aclanthology.org/2026.politicalnlp-1.2/)       |
 
 {% endraw %}

@@ -240,17 +240,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Irish. None of the 143 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                 | paper                                                                          | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Standard-to-Dialect Transfer Trends Differ across Text and Speech: A Case Study on Intent and Topic Classification in German Dialects | [2026.acl-long.309](https://aclanthology.org/2026.acl-long.309/)               | body only      |
-| Cultural Binding Heads in Language Models                                                                                             | [2026.blackboxnlp-1.3](https://aclanthology.org/2026.blackboxnlp-1.3/)         | body only      |
-| A Virtual Assistant for Architectural Design in a VR Environment                                                                      | [2026.eacl-demo.38](https://aclanthology.org/2026.eacl-demo.38/)               | body only      |
-| LLM Multi-Agent Systems for Long Triple Set Data-to-Text Generation                                                                   | [2026.findings-acl.1712](https://aclanthology.org/2026.findings-acl.1712/)     | body only      |
-| Tracing the Latent Threads: A Mechanistic Study of How LLMs Represent and Operationalize Race and Ethnicity Cues                      | [2026.findings-emnlp.1388](https://aclanthology.org/2026.findings-emnlp.1388/) | body only      |
-| Modular Approach to Automating Morphological Components in Grammar Engineering                                                        | [2026.lrec-1.898](https://aclanthology.org/2026.lrec-1.898/)                   | body only      |
-| Diversity patterns run deep: Impact of diversity intake on multiword expression identification                                        | [2026.mwe-1.13](https://aclanthology.org/2026.mwe-1.13/)                       | body only      |
-| wangkongqiang at SemEval-2026 Task 7: Everyday Knowledge Across Diverse Languages and Cultures                                        | [2026.semeval-1.36](https://aclanthology.org/2026.semeval-1.36/)               | body only      |
-| DANTE – A Treebank of Tweets in Brazilian Portuguese                                                                                  | [2026.stil-1.12](https://aclanthology.org/2026.stil-1.12/)                     | body only      |
-| Cross-Dialectal Transfer for Low-Resource Arabic: The Tunisian Arabic Dependency Treebank                                             | [2026.udw-1.23](https://aclanthology.org/2026.udw-1.23/)                       | body only      |
+| title                                                                                                                                 | paper                                                                          |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Standard-to-Dialect Transfer Trends Differ across Text and Speech: A Case Study on Intent and Topic Classification in German Dialects | [2026.acl-long.309](https://aclanthology.org/2026.acl-long.309/)               |
+| Cultural Binding Heads in Language Models                                                                                             | [2026.blackboxnlp-1.3](https://aclanthology.org/2026.blackboxnlp-1.3/)         |
+| A Virtual Assistant for Architectural Design in a VR Environment                                                                      | [2026.eacl-demo.38](https://aclanthology.org/2026.eacl-demo.38/)               |
+| LLM Multi-Agent Systems for Long Triple Set Data-to-Text Generation                                                                   | [2026.findings-acl.1712](https://aclanthology.org/2026.findings-acl.1712/)     |
+| Tracing the Latent Threads: A Mechanistic Study of How LLMs Represent and Operationalize Race and Ethnicity Cues                      | [2026.findings-emnlp.1388](https://aclanthology.org/2026.findings-emnlp.1388/) |
+| Modular Approach to Automating Morphological Components in Grammar Engineering                                                        | [2026.lrec-1.898](https://aclanthology.org/2026.lrec-1.898/)                   |
+| Diversity patterns run deep: Impact of diversity intake on multiword expression identification                                        | [2026.mwe-1.13](https://aclanthology.org/2026.mwe-1.13/)                       |
+| wangkongqiang at SemEval-2026 Task 7: Everyday Knowledge Across Diverse Languages and Cultures                                        | [2026.semeval-1.36](https://aclanthology.org/2026.semeval-1.36/)               |
+| DANTE – A Treebank of Tweets in Brazilian Portuguese                                                                                  | [2026.stil-1.12](https://aclanthology.org/2026.stil-1.12/)                     |
+| Cross-Dialectal Transfer for Low-Resource Arabic: The Tunisian Arabic Dependency Treebank                                             | [2026.udw-1.23](https://aclanthology.org/2026.udw-1.23/)                       |
 
 {% endraw %}

@@ -186,15 +186,15 @@ Nheengatu isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (
 
 Here are up to ten papers published in 2026 that mention Nheengatu. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|:---------------|
-| OpenCor: Latin American and Iberian Languages Open Corpora Forum                                                     | [2026.lanlp-1.4](https://aclanthology.org/2026.lanlp-1.4/)     | body only      |
-| Parsing Nheengatu: Performance Gains for a Brazilian Indigenous Universal Dependencies Treebank                      | [2026.propor-2.29](https://aclanthology.org/2026.propor-2.29/) | body only      |
-| Extending Enhanced Universal Dependencies to Nheengatu: Semi-Automated Control and Raising Annotation                | [2026.stil-1.1](https://aclanthology.org/2026.stil-1.1/)       | body only      |
-| Desafios Tipológicos na Construção de Treebanks: O Mapeamento Morfossintático da Língua Kubeo no Padrão UD           | [2026.stil-1.53](https://aclanthology.org/2026.stil-1.53/)     | body only      |
-| Unsupervised Subword Segmentation for POS Tagging in Low-Resource Agglutinative Languages                            | [2026.stil-1.54](https://aclanthology.org/2026.stil-1.54/)     | body only      |
-| MesoTree: Annotated Linguistic Resources for Quantitative Comparative Linguistic Analysis and NLP in Mesoamerica     | [2026.udw-1.17](https://aclanthology.org/2026.udw-1.17/)       | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                            | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)         | body only      |
-| The Constitution Speaks Nheengatu: An Open MT System and Reproducible Corpus Pipeline for the Amazonian Língua Geral | [2026.wmt-main.4](https://aclanthology.org/2026.wmt-main.4/)   | body only      |
+| title                                                                                                                | paper                                                          |
+|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|
+| OpenCor: Latin American and Iberian Languages Open Corpora Forum                                                     | [2026.lanlp-1.4](https://aclanthology.org/2026.lanlp-1.4/)     |
+| Parsing Nheengatu: Performance Gains for a Brazilian Indigenous Universal Dependencies Treebank                      | [2026.propor-2.29](https://aclanthology.org/2026.propor-2.29/) |
+| Extending Enhanced Universal Dependencies to Nheengatu: Semi-Automated Control and Raising Annotation                | [2026.stil-1.1](https://aclanthology.org/2026.stil-1.1/)       |
+| Desafios Tipológicos na Construção de Treebanks: O Mapeamento Morfossintático da Língua Kubeo no Padrão UD           | [2026.stil-1.53](https://aclanthology.org/2026.stil-1.53/)     |
+| Unsupervised Subword Segmentation for POS Tagging in Low-Resource Agglutinative Languages                            | [2026.stil-1.54](https://aclanthology.org/2026.stil-1.54/)     |
+| MesoTree: Annotated Linguistic Resources for Quantitative Comparative Linguistic Analysis and NLP in Mesoamerica     | [2026.udw-1.17](https://aclanthology.org/2026.udw-1.17/)       |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                            | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)         |
+| The Constitution Speaks Nheengatu: An Open MT System and Reproducible Corpus Pipeline for the Amazonian Língua Geral | [2026.wmt-main.4](https://aclanthology.org/2026.wmt-main.4/)   |
 
 {% endraw %}

@@ -232,17 +232,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Burmese. None of the 105 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                                        | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| SEA-NLI: Natural Language Inference as a Lens into Southeast Asian Cultural Understanding                                   | [2026.aacl-long.94](https://aclanthology.org/2026.aacl-long.94/)             | body only      |
-| To Answer or to Abstain: Mitigating Search-Agent Hallucinations via Abstention-Aware Reinforcement Learning                 | [2026.emnlp-main.161](https://aclanthology.org/2026.emnlp-main.161/)         | body only      |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models       | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)       | body only      |
-| Low-Resource Safety Failures Are Action Failures, Not Representation Failures                                               | [2026.findings-emnlp.287](https://aclanthology.org/2026.findings-emnlp.287/) | body only      |
-| When Multilingual Evaluation Assumptions Fail: Tokenization Effects Across Scripts                                          | [2026.loreslm-1.4](https://aclanthology.org/2026.loreslm-1.4/)               | body only      |
-| Cross-Lingual Stability and Bias in Instruction-Tuned Language Models for Humanitarian NLP                                  | [2026.lrec-1.346](https://aclanthology.org/2026.lrec-1.346/)                 | body only      |
-| Are the LLMs Capable of Maintaining at Least the Language Genus?                                                            | [2026.lrec-1.704](https://aclanthology.org/2026.lrec-1.704/)                 | body only      |
-| Instruction-Tuned Urdu LLMs: Efficient Adaptation of Llama Models and Evaluation Resources for Urdu                         | [2026.lrec-1.832](https://aclanthology.org/2026.lrec-1.832/)                 | body only      |
-| PolaFusion at SemEval-2026 Task 9: Ensemble Transformers with Targeted Augmentation for Multilingual Polarization Detection | [2026.semeval-1.361](https://aclanthology.org/2026.semeval-1.361/)           | body only      |
-| A Direction-Specialized System for WMT26 Chinese-Southeast Asian Multilingual Machine Translation                           | [2026.wmt-main.183](https://aclanthology.org/2026.wmt-main.183/)             | body only      |
+| title                                                                                                                       | paper                                                                        |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| SEA-NLI: Natural Language Inference as a Lens into Southeast Asian Cultural Understanding                                   | [2026.aacl-long.94](https://aclanthology.org/2026.aacl-long.94/)             |
+| To Answer or to Abstain: Mitigating Search-Agent Hallucinations via Abstention-Aware Reinforcement Learning                 | [2026.emnlp-main.161](https://aclanthology.org/2026.emnlp-main.161/)         |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models       | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)       |
+| Low-Resource Safety Failures Are Action Failures, Not Representation Failures                                               | [2026.findings-emnlp.287](https://aclanthology.org/2026.findings-emnlp.287/) |
+| When Multilingual Evaluation Assumptions Fail: Tokenization Effects Across Scripts                                          | [2026.loreslm-1.4](https://aclanthology.org/2026.loreslm-1.4/)               |
+| Cross-Lingual Stability and Bias in Instruction-Tuned Language Models for Humanitarian NLP                                  | [2026.lrec-1.346](https://aclanthology.org/2026.lrec-1.346/)                 |
+| Are the LLMs Capable of Maintaining at Least the Language Genus?                                                            | [2026.lrec-1.704](https://aclanthology.org/2026.lrec-1.704/)                 |
+| Instruction-Tuned Urdu LLMs: Efficient Adaptation of Llama Models and Evaluation Resources for Urdu                         | [2026.lrec-1.832](https://aclanthology.org/2026.lrec-1.832/)                 |
+| PolaFusion at SemEval-2026 Task 9: Ensemble Transformers with Targeted Augmentation for Multilingual Polarization Detection | [2026.semeval-1.361](https://aclanthology.org/2026.semeval-1.361/)           |
+| A Direction-Specialized System for WMT26 Chinese-Southeast Asian Multilingual Machine Translation                           | [2026.wmt-main.183](https://aclanthology.org/2026.wmt-main.183/)             |
 
 {% endraw %}

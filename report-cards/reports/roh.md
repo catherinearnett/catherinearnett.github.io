@@ -224,17 +224,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Romansch. None of the 19 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                           | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Apertus: Democratizing Open and Compliant LLMs for Global Language Environments                                 | [2026.acl-long.2172](https://aclanthology.org/2026.acl-long.2172/)             | body only      |
-| Swiss-AL: Language Data Platform for Applied Sciences                                                           | [2026.cmlc-1.18](https://aclanthology.org/2026.cmlc-1.18/)                     | body only      |
-| Promptology: A Large-Scale Systematic Analysis of Prompt Elements and Contextual Factors in Argument Generation | [2026.emnlp-main.428](https://aclanthology.org/2026.emnlp-main.428/)           | body only      |
-| ALEE: Any-Language Evaluation of Embeddings via English-Centric Minimal Pairs                                   | [2026.emnlp-main.63](https://aclanthology.org/2026.emnlp-main.63/)             | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                              | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation                               | [2026.findings-emnlp.2096](https://aclanthology.org/2026.findings-emnlp.2096/) | body only      |
-| An Enhanced Pipeline for the Manzini-Savoia Dialect Corpus                                                      | [2026.lrec-1.268](https://aclanthology.org/2026.lrec-1.268/)                   | body only      |
-| Code-Switching Detection in Multilingual Child Speech with SwissBERT                                            | [2026.swisstext-1.15](https://aclanthology.org/2026.swisstext-1.15/)           | body only      |
-| Robust Language Identification for Romansh Varieties                                                            | [2026.swisstext-1.9](https://aclanthology.org/2026.swisstext-1.9/)             | body only      |
-| GRIAL-TA participation in the WMT26 General Translation Shared Task: SalamandraTA7bFFT                          | [2026.wmt-main.62](https://aclanthology.org/2026.wmt-main.62/)                 | body only      |
+| title                                                                                                           | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Apertus: Democratizing Open and Compliant LLMs for Global Language Environments                                 | [2026.acl-long.2172](https://aclanthology.org/2026.acl-long.2172/)             |
+| Swiss-AL: Language Data Platform for Applied Sciences                                                           | [2026.cmlc-1.18](https://aclanthology.org/2026.cmlc-1.18/)                     |
+| Promptology: A Large-Scale Systematic Analysis of Prompt Elements and Contextual Factors in Argument Generation | [2026.emnlp-main.428](https://aclanthology.org/2026.emnlp-main.428/)           |
+| ALEE: Any-Language Evaluation of Embeddings via English-Centric Minimal Pairs                                   | [2026.emnlp-main.63](https://aclanthology.org/2026.emnlp-main.63/)             |
+| TIPA: Typologically Informed Parameter Aggregation                                                              | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation                               | [2026.findings-emnlp.2096](https://aclanthology.org/2026.findings-emnlp.2096/) |
+| An Enhanced Pipeline for the Manzini-Savoia Dialect Corpus                                                      | [2026.lrec-1.268](https://aclanthology.org/2026.lrec-1.268/)                   |
+| Code-Switching Detection in Multilingual Child Speech with SwissBERT                                            | [2026.swisstext-1.15](https://aclanthology.org/2026.swisstext-1.15/)           |
+| Robust Language Identification for Romansh Varieties                                                            | [2026.swisstext-1.9](https://aclanthology.org/2026.swisstext-1.9/)             |
+| GRIAL-TA participation in the WMT26 General Translation Shared Task: SalamandraTA7bFFT                          | [2026.wmt-main.62](https://aclanthology.org/2026.wmt-main.62/)                 |
 
 {% endraw %}

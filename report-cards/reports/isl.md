@@ -254,17 +254,17 @@ Icelandic has been part of the WMT translation task in **4** years (2021, 2024, 
 
 Here are up to ten papers published in 2026 that mention Icelandic. None of the 110 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                        | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                                         | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)           | body only      |
-| BabyBabelLM: A Multilingual Benchmark of Developmentally Plausible Training Data                                                              | [2026.eacl-long.152](https://aclanthology.org/2026.eacl-long.152/)           | body only      |
-| Reading the News: Adapting Large Language Models to Swedish Journalism Through Continued Pre-Training                                         | [2026.emnlp-industry.255](https://aclanthology.org/2026.emnlp-industry.255/) | body only      |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                         | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)       | body only      |
-| Learning to Translate by Translating: Stabilizing the Dual Loop via Semantic-Aware Self-Evolution                                             | [2026.findings-acl.723](https://aclanthology.org/2026.findings-acl.723/)     | body only      |
-| PressMint: Towards Interoperable Corpora of Historical Newspapers                                                                             | [2026.pressmint-1.1](https://aclanthology.org/2026.pressmint-1.1/)           | body only      |
-| Stage-Aware Cross-Lingual Transfer for Faroese ASR: When and Which Languages Matter                                                           | [2026.speakable-1.17](https://aclanthology.org/2026.speakable-1.17/)         | body only      |
-| Syntax is the Key to Semantics: Combining Universal Dependencies and Abstract Meaning Representation                                          | [2026.udw-1.27](https://aclanthology.org/2026.udw-1.27/)                     | body only      |
-| Findings of the WMT26 Shared Task on Automated Translation Quality Evaluation Systems: Compact Open Models are Competitive Quality Evaluators | [2026.wmt-main.49](https://aclanthology.org/2026.wmt-main.49/)               | body only      |
-| Isolated Sign Language Recognition for Icelandic Sign Language: Experiments in a Low-resource Setting                                         | [2026.wslp-1.9](https://aclanthology.org/2026.wslp-1.9/)                     | body only      |
+| title                                                                                                                                         | paper                                                                        |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                                         | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)           |
+| BabyBabelLM: A Multilingual Benchmark of Developmentally Plausible Training Data                                                              | [2026.eacl-long.152](https://aclanthology.org/2026.eacl-long.152/)           |
+| Reading the News: Adapting Large Language Models to Swedish Journalism Through Continued Pre-Training                                         | [2026.emnlp-industry.255](https://aclanthology.org/2026.emnlp-industry.255/) |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                         | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)       |
+| Learning to Translate by Translating: Stabilizing the Dual Loop via Semantic-Aware Self-Evolution                                             | [2026.findings-acl.723](https://aclanthology.org/2026.findings-acl.723/)     |
+| PressMint: Towards Interoperable Corpora of Historical Newspapers                                                                             | [2026.pressmint-1.1](https://aclanthology.org/2026.pressmint-1.1/)           |
+| Stage-Aware Cross-Lingual Transfer for Faroese ASR: When and Which Languages Matter                                                           | [2026.speakable-1.17](https://aclanthology.org/2026.speakable-1.17/)         |
+| Syntax is the Key to Semantics: Combining Universal Dependencies and Abstract Meaning Representation                                          | [2026.udw-1.27](https://aclanthology.org/2026.udw-1.27/)                     |
+| Findings of the WMT26 Shared Task on Automated Translation Quality Evaluation Systems: Compact Open Models are Competitive Quality Evaluators | [2026.wmt-main.49](https://aclanthology.org/2026.wmt-main.49/)               |
+| Isolated Sign Language Recognition for Icelandic Sign Language: Experiments in a Low-resource Setting                                         | [2026.wslp-1.9](https://aclanthology.org/2026.wslp-1.9/)                     |
 
 {% endraw %}

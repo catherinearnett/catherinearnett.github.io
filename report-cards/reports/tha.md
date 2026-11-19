@@ -256,17 +256,17 @@ Thai has been part of the WMT translation task in **2** years (2025, 2026).
 
 Here are up to ten papers published in 2026 that mention Thai. None of the 413 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                       | paper                                                                        | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| FahMai-TeleBench: A Thai Grounded Tool-Use Benchmark for the Deployable Model Tier                          | [2026.aacl-short.15](https://aclanthology.org/2026.aacl-short.15/)           | body only      |
-| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                   | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/)           | body only      |
-| Mirrored Frames: LLM-Based Narrative Framing Analysis of Thai-Cambodian Border Conflict Coverage            | [2026.findings-aacl.45](https://aclanthology.org/2026.findings-aacl.45/)     | body only      |
-| SEA-SafeguardBench: Culturally Grounded Safety Benchmark for Southeast Asian Languages                      | [2026.findings-acl.194](https://aclanthology.org/2026.findings-acl.194/)     | body only      |
-| SEATauBench: Progressively Adapting Tool-Agent-User Evaluation Into Low-Resource Southeast Asian Languages  | [2026.findings-emnlp.502](https://aclanthology.org/2026.findings-emnlp.502/) | body only      |
-| Off the Hamster Wheel: Rethinking Dialogue Research through a Meta-Analysis of the ACL Anthology 2024       | [2026.lrec-1.207](https://aclanthology.org/2026.lrec-1.207/)                 | body only      |
-| Where Are Language-Specific Features Represented in Multilingual LLMs? Everywhere                           | [2026.mrl-1.27](https://aclanthology.org/2026.mrl-1.27/)                     | body only      |
-| An Empirical Study of Evidence Retrieval for Retrieval Augmented Generation over the Thai Royal Gazette     | [2026.nllp-1.19](https://aclanthology.org/2026.nllp-1.19/)                   | body only      |
-| R1-T1: Fully Incentivizing Translation Capability in LLMs via Reasoning Learning                            | [2026.tacl-1.95](https://aclanthology.org/2026.tacl-1.95/)                   | body only      |
-| Laniqo at WMT26 Video Subtitle Translation Shared Task: Multi-Objective Fusion of Pareto-Optimal Candidates | [2026.wmt-main.204](https://aclanthology.org/2026.wmt-main.204/)             | body only      |
+| title                                                                                                       | paper                                                                        |
+|:------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| FahMai-TeleBench: A Thai Grounded Tool-Use Benchmark for the Deployable Model Tier                          | [2026.aacl-short.15](https://aclanthology.org/2026.aacl-short.15/)           |
+| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                   | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/)           |
+| Mirrored Frames: LLM-Based Narrative Framing Analysis of Thai-Cambodian Border Conflict Coverage            | [2026.findings-aacl.45](https://aclanthology.org/2026.findings-aacl.45/)     |
+| SEA-SafeguardBench: Culturally Grounded Safety Benchmark for Southeast Asian Languages                      | [2026.findings-acl.194](https://aclanthology.org/2026.findings-acl.194/)     |
+| SEATauBench: Progressively Adapting Tool-Agent-User Evaluation Into Low-Resource Southeast Asian Languages  | [2026.findings-emnlp.502](https://aclanthology.org/2026.findings-emnlp.502/) |
+| Off the Hamster Wheel: Rethinking Dialogue Research through a Meta-Analysis of the ACL Anthology 2024       | [2026.lrec-1.207](https://aclanthology.org/2026.lrec-1.207/)                 |
+| Where Are Language-Specific Features Represented in Multilingual LLMs? Everywhere                           | [2026.mrl-1.27](https://aclanthology.org/2026.mrl-1.27/)                     |
+| An Empirical Study of Evidence Retrieval for Retrieval Augmented Generation over the Thai Royal Gazette     | [2026.nllp-1.19](https://aclanthology.org/2026.nllp-1.19/)                   |
+| R1-T1: Fully Incentivizing Translation Capability in LLMs via Reasoning Learning                            | [2026.tacl-1.95](https://aclanthology.org/2026.tacl-1.95/)                   |
+| Laniqo at WMT26 Video Subtitle Translation Shared Task: Multi-Objective Fusion of Pareto-Optimal Candidates | [2026.wmt-main.204](https://aclanthology.org/2026.wmt-main.204/)             |
 
 {% endraw %}

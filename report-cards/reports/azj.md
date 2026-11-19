@@ -239,17 +239,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Azerbaijani. None of the 63 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                        | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Sign-Language Datasets at Scale: A Comprehensive Survey on Resources, Benchmarks, and Annotation Standards                                    | [2026.acl-long.1928](https://aclanthology.org/2026.acl-long.1928/)           | body only      |
-| Language Family Matters: Evaluating LLM-based ASR Across Linguistic Boundaries                                                                | [2026.eacl-short.36](https://aclanthology.org/2026.eacl-short.36/)           | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                                  | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                 | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                 | body only      |
-| MultiInpaintCOCO: Fine-Grained Visual Understanding in Multiple Languages                                                                     | [2026.mrl-1.45](https://aclanthology.org/2026.mrl-1.45/)                     | body only      |
-| Quantifying mutual intelligibility gradients in Turkic languages using language models                                                        | [2026.scil-main.41](https://aclanthology.org/2026.scil-main.41/)             | body only      |
-| wangkongqiang at SemEval-2026 Task 7: Everyday Knowledge Across Diverse Languages and Cultures                                                | [2026.semeval-1.36](https://aclanthology.org/2026.semeval-1.36/)             | body only      |
-| SemEval-2026 Task 7: Everyday Knowledge Across Diverse Languages and Cultures                                                                 | [2026.semeval-1.455](https://aclanthology.org/2026.semeval-1.455/)           | body only      |
-| Bukva: Russian Sign Language Alphabet                                                                                                         | [2026.wslp-1.15](https://aclanthology.org/2026.wslp-1.15/)                   | body only      |
+| title                                                                                                                                         | paper                                                                        |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Sign-Language Datasets at Scale: A Comprehensive Survey on Resources, Benchmarks, and Annotation Standards                                    | [2026.acl-long.1928](https://aclanthology.org/2026.acl-long.1928/)           |
+| Language Family Matters: Evaluating LLM-based ASR Across Linguistic Boundaries                                                                | [2026.eacl-short.36](https://aclanthology.org/2026.eacl-short.36/)           |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                                  | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                 |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                 |
+| MultiInpaintCOCO: Fine-Grained Visual Understanding in Multiple Languages                                                                     | [2026.mrl-1.45](https://aclanthology.org/2026.mrl-1.45/)                     |
+| Quantifying mutual intelligibility gradients in Turkic languages using language models                                                        | [2026.scil-main.41](https://aclanthology.org/2026.scil-main.41/)             |
+| wangkongqiang at SemEval-2026 Task 7: Everyday Knowledge Across Diverse Languages and Cultures                                                | [2026.semeval-1.36](https://aclanthology.org/2026.semeval-1.36/)             |
+| SemEval-2026 Task 7: Everyday Knowledge Across Diverse Languages and Cultures                                                                 | [2026.semeval-1.455](https://aclanthology.org/2026.semeval-1.455/)           |
+| Bukva: Russian Sign Language Alphabet                                                                                                         | [2026.wslp-1.15](https://aclanthology.org/2026.wslp-1.15/)                   |
 
 {% endraw %}

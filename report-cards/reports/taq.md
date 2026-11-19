@@ -209,16 +209,16 @@ _None found._
 
 Here are up to ten papers published in 2026 that mention Tamasheq. None of the 9 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Completely Modular Fine-tuning for Dynamic Language Adaptation                                                                                | [2026.findings-eacl.252](https://aclanthology.org/2026.findings-eacl.252/)     | body only      |
-| SrcMix: Mixing of Related Source Languages Benefits Extremely Low-resource Machine Translation                                                | [2026.findings-eacl.332](https://aclanthology.org/2026.findings-eacl.332/)     | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| Building a Dataset for French Accent Classification Evaluation: Are We There Yet?                                                             | [2026.lrec-1.450](https://aclanthology.org/2026.lrec-1.450/)                   | body only      |
-| SALAN: A Massive ASR Dataset for the Languages of Niger                                                                                       | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)                   | body only      |
-| Pantagruel: Unified Self-Supervised Encoders for French Text and Speech                                                                       | [2026.lrec-1.799](https://aclanthology.org/2026.lrec-1.799/)                   | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Completely Modular Fine-tuning for Dynamic Language Adaptation                                                                                | [2026.findings-eacl.252](https://aclanthology.org/2026.findings-eacl.252/)     |
+| SrcMix: Mixing of Related Source Languages Benefits Extremely Low-resource Machine Translation                                                | [2026.findings-eacl.332](https://aclanthology.org/2026.findings-eacl.332/)     |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| Building a Dataset for French Accent Classification Evaluation: Are We There Yet?                                                             | [2026.lrec-1.450](https://aclanthology.org/2026.lrec-1.450/)                   |
+| SALAN: A Massive ASR Dataset for the Languages of Niger                                                                                       | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)                   |
+| Pantagruel: Unified Self-Supervised Encoders for French Text and Speech                                                                       | [2026.lrec-1.799](https://aclanthology.org/2026.lrec-1.799/)                   |
 
 {% endraw %}

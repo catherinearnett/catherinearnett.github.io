@@ -208,12 +208,12 @@ Ibibio isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 Here are up to ten papers published in 2026 that mention Ibibio. None of the 5 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                       | paper                                                                          | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             | body only      |
-| INCLUDE-2.0: Disentangling Knowledge Gaps in Multilingual LLM Evaluation                                    | [2026.emnlp-main.1344](https://aclanthology.org/2026.emnlp-main.1344/)         | body only      |
-| An Empirical Study of Many-Shot In-Context Learning for Machine Translation of Low-Resource Languages       | [2026.findings-aacl.142](https://aclanthology.org/2026.findings-aacl.142/)     | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                      | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems               | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) | body only      |
+| title                                                                                                       | paper                                                                          |
+|:------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             |
+| INCLUDE-2.0: Disentangling Knowledge Gaps in Multilingual LLM Evaluation                                    | [2026.emnlp-main.1344](https://aclanthology.org/2026.emnlp-main.1344/)         |
+| An Empirical Study of Many-Shot In-Context Learning for Machine Translation of Low-Resource Languages       | [2026.findings-aacl.142](https://aclanthology.org/2026.findings-aacl.142/)     |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                      | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems               | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) |
 
 {% endraw %}

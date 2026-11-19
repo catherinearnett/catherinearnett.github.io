@@ -244,17 +244,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Santali. None of the 18 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Combining Distantly Supervised Models with In Context Learning for Monolingual and Cross-Lingual Relation Extraction                          | [2026.acl-long.2109](https://aclanthology.org/2026.acl-long.2109/)         | body only      |
-| MUTANT: A Recipe for Multilingual Tokenizer Design                                                                                            | [2026.acl-long.2146](https://aclanthology.org/2026.acl-long.2146/)         | body only      |
-| Script Is Not Preprocessing: Tokenizer-Mediated Transfer in Endangered Language Machine Translation                                           | [2026.emnlp-main.1715](https://aclanthology.org/2026.emnlp-main.1715/)     | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Stable Scores, Failed Retrieval: Diagnosing RAG Evaluation in Low-Resource Indic Languages                                                    | [2026.groundlm-1.48](https://aclanthology.org/2026.groundlm-1.48/)         | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)               | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                                      | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)               | body only      |
-| ADI-IITP: Reward-Guided Preference Optimization for Low-Resource English-Assamese Machine Translation                                         | [2026.wmt-main.146](https://aclanthology.org/2026.wmt-main.146/)           | body only      |
-| EROL: Transformer-Based Multilingual Translation for Northeastern Indian Language Pairs                                                       | [2026.wmt-main.148](https://aclanthology.org/2026.wmt-main.148/)           | body only      |
+| title                                                                                                                                         | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Combining Distantly Supervised Models with In Context Learning for Monolingual and Cross-Lingual Relation Extraction                          | [2026.acl-long.2109](https://aclanthology.org/2026.acl-long.2109/)         |
+| MUTANT: A Recipe for Multilingual Tokenizer Design                                                                                            | [2026.acl-long.2146](https://aclanthology.org/2026.acl-long.2146/)         |
+| Script Is Not Preprocessing: Tokenizer-Mediated Transfer in Endangered Language Machine Translation                                           | [2026.emnlp-main.1715](https://aclanthology.org/2026.emnlp-main.1715/)     |
+| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Stable Scores, Failed Retrieval: Diagnosing RAG Evaluation in Low-Resource Indic Languages                                                    | [2026.groundlm-1.48](https://aclanthology.org/2026.groundlm-1.48/)         |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)               |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                                      | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)               |
+| ADI-IITP: Reward-Guided Preference Optimization for Low-Resource English-Assamese Machine Translation                                         | [2026.wmt-main.146](https://aclanthology.org/2026.wmt-main.146/)           |
+| EROL: Transformer-Based Multilingual Translation for Northeastern Indian Language Pairs                                                       | [2026.wmt-main.148](https://aclanthology.org/2026.wmt-main.148/)           |
 
 {% endraw %}

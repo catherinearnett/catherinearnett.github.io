@@ -253,17 +253,17 @@ Lithuanian has been part of the WMT translation task in **2** years (2019, 2025)
 
 Here are up to ten papers published in 2026 that mention Lithuanian. None of the 85 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                      | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| How to Improve LLMs’ Performance on Specific Languages: A Perspective on LLM-Derived Language Similarity             | [2026.acl-long.691](https://aclanthology.org/2026.acl-long.691/)           | body only      |
-| CRITICS: Critical Science Without Borders by Translation of Scientific Knowledge                                     | [2026.eamt-2.23](https://aclanthology.org/2026.eamt-2.23/)                 | body only      |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                  | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/) | body only      |
-| WikiLingDiv: a dataset for quantifying digital linguistic diversity using Wikipedia page views                       | [2026.latechclfl-1.19](https://aclanthology.org/2026.latechclfl-1.19/)     | body only      |
-| Pretraining and Benchmarking Modern Encoders for Latvian                                                             | [2026.loreslm-1.40](https://aclanthology.org/2026.loreslm-1.40/)           | body only      |
-| Assessing the Political Fairness of Multilingual LLMs: A Case Study Based on a 21-Way Multiparallel EuroParl Dataset | [2026.lrec-1.17](https://aclanthology.org/2026.lrec-1.17/)                 | body only      |
-| SloPal: A 60-Million-Word Slovak Parliamentary Corpus with Aligned Speech and Fine-Tuned ASR Models                  | [2026.lrec-1.282](https://aclanthology.org/2026.lrec-1.282/)               | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                           | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                     | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)               | body only      |
-| Evaluating the Interplay of Information Status and Information Content in a Multilingual Parallel Corpus             | [2026.sigtyp-main.3](https://aclanthology.org/2026.sigtyp-main.3/)         | body only      |
+| title                                                                                                                | paper                                                                      |
+|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| How to Improve LLMs’ Performance on Specific Languages: A Perspective on LLM-Derived Language Similarity             | [2026.acl-long.691](https://aclanthology.org/2026.acl-long.691/)           |
+| CRITICS: Critical Science Without Borders by Translation of Scientific Knowledge                                     | [2026.eamt-2.23](https://aclanthology.org/2026.eamt-2.23/)                 |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                  | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/) |
+| WikiLingDiv: a dataset for quantifying digital linguistic diversity using Wikipedia page views                       | [2026.latechclfl-1.19](https://aclanthology.org/2026.latechclfl-1.19/)     |
+| Pretraining and Benchmarking Modern Encoders for Latvian                                                             | [2026.loreslm-1.40](https://aclanthology.org/2026.loreslm-1.40/)           |
+| Assessing the Political Fairness of Multilingual LLMs: A Case Study Based on a 21-Way Multiparallel EuroParl Dataset | [2026.lrec-1.17](https://aclanthology.org/2026.lrec-1.17/)                 |
+| SloPal: A 60-Million-Word Slovak Parliamentary Corpus with Aligned Speech and Fine-Tuned ASR Models                  | [2026.lrec-1.282](https://aclanthology.org/2026.lrec-1.282/)               |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                           | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                     | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)               |
+| Evaluating the Interplay of Information Status and Information Content in a Multilingual Parallel Corpus             | [2026.sigtyp-main.3](https://aclanthology.org/2026.sigtyp-main.3/)         |
 
 {% endraw %}

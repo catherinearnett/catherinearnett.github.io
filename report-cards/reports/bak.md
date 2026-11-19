@@ -235,17 +235,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Bashkir. None of the 19 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                      | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| POWSM: A Phonetic Open Whisper-Style Speech Foundation Model                                                          | [2026.acl-long.813](https://aclanthology.org/2026.acl-long.813/)           | body only      |
-| Is Refusal Direction Universal across Low-Resourced Languages?                                                        | [2026.blackboxnlp-1.65](https://aclanthology.org/2026.blackboxnlp-1.65/)   | body only      |
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems                      | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   | body only      |
-| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                   | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)         | body only      |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)     | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                    | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh   | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)           | body only      |
-| Machine Translation for Low Resource Turkic Languages: English-Tatar                                                  | [2026.loresmt-1.21](https://aclanthology.org/2026.loresmt-1.21/)           | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                               | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| MultiWikiQA: A Reading Comprehension Benchmark in 300+ Languages                                                      | [2026.lrec-1.499](https://aclanthology.org/2026.lrec-1.499/)               | body only      |
+| title                                                                                                                 | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| POWSM: A Phonetic Open Whisper-Style Speech Foundation Model                                                          | [2026.acl-long.813](https://aclanthology.org/2026.acl-long.813/)           |
+| Is Refusal Direction Universal across Low-Resourced Languages?                                                        | [2026.blackboxnlp-1.65](https://aclanthology.org/2026.blackboxnlp-1.65/)   |
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems                      | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   |
+| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                   | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)         |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)     |
+| TIPA: Typologically Informed Parameter Aggregation                                                                    | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh   | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)           |
+| Machine Translation for Low Resource Turkic Languages: English-Tatar                                                  | [2026.loresmt-1.21](https://aclanthology.org/2026.loresmt-1.21/)           |
+| Goldfish: Monolingual Language Models for 350 Languages                                                               | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| MultiWikiQA: A Reading Comprehension Benchmark in 300+ Languages                                                      | [2026.lrec-1.499](https://aclanthology.org/2026.lrec-1.499/)               |
 
 {% endraw %}

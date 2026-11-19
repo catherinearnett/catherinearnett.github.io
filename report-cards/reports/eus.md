@@ -253,17 +253,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Basque. None of the 178 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                                        | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)           | body only      |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                         | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)   | body only      |
-| QFrBLiMP: a Quebec-French Benchmark of Linguistic Minimal Pairs                                                             | [2026.findings-eacl.224](https://aclanthology.org/2026.findings-eacl.224/)   | body only      |
-| Translation Asymmetry in LLMs as a Data Augmentation Factor: A Case Study for 6 Romansh Language Varieties                  | [2026.findings-emnlp.230](https://aclanthology.org/2026.findings-emnlp.230/) | body only      |
-| Benchmarking Mathematical Reasoning in a Low-Resource Language: Structured Prompting and Evaluation in Basque               | [2026.lrec-1.412](https://aclanthology.org/2026.lrec-1.412/)                 | body only      |
-| A Single Model Ensemble Framework for Neural Machine Translation Using Pivot Translation                                    | [2026.lrec-1.672](https://aclanthology.org/2026.lrec-1.672/)                 | body only      |
-| Extracting Medical Image-Related Entities from Spanish Electronic Health Records Using NER Methods                          | [2026.lrec-1.829](https://aclanthology.org/2026.lrec-1.829/)                 | body only      |
-| Proffiliadur: Welsh Language Text Profiling Toolkit                                                                         | [2026.lrec-1.88](https://aclanthology.org/2026.lrec-1.88/)                   | body only      |
-| Register Sensitivity in Scalar MT Evaluation: Evidence from Spanish–Basque Informal Discourse                               | [2026.sigul-1.2](https://aclanthology.org/2026.sigul-1.2/)                   | body only      |
-| CUS-QA: Local-Knowledge-Oriented Open-Ended Question Answering Dataset                                                      | [2026.tacl-1.67](https://aclanthology.org/2026.tacl-1.67/)                   | body only      |
+| title                                                                                                                       | paper                                                                        |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)           |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                         | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)   |
+| QFrBLiMP: a Quebec-French Benchmark of Linguistic Minimal Pairs                                                             | [2026.findings-eacl.224](https://aclanthology.org/2026.findings-eacl.224/)   |
+| Translation Asymmetry in LLMs as a Data Augmentation Factor: A Case Study for 6 Romansh Language Varieties                  | [2026.findings-emnlp.230](https://aclanthology.org/2026.findings-emnlp.230/) |
+| Benchmarking Mathematical Reasoning in a Low-Resource Language: Structured Prompting and Evaluation in Basque               | [2026.lrec-1.412](https://aclanthology.org/2026.lrec-1.412/)                 |
+| A Single Model Ensemble Framework for Neural Machine Translation Using Pivot Translation                                    | [2026.lrec-1.672](https://aclanthology.org/2026.lrec-1.672/)                 |
+| Extracting Medical Image-Related Entities from Spanish Electronic Health Records Using NER Methods                          | [2026.lrec-1.829](https://aclanthology.org/2026.lrec-1.829/)                 |
+| Proffiliadur: Welsh Language Text Profiling Toolkit                                                                         | [2026.lrec-1.88](https://aclanthology.org/2026.lrec-1.88/)                   |
+| Register Sensitivity in Scalar MT Evaluation: Evidence from Spanish–Basque Informal Discourse                               | [2026.sigul-1.2](https://aclanthology.org/2026.sigul-1.2/)                   |
+| CUS-QA: Local-Knowledge-Oriented Open-Ended Question Answering Dataset                                                      | [2026.tacl-1.67](https://aclanthology.org/2026.tacl-1.67/)                   |
 
 {% endraw %}

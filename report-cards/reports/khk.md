@@ -226,17 +226,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Mongolian. None of the 80 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                               | paper                                                                    | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                         | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)   | body only      |
-| Masking Stale Observations Helps Search Agents — Until It Doesn’t: A Regime Map and Its Mechanism                   | [2026.emnlp-main.756](https://aclanthology.org/2026.emnlp-main.756/)     | body only      |
-| RAG-KT: Cross-platform Explainable Knowledge Tracing with Multi-view Fusion Retrieval Generation                    | [2026.findings-acl.257](https://aclanthology.org/2026.findings-acl.257/) | body only      |
-| Lightweight Haar Wavelet Subband Pruning for LLMs                                                                   | [2026.findings-acl.798](https://aclanthology.org/2026.findings-acl.798/) | body only      |
-| CausalityCheck: A Framework for Evaluating Causal Reasoning in Large Language Models                                | [2026.findings-acl.808](https://aclanthology.org/2026.findings-acl.808/) | body only      |
-| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)         | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                          | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)             | body only      |
-| Cygnet: Refactoring the Open Multilingual Wordnet                                                                   | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)             | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                    | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)             | body only      |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                            | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)             | body only      |
+| title                                                                                                               | paper                                                                    |
+|:--------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                         | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)   |
+| Masking Stale Observations Helps Search Agents — Until It Doesn’t: A Regime Map and Its Mechanism                   | [2026.emnlp-main.756](https://aclanthology.org/2026.emnlp-main.756/)     |
+| RAG-KT: Cross-platform Explainable Knowledge Tracing with Multi-view Fusion Retrieval Generation                    | [2026.findings-acl.257](https://aclanthology.org/2026.findings-acl.257/) |
+| Lightweight Haar Wavelet Subband Pruning for LLMs                                                                   | [2026.findings-acl.798](https://aclanthology.org/2026.findings-acl.798/) |
+| CausalityCheck: A Framework for Evaluating Causal Reasoning in Large Language Models                                | [2026.findings-acl.808](https://aclanthology.org/2026.findings-acl.808/) |
+| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)         |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                          | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)             |
+| Cygnet: Refactoring the Open Multilingual Wordnet                                                                   | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)             |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                    | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)             |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                            | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)             |
 
 {% endraw %}

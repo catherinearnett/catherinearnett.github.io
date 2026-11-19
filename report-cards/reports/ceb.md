@@ -232,17 +232,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Cebuano. None of the 28 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                               | paper                                                                        | mentioned in   |
-|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| DeepSEA: A Multilingual Evaluation Benchmark for Southeast Asia                                     | [2026.emnlp-main.1](https://aclanthology.org/2026.emnlp-main.1/)             | body only      |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)   | body only      |
-| On the Robustness of Code LLM Guardrails to Code-mixed and Transliterated Inputs                    | [2026.findings-emnlp.568](https://aclanthology.org/2026.findings-emnlp.568/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?          | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)               | body only      |
-| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings                 | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/)               | body only      |
-| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP          | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)                 | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings      | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                 | body only      |
-| Whisper-Style Speech Encoders Align Semantically Beyond Phonetic Cues                               | [2026.mrl-1.32](https://aclanthology.org/2026.mrl-1.32/)                     | body only      |
-| Pag-refuse: Safety Alignment Transfers Unevenly to Tagalog and Taglish                              | [2026.mrl-1.41](https://aclanthology.org/2026.mrl-1.41/)                     | body only      |
-| Tokenization Sets the Measurement Scale for Cross-Lingual Diagnostics                               | [2026.oracle-main.24](https://aclanthology.org/2026.oracle-main.24/)         | body only      |
+| title                                                                                               | paper                                                                        |
+|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| DeepSEA: A Multilingual Evaluation Benchmark for Southeast Asia                                     | [2026.emnlp-main.1](https://aclanthology.org/2026.emnlp-main.1/)             |
+| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)   |
+| On the Robustness of Code LLM Guardrails to Code-mixed and Transliterated Inputs                    | [2026.findings-emnlp.568](https://aclanthology.org/2026.findings-emnlp.568/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?          | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)               |
+| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings                 | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/)               |
+| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP          | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)                 |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings      | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                 |
+| Whisper-Style Speech Encoders Align Semantically Beyond Phonetic Cues                               | [2026.mrl-1.32](https://aclanthology.org/2026.mrl-1.32/)                     |
+| Pag-refuse: Safety Alignment Transfers Unevenly to Tagalog and Taglish                              | [2026.mrl-1.41](https://aclanthology.org/2026.mrl-1.41/)                     |
+| Tokenization Sets the Measurement Scale for Cross-Lingual Diagnostics                               | [2026.oracle-main.24](https://aclanthology.org/2026.oracle-main.24/)         |
 
 {% endraw %}

@@ -229,17 +229,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Setswana. None of the 29 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                                                     | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)             | body only      |
-| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                                                                            | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)             | body only      |
-| Pseudo2Real: Task Arithmetic for Pseudo-Label Correction in Automatic Speech Recognition                                                      | [2026.findings-acl.59](https://aclanthology.org/2026.findings-acl.59/)         | body only      |
-| When Audit Quality Fails to Predict Downstream Utility: Synthetic-Data Selection for Low-Resource Classification                              | [2026.findings-emnlp.1184](https://aclanthology.org/2026.findings-emnlp.1184/) | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| Code-Switching in End-to-End Automatic Speech Recognition: A Systematic Literature Review                                                     | [2026.lrec-1.768](https://aclanthology.org/2026.lrec-1.768/)                   | body only      |
-| How Much of Native Language Identification Is Corpus Artifact? A Cross-Corpus Audit of SVMs and LLMs on TOEFL11 and ICLEv3                    | [2026.nlp4call-1.1](https://aclanthology.org/2026.nlp4call-1.1/)               | body only      |
-| Extension of Linguistic Resources for South African Languages: Part-of-Speech Annotated Domain-Specific Data                                  | [2026.rail-1.2](https://aclanthology.org/2026.rail-1.2/)                       | body only      |
-| Benchmarking Text Embedding Models for South African Languages                                                                                | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                                                     | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)             |
+| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                                                                            | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)             |
+| Pseudo2Real: Task Arithmetic for Pseudo-Label Correction in Automatic Speech Recognition                                                      | [2026.findings-acl.59](https://aclanthology.org/2026.findings-acl.59/)         |
+| When Audit Quality Fails to Predict Downstream Utility: Synthetic-Data Selection for Low-Resource Classification                              | [2026.findings-emnlp.1184](https://aclanthology.org/2026.findings-emnlp.1184/) |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| Code-Switching in End-to-End Automatic Speech Recognition: A Systematic Literature Review                                                     | [2026.lrec-1.768](https://aclanthology.org/2026.lrec-1.768/)                   |
+| How Much of Native Language Identification Is Corpus Artifact? A Cross-Corpus Audit of SVMs and LLMs on TOEFL11 and ICLEv3                    | [2026.nlp4call-1.1](https://aclanthology.org/2026.nlp4call-1.1/)               |
+| Extension of Linguistic Resources for South African Languages: Part-of-Speech Annotated Domain-Specific Data                                  | [2026.rail-1.2](https://aclanthology.org/2026.rail-1.2/)                       |
+| Benchmarking Text Embedding Models for South African Languages                                                                                | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       |
 
 {% endraw %}

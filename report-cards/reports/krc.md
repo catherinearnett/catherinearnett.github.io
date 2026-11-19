@@ -229,10 +229,10 @@ Karachay-Balkar isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation 
 
 Here are up to ten papers published in 2026 that mention Karachay-Balkar. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                              | paper                                                              | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| Private-Use Area Characters in the Wild: Signal or Noise?                                                                          | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)           | body only      |
-| SACRED: A Faithful Annotated Multimedia Multimodal Multilingual Dataset for Classifying Connectedness Types in Online Spirituality | [2026.llms4ssh-1.13](https://aclanthology.org/2026.llms4ssh-1.13/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                            | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       | body only      |
+| title                                                                                                                              | paper                                                              |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                                          | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)           |
+| SACRED: A Faithful Annotated Multimedia Multimodal Multilingual Dataset for Classifying Connectedness Types in Online Spirituality | [2026.llms4ssh-1.13](https://aclanthology.org/2026.llms4ssh-1.13/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                            | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       |
 
 {% endraw %}

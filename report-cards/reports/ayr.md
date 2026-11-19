@@ -231,17 +231,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Aymara. None of the 17 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                          | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Building Community-Centred NLP Resources for Puno Quechua                                                      | [2026.americasnlp-6.13](https://aclanthology.org/2026.americasnlp-6.13/)       | body only      |
-| QomL’aqtaqa: A Qom–Spanish Parallel Corpus for Natural Language Processing with Machine Translation Evaluation | [2026.americasnlp-6.17](https://aclanthology.org/2026.americasnlp-6.17/)       | body only      |
-| Measuring Linguistic Competence of LLMs on Indigenous Languages of the Americas                                | [2026.eacl-short.21](https://aclanthology.org/2026.eacl-short.21/)             | body only      |
-| Reference-Free Evaluation of Taxonomies                                                                        | [2026.findings-acl.1273](https://aclanthology.org/2026.findings-acl.1273/)     | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                             | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation                              | [2026.findings-emnlp.2096](https://aclanthology.org/2026.findings-emnlp.2096/) | body only      |
-| Bridging Ibero and Latin American NLP communities                                                              | [2026.lanlp-1.1](https://aclanthology.org/2026.lanlp-1.1/)                     | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                        | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                     | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   | body only      |
+| title                                                                                                          | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Building Community-Centred NLP Resources for Puno Quechua                                                      | [2026.americasnlp-6.13](https://aclanthology.org/2026.americasnlp-6.13/)       |
+| QomL’aqtaqa: A Qom–Spanish Parallel Corpus for Natural Language Processing with Machine Translation Evaluation | [2026.americasnlp-6.17](https://aclanthology.org/2026.americasnlp-6.17/)       |
+| Measuring Linguistic Competence of LLMs on Indigenous Languages of the Americas                                | [2026.eacl-short.21](https://aclanthology.org/2026.eacl-short.21/)             |
+| Reference-Free Evaluation of Taxonomies                                                                        | [2026.findings-acl.1273](https://aclanthology.org/2026.findings-acl.1273/)     |
+| TIPA: Typologically Informed Parameter Aggregation                                                             | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation                              | [2026.findings-emnlp.2096](https://aclanthology.org/2026.findings-emnlp.2096/) |
+| Bridging Ibero and Latin American NLP communities                                                              | [2026.lanlp-1.1](https://aclanthology.org/2026.lanlp-1.1/)                     |
+| Goldfish: Monolingual Language Models for 350 Languages                                                        | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                     | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   |
 
 {% endraw %}

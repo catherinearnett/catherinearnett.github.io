@@ -249,17 +249,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Bosnian. None of the 32 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                            | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Large-scale Multilingual News Image Captioning with LLMs                                                                         | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)         | body only      |
-| FactSelfCheck: Fact-Level Black-Box Hallucination Detection for LLMs                                                             | [2026.findings-eacl.296](https://aclanthology.org/2026.findings-eacl.296/)     | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                   | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| State of the Art in Text Classification for South Slavic Languages: Fine-Tuning or Prompting?                                    | [2026.llms4ssh-1.1](https://aclanthology.org/2026.llms4ssh-1.1/)               | body only      |
-| Charting the European LLM Benchmarking Landscape: A New Taxonomy and Registry                                                    | [2026.llms4ssh-1.22](https://aclanthology.org/2026.llms4ssh-1.22/)             | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                       | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| ParlaSpeech 3.0: Richly Annotated Spoken Parliamentary Corpora of Croatian, Czech, Polish, and Serbian                           | [2026.lrec-1.447](https://aclanthology.org/2026.lrec-1.447/)                   | body only      |
-| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                             | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)                   | body only      |
-| Injecting Structured Lexicographic Knowledge into LLMs for Non-Literal Expression Disambiguation: A Controlled Study on Croatian | [2026.nonliteral-1.3](https://aclanthology.org/2026.nonliteral-1.3/)           | body only      |
-| HeSLEx: A novel online questionnaire for heritage sign language research                                                         | [2026.signlang-1.26](https://aclanthology.org/2026.signlang-1.26/)             | body only      |
+| title                                                                                                                            | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Large-scale Multilingual News Image Captioning with LLMs                                                                         | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)         |
+| FactSelfCheck: Fact-Level Black-Box Hallucination Detection for LLMs                                                             | [2026.findings-eacl.296](https://aclanthology.org/2026.findings-eacl.296/)     |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                   | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| State of the Art in Text Classification for South Slavic Languages: Fine-Tuning or Prompting?                                    | [2026.llms4ssh-1.1](https://aclanthology.org/2026.llms4ssh-1.1/)               |
+| Charting the European LLM Benchmarking Landscape: A New Taxonomy and Registry                                                    | [2026.llms4ssh-1.22](https://aclanthology.org/2026.llms4ssh-1.22/)             |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                       | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| ParlaSpeech 3.0: Richly Annotated Spoken Parliamentary Corpora of Croatian, Czech, Polish, and Serbian                           | [2026.lrec-1.447](https://aclanthology.org/2026.lrec-1.447/)                   |
+| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                             | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)                   |
+| Injecting Structured Lexicographic Knowledge into LLMs for Non-Literal Expression Disambiguation: A Controlled Study on Croatian | [2026.nonliteral-1.3](https://aclanthology.org/2026.nonliteral-1.3/)           |
+| HeSLEx: A novel online questionnaire for heritage sign language research                                                         | [2026.signlang-1.26](https://aclanthology.org/2026.signlang-1.26/)             |
 
 {% endraw %}

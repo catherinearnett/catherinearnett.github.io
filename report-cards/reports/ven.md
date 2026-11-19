@@ -230,17 +230,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Tshivenda. None of the 10 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                        | paper                                                                          | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| The Future of NLP Needs Ethical Considerations: An Interactive Tutorial for Researchers and Students         | [2026.aacl-tutorials.2](https://aclanthology.org/2026.aacl-tutorials.2/)       | body only      |
-| Grammar as Control: Modular Language Generation for the Long Tail                                            | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             | body only      |
-| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context  | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                       | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) | body only      |
-| MzansiText and MzansiLM: An Open Corpus and Decoder-Only Language Model for South African Languages          | [2026.lrec-1.109](https://aclanthology.org/2026.lrec-1.109/)                   | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
-| NepTam: A Nepali-Tamang Parallel Corpus and Baseline Machine Translation Experiments                         | [2026.lrec-1.696](https://aclanthology.org/2026.lrec-1.696/)                   | body only      |
-| Extension of Linguistic Resources for South African Languages: Part-of-Speech Annotated Domain-Specific Data | [2026.rail-1.2](https://aclanthology.org/2026.rail-1.2/)                       | body only      |
-| Benchmarking Text Embedding Models for South African Languages                                               | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       | body only      |
+| title                                                                                                        | paper                                                                          |
+|:-------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| The Future of NLP Needs Ethical Considerations: An Interactive Tutorial for Researchers and Students         | [2026.aacl-tutorials.2](https://aclanthology.org/2026.aacl-tutorials.2/)       |
+| Grammar as Control: Modular Language Generation for the Long Tail                                            | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             |
+| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context  | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                       | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) |
+| MzansiText and MzansiLM: An Open Corpus and Decoder-Only Language Model for South African Languages          | [2026.lrec-1.109](https://aclanthology.org/2026.lrec-1.109/)                   |
+| Goldfish: Monolingual Language Models for 350 Languages                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| NepTam: A Nepali-Tamang Parallel Corpus and Baseline Machine Translation Experiments                         | [2026.lrec-1.696](https://aclanthology.org/2026.lrec-1.696/)                   |
+| Extension of Linguistic Resources for South African Languages: Part-of-Speech Annotated Domain-Specific Data | [2026.rail-1.2](https://aclanthology.org/2026.rail-1.2/)                       |
+| Benchmarking Text Embedding Models for South African Languages                                               | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       |
 
 {% endraw %}

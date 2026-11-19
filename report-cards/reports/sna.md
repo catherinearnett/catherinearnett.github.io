@@ -229,17 +229,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Shona. None of the 33 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                    | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages                                   | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)               | body only      |
-| MERLIN: Multi-Stage Curriculum Alignment for Multilingual Encoder-LLM Integration in Cross-Lingual Reasoning                             | [2026.eacl-long.277](https://aclanthology.org/2026.eacl-long.277/)             | body only      |
-| Large-scale Multilingual News Image Captioning with LLMs                                                                                 | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)         | body only      |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                                      | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)     | body only      |
-| PUMA: Projected Universal Multilingual ASR for Low-Resource Settings. Application to Diverse African Languages                           | [2026.findings-acl.17](https://aclanthology.org/2026.findings-acl.17/)         | body only      |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                           | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                             | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   | body only      |
-| Evaluating Bias in Phoneme-Based Automatic Speech Recognition Systems: An Analysis of IPA Transcription Models                           | [2026.impactspeech-1.5](https://aclanthology.org/2026.impactspeech-1.5/)       | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                               | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
-| A Family of Effective Methods for Decompiling Canonical Acceptors, Instantiated for Languages of Dot-Depth One and Tier-Based Extensions | [2026.scil-main.3](https://aclanthology.org/2026.scil-main.3/)                 | body only      |
+| title                                                                                                                                    | paper                                                                          |
+|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages                                   | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)               |
+| MERLIN: Multi-Stage Curriculum Alignment for Multilingual Encoder-LLM Integration in Cross-Lingual Reasoning                             | [2026.eacl-long.277](https://aclanthology.org/2026.eacl-long.277/)             |
+| Large-scale Multilingual News Image Captioning with LLMs                                                                                 | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)         |
+| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                                      | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)     |
+| PUMA: Projected Universal Multilingual ASR for Low-Resource Settings. Application to Diverse African Languages                           | [2026.findings-acl.17](https://aclanthology.org/2026.findings-acl.17/)         |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                           | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation                             | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   |
+| Evaluating Bias in Phoneme-Based Automatic Speech Recognition Systems: An Analysis of IPA Transcription Models                           | [2026.impactspeech-1.5](https://aclanthology.org/2026.impactspeech-1.5/)       |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                               | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
+| A Family of Effective Methods for Decompiling Canonical Acceptors, Instantiated for Languages of Dot-Depth One and Tier-Based Extensions | [2026.scil-main.3](https://aclanthology.org/2026.scil-main.3/)                 |
 
 {% endraw %}

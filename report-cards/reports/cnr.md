@@ -204,15 +204,15 @@ Montenegrin isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task
 
 Here are up to ten papers published in 2026 that mention Montenegrin. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                             | paper                                                              | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                                  | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/) | body only      |
-| Charting the European LLM Benchmarking Landscape: A New Taxonomy and Registry                                     | [2026.llms4ssh-1.22](https://aclanthology.org/2026.llms4ssh-1.22/) | body only      |
-| Serbian SuperGLUE: Towards an Evaluation Benchmark for South Slavic Language Models                               | [2026.loreslm-1.30](https://aclanthology.org/2026.loreslm-1.30/)   | body only      |
-| Development of Serbian QA Datasets through Prompt-Based Generation and Human Validation                           | [2026.lrec-1.267](https://aclanthology.org/2026.lrec-1.267/)       | body only      |
-| The Growing Gains and Pains of Iterative Web Corpora Crawling: Insights from South Slavic CLASSLA-web 2.0 Corpora | [2026.lrec-1.598](https://aclanthology.org/2026.lrec-1.598/)       | body only      |
-| TildeOpen LLM: Leveraging Curriculum Learning to Achieve Equitable Language Representation                        | [2026.lrec-1.834](https://aclanthology.org/2026.lrec-1.834/)       | body only      |
-| Regional Variation in the Performance of ASR Models on Croatian and Serbian                                       | [2026.vardial-1.20](https://aclanthology.org/2026.vardial-1.20/)   | body only      |
-| OpenLID-v3: Improving the Precision of Closely Related Language Identification – An Experience Report             | [2026.vardial-1.23](https://aclanthology.org/2026.vardial-1.23/)   | body only      |
+| title                                                                                                             | paper                                                              |
+|:------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                                  | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/) |
+| Charting the European LLM Benchmarking Landscape: A New Taxonomy and Registry                                     | [2026.llms4ssh-1.22](https://aclanthology.org/2026.llms4ssh-1.22/) |
+| Serbian SuperGLUE: Towards an Evaluation Benchmark for South Slavic Language Models                               | [2026.loreslm-1.30](https://aclanthology.org/2026.loreslm-1.30/)   |
+| Development of Serbian QA Datasets through Prompt-Based Generation and Human Validation                           | [2026.lrec-1.267](https://aclanthology.org/2026.lrec-1.267/)       |
+| The Growing Gains and Pains of Iterative Web Corpora Crawling: Insights from South Slavic CLASSLA-web 2.0 Corpora | [2026.lrec-1.598](https://aclanthology.org/2026.lrec-1.598/)       |
+| TildeOpen LLM: Leveraging Curriculum Learning to Achieve Equitable Language Representation                        | [2026.lrec-1.834](https://aclanthology.org/2026.lrec-1.834/)       |
+| Regional Variation in the Performance of ASR Models on Croatian and Serbian                                       | [2026.vardial-1.20](https://aclanthology.org/2026.vardial-1.20/)   |
+| OpenLID-v3: Improving the Precision of Closely Related Language Identification – An Experience Report             | [2026.vardial-1.23](https://aclanthology.org/2026.vardial-1.23/)   |
 
 {% endraw %}

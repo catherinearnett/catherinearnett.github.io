@@ -240,17 +240,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Manipuri (Meitei). None of the 53 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                           | paper                                                              | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                                                    | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/) | body only      |
-| AdaptBPE: From General Purpose to Specialized Tokenizers                                                                        | [2026.eacl-long.119](https://aclanthology.org/2026.eacl-long.119/) | body only      |
-| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                           | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)   | body only      |
-| Preserving Civilisation Memory: A Digital Humanities Approach to the Ramayan                                                    | [2026.wildre-1.10](https://aclanthology.org/2026.wildre-1.10/)     | body only      |
-| ADI-IITP: Reward-Guided Preference Optimization for Low-Resource English-Assamese Machine Translation                           | [2026.wmt-main.146](https://aclanthology.org/2026.wmt-main.146/)   | body only      |
-| BVSLP: Enhancing Machine Translation through NMT Fine-Tuning, Back-Translation, and LLM-Assisted Synthetic Data Generation      | [2026.wmt-main.147](https://aclanthology.org/2026.wmt-main.147/)   | body only      |
-| EROL: Transformer-Based Multilingual Translation for Northeastern Indian Language Pairs                                         | [2026.wmt-main.148](https://aclanthology.org/2026.wmt-main.148/)   | body only      |
-| MTG-LIRA: Scaling Neural Machine Translation for Low-Resource Indian Languages through Multilingual Learning and Synthetic Data | [2026.wmt-main.153](https://aclanthology.org/2026.wmt-main.153/)   | body only      |
-| KrenTransV0.1: Multi-Model Routing and Reranking for Low-Resource Northeast Indian Translation                                  | [2026.wmt-main.158](https://aclanthology.org/2026.wmt-main.158/)   | body only      |
-| Decepticons-IIITH : Morphology-Aware Lexicon Filtering of Back-Translated Data for Low-Resource English-to-Indic Translation    | [2026.wmt-main.160](https://aclanthology.org/2026.wmt-main.160/)   | body only      |
+| title                                                                                                                           | paper                                                              |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                                                    | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/) |
+| AdaptBPE: From General Purpose to Specialized Tokenizers                                                                        | [2026.eacl-long.119](https://aclanthology.org/2026.eacl-long.119/) |
+| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                           | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)   |
+| Preserving Civilisation Memory: A Digital Humanities Approach to the Ramayan                                                    | [2026.wildre-1.10](https://aclanthology.org/2026.wildre-1.10/)     |
+| ADI-IITP: Reward-Guided Preference Optimization for Low-Resource English-Assamese Machine Translation                           | [2026.wmt-main.146](https://aclanthology.org/2026.wmt-main.146/)   |
+| BVSLP: Enhancing Machine Translation through NMT Fine-Tuning, Back-Translation, and LLM-Assisted Synthetic Data Generation      | [2026.wmt-main.147](https://aclanthology.org/2026.wmt-main.147/)   |
+| EROL: Transformer-Based Multilingual Translation for Northeastern Indian Language Pairs                                         | [2026.wmt-main.148](https://aclanthology.org/2026.wmt-main.148/)   |
+| MTG-LIRA: Scaling Neural Machine Translation for Low-Resource Indian Languages through Multilingual Learning and Synthetic Data | [2026.wmt-main.153](https://aclanthology.org/2026.wmt-main.153/)   |
+| KrenTransV0.1: Multi-Model Routing and Reranking for Low-Resource Northeast Indian Translation                                  | [2026.wmt-main.158](https://aclanthology.org/2026.wmt-main.158/)   |
+| Decepticons-IIITH : Morphology-Aware Lexicon Filtering of Back-Translated Data for Low-Resource English-to-Indic Translation    | [2026.wmt-main.160](https://aclanthology.org/2026.wmt-main.160/)   |
 
 {% endraw %}

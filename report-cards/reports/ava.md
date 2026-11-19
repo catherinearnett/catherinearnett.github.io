@@ -226,10 +226,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Avar. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                            | paper                                                            | mentioned in   |
-|:-------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------------|
-| Private-Use Area Characters in the Wild: Signal or Noise?                                        | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)         | body only      |
-| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)         | body only      |
-| AvarLab: An Integrated Digital Ecosystem for Avar, a Morphologically Rich Low-Resource Language  | [2026.computel-1.7](https://aclanthology.org/2026.computel-1.7/) | body only      |
+| title                                                                                            | paper                                                            |
+|:-------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
+| Private-Use Area Characters in the Wild: Signal or Noise?                                        | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)         |
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)         |
+| AvarLab: An Integrated Digital Ecosystem for Avar, a Morphologically Rich Low-Resource Language  | [2026.computel-1.7](https://aclanthology.org/2026.computel-1.7/) |
 
 {% endraw %}

@@ -222,15 +222,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Tuvan. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                    | paper                                                                      | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Private-Use Area Characters in the Wild: Signal or Noise?                                                                | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   | body only      |
-| Hybrid Neural-LLM Pipeline for Morphological Glossing in Endangered Language Documentation: A Case Study of Jungar Tuvan | [2026.fieldmatters-1.3](https://aclanthology.org/2026.fieldmatters-1.3/)   | body only      |
-| Many-Shot Scaling of In-Context Learning with Self-Generated Demonstrations                                              | [2026.findings-acl.2013](https://aclanthology.org/2026.findings-acl.2013/) | body only      |
-| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh      | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)           | body only      |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                               | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               | body only      |
-| From Lemmatization to Legal Terminology: Assessing an Hybrid Pipeline on Justinian’s Digest                              | [2026.lt4hala-1.43](https://aclanthology.org/2026.lt4hala-1.43/)           | body only      |
-| Algebraic Classification of Reduplicative Processes                                                                      | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)           | body only      |
-| Tokenisation of Turkic Copula Constructions in Universal Dependencies                                                    | [2026.sigturk-1.14](https://aclanthology.org/2026.sigturk-1.14/)           | body only      |
+| title                                                                                                                    | paper                                                                      |
+|:-------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                                | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   |
+| Hybrid Neural-LLM Pipeline for Morphological Glossing in Endangered Language Documentation: A Case Study of Jungar Tuvan | [2026.fieldmatters-1.3](https://aclanthology.org/2026.fieldmatters-1.3/)   |
+| Many-Shot Scaling of In-Context Learning with Self-Generated Demonstrations                                              | [2026.findings-acl.2013](https://aclanthology.org/2026.findings-acl.2013/) |
+| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh      | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)           |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                               | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               |
+| From Lemmatization to Legal Terminology: Assessing an Hybrid Pipeline on Justinian’s Digest                              | [2026.lt4hala-1.43](https://aclanthology.org/2026.lt4hala-1.43/)           |
+| Algebraic Classification of Reduplicative Processes                                                                      | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)           |
+| Tokenisation of Turkic Copula Constructions in Universal Dependencies                                                    | [2026.sigturk-1.14](https://aclanthology.org/2026.sigturk-1.14/)           |
 
 {% endraw %}

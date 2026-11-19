@@ -236,17 +236,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Somali. None of the 65 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
-| ConRAS: Contrastive In-context Learning Framework for Retrieval-Augmented Summarization                                                       | [2026.findings-eacl.255](https://aclanthology.org/2026.findings-eacl.255/)     | body only      |
-| SEC: Selective Embedding Correction for Cross-Lingual Transfer in Low-Resource Languages                                                      | [2026.findings-emnlp.1033](https://aclanthology.org/2026.findings-emnlp.1033/) | body only      |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
-| Before the First Token: Jailbreak Detection with Attention Probes                                                                             | [2026.findings-emnlp.2242](https://aclanthology.org/2026.findings-emnlp.2242/) | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| Comparing Approaches to Automatic Summarization in Less-Resourced Languages                                                                   | [2026.lrec-1.270](https://aclanthology.org/2026.lrec-1.270/)                   | body only      |
-| SALAN: A Massive ASR Dataset for the Languages of Niger                                                                                       | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)                   | body only      |
-| Beyond Majority Voting: Agreement-Based Clustering to Model Annotator Perspectives in Subjective NLP Tasks                                    | [2026.tacl-1.61](https://aclanthology.org/2026.tacl-1.61/)                     | body only      |
-| AmharicStoryQA: A Multicultural Story Question Answering Benchmark in Amharic                                                                 | [2026.winlp-main.3](https://aclanthology.org/2026.winlp-main.3/)               | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| ConRAS: Contrastive In-context Learning Framework for Retrieval-Augmented Summarization                                                       | [2026.findings-eacl.255](https://aclanthology.org/2026.findings-eacl.255/)     |
+| SEC: Selective Embedding Correction for Cross-Lingual Transfer in Low-Resource Languages                                                      | [2026.findings-emnlp.1033](https://aclanthology.org/2026.findings-emnlp.1033/) |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Before the First Token: Jailbreak Detection with Attention Probes                                                                             | [2026.findings-emnlp.2242](https://aclanthology.org/2026.findings-emnlp.2242/) |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| Comparing Approaches to Automatic Summarization in Less-Resourced Languages                                                                   | [2026.lrec-1.270](https://aclanthology.org/2026.lrec-1.270/)                   |
+| SALAN: A Massive ASR Dataset for the Languages of Niger                                                                                       | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)                   |
+| Beyond Majority Voting: Agreement-Based Clustering to Model Annotator Perspectives in Subjective NLP Tasks                                    | [2026.tacl-1.61](https://aclanthology.org/2026.tacl-1.61/)                     |
+| AmharicStoryQA: A Multicultural Story Question Answering Benchmark in Amharic                                                                 | [2026.winlp-main.3](https://aclanthology.org/2026.winlp-main.3/)               |
 
 {% endraw %}

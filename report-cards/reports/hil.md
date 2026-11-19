@@ -220,11 +220,11 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Hiligaynon. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                     | paper                                                                    | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)       | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             | body only      |
-| Pag-refuse: Safety Alignment Transfers Unevenly to Tagalog and Taglish                                    | [2026.mrl-1.41](https://aclanthology.org/2026.mrl-1.41/)                 | body only      |
-| Progressing beyond Art Masterpieces or Touristic Clichés: how to assess your LLMs for cultural alignment? | [2026.resourceful-4.13](https://aclanthology.org/2026.resourceful-4.13/) | body only      |
+| title                                                                                                     | paper                                                                    |
+|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)       |
+| Goldfish: Monolingual Language Models for 350 Languages                                                   | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             |
+| Pag-refuse: Safety Alignment Transfers Unevenly to Tagalog and Taglish                                    | [2026.mrl-1.41](https://aclanthology.org/2026.mrl-1.41/)                 |
+| Progressing beyond Art Masterpieces or Touristic Clichés: how to assess your LLMs for cultural alignment? | [2026.resourceful-4.13](https://aclanthology.org/2026.resourceful-4.13/) |
 
 {% endraw %}

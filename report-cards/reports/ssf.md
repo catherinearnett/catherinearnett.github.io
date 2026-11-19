@@ -162,14 +162,14 @@ Thao isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005â
 
 Here are up to ten papers published in 2026 that mention Thao. None of the 7 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                            | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------------|
-| Translation or Recitation? Calibrating Evaluation Scores for Machine Translation of Extremely Low-Resource Languages | [2026.acl-short.29](https://aclanthology.org/2026.acl-short.29/) | body only      |
-| Dialectometry and Evaluation of the ePark Corpus for Low-Resource Formosan Language Dialects                         | [2026.dialres-1.13](https://aclanthology.org/2026.dialres-1.13/) | body only      |
-| Large Language Models for Mental Health: A Multilingual Evaluation                                                   | [2026.loreslm-1.29](https://aclanthology.org/2026.loreslm-1.29/) | body only      |
-| FormosanMT: A Multilingual Parallel Corpus of the Formosan Language Family                                           | [2026.lrec-1.273](https://aclanthology.org/2026.lrec-1.273/)     | body only      |
-| DEJIMA: A Novel Large-scale Japanese Dataset for Image Captioning and Visual Question Answering                      | [2026.lrec-1.744](https://aclanthology.org/2026.lrec-1.744/)     | body only      |
-| Merge and Conquer: Instructing Multilingual Models by Adding Target Language Weights                                 | [2026.lrec-1.800](https://aclanthology.org/2026.lrec-1.800/)     | body only      |
-| Language Identification for Low-Resource Formosan Languages                                                          | [2026.sigul-1.24](https://aclanthology.org/2026.sigul-1.24/)     | body only      |
+| title                                                                                                                | paper                                                            |
+|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
+| Translation or Recitation? Calibrating Evaluation Scores for Machine Translation of Extremely Low-Resource Languages | [2026.acl-short.29](https://aclanthology.org/2026.acl-short.29/) |
+| Dialectometry and Evaluation of the ePark Corpus for Low-Resource Formosan Language Dialects                         | [2026.dialres-1.13](https://aclanthology.org/2026.dialres-1.13/) |
+| Large Language Models for Mental Health: A Multilingual Evaluation                                                   | [2026.loreslm-1.29](https://aclanthology.org/2026.loreslm-1.29/) |
+| FormosanMT: A Multilingual Parallel Corpus of the Formosan Language Family                                           | [2026.lrec-1.273](https://aclanthology.org/2026.lrec-1.273/)     |
+| DEJIMA: A Novel Large-scale Japanese Dataset for Image Captioning and Visual Question Answering                      | [2026.lrec-1.744](https://aclanthology.org/2026.lrec-1.744/)     |
+| Merge and Conquer: Instructing Multilingual Models by Adding Target Language Weights                                 | [2026.lrec-1.800](https://aclanthology.org/2026.lrec-1.800/)     |
+| Language Identification for Low-Resource Formosan Languages                                                          | [2026.sigul-1.24](https://aclanthology.org/2026.sigul-1.24/)     |
 
 {% endraw %}

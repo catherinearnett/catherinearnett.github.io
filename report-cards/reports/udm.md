@@ -223,12 +223,12 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Udmurt. None of the 5 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                        | paper                                                                        | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| The Two Towers for Estonian-Centric and Finno-Ugric Machine Translation                                                      | [2026.eamt-1.32](https://aclanthology.org/2026.eamt-1.32/)                   | body only      |
-| The order of subject, object and verb in Tatyshly Udmurt                                                                     | [2026.fieldmatters-1.7](https://aclanthology.org/2026.fieldmatters-1.7/)     | body only      |
-| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/) | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                 | body only      |
-| MultiWikiQA: A Reading Comprehension Benchmark in 300+ Languages                                                             | [2026.lrec-1.499](https://aclanthology.org/2026.lrec-1.499/)                 | body only      |
+| title                                                                                                                        | paper                                                                        |
+|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| The Two Towers for Estonian-Centric and Finno-Ugric Machine Translation                                                      | [2026.eamt-1.32](https://aclanthology.org/2026.eamt-1.32/)                   |
+| The order of subject, object and verb in Tatyshly Udmurt                                                                     | [2026.fieldmatters-1.7](https://aclanthology.org/2026.fieldmatters-1.7/)     |
+| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                 |
+| MultiWikiQA: A Reading Comprehension Benchmark in 300+ Languages                                                             | [2026.lrec-1.499](https://aclanthology.org/2026.lrec-1.499/)                 |
 
 {% endraw %}

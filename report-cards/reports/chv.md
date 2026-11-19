@@ -232,17 +232,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Chuvash. None of the 10 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                  | paper                                                                      | mentioned in   |
-|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
-| Speaking of Language: Reflections on Metalanguage Research in NLP                                                                      | [2026.bigpicture-main.9](https://aclanthology.org/2026.bigpicture-main.9/) | body only      |
-| Private-Use Area Characters in the Wild: Signal or Noise?                                                                              | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   | body only      |
-| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                                    | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)         | body only      |
-| TIPA: Typologically Informed Parameter Aggregation                                                                                     | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
-| No One-Size-Fits-All: Building Systems For Translation to Bashkir, Kazakh, Kyrgyz, Tatar and Chuvash Using Synthetic And Original Data | [2026.loresmt-1.17](https://aclanthology.org/2026.loresmt-1.17/)           | body only      |
-| Script Correction and Synthetic Pivoting: Adapting Tencent HY-MT for Low-Resource Turkic Translation                                   | [2026.loresmt-1.20](https://aclanthology.org/2026.loresmt-1.20/)           | body only      |
-| Machine Translation for Low Resource Turkic Languages: English-Tatar                                                                   | [2026.loresmt-1.21](https://aclanthology.org/2026.loresmt-1.21/)           | body only      |
-| LoResMT 2026 Shared Task System Description                                                                                            | [2026.loresmt-1.23](https://aclanthology.org/2026.loresmt-1.23/)           | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
-| SNAPP: Segment-Level Neural Alignment Post-Processing for Low-Resource Parallel Sentence Mining                                        | [2026.wmt-main.14](https://aclanthology.org/2026.wmt-main.14/)             | body only      |
+| title                                                                                                                                  | paper                                                                      |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Speaking of Language: Reflections on Metalanguage Research in NLP                                                                      | [2026.bigpicture-main.9](https://aclanthology.org/2026.bigpicture-main.9/) |
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                                              | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                   |
+| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                                    | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)         |
+| TIPA: Typologically Informed Parameter Aggregation                                                                                     | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| No One-Size-Fits-All: Building Systems For Translation to Bashkir, Kazakh, Kyrgyz, Tatar and Chuvash Using Synthetic And Original Data | [2026.loresmt-1.17](https://aclanthology.org/2026.loresmt-1.17/)           |
+| Script Correction and Synthetic Pivoting: Adapting Tencent HY-MT for Low-Resource Turkic Translation                                   | [2026.loresmt-1.20](https://aclanthology.org/2026.loresmt-1.20/)           |
+| Machine Translation for Low Resource Turkic Languages: English-Tatar                                                                   | [2026.loresmt-1.21](https://aclanthology.org/2026.loresmt-1.21/)           |
+| LoResMT 2026 Shared Task System Description                                                                                            | [2026.loresmt-1.23](https://aclanthology.org/2026.loresmt-1.23/)           |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| SNAPP: Segment-Level Neural Alignment Post-Processing for Low-Resource Parallel Sentence Mining                                        | [2026.wmt-main.14](https://aclanthology.org/2026.wmt-main.14/)             |
 
 {% endraw %}

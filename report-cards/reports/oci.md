@@ -232,17 +232,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 Here are up to ten papers published in 2026 that mention Aranese (Occitan). None of the 34 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                  | paper                                                              | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| AdaptBPE: From General Purpose to Specialized Tokenizers                                               | [2026.eacl-long.119](https://aclanthology.org/2026.eacl-long.119/) | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?             | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)     | body only      |
-| Can LLMs Translate Italy’s Language Varieties?                                                         | [2026.loresmt-1.5](https://aclanthology.org/2026.loresmt-1.5/)     | body only      |
-| Goldfish: Monolingual Language Models for 350 Languages                                                | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       | body only      |
-| CoMMA, a Large-scale Corpus of Multilingual Medieval Archives                                          | [2026.lrec-1.560](https://aclanthology.org/2026.lrec-1.560/)       | body only      |
-| Phrase-Level Segmentation on Medieval Corpora for Aligning Multilingual Texts                          | [2026.lrec-1.72](https://aclanthology.org/2026.lrec-1.72/)         | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                              | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)             | body only      |
-| Onomasiological Sense Alignment Across Dialect Dictionaries. A Taxonomy-Constrained LLM Classification | [2026.vardial-1.10](https://aclanthology.org/2026.vardial-1.10/)   | body only      |
-| FIÙR: A Benchmark Dataset for Eastern Lombard Machine Translation                                      | [2026.wmt-main.199](https://aclanthology.org/2026.wmt-main.199/)   | body only      |
-| BSC Submission for WMT26 General Machine Translation Shared Task                                       | [2026.wmt-main.72](https://aclanthology.org/2026.wmt-main.72/)     | body only      |
+| title                                                                                                  | paper                                                              |
+|:-------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| AdaptBPE: From General Purpose to Specialized Tokenizers                                               | [2026.eacl-long.119](https://aclanthology.org/2026.eacl-long.119/) |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?             | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)     |
+| Can LLMs Translate Italy’s Language Varieties?                                                         | [2026.loresmt-1.5](https://aclanthology.org/2026.loresmt-1.5/)     |
+| Goldfish: Monolingual Language Models for 350 Languages                                                | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       |
+| CoMMA, a Large-scale Corpus of Multilingual Medieval Archives                                          | [2026.lrec-1.560](https://aclanthology.org/2026.lrec-1.560/)       |
+| Phrase-Level Segmentation on Medieval Corpora for Aligning Multilingual Texts                          | [2026.lrec-1.72](https://aclanthology.org/2026.lrec-1.72/)         |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                              | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)             |
+| Onomasiological Sense Alignment Across Dialect Dictionaries. A Taxonomy-Constrained LLM Classification | [2026.vardial-1.10](https://aclanthology.org/2026.vardial-1.10/)   |
+| FIÙR: A Benchmark Dataset for Eastern Lombard Machine Translation                                      | [2026.wmt-main.199](https://aclanthology.org/2026.wmt-main.199/)   |
+| BSC Submission for WMT26 General Machine Translation Shared Task                                       | [2026.wmt-main.72](https://aclanthology.org/2026.wmt-main.72/)     |
 
 {% endraw %}

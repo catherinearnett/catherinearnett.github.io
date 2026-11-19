@@ -170,9 +170,9 @@ Tlingit isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (20
 
 Here are up to ten papers published in 2026 that mention Tlingit. None of the 2 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                              | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/) | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)       | body only      |
+| title                                                                                                                       | paper                                                              |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/) |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)       |
 
 {% endraw %}

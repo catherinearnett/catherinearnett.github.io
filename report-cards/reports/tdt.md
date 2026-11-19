@@ -206,8 +206,8 @@ Tetun isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 Here are up to ten papers published in 2026 that mention Tetun. None of the 1 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                        | paper                                                    | mentioned in   |
-|:---------------------------------------------|:---------------------------------------------------------|:---------------|
-| Complex Predicates in Universal Dependencies | [2026.udw-1.19](https://aclanthology.org/2026.udw-1.19/) | body only      |
+| title                                        | paper                                                    |
+|:---------------------------------------------|:---------------------------------------------------------|
+| Complex Predicates in Universal Dependencies | [2026.udw-1.19](https://aclanthology.org/2026.udw-1.19/) |
 
 {% endraw %}

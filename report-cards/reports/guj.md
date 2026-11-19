@@ -252,17 +252,17 @@ Gujarati has been part of the WMT translation task in **1** year (2019).
 
 Here are up to ten papers published in 2026 that mention Gujarati. None of the 100 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                   | paper                                                                          | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| A Multilingual Evaluation of LLM-Based High-School Mathematics Assistance Across Indian Languages                       | [2026.aacl-short.14](https://aclanthology.org/2026.aacl-short.14/)             | body only      |
-| IndicDISCO-MT: A Discourse-Centric Benchmark for Evaluating Discourse Phenomena in Indian Language Machine Translation  | [2026.eamt-1.15](https://aclanthology.org/2026.eamt-1.15/)                     | body only      |
-| Response-Aware User Memory Selection for LLM Personalization                                                            | [2026.emnlp-main.185](https://aclanthology.org/2026.emnlp-main.185/)           | body only      |
-| Lost in Localization: Benchmarking Intralingual Cultural Adaptation in Large Language Models                            | [2026.findings-emnlp.1658](https://aclanthology.org/2026.findings-emnlp.1658/) | body only      |
-| The Geometry of LLM-as-Judge: Why Inter-LLM Consensus Is Not Human Alignment                                            | [2026.findings-emnlp.1696](https://aclanthology.org/2026.findings-emnlp.1696/) | body only      |
-| Contextualizing Toxicity: An Annotation Framework for Unveiling Pragmatics in Conversations of Online Discussion Forums | [2026.lrec-1.314](https://aclanthology.org/2026.lrec-1.314/)                   | body only      |
-| The Riddle of Reflection: Evaluating Reasoning and Self-Awareness in Multilingual LLMs Using Indian Riddles             | [2026.lrec-1.430](https://aclanthology.org/2026.lrec-1.430/)                   | body only      |
-| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                   | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               | body only      |
-| Indic-TunedLens: Interpreting Multilingual Models in Indian Languages                                                   | [2026.vardial-1.14](https://aclanthology.org/2026.vardial-1.14/)               | body only      |
-| Konkani Wordnet Resources                                                                                               | [2026.wildre-1.6](https://aclanthology.org/2026.wildre-1.6/)                   | body only      |
+| title                                                                                                                   | paper                                                                          |
+|:------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| A Multilingual Evaluation of LLM-Based High-School Mathematics Assistance Across Indian Languages                       | [2026.aacl-short.14](https://aclanthology.org/2026.aacl-short.14/)             |
+| IndicDISCO-MT: A Discourse-Centric Benchmark for Evaluating Discourse Phenomena in Indian Language Machine Translation  | [2026.eamt-1.15](https://aclanthology.org/2026.eamt-1.15/)                     |
+| Response-Aware User Memory Selection for LLM Personalization                                                            | [2026.emnlp-main.185](https://aclanthology.org/2026.emnlp-main.185/)           |
+| Lost in Localization: Benchmarking Intralingual Cultural Adaptation in Large Language Models                            | [2026.findings-emnlp.1658](https://aclanthology.org/2026.findings-emnlp.1658/) |
+| The Geometry of LLM-as-Judge: Why Inter-LLM Consensus Is Not Human Alignment                                            | [2026.findings-emnlp.1696](https://aclanthology.org/2026.findings-emnlp.1696/) |
+| Contextualizing Toxicity: An Annotation Framework for Unveiling Pragmatics in Conversations of Online Discussion Forums | [2026.lrec-1.314](https://aclanthology.org/2026.lrec-1.314/)                   |
+| The Riddle of Reflection: Evaluating Reasoning and Self-Awareness in Multilingual LLMs Using Indian Riddles             | [2026.lrec-1.430](https://aclanthology.org/2026.lrec-1.430/)                   |
+| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                   | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               |
+| Indic-TunedLens: Interpreting Multilingual Models in Indian Languages                                                   | [2026.vardial-1.14](https://aclanthology.org/2026.vardial-1.14/)               |
+| Konkani Wordnet Resources                                                                                               | [2026.wildre-1.6](https://aclanthology.org/2026.wildre-1.6/)                   |
 
 {% endraw %}

@@ -233,17 +233,17 @@ _⚠️ Listed under the macrolanguage code `orm`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Oromo. None of the 39 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                        | paper                                                                        | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Sample-Size Scaling of the African Languages NLI Evaluation                                                  | [2026.africanlp-main.22](https://aclanthology.org/2026.africanlp-main.22/)   | body only      |
-| Large-scale Multilingual News Image Captioning with LLMs                                                     | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)       | body only      |
-| AfrIFact: Cultural Information Retrieval, Evidence Extraction And Fact Checking for African Languages        | [2026.emnlp-main.133](https://aclanthology.org/2026.emnlp-main.133/)         | body only      |
-| Active Learning with Non-Uniform Costs for African Natural Language Processing                               | [2026.findings-eacl.349](https://aclanthology.org/2026.findings-eacl.349/)   | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) | body only      |
-| Yeswa-Stories: A Three-Way Parallel Dataset of Female African Figures in Low-Web Data Languages              | [2026.gitt-1.7](https://aclanthology.org/2026.gitt-1.7/)                     | body only      |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                   | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)               | body only      |
-| Mining Naturally Romanized Seed Corpora without Romanizations                                                | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)                 | body only      |
-| Enhancing Multi-Label Emotion Analysis and Corresponding Intensities for Ethiopian Languages                 | [2026.lrec-1.639](https://aclanthology.org/2026.lrec-1.639/)                 | body only      |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                             | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                 | body only      |
+| title                                                                                                        | paper                                                                        |
+|:-------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Sample-Size Scaling of the African Languages NLI Evaluation                                                  | [2026.africanlp-main.22](https://aclanthology.org/2026.africanlp-main.22/)   |
+| Large-scale Multilingual News Image Captioning with LLMs                                                     | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)       |
+| AfrIFact: Cultural Information Retrieval, Evidence Extraction And Fact Checking for African Languages        | [2026.emnlp-main.133](https://aclanthology.org/2026.emnlp-main.133/)         |
+| Active Learning with Non-Uniform Costs for African Natural Language Processing                               | [2026.findings-eacl.349](https://aclanthology.org/2026.findings-eacl.349/)   |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) |
+| Yeswa-Stories: A Three-Way Parallel Dataset of Female African Figures in Low-Web Data Languages              | [2026.gitt-1.7](https://aclanthology.org/2026.gitt-1.7/)                     |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                   | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)               |
+| Mining Naturally Romanized Seed Corpora without Romanizations                                                | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)                 |
+| Enhancing Multi-Label Emotion Analysis and Corresponding Intensities for Ethiopian Languages                 | [2026.lrec-1.639](https://aclanthology.org/2026.lrec-1.639/)                 |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                             | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                 |
 
 {% endraw %}

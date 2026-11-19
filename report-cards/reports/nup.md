@@ -186,11 +186,11 @@ Nupe isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005â
 
 Here are up to ten papers published in 2026 that mention Nupe. None of the 4 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                             | paper                                                              | mentioned in   |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
-| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context                                                       | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/) | body only      |
-| Anchoring the Judge: Curriculum-Based Adaptation and Reference-Anchored MQM for LLM-Based Machine Translation of an Unseen Low-Resource Language - A Case of Nupe | [2026.loreslm-1.19](https://aclanthology.org/2026.loreslm-1.19/)   | body only      |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                                                      | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)   | body only      |
-| Algebraic Classification of Reduplicative Processes                                                                                                               | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)   | body only      |
+| title                                                                                                                                                             | paper                                                              |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context                                                       | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/) |
+| Anchoring the Judge: Curriculum-Based Adaptation and Reference-Anchored MQM for LLM-Based Machine Translation of an Unseen Low-Resource Language - A Case of Nupe | [2026.loreslm-1.19](https://aclanthology.org/2026.loreslm-1.19/)   |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                                                      | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)   |
+| Algebraic Classification of Reduplicative Processes                                                                                                               | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)   |
 
 {% endraw %}

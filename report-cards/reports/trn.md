@@ -157,9 +157,9 @@ Mojeño-Trinitario isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translati
 
 Here are up to ten papers published in 2026 that mention Mojeño-Trinitario. None of the 2 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                        | paper                                                                        | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Entropic properties of languages in phonetic versus orthographic alphabets                                   | [2026.emnlp-main.92](https://aclanthology.org/2026.emnlp-main.92/)           | body only      |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) | body only      |
+| title                                                                                                        | paper                                                                        |
+|:-------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Entropic properties of languages in phonetic versus orthographic alphabets                                   | [2026.emnlp-main.92](https://aclanthology.org/2026.emnlp-main.92/)           |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) |
 
 {% endraw %}

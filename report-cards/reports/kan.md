@@ -254,17 +254,17 @@ Kannada has been part of the WMT translation task in **1** year (2025).
 
 Here are up to ten papers published in 2026 that mention Kannada. None of the 116 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Common to Whom? Regional Cultural Commonsense and LLM Bias in India                                                                           | [2026.acl-long.249](https://aclanthology.org/2026.acl-long.249/)               | body only      |
-| Multilingual Idioms in Sentences and Conversations Across High-, Medium-, and Low-Resource Languages                                          | [2026.acl-long.564](https://aclanthology.org/2026.acl-long.564/)               | body only      |
-| ALEE: Any-Language Evaluation of Embeddings via English-Centric Minimal Pairs                                                                 | [2026.emnlp-main.63](https://aclanthology.org/2026.emnlp-main.63/)             | body only      |
-| Entity-aware Cross-lingual Claim Detection for Automated Fact-checking                                                                        | [2026.findings-eacl.2](https://aclanthology.org/2026.findings-eacl.2/)         | body only      |
-| The Geometry of LLM-as-Judge: Why Inter-LLM Consensus Is Not Human Alignment                                                                  | [2026.findings-emnlp.1696](https://aclanthology.org/2026.findings-emnlp.1696/) | body only      |
-| IndiAnn: A Web-based Annotation Platform for Indic Languages                                                                                  | [2026.law-main.10](https://aclanthology.org/2026.law-main.10/)                 | body only      |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
-| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                                          | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)                   | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   | body only      |
-| IndicSteer: Inference-Time Safety Steering for Indic LLMs                                                                                     | [2026.stereacult-1.12](https://aclanthology.org/2026.stereacult-1.12/)         | body only      |
+| title                                                                                                                                         | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Common to Whom? Regional Cultural Commonsense and LLM Bias in India                                                                           | [2026.acl-long.249](https://aclanthology.org/2026.acl-long.249/)               |
+| Multilingual Idioms in Sentences and Conversations Across High-, Medium-, and Low-Resource Languages                                          | [2026.acl-long.564](https://aclanthology.org/2026.acl-long.564/)               |
+| ALEE: Any-Language Evaluation of Embeddings via English-Centric Minimal Pairs                                                                 | [2026.emnlp-main.63](https://aclanthology.org/2026.emnlp-main.63/)             |
+| Entity-aware Cross-lingual Claim Detection for Automated Fact-checking                                                                        | [2026.findings-eacl.2](https://aclanthology.org/2026.findings-eacl.2/)         |
+| The Geometry of LLM-as-Judge: Why Inter-LLM Consensus Is Not Human Alignment                                                                  | [2026.findings-emnlp.1696](https://aclanthology.org/2026.findings-emnlp.1696/) |
+| IndiAnn: A Web-based Annotation Platform for Indic Languages                                                                                  | [2026.law-main.10](https://aclanthology.org/2026.law-main.10/)                 |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
+| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                                          | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)                   |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
+| IndicSteer: Inference-Time Safety Steering for Indic LLMs                                                                                     | [2026.stereacult-1.12](https://aclanthology.org/2026.stereacult-1.12/)         |
 
 {% endraw %}

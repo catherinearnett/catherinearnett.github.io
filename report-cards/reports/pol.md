@@ -257,17 +257,17 @@ Polish has been part of the WMT translation task in **1** year (2020).
 
 Here are up to ten papers published in 2026 that mention Polish. None of the 438 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                              | paper                                                                          | mentioned in   |
-|:---------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| SOAPTriage: SOAP-Guided Multi-View Clinical Text Modeling Framework for Automated ESI Prediction   | [2026.acl-long.1608](https://aclanthology.org/2026.acl-long.1608/)             | body only      |
-| BNLI: A Linguistically-Refined Bengali Dataset for Natural Language Inference                      | [2026.chipsal-1.9](https://aclanthology.org/2026.chipsal-1.9/)                 | body only      |
-| Reasoning-Aware AIGC Detection via Alignment and Reinforcement                                     | [2026.findings-acl.1043](https://aclanthology.org/2026.findings-acl.1043/)     | body only      |
-| AI translation of literary texts is ’fine’, but readers still prefer human translations            | [2026.findings-emnlp.2138](https://aclanthology.org/2026.findings-emnlp.2138/) | body only      |
-| Charting the European LLM Benchmarking Landscape: A New Taxonomy and Registry                      | [2026.llms4ssh-1.22](https://aclanthology.org/2026.llms4ssh-1.22/)             | body only      |
-| FalAR: A Large-scale Speaker-Annotated European Portuguese Speech Corpus of Parliamentary Sessions | [2026.lrec-1.435](https://aclanthology.org/2026.lrec-1.435/)                   | body only      |
-| Evaluating the Impact of Source Diversity for RAG in Historical Research                           | [2026.lrec-1.53](https://aclanthology.org/2026.lrec-1.53/)                     | body only      |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings     | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   | body only      |
-| Tracing Morph Origins in Czech: A Computational Approach to Morph-Level Etymology                  | [2026.lt4hala-1.2](https://aclanthology.org/2026.lt4hala-1.2/)                 | body only      |
-| The Polish PressMint Corpus                                                                        | [2026.pressmint-1.2](https://aclanthology.org/2026.pressmint-1.2/)             | body only      |
+| title                                                                                              | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| SOAPTriage: SOAP-Guided Multi-View Clinical Text Modeling Framework for Automated ESI Prediction   | [2026.acl-long.1608](https://aclanthology.org/2026.acl-long.1608/)             |
+| BNLI: A Linguistically-Refined Bengali Dataset for Natural Language Inference                      | [2026.chipsal-1.9](https://aclanthology.org/2026.chipsal-1.9/)                 |
+| Reasoning-Aware AIGC Detection via Alignment and Reinforcement                                     | [2026.findings-acl.1043](https://aclanthology.org/2026.findings-acl.1043/)     |
+| AI translation of literary texts is ’fine’, but readers still prefer human translations            | [2026.findings-emnlp.2138](https://aclanthology.org/2026.findings-emnlp.2138/) |
+| Charting the European LLM Benchmarking Landscape: A New Taxonomy and Registry                      | [2026.llms4ssh-1.22](https://aclanthology.org/2026.llms4ssh-1.22/)             |
+| FalAR: A Large-scale Speaker-Annotated European Portuguese Speech Corpus of Parliamentary Sessions | [2026.lrec-1.435](https://aclanthology.org/2026.lrec-1.435/)                   |
+| Evaluating the Impact of Source Diversity for RAG in Historical Research                           | [2026.lrec-1.53](https://aclanthology.org/2026.lrec-1.53/)                     |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings     | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
+| Tracing Morph Origins in Czech: A Computational Approach to Morph-Level Etymology                  | [2026.lt4hala-1.2](https://aclanthology.org/2026.lt4hala-1.2/)                 |
+| The Polish PressMint Corpus                                                                        | [2026.pressmint-1.2](https://aclanthology.org/2026.pressmint-1.2/)             |
 
 {% endraw %}

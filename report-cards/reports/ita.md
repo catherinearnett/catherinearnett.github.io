@@ -274,17 +274,17 @@ Italian has been part of the WMT translation task in **2** years (2009, 2025).
 
 Here are up to ten papers published in 2026 that mention Italian. None of the 1,010 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                    | paper                                                                          | mentioned in   |
-|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Edit Policy-Aligned Text Simplification                                                                                                  | [2026.aacl-long.150](https://aclanthology.org/2026.aacl-long.150/)             | body only      |
-| CAP: A Source-Grounded Proposition Scaffold for Faithful Clinical Dialogue-to-Note Generation                                            | [2026.bionlp-1.46](https://aclanthology.org/2026.bionlp-1.46/)                 | body only      |
-| Pearmut: Human Evaluation of Translation Made Trivial                                                                                    | [2026.emnlp-demos.7](https://aclanthology.org/2026.emnlp-demos.7/)             | body only      |
-| AVAHI at MultiPRIDE: Multilingual Reclaimed Language Detection via Knowledge Graphs and Retrieval-Augmented Generation                   | [2026.evalita-1.20](https://aclanthology.org/2026.evalita-1.20/)               | body only      |
-| NamDang at MultiPride@EVALITA 2026: Multilingual Classification of Reclaimed Language in LGBTQ+ Discourse using Transformer-based Models | [2026.evalita-1.31](https://aclanthology.org/2026.evalita-1.31/)               | body only      |
-| Performance of Grapheme-Based Tokenizers on Word-level and Natural Language Understanding tasks for Indic Languages                      | [2026.findings-emnlp.1093](https://aclanthology.org/2026.findings-emnlp.1093/) | body only      |
-| Separating Syntax from Language: A Mechanistic Account of Translation in Multilingual LLMs                                               | [2026.findings-emnlp.2115](https://aclanthology.org/2026.findings-emnlp.2115/) | body only      |
-| When Consistency Becomes Bias: Interviewer Effects in Semi-Structured Clinical Interviews                                                | [2026.lrec-1.185](https://aclanthology.org/2026.lrec-1.185/)                   | body only      |
-| Matching Meaning at Scale: Evaluating Semantic Search for 18th-Century Intellectual History through the Case of Locke                    | [2026.nlp4dh-1.20](https://aclanthology.org/2026.nlp4dh-1.20/)                 | body only      |
-| The Sycophancy Matrix: Measuring and Steering Ethos-Driven Sycophancy Across Languages and Cultures                                      | [2026.oracle-main.2](https://aclanthology.org/2026.oracle-main.2/)             | body only      |
+| title                                                                                                                                    | paper                                                                          |
+|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Edit Policy-Aligned Text Simplification                                                                                                  | [2026.aacl-long.150](https://aclanthology.org/2026.aacl-long.150/)             |
+| CAP: A Source-Grounded Proposition Scaffold for Faithful Clinical Dialogue-to-Note Generation                                            | [2026.bionlp-1.46](https://aclanthology.org/2026.bionlp-1.46/)                 |
+| Pearmut: Human Evaluation of Translation Made Trivial                                                                                    | [2026.emnlp-demos.7](https://aclanthology.org/2026.emnlp-demos.7/)             |
+| AVAHI at MultiPRIDE: Multilingual Reclaimed Language Detection via Knowledge Graphs and Retrieval-Augmented Generation                   | [2026.evalita-1.20](https://aclanthology.org/2026.evalita-1.20/)               |
+| NamDang at MultiPride@EVALITA 2026: Multilingual Classification of Reclaimed Language in LGBTQ+ Discourse using Transformer-based Models | [2026.evalita-1.31](https://aclanthology.org/2026.evalita-1.31/)               |
+| Performance of Grapheme-Based Tokenizers on Word-level and Natural Language Understanding tasks for Indic Languages                      | [2026.findings-emnlp.1093](https://aclanthology.org/2026.findings-emnlp.1093/) |
+| Separating Syntax from Language: A Mechanistic Account of Translation in Multilingual LLMs                                               | [2026.findings-emnlp.2115](https://aclanthology.org/2026.findings-emnlp.2115/) |
+| When Consistency Becomes Bias: Interviewer Effects in Semi-Structured Clinical Interviews                                                | [2026.lrec-1.185](https://aclanthology.org/2026.lrec-1.185/)                   |
+| Matching Meaning at Scale: Evaluating Semantic Search for 18th-Century Intellectual History through the Case of Locke                    | [2026.nlp4dh-1.20](https://aclanthology.org/2026.nlp4dh-1.20/)                 |
+| The Sycophancy Matrix: Measuring and Steering Ethos-Driven Sycophancy Across Languages and Cultures                                      | [2026.oracle-main.2](https://aclanthology.org/2026.oracle-main.2/)             |
 
 {% endraw %}

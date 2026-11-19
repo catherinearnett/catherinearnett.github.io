@@ -257,17 +257,17 @@ Korean has been part of the WMT translation task in **2** years (2025, 2026).
 
 Here are up to ten papers published in 2026 that mention Korean. None of the 855 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                    | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
-| Index-Time Prefix Injection for Multi-Tenant Retrieval: Improving Search Relevance Without Model Fine-Tuning          | [2026.acl-industry.149](https://aclanthology.org/2026.acl-industry.149/) | body only      |
-| Sequence Labeling for Constituent Parsing: A Comparative Study and Encoding Innovations                               | [2026.cl-2.3](https://aclanthology.org/2026.cl-2.3/)                     | body only      |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)   | body only      |
-| Visual Framing for News Stance Detection via Image Generation                                                         | [2026.emnlp-main.2524](https://aclanthology.org/2026.emnlp-main.2524/)   | body only      |
-| Talent or Luck? Evaluating Attribution Bias in Large Language Models                                                  | [2026.findings-acl.534](https://aclanthology.org/2026.findings-acl.534/) | body only      |
-| Tracing Mathematical Proficiency Through Problem-Solving Processes                                                    | [2026.findings-acl.961](https://aclanthology.org/2026.findings-acl.961/) | body only      |
-| StarDrinks: An English and Korean Test Set for SLU Evaluation in a Drink Ordering Scenario                            | [2026.lrec-1.453](https://aclanthology.org/2026.lrec-1.453/)             | body only      |
-| Can NLP Tackle Hate Speech in the Real World? Stakeholder-Informed Feedback and Survey on Counterspeech               | [2026.lrec-1.655](https://aclanthology.org/2026.lrec-1.655/)             | body only      |
-| Correction Is Not Response: Reframing the Unverifiable Majority of Health Infodemic Discourse as Communicative Acts   | [2026.nlp4pi-1.13](https://aclanthology.org/2026.nlp4pi-1.13/)           | body only      |
-| Multi-Test Nation Bias Benchmarking of LLMs with Explicit Unbiased Baselines                                          | [2026.tacl-1.109](https://aclanthology.org/2026.tacl-1.109/)             | body only      |
+| title                                                                                                                 | paper                                                                    |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Index-Time Prefix Injection for Multi-Tenant Retrieval: Improving Search Relevance Without Model Fine-Tuning          | [2026.acl-industry.149](https://aclanthology.org/2026.acl-industry.149/) |
+| Sequence Labeling for Constituent Parsing: A Comparative Study and Encoding Innovations                               | [2026.cl-2.3](https://aclanthology.org/2026.cl-2.3/)                     |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)   |
+| Visual Framing for News Stance Detection via Image Generation                                                         | [2026.emnlp-main.2524](https://aclanthology.org/2026.emnlp-main.2524/)   |
+| Talent or Luck? Evaluating Attribution Bias in Large Language Models                                                  | [2026.findings-acl.534](https://aclanthology.org/2026.findings-acl.534/) |
+| Tracing Mathematical Proficiency Through Problem-Solving Processes                                                    | [2026.findings-acl.961](https://aclanthology.org/2026.findings-acl.961/) |
+| StarDrinks: An English and Korean Test Set for SLU Evaluation in a Drink Ordering Scenario                            | [2026.lrec-1.453](https://aclanthology.org/2026.lrec-1.453/)             |
+| Can NLP Tackle Hate Speech in the Real World? Stakeholder-Informed Feedback and Survey on Counterspeech               | [2026.lrec-1.655](https://aclanthology.org/2026.lrec-1.655/)             |
+| Correction Is Not Response: Reframing the Unverifiable Majority of Health Infodemic Discourse as Communicative Acts   | [2026.nlp4pi-1.13](https://aclanthology.org/2026.nlp4pi-1.13/)           |
+| Multi-Test Nation Bias Benchmarking of LLMs with Explicit Unbiased Baselines                                          | [2026.tacl-1.109](https://aclanthology.org/2026.tacl-1.109/)             |
 
 {% endraw %}

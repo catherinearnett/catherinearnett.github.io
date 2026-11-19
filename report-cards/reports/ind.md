@@ -267,17 +267,17 @@ Indonesian has been part of the WMT translation task in **2** years (2025, 2026)
 
 Here are up to ten papers published in 2026 that mention Indonesian. None of the 314 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                     | paper                                                                          | mentioned in   |
-|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| Re:CAP - Auditing Retrieval Coverage in Production RAG Pipelines                                          | [2026.emnlp-industry.150](https://aclanthology.org/2026.emnlp-industry.150/)   | body only      |
-| ParsHate: A Benchmark Dataset for Hate and Target Detection in Persian                                    | [2026.emnlp-main.1406](https://aclanthology.org/2026.emnlp-main.1406/)         | body only      |
-| Training free Cross-Modal Alignment for Multilingual Image Retrieval                                      | [2026.findings-aacl.203](https://aclanthology.org/2026.findings-aacl.203/)     | body only      |
-| What Do Neural Speech Models Know About Phonology? Evidence from Structured Phoneme Confusions            | [2026.findings-acl.1288](https://aclanthology.org/2026.findings-acl.1288/)     | body only      |
-| Testing Low-Resource Language Support in LLMs Using Language Proficiency Exams: the Case of Luxembourgish | [2026.findings-eacl.128](https://aclanthology.org/2026.findings-eacl.128/)     | body only      |
-| CultureVLM: Characterizing and Improving Cultural Understanding of Vision-Language Models                 | [2026.findings-emnlp.1603](https://aclanthology.org/2026.findings-emnlp.1603/) | body only      |
-| OpenSeal: Good, Fast, and Cheap Construction of an Open-Source Southeast Asian LLM via Parallel Data      | [2026.findings-emnlp.2205](https://aclanthology.org/2026.findings-emnlp.2205/) | body only      |
-| Evaluating the Interplay of Information Status and Information Content in a Multilingual Parallel Corpus  | [2026.sigtyp-main.3](https://aclanthology.org/2026.sigtyp-main.3/)             | body only      |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                 | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                         | body only      |
-| The Curse of Multilinguality in Lexical Normalization                                                     | [2026.wnut-1.22](https://aclanthology.org/2026.wnut-1.22/)                     | body only      |
+| title                                                                                                     | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Re:CAP - Auditing Retrieval Coverage in Production RAG Pipelines                                          | [2026.emnlp-industry.150](https://aclanthology.org/2026.emnlp-industry.150/)   |
+| ParsHate: A Benchmark Dataset for Hate and Target Detection in Persian                                    | [2026.emnlp-main.1406](https://aclanthology.org/2026.emnlp-main.1406/)         |
+| Training free Cross-Modal Alignment for Multilingual Image Retrieval                                      | [2026.findings-aacl.203](https://aclanthology.org/2026.findings-aacl.203/)     |
+| What Do Neural Speech Models Know About Phonology? Evidence from Structured Phoneme Confusions            | [2026.findings-acl.1288](https://aclanthology.org/2026.findings-acl.1288/)     |
+| Testing Low-Resource Language Support in LLMs Using Language Proficiency Exams: the Case of Luxembourgish | [2026.findings-eacl.128](https://aclanthology.org/2026.findings-eacl.128/)     |
+| CultureVLM: Characterizing and Improving Cultural Understanding of Vision-Language Models                 | [2026.findings-emnlp.1603](https://aclanthology.org/2026.findings-emnlp.1603/) |
+| OpenSeal: Good, Fast, and Cheap Construction of an Open-Source Southeast Asian LLM via Parallel Data      | [2026.findings-emnlp.2205](https://aclanthology.org/2026.findings-emnlp.2205/) |
+| Evaluating the Interplay of Information Status and Information Content in a Multilingual Parallel Corpus  | [2026.sigtyp-main.3](https://aclanthology.org/2026.sigtyp-main.3/)             |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                 | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                         |
+| The Curse of Multilinguality in Lexical Normalization                                                     | [2026.wnut-1.22](https://aclanthology.org/2026.wnut-1.22/)                     |
 
 {% endraw %}

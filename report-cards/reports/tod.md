@@ -191,9 +191,9 @@ Toma isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005â
 
 Here are up to ten papers published in 2026 that mention Toma. None of the 2 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                       | paper                                                                        | mentioned in   |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
-| Re:CAP - Auditing Retrieval Coverage in Production RAG Pipelines                                                                            | [2026.emnlp-industry.150](https://aclanthology.org/2026.emnlp-industry.150/) | body only      |
-| Conversion of the Clark Hall Dictionary of Old English to TEI with RDF: An End-to-end Pipeline for Lexicographic Resource Retrodigitization | [2026.lrec-1.561](https://aclanthology.org/2026.lrec-1.561/)                 | body only      |
+| title                                                                                                                                       | paper                                                                        |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Re:CAP - Auditing Retrieval Coverage in Production RAG Pipelines                                                                            | [2026.emnlp-industry.150](https://aclanthology.org/2026.emnlp-industry.150/) |
+| Conversion of the Clark Hall Dictionary of Old English to TEI with RDF: An End-to-end Pipeline for Lexicographic Resource Retrodigitization | [2026.lrec-1.561](https://aclanthology.org/2026.lrec-1.561/)                 |
 
 {% endraw %}

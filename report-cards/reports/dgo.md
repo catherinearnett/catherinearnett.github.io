@@ -220,16 +220,16 @@ _⚠️ Listed under the macrolanguage code `doi`, so this may cover other varie
 
 Here are up to ten papers published in 2026 that mention Dogri. None of the 9 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                    | paper                                                                          | mentioned in   |
-|:-------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
-| MUTANT: A Recipe for Multilingual Tokenizer Design                                                                       | [2026.acl-long.2146](https://aclanthology.org/2026.acl-long.2146/)             | body only      |
-| Revisiting Evaluation of Question Answering Systems in Low-Resource Indic Languages: Bridging Human and Metric Alignment | [2026.acl-short.58](https://aclanthology.org/2026.acl-short.58/)               | body only      |
-| Speaking of Language: Reflections on Metalanguage Research in NLP                                                        | [2026.bigpicture-main.9](https://aclanthology.org/2026.bigpicture-main.9/)     | body only      |
-| INCLUDE-2.0: Disentangling Knowledge Gaps in Multilingual LLM Evaluation                                                 | [2026.emnlp-main.1344](https://aclanthology.org/2026.emnlp-main.1344/)         | body only      |
-| IndicParam: Benchmark to evaluate LLMs on low-resource Indic Languages                                                   | [2026.emnlp-main.250](https://aclanthology.org/2026.emnlp-main.250/)           | body only      |
-| Evaluating Cross-lingual Knowledge Consistency in Code-Mixed vis-a-vis Indian Languages using IndicKLAR                  | [2026.findings-emnlp.1655](https://aclanthology.org/2026.findings-emnlp.1655/) | body only      |
-| Task-Lens: Cross-Task Utility Based Speech Dataset Profiling for Low-Resource Indian Languages                           | [2026.lrec-1.467](https://aclanthology.org/2026.lrec-1.467/)                   | body only      |
-| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                    | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               | body only      |
-| The Shabd Portal – Searchable Lexical Resources for Indian Languages by Government of India                              | [2026.wildre-1.8](https://aclanthology.org/2026.wildre-1.8/)                   | body only      |
+| title                                                                                                                    | paper                                                                          |
+|:-------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| MUTANT: A Recipe for Multilingual Tokenizer Design                                                                       | [2026.acl-long.2146](https://aclanthology.org/2026.acl-long.2146/)             |
+| Revisiting Evaluation of Question Answering Systems in Low-Resource Indic Languages: Bridging Human and Metric Alignment | [2026.acl-short.58](https://aclanthology.org/2026.acl-short.58/)               |
+| Speaking of Language: Reflections on Metalanguage Research in NLP                                                        | [2026.bigpicture-main.9](https://aclanthology.org/2026.bigpicture-main.9/)     |
+| INCLUDE-2.0: Disentangling Knowledge Gaps in Multilingual LLM Evaluation                                                 | [2026.emnlp-main.1344](https://aclanthology.org/2026.emnlp-main.1344/)         |
+| IndicParam: Benchmark to evaluate LLMs on low-resource Indic Languages                                                   | [2026.emnlp-main.250](https://aclanthology.org/2026.emnlp-main.250/)           |
+| Evaluating Cross-lingual Knowledge Consistency in Code-Mixed vis-a-vis Indian Languages using IndicKLAR                  | [2026.findings-emnlp.1655](https://aclanthology.org/2026.findings-emnlp.1655/) |
+| Task-Lens: Cross-Task Utility Based Speech Dataset Profiling for Low-Resource Indian Languages                           | [2026.lrec-1.467](https://aclanthology.org/2026.lrec-1.467/)                   |
+| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                    | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)               |
+| The Shabd Portal – Searchable Lexical Resources for Indian Languages by Government of India                              | [2026.wildre-1.8](https://aclanthology.org/2026.wildre-1.8/)                   |
 
 {% endraw %}
