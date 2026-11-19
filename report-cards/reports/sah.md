@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                             |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 18,285 articles in sah.wikipedia; 43 active users. This is ~1/413 of English data and ranks 86 of the 168 languages in the set with any data in Wikipedia; 164 have none.          |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                           |
-| FineWeb                | 0.16 GB (sah_Cyrl 0.16 GB); 0.50 GB removed by filtering. This is ~1/328,777 of English data and ranks 100 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.48 GB (sah_Cyrl 0.48 GB) (rank 91 of the 166 languages in the set that have any; 166 have none)                                                                                  |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 18,285 articles in sah.wikipedia; 43 active users. This is ~1/413 of English data and ranks 86 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 0.16 GB (sah_Cyrl 0.16 GB), equivalent to ≈83.5 MB of English after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/328,777 of English data and ranks 101 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.48 GB (sah_Cyrl 0.48 GB) (rank 95 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 
@@ -53,21 +53,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 299 sentences / 1,459 tokens in total: [UD_Yakut-YKTDT](https://github.com/UniversalDependencies/UD_Yakut-YKTDT) (299 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 5,622 lemmas, 590,765 inflected forms ([unimorph/sah](https://github.com/unimorph/sah))                                                                                                                              |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                       |
+| Wikidata labels        | 186,870 Wikidata items have a label in Yakut. (Wikidata codes (labels): sah (186,870))                                                                                                                               |
 | Wordnets               | **None found**                                                                                                                                                                                                       |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_sah) en → sah: size not listed                                                     |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 10,113 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (9,782), [wikimedia](https://opus.nlpl.eu/wikimedia) (287), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (44). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                 |
+| Tatoeba                                                                                  | 1,090 sentences, 128 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/sah/none)).                                                                                                         |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_sah) en → sah: size not listed                                                                                                                     |
 
 ### How good are we at identifying data?
 
@@ -208,7 +208,7 @@ Yakut has been part of the WMT translation task in **1** year (2022).
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Yakut datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Yakut? Does it make sense to train one?
-  - ~0.27 GB English-equivalent text ≈ 0.07B tokens, enough for a compute-optimal model of ~3.3M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~0.24 GB English-equivalent text ≈ 0.06B tokens, enough for a compute-optimal model of ~3.1M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Yakut-only model is 9.2B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

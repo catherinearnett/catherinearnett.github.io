@@ -41,33 +41,33 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                           |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 11,876 articles in sn.wikipedia; 16 active users. This is ~1/635 of English data and ranks 100 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
-| Common Crawl           | 21,310 pages per crawl on average, which is 0.0010% of the crawl (2026). This is ~1/41,835 of English data and ranks 87 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                            |
-| FineWeb                | 0.15 GB (sna_Latn 0.15 GB), equivalent to ≈0.14 GB of English after byte-premium scaling; 0.49 GB removed by filtering. This is ~1/352,536 of English data and ranks 102 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.73 GB (sna_Latn 0.73 GB) (rank 81 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                |
+| Common Crawl           | 21,310 pages per crawl on average, which is 0.0010% of the crawl (2026). This is ~1/41,835 of English data and ranks 89 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                            |
+| FineWeb                | 0.15 GB (sna_Latn 0.15 GB), equivalent to ≈0.14 GB of English after byte-premium scaling; 0.49 GB removed by filtering. This is ~1/352,536 of English data and ranks 104 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.73 GB (sna_Latn 0.73 GB) (rank 82 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                        |
-|:-----------------------|:-----------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                     |
-| UniMorph               | 86 lemmas, 3,030 inflected forms ([unimorph/sna](https://github.com/unimorph/sna)) |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._     |
-| Wordnets               | **None found**                                                                     |
+| Resource               | What exists                                                                           |
+|:-----------------------|:--------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                        |
+| UniMorph               | 86 lemmas, 3,030 inflected forms ([unimorph/sna](https://github.com/unimorph/sna))    |
+| Wikidata labels        | 638,072 Wikidata items have a label in Shona. (Wikidata codes (labels): sn (638,072)) |
+| Wordnets               | **None found**                                                                        |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                    |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_sn) en → sn: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_sn) en → sn: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                       |
+|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 9,474,209 sentence pairs with English across 7 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (9,322,192), [CCAligned](https://opus.nlpl.eu/CCAligned) (86,869), [bible-uedin](https://opus.nlpl.eu/bible-uedin) (62,049), [translatewiki](https://opus.nlpl.eu/translatewiki) (1,678), [wikimedia](https://opus.nlpl.eu/wikimedia) (1,374). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                                       |
+| Tatoeba                                                                                  | 47 sentences, 44 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/sna/none)).                                                                                                                                                                                                                                   |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                              |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                                               |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_sn) en → sn: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_sn) en → sn: size not listed                                                                                                                                    |
 
 ### How good are we at identifying data?
 
@@ -113,6 +113,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Shona has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Shona?

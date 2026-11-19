@@ -52,36 +52,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                              |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3,458 articles in dsb.wikipedia; 19 active users. This is ~1/2,182 of English data and ranks 126 of the 168 languages in the set with any data in Wikipedia; 164 have none.         |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                            |
-| FineWeb                | 7.0 MB (dsb_Latn 10.0 MB); 0.12 GB removed by filtering. This is ~1/7,625,286 of English data and ranks 153 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,458 articles in dsb.wikipedia; 19 active users. This is ~1/2,182 of English data and ranks 126 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 7.0 MB (dsb_Latn 7.0 MB), equivalent to ≈5.9 MB of English after byte-premium scaling; 0.12 GB removed by filtering. This is ~1/7,625,286 of English data and ranks 159 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                          |
-|:-----------------------|:-------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                       |
-| UniMorph               | 994 lemmas, 20,121 inflected forms ([unimorph/dsb](https://github.com/unimorph/dsb)) |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._       |
-| Wordnets               | **None found**                                                                       |
+| Resource               | What exists                                                                                    |
+|:-----------------------|:-----------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                 |
+| UniMorph               | 994 lemmas, 20,121 inflected forms ([unimorph/dsb](https://github.com/unimorph/dsb))           |
+| Wikidata labels        | 538,914 Wikidata items have a label in Lower Sorbian. (Wikidata codes (labels): dsb (538,914)) |
+| Wordnets               | **None found**                                                                                 |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                  |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 13,564 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (13,399), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (120), [wikimedia](https://opus.nlpl.eu/wikimedia) (45). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                  |
+| Tatoeba                                                                                  | 1,573 sentences, 714 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/dsb/none)).                                                                                                          |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                            |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                            |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                            |
 
 ### How good are we at identifying data?
 
@@ -210,7 +210,7 @@ Lower Sorbian isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation ta
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Lower Sorbian datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Lower Sorbian? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~5.9 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~73.7K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 4.8B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

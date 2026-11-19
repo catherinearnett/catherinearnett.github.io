@@ -38,20 +38,20 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 23,392 articles in sd.wikipedia; 43 active users. This is ~1/323 of English data and ranks 81 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                         |
-| Common Crawl           | 44,743 pages per crawl on average, which is 0.0021% of the crawl (2026). This is ~1/19,925 of English data and ranks 78 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                            |
-| FineWeb                | 0.42 GB (snd_Arab 0.42 GB; snd_Deva 0; snd_Latn 0), equivalent to ≈0.26 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.30 GB removed by filtering. This is ~1/127,115 of English data and ranks 82 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.81 GB (snd_Arab 0.81 GB) (rank 79 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                                |
+| Source                 | Amount                                                                                                                                                                                                                                                                       |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 23,392 articles in sd.wikipedia; 43 active users. This is ~1/323 of English data and ranks 81 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                     |
+| Common Crawl           | 44,743 pages per crawl on average, which is 0.0021% of the crawl (2026). This is ~1/19,925 of English data and ranks 78 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                                        |
+| FineWeb                | 0.42 GB (snd_Arab 0.42 GB; snd_Deva 1.0 MB; snd_Latn 0), equivalent to ≈0.26 GB of English after byte-premium scaling; 0.30 GB removed by filtering. This is ~1/127,115 of English data and ranks 83 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.81 GB (snd_Arab 0.81 GB) (rank 79 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                            |
 
 **By writing system:**
 
-| Writing system      | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:--------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Arabic (`Arab`)     | 0.42 GB   | — (no byte premium yet)       | 0.81 GB      | 0.51 GB                        |
-| Devanagari (`Deva`) | 0         | — (no byte premium yet)       | not included | —                              |
-| Latin (`Latn`)      | 0         | — (no byte premium yet)       | not included | —                              |
+| Writing system      | FineWeb                         | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|:--------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Arabic (`Arab`)     | 0.42 GB (+0.26 GB filtered out) | 0.26 GB                       | 0.81 GB      | 0.51 GB                        |
+| Devanagari (`Deva`) | 1.0 MB (+0.6 MB filtered out)   | 0.4 MB                        | not included | —                              |
+| Latin (`Latn`)      | 0.5 MB (+45.0 MB filtered out)  | 0.5 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -63,21 +63,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 5,766 sentences / 95,358 tokens in total: [UD_Sindhi-Isra](https://github.com/UniversalDependencies/UD_Sindhi-Isra) (5,766 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                            |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                            |
+| Wikidata labels        | 404,687 Wikidata items have a label in Sindhi. (Wikidata codes (labels): sd (404,687))                                                                                                                                    |
 | Wordnets               | **None found**                                                                                                                                                                                                            |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Arab script); 997 sentences (Deva script) — the same sentences in 200+ languages                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Arab script) — paired with English                                                                                                         |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_sd-Deva) en → sd-Deva: size not listed                                             |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                          |
+|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 10,965,067 sentence pairs with English across 9 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (8,924,699), [CCMatrix](https://opus.nlpl.eu/CCMatrix) (1,717,573), [XLEnt](https://opus.nlpl.eu/XLEnt) (148,415), [Tanzil](https://opus.nlpl.eu/Tanzil) (93,540), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (53,821). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                          |
+| Tatoeba                                                                                  | 7 sentences, 7 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/snd/none)).                                                                                                                                                                                                                        |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Arab script); 997 sentences (Deva script) — the same sentences in 200+ languages                                                                                                                                                                                                                                    |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Arab script) — paired with English                                                                                                                                                                                                                                                                                  |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_sd-Deva) en → sd-Deva: size not listed                                                                                                                                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -121,6 +121,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Sindhi has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Sindhi?

@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 30.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Nigeria
@@ -42,36 +44,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 49,280 articles in ig.wikipedia; 107 active users. This is ~1/153 of English data and ranks 72 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
-| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                      |
-| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                      |
-| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                      |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 49,280 articles in ig.wikipedia; 107 active users. This is ~1/153 of English data and ranks 72 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | 29,298 pages per crawl on average, which is 0.0014% of the crawl (2026). This is ~1/30,429 of English data and ranks 87 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                            |
+| FineWeb                | 0.15 GB (ibo_Latn 0.15 GB), equivalent to ≈0.11 GB of English after byte-premium scaling; 0.31 GB removed by filtering. This is ~1/352,063 of English data and ranks 103 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.57 GB (ibo_Latn 0.56 GB) (rank 91 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                          |
+|:-----------------------|:-------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                       |
+| UniMorph               | **None found**                                                                       |
+| Wikidata labels        | 925,848 Wikidata items have a label in Igbo. (Wikidata codes (labels): ig (925,848)) |
+| Wordnets               | **None found**                                                                       |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                    |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ig) en → ig: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ig) en → ig: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                      |
+|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 7,023,641 sentence pairs with English across 12 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (6,110,033), [wikimedia](https://opus.nlpl.eu/wikimedia) (578,307), [CCAligned](https://opus.nlpl.eu/CCAligned) (148,147), [CCMatrix](https://opus.nlpl.eu/CCMatrix) (80,385), [XLEnt](https://opus.nlpl.eu/XLEnt) (69,820). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                      |
+| Tatoeba                                                                                  | 46 sentences, 43 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/ibo/none)).                                                                                                                                                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                             |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                              |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ig) en → ig: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ig) en → ig: size not listed                                                                                                                   |
 
 ### How good are we at identifying data?
 
@@ -119,6 +121,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Igbo has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Igbo?
@@ -222,7 +225,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Igbo datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Igbo? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.42 GB English-equivalent text ≈ 0.11B tokens, enough for a compute-optimal model of ~5.3M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Igbo-only model is 3.7B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

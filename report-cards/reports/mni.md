@@ -16,7 +16,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
 
-**Writing systems:** `Beng`
+**Writing systems:** `Beng` and `Latn`
 
 **Speakers:** about 1.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
@@ -46,20 +46,20 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,531 articles in mni.wikipedia; 31 active users. This is ~1/717 of English data and ranks 102 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                        |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                                          |
-| FineWeb                | 14.7 MB (mni_Beng 10.0 MB; mni_Latn 0; mni_Mtei 0), equivalent to ≈6.7 MB of English after byte-premium scaling (⚠️ only 98% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 42.8 MB removed by filtering. This is ~1/3,626,982 of English data and ranks 138 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                                      |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,531 articles in mni.wikipedia; 31 active users. This is ~1/717 of English data and ranks 102 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                             |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                                               |
+| FineWeb                | 14.7 MB (mni_Beng 10.0 MB; mni_Latn 4.0 MB; mni_Mtei 0), equivalent to ≈6.7 MB of English after byte-premium scaling (⚠️ only 98% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 42.8 MB removed by filtering. This is ~1/3,626,982 of English data and ranks 143 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                                           |
 
 **By writing system:**
 
-| Writing system        | FineWeb   | FineWeb, English-equivalent   |
-|:----------------------|:----------|:------------------------------|
-| Bengali (`Beng`)      | 10.0 MB   | — (no byte premium yet)       |
-| Latin (`Latn`)        | 0         | — (no byte premium yet)       |
-| Meitei Mayek (`Mtei`) | 0         | — (no byte premium yet)       |
+| Writing system        | FineWeb                        | FineWeb, English-equivalent   |
+|:----------------------|:-------------------------------|:------------------------------|
+| Bengali (`Beng`)      | 10.0 MB (+7.1 MB filtered out) | 3.3 MB                        |
+| Latin (`Latn`)        | 4.5 MB (+34.1 MB filtered out) | 3.4 MB                        |
+| Meitei Mayek (`Mtei`) | 0.3 MB (+1.7 MB filtered out)  | — (no byte premium yet)       |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -71,21 +71,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                   |
 | UniMorph               | **None found**                                                                                                   |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                   |
+| Wikidata labels        | 254,550 Wikidata items have a label in Manipuri (Meitei). (Wikidata codes (labels): mni (254,550))               |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                            |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                            |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                             |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Beng script); 2,009 sentences (Mtei script) — the same sentences in 200+ languages                                                                                                                                    |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                      |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_mni-Mtei) en → mni-Mtei: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_mni-Mtei) en → mni-Mtei: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 503,776 sentence pairs with English across 5 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (490,089), [pmindia](https://opus.nlpl.eu/pmindia) (7,419), [translatewiki](https://opus.nlpl.eu/translatewiki) (4,148), [wikimedia](https://opus.nlpl.eu/wikimedia) (2,119), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (1). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                 |
+| Tatoeba                                                                                  | 11 sentences, 11 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/mni/none)).                                                                                                                                                                                                             |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Beng script); 2,009 sentences (Mtei script) — the same sentences in 200+ languages                                                                                                                                                                                                                         |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_mni-Mtei) en → mni-Mtei: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_mni-Mtei) en → mni-Mtei: size not listed                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -129,6 +129,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Manipuri (Meitei) has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/mni/) video of Manipuri (Meitei) yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

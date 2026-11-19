@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 2.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Eswatini, South Africa
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,195 articles in ss.wikipedia; 8 active users. This is ~1/6,315 of English data and ranks 152 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                   |
-| Common Crawl           | 1,073 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/830,855 of English data and ranks 110 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                      |
-| FineWeb                | 4.2 MB (ssw_Latn 0), equivalent to ≈3.7 MB of English after byte-premium scaling; 53.0 MB removed by filtering. This is ~1/12,676,467 of English data and ranks 164 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 24.7 MB (ssw_Latn 25.0 MB) (rank 146 of the 166 languages in the set that have any; 166 have none)                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,195 articles in ss.wikipedia; 8 active users. This is ~1/6,315 of English data and ranks 152 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | 1,073 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/830,855 of English data and ranks 112 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                           |
+| FineWeb                | 4.2 MB (ssw_Latn 4.0 MB), equivalent to ≈3.7 MB of English after byte-premium scaling; 53.0 MB removed by filtering. This is ~1/12,676,467 of English data and ranks 171 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 24.7 MB (ssw_Latn 25.0 MB) (rank 149 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -51,21 +53,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                                                  |
 | UniMorph               | **None found**                                                                                                                                                                  |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                  |
+| Wikidata labels        | 472,731 Wikidata items have a label in Swazi. (Wikidata codes (labels): ss (472,731))                                                                                           |
 | Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                           |
-|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                               |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                           |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                            |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                  |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                   |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ss) en → ss: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ss) en → ss: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ss) en → ss: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 267,527 sentence pairs with English across 7 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (222,012), [CCAligned](https://opus.nlpl.eu/CCAligned) (22,961), [bible-uedin](https://opus.nlpl.eu/bible-uedin) (15,699), [wikimedia](https://opus.nlpl.eu/wikimedia) (4,286), [XLEnt](https://opus.nlpl.eu/XLEnt) (2,364). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                   |
+| Tatoeba                                                                                  | 12 sentences, 12 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/ssw/none)).                                                                                                                                                                                                               |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                          |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ss) en → ss: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ss) en → ss: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ss) en → ss: size not listed         |
 
 ### How good are we at identifying data?
 
@@ -110,6 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Swazi has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/ssw/) video of Swazi yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

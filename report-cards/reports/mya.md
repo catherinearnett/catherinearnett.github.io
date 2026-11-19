@@ -41,33 +41,33 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                         |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 113,397 articles in my.wikipedia; 260 active users. This is ~1/67 of English data and ranks 55 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
-| Common Crawl           | 359,828 pages per crawl on average, which is 0.0167% of the crawl (2026). This is ~1/2,478 of English data and ranks 49 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
-| FineWeb                | 3.14 GB (mya_Mymr 3.14 GB), equivalent to ≈0.62 GB of English after byte-premium scaling; 1.32 GB removed by filtering. This is ~1/16,996 of English data and ranks 58 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 4.29 GB (mya_Mymr 4.29 GB) (rank 44 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
+| Common Crawl           | 359,828 pages per crawl on average, which is 0.0167% of the crawl (2026). This is ~1/2,478 of English data and ranks 49 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                          |
+| FineWeb                | 3.14 GB (mya_Mymr 3.14 GB), equivalent to ≈0.62 GB of English after byte-premium scaling; 1.32 GB removed by filtering. This is ~1/16,996 of English data and ranks 59 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 4.29 GB (mya_Mymr 4.29 GB) (rank 44 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                         |
-|:-----------------------|:------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                      |
-| UniMorph               | **None found**                                                                      |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._      |
-| Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD. |
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 391,709 Wikidata items have a label in Burmese. (Wikidata codes (labels): my (391,709)) |
+| Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD.     |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **Yes** — 2 translations: full Bible ([mya](https://ebible.org/details.php?id=mya), Public Domain); full Bible ([myajvb](https://ebible.org/details.php?id=myajvb), Public Domain).                            |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Mymr script) — the same sentences in 200+ languages                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Mymr script) — paired with English                                                                                                                                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_my) en → my: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_my) en → my: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                                       |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 13,711,267 sentence pairs with English across 17 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (10,014,948), [ParaCrawl-Bonus](https://opus.nlpl.eu/ParaCrawl-Bonus) (1,666,564), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (1,398,025), [CCAligned](https://opus.nlpl.eu/CCAligned) (294,946), [TED2020](https://opus.nlpl.eu/TED2020) (63,427). |
+| Bible translations (eBible corpus)                                                       | **Yes** — 2 translations: full Bible ([mya](https://ebible.org/details.php?id=mya), Public Domain); full Bible ([myajvb](https://ebible.org/details.php?id=myajvb), Public Domain).                                                                                                                                                                               |
+| Tatoeba                                                                                  | 592 sentences, 502 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/mya/none)).                                                                                                                                                                                                                                                 |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Mymr script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                                              |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Mymr script) — paired with English                                                                                                                                                                                                                                                                                                               |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_my) en → my: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_my) en → my: size not listed                                                                                                                                                    |
 
 ### How good are we at identifying data?
 
@@ -113,6 +113,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Burmese has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Burmese?

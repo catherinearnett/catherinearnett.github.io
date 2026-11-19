@@ -38,23 +38,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. This is ~1/332 of English data and ranks 82 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                 |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                           |
-| Goldfish training data | 31.6 MB (ful_Latn 32.0 MB) (rank 142 of the 166 languages in the set that have any; 166 have none)                                                                       |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. This is ~1/332 of English data and ranks 82 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                                                                                     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                                                                                                     |
+| FineWeb                | 5.7 MB (fuf_Latn 2.0 MB; ffm_Latn 1.0 MB; fuv_Latn 1.0 MB; fuh_Latn 1.0 MB; fub_Latn 0; fue_Latn 0; fuv_Arab 0; fuq_Latn 0), equivalent to ≈5.4 MB of English after byte-premium scaling; 7.56 GB removed by filtering. This is ~1/9,419,538 of English data and ranks 164 of the 261 languages in the set with any data in FineWeb; 71 have none. NB: counted as `fuf_Latn, ffm_Latn, fuv_Latn, fuh_Latn, fub_Latn, fue_Latn, fuv_Arab, fuq_Latn` together. |
+| Goldfish training data | 31.6 MB (ful_Latn 32.0 MB) (rank 145 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                                                                                                                                                                                                           |
+
+**By writing system:**
+
+| Writing system   | FineWeb                        | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:-------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)   | 5.6 MB (+7.56 GB filtered out) | 5.4 MB                        | 31.6 MB      | 24.5 MB                        |
+| Arabic (`Arab`)  | 0.0 MB (+0.1 MB filtered out)  | 0.0 MB                        | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                          |
+|:-----------------------|:-------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                       |
+| UniMorph               | **None found**                                                                       |
+| Wikidata labels        | 630,338 Wikidata items have a label in Fula. (Wikidata codes (labels): ff (630,338)) |
+| Wordnets               | **None found**                                                                       |
 
 ### Parallel data (for machine translation)
 
@@ -62,9 +71,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                             |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                 |
+| OPUS                                                                                     | 1,615,953 sentence pairs with English across 6 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (1,511,026), [CCAligned](https://opus.nlpl.eu/CCAligned) (73,023), [wikimedia](https://opus.nlpl.eu/wikimedia) (23,533), [XLEnt](https://opus.nlpl.eu/XLEnt) (7,132), [translatewiki](https://opus.nlpl.eu/translatewiki) (1,030).   |
 | Bible translations (eBible corpus)                                                       | **Yes** — 4 translations: New Testament ([ffm](https://ebible.org/details.php?id=ffm), by-nc-nd 4.0); New Testament ([fuf](https://ebible.org/details.php?id=fuf), by-nd 4.0); New Testament ([fuhbkf](https://ebible.org/details.php?id=fuhbkf), by-nc-nd 4.0); portions ([fue](https://ebible.org/details.php?id=fue), by-nc-nd 4.0). |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                              |
+| Tatoeba                                                                                  | 13 sentences, 11 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/fuc/none)).                                                                                                                                                                                                                         |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                    |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script); 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                      |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ff) en → ff: 3,998 lexicon entries; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ff) en → ff: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ff) en → ff: size not listed             |
@@ -113,6 +122,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Fula has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/ful/) video of Fula yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

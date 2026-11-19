@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: Glottolog)
 
+**Writing systems:** `Syrc`
+
 **Speakers:** about 230,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `syr`, so includes other varieties
 
 **Official / recognised in:** Iraq
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                   |
-| Common Crawl           | 7,332 pages per crawl on average, which is 0.0003% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `syr`, which can include other varieties of Syriac.                                                                   |
-| FineWeb                | 2.1 MB (aii_Syrc 0), equivalent to ≈1.1 MB of English after byte-premium scaling; 2.4 MB removed by filtering. This is ~1/25,538,572 of English data and ranks 183 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                        |
+| Common Crawl           | 7,332 pages per crawl on average, which is 0.0003% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `syr`, which can include other varieties of Syriac.                                                                        |
+| FineWeb                | 2.1 MB (aii_Syrc 2.0 MB), equivalent to ≈1.1 MB of English after byte-premium scaling; 2.4 MB removed by filtering. This is ~1/25,538,572 of English data and ranks 191 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 
@@ -51,21 +53,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 57 sentences / 453 tokens in total: [UD_Assyrian-AS](https://github.com/UniversalDependencies/UD_Assyrian-AS) (57 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                   |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                   |
+| Wikidata labels        | 45 Wikidata items have a label in Syriac. (Wikidata codes (labels): aii (45))                                                                                                                                    |
 | Wordnets               | **None found**                                                                                                                                                                                                   |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                       |
-|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                           |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament + parts of the Old Testament ([aii](https://ebible.org/details.php?id=aii), by-nc-nd 4.0). |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                        |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                 |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                 |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_aii) en → aii: 3,717 lexicon entries                     |
+| Resource                                                                                 | What exists                                                                                                                                                         |
+|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 207 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (194), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (13). |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament + parts of the Old Testament ([aii](https://ebible.org/details.php?id=aii), by-nc-nd 4.0).                                   |
+| Tatoeba                                                                                  | 22 sentences, 18 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/aii/none)).                                                     |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                   |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                   |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_aii) en → aii: 3,717 lexicon entries                                                       |
 
 ### How good are we at identifying data?
 
@@ -108,6 +110,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Syriac has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Syriac?

@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                             |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 7,920 articles in se.wikipedia; 27 active users. This is ~1/953 of English data and ranks 110 of the 168 languages in the set with any data in Wikipedia; 164 have none.           |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                           |
-| FineWeb                | 83.6 MB (sme_Latn 80.0 MB); 2.95 GB removed by filtering. This is ~1/639,117 of English data and ranks 111 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 89.5 MB (sme_Latn 90.0 MB) (rank 123 of the 166 languages in the set that have any; 166 have none)                                                                                 |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 7,920 articles in se.wikipedia; 27 active users. This is ~1/953 of English data and ranks 110 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 83.6 MB (sme_Latn 84.0 MB), equivalent to ≈67.7 MB of English after byte-premium scaling; 2.95 GB removed by filtering. This is ~1/639,117 of English data and ranks 114 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 89.5 MB (sme_Latn 90.0 MB) (rank 126 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -53,21 +53,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 3,122 sentences / 26,845 tokens in total: [UD_North_Sami-Giella](https://github.com/UniversalDependencies/UD_North_Sami-Giella) (3,122 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 2,103 lemmas, 62,677 inflected forms ([unimorph/sme](https://github.com/unimorph/sme))                                                                                                                                                |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                        |
+| Wikidata labels        | 879,842 Wikidata items have a label in Sámi. (Wikidata codes (labels): se (879,842))                                                                                                                                                  |
 | Wordnets               | **None found**                                                                                                                                                                                                                        |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                         |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_se) en → se: size not listed                                                       |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                         |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 60,130 sentence pairs with English across 5 corpora; largest: [KDE4](https://opus.nlpl.eu/KDE4) (45,381), [translatewiki](https://opus.nlpl.eu/translatewiki) (13,904), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (593), [wikimedia](https://opus.nlpl.eu/wikimedia) (183), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (69). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                         |
+| Tatoeba                                                                                  | 235 sentences, 162 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/sme/none)).                                                                                                                                                                                                                   |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                                   |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                                 |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_se) en → se: size not listed                                                                                                                                                                                                                               |
 
 ### How good are we at identifying data?
 
@@ -111,6 +111,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Sámi has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Sámi?
@@ -211,7 +212,7 @@ Sámi has been part of the WMT translation task in **1** year (2026).
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Sámi datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Sámi? Does it make sense to train one?
-  - ~74.7 MB English-equivalent text ≈ 0.02B tokens, enough for a compute-optimal model of ~933.8K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~72.5 MB English-equivalent text ≈ 0.02B tokens, enough for a compute-optimal model of ~906.3K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 1.9T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

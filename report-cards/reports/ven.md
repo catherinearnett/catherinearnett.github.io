@@ -44,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                 |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 930 articles in ve.wikipedia; 11 active users. This is ~1/8,114 of English data and ranks 156 of the 168 languages in the set with any data in Wikipedia; 164 have none.                               |
-| Common Crawl           | 709 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/1,257,415 of English data and ranks 112 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
-| FineWeb                | 6.4 MB (ven_Latn 10.0 MB); 26.3 MB removed by filtering. This is ~1/8,357,812 of English data and ranks 155 of the 248 languages in the set with any data in FineWeb; 84 have none.                    |
-| Goldfish training data | 17.1 MB (ven_Latn 17.0 MB) (rank 155 of the 166 languages in the set that have any; 166 have none)                                                                                                     |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 930 articles in ve.wikipedia; 11 active users. This is ~1/8,114 of English data and ranks 156 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | 709 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/1,257,415 of English data and ranks 114 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                          |
+| FineWeb                | 6.4 MB (ven_Latn 6.0 MB), equivalent to ≈4.8 MB of English after byte-premium scaling; 26.3 MB removed by filtering. This is ~1/8,357,812 of English data and ranks 161 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 17.1 MB (ven_Latn 17.0 MB) (rank 159 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -59,7 +59,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                                                  |
 | UniMorph               | **None found**                                                                                                                                                                  |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                  |
+| Wikidata labels        | 583,328 Wikidata items have a label in Tshivenda. (Wikidata codes (labels): ve (583,328))                                                                                       |
 | Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
 
 ### Parallel data (for machine translation)
@@ -68,9 +68,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                           |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                               |
+| OPUS                                                                                     | 2,701 sentence pairs with English across 4 corpora; largest: [CCAligned](https://opus.nlpl.eu/CCAligned) (1,556), [wikimedia](https://opus.nlpl.eu/wikimedia) (1,057), [QED](https://opus.nlpl.eu/QED) (74), [translatewiki](https://opus.nlpl.eu/translatewiki) (14).                                                |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                           |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                            |
+| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                                                                                                                                                                           |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                     |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                   |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ve) en → ve: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ve) en → ve: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ve) en → ve: size not listed |
@@ -118,6 +118,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Tshivenda has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Tshivenda?
@@ -216,7 +217,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Tshivenda datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Tshivenda? Does it make sense to train one?
-  - ~13.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~163.2K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~12.9 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~160.7K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 1.9T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

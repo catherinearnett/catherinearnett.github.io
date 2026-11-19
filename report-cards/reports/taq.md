@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `tmh`, so includes other varieties
 
 **Official / recognised in:** Mali
@@ -36,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                  |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                                |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                |
-| FineWeb                | 1.2 MB (taq_Latn 0; taq_Tfng 0), equivalent to ≈0.9 MB of English after byte-premium scaling; 36.6 MB removed by filtering. This is ~1/43,313,998 of English data and ranks 196 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                                       |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                                     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                     |
+| FineWeb                | 1.2 MB (taq_Latn 1.0 MB; taq_Tfng 0), equivalent to ≈0.9 MB of English after byte-premium scaling; 36.6 MB removed by filtering. This is ~1/43,313,998 of English data and ranks 205 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                 |
 
 **By writing system:**
 
-| Writing system    |   FineWeb | FineWeb, English-equivalent   |
-|:------------------|----------:|:------------------------------|
-| Latin (`Latn`)    |         0 | — (no byte premium yet)       |
-| Tifinagh (`Tfng`) |         0 | — (no byte premium yet)       |
+| Writing system    | FineWeb                        | FineWeb, English-equivalent   |
+|:------------------|:-------------------------------|:------------------------------|
+| Latin (`Latn`)    | 1.0 MB (+35.6 MB filtered out) | 0.8 MB                        |
+| Tifinagh (`Tfng`) | 0.2 MB (+1.1 MB filtered out)  | 0.1 MB                        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -56,12 +58,12 @@ _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                   |
+|:-----------------------|:------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                |
+| UniMorph               | **None found**                                                                |
+| Wikidata labels        | 3 Wikidata items have a label in Tamasheq. (Wikidata codes (labels): tmh (3)) |
+| Wordnets               | **None found**                                                                |
 
 ### Parallel data (for machine translation)
 
@@ -69,9 +71,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| OPUS                                                                                     | 450,220 sentence pairs with English across 1 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (450,220).                                                 |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                 |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script); 2,009 sentences (Tfng script) — the same sentences in 200+ languages                                                         |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script); 1,358 sentences (Tfng script) — paired with English                                                                          |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
@@ -112,6 +114,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Tamasheq has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Tamasheq?

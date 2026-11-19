@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                              |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 21,187 articles in or.wikipedia; 55 active users. ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                                                                                    |
-| Common Crawl           | 154,474 pages per crawl on average, which is 0.0072% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                                                            |
-| FineWeb                | 1.39 GB (ory_Orya 1.39 GB; ory_Latn 0), equivalent to ≈0.55 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.60 GB removed by filtering. This is ~1/38,382 of English data and ranks 68 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 21,187 articles in or.wikipedia; 55 active users. ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                |
+| Common Crawl           | 154,474 pages per crawl on average, which is 0.0072% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                        |
+| FineWeb                | 1.39 GB (ory_Orya 1.39 GB; ory_Latn 4.0 MB), equivalent to ≈0.56 GB of English after byte-premium scaling; 0.60 GB removed by filtering. This is ~1/38,382 of English data and ranks 69 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                    |
 
 **By writing system:**
 
-| Writing system   | FineWeb   | FineWeb, English-equivalent   |
-|:-----------------|:----------|:------------------------------|
-| Odia (`Orya`)    | 1.39 GB   | — (no byte premium yet)       |
-| Latin (`Latn`)   | 0         | — (no byte premium yet)       |
+| Writing system   | FineWeb                         | FineWeb, English-equivalent   |
+|:-----------------|:--------------------------------|:------------------------------|
+| Odia (`Orya`)    | 1.39 GB (+0.55 GB filtered out) | 0.55 GB                       |
+| Latin (`Latn`)   | 3.5 MB (+56.9 MB filtered out)  | 3.2 MB                        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -62,21 +62,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 456 sentences / 5,818 tokens in total: [UD_Odia-ODTB](https://github.com/UniversalDependencies/UD_Odia-ODTB) (456 sentences). It has POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `ori`, so this may cover other varieties as well as Odia. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                    |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                    |
-| Wordnets               | nan (size not listed); [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                                                                                           |
+| Wikidata labels        | 497,463 Wikidata items have a label in Odia. (Wikidata codes (labels): or (497,463))                                                                                                                                                                                                                              |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; nan (size not listed).                                                                                                                                                                           |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                    |
-|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                        |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([ory](https://ebible.org/details.php?id=ory), by-sa 4.0). |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Orya script) — the same sentences in 200+ languages                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Orya script) — paired with English                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                              |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 15,048,134 sentence pairs with English across 15 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (13,733,205), [Samanantar](https://opus.nlpl.eu/Samanantar) (998,229), [CCMatrix](https://opus.nlpl.eu/CCMatrix) (96,595), [Anuvaad](https://opus.nlpl.eu/Anuvaad) (92,311), [wikimedia](https://opus.nlpl.eu/wikimedia) (41,478). ⚠️ Listed under the macrolanguage code `ori`, so this may cover other varieties as well as Odia. |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([ory](https://ebible.org/details.php?id=ory), by-sa 4.0).                                                                                                                                                                                                                                                                                                                                           |
+| Tatoeba                                                                                  | 405 sentences, 367 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/ori/none)). ⚠️ Listed under the macrolanguage code `ori`, so this may cover other varieties as well as Odia.                                                                                                                                                                                                                       |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Orya script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                                                                                                                     |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Orya script) — paired with English                                                                                                                                                                                                                                                                                                                                                                                      |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ### How good are we at identifying data?
 
@@ -121,6 +121,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Odia has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Odia?
@@ -224,7 +225,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Odia datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Odia? Does it make sense to train one?
-  - ~0.55 GB English-equivalent text ≈ 0.14B tokens, enough for a compute-optimal model of ~6.9M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~0.56 GB English-equivalent text ≈ 0.14B tokens, enough for a compute-optimal model of ~7.0M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Odia-only model is 7.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

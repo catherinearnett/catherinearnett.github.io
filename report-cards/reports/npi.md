@@ -48,19 +48,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                    |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 30,073 articles in ne.wikipedia; 138 active users. ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                                                       |
-| Common Crawl           | 1,231,877 pages per crawl on average, which is 0.0571% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                              |
-| FineWeb                | 6.76 GB (npi_Deva 6.75 GB; npi_Latn 0), equivalent to ≈2.79 GB of English after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/7,905 of English data and ranks 46 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 30,073 articles in ne.wikipedia; 138 active users. ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                                                            |
+| Common Crawl           | 1,231,877 pages per crawl on average, which is 0.0571% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                                   |
+| FineWeb                | 6.76 GB (npi_Deva 6.75 GB; npi_Latn 4.0 MB), equivalent to ≈2.79 GB of English after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/7,905 of English data and ranks 47 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                   |
 
 **By writing system:**
 
-| Writing system      | FineWeb   | FineWeb, English-equivalent   |
-|:--------------------|:----------|:------------------------------|
-| Devanagari (`Deva`) | 6.75 GB   | 2.79 GB                       |
-| Latin (`Latn`)      | 0         | — (no byte premium yet)       |
+| Writing system      | FineWeb                         | FineWeb, English-equivalent   |
+|:--------------------|:--------------------------------|:------------------------------|
+| Devanagari (`Deva`) | 6.75 GB (+3.75 GB filtered out) | 2.79 GB                       |
+| Latin (`Latn`)      | 4.5 MB (+22.9 MB filtered out)  | 4.1 MB                        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -72,8 +72,8 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 69 sentences / 801 tokens in total: [UD_Nepali-BK](https://github.com/UniversalDependencies/UD_Nepali-BK) (69 sentences). It has POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `nep`, so this may cover other varieties as well as Nepali. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                  |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                  |
-| Wordnets               | nan (size not listed); [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                     |
+| Wikidata labels        | 312,583 Wikidata items have a label in Nepali. (Wikidata codes (labels): ne (312,583))                                                                                                                                                                                                                          |
+| Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; nan (size not listed).                                                                                     |
 
 ### Parallel data (for machine translation)
 
@@ -81,9 +81,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                    |
 |:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
+| OPUS                                                                                     | 415 sentence pairs with English across 1 corpora; largest: [Tatoeba](https://opus.nlpl.eu/Tatoeba) (415).                                                                                                      |
 | Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([npiulb](https://ebible.org/details.php?id=npiulb), by-sa 4.0).                                                                                                           |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
+| Tatoeba                                                                                  | 4,506 sentences, 3,644 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/npi/none)).                                                                                          |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Deva script) — the same sentences in 200+ languages                                                                                                                                           |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Deva script) — paired with English                                                                                                                                                            |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ne) en → ne: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ne) en → ne: size not listed |

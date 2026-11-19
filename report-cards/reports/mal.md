@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                   |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 89,337 articles in ml.wikipedia; 422 active users. This is ~1/84 of English data and ranks 59 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                 |
-| Common Crawl           | 542,320 pages per crawl on average, which is 0.0252% of the crawl (2026). This is ~1/1,644 of English data and ranks 46 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                    |
-| FineWeb                | 5.98 GB (mal_Mlym 5.98 GB; mal_Latn 10.0 MB), equivalent to ≈2.07 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 6.88 GB removed by filtering. This is ~1/8,925 of English data and ranks 48 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 5.39 GB (mal_Mlym 5.39 GB) (rank 37 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 89,337 articles in ml.wikipedia; 422 active users. This is ~1/84 of English data and ranks 59 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                       |
+| Common Crawl           | 542,320 pages per crawl on average, which is 0.0252% of the crawl (2026). This is ~1/1,644 of English data and ranks 46 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                          |
+| FineWeb                | 5.98 GB (mal_Mlym 5.98 GB; mal_Latn 7.0 MB), equivalent to ≈2.08 GB of English after byte-premium scaling; 6.88 GB removed by filtering. This is ~1/8,925 of English data and ranks 49 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 5.39 GB (mal_Mlym 5.39 GB) (rank 37 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                              |
 
 **By writing system:**
 
-| Writing system     | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Malayalam (`Mlym`) | 5.98 GB   | 2.07 GB                       | 5.39 GB      | 1.87 GB                        |
-| Latin (`Latn`)     | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Writing system     | FineWeb                         | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-------------------|:--------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Malayalam (`Mlym`) | 5.98 GB (+6.72 GB filtered out) | 2.07 GB                       | 5.39 GB      | 1.87 GB                        |
+| Latin (`Latn`)     | 7.5 MB (+0.16 GB filtered out)  | 6.0 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -62,21 +62,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 218 sentences / 2,090 tokens in total: [UD_Malayalam-UFAL](https://github.com/UniversalDependencies/UD_Malayalam-UFAL) (218 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                             |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                             |
+| Wikidata labels        | 3,585,883 Wikidata items have a label in Malayalam. (Wikidata codes (labels): ml (3,585,883))                                                                                                                              |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                           |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **Yes** — 2 translations: full Bible ([mal](https://ebible.org/details.php?id=mal), by-sa 4.0); full Bible ([malc](https://ebible.org/details.php?id=malc), by-sa 4.0).                                        |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Mlym script) — the same sentences in 200+ languages                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Mlym script) — paired with English                                                                                                                                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ml) en → ml: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ml) en → ml: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                                |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 62,271,857 sentence pairs with English across 23 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (43,759,128), [CCMatrix](https://opus.nlpl.eu/CCMatrix) (6,809,956), [Samanantar](https://opus.nlpl.eu/Samanantar) (5,924,427), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (2,188,246), [Anuvaad](https://opus.nlpl.eu/Anuvaad) (1,461,280). |
+| Bible translations (eBible corpus)                                                       | **Yes** — 2 translations: full Bible ([mal](https://ebible.org/details.php?id=mal), by-sa 4.0); full Bible ([malc](https://ebible.org/details.php?id=malc), by-sa 4.0).                                                                                                                                                                                    |
+| Tatoeba                                                                                  | 884 sentences, 825 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/mal/none)).                                                                                                                                                                                                                                          |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Mlym script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                                       |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Mlym script) — paired with English                                                                                                                                                                                                                                                                                                        |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ml) en → ml: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ml) en → ml: size not listed                                                                                                                                             |
 
 ### How good are we at identifying data?
 
@@ -123,6 +123,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Malayalam has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Malayalam?
@@ -235,7 +236,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Malayalam datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Malayalam? Does it make sense to train one?
-  - ~2.07 GB English-equivalent text ≈ 0.52B tokens, enough for a compute-optimal model of ~25.9M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~2.08 GB English-equivalent text ≈ 0.52B tokens, enough for a compute-optimal model of ~26.0M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Malayalam-only model is 10.2B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

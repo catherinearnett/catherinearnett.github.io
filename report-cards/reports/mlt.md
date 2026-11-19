@@ -50,9 +50,9 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                         |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 8,090 articles in mt.wikipedia; 43 active users. This is ~1/933 of English data and ranks 108 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
-| Common Crawl           | 68,435 pages per crawl on average, which is 0.0032% of the crawl (2026). This is ~1/13,027 of English data and ranks 72 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
-| FineWeb                | 0.74 GB (mlt_Latn 0.74 GB), equivalent to ≈0.68 GB of English after byte-premium scaling; 5.36 GB removed by filtering. This is ~1/72,020 of English data and ranks 76 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 4.32 GB (mlt_Latn 4.32 GB) (rank 43 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
+| Common Crawl           | 68,435 pages per crawl on average, which is 0.0032% of the crawl (2026). This is ~1/13,027 of English data and ranks 72 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                          |
+| FineWeb                | 0.74 GB (mlt_Latn 0.74 GB), equivalent to ≈0.68 GB of English after byte-premium scaling; 5.36 GB removed by filtering. This is ~1/72,020 of English data and ranks 77 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 4.32 GB (mlt_Latn 4.32 GB) (rank 43 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -62,21 +62,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 2,074 sentences / 44,162 tokens in total: [UD_Maltese-MUDT](https://github.com/UniversalDependencies/UD_Maltese-MUDT) (2,074 sentences). It has POS tags, dependency syntax, morphological features. |
 | UniMorph               | 112 lemmas, 3,584 inflected forms ([unimorph/mlt](https://github.com/unimorph/mlt))                                                                                                                              |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                   |
+| Wikidata labels        | 714,190 Wikidata items have a label in Maltese. (Wikidata codes (labels): mt (714,190))                                                                                                                          |
 | Wordnets               | nan (size not listed).                                                                                                                                                                                           |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                        |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                         |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                        |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 31,659,275 sentence pairs with English across 46 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (14,798,113), [DGT](https://opus.nlpl.eu/DGT) (4,196,920), [HPLT](https://opus.nlpl.eu/HPLT) (2,434,798), [MultiHPLT](https://opus.nlpl.eu/MultiHPLT) (2,434,798), [TildeMODEL](https://opus.nlpl.eu/TildeMODEL) (1,976,073). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                        |
+| Tatoeba                                                                                  | 697 sentences, 646 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/mlt/none)).                                                                                                                                                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                               |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                                |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                                                                                                                                  |
 
 ### How good are we at identifying data?
 
@@ -121,6 +121,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Maltese and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Maltese?

@@ -46,32 +46,32 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 15,527 articles in ilo.wikipedia; 26 active users. This is ~1/486 of English data and ranks 90 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                          |
 | Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
-| FineWeb                | 22.8 MB (ilo_Latn 20.0 MB), equivalent to ≈21.2 MB of English after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/2,338,522 of English data and ranks 127 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.11 GB (ilo_Latn 0.11 GB) (rank 116 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
+| FineWeb                | 22.8 MB (ilo_Latn 23.0 MB), equivalent to ≈21.2 MB of English after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/2,338,522 of English data and ranks 132 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.11 GB (ilo_Latn 0.11 GB) (rank 119 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                              |
+|:-----------------------|:-----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                           |
+| UniMorph               | **None found**                                                                           |
+| Wikidata labels        | 526,112 Wikidata items have a label in Ilocano. (Wikidata codes (labels): ilo (526,112)) |
+| Wordnets               | **None found**                                                                           |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                   |
-|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                       |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([iloulb](https://ebible.org/details.php?id=iloulb), by-sa 4.0).          |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                    |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                          |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                           |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ilo) en → ilo: 3,993 lexicon entries |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                      |
+|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 1,468,513 sentence pairs with English across 6 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (1,041,937), [CCMatrix](https://opus.nlpl.eu/CCMatrix) (335,469), [XLEnt](https://opus.nlpl.eu/XLEnt) (79,049), [translatewiki](https://opus.nlpl.eu/translatewiki) (9,405), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (2,093). |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([iloulb](https://ebible.org/details.php?id=iloulb), by-sa 4.0).                                                                                                                                                                                                                             |
+| Tatoeba                                                                                  | 2,474 sentences, 2,095 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/ilo/none)).                                                                                                                                                                                                            |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                             |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                              |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ilo) en → ilo: 3,993 lexicon entries                                                                                                                                                                                                                    |
 
 ### How good are we at identifying data?
 

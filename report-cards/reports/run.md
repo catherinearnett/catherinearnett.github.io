@@ -41,20 +41,20 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                           |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 729 articles in rn.wikipedia; 6 active users. This is ~1/10,352 of English data and ranks 158 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
-| Common Crawl           | 2,747 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/324,539 of English data and ranks 103 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                           |
-| FineWeb                | 68.5 MB (run_Latn 70.0 MB), equivalent to ≈61.2 MB of English after byte-premium scaling; 2.80 GB removed by filtering. This is ~1/779,716 of English data and ranks 112 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.11 GB (run_Latn 0.11 GB) (rank 117 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
+| Common Crawl           | 2,747 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/324,539 of English data and ranks 105 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                           |
+| FineWeb                | 68.5 MB (run_Latn 69.0 MB), equivalent to ≈61.2 MB of English after byte-premium scaling; 2.80 GB removed by filtering. This is ~1/779,716 of English data and ranks 115 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.11 GB (run_Latn 0.11 GB) (rank 120 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 476,335 Wikidata items have a label in Kirundi. (Wikidata codes (labels): rn (476,335)) |
+| Wordnets               | **None found**                                                                          |
 
 ### Parallel data (for machine translation)
 
@@ -62,9 +62,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                           |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                               |
+| OPUS                                                                                     | 774,298 sentence pairs with English across 5 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (771,521), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (1,706), [translatewiki](https://opus.nlpl.eu/translatewiki) (902), [wikimedia](https://opus.nlpl.eu/wikimedia) (156), [QED](https://opus.nlpl.eu/QED) (13).      |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                           |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                            |
+| Tatoeba                                                                                  | 5,305 sentences, 4,089 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/run/none)).                                                                                                                                                                                                 |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                  |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                     |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_rn) en → rn: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_rn) en → rn: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_rn) en → rn: size not listed |

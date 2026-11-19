@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 9.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `ful`, so includes other varieties
 
 **Official / recognised in:** Guinea
@@ -36,36 +38,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. ⚠️ NB: counted under the macrolanguage code `ful`, so this number is shared with Fula (`ffm`) and overstates Fulani.                                                                     |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                   |
-| FineWeb                | 2.2 MB (fuf_Latn 0), equivalent to ≈2.1 MB of English after byte-premium scaling; 3.3 MB removed by filtering. This is ~1/24,668,626 of English data and ranks 178 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. ⚠️ NB: counted under the macrolanguage code `ful`, so this number is shared with Fula (`ffm`) and overstates Fulani.                                                                          |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 2.2 MB (fuf_Latn 2.0 MB), equivalent to ≈2.1 MB of English after byte-premium scaling; 3.3 MB removed by filtering. This is ~1/24,668,626 of English data and ranks 186 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                 |
+|:-----------------------|:----------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                              |
+| UniMorph               | **None found**                                                              |
+| Wikidata labels        | 3 Wikidata items have a label in Fulani. (Wikidata codes (labels): fuf (3)) |
+| Wordnets               | **None found**                                                              |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament ([fuf](https://ebible.org/details.php?id=fuf), by-nd 4.0).                                                                                                                                                                                                                                                                                                                              |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                                                                                                                              |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                                                                                                                              |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ff) en → ff: 3,998 lexicon entries; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ff) en → ff: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ff) en → ff: size not listed ⚠️ Listed under the macrolanguage code `ful`, so this may cover other varieties as well as Fulani. |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 1,615,953 sentence pairs with English across 6 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (1,511,026), [CCAligned](https://opus.nlpl.eu/CCAligned) (73,023), [wikimedia](https://opus.nlpl.eu/wikimedia) (23,533), [XLEnt](https://opus.nlpl.eu/XLEnt) (7,132), [translatewiki](https://opus.nlpl.eu/translatewiki) (1,030). ⚠️ Listed under the macrolanguage code `ful`, so this may cover other varieties as well as Fulani. |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament ([fuf](https://ebible.org/details.php?id=fuf), by-nd 4.0).                                                                                                                                                                                                                                                                                                                                        |
+| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                                                                                                                                                                                                                                                                                              |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ff) en → ff: 3,998 lexicon entries; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ff) en → ff: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ff) en → ff: size not listed ⚠️ Listed under the macrolanguage code `ful`, so this may cover other varieties as well as Fulani.           |
 
 ### How good are we at identifying data?
 
@@ -101,6 +103,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Fulani has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Fulani?
