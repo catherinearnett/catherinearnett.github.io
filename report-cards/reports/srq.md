@@ -47,12 +47,12 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                              |
+|:-----------------------|:-----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                           |
+| UniMorph               | **None found**                                                                           |
+| Wikidata labels        | 428,587 Wikidata items have a label in Sirionó. (Wikidata codes (labels): srq (428,587)) |
+| Wordnets               | **None found**                                                                           |
 
 ### Parallel data (for machine translation)
 
@@ -60,9 +60,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                              |
 |:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                  |
+| OPUS                                                                                     | **No sentence pairs with English in OPUS**                                                               |
 | Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament ([srqNT](https://ebible.org/details.php?id=srqNT), by-nc-nd 4.0). |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                               |
+| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                              |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                        |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                        |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                        |
@@ -84,6 +84,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Sirionó has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/srq/) video of Sirionó yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

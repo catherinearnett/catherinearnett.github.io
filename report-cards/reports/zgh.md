@@ -47,25 +47,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                                |
+|:-----------------------|:-------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                             |
+| UniMorph               | **None found**                                                                             |
+| Wikidata labels        | 159,481 Wikidata items have a label in Tamazight. (Wikidata codes (labels): zgh (159,481)) |
+| Wordnets               | **None found**                                                                             |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Tfng script) — the same sentences in 200+ languages                                                                                        |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                   |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 5,699 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (4,126), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (1,432), [wikimedia](https://opus.nlpl.eu/wikimedia) (141). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                   |
+| Tatoeba                                                                                  | 20,777 sentences, 14,966 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/zgh/none)).                                                                                                       |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Tfng script) — the same sentences in 200+ languages                                                                                                                                                          |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                             |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                             |
 
 ### How good are we at identifying data?
 

@@ -47,25 +47,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                              |
+|:-----------------------|:-----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                           |
+| UniMorph               | **None found**                                                                           |
+| Wikidata labels        | 433,762 Wikidata items have a label in Hunsrik. (Wikidata codes (labels): hrx (433,762)) |
+| Wordnets               | **None found**                                                                           |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_hrx) en → hrx: 3,932 lexicon entries                                               |
+| Resource                                                                                 | What exists                                                                                                                                                              |
+|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 4,985 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (4,460), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (525). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.              |
+| Tatoeba                                                                                  | 2,454 sentences, 1,635 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/hrx/none)).                                                    |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                        |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                        |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_hrx) en → hrx: 3,932 lexicon entries                                                            |
 
 ### How good are we at identifying data?
 

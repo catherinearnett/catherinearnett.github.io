@@ -62,21 +62,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                   |
 | UniMorph               | **None found**                                                                                                   |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                   |
+| Wikidata labels        | 267,734 Wikidata items have a label in Konkani. (Wikidata codes (labels): gom (267,734), kok (27))               |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 997 sentences (Deva script) — the same sentences in 200+ languages                                                                                          |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Deva script) — paired with English                                                                                                         |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_gom) en → gom: 3,999 lexicon entries                                               |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 6,535 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (4,649), [wikimedia](https://opus.nlpl.eu/wikimedia) (1,884), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (2). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                 |
+| Tatoeba                                                                                  | 10 sentences, 5 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/gom/none)).                                                                                                              |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 997 sentences (Deva script) — the same sentences in 200+ languages                                                                                                                                                          |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Deva script) — paired with English                                                                                                                                                                         |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_gom) en → gom: 3,999 lexicon entries                                                                                                               |
 
 ### How good are we at identifying data?
 
@@ -119,6 +119,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Konkani has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Konkani?

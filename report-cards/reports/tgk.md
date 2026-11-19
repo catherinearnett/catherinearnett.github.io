@@ -49,25 +49,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                     |
-|:-----------------------|:--------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                  |
-| UniMorph               | 75 lemmas, 77 inflected forms ([unimorph/tgk](https://github.com/unimorph/tgk)) |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._  |
-| Wordnets               | **None found**                                                                  |
+| Resource               | What exists                                                                                                                 |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                              |
+| UniMorph               | 75 lemmas, 77 inflected forms ([unimorph/tgk](https://github.com/unimorph/tgk))                                             |
+| Wikidata labels        | 629,821 Wikidata items have a label in Tajik. (Wikidata codes (labels): tg-latn (629,821), tg (369,219), tg-cyrl (164,782)) |
+| Wordnets               | **None found**                                                                                                              |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                               |
-|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                   |
-| Bible translations (eBible corpus)                                                       | **Portions only** — 1 translation: portions ([tgk](https://ebible.org/details.php?id=tgk), by-nc-nd 4.0). |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                      |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Cyrl script) — paired with English                                                       |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                         |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                               |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 14,120,860 sentence pairs with English across 13 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (13,253,566), [ParaCrawl-Bonus](https://opus.nlpl.eu/ParaCrawl-Bonus) (343,408), [CCAligned](https://opus.nlpl.eu/CCAligned) (251,866), [Tanzil](https://opus.nlpl.eu/Tanzil) (128,026), [KDE4](https://opus.nlpl.eu/KDE4) (84,015). |
+| Bible translations (eBible corpus)                                                       | **Portions only** — 1 translation: portions ([tgk](https://ebible.org/details.php?id=tgk), by-nc-nd 4.0).                                                                                                                                                                                                                                 |
+| Tatoeba                                                                                  | 163 sentences, 79 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/tgk/none)).                                                                                                                                                                                                                          |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                      |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Cyrl script) — paired with English                                                                                                                                                                                                                                                                                       |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                                                                                                                                         |
 
 ### How good are we at identifying data?
 
@@ -75,7 +75,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=163), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.975 (P 0.971, R 0.980, FPR 1.08e-04) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.970).
+- **Best model:** GlotLID — F1 0.975 (P 0.971, R 0.980, FPR 1.07e-04) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.970).
 
 **All models (averaged over datasets):**
 
@@ -111,6 +111,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Tajik has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Tajik?

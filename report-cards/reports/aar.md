@@ -53,12 +53,12 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                          |
+|:-----------------------|:-------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                       |
+| UniMorph               | **None found**                                                                       |
+| Wikidata labels        | 481,696 Wikidata items have a label in Afar. (Wikidata codes (labels): aa (481,696)) |
+| Wordnets               | **None found**                                                                       |
 
 ### Parallel data (for machine translation)
 
@@ -66,9 +66,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                     |
+| OPUS                                                                                     | 11,239 sentence pairs with English across 2 corpora; largest: [QED](https://opus.nlpl.eu/QED) (11,190), [translatewiki](https://opus.nlpl.eu/translatewiki) (49).                                                                                                                                                           |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                 |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                  |
+| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                                                                                                                                                                                 |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                           |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                         |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_aa) en → aa: 3,990 lexicon entries; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_aa) en → aa: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_aa) en → aa: size not listed |
@@ -114,6 +114,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Afar has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/aar/) video of Afar yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

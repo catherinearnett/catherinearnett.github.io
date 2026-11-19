@@ -49,25 +49,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 524,348 Wikidata items have a label in Dhivehi. (Wikidata codes (labels): dv (524,348)) |
+| Wordnets               | **None found**                                                                          |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Thaa script) — paired with English                                                                                                         |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_dv) en → dv: 3,973 lexicon entries                                                 |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                    |
+|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 95,809 sentence pairs with English across 6 corpora; largest: [Tanzil](https://opus.nlpl.eu/Tanzil) (93,540), [QED](https://opus.nlpl.eu/QED) (1,052), [translatewiki](https://opus.nlpl.eu/translatewiki) (902), [wikimedia](https://opus.nlpl.eu/wikimedia) (258), [GNOME](https://opus.nlpl.eu/GNOME) (53). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                    |
+| Tatoeba                                                                                  | 58 sentences, 56 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/div/none)).                                                                                                                                                                                                |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                              |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Thaa script) — paired with English                                                                                                                                                                                                                                                            |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_dv) en → dv: 3,973 lexicon entries                                                                                                                                                                                                    |
 
 ### How good are we at identifying data?
 
@@ -75,7 +75,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **4 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, funlangid.
 - **Eval datasets (4):** NTREX (n=300), Tatoeba (n=58), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** commonlingua — F1 0.995 (P 0.999, R 0.991, FPR 5.14e-06) averaged over 4 dataset(s). Runner-up: GlotLID (F1 0.995).
+- **Best model:** commonlingua — F1 0.995 (P 0.999, R 0.991, FPR 5.11e-06) averaged over 4 dataset(s). Runner-up: GlotLID (F1 0.995).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -112,6 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Dhivehi has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Dhivehi?

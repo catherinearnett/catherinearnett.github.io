@@ -59,7 +59,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                 |
 | UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wikidata labels        | 24 Wikidata items have a label in Palauan. (Wikidata codes (labels): pau (24)) |
 | Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
@@ -68,9 +68,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| OPUS                                                                                     | 442 sentence pairs with English across 1 corpora; largest: [Tatoeba](https://opus.nlpl.eu/Tatoeba) (442).                                                   |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| Tatoeba                                                                                  | 757 sentences, 601 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/pau/none)).                                           |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
@@ -116,6 +116,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Palauan has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Palauan?

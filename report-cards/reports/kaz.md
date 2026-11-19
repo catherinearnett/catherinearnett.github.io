@@ -76,21 +76,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 1,078 sentences / 10,495 tokens in total: [UD_Kazakh-KTB](https://github.com/UniversalDependencies/UD_Kazakh-KTB) (1,078 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 26 lemmas, 357 inflected forms ([unimorph/kaz](https://github.com/unimorph/kaz))                                                                                                                                        |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                          |
+| Wikidata labels        | 690,801 Wikidata items have a label in Kazakh. (Wikidata codes (labels): kk-latn (690,801), kk (460,462), kk-cyrl (228,129), kk-arab (220,259))                                                                         |
 | Wordnets               | **None found**                                                                                                                                                                                                          |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                                                                        |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Cyrl script) — paired with English                                                                                                         |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                        |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 35,685,135 sentence pairs with English across 16 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (34,589,761), [CCAligned](https://opus.nlpl.eu/CCAligned) (689,653), [XLEnt](https://opus.nlpl.eu/XLEnt) (161,706), [KDE4](https://opus.nlpl.eu/KDE4) (69,833), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (61,649). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                        |
+| Tatoeba                                                                                  | 4,577 sentences, 623 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/kaz/none)).                                                                                                                                                                                                                |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                               |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Cyrl script) — paired with English                                                                                                                                                                                                                                                                                |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                                                                                                                                  |
 
 ### How good are we at identifying data?
 
@@ -98,7 +98,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.988 (P 0.987, R 0.990, FPR 7.59e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.890).
+- **Best model:** GlotLID — F1 0.988 (P 0.987, R 0.990, FPR 7.54e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.890).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -108,7 +108,7 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.987 |    0.990 | 0.988 | 0.000 | ✓                |
 | cld2         |       0.839 |    0.981 | 0.890 | 0.002 | ✓                |
-| pyfranc      |       0.836 |    0.922 | 0.875 | 0.003 | ✓                |
+| pyfranc      |       0.836 |    0.922 | 0.875 | 0.002 | ✓                |
 | commonlingua |       0.844 |    0.965 | 0.874 | 0.002 | ✓                |
 | funlangid    |       0.848 |    0.877 | 0.861 | 0.002 | ✓                |
 | py3langid    |       0.775 |    0.987 | 0.838 | 0.005 | ✓                |

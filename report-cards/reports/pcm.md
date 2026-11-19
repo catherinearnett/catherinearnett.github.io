@@ -51,7 +51,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 9,241 sentences / 140,837 tokens in total: [UD_Naija-NSC](https://github.com/UniversalDependencies/UD_Naija-NSC) (9,241 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                         |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                         |
+| Wikidata labels        | 8,363 Wikidata items have a label in Nigerian Pidgin. (Wikidata codes (labels): pcm (8,363))                                                                                                                           |
 | Wordnets               | **None found**                                                                                                                                                                                                         |
 
 ### Parallel data (for machine translation)
@@ -60,9 +60,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                     |
+| OPUS                                                                                     | 3,750 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (2,832), [wikimedia](https://opus.nlpl.eu/wikimedia) (918).                                                                                                                                                |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                 |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                  |
+| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                                                                                                                                                                                 |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                           |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                         |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_pcm) en → pcm: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_pcm) en → pcm: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_pcm) en → pcm: size not listed |
@@ -73,7 +73,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **7 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (3):** SmolSent (n=300), UDHR-LID (n=56), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.945 (P 0.999, R 0.899, FPR 6.64e-06) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.853).
+- **Best model:** GlotLID — F1 0.945 (P 0.999, R 0.899, FPR 6.60e-06) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.853).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -109,6 +109,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Nigerian Pidgin has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Nigerian Pidgin?

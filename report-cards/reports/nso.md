@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                                                  |
 | UniMorph               | **None found**                                                                                                                                                                  |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                  |
+| Wikidata labels        | 483,305 Wikidata items have a label in Sepedi. (Wikidata codes (labels): nso (483,305))                                                                                         |
 | Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
 
 ### Parallel data (for machine translation)
@@ -62,9 +62,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                     |
+| OPUS                                                                                     | 3,487,989 sentence pairs with English across 5 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (3,444,258), [GNOME](https://opus.nlpl.eu/GNOME) (39,551), [wikimedia](https://opus.nlpl.eu/wikimedia) (2,693), [translatewiki](https://opus.nlpl.eu/translatewiki) (951), [KDE4](https://opus.nlpl.eu/KDE4) (536).      |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                 |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                  |
+| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                                                                                                                                                                                 |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                        |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                         |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_nso) en → nso: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_nso) en → nso: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_nso) en → nso: size not listed |
@@ -75,7 +75,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **9 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=99), FLORES (n=300), NTREX (n=300), SmolSent (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.820 (P 0.951, R 0.824, FPR 1.74e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.806).
+- **Best model:** GlotLID — F1 0.820 (P 0.951, R 0.824, FPR 1.73e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.806).
 
 **All models (averaged over datasets):**
 
@@ -112,6 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Sepedi has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Sepedi?

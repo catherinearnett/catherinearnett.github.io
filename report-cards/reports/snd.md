@@ -63,21 +63,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 5,766 sentences / 95,358 tokens in total: [UD_Sindhi-Isra](https://github.com/UniversalDependencies/UD_Sindhi-Isra) (5,766 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                            |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                            |
+| Wikidata labels        | 404,687 Wikidata items have a label in Sindhi. (Wikidata codes (labels): sd (404,687))                                                                                                                                    |
 | Wordnets               | **None found**                                                                                                                                                                                                            |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Arab script); 997 sentences (Deva script) — the same sentences in 200+ languages                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Arab script) — paired with English                                                                                                         |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_sd-Deva) en → sd-Deva: size not listed                                             |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                          |
+|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 10,965,067 sentence pairs with English across 9 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (8,924,699), [CCMatrix](https://opus.nlpl.eu/CCMatrix) (1,717,573), [XLEnt](https://opus.nlpl.eu/XLEnt) (148,415), [Tanzil](https://opus.nlpl.eu/Tanzil) (93,540), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (53,821). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                          |
+| Tatoeba                                                                                  | 7 sentences, 7 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/snd/none)).                                                                                                                                                                                                                        |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Arab script); 997 sentences (Deva script) — the same sentences in 200+ languages                                                                                                                                                                                                                                    |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Arab script) — paired with English                                                                                                                                                                                                                                                                                  |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_sd-Deva) en → sd-Deva: size not listed                                                                                                                                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -85,7 +85,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **7 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid.
 - **Eval datasets (3):** FLORES (n=300), NTREX (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.997 (P 0.999, R 0.996, FPR 6.64e-06) averaged over 3 dataset(s). Runner-up: funlangid (F1 0.959).
+- **Best model:** GlotLID — F1 0.997 (P 0.999, R 0.996, FPR 6.61e-06) averaged over 3 dataset(s). Runner-up: funlangid (F1 0.959).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -121,6 +121,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Sindhi has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Sindhi?

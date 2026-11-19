@@ -63,21 +63,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                                                  |
 | UniMorph               | 566 lemmas, 49,119 inflected forms ([unimorph/zul](https://github.com/unimorph/zul))                                                                                            |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                  |
+| Wikidata labels        | 1,525,050 Wikidata items have a label in Zulu. (Wikidata codes (labels): zu (1,525,050))                                                                                        |
 | Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                    |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_zu) en → zu: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_zu) en → zu: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                               |
+|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 4,830,560 sentence pairs with English across 10 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (4,593,922), [CCAligned](https://opus.nlpl.eu/CCAligned) (126,103), [GNOME](https://opus.nlpl.eu/GNOME) (44,605), [XLEnt](https://opus.nlpl.eu/XLEnt) (28,394), [wikimedia](https://opus.nlpl.eu/wikimedia) (16,030). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                               |
+| Tatoeba                                                                                  | 99 sentences, 86 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/zul/none)).                                                                                                                                                                                                           |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                      |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                       |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_zu) en → zu: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_zu) en → zu: size not listed                                                                                                            |
 
 ### How good are we at identifying data?
 
@@ -85,7 +85,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=99), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.888 (P 0.872, R 0.916, FPR 1.82e-03) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.751).
+- **Best model:** GlotLID — F1 0.888 (P 0.872, R 0.916, FPR 1.81e-03) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.751).
 
 **All models (averaged over datasets):**
 
@@ -122,6 +122,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Zulu has no UD treebank yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Zulu?

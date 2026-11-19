@@ -49,25 +49,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                           |
+|:-----------------------|:--------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                        |
+| UniMorph               | **None found**                                                                        |
+| Wikidata labels        | 474,343 Wikidata items have a label in Sango. (Wikidata codes (labels): sg (474,343)) |
+| Wordnets               | **None found**                                                                        |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                        |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_sg) en → sg: size not listed                                                       |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                     |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 3,607,833 sentence pairs with English across 5 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (3,607,439), [translatewiki](https://opus.nlpl.eu/translatewiki) (364), [wikimedia](https://opus.nlpl.eu/wikimedia) (17), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (12), [QED](https://opus.nlpl.eu/QED) (1). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                     |
+| Tatoeba                                                                                  | 12 sentences, 12 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/sag/none)).                                                                                                                                                                                                 |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                            |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                               |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_sg) en → sg: size not listed                                                                                                                                                                                                           |
 
 ### How good are we at identifying data?
 
@@ -75,7 +75,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **7 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, fasttext, funlangid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), Tatoeba (n=12), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.838 (P 0.912, R 0.783, FPR 3.34e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.779).
+- **Best model:** GlotLID — F1 0.838 (P 0.912, R 0.783, FPR 3.32e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.779).
 
 **All models (averaged over datasets):**
 
@@ -110,6 +110,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Sango has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/sag/) video of Sango yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

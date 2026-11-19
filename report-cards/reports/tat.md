@@ -62,21 +62,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 148 sentences / 2,280 tokens in total: [UD_Tatar-NMCTT](https://github.com/UniversalDependencies/UD_Tatar-NMCTT) (148 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 1,283 lemmas, 7,832 inflected forms ([unimorph/tat](https://github.com/unimorph/tat))                                                                                                                                |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                       |
+| Wikidata labels        | 843,016 Wikidata items have a label in Tatar. (Wikidata codes (labels): tt (843,016))                                                                                                                                |
 | Wordnets               | **None found**                                                                                                                                                                                                       |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                                                                        |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Cyrl script) — paired with English                                                                                                         |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                              |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 10,832,993 sentence pairs with English across 11 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (10,495,969), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (126,003), [Tanzil](https://opus.nlpl.eu/Tanzil) (123,374), [XLEnt](https://opus.nlpl.eu/XLEnt) (33,305), [WikiMatrix](https://opus.nlpl.eu/WikiMatrix) (32,154). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                              |
+| Tatoeba                                                                                  | 102,481 sentences, 12,681 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/tat/none)).                                                                                                                                                                                                                 |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                     |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Cyrl script) — paired with English                                                                                                                                                                                                                                                                                      |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                                                                                                                                        |
 
 ### How good are we at identifying data?
 
@@ -84,7 +84,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.963 (P 0.953, R 0.975, FPR 7.38e-04) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.894).
+- **Best model:** GlotLID — F1 0.963 (P 0.953, R 0.975, FPR 7.37e-04) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.894).
 
 **All models (averaged over datasets):**
 

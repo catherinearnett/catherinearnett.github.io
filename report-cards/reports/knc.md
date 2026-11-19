@@ -53,12 +53,12 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                                          |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                       |
+| UniMorph               | **None found**                                                                                       |
+| Wikidata labels        | 440,307 Wikidata items have a label in Kanuri. (Wikidata codes (labels): kr (440,307), knc (35,592)) |
+| Wordnets               | **None found**                                                                                       |
 
 ### Parallel data (for machine translation)
 
@@ -66,9 +66,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                                                                                  |
+| OPUS                                                                                     | 646 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (597), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (43), [wikimedia](https://opus.nlpl.eu/wikimedia) (6).                                                                                                                                                                                                     |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                                                                                                              |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                                                                               |
+| Tatoeba                                                                                  | 3,800 sentences, 3,798 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/knc/none)).                                                                                                                                                                                                                                                                                                    |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Arab script); 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                                                                      |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Arab script) — paired with English                                                                                                                                                                                                                                                                                                                                                                      |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_kr) en → kr: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_kr) en → kr: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_kr) en → kr: size not listed ⚠️ Listed under the macrolanguage code `kau`, so this may cover other varieties as well as Kanuri. |
@@ -79,7 +79,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **5 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, fasttext, funlangid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=64)
-- **Best model:** GlotLID — F1 0.993 (P 0.995, R 0.990, FPR 1.97e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.892).
+- **Best model:** GlotLID — F1 0.993 (P 0.995, R 0.990, FPR 1.96e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.892).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 

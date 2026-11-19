@@ -49,25 +49,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                           |
+|:-----------------------|:--------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                        |
+| UniMorph               | **None found**                                                                        |
+| Wikidata labels        | 273,624 Wikidata items have a label in Khmer. (Wikidata codes (labels): km (273,624)) |
+| Wordnets               | **None found**                                                                        |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                    |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Khmr script) — the same sentences in 200+ languages                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Khmr script) — paired with English                                                                                                                                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_km) en → km: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_km) en → km: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                              |
+|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 8,637,938 sentence pairs with English across 16 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (5,863,140), [ParaCrawl-Bonus](https://opus.nlpl.eu/ParaCrawl-Bonus) (1,501,333), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (545,728), [CCAligned](https://opus.nlpl.eu/CCAligned) (412,382), [KDE4](https://opus.nlpl.eu/KDE4) (120,087). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                                              |
+| Tatoeba                                                                                  | 2,464 sentences, 1,311 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/khm/none)).                                                                                                                                                                                                                                    |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Khmr script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                                     |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Khmr script) — paired with English                                                                                                                                                                                                                                                                                                      |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_km) en → km: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_km) en → km: size not listed                                                                                                                                           |
 
 ### How good are we at identifying data?
 

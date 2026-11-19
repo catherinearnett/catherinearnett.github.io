@@ -71,7 +71,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                                                                         |
 | UniMorph               | **None found**                                                                                                                                                                                         |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                         |
+| Wikidata labels        | 1,981,673 Wikidata items have a label in Malay. (Wikidata codes (labels): ms (1,981,673), ms-arab (26,476))                                                                                            |
 | Wordnets               | [Wordnet Bahasa (Malaysian)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-zsm-1.4.tar.xz): 36,911 synsets, 38,755 words, 105,028 senses; licence: https://opensource.org/licenses/MIT/. |
 
 ### Parallel data (for machine translation)
@@ -80,9 +80,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| OPUS                                                                                     | 1,560 sentence pairs with English across 1 corpora; largest: [Tatoeba](https://opus.nlpl.eu/Tatoeba) (1,560).                                               |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| Tatoeba                                                                                  | 7,791 sentences, 4,049 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/zsm/none)).                                       |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                        |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                         |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ms-Arab) en → ms-Arab: size not listed                                             |
@@ -93,7 +93,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (5):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.880 (P 0.976, R 0.805, FPR 1.78e-04) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.863).
+- **Best model:** GlotLID — F1 0.880 (P 0.976, R 0.805, FPR 1.77e-04) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.863).
 
 **All models (averaged over datasets):**
 

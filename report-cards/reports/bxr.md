@@ -61,21 +61,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 927 sentences / 10,187 tokens in total: [UD_Buryat-BDT](https://github.com/UniversalDependencies/UD_Buryat-BDT) (927 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                      |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                      |
+| Wikidata labels        | 165,611 Wikidata items have a label in Buryat. (Wikidata codes (labels): bxr (165,611), bua (5))                                                                                                                    |
 | Wordnets               | **None found**                                                                                                                                                                                                      |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                      |
-|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                          |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                      |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                       |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_bua) en → bua: 3,976 lexicon entries ⚠️ Listed under the macrolanguage code `bua`, so this may cover other varieties as well as Buryat. |
+| Resource                                                                                 | What exists                                                                                                                                                                                                           |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 4,094 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (3,985), [wikimedia](https://opus.nlpl.eu/wikimedia) (109).                                          |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                           |
+| Tatoeba                                                                                  | 1,082 sentences, 40 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/bua/none)). ⚠️ Listed under the macrolanguage code `bua`, so this may cover other varieties as well as Buryat. |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                     |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                     |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_bua) en → bua: 3,976 lexicon entries ⚠️ Listed under the macrolanguage code `bua`, so this may cover other varieties as well as Buryat.      |
 
 ### How good are we at identifying data?
 
@@ -83,7 +83,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **4 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, fasttext, funlangid.
 - **Eval datasets (2):** Tatoeba (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.931 (P 0.980, R 0.888, FPR 1.41e-04) averaged over 2 dataset(s). Runner-up: commonlingua (F1 0.756).
+- **Best model:** GlotLID — F1 0.931 (P 0.980, R 0.888, FPR 1.40e-04) averaged over 2 dataset(s). Runner-up: commonlingua (F1 0.756).
 
 **All models (averaged over datasets):**
 

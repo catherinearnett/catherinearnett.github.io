@@ -59,7 +59,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                     |
 | UniMorph               | 75 lemmas, 1,200 inflected forms ([unimorph/kjh](https://github.com/unimorph/kjh)) |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._     |
+| Wikidata labels        | 30 Wikidata items have a label in Khakas. (Wikidata codes (labels): kjh (30))      |
 | Wordnets               | **None found**                                                                     |
 
 ### Parallel data (for machine translation)
@@ -68,9 +68,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                        |
 |:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                            |
+| OPUS                                                                                     | 4,424 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (4,406), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (18).                                            |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                        |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                         |
+| Tatoeba                                                                                  | 92 sentences, 22 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/kjh/none)).                                                                                                    |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                                                                                                                               |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Cyrl script) — paired with English                                                                                                                                                                |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__ru_kjh) ru → kjh: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__ru_kjh) ru → kjh: size not listed |
@@ -81,7 +81,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
 - **Eval datasets (2):** Tatoeba (n=92), UDHR-LID (n=57)
-- **Best model:** GlotLID — F1 0.975 (P 0.989, R 0.962, FPR 2.76e-05) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.705).
+- **Best model:** GlotLID — F1 0.975 (P 0.989, R 0.962, FPR 2.74e-05) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.705).
 
 **All models (averaged over datasets):**
 
@@ -114,6 +114,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Khakas has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/kjh/) video of Khakas yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

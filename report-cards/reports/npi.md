@@ -72,8 +72,8 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 69 sentences / 801 tokens in total: [UD_Nepali-BK](https://github.com/UniversalDependencies/UD_Nepali-BK) (69 sentences). It has POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `nep`, so this may cover other varieties as well as Nepali. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                  |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                  |
-| Wordnets               | nan (size not listed); [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                     |
+| Wikidata labels        | 312,583 Wikidata items have a label in Nepali. (Wikidata codes (labels): ne (312,583))                                                                                                                                                                                                                          |
+| Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; nan (size not listed).                                                                                     |
 
 ### Parallel data (for machine translation)
 
@@ -81,9 +81,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                    |
 |:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
+| OPUS                                                                                     | 415 sentence pairs with English across 1 corpora; largest: [Tatoeba](https://opus.nlpl.eu/Tatoeba) (415).                                                                                                      |
 | Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([npiulb](https://ebible.org/details.php?id=npiulb), by-sa 4.0).                                                                                                           |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
+| Tatoeba                                                                                  | 4,506 sentences, 3,644 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/npi/none)).                                                                                          |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Deva script) — the same sentences in 200+ languages                                                                                                                                           |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Deva script) — paired with English                                                                                                                                                            |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_ne) en → ne: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_ne) en → ne: size not listed |
@@ -94,7 +94,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=55), Wikipedia (n=300)
-- **Best model:** OpenLID-v2 — F1 0.971 (P 0.967, R 0.977, FPR 2.63e-04) averaged over 5 dataset(s). Runner-up: GlotLID (F1 0.963).
+- **Best model:** OpenLID-v2 — F1 0.971 (P 0.967, R 0.977, FPR 2.61e-04) averaged over 5 dataset(s). Runner-up: GlotLID (F1 0.963).
 
 **All models (averaged over datasets):**
 

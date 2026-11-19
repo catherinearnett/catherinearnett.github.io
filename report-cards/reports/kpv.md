@@ -61,7 +61,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 890 sentences / 10,472 tokens in total: [UD_Komi_Zyrian-IKDP](https://github.com/UniversalDependencies/UD_Komi_Zyrian-IKDP) (214 sentences), [UD_Komi_Zyrian-Lattice](https://github.com/UniversalDependencies/UD_Komi_Zyrian-Lattice) (676 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                |
+| Wikidata labels        | 170,331 Wikidata items have a label in Komi-Zyrian. (Wikidata codes (labels): kv (170,331))                                                                                                                                                                                                                                                   |
 | Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                                |
 
 ### Parallel data (for machine translation)
@@ -70,9 +70,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                   |
 |:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                       |
+| OPUS                                                                                     | 16 sentence pairs with English across 1 corpora; largest: [Tatoeba](https://opus.nlpl.eu/Tatoeba) (16).                                                                                                       |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                   |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                    |
+| Tatoeba                                                                                  | 84 sentences, 15 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/kpv/none)).                                                                                               |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                             |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                             |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_kv) en → kv: size not listed ⚠️ Listed under the macrolanguage code `kom`, so this may cover other varieties as well as Komi-Zyrian. |
@@ -83,7 +83,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
 - **Eval datasets (2):** Tatoeba (n=84), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.927 (P 0.991, R 0.871, FPR 2.37e-05) averaged over 2 dataset(s). Runner-up: commonlingua (F1 0.704).
+- **Best model:** GlotLID — F1 0.927 (P 0.991, R 0.871, FPR 2.36e-05) averaged over 2 dataset(s). Runner-up: commonlingua (F1 0.704).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -118,6 +118,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Komi-Zyrian has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/kpv/) video of Komi-Zyrian yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                          |
 | UniMorph               | 5,032 lemmas, 586,180 inflected forms ([unimorph/tyv](https://github.com/unimorph/tyv)) |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._          |
+| Wikidata labels        | 159,781 Wikidata items have a label in Tuvan. (Wikidata codes (labels): tyv (159,781))  |
 | Wordnets               | **None found**                                                                          |
 
 ### Parallel data (for machine translation)
@@ -62,9 +62,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                     |
+| OPUS                                                                                     | 4,772 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (4,757), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (8), [wikimedia](https://opus.nlpl.eu/wikimedia) (7).                                                                                                     |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                 |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                  |
+| Tatoeba                                                                                  | 88 sentences, 31 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/tyv/none)).                                                                                                                                                                                                             |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                        |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                           |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_tyv) en → tyv: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_tyv) en → tyv: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_tyv) en → tyv: size not listed |
@@ -75,7 +75,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **4 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), Tatoeba (n=88), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.976 (P 0.980, R 0.972, FPR 4.82e-05) averaged over 4 dataset(s). Runner-up: funlangid (F1 0.779).
+- **Best model:** GlotLID — F1 0.976 (P 0.980, R 0.972, FPR 4.79e-05) averaged over 4 dataset(s). Runner-up: funlangid (F1 0.779).
 
 **All models (averaged over datasets):**
 
@@ -110,6 +110,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Tuvan has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Tuvan?

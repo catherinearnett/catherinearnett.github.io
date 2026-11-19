@@ -57,21 +57,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 317 sentences / 8,197 tokens in total: [UD_Yoruba-YTB](https://github.com/UniversalDependencies/UD_Yoruba-YTB) (317 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                     |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                     |
+| Wikidata labels        | 992,873 Wikidata items have a label in Yoruba. (Wikidata codes (labels): yo (992,873))                                                                                                                             |
 | Wordnets               | **None found**                                                                                                                                                                                                     |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([yor](https://ebible.org/details.php?id=yor), by-sa 4.0).                                                                                                                 |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_yo) en → yo: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_yo) en → yo: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                              |
+|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 1,789,575 sentence pairs with English across 9 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (1,506,704), [CCAligned](https://opus.nlpl.eu/CCAligned) (175,193), [XLEnt](https://opus.nlpl.eu/XLEnt) (51,173), [wikimedia](https://opus.nlpl.eu/wikimedia) (40,048), [GNOME](https://opus.nlpl.eu/GNOME) (10,234). |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([yor](https://ebible.org/details.php?id=yor), by-sa 4.0).                                                                                                                                                                                                                           |
+| Tatoeba                                                                                  | 119 sentences, 58 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/yor/none)).                                                                                                                                                                                                         |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                     |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                      |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_yo) en → yo: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_yo) en → yo: size not listed                                                                                                           |
 
 ### How good are we at identifying data?
 
@@ -79,7 +79,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (7):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=119), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.967 (P 0.979, R 0.959, FPR 9.31e-05) averaged over 7 dataset(s). Runner-up: fasttext (F1 0.866).
+- **Best model:** GlotLID — F1 0.967 (P 0.979, R 0.959, FPR 9.29e-05) averaged over 7 dataset(s). Runner-up: fasttext (F1 0.866).
 
 **All models (averaged over datasets):**
 
@@ -117,6 +117,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Yoruba has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Yoruba?

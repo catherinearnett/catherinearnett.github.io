@@ -55,25 +55,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                    |
-|:-----------------------|:-------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                 |
-| UniMorph               | **None found**                                                                 |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
-| Wordnets               | **None found**                                                                 |
+| Resource               | What exists                                                                                |
+|:-----------------------|:-------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                             |
+| UniMorph               | **None found**                                                                             |
+| Wikidata labels        | 489,125 Wikidata items have a label in Tok Pisin. (Wikidata codes (labels): tpi (489,125)) |
+| Wordnets               | **None found**                                                                             |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                         |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                             |
-| Bible translations (eBible corpus)                                                       | **Yes** — 2 translations: full Bible ([tpi](https://ebible.org/details.php?id=tpi), by-nc-nd 4.0); full Bible ([tpiOTNT](https://ebible.org/details.php?id=tpiOTNT), by-nc-nd 4.0). |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                          |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                 |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_tpi) en → tpi: size not listed                                                                             |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 2,164,196 sentence pairs with English across 4 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (2,163,376), [translatewiki](https://opus.nlpl.eu/translatewiki) (571), [wikimedia](https://opus.nlpl.eu/wikimedia) (198), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (51). |
+| Bible translations (eBible corpus)                                                       | **Yes** — 2 translations: full Bible ([tpi](https://ebible.org/details.php?id=tpi), by-nc-nd 4.0); full Bible ([tpiOTNT](https://ebible.org/details.php?id=tpiOTNT), by-nc-nd 4.0).                                                                                         |
+| Tatoeba                                                                                  | 135 sentences, 81 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/tpi/none)).                                                                                                                                                            |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                        |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                         |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_tpi) en → tpi: size not listed                                                                                                                                                                     |
 
 ### How good are we at identifying data?
 
@@ -81,7 +81,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), Tatoeba (n=135), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.980 (P 0.989, R 0.972, FPR 3.95e-05) averaged over 4 dataset(s). Runner-up: fasttext (F1 0.960).
+- **Best model:** GlotLID — F1 0.980 (P 0.989, R 0.972, FPR 3.92e-05) averaged over 4 dataset(s). Runner-up: fasttext (F1 0.960).
 
 **All models (averaged over datasets):**
 
@@ -116,6 +116,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Tok Pisin has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Tok Pisin?

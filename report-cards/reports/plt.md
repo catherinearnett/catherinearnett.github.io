@@ -62,7 +62,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                                                         |
 | UniMorph               | 159 lemmas, 644 inflected forms ([unimorph/mlg](https://github.com/unimorph/mlg)) ⚠️ Listed under the macrolanguage code `mlg`, so this may cover other varieties as well as Malagasy. |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                         |
+| Wikidata labels        | 1,333,196 Wikidata items have a label in Malagasy. (Wikidata codes (labels): mg (1,333,196))                                                                                           |
 | Wordnets               | **None found**                                                                                                                                                                         |
 
 ### Parallel data (for machine translation)
@@ -71,9 +71,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                         |
 |:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                             |
+| OPUS                                                                                     | 61,919 sentence pairs with English across 1 corpora; largest: [bible-uedin](https://opus.nlpl.eu/bible-uedin) (61,919).                                                                                                                                                                                             |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                         |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                          |
+| Tatoeba                                                                                  | 74 sentences, 60 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/mlg/none)). ⚠️ Listed under the macrolanguage code `mlg`, so this may cover other varieties as well as Malagasy.                                                                                                |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                 |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_mg) en → mg: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_mg) en → mg: size not listed ⚠️ Listed under the macrolanguage code `mlg`, so this may cover other varieties as well as Malagasy. |
@@ -84,7 +84,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (7):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=74), UDHR-LID (n=53), Wikipedia (n=300)
-- **Best model:** OpenLID-v2 — F1 0.970 (P 0.979, R 0.962, FPR 7.33e-05) averaged over 7 dataset(s). Runner-up: GlotLID (F1 0.968).
+- **Best model:** OpenLID-v2 — F1 0.970 (P 0.979, R 0.962, FPR 7.27e-05) averaged over 7 dataset(s). Runner-up: GlotLID (F1 0.968).
 
 **All models (averaged over datasets):**
 
@@ -122,6 +122,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Malagasy has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Malagasy?

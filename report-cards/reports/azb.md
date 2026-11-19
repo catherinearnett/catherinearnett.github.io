@@ -79,21 +79,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 148 sentences / 902 tokens in total: [UD_Azerbaijani-TueCL](https://github.com/UniversalDependencies/UD_Azerbaijani-TueCL) (148 sentences). It has POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `aze`, so this may cover other varieties as well as Turkmen. |
 | UniMorph               | 340 lemmas, 8,004 inflected forms ([unimorph/aze](https://github.com/unimorph/aze)) ⚠️ Listed under the macrolanguage code `aze`, so this may cover other varieties as well as Turkmen.                                                                                                                                            |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                     |
+| Wikidata labels        | 757,253 Wikidata items have a label in Turkmen. (Wikidata codes (labels): azb (757,253))                                                                                                                                                                                                                                           |
 | Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                     |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                       |
-|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                           |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([azb](https://ebible.org/details.php?id=azb), by-nc-nd 4.0). |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                        |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Arab script) — the same sentences in 200+ languages                              |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Arab script) — paired with English                                               |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                 |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 10,107 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (8,499), [wikimedia](https://opus.nlpl.eu/wikimedia) (1,608).                                             |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([azb](https://ebible.org/details.php?id=azb), by-nc-nd 4.0).                                                                                                                           |
+| Tatoeba                                                                                  | 13,546 sentences, 11,073 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/aze/none)). ⚠️ Listed under the macrolanguage code `aze`, so this may cover other varieties as well as Turkmen. |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Arab script) — the same sentences in 200+ languages                                                                                                                                                        |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Arab script) — paired with English                                                                                                                                                                         |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                           |
 
 ### How good are we at identifying data?
 
@@ -101,7 +101,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **4 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext.
 - **Eval datasets (2):** FLORES (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.949 (P 0.977, R 0.922, FPR 1.45e-04) averaged over 2 dataset(s). Runner-up: OpenLID-v2 (F1 0.804).
+- **Best model:** GlotLID — F1 0.949 (P 0.977, R 0.922, FPR 1.44e-04) averaged over 2 dataset(s). Runner-up: OpenLID-v2 (F1 0.804).
 
 **All models (averaged over datasets):**
 

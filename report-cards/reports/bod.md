@@ -49,25 +49,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                           |
-|:-----------------------|:--------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                        |
-| UniMorph               | 1,335 lemmas, 5,067 inflected forms ([unimorph/bod](https://github.com/unimorph/bod)) |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._        |
-| Wordnets               | **None found**                                                                        |
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | 1,335 lemmas, 5,067 inflected forms ([unimorph/bod](https://github.com/unimorph/bod))   |
+| Wikidata labels        | 290,660 Wikidata items have a label in Tibetan. (Wikidata codes (labels): bo (290,660)) |
+| Wordnets               | **None found**                                                                          |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                          |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                              |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                          |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                           |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Tibt script) — the same sentences in 200+ languages                                                                                                                                                 |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Tibt script) — paired with English                                                                                                                                                                  |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_bo) en → bo: 3,994 lexicon entries; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_bo) en → bo: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                             |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 723,648 sentence pairs with English across 7 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (714,577), [GNOME](https://opus.nlpl.eu/GNOME) (5,877), [translatewiki](https://opus.nlpl.eu/translatewiki) (1,634), [TED2020](https://opus.nlpl.eu/TED2020) (964), [wikimedia](https://opus.nlpl.eu/wikimedia) (403). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                             |
+| Tatoeba                                                                                  | 53 sentences, 42 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/bod/none)).                                                                                                                                                                                                         |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Tibt script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                    |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Tibt script) — paired with English                                                                                                                                                                                                                                                                     |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_bo) en → bo: 3,994 lexicon entries; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_bo) en → bo: size not listed                                                                                                    |
 
 ### How good are we at identifying data?
 
@@ -75,7 +75,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **7 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=53), UDHR-LID (n=60), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.955 (P 0.973, R 0.937, FPR 1.65e-04) averaged over 6 dataset(s). Runner-up: commonlingua (F1 0.891).
+- **Best model:** GlotLID — F1 0.955 (P 0.973, R 0.937, FPR 1.64e-04) averaged over 6 dataset(s). Runner-up: commonlingua (F1 0.891).
 
 **All models (averaged over datasets):**
 
@@ -112,6 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Tibetan has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Tibetan?

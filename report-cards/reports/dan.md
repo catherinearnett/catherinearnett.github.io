@@ -62,54 +62,54 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 5,512 sentences / 100,733 tokens in total: [UD_Danish-DDT](https://github.com/UniversalDependencies/UD_Danish-DDT) (5,512 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 4,182 lemmas, 31,903 inflected forms ([unimorph/dan](https://github.com/unimorph/dan))                                                                                                                                   |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                           |
+| Wikidata labels        | 4,725,654 Wikidata items have a label in Danish. (Wikidata codes (labels): da (4,725,654))                                                                                                                               |
 | Wordnets               | [DanNet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-da-1.4.tar.xz): 4,476 synsets, 4,521 words, 5,859 senses; licence: wordnet.                                                                         |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                |
-|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                    |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([dan1931](https://ebible.org/details.php?id=dan1931), Public Domain). |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                 |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                       |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                        |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                          |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                             |
+|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 388,833,592 sentence pairs with English across 90 corpora; largest: [MultiHPLT](https://opus.nlpl.eu/MultiHPLT) (68,815,563), [HPLT](https://opus.nlpl.eu/HPLT) (68,815,563), [CCMatrix](https://opus.nlpl.eu/CCMatrix) (52,273,664), [NLLB](https://opus.nlpl.eu/NLLB) (52,273,664), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (50,915,427). |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([dan1931](https://ebible.org/details.php?id=dan1931), Public Domain).                                                                                                                                                                                                                                              |
+| Tatoeba                                                                                  | 66,563 sentences, 44,450 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/dan/none)).                                                                                                                                                                                                                                 |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                                    |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                                                     |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                                                                                                                                                       |
 
 ### How good are we at identifying data?
 
 Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: cld2, cld3, funlangid, py3langid.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=61), Wikipedia (n=300)
-- **Best model:** py3langid — F1 0.957 (P 0.943, R 0.972, FPR 5.94e-04) averaged over 5 dataset(s). Runner-up: cld3 (F1 0.895).
+- **Best model:** fasttext — F1 0.962 (P 0.944, R 0.981, FPR 4.76e-04) averaged over 5 dataset(s). Runner-up: GlotLID (F1 0.960).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
+| fasttext     |       0.944 |    0.981 | 0.962 | 0.000 | ✓                |
+| GlotLID      |       0.959 |    0.964 | 0.960 | 0.000 | ✓                |
 | py3langid    |       0.943 |    0.972 | 0.957 | 0.001 | ✓                |
+| OpenLID-v2   |       0.875 |    0.939 | 0.904 | 0.001 | ✓                |
 | cld3         |       0.882 |    0.909 | 0.895 | 0.002 | ✓                |
 | cld2         |       0.901 |    0.894 | 0.895 | 0.001 | ✓                |
+| commonlingua |       0.906 |    0.753 | 0.820 | 0.001 | ✓                |
+| pyfranc      |       0.866 |    0.777 | 0.813 | 0.001 | ✓                |
 | funlangid    |       0.841 |    0.523 | 0.643 | 0.001 | ✓                |
 | AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
-| GlotLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
-| OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
-| commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
-| fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
-| pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
-**Best model (py3langid) by dataset**:
+**Best model (fasttext) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.887 |    0.917 | 0.902 |
-| UDHR-LID  |  61 |       0.923 |    0.984 | 0.952 |
-| Wikipedia | 300 |       0.927 |    0.980 | 0.953 |
+| Tatoeba   | 300 |       0.897 |    0.933 | 0.915 |
+| UDHR-LID  |  61 |       0.910 |    1.000 | 0.953 |
+| Wikipedia | 300 |       0.928 |    0.987 | 0.956 |
 | NTREX     | 300 |       0.987 |    0.987 | 0.987 |
-| FLORES    | 300 |       0.990 |    0.993 | 0.992 |
+| FLORES    | 300 |       1.000 |    0.997 | 0.998 |
 
 ### What can you do?
 

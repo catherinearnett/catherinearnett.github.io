@@ -63,21 +63,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 228 sentences / 3,094 tokens in total: [UD_Karelian-KKPP](https://github.com/UniversalDependencies/UD_Karelian-KKPP) (228 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 20 lemmas, 682 inflected forms ([unimorph/krl](https://github.com/unimorph/krl))                                                                                                                                         |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                           |
+| Wikidata labels        | 428,467 Wikidata items have a label in Karelian. (Wikidata codes (labels): krl (428,467))                                                                                                                                |
 | Wordnets               | **None found**                                                                                                                                                                                                           |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
+| Resource                                                                                 | What exists                                                                                                                                                              |
+|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 1,394 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (1,245), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (149). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.              |
+| Tatoeba                                                                                  | 196 sentences, 128 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/krl/none)).                                                        |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                        |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                        |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                        |
 
 ### How good are we at identifying data?
 
@@ -85,7 +85,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, pyfranc.
 - **Eval datasets (2):** Tatoeba (n=196), UDHR-LID (n=183)
-- **Best model:** pyfranc — F1 0.637 (P 0.761, R 0.592, FPR 8.93e-04) averaged over 2 dataset(s). Runner-up: GlotLID (F1 0.158).
+- **Best model:** pyfranc — F1 0.637 (P 0.761, R 0.592, FPR 8.87e-04) averaged over 2 dataset(s). Runner-up: GlotLID (F1 0.158).
 
 **All models (averaged over datasets):**
 
@@ -118,6 +118,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Karelian has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/krl/) video of Karelian yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

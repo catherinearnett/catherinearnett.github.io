@@ -57,25 +57,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                      |
-|:-----------------------|:---------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                   |
-| UniMorph               | 23 lemmas, 368 inflected forms ([unimorph/kal](https://github.com/unimorph/kal)) |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._   |
-| Wordnets               | **None found**                                                                   |
+| Resource               | What exists                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                              |
+| UniMorph               | 23 lemmas, 368 inflected forms ([unimorph/kal](https://github.com/unimorph/kal))            |
+| Wikidata labels        | 550,373 Wikidata items have a label in Greenlandic. (Wikidata codes (labels): kl (550,373)) |
+| Wordnets               | **None found**                                                                              |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                    |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                              |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_kl) en → kl: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_kl) en → kl: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                      |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 6,269 sentence pairs with English across 4 corpora; largest: [QED](https://opus.nlpl.eu/QED) (5,809), [translatewiki](https://opus.nlpl.eu/translatewiki) (367), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (49), [wikimedia](https://opus.nlpl.eu/wikimedia) (44). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                      |
+| Tatoeba                                                                                  | 178 sentences, 103 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/kal/none)).                                                                                                                                                |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                              |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_kl) en → kl: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_kl) en → kl: size not listed                                                   |
 
 ### How good are we at identifying data?
 
@@ -83,7 +83,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (4):** SmolSent (n=300), Tatoeba (n=178), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.970 (P 0.972, R 0.969, FPR 1.51e-04) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.968).
+- **Best model:** GlotLID — F1 0.970 (P 0.972, R 0.969, FPR 1.50e-04) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.968).
 
 **All models (averaged over datasets):**
 
@@ -118,6 +118,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Greenlandic has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Greenlandic?

@@ -51,7 +51,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 313 sentences / 1,008 tokens in total: [UD_Gwichin-TueCL](https://github.com/UniversalDependencies/UD_Gwichin-TueCL) (313 sentences). It has POS tags, dependency syntax, lemmas. |
 | UniMorph               | **None found**                                                                                                                                                                                |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                |
+| Wikidata labels        | 1 Wikidata items have a label in Dinjii Zhuʼ Ginjik. (Wikidata codes (labels): gwi (1))                                                                                                       |
 | Wordnets               | **None found**                                                                                                                                                                                |
 
 ### Parallel data (for machine translation)
@@ -60,9 +60,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                              |
 |:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                  |
+| OPUS                                                                                     | **No sentence pairs with English in OPUS**                                                               |
 | Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament ([gwiNT](https://ebible.org/details.php?id=gwiNT), by-nc-nd 4.0). |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                               |
+| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                              |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                        |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                        |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                        |
@@ -84,6 +84,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Dinjii Zhuʼ Ginjik has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Dinjii Zhuʼ Ginjik?

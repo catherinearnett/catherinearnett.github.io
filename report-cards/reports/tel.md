@@ -62,21 +62,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 1,328 sentences / 6,465 tokens in total: [UD_Telugu-MTG](https://github.com/UniversalDependencies/UD_Telugu-MTG) (1,328 sentences). It has POS tags, dependency syntax, morphological features. |
 | UniMorph               | 127 lemmas, 1,548 inflected forms ([unimorph/tel](https://github.com/unimorph/tel))                                                                                                                         |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                              |
+| Wikidata labels        | 643,871 Wikidata items have a label in Telugu. (Wikidata codes (labels): te (643,871))                                                                                                                      |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                            |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([tel2017](https://ebible.org/details.php?id=tel2017), by-sa 4.0).                                                                                                         |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Telu script) — the same sentences in 200+ languages                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script); 1,358 sentences (Telu script) — paired with English                                                                                                                             |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_te) en → te: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_te) en → te: size not listed |
+| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                                |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 55,907,602 sentence pairs with English across 20 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (46,376,267), [Samanantar](https://opus.nlpl.eu/Samanantar) (4,946,036), [Anuvaad](https://opus.nlpl.eu/Anuvaad) (1,578,731), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (1,355,728), [CCAligned](https://opus.nlpl.eu/CCAligned) (581,652). |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([tel2017](https://ebible.org/details.php?id=tel2017), by-sa 4.0).                                                                                                                                                                                                                                                     |
+| Tatoeba                                                                                  | 318 sentences, 314 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/tel/none)).                                                                                                                                                                                                                                          |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Telu script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                                       |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script); 1,358 sentences (Telu script) — paired with English                                                                                                                                                                                                                                                                         |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_te) en → te: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_te) en → te: size not listed                                                                                                                                             |
 
 ### How good are we at identifying data?
 
@@ -84,7 +84,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.999 (P 0.999, R 0.999, FPR 1.49e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.999).
+- **Best model:** GlotLID — F1 0.999 (P 0.999, R 0.999, FPR 1.48e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.999).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -122,6 +122,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Telugu and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Telugu?

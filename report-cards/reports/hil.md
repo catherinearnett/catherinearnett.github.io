@@ -55,25 +55,25 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                        |
-|:-----------------------|:-----------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                     |
-| UniMorph               | 97 lemmas, 1,256 inflected forms ([unimorph/hil](https://github.com/unimorph/hil)) |
-| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._     |
-| Wordnets               | **None found**                                                                     |
+| Resource               | What exists                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                              |
+| UniMorph               | 97 lemmas, 1,256 inflected forms ([unimorph/hil](https://github.com/unimorph/hil))          |
+| Wikidata labels        | 433,037 Wikidata items have a label in Hiligaynon. (Wikidata codes (labels): hil (433,037)) |
+| Wordnets               | **None found**                                                                              |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_hil) en → hil: 4,001 lexicon entries                                               |
+| Resource                                                                                 | What exists                                                                                                                                                             |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | 5,252 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (5,230), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (22). |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.             |
+| Tatoeba                                                                                  | 44 sentences, 22 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/hil/none)).                                                         |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                       |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                       |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_hil) en → hil: 4,001 lexicon entries                                                           |
 
 ### How good are we at identifying data?
 
@@ -81,7 +81,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 - **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
 - **Eval datasets (2):** Tatoeba (n=44), UDHR-LID (n=58)
-- **Best model:** GlotLID — F1 0.777 (P 0.728, R 0.852, FPR 5.09e-04) averaged over 2 dataset(s). Runner-up: pyfranc (F1 0.563).
+- **Best model:** GlotLID — F1 0.777 (P 0.728, R 0.852, FPR 5.05e-04) averaged over 2 dataset(s). Runner-up: pyfranc (F1 0.563).
 
 **All models (averaged over datasets):**
 
@@ -114,6 +114,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Hiligaynon has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Hiligaynon?
