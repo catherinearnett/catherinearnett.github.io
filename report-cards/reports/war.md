@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 3.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Philippines
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,267,056 articles in war.wikipedia; 70 active users. This is ~1/6 of English data and ranks 14 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                  |
-| Common Crawl           | 37,157 pages per crawl on average, which is 0.0017% of the crawl (2026). This is ~1/23,993 of English data and ranks 82 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                       |
-| FineWeb                | 1.8 MB (war_Latn 0), equivalent to ≈1.6 MB of English after byte-premium scaling; 0.66 GB removed by filtering. This is ~1/30,024,762 of English data and ranks 186 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.22 GB (war_Latn 0.22 GB) (rank 105 of the 166 languages in the set that have any; 166 have none)                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,267,056 articles in war.wikipedia; 70 active users. This is ~1/6 of English data and ranks 14 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | 37,157 pages per crawl on average, which is 0.0017% of the crawl (2026). This is ~1/23,993 of English data and ranks 82 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                            |
+| FineWeb                | 1.8 MB (war_Latn 2.0 MB), equivalent to ≈1.6 MB of English after byte-premium scaling; 0.66 GB removed by filtering. This is ~1/30,024,762 of English data and ranks 194 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.22 GB (war_Latn 0.22 GB) (rank 108 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 

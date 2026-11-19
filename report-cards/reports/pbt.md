@@ -42,8 +42,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 21,365 articles in ps.wikipedia; 67 active users. ⚠️ NB: recorded under the macrolanguage code `pus`, which can include other varieties of Pashto.                                                                                             |
 | Common Crawl           | 93,060 pages per crawl on average, which is 0.0043% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `pus`, which can include other varieties of Pashto.                                                                      |
-| FineWeb                | 0.86 GB (pbt_Arab 0.86 GB), equivalent to ≈0.50 GB of English after byte-premium scaling; 0.53 GB removed by filtering. This is ~1/61,786 of English data and ranks 74 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.40 GB (pbt_Arab 0.40 GB) (rank 99 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
+| FineWeb                | 0.86 GB (pbt_Arab 0.86 GB), equivalent to ≈0.50 GB of English after byte-premium scaling; 0.53 GB removed by filtering. This is ~1/61,786 of English data and ranks 75 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.40 GB (pbt_Arab 0.40 GB) (rank 102 of the 171 languages in the set that have any; 161 have none)                                                                                                                                             |
 
 ### Structured and annotated data
 

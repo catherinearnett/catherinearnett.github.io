@@ -43,7 +43,7 @@ Let's consider some of the most popular sources of training data:
 | Wikipedia              | 1,101,428 articles in fa.wikipedia; 8,324 active users. ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Dari (`prs`) and overstates Persian.                      |
 | Common Crawl           | 10,945,849 pages per crawl on average, which is 0.5082% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Dari (`prs`) and overstates Persian. |
 | FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                     |
-| Goldfish training data | 12.52 GB (pes_Arab 12.52 GB) (rank 5 of the 166 languages in the set that have any; 166 have none)                                                                                                 |
+| Goldfish training data | 12.52 GB (pes_Arab 12.52 GB) (rank 5 of the 171 languages in the set that have any; 161 have none)                                                                                                 |
 
 ### Structured and annotated data
 

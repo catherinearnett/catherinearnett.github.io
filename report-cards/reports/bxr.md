@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                               |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,919 articles in bxr.wikipedia; 19 active users. This is ~1/2,585 of English data and ranks 130 of the 168 languages in the set with any data in Wikipedia; 164 have none.          |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
-| FineWeb                | 23.7 MB (bxr_Cyrl 20.0 MB); 26.3 MB removed by filtering. This is ~1/2,256,951 of English data and ranks 125 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 45.1 MB (bxr_Cyrl 45.0 MB) (rank 136 of the 166 languages in the set that have any; 166 have none)                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                             |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,919 articles in bxr.wikipedia; 19 active users. This is ~1/2,585 of English data and ranks 130 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
+| FineWeb                | 23.7 MB (bxr_Cyrl 24.0 MB), equivalent to ≈12.5 MB of English after byte-premium scaling; 26.3 MB removed by filtering. This is ~1/2,256,951 of English data and ranks 130 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 45.1 MB (bxr_Cyrl 45.0 MB) (rank 139 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
@@ -217,7 +217,7 @@ _⚠️ Listed under the macrolanguage code `bua`, so this may cover other varie
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Buryat datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Buryat? Does it make sense to train one?
-  - ~27.0 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~338.0K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~23.9 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~298.7K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 13.0B, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

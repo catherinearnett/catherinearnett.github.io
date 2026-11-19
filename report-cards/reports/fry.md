@@ -47,12 +47,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 61,190 articles in fy.wikipedia; 83 active users. This is ~1/123 of English data and ranks 67 of the 168 languages in the set with any data in Wikipedia; 164 have none.                              |
-| Common Crawl           | 48,571 pages per crawl on average, which is 0.0023% of the crawl (2026). This is ~1/18,355 of English data and ranks 77 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
-| FineWeb                | 0.34 GB (fry_Latn 0.34 GB); 0.30 GB removed by filtering. This is ~1/159,314 of English data and ranks 89 of the 248 languages in the set with any data in FineWeb; 84 have none.                     |
-| Goldfish training data | 0.64 GB (fry_Latn 0.64 GB) (rank 83 of the 166 languages in the set that have any; 166 have none)                                                                                                     |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 61,190 articles in fy.wikipedia; 83 active users. This is ~1/123 of English data and ranks 67 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | 48,571 pages per crawl on average, which is 0.0023% of the crawl (2026). This is ~1/18,355 of English data and ranks 77 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                           |
+| FineWeb                | 0.34 GB (fry_Latn 0.34 GB), equivalent to ≈0.27 GB of English after byte-premium scaling; 0.30 GB removed by filtering. This is ~1/159,314 of English data and ranks 90 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.64 GB (fry_Latn 0.64 GB) (rank 85 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 

@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Definitely endangered)
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 85,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `iku`, so includes other varieties
 
 **Official / recognised in:** Canada
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                 |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 424 articles in iu.wikipedia; 32 active users. ⚠️ NB: counted under the macrolanguage code `iku`, so this number is shared with Inuktitut (`ike`) and overstates Inuinnaqtun.                          |
-| Common Crawl           | 9,010 pages per crawl on average, which is 0.0004% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `iku`, so this number is shared with Inuktitut (`ike`) and overstates Inuinnaqtun. |
-| FineWeb                | 1.1 MB (ikt_Latn 0); 3.8 MB removed by filtering. This is ~1/47,923,120 of English data and ranks 197 of the 248 languages in the set with any data in FineWeb; 84 have none.                          |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 424 articles in iu.wikipedia; 32 active users. ⚠️ NB: counted under the macrolanguage code `iku`, so this number is shared with Inuktitut (`ike`) and overstates Inuinnaqtun.                                                                   |
+| Common Crawl           | 9,010 pages per crawl on average, which is 0.0004% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `iku`, so this number is shared with Inuktitut (`ike`) and overstates Inuinnaqtun.                                          |
+| FineWeb                | 1.1 MB (ikt_Latn 1.0 MB), equivalent to ≈0.8 MB of English after byte-premium scaling; 3.8 MB removed by filtering. This is ~1/47,923,120 of English data and ranks 207 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 
@@ -144,7 +146,7 @@ Inuinnaqtun isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Inuinnaqtun datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Inuinnaqtun? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.8 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~10.2K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). That is larger than anything currently tagged, so a dedicated model (or continued pre-training of a multilingual base) could be worthwhile.
 - **Create new evals.** Start from the bottom of the pyramid. Since no tagged model with a known size exists, aim no higher than
   *1. Linguistic knowledge* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

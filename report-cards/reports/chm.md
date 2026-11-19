@@ -55,12 +55,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                             |
-|:-----------------------|:---------------------------------------------------------------------------------------------------|
-| Wikipedia              | 21,765 articles in mhr, mrj.wikipedia; 33 active users. NB: counted as `mhr` + `mrj` together.     |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                           |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                     |
-| Goldfish training data | 96.4 MB (chm_Cyrl 96.0 MB) (rank 121 of the 166 languages in the set that have any; 166 have none) |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 21,765 articles in mhr, mrj.wikipedia; 33 active users. NB: counted as `mhr` + `mrj` together.                                                                                                                                                                                                                   |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                         |
+| FineWeb                | 57.9 MB (mhr_Cyrl 48.0 MB; mrj_Cyrl 10.0 MB), equivalent to ≈30.9 MB of English after byte-premium scaling; 89.9 MB removed by filtering. This is ~1/922,505 of English data and ranks 117 of the 261 languages in the set with any data in FineWeb; 71 have none. NB: counted as `mhr_Cyrl, mrj_Cyrl` together. |
+| Goldfish training data | 96.4 MB (chm_Cyrl 96.0 MB) (rank 124 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                                                               |
 
 ### Structured and annotated data
 

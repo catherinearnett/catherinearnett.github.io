@@ -16,7 +16,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
 
-**Writing systems:** `Beng`
+**Writing systems:** `Beng` and `Latn`
 
 **Speakers:** about 1.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
@@ -46,20 +46,20 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,531 articles in mni.wikipedia; 31 active users. This is ~1/717 of English data and ranks 102 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                        |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                                          |
-| FineWeb                | 14.7 MB (mni_Beng 10.0 MB; mni_Latn 0; mni_Mtei 0), equivalent to ≈6.7 MB of English after byte-premium scaling (⚠️ only 98% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 42.8 MB removed by filtering. This is ~1/3,626,982 of English data and ranks 138 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                                      |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,531 articles in mni.wikipedia; 31 active users. This is ~1/717 of English data and ranks 102 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                             |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                                               |
+| FineWeb                | 14.7 MB (mni_Beng 10.0 MB; mni_Latn 4.0 MB; mni_Mtei 0), equivalent to ≈6.7 MB of English after byte-premium scaling (⚠️ only 98% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 42.8 MB removed by filtering. This is ~1/3,626,982 of English data and ranks 143 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                                           |
 
 **By writing system:**
 
-| Writing system        | FineWeb   | FineWeb, English-equivalent   |
-|:----------------------|:----------|:------------------------------|
-| Bengali (`Beng`)      | 10.0 MB   | — (no byte premium yet)       |
-| Latin (`Latn`)        | 0         | — (no byte premium yet)       |
-| Meitei Mayek (`Mtei`) | 0         | — (no byte premium yet)       |
+| Writing system        | FineWeb                        | FineWeb, English-equivalent   |
+|:----------------------|:-------------------------------|:------------------------------|
+| Bengali (`Beng`)      | 10.0 MB (+7.1 MB filtered out) | 3.3 MB                        |
+| Latin (`Latn`)        | 4.5 MB (+34.1 MB filtered out) | 3.4 MB                        |
+| Meitei Mayek (`Mtei`) | 0.3 MB (+1.7 MB filtered out)  | — (no byte premium yet)       |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 

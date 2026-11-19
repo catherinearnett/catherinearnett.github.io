@@ -44,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,417 articles in tpi.wikipedia; 7 active users. This is ~1/5,326 of English data and ranks 146 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
-| FineWeb                | 5.4 MB (tpi_Latn 10.0 MB), equivalent to ≈4.6 MB of English after byte-premium scaling; 0.43 GB removed by filtering. This is ~1/9,922,929 of English data and ranks 159 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 20.0 MB (tpi_Latn 20.0 MB) (rank 151 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,417 articles in tpi.wikipedia; 7 active users. This is ~1/5,326 of English data and ranks 146 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 5.4 MB (tpi_Latn 5.0 MB), equivalent to ≈4.6 MB of English after byte-premium scaling; 0.43 GB removed by filtering. This is ~1/9,922,929 of English data and ranks 166 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 20.0 MB (tpi_Latn 20.0 MB) (rank 155 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 

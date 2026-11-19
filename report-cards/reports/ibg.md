@@ -49,12 +49,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                          |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                        |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                        |
-| FineWeb                | 0.1 MB (ibg_Latn 0); 10.9 MB removed by filtering. This is ~1/559,713,997 of English data and ranks 233 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                    |
+| Source                 | Amount                                                                                                                                                                                                                                       |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                     |
+| FineWeb                | 0.1 MB (ibg_Latn 0), equivalent to ≈0.1 MB of English after byte-premium scaling; 10.9 MB removed by filtering. This is ~1/559,713,997 of English data and ranks 245 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                 |
 
 ### Structured and annotated data
 
@@ -157,7 +157,7 @@ Ibanag isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Ibanag datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Ibanag? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~961 parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). That is larger than anything currently tagged, so a dedicated model (or continued pre-training of a multilingual base) could be worthwhile.
 - **Create new evals.** Start from the bottom of the pyramid. Since no tagged model with a known size exists, aim no higher than
   *1. Linguistic knowledge* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

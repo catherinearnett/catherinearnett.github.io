@@ -42,12 +42,21 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                      |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,150 articles in knc.wikipedia; 14 active users. This is ~1/3,510 of English data and ranks 139 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
-| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
-| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
-| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                       |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,150 articles in knc.wikipedia; 14 active users. This is ~1/3,510 of English data and ranks 139 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                  |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                     |
+| FineWeb                | 0.1 MB (knc_Latn 0), equivalent to ≈0.1 MB of English after byte-premium scaling; 19.0 MB removed by filtering. This is ~1/374,768,371 of English data and ranks 238 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.61 GB (knc_Arab 0.61 GB) (rank 86 of the 171 languages in the set that have any; 161 have none)                                                                                                                                            |
+
+**By writing system:**
+
+| Writing system   | FineWeb                        | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:-------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Arabic (`Arab`)  | not included                   | —                             | 0.61 GB      | 0.24 GB                        |
+| Latin (`Latn`)   | 0.1 MB (+19.0 MB filtered out) | 0.1 MB                        | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
 ### Structured and annotated data
 
@@ -217,7 +226,7 @@ _⚠️ Listed under the macrolanguage code `kau`, so this may cover other varie
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Kanuri datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Kanuri? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.24 GB English-equivalent text ≈ 0.06B tokens, enough for a compute-optimal model of ~3.0M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 1.9T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

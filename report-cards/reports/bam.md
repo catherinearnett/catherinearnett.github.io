@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 10.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Mali
@@ -44,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 930 articles in bm.wikipedia; 13 active users. This is ~1/8,114 of English data and ranks 156 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                    |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                    |
-| FineWeb                | 2.1 MB (bam_Latn 0), equivalent to ≈1.7 MB of English after byte-premium scaling; 97.1 MB removed by filtering. This is ~1/25,690,060 of English data and ranks 184 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 16.9 MB (bam_Latn 17.0 MB) (rank 156 of the 166 languages in the set that have any; 166 have none)                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 930 articles in bm.wikipedia; 13 active users. This is ~1/8,114 of English data and ranks 156 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 2.1 MB (bam_Latn 2.0 MB), equivalent to ≈1.7 MB of English after byte-premium scaling; 97.1 MB removed by filtering. This is ~1/25,690,060 of English data and ranks 192 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 16.9 MB (bam_Latn 17.0 MB) (rank 160 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 

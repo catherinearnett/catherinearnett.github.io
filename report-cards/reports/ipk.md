@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** moribund (all 2 member languages; Glottolog)
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 7,865 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** United States
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                 |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 600 articles in ik.wikipedia; 11 active users. This is ~1/12,577 of English data and ranks 160 of the 168 languages in the set with any data in Wikipedia; 164 have none.                              |
-| Common Crawl           | 1,835 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/485,835 of English data and ranks 108 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                         |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                    |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 600 articles in ik.wikipedia; 11 active users. This is ~1/12,577 of English data and ranks 160 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                 |
+| Common Crawl           | 1,835 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/485,835 of English data and ranks 110 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                                                                    |
+| FineWeb                | 0.7 MB (esk_Latn 1.0 MB; esi_Latn 0), equivalent to ≈0.6 MB of English after byte-premium scaling; 4.9 MB removed by filtering. This is ~1/74,590,393 of English data and ranks 211 of the 261 languages in the set with any data in FineWeb; 71 have none. NB: counted as `esk_Latn, esi_Latn` together. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -194,7 +196,7 @@ Iñupiaq isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Iñupiaq datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Iñupiaq? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.6 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~7.4K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Iñupiaq-only model is 1.0T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

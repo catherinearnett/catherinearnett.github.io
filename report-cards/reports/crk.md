@@ -44,19 +44,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 0 articles in cr.wikipedia; 6 active users. ⚠️ NB: recorded under the macrolanguage code `cre`, which can include other varieties of nēhiyawēwin.                                          |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                   |
-| FineWeb                | 0.4 MB (crk_Cans 0; crk_Latn 0); 1.4 MB removed by filtering. This is ~1/130,280,459 of English data and ranks 214 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                                  |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 0 articles in cr.wikipedia; 6 active users. ⚠️ NB: recorded under the macrolanguage code `cre`, which can include other varieties of nēhiyawēwin.                                                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                |
+| FineWeb                | 0.4 MB (crk_Latn 0; crk_Cans 0), equivalent to ≈0.3 MB of English after byte-premium scaling; 1.4 MB removed by filtering. This is ~1/130,280,459 of English data and ranks 225 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                            |
 
 **By writing system:**
 
-| Writing system              |   FineWeb | FineWeb, English-equivalent   |
-|:----------------------------|----------:|:------------------------------|
-| Canadian Syllabics (`Cans`) |         0 | — (no byte premium yet)       |
-| Latin (`Latn`)              |         0 | — (no byte premium yet)       |
+| Writing system              | FineWeb                       | FineWeb, English-equivalent   |
+|:----------------------------|:------------------------------|:------------------------------|
+| Latin (`Latn`)              | 0.3 MB (+1.1 MB filtered out) | 0.2 MB                        |
+| Canadian Syllabics (`Cans`) | 0.1 MB (+0.3 MB filtered out) | 0.1 MB                        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -213,7 +213,7 @@ _None found._
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing nēhiyawēwin datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for nēhiyawēwin? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.3 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~3.1K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 1.9T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

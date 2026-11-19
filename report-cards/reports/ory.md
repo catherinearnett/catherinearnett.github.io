@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                              |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 21,187 articles in or.wikipedia; 55 active users. ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                                                                                    |
-| Common Crawl           | 154,474 pages per crawl on average, which is 0.0072% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                                                            |
-| FineWeb                | 1.39 GB (ory_Orya 1.39 GB; ory_Latn 0), equivalent to ≈0.55 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.60 GB removed by filtering. This is ~1/38,382 of English data and ranks 68 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 21,187 articles in or.wikipedia; 55 active users. ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                |
+| Common Crawl           | 154,474 pages per crawl on average, which is 0.0072% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                        |
+| FineWeb                | 1.39 GB (ory_Orya 1.39 GB; ory_Latn 4.0 MB), equivalent to ≈0.56 GB of English after byte-premium scaling; 0.60 GB removed by filtering. This is ~1/38,382 of English data and ranks 69 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                    |
 
 **By writing system:**
 
-| Writing system   | FineWeb   | FineWeb, English-equivalent   |
-|:-----------------|:----------|:------------------------------|
-| Odia (`Orya`)    | 1.39 GB   | — (no byte premium yet)       |
-| Latin (`Latn`)   | 0         | — (no byte premium yet)       |
+| Writing system   | FineWeb                         | FineWeb, English-equivalent   |
+|:-----------------|:--------------------------------|:------------------------------|
+| Odia (`Orya`)    | 1.39 GB (+0.55 GB filtered out) | 0.55 GB                       |
+| Latin (`Latn`)   | 3.5 MB (+56.9 MB filtered out)  | 3.2 MB                        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -225,7 +225,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Odia datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Odia? Does it make sense to train one?
-  - ~0.55 GB English-equivalent text ≈ 0.14B tokens, enough for a compute-optimal model of ~6.9M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~0.56 GB English-equivalent text ≈ 0.14B tokens, enough for a compute-optimal model of ~7.0M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Odia-only model is 7.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

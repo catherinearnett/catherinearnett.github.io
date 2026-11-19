@@ -41,9 +41,9 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                         |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 76,665 articles in ky.wikipedia; 276 active users. This is ~1/98 of English data and ranks 61 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
-| Common Crawl           | 251,577 pages per crawl on average, which is 0.0117% of the crawl (2026). This is ~1/3,544 of English data and ranks 52 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
-| FineWeb                | 1.48 GB (kir_Cyrl 1.48 GB), equivalent to ≈0.75 GB of English after byte-premium scaling; 0.94 GB removed by filtering. This is ~1/36,039 of English data and ranks 66 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 2.59 GB (kir_Cyrl 2.59 GB) (rank 56 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
+| Common Crawl           | 251,577 pages per crawl on average, which is 0.0117% of the crawl (2026). This is ~1/3,544 of English data and ranks 52 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                          |
+| FineWeb                | 1.48 GB (kir_Cyrl 1.48 GB), equivalent to ≈0.75 GB of English after byte-premium scaling; 0.94 GB removed by filtering. This is ~1/36,039 of English data and ranks 67 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 2.59 GB (kir_Cyrl 2.59 GB) (rank 56 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 

@@ -44,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 69,633 articles in vec.wikipedia; 39 active users. This is ~1/108 of English data and ranks 63 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
-| FineWeb                | 5.8 MB (vec_Latn 10.0 MB), equivalent to ≈5.9 MB of English after byte-premium scaling; 8.67 GB removed by filtering. This is ~1/9,153,490 of English data and ranks 157 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.16 GB (vec_Latn 0.16 GB) (rank 112 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 69,633 articles in vec.wikipedia; 39 active users. This is ~1/108 of English data and ranks 63 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 5.8 MB (vec_Latn 6.0 MB), equivalent to ≈5.9 MB of English after byte-premium scaling; 8.67 GB removed by filtering. This is ~1/9,153,490 of English data and ranks 163 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.16 GB (vec_Latn 0.16 GB) (rank 115 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 

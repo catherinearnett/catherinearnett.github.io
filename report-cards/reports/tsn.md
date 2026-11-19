@@ -41,9 +41,9 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                            |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 6,118 articles in tn.wikipedia; 63 active users. This is ~1/1,233 of English data and ranks 115 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
-| Common Crawl           | 5,661 pages per crawl on average, which is 0.0003% of the crawl (2026). This is ~1/157,482 of English data and ranks 99 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                             |
-| FineWeb                | 11.2 MB (tsn_Latn 10.0 MB), equivalent to ≈9.6 MB of English after byte-premium scaling; 0.64 GB removed by filtering. This is ~1/4,759,097 of English data and ranks 146 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.13 GB (tsn_Latn 0.12 GB) (rank 114 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                |
+| Common Crawl           | 5,661 pages per crawl on average, which is 0.0003% of the crawl (2026). This is ~1/157,482 of English data and ranks 101 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                            |
+| FineWeb                | 11.2 MB (tsn_Latn 11.0 MB), equivalent to ≈9.6 MB of English after byte-premium scaling; 0.64 GB removed by filtering. This is ~1/4,759,097 of English data and ranks 151 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.13 GB (tsn_Latn 0.12 GB) (rank 117 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 

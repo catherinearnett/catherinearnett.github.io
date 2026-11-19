@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 31.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Nigeria
@@ -42,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 41,399 articles in yo.wikipedia; 71 active users. This is ~1/182 of English data and ranks 73 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
-| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                     |
-| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                     |
-| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                     |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 41,399 articles in yo.wikipedia; 71 active users. This is ~1/182 of English data and ranks 73 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
+| Common Crawl           | 34,550 pages per crawl on average, which is 0.0016% of the crawl (2026). This is ~1/25,803 of English data and ranks 83 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                            |
+| FineWeb                | 0.12 GB (yor_Latn 0.12 GB), equivalent to ≈89.8 MB of English after byte-premium scaling; 0.42 GB removed by filtering. This is ~1/432,489 of English data and ranks 109 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.74 GB (yor_Latn 0.74 GB) (rank 81 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 
@@ -225,7 +227,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Yoruba datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Yoruba? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.54 GB English-equivalent text ≈ 0.13B tokens, enough for a compute-optimal model of ~6.7M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Yoruba-only model is 7.2B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

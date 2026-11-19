@@ -41,12 +41,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                               |
-|:-----------------------|:-----------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                             |
-| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._ |
-| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._ |
-| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._ |
+| Source                 | Amount                                                   |
+|:-----------------------|:---------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                 |
+| Common Crawl           | **Not identified in Common Crawl's language statistics** |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                           |
+| Goldfish training data | **No Goldfish model / data**                             |
 
 ### Structured and annotated data
 

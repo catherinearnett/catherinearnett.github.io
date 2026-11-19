@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 4.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `zha`, so includes other varieties
 
 **Official / recognised in:** People's Republic of China
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                        |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3,028 articles in za.wikipedia; 14 active users. ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang.                             |
-| Common Crawl           | 1,784 pages per crawl on average, which is 0.0001% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang.      |
-| FineWeb                | 1.5 MB (zyb_Latn 0); 6.6 MB removed by filtering. This is ~1/36,458,931 of English data and ranks 190 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                  |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,028 articles in za.wikipedia; 14 active users. ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang.                                                                                               |
+| Common Crawl           | 1,784 pages per crawl on average, which is 0.0001% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang.                                                                        |
+| FineWeb                | 1.5 MB (zyb_Latn 1.0 MB), equivalent to ≈1.2 MB of English after byte-premium scaling; 6.6 MB removed by filtering. This is ~1/36,458,931 of English data and ranks 199 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 
@@ -197,7 +199,7 @@ Zhuang isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Zhuang datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Zhuang? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~1.2 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~14.5K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 1.9T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

@@ -45,9 +45,9 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                      |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 1,238 articles in nup.wikipedia; 21 active users. This is ~1/6,096 of English data and ranks 149 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
-| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
-| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
-| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                    |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                              |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                |
 
 ### Structured and annotated data
 

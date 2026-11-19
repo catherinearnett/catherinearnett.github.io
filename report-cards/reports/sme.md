@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                             |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 7,920 articles in se.wikipedia; 27 active users. This is ~1/953 of English data and ranks 110 of the 168 languages in the set with any data in Wikipedia; 164 have none.           |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                           |
-| FineWeb                | 83.6 MB (sme_Latn 80.0 MB); 2.95 GB removed by filtering. This is ~1/639,117 of English data and ranks 111 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 89.5 MB (sme_Latn 90.0 MB) (rank 123 of the 166 languages in the set that have any; 166 have none)                                                                                 |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 7,920 articles in se.wikipedia; 27 active users. This is ~1/953 of English data and ranks 110 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 83.6 MB (sme_Latn 84.0 MB), equivalent to ≈67.7 MB of English after byte-premium scaling; 2.95 GB removed by filtering. This is ~1/639,117 of English data and ranks 114 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 89.5 MB (sme_Latn 90.0 MB) (rank 126 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -212,7 +212,7 @@ Sámi has been part of the WMT translation task in **1** year (2026).
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Sámi datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Sámi? Does it make sense to train one?
-  - ~74.7 MB English-equivalent text ≈ 0.02B tokens, enough for a compute-optimal model of ~933.8K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~72.5 MB English-equivalent text ≈ 0.02B tokens, enough for a compute-optimal model of ~906.3K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 1.9T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

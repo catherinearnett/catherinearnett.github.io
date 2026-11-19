@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 7.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Burkina Faso
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                   |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                   |
-| FineWeb                | 2.3 MB (dyu_Latn 0), equivalent to ≈2.0 MB of English after byte-premium scaling; 5.4 MB removed by filtering. This is ~1/23,441,546 of English data and ranks 176 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 14.2 MB (dyu_Latn 14.0 MB) (rank 157 of the 166 languages in the set that have any; 166 have none)                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 2.3 MB (dyu_Latn 2.0 MB), equivalent to ≈2.0 MB of English after byte-premium scaling; 5.4 MB removed by filtering. This is ~1/23,441,546 of English data and ranks 184 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 14.2 MB (dyu_Latn 14.0 MB) (rank 161 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 

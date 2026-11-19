@@ -46,8 +46,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 15,527 articles in ilo.wikipedia; 26 active users. This is ~1/486 of English data and ranks 90 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                          |
 | Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
-| FineWeb                | 22.8 MB (ilo_Latn 20.0 MB), equivalent to ≈21.2 MB of English after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/2,338,522 of English data and ranks 127 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.11 GB (ilo_Latn 0.11 GB) (rank 116 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
+| FineWeb                | 22.8 MB (ilo_Latn 23.0 MB), equivalent to ≈21.2 MB of English after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/2,338,522 of English data and ranks 132 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.11 GB (ilo_Latn 0.11 GB) (rank 119 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 

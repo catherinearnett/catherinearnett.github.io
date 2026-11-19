@@ -44,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                           |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                         |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                         |
-| FineWeb                | 3.62 GB (fil_Latn 3.62 GB); 4.05 GB removed by filtering. This is ~1/14,764 of English data and ranks 55 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 4.21 GB (fil_Latn 4.21 GB) (rank 45 of the 166 languages in the set that have any; 166 have none)                                                                                |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                       |
+| FineWeb                | 3.62 GB (fil_Latn 3.62 GB), equivalent to ≈2.74 GB of English after byte-premium scaling; 4.05 GB removed by filtering. This is ~1/14,764 of English data and ranks 56 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 4.21 GB (fil_Latn 4.21 GB) (rank 45 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -213,7 +213,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Filipino datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Filipino? Does it make sense to train one?
-  - ~3.17 GB English-equivalent text ≈ 0.79B tokens, enough for a compute-optimal model of ~39.6M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~3.19 GB English-equivalent text ≈ 0.80B tokens, enough for a compute-optimal model of ~39.9M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Filipino-only model is 3.7B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

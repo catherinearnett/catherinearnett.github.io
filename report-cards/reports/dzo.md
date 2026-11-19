@@ -41,9 +41,9 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                            |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 387 articles in dz.wikipedia; 13 active users. This is ~1/19,500 of English data and ranks 162 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
-| Common Crawl           | 2,261 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/394,298 of English data and ranks 105 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                            |
-| FineWeb                | 30.9 MB (dzo_Tibt 30.0 MB), equivalent to ≈9.5 MB of English after byte-premium scaling; 37.2 MB removed by filtering. This is ~1/1,726,890 of English data and ranks 124 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 56.9 MB (dzo_Tibt 57.0 MB) (rank 132 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                |
+| Common Crawl           | 2,261 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/394,298 of English data and ranks 107 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                            |
+| FineWeb                | 30.9 MB (dzo_Tibt 31.0 MB), equivalent to ≈9.5 MB of English after byte-premium scaling; 37.2 MB removed by filtering. This is ~1/1,726,890 of English data and ranks 128 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 56.9 MB (dzo_Tibt 57.0 MB) (rank 135 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 

@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                       |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 218,952 articles in az.wikipedia; 878 active users. ⚠️ NB: counted under the macrolanguage code `aze`, so this number is shared with Turkmen (`azb`) and overstates Azerbaijani.                                                                                                                                                                                                             |
-| Common Crawl           | 1,304,787 pages per crawl on average, which is 0.0606% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `aze`, so this number is shared with Turkmen (`azb`) and overstates Azerbaijani.                                                                                                                                                                                     |
-| FineWeb                | 11.31 GB (azj_Latn 11.30 GB; azj_Cyrl 10.0 MB), equivalent to ≈10.50 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 22.86 GB removed by filtering. This is ~1/4,722 of English data and ranks 39 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.17 GB (azj_Latn 0.17 GB) (rank 111 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                                              |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 218,952 articles in az.wikipedia; 878 active users. ⚠️ NB: counted under the macrolanguage code `aze`, so this number is shared with Turkmen (`azb`) and overstates Azerbaijani.                                                                                    |
+| Common Crawl           | 1,304,787 pages per crawl on average, which is 0.0606% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `aze`, so this number is shared with Turkmen (`azb`) and overstates Azerbaijani.                                                            |
+| FineWeb                | 11.31 GB (azj_Latn 11.30 GB; azj_Cyrl 12.0 MB), equivalent to ≈10.51 GB of English after byte-premium scaling; 22.86 GB removed by filtering. This is ~1/4,722 of English data and ranks 40 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.17 GB (azj_Latn 0.17 GB) (rank 114 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                  |
 
 **By writing system:**
 
-| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Latin (`Latn`)    | 11.30 GB  | 10.50 GB                      | 0.17 GB      | 0.15 GB                        |
-| Cyrillic (`Cyrl`) | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Writing system    | FineWeb                           | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:----------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)    | 11.30 GB (+22.85 GB filtered out) | 10.50 GB                      | 0.17 GB      | 0.15 GB                        |
+| Cyrillic (`Cyrl`) | 12.1 MB (+5.1 MB filtered out)    | 6.2 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -225,7 +225,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Azerbaijani datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Azerbaijani? Does it make sense to train one?
-  - ~10.50 GB English-equivalent text ≈ 2.63B tokens, enough for a compute-optimal model of ~131.3M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~10.51 GB English-equivalent text ≈ 2.63B tokens, enough for a compute-optimal model of ~131.3M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Azerbaijani-only model is 20.0B, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

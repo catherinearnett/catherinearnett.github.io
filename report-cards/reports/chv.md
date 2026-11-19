@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                             |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 59,280 articles in cv.wikipedia; 51 active users. This is ~1/127 of English data and ranks 70 of the 168 languages in the set with any data in Wikipedia; 164 have none.           |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                           |
-| FineWeb                | 0.14 GB (chv_Cyrl 0.14 GB); 0.15 GB removed by filtering. This is ~1/379,741 of English data and ranks 104 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.52 GB (chv_Cyrl 0.52 GB) (rank 88 of the 166 languages in the set that have any; 166 have none)                                                                                  |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 59,280 articles in cv.wikipedia; 51 active users. This is ~1/127 of English data and ranks 70 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 0.14 GB (chv_Cyrl 0.14 GB), equivalent to ≈75.7 MB of English after byte-premium scaling; 0.15 GB removed by filtering. This is ~1/379,741 of English data and ranks 106 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.52 GB (chv_Cyrl 0.52 GB) (rank 92 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 
@@ -218,7 +218,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Chuvash datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Chuvash? Does it make sense to train one?
-  - ~0.29 GB English-equivalent text ≈ 0.07B tokens, enough for a compute-optimal model of ~3.7M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~0.28 GB English-equivalent text ≈ 0.07B tokens, enough for a compute-optimal model of ~3.5M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Chuvash-only model is 3.7B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

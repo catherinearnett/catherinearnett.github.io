@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 172,305 articles in hi.wikipedia; 933 active users. This is ~1/44 of English data and ranks 49 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                   |
-| Common Crawl           | 4,714,422 pages per crawl on average, which is 0.2187% of the crawl (2026). This is ~1/189 of English data and ranks 29 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                       |
-| FineWeb                | 34.56 GB (hin_Deva 34.36 GB; hin_Latn 0.20 GB), equivalent to ≈14.50 GB of English after byte-premium scaling (⚠️ only 99% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 21.71 GB removed by filtering. This is ~1/1,546 of English data and ranks 28 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 7.59 GB (hin_Deva 7.59 GB) (rank 29 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                                              |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 172,305 articles in hi.wikipedia; 933 active users. This is ~1/44 of English data and ranks 49 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                           |
+| Common Crawl           | 4,714,422 pages per crawl on average, which is 0.2187% of the crawl (2026). This is ~1/189 of English data and ranks 29 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                               |
+| FineWeb                | 34.56 GB (hin_Deva 34.36 GB; hin_Latn 0.20 GB), equivalent to ≈14.68 GB of English after byte-premium scaling; 21.71 GB removed by filtering. This is ~1/1,546 of English data and ranks 29 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 7.59 GB (hin_Deva 7.59 GB) (rank 29 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                   |
 
 **By writing system:**
 
-| Writing system      | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:--------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Devanagari (`Deva`) | 34.36 GB  | 14.50 GB                      | 7.59 GB      | 3.20 GB                        |
-| Latin (`Latn`)      | 0.20 GB   | — (no byte premium yet)       | not included | —                              |
+| Writing system      | FineWeb                           | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|:----------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Devanagari (`Deva`) | 34.36 GB (+21.46 GB filtered out) | 14.50 GB                      | 7.59 GB      | 3.20 GB                        |
+| Latin (`Latn`)      | 0.20 GB (+0.25 GB filtered out)   | 0.18 GB                       | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -258,7 +258,7 @@ Hindi has been part of the WMT translation task in **4** years (2014, 2021, 2024
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Hindi datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Hindi? Does it make sense to train one?
-  - ~14.50 GB English-equivalent text ≈ 3.62B tokens, enough for a compute-optimal model of ~181.2M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~14.68 GB English-equivalent text ≈ 3.67B tokens, enough for a compute-optimal model of ~183.5M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Hindi-only model is 32.2B, aim no higher than
   *5. Knowledge & open-domain QA* for now; every level up to there already has at least one dataset, so prioritise the missing task types listed above and natively-written (not translated) data.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

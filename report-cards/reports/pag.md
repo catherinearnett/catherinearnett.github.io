@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 1.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Philippines
@@ -40,12 +42,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,654 articles in pag.wikipedia; 15 active users. This is ~1/2,843 of English data and ranks 134 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                 |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                    |
-| FineWeb                | 3.6 MB (pag_Latn 0), equivalent to ≈3.5 MB of English after byte-premium scaling; 0.47 GB removed by filtering. This is ~1/14,687,941 of English data and ranks 167 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 38.7 MB (pag_Latn 39.0 MB) (rank 139 of the 166 languages in the set that have any; 166 have none)                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,654 articles in pag.wikipedia; 15 active users. This is ~1/2,843 of English data and ranks 134 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 3.6 MB (pag_Latn 4.0 MB), equivalent to ≈3.5 MB of English after byte-premium scaling; 0.47 GB removed by filtering. This is ~1/14,687,941 of English data and ranks 175 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 38.7 MB (pag_Latn 39.0 MB) (rank 142 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 

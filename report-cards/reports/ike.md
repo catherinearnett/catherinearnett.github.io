@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                 |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 424 articles in iu.wikipedia; 32 active users. ⚠️ NB: counted under the macrolanguage code `iku`, so this number is shared with Inuinnaqtun (`ikt`) and overstates Inuktitut.                          |
-| Common Crawl           | 9,010 pages per crawl on average, which is 0.0004% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `iku`, so this number is shared with Inuinnaqtun (`ikt`) and overstates Inuktitut. |
-| FineWeb                | 11.6 MB (ike_Cans 10.0 MB); 18.7 MB removed by filtering. This is ~1/4,622,503 of English data and ranks 145 of the 248 languages in the set with any data in FineWeb; 84 have none.                   |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 424 articles in iu.wikipedia; 32 active users. ⚠️ NB: counted under the macrolanguage code `iku`, so this number is shared with Inuinnaqtun (`ikt`) and overstates Inuktitut.                                                                     |
+| Common Crawl           | 9,010 pages per crawl on average, which is 0.0004% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `iku`, so this number is shared with Inuinnaqtun (`ikt`) and overstates Inuktitut.                                            |
+| FineWeb                | 11.6 MB (ike_Cans 12.0 MB), equivalent to ≈5.7 MB of English after byte-premium scaling; 18.7 MB removed by filtering. This is ~1/4,622,503 of English data and ranks 150 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                      |
 
 ### Structured and annotated data
 
@@ -210,7 +210,7 @@ Inuktitut has been part of the WMT translation task in **1** year (2020).
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Inuktitut datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Inuktitut? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~5.7 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~71.8K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 1.9T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

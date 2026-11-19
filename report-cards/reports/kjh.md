@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (80% certain))
 
+**Writing systems:** `Cyrl`
+
 **Speakers:** no estimate found in CLDR or Wikidata
 
 **Official / recognised in:** Russia
@@ -44,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                         |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                       |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                       |
-| FineWeb                | 1.8 MB (kjh_Cyrl 0); 69.5 MB removed by filtering. This is ~1/30,424,249 of English data and ranks 187 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 12.8 MB (kjh_Cyrl 13.0 MB) (rank 159 of the 166 languages in the set that have any; 166 have none)                                                                             |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 1.8 MB (kjh_Cyrl 2.0 MB), equivalent to ≈1.0 MB of English after byte-premium scaling; 69.5 MB removed by filtering. This is ~1/30,424,249 of English data and ranks 195 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 12.8 MB (kjh_Cyrl 13.0 MB) (rank 163 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -207,7 +209,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Khakas datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Khakas? Does it make sense to train one?
-  - ~7.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~88.3K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~7.4 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~92.5K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

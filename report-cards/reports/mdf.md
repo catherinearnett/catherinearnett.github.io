@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: ElCat: At risk (20% certain))
 
+**Writing systems:** `Cyrl`
+
 **Speakers:** about 296,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Russia
@@ -40,12 +42,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                         |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 7,631 articles in mdf.wikipedia; 16 active users. This is ~1/989 of English data and ranks 112 of the 168 languages in the set with any data in Wikipedia; 164 have none.      |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                       |
-| FineWeb                | 4.2 MB (mdf_Cyrl 0); 33.8 MB removed by filtering. This is ~1/12,679,801 of English data and ranks 165 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 11.4 MB (mdf_Cyrl 11.0 MB) (rank 163 of the 166 languages in the set that have any; 166 have none)                                                                             |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 7,631 articles in mdf.wikipedia; 16 active users. This is ~1/989 of English data and ranks 112 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 4.2 MB (mdf_Cyrl 4.0 MB), equivalent to ≈2.3 MB of English after byte-premium scaling; 33.8 MB removed by filtering. This is ~1/12,679,801 of English data and ranks 172 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 11.4 MB (mdf_Cyrl 11.0 MB) (rank 167 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -198,7 +200,7 @@ Moksha isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Moksha datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Moksha? Does it make sense to train one?
-  - ~9.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~114.2K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~6.2 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~77.4K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

@@ -64,20 +64,20 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                                |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 7,353 articles in tk.wikipedia; 61 active users. This is ~1/1,026 of English data and ranks 113 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                            |
-| Common Crawl           | 74,862 pages per crawl on average, which is 0.0035% of the crawl (2026). This is ~1/11,909 of English data and ranks 69 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                                 |
-| FineWeb                | 0.32 GB (tuk_Latn 0.31 GB; tuk_Cyrl 10.0 MB; tuk_Arab 0), equivalent to ≈0.18 GB of English after byte-premium scaling (⚠️ only 97% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.39 GB removed by filtering. This is ~1/165,881 of English data and ranks 90 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.36 GB (tuk_Latn 0.36 GB) (rank 100 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                                    |
+| Source                 | Amount                                                                                                                                                                                                                                                                       |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 7,353 articles in tk.wikipedia; 61 active users. This is ~1/1,026 of English data and ranks 113 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                   |
+| Common Crawl           | 74,862 pages per crawl on average, which is 0.0035% of the crawl (2026). This is ~1/11,909 of English data and ranks 69 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                                        |
+| FineWeb                | 0.32 GB (tuk_Latn 0.31 GB; tuk_Cyrl 9.0 MB; tuk_Arab 0), equivalent to ≈0.18 GB of English after byte-premium scaling; 0.39 GB removed by filtering. This is ~1/165,881 of English data and ranks 91 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.36 GB (tuk_Latn 0.36 GB) (rank 103 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                           |
 
 **By writing system:**
 
-| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Latin (`Latn`)    | 0.31 GB   | 0.18 GB                       | 0.36 GB      | 0.20 GB                        |
-| Cyrillic (`Cyrl`) | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
-| Arabic (`Arab`)   | 0         | — (no byte premium yet)       | not included | —                              |
+| Writing system    | FineWeb                         | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:--------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)    | 0.31 GB (+0.38 GB filtered out) | 0.18 GB                       | 0.36 GB      | 0.20 GB                        |
+| Cyrillic (`Cyrl`) | 9.1 MB (+3.9 MB filtered out)   | 4.7 MB                        | not included | —                              |
+| Arabic (`Arab`)   | 0.3 MB (+1.0 MB filtered out)   | 0.2 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 

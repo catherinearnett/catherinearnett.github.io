@@ -44,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 5,297 articles in ay.wikipedia; 22 active users. ⚠️ NB: recorded under the macrolanguage code `aym`, which can include other varieties of Aymara.                                                                                                 |
-| Common Crawl           | 2,475 pages per crawl on average, which is 0.0001% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `aym`, which can include other varieties of Aymara.                                                                          |
-| FineWeb                | 5.2 MB (ayr_Latn 10.0 MB), equivalent to ≈4.7 MB of English after byte-premium scaling; 0.86 GB removed by filtering. This is ~1/10,367,524 of English data and ranks 160 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 31.8 MB (ayr_Latn 32.0 MB) (rank 141 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 5,297 articles in ay.wikipedia; 22 active users. ⚠️ NB: recorded under the macrolanguage code `aym`, which can include other varieties of Aymara.                                                                                                |
+| Common Crawl           | 2,475 pages per crawl on average, which is 0.0001% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `aym`, which can include other varieties of Aymara.                                                                         |
+| FineWeb                | 5.2 MB (ayr_Latn 5.0 MB), equivalent to ≈4.7 MB of English after byte-premium scaling; 0.86 GB removed by filtering. This is ~1/10,367,524 of English data and ranks 167 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 31.8 MB (ayr_Latn 32.0 MB) (rank 144 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 

@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 49.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Nigeria
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                      |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,723 articles in pcm.wikipedia; 28 active users. This is ~1/4,380 of English data and ranks 142 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
-| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
-| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
-| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,723 articles in pcm.wikipedia; 28 active users. This is ~1/4,380 of English data and ranks 142 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                          |
+| FineWeb                | 1.5 MB (pcm_Latn 2.0 MB), equivalent to ≈1.6 MB of English after byte-premium scaling; 24.35 GB removed by filtering. This is ~1/34,768,506 of English data and ranks 197 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 24.7 MB (pcm_Latn 25.0 MB) (rank 150 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 
@@ -210,7 +212,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Nigerian Pidgin datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Nigerian Pidgin? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~25.9 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~323.3K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 27.4B, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

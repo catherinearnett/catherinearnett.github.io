@@ -42,8 +42,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 5,822 articles in pap.wikipedia; 28 active users. This is ~1/1,296 of English data and ranks 118 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                     |
 | Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
-| FineWeb                | 0.24 GB (pap_Latn 0.24 GB), equivalent to ≈0.24 GB of English after byte-premium scaling; 1.19 GB removed by filtering. This is ~1/219,291 of English data and ranks 96 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.28 GB (pap_Latn 0.28 GB) (rank 103 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
+| FineWeb                | 0.24 GB (pap_Latn 0.24 GB), equivalent to ≈0.24 GB of English after byte-premium scaling; 1.19 GB removed by filtering. This is ~1/219,291 of English data and ranks 97 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.28 GB (pap_Latn 0.28 GB) (rank 106 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 

@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `tmh`, so includes other varieties
 
 **Official / recognised in:** Mali
@@ -36,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                  |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                                |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                |
-| FineWeb                | 1.2 MB (taq_Latn 0; taq_Tfng 0), equivalent to ≈0.9 MB of English after byte-premium scaling; 36.6 MB removed by filtering. This is ~1/43,313,998 of English data and ranks 196 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                                       |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                                     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                     |
+| FineWeb                | 1.2 MB (taq_Latn 1.0 MB; taq_Tfng 0), equivalent to ≈0.9 MB of English after byte-premium scaling; 36.6 MB removed by filtering. This is ~1/43,313,998 of English data and ranks 205 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                 |
 
 **By writing system:**
 
-| Writing system    |   FineWeb | FineWeb, English-equivalent   |
-|:------------------|----------:|:------------------------------|
-| Latin (`Latn`)    |         0 | — (no byte premium yet)       |
-| Tifinagh (`Tfng`) |         0 | — (no byte premium yet)       |
+| Writing system    | FineWeb                        | FineWeb, English-equivalent   |
+|:------------------|:-------------------------------|:------------------------------|
+| Latin (`Latn`)    | 1.0 MB (+35.6 MB filtered out) | 0.8 MB                        |
+| Tifinagh (`Tfng`) | 0.2 MB (+1.1 MB filtered out)  | 0.1 MB                        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 

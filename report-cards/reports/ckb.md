@@ -47,8 +47,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 85,215 articles in ckb.wikipedia; 163 active users. This is ~1/89 of English data and ranks 60 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
 | Common Crawl           | 142,651 pages per crawl on average, which is 0.0066% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `kur`, which can include other varieties of Kurdish.                                                                    |
-| FineWeb                | 0.83 GB (ckb_Arab 0.83 GB), equivalent to ≈0.50 GB of English after byte-premium scaling; 0.35 GB removed by filtering. This is ~1/64,271 of English data and ranks 75 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 1.59 GB (ckb_Arab 1.59 GB) (rank 65 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
+| FineWeb                | 0.83 GB (ckb_Arab 0.83 GB), equivalent to ≈0.50 GB of English after byte-premium scaling; 0.35 GB removed by filtering. This is ~1/64,271 of English data and ranks 76 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 1.59 GB (ckb_Arab 1.59 GB) (rank 65 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 

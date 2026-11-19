@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Endangered (100% certain))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 46,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** United States
@@ -44,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 581 articles in ch.wikipedia; 18 active users. This is ~1/12,989 of English data and ranks 161 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                  |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                   |
-| FineWeb                | 1.8 MB (cha_Latn 0), equivalent to ≈1.8 MB of English after byte-premium scaling; 1.4 MB removed by filtering. This is ~1/29,695,762 of English data and ranks 185 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 581 articles in ch.wikipedia; 18 active users. This is ~1/12,989 of English data and ranks 161 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 1.8 MB (cha_Latn 2.0 MB), equivalent to ≈1.8 MB of English after byte-premium scaling; 1.4 MB removed by filtering. This is ~1/29,695,762 of English data and ranks 193 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 

@@ -54,7 +54,7 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 132,705 articles in sw.wikipedia; 215 active users. ⚠️ NB: recorded under the macrolanguage code `swa`, which can include other varieties of Swahili.                                                                                          |
 | Common Crawl           | 252,345 pages per crawl on average, which is 0.0117% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `swa`, which can include other varieties of Swahili.                                                                    |
-| FineWeb                | 1.44 GB (swh_Latn 1.44 GB), equivalent to ≈1.35 GB of English after byte-premium scaling; 2.40 GB removed by filtering. This is ~1/37,005 of English data and ranks 67 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| FineWeb                | 1.44 GB (swh_Latn 1.44 GB), equivalent to ≈1.35 GB of English after byte-premium scaling; 2.40 GB removed by filtering. This is ~1/37,005 of English data and ranks 68 of the 261 languages in the set with any data in FineWeb; 71 have none. |
 | Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                   |
 
 ### Structured and annotated data

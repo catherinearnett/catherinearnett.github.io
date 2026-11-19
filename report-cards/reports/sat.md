@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
 
+**Writing systems:** `Olck`
+
 **Speakers:** about 7.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India
@@ -48,19 +50,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                          |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 16,112 articles in sat.wikipedia; 36 active users. This is ~1/468 of English data and ranks 87 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                       |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                        |
-| FineWeb                | 3.3 MB (sat_Latn 0; sat_Olck 0), equivalent to ≈1.0 MB of English after byte-premium scaling (⚠️ only 88% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 16.0 MB removed by filtering. This is ~1/16,388,740 of English data and ranks 170 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 26.0 MB (sat_Olck 26.0 MB) (rank 144 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                                                                       |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 16,112 articles in sat.wikipedia; 36 active users. This is ~1/468 of English data and ranks 87 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                    |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                     |
+| FineWeb                | 3.3 MB (sat_Olck 3.0 MB; sat_Latn 0), equivalent to ≈1.3 MB of English after byte-premium scaling; 16.0 MB removed by filtering. This is ~1/16,388,740 of English data and ranks 178 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 26.0 MB (sat_Olck 26.0 MB) (rank 147 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                           |
 
 **By writing system:**
 
-| Writing system    |   FineWeb | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:------------------|----------:|:------------------------------|:-------------|:-------------------------------|
-| Ol Chiki (`Olck`) |         0 | — (no byte premium yet)       | 26.0 MB      | 9.3 MB                         |
-| Latin (`Latn`)    |         0 | — (no byte premium yet)       | not included | —                              |
+| Writing system    | FineWeb                        | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:-------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Ol Chiki (`Olck`) | 2.9 MB (+14.3 MB filtered out) | 1.0 MB                        | 26.0 MB      | 9.3 MB                         |
+| Latin (`Latn`)    | 0.4 MB (+1.7 MB filtered out)  | 0.3 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 

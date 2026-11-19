@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 4 (Educational))
 
+**Writing systems:** `Deva`
+
 **Speakers:** about 6.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India
@@ -36,20 +38,20 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 11,926 articles in ks.wikipedia; 24 active users. This is ~1/633 of English data and ranks 99 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                    |
-| Common Crawl           | 92 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/9,690,299 of English data and ranks 113 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                       |
-| FineWeb                | 1.1 MB (kas_Arab 0; kas_Deva 0; kas_Latn 0), equivalent to ≈0.5 MB of English after byte-premium scaling (⚠️ only 95% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.19 GB removed by filtering. This is ~1/48,354,845 of English data and ranks 198 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 17.9 MB (kas_Deva 18.0 MB) (rank 153 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                                                   |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 11,926 articles in ks.wikipedia; 24 active users. This is ~1/633 of English data and ranks 99 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                 |
+| Common Crawl           | 92 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/9,690,299 of English data and ranks 115 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                                    |
+| FineWeb                | 1.1 MB (kas_Deva 1.0 MB; kas_Arab 0; kas_Latn 0), equivalent to ≈0.5 MB of English after byte-premium scaling; 0.19 GB removed by filtering. This is ~1/48,354,845 of English data and ranks 208 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 17.9 MB (kas_Deva 18.0 MB) (rank 157 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                       |
 
 **By writing system:**
 
-| Writing system      |   FineWeb | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:--------------------|----------:|:------------------------------|:-------------|:-------------------------------|
-| Devanagari (`Deva`) |         0 | — (no byte premium yet)       | 18.0 MB      | 7.1 MB                         |
-| Arabic (`Arab`)     |         0 | — (no byte premium yet)       | not included | —                              |
-| Latin (`Latn`)      |         0 | — (no byte premium yet)       | not included | —                              |
+| Writing system      | FineWeb                        | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|:-------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Devanagari (`Deva`) | 0.6 MB (+0.13 GB filtered out) | 0.2 MB                        | 17.9 MB      | 7.1 MB                         |
+| Arabic (`Arab`)     | 0.4 MB (+15.3 MB filtered out) | 0.2 MB                        | not included | —                              |
+| Latin (`Latn`)      | 0.1 MB (+50.9 MB filtered out) | 0.0 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 

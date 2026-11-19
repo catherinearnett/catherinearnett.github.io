@@ -48,19 +48,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                    |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 30,073 articles in ne.wikipedia; 138 active users. ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                                                       |
-| Common Crawl           | 1,231,877 pages per crawl on average, which is 0.0571% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                              |
-| FineWeb                | 6.76 GB (npi_Deva 6.75 GB; npi_Latn 0), equivalent to ≈2.79 GB of English after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/7,905 of English data and ranks 46 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 30,073 articles in ne.wikipedia; 138 active users. ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                                                            |
+| Common Crawl           | 1,231,877 pages per crawl on average, which is 0.0571% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                                   |
+| FineWeb                | 6.76 GB (npi_Deva 6.75 GB; npi_Latn 4.0 MB), equivalent to ≈2.79 GB of English after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/7,905 of English data and ranks 47 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                   |
 
 **By writing system:**
 
-| Writing system      | FineWeb   | FineWeb, English-equivalent   |
-|:--------------------|:----------|:------------------------------|
-| Devanagari (`Deva`) | 6.75 GB   | 2.79 GB                       |
-| Latin (`Latn`)      | 0         | — (no byte premium yet)       |
+| Writing system      | FineWeb                         | FineWeb, English-equivalent   |
+|:--------------------|:--------------------------------|:------------------------------|
+| Devanagari (`Deva`) | 6.75 GB (+3.75 GB filtered out) | 2.79 GB                       |
+| Latin (`Latn`)      | 4.5 MB (+22.9 MB filtered out)  | 4.1 MB                        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 

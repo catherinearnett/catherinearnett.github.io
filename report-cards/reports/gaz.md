@@ -42,8 +42,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 1,970 articles in om.wikipedia; 28 active users. ⚠️ NB: recorded under the macrolanguage code `orm`, which can include other varieties of Oromo.                                                                                                 |
 | Common Crawl           | 15,021 pages per crawl on average, which is 0.0007% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `orm`, which can include other varieties of Oromo.                                                                         |
-| FineWeb                | 58.6 MB (gaz_Latn 60.0 MB), equivalent to ≈44.0 MB of English after byte-premium scaling; 0.17 GB removed by filtering. This is ~1/911,458 of English data and ranks 113 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.11 GB (gaz_Latn 0.11 GB) (rank 118 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
+| FineWeb                | 58.6 MB (gaz_Latn 59.0 MB), equivalent to ≈44.0 MB of English after byte-premium scaling; 0.17 GB removed by filtering. This is ~1/911,458 of English data and ranks 116 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.11 GB (gaz_Latn 0.11 GB) (rank 121 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 

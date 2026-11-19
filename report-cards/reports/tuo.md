@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable (20% certain))
 
+**Writing systems:** `Latn`
+
 **Speakers:** no estimate found in CLDR or Wikidata
 
 **Official / recognised in:** Brazil
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                   |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                   |
-| FineWeb                | 0.7 MB (tuo_Latn 0), equivalent to ≈0.4 MB of English after byte-premium scaling; 0.4 MB removed by filtering. This is ~1/75,984,348 of English data and ranks 203 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 0.7 MB (tuo_Latn 1.0 MB), equivalent to ≈0.4 MB of English after byte-premium scaling; 0.4 MB removed by filtering. This is ~1/75,984,348 of English data and ranks 214 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 

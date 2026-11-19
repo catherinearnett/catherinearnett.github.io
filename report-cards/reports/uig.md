@@ -41,17 +41,17 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                                                              |
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 9,765 articles in ug.wikipedia; 32 active users. This is ~1/773 of English data and ranks 105 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                            |
-| Common Crawl           | 40,585 pages per crawl on average, which is 0.0019% of the crawl (2026). This is ~1/21,966 of English data and ranks 80 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                               |
-| FineWeb                | 0.41 GB (uig_Arab 0.33 GB; uig_Latn 50.0 MB; uig_Cyrl 30.0 MB), equivalent to ≈0.20 GB of English after byte-premium scaling; 0.34 GB removed by filtering. This is ~1/131,701 of English data and ranks 83 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 1.02 GB (uig_Arab 1.02 GB) (rank 72 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                   |
+| Common Crawl           | 40,585 pages per crawl on average, which is 0.0019% of the crawl (2026). This is ~1/21,966 of English data and ranks 80 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                                               |
+| FineWeb                | 0.41 GB (uig_Arab 0.33 GB; uig_Latn 46.0 MB; uig_Cyrl 27.0 MB), equivalent to ≈0.20 GB of English after byte-premium scaling; 0.34 GB removed by filtering. This is ~1/131,701 of English data and ranks 84 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 1.02 GB (uig_Arab 1.02 GB) (rank 72 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                                   |
 
 **By writing system:**
 
-| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Arabic (`Arab`)   | 0.33 GB   | — (no byte premium yet)       | 1.02 GB      | 0.44 GB                        |
-| Latin (`Latn`)    | 50.0 MB   | — (no byte premium yet)       | not included | —                              |
-| Cyrillic (`Cyrl`) | 30.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Writing system    | FineWeb                         | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:--------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Arabic (`Arab`)   | 0.33 GB (+0.29 GB filtered out) | 0.14 GB                       | 1.02 GB      | 0.44 GB                        |
+| Latin (`Latn`)    | 45.6 MB (+47.8 MB filtered out) | 38.3 MB                       | not included | —                              |
+| Cyrillic (`Cyrl`) | 26.7 MB (+8.2 MB filtered out)  | 13.7 MB                       | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 

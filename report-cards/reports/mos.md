@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 9.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Burkina Faso
@@ -40,12 +42,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,326 articles in mos.wikipedia; 4 active users. This is ~1/5,691 of English data and ranks 148 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                  |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                    |
-| FineWeb                | 4.7 MB (mos_Latn 0), equivalent to ≈4.1 MB of English after byte-premium scaling; 50.3 MB removed by filtering. This is ~1/11,374,691 of English data and ranks 162 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 12.1 MB (mos_Latn 12.0 MB) (rank 161 of the 166 languages in the set that have any; 166 have none)                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,326 articles in mos.wikipedia; 4 active users. This is ~1/5,691 of English data and ranks 148 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 4.7 MB (mos_Latn 5.0 MB), equivalent to ≈4.1 MB of English after byte-premium scaling; 50.3 MB removed by filtering. This is ~1/11,374,691 of English data and ranks 169 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 12.1 MB (mos_Latn 12.0 MB) (rank 165 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 

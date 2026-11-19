@@ -44,7 +44,7 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 24,672 articles in qu.wikipedia; 66 active users. ⚠️ NB: recorded under the macrolanguage code `que`, which can include other varieties of Quechua.                                                                                          |
 | Common Crawl           | 19,258 pages per crawl on average, which is 0.0009% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `que`, which can include other varieties of Quechua.                                                                   |
-| FineWeb                | 0.5 MB (quh_Latn 0), equivalent to ≈0.4 MB of English after byte-premium scaling; 0.37 GB removed by filtering. This is ~1/109,178,280 of English data and ranks 210 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| FineWeb                | 0.5 MB (quh_Latn 0), equivalent to ≈0.4 MB of English after byte-premium scaling; 0.37 GB removed by filtering. This is ~1/109,178,280 of English data and ranks 221 of the 261 languages in the set with any data in FineWeb; 71 have none. |
 | Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                 |
 
 ### Structured and annotated data

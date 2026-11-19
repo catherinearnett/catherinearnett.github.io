@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 4 (Educational))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 1.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Mali
@@ -50,12 +52,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. ⚠️ NB: counted under the macrolanguage code `ful`, so this number is shared with Fulani (`fuf`) and overstates Fula.                                                                     |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                   |
-| FineWeb                | 1.4 MB (ffm_Latn 0), equivalent to ≈1.4 MB of English after byte-premium scaling; 3.0 MB removed by filtering. This is ~1/38,847,861 of English data and ranks 195 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. ⚠️ NB: counted under the macrolanguage code `ful`, so this number is shared with Fulani (`fuf`) and overstates Fula.                                                                          |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 1.4 MB (ffm_Latn 1.0 MB), equivalent to ≈1.4 MB of English after byte-premium scaling; 3.0 MB removed by filtering. This is ~1/38,847,861 of English data and ranks 204 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 

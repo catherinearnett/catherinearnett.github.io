@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,339,150 articles in ar.wikipedia; 5,501 active users. ⚠️ NB: recorded under the macrolanguage code `ara`, which can include other varieties of Arabic.                                                                                                       |
-| Common Crawl           | 14,185,767 pages per crawl on average, which is 0.6580% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ara`, which can include other varieties of Arabic.                                                                                  |
-| FineWeb                | 106.04 GB (arb_Arab 106.04 GB; arb_Latn 0), equivalent to ≈72.38 GB of English after byte-premium scaling; 119.94 GB removed by filtering. This is ~1/504 of English data and ranks 16 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 11.62 GB (arb_Arab 11.62 GB) (rank 7 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                                                                              |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,339,150 articles in ar.wikipedia; 5,501 active users. ⚠️ NB: recorded under the macrolanguage code `ara`, which can include other varieties of Arabic.                                                                                                            |
+| Common Crawl           | 14,185,767 pages per crawl on average, which is 0.6580% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ara`, which can include other varieties of Arabic.                                                                                       |
+| FineWeb                | 106.04 GB (arb_Arab 106.04 GB; arb_Latn 5.0 MB), equivalent to ≈72.38 GB of English after byte-premium scaling; 119.94 GB removed by filtering. This is ~1/504 of English data and ranks 16 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 11.62 GB (arb_Arab 11.62 GB) (rank 7 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                  |
 
 **By writing system:**
 
-| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Arabic (`Arab`)  | 106.04 GB | — (no byte premium yet)       | 11.62 GB     | 7.93 GB                        |
-| Latin (`Latn`)   | 0         | — (no byte premium yet)       | not included | —                              |
+| Writing system   | FineWeb                             | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:------------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Arabic (`Arab`)  | 106.04 GB (+119.78 GB filtered out) | 72.38 GB                      | 11.62 GB     | 7.93 GB                        |
+| Latin (`Latn`)   | 4.6 MB (+0.15 GB filtered out)      | 4.0 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 

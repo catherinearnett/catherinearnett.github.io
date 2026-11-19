@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
+**Writing systems:** `Arab` and `Latn`
+
 **Speakers:** about 1.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Guinea
@@ -42,19 +44,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                 |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                               |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                               |
-| FineWeb                | 1.7 MB (sus_Arab 0; sus_Latn 0), equivalent to ≈1.3 MB of English after byte-premium scaling; 1.5 MB removed by filtering. This is ~1/30,532,030 of English data and ranks 188 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                         |
+| FineWeb                | 1.7 MB (sus_Arab 1.0 MB; sus_Latn 1.0 MB), equivalent to ≈1.3 MB of English after byte-premium scaling; 1.5 MB removed by filtering. This is ~1/30,532,030 of English data and ranks 196 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                     |
 
 **By writing system:**
 
-| Writing system   |   FineWeb | FineWeb, English-equivalent   |
-|:-----------------|----------:|:------------------------------|
-| Arabic (`Arab`)  |         0 | — (no byte premium yet)       |
-| Latin (`Latn`)   |         0 | — (no byte premium yet)       |
+| Writing system   | FineWeb                       | FineWeb, English-equivalent   |
+|:-----------------|:------------------------------|:------------------------------|
+| Arabic (`Arab`)  | 0.9 MB (+0.4 MB filtered out) | 0.5 MB                        |
+| Latin (`Latn`)   | 0.8 MB (+1.1 MB filtered out) | 0.8 MB                        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 

@@ -42,8 +42,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 28,674 articles in mn.wikipedia; 223 active users. ⚠️ NB: counted under the macrolanguage code `mon`, so this number is shared with Mongolian (`mvf`) and overstates Mongolian.                                                                |
 | Common Crawl           | 342,482 pages per crawl on average, which is 0.0159% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `mon`, so this number is shared with Mongolian (`mvf`) and overstates Mongolian.                                         |
-| FineWeb                | 2.80 GB (khk_Cyrl 2.80 GB), equivalent to ≈1.56 GB of English after byte-premium scaling; 5.33 GB removed by filtering. This is ~1/19,062 of English data and ranks 60 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.20 GB (khk_Cyrl 0.20 GB) (rank 106 of the 166 languages in the set that have any; 166 have none)                                                                                                                                             |
+| FineWeb                | 2.80 GB (khk_Cyrl 2.80 GB), equivalent to ≈1.56 GB of English after byte-premium scaling; 5.33 GB removed by filtering. This is ~1/19,062 of English data and ranks 61 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.20 GB (khk_Cyrl 0.20 GB) (rank 109 of the 171 languages in the set that have any; 161 have none)                                                                                                                                             |
 
 ### Structured and annotated data
 

@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (20% certain))
 
+**Writing systems:** `Latn`
+
 **Speakers:** no estimate found in CLDR or Wikidata
 
 **Official / recognised in:** Bolivia
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                        |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                      |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                      |
-| FineWeb                | 0.6 MB (trn_Latn 0); 1.2 MB removed by filtering. This is ~1/95,011,249 of English data and ranks 207 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                  |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 0.6 MB (trn_Latn 1.0 MB), equivalent to ≈0.4 MB of English after byte-premium scaling; 1.2 MB removed by filtering. This is ~1/95,011,249 of English data and ranks 218 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 
@@ -144,7 +146,7 @@ Mojeño-Trinitario isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translati
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Mojeño-Trinitario datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Mojeño-Trinitario? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.4 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~5.3K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). That is larger than anything currently tagged, so a dedicated model (or continued pre-training of a multilingual base) could be worthwhile.
 - **Create new evals.** Start from the bottom of the pyramid. Since no tagged model with a known size exists, aim no higher than
   *1. Linguistic knowledge* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

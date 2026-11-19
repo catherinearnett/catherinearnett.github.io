@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                               |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 5,831 articles in kv.wikipedia; 20 active users. This is ~1/1,294 of English data and ranks 117 of the 168 languages in the set with any data in Wikipedia; 164 have none.           |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
-| FineWeb                | 23.0 MB (kpv_Cyrl 20.0 MB); 20.2 MB removed by filtering. This is ~1/2,323,173 of English data and ranks 126 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 10.2 MB (kpv_Cyrl 10.0 MB) (rank 166 of the 166 languages in the set that have any; 166 have none)                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                             |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 5,831 articles in kv.wikipedia; 20 active users. This is ~1/1,294 of English data and ranks 117 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
+| FineWeb                | 23.0 MB (kpv_Cyrl 23.0 MB), equivalent to ≈14.1 MB of English after byte-premium scaling; 20.2 MB removed by filtering. This is ~1/2,323,173 of English data and ranks 131 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 10.2 MB (kpv_Cyrl 10.0 MB) (rank 170 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
@@ -218,7 +218,7 @@ _⚠️ Listed under the macrolanguage code `kom`, so this may cover other varie
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Komi-Zyrian datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Komi-Zyrian? Does it make sense to train one?
-  - ~6.0 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~75.1K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~14.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~175.9K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Komi-Zyrian-only model is 238.4B, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

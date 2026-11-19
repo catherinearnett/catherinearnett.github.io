@@ -47,19 +47,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                            |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 550,414 articles in ro.wikipedia; 1,880 active users. This is ~1/14 of English data and ranks 28 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                       |
-| Common Crawl           | 12,147,112 pages per crawl on average, which is 0.5638% of the crawl (2026). This is ~1/73 of English data and ranks 18 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                             |
-| FineWeb                | 91.75 GB (ron_Latn 91.75 GB; ron_Cyrl 10.0 MB), equivalent to ≈82.27 GB of English after byte-premium scaling; 76.76 GB removed by filtering. This is ~1/582 of English data and ranks 20 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 7.87 GB (ron_Latn 7.87 GB) (rank 26 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                 |
+| Source                 | Amount                                                                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 550,414 articles in ro.wikipedia; 1,880 active users. This is ~1/14 of English data and ranks 28 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                      |
+| Common Crawl           | 12,147,112 pages per crawl on average, which is 0.5638% of the crawl (2026). This is ~1/73 of English data and ranks 18 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                            |
+| FineWeb                | 91.75 GB (ron_Latn 91.75 GB; ron_Cyrl 6.0 MB), equivalent to ≈82.28 GB of English after byte-premium scaling; 76.76 GB removed by filtering. This is ~1/582 of English data and ranks 20 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 7.87 GB (ron_Latn 7.87 GB) (rank 26 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                |
 
 **By writing system:**
 
-| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Latin (`Latn`)    | 91.75 GB  | 82.27 GB                      | 7.87 GB      | 7.06 GB                        |
-| Cyrillic (`Cyrl`) | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Writing system    | FineWeb                           | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:----------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)    | 91.75 GB (+76.75 GB filtered out) | 82.27 GB                      | 7.87 GB      | 7.06 GB                        |
+| Cyrillic (`Cyrl`) | 5.7 MB (+5.9 MB filtered out)     | 3.4 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -248,7 +248,7 @@ Romanian has been part of the WMT translation task in **2** years (2016, 2025).
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Romanian datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Romanian? Does it make sense to train one?
-  - ~82.27 GB English-equivalent text ≈ 20.57B tokens, enough for a compute-optimal model of ~1.0B parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~82.28 GB English-equivalent text ≈ 20.57B tokens, enough for a compute-optimal model of ~1.0B parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Romanian-only model is 12.2B, aim no higher than
   *4. Reading comprehension* for now; every level up to there already has at least one dataset, so prioritise the missing task types listed above and natively-written (not translated) data.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

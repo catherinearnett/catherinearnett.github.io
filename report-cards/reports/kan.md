@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                     |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 34,905 articles in kn.wikipedia; 234 active users. This is ~1/216 of English data and ranks 74 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                  |
-| Common Crawl           | 369,120 pages per crawl on average, which is 0.0171% of the crawl (2026). This is ~1/2,415 of English data and ranks 48 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                      |
-| FineWeb                | 3.56 GB (kan_Knda 3.56 GB; kan_Latn 0), equivalent to ≈1.35 GB of English after byte-premium scaling; 2.82 GB removed by filtering. This is ~1/14,984 of English data and ranks 56 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 8.33 GB (kan_Knda 8.33 GB) (rank 23 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 34,905 articles in kn.wikipedia; 234 active users. This is ~1/216 of English data and ranks 74 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                       |
+| Common Crawl           | 369,120 pages per crawl on average, which is 0.0171% of the crawl (2026). This is ~1/2,415 of English data and ranks 48 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                           |
+| FineWeb                | 3.56 GB (kan_Knda 3.56 GB; kan_Latn 2.0 MB), equivalent to ≈1.35 GB of English after byte-premium scaling; 2.82 GB removed by filtering. This is ~1/14,984 of English data and ranks 57 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 8.33 GB (kan_Knda 8.33 GB) (rank 23 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                               |
 
 **By writing system:**
 
-| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Kannada (`Knda`) | 3.56 GB   | 1.35 GB                       | 8.33 GB      | 3.15 GB                        |
-| Latin (`Latn`)   | 0         | — (no byte premium yet)       | not included | —                              |
+| Writing system   | FineWeb                         | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:--------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Kannada (`Knda`) | 3.56 GB (+2.70 GB filtered out) | 1.35 GB                       | 8.33 GB      | 3.15 GB                        |
+| Latin (`Latn`)   | 2.5 MB (+0.13 GB filtered out)  | 1.9 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 

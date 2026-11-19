@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 211,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Papua New Guinea
@@ -42,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3 articles in ho.wikipedia; 0 active users. This is ~1/2,515,489 of English data and ranks 168 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                   |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                    |
-| FineWeb                | 2.2 MB (hmo_Latn 0), equivalent to ≈1.6 MB of English after byte-premium scaling; 23.5 MB removed by filtering. This is ~1/24,781,580 of English data and ranks 179 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3 articles in ho.wikipedia; 0 active users. This is ~1/2,515,489 of English data and ranks 168 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 2.2 MB (hmo_Latn 2.0 MB), equivalent to ≈1.6 MB of English after byte-premium scaling; 23.5 MB removed by filtering. This is ~1/24,781,580 of English data and ranks 187 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                     |
 
 ### Structured and annotated data
 

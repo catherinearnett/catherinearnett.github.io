@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 192,418 articles in bn.wikipedia; 1,740 active users. This is ~1/39 of English data and ranks 45 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                 |
-| Common Crawl           | 2,365,388 pages per crawl on average, which is 0.1097% of the crawl (2026). This is ~1/377 of English data and ranks 34 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                       |
-| FineWeb                | 24.02 GB (ben_Beng 23.99 GB; ben_Latn 30.0 MB), equivalent to ≈9.87 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 17.61 GB removed by filtering. This is ~1/2,224 of English data and ranks 32 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 4.50 GB (ben_Beng 4.50 GB) (rank 41 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                                             |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 192,418 articles in bn.wikipedia; 1,740 active users. This is ~1/39 of English data and ranks 45 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                        |
+| Common Crawl           | 2,365,388 pages per crawl on average, which is 0.1097% of the crawl (2026). This is ~1/377 of English data and ranks 34 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                              |
+| FineWeb                | 24.02 GB (ben_Beng 23.99 GB; ben_Latn 33.0 MB), equivalent to ≈9.90 GB of English after byte-premium scaling; 17.61 GB removed by filtering. This is ~1/2,224 of English data and ranks 33 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 4.50 GB (ben_Beng 4.50 GB) (rank 41 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                  |
 
 **By writing system:**
 
-| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Bengali (`Beng`) | 23.99 GB  | 9.87 GB                       | 4.50 GB      | 1.85 GB                        |
-| Latin (`Latn`)   | 30.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Writing system   | FineWeb                           | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:----------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Bengali (`Beng`) | 23.99 GB (+17.44 GB filtered out) | 9.87 GB                       | 4.50 GB      | 1.85 GB                        |
+| Latin (`Latn`)   | 32.9 MB (+0.16 GB filtered out)   | 30.2 MB                       | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -249,7 +249,7 @@ Bengali has been part of the WMT translation task in **2** years (2021, 2025).
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Bengali datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Bengali? Does it make sense to train one?
-  - ~9.87 GB English-equivalent text ≈ 2.47B tokens, enough for a compute-optimal model of ~123.4M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~9.90 GB English-equivalent text ≈ 2.47B tokens, enough for a compute-optimal model of ~123.7M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Bengali-only model is 21.5B, aim no higher than
   *5. Knowledge & open-domain QA* for now; every level up to there already has at least one dataset, so prioritise the missing task types listed above and natively-written (not translated) data.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

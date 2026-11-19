@@ -44,19 +44,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                               |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 26,013 articles in as.wikipedia; 186 active users. This is ~1/290 of English data and ranks 78 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                            |
-| Common Crawl           | 71,841 pages per crawl on average, which is 0.0033% of the crawl (2026). This is ~1/12,409 of English data and ranks 71 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                |
-| FineWeb                | 0.39 GB (asm_Beng 0.39 GB; asm_Latn 0), equivalent to ≈0.15 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.37 GB removed by filtering. This is ~1/136,776 of English data and ranks 84 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.95 GB (asm_Beng 0.95 GB) (rank 77 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                    |
+| Source                 | Amount                                                                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 26,013 articles in as.wikipedia; 186 active users. This is ~1/290 of English data and ranks 78 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                        |
+| Common Crawl           | 71,841 pages per crawl on average, which is 0.0033% of the crawl (2026). This is ~1/12,409 of English data and ranks 71 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                            |
+| FineWeb                | 0.39 GB (asm_Beng 0.39 GB; asm_Latn 1.0 MB), equivalent to ≈0.16 GB of English after byte-premium scaling; 0.37 GB removed by filtering. This is ~1/136,776 of English data and ranks 85 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.95 GB (asm_Beng 0.95 GB) (rank 77 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                |
 
 **By writing system:**
 
-| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Bengali (`Beng`) | 0.39 GB   | — (no byte premium yet)       | 0.95 GB      | 0.38 GB                        |
-| Latin (`Latn`)   | 0         | — (no byte premium yet)       | not included | —                              |
+| Writing system   | FineWeb                         | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:--------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Bengali (`Beng`) | 0.39 GB (+0.33 GB filtered out) | 0.15 GB                       | 0.95 GB      | 0.38 GB                        |
+| Latin (`Latn`)   | 1.3 MB (+42.1 MB filtered out)  | 1.2 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 

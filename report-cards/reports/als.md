@@ -56,8 +56,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 106,386 articles in sq.wikipedia; 386 active users. ⚠️ NB: recorded under the macrolanguage code `sqi`, which can include other varieties of Albanian.                                                                                        |
 | Common Crawl           | 1,076,326 pages per crawl on average, which is 0.0500% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `sqi`, which can include other varieties of Albanian.                                                                |
-| FineWeb                | 9.11 GB (als_Latn 9.11 GB), equivalent to ≈7.80 GB of English after byte-premium scaling; 5.91 GB removed by filtering. This is ~1/5,866 of English data and ranks 42 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.41 GB (als_Latn 0.41 GB) (rank 97 of the 166 languages in the set that have any; 166 have none)                                                                                                                                             |
+| FineWeb                | 9.11 GB (als_Latn 9.11 GB), equivalent to ≈7.80 GB of English after byte-premium scaling; 5.91 GB removed by filtering. This is ~1/5,866 of English data and ranks 43 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.41 GB (als_Latn 0.41 GB) (rank 100 of the 171 languages in the set that have any; 161 have none)                                                                                                                                            |
 
 ### Structured and annotated data
 

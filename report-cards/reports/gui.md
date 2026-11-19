@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Definitely endangered)
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 6.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `grn`, so includes other varieties
 
 **Official / recognised in:** Bolivia
@@ -40,12 +42,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 6,036 articles in gn.wikipedia; 26 active users. ⚠️ NB: counted under the macrolanguage code `grn`, so this number is shared with Guarani (`gug`) and overstates Guarani.                                                                  |
-| Common Crawl           | 18,175 pages per crawl on average, which is 0.0008% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `grn`, so this number is shared with Guarani (`gug`) and overstates Guarani.                                          |
-| FineWeb                | 0.6 MB (gui_Latn 0), equivalent to ≈0.5 MB of English after byte-premium scaling; 2.6 MB removed by filtering. This is ~1/86,896,944 of English data and ranks 205 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 6,036 articles in gn.wikipedia; 26 active users. ⚠️ NB: counted under the macrolanguage code `grn`, so this number is shared with Guarani (`gug`) and overstates Guarani.                                                                       |
+| Common Crawl           | 18,175 pages per crawl on average, which is 0.0008% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `grn`, so this number is shared with Guarani (`gug`) and overstates Guarani.                                               |
+| FineWeb                | 0.6 MB (gui_Latn 1.0 MB), equivalent to ≈0.5 MB of English after byte-premium scaling; 2.6 MB removed by filtering. This is ~1/86,896,944 of English data and ranks 216 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 

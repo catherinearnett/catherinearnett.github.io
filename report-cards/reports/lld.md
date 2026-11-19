@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (80% certain))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 29,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Italy
@@ -52,12 +54,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                        |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 183,227 articles in lld.wikipedia; 28 active users. This is ~1/41 of English data and ranks 48 of the 168 languages in the set with any data in Wikipedia; 164 have none.     |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                      |
-| FineWeb                | 1.5 MB (lld_Latn 0); 7.6 MB removed by filtering. This is ~1/35,019,483 of English data and ranks 189 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                  |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 183,227 articles in lld.wikipedia; 28 active users. This is ~1/41 of English data and ranks 48 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
+| FineWeb                | 1.5 MB (lld_Latn 2.0 MB), equivalent to ≈1.1 MB of English after byte-premium scaling; 7.6 MB removed by filtering. This is ~1/35,019,483 of English data and ranks 198 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 
@@ -215,7 +217,7 @@ Ladin has been part of the WMT translation task in **1** year (2026).
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Ladin datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Ladin? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~1.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~14.3K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). That is larger than anything currently tagged, so a dedicated model (or continued pre-training of a multilingual base) could be worthwhile.
 - **Create new evals.** Start from the bottom of the pyramid. Since no tagged model with a known size exists, aim no higher than
   *1. Linguistic knowledge* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

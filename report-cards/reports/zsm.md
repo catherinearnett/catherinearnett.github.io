@@ -51,15 +51,15 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 445,295 articles in ms.wikipedia; 1,835 active users. ⚠️ NB: counted under the macrolanguage code `msa`, so this number is shared with Indonesian (`ind`) and overstates Malay.                                                                               |
 | Common Crawl           | 1,846,066 pages per crawl on average, which is 0.0857% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `msa`, so this number is shared with Indonesian (`ind`) and overstates Malay.                                                         |
-| FineWeb                | 14.31 GB (zsm_Latn 14.31 GB; zsm_Arab 0), equivalent to ≈12.51 GB of English after byte-premium scaling; 18.31 GB removed by filtering. This is ~1/3,732 of English data and ranks 38 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 1.00 GB (zsm_Latn 1.00 GB) (rank 73 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                             |
+| FineWeb                | 14.31 GB (zsm_Latn 14.31 GB; zsm_Arab 0), equivalent to ≈12.51 GB of English after byte-premium scaling; 18.31 GB removed by filtering. This is ~1/3,732 of English data and ranks 39 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 1.00 GB (zsm_Latn 1.00 GB) (rank 73 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                             |
 
 **By writing system:**
 
-| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Latin (`Latn`)   | 14.31 GB  | 12.51 GB                      | 1.00 GB      | 0.88 GB                        |
-| Arabic (`Arab`)  | 0         | — (no byte premium yet)       | not included | —                              |
+| Writing system   | FineWeb                           | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:----------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)   | 14.31 GB (+18.31 GB filtered out) | 12.51 GB                      | 1.00 GB      | 0.88 GB                        |
+| Arabic (`Arab`)  | 0.0 MB (+0.0 MB filtered out)     | 0.0 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 

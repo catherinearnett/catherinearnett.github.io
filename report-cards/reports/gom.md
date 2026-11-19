@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                 |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3,644 articles in gom.wikipedia; 10 active users. This is ~1/2,071 of English data and ranks 125 of the 168 languages in the set with any data in Wikipedia; 164 have none.                            |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                               |
-| FineWeb                | 16.9 MB (gom_Deva 10.0 MB; gom_Latn 10.0 MB); 0.25 GB removed by filtering. This is ~1/3,165,464 of English data and ranks 131 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 22.8 MB (gom_Deva 23.0 MB) (rank 149 of the 166 languages in the set that have any; 166 have none)                                                                                                     |
+| Source                 | Amount                                                                                                                                                                                                                                                             |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,644 articles in gom.wikipedia; 10 active users. This is ~1/2,071 of English data and ranks 125 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                           |
+| FineWeb                | 16.9 MB (gom_Deva 11.0 MB; gom_Latn 6.0 MB), equivalent to ≈9.1 MB of English after byte-premium scaling; 0.25 GB removed by filtering. This is ~1/3,165,464 of English data and ranks 136 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 22.8 MB (gom_Deva 23.0 MB) (rank 153 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                 |
 
 **By writing system:**
 
-| Writing system      | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:--------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Devanagari (`Deva`) | 10.0 MB   | — (no byte premium yet)       | 23.0 MB      | 8.9 MB                         |
-| Latin (`Latn`)      | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Writing system      | FineWeb                        | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|:-------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Devanagari (`Deva`) | 11.1 MB (+6.0 MB filtered out) | 4.3 MB                        | 22.8 MB      | 8.9 MB                         |
+| Latin (`Latn`)      | 5.8 MB (+0.24 GB filtered out) | 4.7 MB                        | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -217,7 +217,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Konkani datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Konkani? Does it make sense to train one?
-  - ~8.9 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~111.1K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~9.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~113.7K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Konkani-only model is 7.2B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

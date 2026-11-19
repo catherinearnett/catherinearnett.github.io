@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🔴 nearly extinct (level 5 of 6 on Glottolog’s scale; source: ElCat: Critically Endangered (80% certain))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 4,719 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Taiwan
@@ -42,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                         |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,201 articles in trv.wikipedia; 11 active users. This is ~1/6,283 of English data and ranks 151 of the 168 languages in the set with any data in Wikipedia; 164 have none.    |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                       |
-| FineWeb                | 1.4 MB (trv_Latn 0); 0.24 GB removed by filtering. This is ~1/36,848,528 of English data and ranks 192 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,201 articles in trv.wikipedia; 11 active users. This is ~1/6,283 of English data and ranks 151 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 1.4 MB (trv_Latn 1.0 MB), equivalent to ≈1.2 MB of English after byte-premium scaling; 0.24 GB removed by filtering. This is ~1/36,848,528 of English data and ranks 201 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                     |
 
 ### Structured and annotated data
 
@@ -193,7 +195,7 @@ Seediq isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Seediq datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Seediq? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~1.2 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~15.4K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). That is larger than anything currently tagged, so a dedicated model (or continued pre-training of a multilingual base) could be worthwhile.
 - **Create new evals.** Start from the bottom of the pyramid. Since no tagged model with a known size exists, aim no higher than
   *1. Linguistic knowledge* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

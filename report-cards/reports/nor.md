@@ -54,12 +54,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 875,865 articles in nn, no.wikipedia; 2,350 active users. NB: counted as `nno` + `nob` together.                                                                                                      |
-| Common Crawl           | 7,130,240 pages per crawl on average, which is 0.3309% of the crawl (2026). This is ~1/125 of English data and ranks 25 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                        |
-| Goldfish training data | 1.45 GB (nor_Latn 1.45 GB) (rank 68 of the 166 languages in the set that have any; 166 have none)                                                                                                     |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 875,865 articles in nn, no.wikipedia; 2,350 active users. NB: counted as `nno` + `nob` together.                                                                                                                                                                                                                |
+| Common Crawl           | 7,130,240 pages per crawl on average, which is 0.3309% of the crawl (2026). This is ~1/125 of English data and ranks 25 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                                                                           |
+| FineWeb                | 85.52 GB (nob_Latn 84.11 GB; nno_Latn 1.41 GB), equivalent to ≈85.68 GB of English after byte-premium scaling; 51.38 GB removed by filtering. This is ~1/625 of English data and ranks 22 of the 261 languages in the set with any data in FineWeb; 71 have none. NB: counted as `nob_Latn, nno_Latn` together. |
+| Goldfish training data | 1.45 GB (nor_Latn 1.45 GB) (rank 68 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -232,7 +232,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Norwegian datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Norwegian? Does it make sense to train one?
-  - ~1.29 GB English-equivalent text ≈ 0.32B tokens, enough for a compute-optimal model of ~16.1M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~85.68 GB English-equivalent text ≈ 21.42B tokens, enough for a compute-optimal model of ~1.1B parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Norwegian-only model is 1.0T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

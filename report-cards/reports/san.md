@@ -45,16 +45,16 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                                             |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 12,587 articles in sa.wikipedia; 82 active users. This is ~1/600 of English data and ranks 97 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                           |
-| Common Crawl           | 80,639 pages per crawl on average, which is 0.0037% of the crawl (2026). This is ~1/11,056 of English data and ranks 67 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                              |
-| FineWeb                | 0.11 GB (san_Deva 90.0 MB; san_Latn 30.0 MB), equivalent to ≈61.3 MB of English after byte-premium scaling; 0.78 GB removed by filtering. This is ~1/465,494 of English data and ranks 108 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.35 GB (san_Deva 0.35 GB) (rank 101 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                 |
+| Common Crawl           | 80,639 pages per crawl on average, which is 0.0037% of the crawl (2026). This is ~1/11,056 of English data and ranks 67 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                              |
+| FineWeb                | 0.11 GB (san_Deva 90.0 MB; san_Latn 25.0 MB), equivalent to ≈61.3 MB of English after byte-premium scaling; 0.78 GB removed by filtering. This is ~1/465,494 of English data and ranks 111 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.35 GB (san_Deva 0.35 GB) (rank 104 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                 |
 
 **By writing system:**
 
-| Writing system      | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:--------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Devanagari (`Deva`) | 90.0 MB   | — (no byte premium yet)       | 0.35 GB      | 0.14 GB                        |
-| Latin (`Latn`)      | 30.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Writing system      | FineWeb                         | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|:--------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Devanagari (`Deva`) | 89.6 MB (+0.32 GB filtered out) | 35.2 MB                       | 0.35 GB      | 0.14 GB                        |
+| Latin (`Latn`)      | 25.1 MB (+0.47 GB filtered out) | 26.0 MB                       | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 

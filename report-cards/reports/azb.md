@@ -68,8 +68,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 244,938 articles in azb.wikipedia; 117 active users. This is ~1/31 of English data and ranks 40 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
 | Common Crawl           | 1,304,787 pages per crawl on average, which is 0.0606% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `aze`, so this number is shared with Azerbaijani (`azj`) and overstates Turkmen.                                         |
-| FineWeb                | 0.12 GB (azb_Arab 0.12 GB), equivalent to ≈79.8 MB of English after byte-premium scaling; 1.07 GB removed by filtering. This is ~1/449,047 of English data and ranks 107 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.17 GB (azb_Arab 0.17 GB) (rank 110 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
+| FineWeb                | 0.12 GB (azb_Arab 0.12 GB), equivalent to ≈79.8 MB of English after byte-premium scaling; 1.07 GB removed by filtering. This is ~1/449,047 of English data and ranks 110 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.17 GB (azb_Arab 0.17 GB) (rank 113 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 

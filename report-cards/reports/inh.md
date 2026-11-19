@@ -44,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                               |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,561 articles in inh.wikipedia; 14 active users. This is ~1/2,947 of English data and ranks 137 of the 168 languages in the set with any data in Wikipedia; 164 have none.          |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
-| FineWeb                | 14.4 MB (inh_Cyrl 10.0 MB); 5.01 GB removed by filtering. This is ~1/3,716,519 of English data and ranks 139 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 17.1 MB (inh_Cyrl 17.0 MB) (rank 154 of the 166 languages in the set that have any; 166 have none)                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,561 articles in inh.wikipedia; 14 active users. This is ~1/2,947 of English data and ranks 137 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                          |
+| FineWeb                | 14.4 MB (inh_Cyrl 14.0 MB), equivalent to ≈8.2 MB of English after byte-premium scaling; 5.01 GB removed by filtering. This is ~1/3,716,519 of English data and ranks 144 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 17.1 MB (inh_Cyrl 17.0 MB) (rank 158 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 
@@ -202,7 +202,7 @@ Ingush isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Ingush datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Ingush? Does it make sense to train one?
-  - ~9.7 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~121.4K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). That is larger than anything currently tagged, so a dedicated model (or continued pre-training of a multilingual base) could be worthwhile.
+  - ~9.8 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~122.8K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). That is larger than anything currently tagged, so a dedicated model (or continued pre-training of a multilingual base) could be worthwhile.
 - **Create new evals.** Start from the bottom of the pyramid. Since no tagged model with a known size exists, aim no higher than
   *1. Linguistic knowledge* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

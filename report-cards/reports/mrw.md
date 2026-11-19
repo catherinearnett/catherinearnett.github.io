@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 6b (Threatened))
 
+**Writing systems:** `Latn`
+
 **Speakers:** no estimate found in CLDR or Wikidata
 
 **Official / recognised in:** Philippines
@@ -46,12 +48,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                         |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                       |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                       |
-| FineWeb                | 0.8 MB (mrw_Latn 0); 44.2 MB removed by filtering. This is ~1/67,235,481 of English data and ranks 199 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 0.8 MB (mrw_Latn 1.0 MB), equivalent to ≈0.6 MB of English after byte-premium scaling; 44.2 MB removed by filtering. This is ~1/67,235,481 of English data and ranks 209 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                     |
 
 ### Structured and annotated data
 
@@ -172,7 +174,7 @@ Maranao isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (20
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Maranao datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Maranao? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.6 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~7.4K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

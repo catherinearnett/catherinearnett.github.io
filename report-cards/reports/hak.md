@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
+**Writing systems:** `Latn` and `Hani`
+
 **Speakers:** about 35.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Taiwan
@@ -36,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                        |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,511 articles in hak.wikipedia; 27 active users. This is ~1/718 of English data and ranks 103 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                    |
-| Common Crawl           | 100,182,847 pages per crawl on average, which is 4.6477% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `zho`, so this number is shared with Standard Chinese (`cmn`) and overstates Hakka. |
-| FineWeb                | 2.1 MB (hak_Hani 0; hak_Latn 0); 0.12 GB removed by filtering. This is ~1/25,432,776 of English data and ranks 181 of the 248 languages in the set with any data in FineWeb; 84 have none.                    |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                  |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                    |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,511 articles in hak.wikipedia; 27 active users. This is ~1/718 of English data and ranks 103 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                |
+| Common Crawl           | 100,182,847 pages per crawl on average, which is 4.6477% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `zho`, so this number is shared with Standard Chinese (`cmn`) and overstates Hakka.                                                                                                                                                                             |
+| FineWeb                | 2.1 MB (hak_Latn 1.0 MB; hak_Hani 1.0 MB), equivalent to ≈1.1 MB of English after byte-premium scaling (⚠️ only 69% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.12 GB removed by filtering. This is ~1/25,432,776 of English data and ranks 189 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                              |
 
 **By writing system:**
 
-| Writing system   |   FineWeb | FineWeb, English-equivalent   |
-|:-----------------|----------:|:------------------------------|
-| Han (`Hani`)     |         0 | — (no byte premium yet)       |
-| Latin (`Latn`)   |         0 | — (no byte premium yet)       |
+| Writing system   | FineWeb                        | FineWeb, English-equivalent   |
+|:-----------------|:-------------------------------|:------------------------------|
+| Latin (`Latn`)   | 1.4 MB (+42.3 MB filtered out) | 1.1 MB                        |
+| Han (`Hani`)     | 0.7 MB (+77.6 MB filtered out) | — (no byte premium yet)       |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -199,7 +201,7 @@ Hakka isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Hakka datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Hakka? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~1.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~13.9K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). That is larger than anything currently tagged, so a dedicated model (or continued pre-training of a multilingual base) could be worthwhile.
 - **Create new evals.** Start from the bottom of the pyramid. Since no tagged model with a known size exists, aim no higher than
   *1. Linguistic knowledge* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 30.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Nigeria
@@ -42,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 49,280 articles in ig.wikipedia; 107 active users. This is ~1/153 of English data and ranks 72 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
-| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                      |
-| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                      |
-| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                      |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 49,280 articles in ig.wikipedia; 107 active users. This is ~1/153 of English data and ranks 72 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | 29,298 pages per crawl on average, which is 0.0014% of the crawl (2026). This is ~1/30,429 of English data and ranks 87 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                            |
+| FineWeb                | 0.15 GB (ibo_Latn 0.15 GB), equivalent to ≈0.11 GB of English after byte-premium scaling; 0.31 GB removed by filtering. This is ~1/352,063 of English data and ranks 103 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.57 GB (ibo_Latn 0.56 GB) (rank 91 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 
@@ -223,7 +225,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Igbo datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Igbo? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~0.42 GB English-equivalent text ≈ 0.11B tokens, enough for a compute-optimal model of ~5.3M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Igbo-only model is 3.7B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

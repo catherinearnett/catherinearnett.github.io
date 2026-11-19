@@ -42,8 +42,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 14,372 articles in mai.wikipedia; 44 active users. This is ~1/525 of English data and ranks 91 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                          |
 | Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
-| FineWeb                | 47.6 MB (mai_Deva 50.0 MB), equivalent to ≈19.9 MB of English after byte-premium scaling; 0.10 GB removed by filtering. This is ~1/1,121,569 of English data and ranks 120 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.10 GB (mai_Deva 0.10 GB) (rank 119 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
+| FineWeb                | 47.6 MB (mai_Deva 48.0 MB), equivalent to ≈19.9 MB of English after byte-premium scaling; 0.10 GB removed by filtering. This is ~1/1,121,569 of English data and ranks 124 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.10 GB (mai_Deva 0.10 GB) (rank 122 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 

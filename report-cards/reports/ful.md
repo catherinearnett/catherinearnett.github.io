@@ -38,12 +38,21 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. This is ~1/332 of English data and ranks 82 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                 |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                           |
-| Goldfish training data | 31.6 MB (ful_Latn 32.0 MB) (rank 142 of the 166 languages in the set that have any; 166 have none)                                                                       |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. This is ~1/332 of English data and ranks 82 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                                                                                     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                                                                                                     |
+| FineWeb                | 5.7 MB (fuf_Latn 2.0 MB; ffm_Latn 1.0 MB; fuv_Latn 1.0 MB; fuh_Latn 1.0 MB; fub_Latn 0; fue_Latn 0; fuv_Arab 0; fuq_Latn 0), equivalent to ≈5.4 MB of English after byte-premium scaling; 7.56 GB removed by filtering. This is ~1/9,419,538 of English data and ranks 164 of the 261 languages in the set with any data in FineWeb; 71 have none. NB: counted as `fuf_Latn, ffm_Latn, fuv_Latn, fuh_Latn, fub_Latn, fue_Latn, fuv_Arab, fuq_Latn` together. |
+| Goldfish training data | 31.6 MB (ful_Latn 32.0 MB) (rank 145 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                                                                                                                                                                                                           |
+
+**By writing system:**
+
+| Writing system   | FineWeb                        | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:-------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)   | 5.6 MB (+7.56 GB filtered out) | 5.4 MB                        | 31.6 MB      | 24.5 MB                        |
+| Arabic (`Arab`)  | 0.0 MB (+0.1 MB filtered out)  | 0.0 MB                        | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
 ### Structured and annotated data
 

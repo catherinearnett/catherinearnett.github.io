@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 0 articles in kl.wikipedia; 3 active users.                                                                                                                                                           |
-| Common Crawl           | 20,499 pages per crawl on average, which is 0.0010% of the crawl (2026). This is ~1/43,490 of English data and ranks 88 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
-| FineWeb                | 57.2 MB (kal_Latn 60.0 MB); 0.37 GB removed by filtering. This is ~1/934,454 of English data and ranks 115 of the 248 languages in the set with any data in FineWeb; 84 have none.                    |
-| Goldfish training data | 0.20 GB (kal_Latn 0.20 GB) (rank 107 of the 166 languages in the set that have any; 166 have none)                                                                                                    |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 0 articles in kl.wikipedia; 3 active users.                                                                                                                                                                                                      |
+| Common Crawl           | 20,499 pages per crawl on average, which is 0.0010% of the crawl (2026). This is ~1/43,490 of English data and ranks 90 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                            |
+| FineWeb                | 57.2 MB (kal_Latn 57.0 MB), equivalent to ≈42.2 MB of English after byte-premium scaling; 0.37 GB removed by filtering. This is ~1/934,454 of English data and ranks 119 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.20 GB (kal_Latn 0.20 GB) (rank 110 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -212,7 +212,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Greenlandic datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Greenlandic? Does it make sense to train one?
-  - ~0.14 GB English-equivalent text ≈ 0.04B tokens, enough for a compute-optimal model of ~1.8M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~0.15 GB English-equivalent text ≈ 0.04B tokens, enough for a compute-optimal model of ~1.8M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Greenlandic-only model is 27.3B, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

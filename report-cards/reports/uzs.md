@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                         |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 371,861 articles in uz.wikipedia; 718 active users. ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzn`) and overstates Uzbek.                       |
-| Common Crawl           | 597,343 pages per crawl on average, which is 0.0277% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzn`) and overstates Uzbek. |
-| FineWeb                | 12.5 MB (uzs_Arab 10.0 MB); 0.21 GB removed by filtering. This is ~1/4,281,857 of English data and ranks 142 of the 248 languages in the set with any data in FineWeb; 84 have none.           |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 371,861 articles in uz.wikipedia; 718 active users. ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzn`) and overstates Uzbek.                                                                          |
+| Common Crawl           | 597,343 pages per crawl on average, which is 0.0277% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzn`) and overstates Uzbek.                                                    |
+| FineWeb                | 12.5 MB (uzs_Arab 12.0 MB), equivalent to ≈7.4 MB of English after byte-premium scaling; 0.21 GB removed by filtering. This is ~1/4,281,857 of English data and ranks 147 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                      |
 
 ### Structured and annotated data
 
@@ -195,7 +195,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Uzbek datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Uzbek? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~7.4 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~93.1K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Uzbek-only model is 3.7B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

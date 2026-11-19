@@ -38,21 +38,21 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                   |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 371,861 articles in uz.wikipedia; 718 active users. ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzs`) and overstates Uzbek.                                                                                                                                                                                                                 |
-| Common Crawl           | 597,343 pages per crawl on average, which is 0.0277% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzs`) and overstates Uzbek.                                                                                                                                                                                           |
-| FineWeb                | 4.05 GB (uzn_Latn 2.06 GB; uzn_Cyrl 1.99 GB), equivalent to ≈1.25 GB of English after byte-premium scaling (⚠️ only 51% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 3.50 GB removed by filtering. This is ~1/13,188 of English data and ranks 52 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.43 GB (uzn_Cyrl 0.43 GB) (rank 95 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 371,861 articles in uz.wikipedia; 718 active users. ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzs`) and overstates Uzbek.                                                                                         |
+| Common Crawl           | 597,343 pages per crawl on average, which is 0.0277% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzs`) and overstates Uzbek.                                                                   |
+| FineWeb                | 4.05 GB (uzn_Latn 2.06 GB; uzn_Cyrl 1.99 GB), equivalent to ≈2.26 GB of English after byte-premium scaling; 3.50 GB removed by filtering. This is ~1/13,188 of English data and ranks 53 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.68 GB (uzn_Cyrl 0.43 GB; uzn_Latn 0.24 GB) (rank 83 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
 
 **By writing system:**
 
-| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Cyrillic (`Cyrl`) | 1.99 GB   | — (no byte premium yet)       | 0.43 GB      | 0.21 GB                        |
-| Latin (`Latn`)    | 2.06 GB   | 1.25 GB                       | not included | —                              |
+| Writing system    | FineWeb                         | FineWeb, English-equivalent   | Goldfish   | Goldfish, English-equivalent   |
+|:------------------|:--------------------------------|:------------------------------|:-----------|:-------------------------------|
+| Cyrillic (`Cyrl`) | 1.99 GB (+0.99 GB filtered out) | 1.00 GB                       | 0.43 GB    | 0.22 GB                        |
+| Latin (`Latn`)    | 2.06 GB (+2.51 GB filtered out) | 1.25 GB                       | 0.25 GB    | 0.15 GB                        |
 
-_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+_Common Crawl and Wikipedia statistics are not broken down by writing system._
 
 ### Structured and annotated data
 
@@ -224,7 +224,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Uzbek datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Uzbek? Does it make sense to train one?
-  - ~1.25 GB English-equivalent text ≈ 0.31B tokens, enough for a compute-optimal model of ~15.7M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~2.26 GB English-equivalent text ≈ 0.56B tokens, enough for a compute-optimal model of ~28.2M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Uzbek-only model is 14.8B, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

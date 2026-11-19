@@ -51,8 +51,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 104,282 articles in mg.wikipedia; 67 active users. ⚠️ NB: recorded under the macrolanguage code `mlg`, which can include other varieties of Malagasy.                                                                                           |
 | Common Crawl           | 95,715 pages per crawl on average, which is 0.0045% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `mlg`, which can include other varieties of Malagasy.                                                                     |
-| FineWeb                | 0.39 GB (plt_Latn 0.39 GB), equivalent to ≈0.34 GB of English after byte-premium scaling; 0.29 GB removed by filtering. This is ~1/138,005 of English data and ranks 85 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.44 GB (plt_Latn 0.44 GB) (rank 93 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
+| FineWeb                | 0.39 GB (plt_Latn 0.39 GB), equivalent to ≈0.34 GB of English after byte-premium scaling; 0.29 GB removed by filtering. This is ~1/138,005 of English data and ranks 86 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.44 GB (plt_Latn 0.44 GB) (rank 97 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 

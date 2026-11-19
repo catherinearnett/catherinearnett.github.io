@@ -52,7 +52,7 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                 |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 0 articles in na.wikipedia; 1 active users.                                                                                                                                                            |
-| Common Crawl           | 738 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/1,208,005 of English data and ranks 111 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
+| Common Crawl           | 738 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/1,208,005 of English data and ranks 113 of the 115 languages in the set with any data in Common Crawl; 217 have none. |
 | FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                         |
 | Goldfish training data | **No Goldfish model / data**                                                                                                                                                                           |
 

@@ -51,8 +51,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 146,853 articles in lv.wikipedia; 586 active users. ⚠️ NB: recorded under the macrolanguage code `lav`, which can include other varieties of Latvian.                                                                                             |
 | Common Crawl           | 1,944,926 pages per crawl on average, which is 0.0902% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `lav`, which can include other varieties of Latvian.                                                                     |
-| FineWeb                | 15.83 GB (lvs_Latn 15.83 GB), equivalent to ≈13.12 GB of English after byte-premium scaling; 17.31 GB removed by filtering. This is ~1/3,374 of English data and ranks 37 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 43.7 MB (lvs_Latn 44.0 MB) (rank 137 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                |
+| FineWeb                | 15.83 GB (lvs_Latn 15.83 GB), equivalent to ≈13.12 GB of English after byte-premium scaling; 17.31 GB removed by filtering. This is ~1/3,374 of English data and ranks 38 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 43.7 MB (lvs_Latn 44.0 MB) (rank 140 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 

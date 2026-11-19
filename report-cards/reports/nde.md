@@ -42,8 +42,8 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                           |
 | Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
-| FineWeb                | 20.4 MB (nde_Latn 20.0 MB), equivalent to ≈21.1 MB of English after byte-premium scaling; 19.4 MB removed by filtering. This is ~1/2,616,979 of English data and ranks 128 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 10.3 MB (nde_Latn 10.0 MB) (rank 165 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
+| FineWeb                | 20.4 MB (nde_Latn 20.0 MB), equivalent to ≈21.1 MB of English after byte-premium scaling; 19.4 MB removed by filtering. This is ~1/2,616,979 of English data and ranks 133 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 10.3 MB (nde_Latn 10.0 MB) (rank 169 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 

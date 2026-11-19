@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                       |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 29,793 articles in crh.wikipedia; 62 active users. This is ~1/253 of English data and ranks 77 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                    |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                                     |
-| FineWeb                | 50.5 MB (crh_Latn 40.0 MB; crh_Cyrl 10.0 MB), equivalent to ≈31.4 MB of English after byte-premium scaling (⚠️ only 81% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 1.34 GB removed by filtering. This is ~1/1,057,338 of English data and ranks 118 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 75.3 MB (crh_Latn 63.0 MB; crh_Cyrl 12.0 MB) (rank 125 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                                              |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 29,793 articles in crh.wikipedia; 62 active users. This is ~1/253 of English data and ranks 77 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                           |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                            |
+| FineWeb                | 50.5 MB (crh_Latn 41.0 MB; crh_Cyrl 9.0 MB), equivalent to ≈36.4 MB of English after byte-premium scaling; 1.34 GB removed by filtering. This is ~1/1,057,338 of English data and ranks 122 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 75.3 MB (crh_Latn 63.0 MB; crh_Cyrl 12.0 MB) (rank 128 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 **By writing system:**
 
-| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish   | Goldfish, English-equivalent   |
-|:------------------|:----------|:------------------------------|:-----------|:-------------------------------|
-| Latin (`Latn`)    | 40.0 MB   | — (no byte premium yet)       | 63.0 MB    | — (no byte premium yet)        |
-| Cyrillic (`Cyrl`) | 10.0 MB   | — (no byte premium yet)       | 12.0 MB    | — (no byte premium yet)        |
+| Writing system    | FineWeb                         | FineWeb, English-equivalent   | Goldfish   | Goldfish, English-equivalent   |
+|:------------------|:--------------------------------|:------------------------------|:-----------|:-------------------------------|
+| Latin (`Latn`)    | 41.2 MB (+1.34 GB filtered out) | 31.4 MB                       | 63.2 MB    | 48.2 MB                        |
+| Cyrillic (`Cyrl`) | 9.4 MB (+3.7 MB filtered out)   | 5.1 MB                        | 12.0 MB    | 6.5 MB                         |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -219,7 +219,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Crimean Tatar datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Crimean Tatar? Does it make sense to train one?
-  - ~54.4 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~680.3K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~54.7 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~684.0K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

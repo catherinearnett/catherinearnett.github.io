@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                             |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 18,285 articles in sah.wikipedia; 43 active users. This is ~1/413 of English data and ranks 86 of the 168 languages in the set with any data in Wikipedia; 164 have none.          |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                           |
-| FineWeb                | 0.16 GB (sah_Cyrl 0.16 GB); 0.50 GB removed by filtering. This is ~1/328,777 of English data and ranks 100 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.48 GB (sah_Cyrl 0.48 GB) (rank 91 of the 166 languages in the set that have any; 166 have none)                                                                                  |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 18,285 articles in sah.wikipedia; 43 active users. This is ~1/413 of English data and ranks 86 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 0.16 GB (sah_Cyrl 0.16 GB), equivalent to ≈83.5 MB of English after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/328,777 of English data and ranks 101 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.48 GB (sah_Cyrl 0.48 GB) (rank 95 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 
@@ -208,7 +208,7 @@ Yakut has been part of the WMT translation task in **1** year (2022).
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Yakut datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Yakut? Does it make sense to train one?
-  - ~0.27 GB English-equivalent text ≈ 0.07B tokens, enough for a compute-optimal model of ~3.3M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~0.24 GB English-equivalent text ≈ 0.06B tokens, enough for a compute-optimal model of ~3.1M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Yakut-only model is 9.2B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

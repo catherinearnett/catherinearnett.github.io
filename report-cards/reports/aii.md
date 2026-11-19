@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: Glottolog)
 
+**Writing systems:** `Syrc`
+
 **Speakers:** about 230,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `syr`, so includes other varieties
 
 **Official / recognised in:** Iraq
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                   |
-| Common Crawl           | 7,332 pages per crawl on average, which is 0.0003% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `syr`, which can include other varieties of Syriac.                                                                   |
-| FineWeb                | 2.1 MB (aii_Syrc 0), equivalent to ≈1.1 MB of English after byte-premium scaling; 2.4 MB removed by filtering. This is ~1/25,538,572 of English data and ranks 183 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                        |
+| Common Crawl           | 7,332 pages per crawl on average, which is 0.0003% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `syr`, which can include other varieties of Syriac.                                                                        |
+| FineWeb                | 2.1 MB (aii_Syrc 2.0 MB), equivalent to ≈1.1 MB of English after byte-premium scaling; 2.4 MB removed by filtering. This is ~1/25,538,572 of English data and ranks 191 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
 
 ### Structured and annotated data
 

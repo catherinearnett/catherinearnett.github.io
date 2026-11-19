@@ -16,7 +16,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable (80% certain))
 
-**Writing systems:** `Latn`
+**Writing systems:** `Latn` and `Cyrl`
 
 **Speakers:** about 119,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
@@ -48,19 +48,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3,009 articles in gag.wikipedia; 21 active users. This is ~1/2,508 of English data and ranks 129 of the 168 languages in the set with any data in Wikipedia; 164 have none.                      |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                         |
-| FineWeb                | 15.2 MB (gag_Latn 10.0 MB; gag_Cyrl 0); 94.3 MB removed by filtering. This is ~1/3,515,461 of English data and ranks 137 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                     |
+| Source                 | Amount                                                                                                                                                                                                                                                              |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,009 articles in gag.wikipedia; 21 active users. This is ~1/2,508 of English data and ranks 129 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                            |
+| FineWeb                | 15.2 MB (gag_Latn 13.0 MB; gag_Cyrl 3.0 MB), equivalent to ≈11.5 MB of English after byte-premium scaling; 94.3 MB removed by filtering. This is ~1/3,515,461 of English data and ranks 142 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                        |
 
 **By writing system:**
 
-| Writing system    | FineWeb   | FineWeb, English-equivalent   |
-|:------------------|:----------|:------------------------------|
-| Latin (`Latn`)    | 10.0 MB   | — (no byte premium yet)       |
-| Cyrillic (`Cyrl`) | 0         | — (no byte premium yet)       |
+| Writing system    | FineWeb                         | FineWeb, English-equivalent   |
+|:------------------|:--------------------------------|:------------------------------|
+| Latin (`Latn`)    | 12.6 MB (+92.5 MB filtered out) | 10.1 MB                       |
+| Cyrillic (`Cyrl`) | 2.6 MB (+1.8 MB filtered out)   | 1.3 MB                        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -214,7 +214,7 @@ Gagauz isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (200
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Gagauz datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Gagauz? Does it make sense to train one?
-  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
+  - ~11.5 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~143.5K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

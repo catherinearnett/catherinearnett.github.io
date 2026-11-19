@@ -16,6 +16,8 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
+**Writing systems:** `Latn`
+
 **Speakers:** about 2.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Philippines
@@ -36,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                         |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,222 articles in pam.wikipedia; 24 active users. This is ~1/738 of English data and ranks 104 of the 168 languages in the set with any data in Wikipedia; 164 have none.     |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                       |
-| FineWeb                | 3.0 MB (pam_Latn 0); 0.10 GB removed by filtering. This is ~1/17,534,013 of English data and ranks 171 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 59.3 MB (pam_Latn 59.0 MB) (rank 130 of the 166 languages in the set that have any; 166 have none)                                                                             |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,222 articles in pam.wikipedia; 24 active users. This is ~1/738 of English data and ranks 104 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
+| FineWeb                | 3.0 MB (pam_Latn 3.0 MB), equivalent to ≈2.3 MB of English after byte-premium scaling; 0.10 GB removed by filtering. This is ~1/17,534,013 of English data and ranks 179 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 59.3 MB (pam_Latn 59.0 MB) (rank 133 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -200,7 +202,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Kapampangan datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Kapampangan? Does it make sense to train one?
-  - ~48.6 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~607.6K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~45.5 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~568.9K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

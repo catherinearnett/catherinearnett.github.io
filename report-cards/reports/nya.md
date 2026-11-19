@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                          |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,161 articles in ny.wikipedia; 14 active users. This is ~1/6,500 of English data and ranks 153 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
-| Common Crawl           | 17,025 pages per crawl on average, which is 0.0008% of the crawl (2026). This is ~1/52,365 of English data and ranks 92 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                           |
-| FineWeb                | 0.17 GB (nya_Latn 0.17 GB), equivalent to ≈0.14 GB of English after byte-premium scaling; 0.26 GB removed by filtering. This is ~1/315,828 of English data and ranks 99 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 0.58 GB (nya_Latn 0.58 GB) (rank 87 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,161 articles in ny.wikipedia; 14 active users. This is ~1/6,500 of English data and ranks 153 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | 17,025 pages per crawl on average, which is 0.0008% of the crawl (2026). This is ~1/52,365 of English data and ranks 94 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                            |
+| FineWeb                | 0.17 GB (nya_Latn 0.17 GB), equivalent to ≈0.14 GB of English after byte-premium scaling; 0.26 GB removed by filtering. This is ~1/315,828 of English data and ranks 100 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 0.58 GB (nya_Latn 0.58 GB) (rank 90 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
 
 ### Structured and annotated data
 

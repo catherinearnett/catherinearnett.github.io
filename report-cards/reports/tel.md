@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                   |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 130,448 articles in te.wikipedia; 318 active users. This is ~1/58 of English data and ranks 52 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                |
-| Common Crawl           | 450,946 pages per crawl on average, which is 0.0209% of the crawl (2026). This is ~1/1,977 of English data and ranks 47 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                    |
-| FineWeb                | 4.04 GB (tel_Telu 3.99 GB; tel_Latn 50.0 MB), equivalent to ≈1.52 GB of English after byte-premium scaling (⚠️ only 99% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 6.21 GB removed by filtering. This is ~1/13,233 of English data and ranks 53 of the 248 languages in the set with any data in FineWeb; 84 have none. |
-| Goldfish training data | 5.84 GB (tel_Telu 5.84 GB) (rank 33 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 130,448 articles in te.wikipedia; 318 active users. This is ~1/58 of English data and ranks 52 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                        |
+| Common Crawl           | 450,946 pages per crawl on average, which is 0.0209% of the crawl (2026). This is ~1/1,977 of English data and ranks 47 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                            |
+| FineWeb                | 4.04 GB (tel_Telu 3.99 GB; tel_Latn 47.0 MB), equivalent to ≈1.56 GB of English after byte-premium scaling; 6.21 GB removed by filtering. This is ~1/13,233 of English data and ranks 54 of the 261 languages in the set with any data in FineWeb; 71 have none. |
+| Goldfish training data | 5.84 GB (tel_Telu 5.84 GB) (rank 33 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                |
 
 **By writing system:**
 
-| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
-| Telugu (`Telu`)  | 3.99 GB   | 1.52 GB                       | 5.84 GB      | 2.23 GB                        |
-| Latin (`Latn`)   | 50.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Writing system   | FineWeb                         | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:--------------------------------|:------------------------------|:-------------|:-------------------------------|
+| Telugu (`Telu`)  | 3.99 GB (+6.02 GB filtered out) | 1.52 GB                       | 5.84 GB      | 2.23 GB                        |
+| Latin (`Latn`)   | 47.4 MB (+0.19 GB filtered out) | 36.8 MB                       | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
