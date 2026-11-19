@@ -44,36 +44,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                         |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                       |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                       |
-| FineWeb                | 3.62 GB (fil_Latn 3.62 GB), equivalent to ≈2.74 GB of English after byte-premium scaling; 4.05 GB removed by filtering. This is ~1/14,764 of English data and ranks 56 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 4.21 GB (fil_Latn 4.21 GB) (rank 45 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                           |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                         |
+| FineWeb                | 3.62 GB (fil_Latn 3.62 GB); 4.05 GB removed by filtering. This is ~1/14,764 of English data and ranks 55 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 4.21 GB (fil_Latn 4.21 GB) (rank 45 of the 166 languages in the set that have any; 166 have none)                                                                                |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                     |
-|:-----------------------|:--------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                  |
-| UniMorph               | **None found**                                                                  |
-| Wikidata labels        | 56 Wikidata items have a label in Filipino. (Wikidata codes (labels): fil (56)) |
-| Wordnets               | **None found**                                                                  |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                   |
-|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 67,117 sentence pairs with English across 4 corpora; largest: [QED](https://opus.nlpl.eu/QED) (42,864), [ALT](https://opus.nlpl.eu/ALT) (18,088), [TED2020](https://opus.nlpl.eu/TED2020) (3,423), [GlobalVoices](https://opus.nlpl.eu/GlobalVoices) (2,742). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                   |
-| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                                                                                                                   |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                          |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                             |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_fil) en → fil: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_fil) en → fil: size not listed                                            |
+| Resource                                                                                 | What exists                                                                                                                                                                                                        |
+|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                            |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                        |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                         |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                               |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                  |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_fil) en → fil: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_fil) en → fil: size not listed |
 
 ### How good are we at identifying data?
 
@@ -115,7 +115,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Filipino has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Filipino?
@@ -213,7 +212,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Filipino datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Filipino? Does it make sense to train one?
-  - ~3.19 GB English-equivalent text ≈ 0.80B tokens, enough for a compute-optimal model of ~39.9M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~3.17 GB English-equivalent text ≈ 0.79B tokens, enough for a compute-optimal model of ~39.6M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Filipino-only model is 3.7B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

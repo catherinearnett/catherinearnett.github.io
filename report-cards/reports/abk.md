@@ -50,12 +50,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                          |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 6,752 articles in ab.wikipedia; 23 active users. This is ~1/1,118 of English data and ranks 114 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
-| Common Crawl           | 14,153 pages per crawl on average, which is 0.0007% of the crawl (2026). This is ~1/62,991 of English data and ranks 100 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                          |
-| FineWeb                | 5.6 MB (abk_Cyrl 6.0 MB), equivalent to ≈3.1 MB of English after byte-premium scaling; 75.7 MB removed by filtering. This is ~1/9,466,552 of English data and ranks 165 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 52.1 MB (abk_Cyrl 52.0 MB) (rank 136 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 6,752 articles in ab.wikipedia; 23 active users. This is ~1/1,118 of English data and ranks 114 of the 168 languages in the set with any data in Wikipedia; 164 have none.                            |
+| Common Crawl           | 14,153 pages per crawl on average, which is 0.0007% of the crawl (2026). This is ~1/62,991 of English data and ranks 98 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
+| FineWeb                | 5.6 MB (abk_Cyrl 10.0 MB); 75.7 MB removed by filtering. This is ~1/9,466,552 of English data and ranks 158 of the 248 languages in the set with any data in FineWeb; 84 have none.                   |
+| Goldfish training data | 52.1 MB (abk_Cyrl 52.0 MB) (rank 133 of the 166 languages in the set that have any; 166 have none)                                                                                                    |
 
 ### Structured and annotated data
 
@@ -65,21 +65,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 1,662 sentences / 14,212 tokens in total: [UD_Abkhaz-AbNC](https://github.com/UniversalDependencies/UD_Abkhaz-AbNC) (1,662 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                            |
-| Wikidata labels        | 302,767 Wikidata items have a label in Abkhaz. (Wikidata codes (labels): ab (302,767))                                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                            |
 | Wordnets               | **None found**                                                                                                                                                                                                            |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                         |
-|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 7,524 sentence pairs with English across 4 corpora; largest: [QED](https://opus.nlpl.eu/QED) (5,721), [translatewiki](https://opus.nlpl.eu/translatewiki) (1,639), [wikimedia](https://opus.nlpl.eu/wikimedia) (134), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (30). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                         |
-| Tatoeba                                                                                  | 37 sentences, 30 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/abk/none)).                                                                                                                                                     |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                   |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                   |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ab) en → ab: 3,976 lexicon entries                                                                                                                                                         |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ab) en → ab: 3,976 lexicon entries                                                 |
 
 ### How good are we at identifying data?
 
@@ -121,7 +121,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Abkhaz has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/abk/) video of Abkhaz yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
@@ -217,7 +216,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Abkhaz datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Abkhaz? Does it make sense to train one?
-  - ~28.2 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~353.1K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~30.0 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~375.6K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Abkhaz-only model is 23.6B, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

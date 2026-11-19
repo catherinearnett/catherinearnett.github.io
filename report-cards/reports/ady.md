@@ -46,36 +46,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 649 articles in ady.wikipedia; 15 active users. This is ~1/11,628 of English data and ranks 159 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                          |
-| FineWeb                | 12.3 MB (ady_Cyrl 12.0 MB), equivalent to ≈6.7 MB of English after byte-premium scaling; 22.4 MB removed by filtering. This is ~1/4,332,515 of English data and ranks 148 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 30.1 MB (ady_Cyrl 30.0 MB) (rank 146 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
+| Source                 | Amount                                                                                                                                                                               |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 649 articles in ady.wikipedia; 15 active users. This is ~1/11,628 of English data and ranks 159 of the 168 languages in the set with any data in Wikipedia; 164 have none.           |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
+| FineWeb                | 12.3 MB (ady_Cyrl 10.0 MB); 22.4 MB removed by filtering. This is ~1/4,332,515 of English data and ranks 143 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 30.1 MB (ady_Cyrl 30.0 MB) (rank 143 of the 166 languages in the set that have any; 166 have none)                                                                                   |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                             |
-|:-----------------------|:----------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                          |
-| UniMorph               | 1,666 lemmas, 20,475 inflected forms ([unimorph/ady](https://github.com/unimorph/ady))  |
-| Wikidata labels        | 267,985 Wikidata items have a label in Adyghe. (Wikidata codes (labels): ady (267,985)) |
-| Wordnets               | **None found**                                                                          |
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | 1,666 lemmas, 20,475 inflected forms ([unimorph/ady](https://github.com/unimorph/ady)) |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._         |
+| Wordnets               | **None found**                                                                         |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 1,488 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (1,347), [wikimedia](https://opus.nlpl.eu/wikimedia) (128), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (13). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                |
-| Tatoeba                                                                                  | 32 sentences, 14 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/ady/none)).                                                                                                            |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                          |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                          |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ady) en → ady: 4,001 lexicon entries                                                                                                              |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ady) en → ady: 4,001 lexicon entries                                               |
 
 ### How good are we at identifying data?
 
@@ -117,7 +117,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Adyghe has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Adyghe?
@@ -208,7 +207,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Adyghe datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Adyghe? Does it make sense to train one?
-  - ~16.4 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~204.9K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~17.7 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~220.9K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Adyghe-only model is 1.5B, aim no higher than
   *3. Commonsense reasoning* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                             |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,919 articles in bxr.wikipedia; 19 active users. This is ~1/2,585 of English data and ranks 130 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
-| FineWeb                | 23.7 MB (bxr_Cyrl 24.0 MB), equivalent to ≈12.5 MB of English after byte-premium scaling; 26.3 MB removed by filtering. This is ~1/2,256,951 of English data and ranks 130 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 45.1 MB (bxr_Cyrl 45.0 MB) (rank 139 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                 |
+| Source                 | Amount                                                                                                                                                                               |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,919 articles in bxr.wikipedia; 19 active users. This is ~1/2,585 of English data and ranks 130 of the 168 languages in the set with any data in Wikipedia; 164 have none.          |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
+| FineWeb                | 23.7 MB (bxr_Cyrl 20.0 MB); 26.3 MB removed by filtering. This is ~1/2,256,951 of English data and ranks 125 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 45.1 MB (bxr_Cyrl 45.0 MB) (rank 136 of the 166 languages in the set that have any; 166 have none)                                                                                   |
 
 ### Structured and annotated data
 
@@ -61,21 +61,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 927 sentences / 10,187 tokens in total: [UD_Buryat-BDT](https://github.com/UniversalDependencies/UD_Buryat-BDT) (927 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                      |
-| Wikidata labels        | 165,611 Wikidata items have a label in Buryat. (Wikidata codes (labels): bxr (165,611), bua (5))                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                      |
 | Wordnets               | **None found**                                                                                                                                                                                                      |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                           |
-|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 4,094 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (3,985), [wikimedia](https://opus.nlpl.eu/wikimedia) (109).                                          |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                           |
-| Tatoeba                                                                                  | 1,082 sentences, 40 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/bua/none)). ⚠️ Listed under the macrolanguage code `bua`, so this may cover other varieties as well as Buryat. |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                     |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                     |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_bua) en → bua: 3,976 lexicon entries ⚠️ Listed under the macrolanguage code `bua`, so this may cover other varieties as well as Buryat.      |
+| Resource                                                                                 | What exists                                                                                                                                                                                                      |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                          |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                      |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                       |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_bua) en → bua: 3,976 lexicon entries ⚠️ Listed under the macrolanguage code `bua`, so this may cover other varieties as well as Buryat. |
 
 ### How good are we at identifying data?
 
@@ -217,7 +217,7 @@ _⚠️ Listed under the macrolanguage code `bua`, so this may cover other varie
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Buryat datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Buryat? Does it make sense to train one?
-  - ~23.9 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~298.7K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~27.0 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~338.0K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 13.0B, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

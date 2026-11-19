@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 338 articles in nr.wikipedia; 7 active users. This is ~1/22,327 of English data and ranks 166 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
-| FineWeb                | 5.1 MB (nbl_Latn 5.0 MB), equivalent to ≈4.2 MB of English after byte-premium scaling; 0.64 GB removed by filtering. This is ~1/10,428,589 of English data and ranks 168 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                     |
+| Source                 | Amount                                                                                                                                                                               |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 338 articles in nr.wikipedia; 7 active users. This is ~1/22,327 of English data and ranks 166 of the 168 languages in the set with any data in Wikipedia; 164 have none.             |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
+| FineWeb                | 5.1 MB (nbl_Latn 10.0 MB); 0.64 GB removed by filtering. This is ~1/10,428,589 of English data and ranks 161 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                         |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                                                  |
 | UniMorph               | **None found**                                                                                                                                                                  |
-| Wikidata labels        | 751 Wikidata items have a label in Ndebele. (Wikidata codes (labels): nr (751))                                                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                  |
 | Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
 
 ### Parallel data (for machine translation)
@@ -62,9 +62,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                           |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 1,230 sentence pairs with English across 3 corpora; largest: [wikimedia](https://opus.nlpl.eu/wikimedia) (1,050), [translatewiki](https://opus.nlpl.eu/translatewiki) (159), [GNOME](https://opus.nlpl.eu/GNOME) (21).                                                                                                |
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                               |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                           |
-| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                                                                                                                                                                           |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                            |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                     |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                     |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_nr) en → nr: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_nr) en → nr: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_nr) en → nr: size not listed |
@@ -108,7 +108,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Ndebele has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Ndebele?
@@ -199,7 +198,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Ndebele datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Ndebele? Does it make sense to train one?
-  - ~4.2 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~51.9K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 1.9T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

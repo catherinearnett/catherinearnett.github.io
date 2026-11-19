@@ -16,8 +16,6 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Endangered (100% certain))
 
-**Writing systems:** `Latn`
-
 **Speakers:** about 46,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** United States
@@ -46,36 +44,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                          |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 581 articles in ch.wikipedia; 18 active users. This is ~1/12,989 of English data and ranks 161 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
-| FineWeb                | 1.8 MB (cha_Latn 2.0 MB), equivalent to ≈1.8 MB of English after byte-premium scaling; 1.4 MB removed by filtering. This is ~1/29,695,762 of English data and ranks 193 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
+| Source                 | Amount                                                                                                                                                                                                                                     |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 581 articles in ch.wikipedia; 18 active users. This is ~1/12,989 of English data and ranks 161 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                  |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                   |
+| FineWeb                | 1.8 MB (cha_Latn 0), equivalent to ≈1.8 MB of English after byte-premium scaling; 1.4 MB removed by filtering. This is ~1/29,695,762 of English data and ranks 185 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                              |
-|:-----------------------|:-----------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                           |
-| UniMorph               | **None found**                                                                           |
-| Wikidata labels        | 476,324 Wikidata items have a label in Chamorro. (Wikidata codes (labels): ch (476,324)) |
-| Wordnets               | **None found**                                                                           |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                              |
-|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 15,481 sentence pairs with English across 5 corpora; largest: [bible-uedin](https://opus.nlpl.eu/bible-uedin) (14,486), [translatewiki](https://opus.nlpl.eu/translatewiki) (700), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (237), [wikimedia](https://opus.nlpl.eu/wikimedia) (49), [QED](https://opus.nlpl.eu/QED) (9). |
-| Bible translations (eBible corpus)                                                       | **Portions only** — 1 translation: portions ([cha](https://ebible.org/details.php?id=cha), Public Domain).                                                                                                                                                                                                               |
-| Tatoeba                                                                                  | 350 sentences, 197 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/cha/none)).                                                                                                                                                                                                        |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                        |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                        |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ch) en → ch: 4,001 lexicon entries                                                                                                                                                                                                              |
+| Resource                                                                                 | What exists                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                     |
+| Bible translations (eBible corpus)                                                       | **Portions only** — 1 translation: portions ([cha](https://ebible.org/details.php?id=cha), Public Domain).  |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ch) en → ch: 4,001 lexicon entries |
 
 ### How good are we at identifying data?
 
@@ -119,7 +117,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Chamorro has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Chamorro?

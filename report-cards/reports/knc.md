@@ -42,32 +42,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                       |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,150 articles in knc.wikipedia; 14 active users. This is ~1/3,510 of English data and ranks 139 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                  |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                     |
-| FineWeb                | 0.1 MB (knc_Latn 0), equivalent to ≈0.1 MB of English after byte-premium scaling; 19.0 MB removed by filtering. This is ~1/374,768,371 of English data and ranks 238 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 0.61 GB (knc_Arab 0.61 GB) (rank 86 of the 171 languages in the set that have any; 161 have none)                                                                                                                                            |
-
-**By writing system:**
-
-| Writing system   | FineWeb                        | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-----------------|:-------------------------------|:------------------------------|:-------------|:-------------------------------|
-| Arabic (`Arab`)  | not included                   | —                             | 0.61 GB      | 0.24 GB                        |
-| Latin (`Latn`)   | 0.1 MB (+19.0 MB filtered out) | 0.1 MB                        | not included | —                              |
-
-_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+| Source                 | Amount                                                                                                                                                                      |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,150 articles in knc.wikipedia; 14 active users. This is ~1/3,510 of English data and ranks 139 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
+| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
+| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
+| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                        |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                                          |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                                       |
-| UniMorph               | **None found**                                                                                       |
-| Wikidata labels        | 440,307 Wikidata items have a label in Kanuri. (Wikidata codes (labels): kr (440,307), knc (35,592)) |
-| Wordnets               | **None found**                                                                                       |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -75,9 +66,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 646 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (597), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (43), [wikimedia](https://opus.nlpl.eu/wikimedia) (6).                                                                                                                                                                                                     |
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                                                                                  |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                                                                                                              |
-| Tatoeba                                                                                  | 3,800 sentences, 3,798 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/knc/none)).                                                                                                                                                                                                                                                                                                    |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                                                                               |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Arab script); 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                                                                      |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Arab script) — paired with English                                                                                                                                                                                                                                                                                                                                                                      |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_kr) en → kr: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_kr) en → kr: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_kr) en → kr: size not listed ⚠️ Listed under the macrolanguage code `kau`, so this may cover other varieties as well as Kanuri. |
@@ -226,7 +217,7 @@ _⚠️ Listed under the macrolanguage code `kau`, so this may cover other varie
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Kanuri datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Kanuri? Does it make sense to train one?
-  - ~0.24 GB English-equivalent text ≈ 0.06B tokens, enough for a compute-optimal model of ~3.0M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 1.9T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

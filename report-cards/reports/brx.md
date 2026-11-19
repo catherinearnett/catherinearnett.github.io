@@ -16,8 +16,6 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Severely endangered)
 
-**Writing systems:** `Deva`
-
 **Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India
@@ -54,12 +52,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                          |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                        |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
-| FineWeb                | 3.3 MB (brx_Deva 3.0 MB), equivalent to ≈1.2 MB of English after byte-premium scaling; 1.8 MB removed by filtering. This is ~1/16,281,568 of English data and ranks 177 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
+| Source                 | Amount                                                                                                                                                                        |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                      |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                      |
+| FineWeb                | 3.3 MB (brx_Deva 0); 1.8 MB removed by filtering. This is ~1/16,281,568 of English data and ranks 169 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                  |
 
 ### Structured and annotated data
 
@@ -69,7 +67,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                   |
 | UniMorph               | **None found**                                                                                                   |
-| Wikidata labels        | **None found**                                                                                                   |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                   |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
 
 ### Parallel data (for machine translation)
@@ -78,9 +76,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                              |
 |:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 287 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (242), [GNOME](https://opus.nlpl.eu/GNOME) (33), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (12).            |
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                  |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                              |
-| Tatoeba                                                                                  | 11 sentences, 10 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/brx/none)).                                                                                                          |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                               |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 997 sentences (Deva script) — the same sentences in 200+ languages                                                                                                                                                       |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Deva script) — paired with English                                                                                                                                                                      |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_brx) en → brx: 3,994 lexicon entries; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_brx) en → brx: size not listed |
@@ -124,8 +122,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Bodo and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
-- **Create structured data:** Bodo has no UD treebank, UniMorph data or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
+- **Create structured data:** Bodo has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Bodo?
@@ -223,7 +220,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Bodo datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Bodo? Does it make sense to train one?
-  - ~1.2 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~14.5K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Bodo-only model is 304.2B, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

@@ -51,15 +51,15 @@ Let's consider some of the most popular sources of training data:
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 445,295 articles in ms.wikipedia; 1,835 active users. ⚠️ NB: counted under the macrolanguage code `msa`, so this number is shared with Indonesian (`ind`) and overstates Malay.                                                                               |
 | Common Crawl           | 1,846,066 pages per crawl on average, which is 0.0857% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `msa`, so this number is shared with Indonesian (`ind`) and overstates Malay.                                                         |
-| FineWeb                | 14.31 GB (zsm_Latn 14.31 GB; zsm_Arab 0), equivalent to ≈12.51 GB of English after byte-premium scaling; 18.31 GB removed by filtering. This is ~1/3,732 of English data and ranks 39 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 1.00 GB (zsm_Latn 1.00 GB) (rank 73 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                             |
+| FineWeb                | 14.31 GB (zsm_Latn 14.31 GB; zsm_Arab 0), equivalent to ≈12.51 GB of English after byte-premium scaling; 18.31 GB removed by filtering. This is ~1/3,732 of English data and ranks 38 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 1.00 GB (zsm_Latn 1.00 GB) (rank 73 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                             |
 
 **By writing system:**
 
-| Writing system   | FineWeb                           | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-----------------|:----------------------------------|:------------------------------|:-------------|:-------------------------------|
-| Latin (`Latn`)   | 14.31 GB (+18.31 GB filtered out) | 12.51 GB                      | 1.00 GB      | 0.88 GB                        |
-| Arabic (`Arab`)  | 0.0 MB (+0.0 MB filtered out)     | 0.0 MB                        | not included | —                              |
+| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)   | 14.31 GB  | 12.51 GB                      | 1.00 GB      | 0.88 GB                        |
+| Arabic (`Arab`)  | 0         | — (no byte premium yet)       | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -71,7 +71,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                                                                         |
 | UniMorph               | **None found**                                                                                                                                                                                         |
-| Wikidata labels        | 1,981,673 Wikidata items have a label in Malay. (Wikidata codes (labels): ms (1,981,673), ms-arab (26,476))                                                                                            |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                         |
 | Wordnets               | [Wordnet Bahasa (Malaysian)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-zsm-1.4.tar.xz): 36,911 synsets, 38,755 words, 105,028 senses; licence: https://opensource.org/licenses/MIT/. |
 
 ### Parallel data (for machine translation)
@@ -80,9 +80,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 1,560 sentence pairs with English across 1 corpora; largest: [Tatoeba](https://opus.nlpl.eu/Tatoeba) (1,560).                                               |
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | 7,791 sentences, 4,049 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/zsm/none)).                                       |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                        |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                         |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ms-Arab) en → ms-Arab: size not listed                                             |

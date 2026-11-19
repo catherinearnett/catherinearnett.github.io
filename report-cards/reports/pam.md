@@ -16,8 +16,6 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
-**Writing systems:** `Latn`
-
 **Speakers:** about 2.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Philippines
@@ -38,36 +36,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,222 articles in pam.wikipedia; 24 active users. This is ~1/738 of English data and ranks 104 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
-| FineWeb                | 3.0 MB (pam_Latn 3.0 MB), equivalent to ≈2.3 MB of English after byte-premium scaling; 0.10 GB removed by filtering. This is ~1/17,534,013 of English data and ranks 179 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 59.3 MB (pam_Latn 59.0 MB) (rank 133 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                         |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,222 articles in pam.wikipedia; 24 active users. This is ~1/738 of English data and ranks 104 of the 168 languages in the set with any data in Wikipedia; 164 have none.     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                       |
+| FineWeb                | 3.0 MB (pam_Latn 0); 0.10 GB removed by filtering. This is ~1/17,534,013 of English data and ranks 171 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 59.3 MB (pam_Latn 59.0 MB) (rank 130 of the 166 languages in the set that have any; 166 have none)                                                                             |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                                  |
-|:-----------------------|:---------------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                               |
-| UniMorph               | **None found**                                                                               |
-| Wikidata labels        | 520,188 Wikidata items have a label in Kapampangan. (Wikidata codes (labels): pam (520,188)) |
-| Wordnets               | **None found**                                                                               |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                          |
-|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 3,841 sentence pairs with English across 4 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (1,996), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (1,497), [wikimedia](https://opus.nlpl.eu/wikimedia) (198), [QED](https://opus.nlpl.eu/QED) (150). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                          |
-| Tatoeba                                                                                  | 1,482 sentences, 1,466 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/pam/none)).                                                                                                                                                |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                    |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                    |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_pam) en → pam: size not listed                                                                                                                                                              |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_pam) en → pam: size not listed                                                     |
 
 ### How good are we at identifying data?
 
@@ -202,7 +200,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Kapampangan datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Kapampangan? Does it make sense to train one?
-  - ~45.5 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~568.9K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~48.6 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~607.6K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

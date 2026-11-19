@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                             |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3,644 articles in gom.wikipedia; 10 active users. This is ~1/2,071 of English data and ranks 125 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                        |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                           |
-| FineWeb                | 16.9 MB (gom_Deva 11.0 MB; gom_Latn 6.0 MB), equivalent to ≈9.1 MB of English after byte-premium scaling; 0.25 GB removed by filtering. This is ~1/3,165,464 of English data and ranks 136 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 22.8 MB (gom_Deva 23.0 MB) (rank 153 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                 |
+| Source                 | Amount                                                                                                                                                                                                 |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,644 articles in gom.wikipedia; 10 active users. This is ~1/2,071 of English data and ranks 125 of the 168 languages in the set with any data in Wikipedia; 164 have none.                            |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                               |
+| FineWeb                | 16.9 MB (gom_Deva 10.0 MB; gom_Latn 10.0 MB); 0.25 GB removed by filtering. This is ~1/3,165,464 of English data and ranks 131 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 22.8 MB (gom_Deva 23.0 MB) (rank 149 of the 166 languages in the set that have any; 166 have none)                                                                                                     |
 
 **By writing system:**
 
-| Writing system      | FineWeb                        | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:--------------------|:-------------------------------|:------------------------------|:-------------|:-------------------------------|
-| Devanagari (`Deva`) | 11.1 MB (+6.0 MB filtered out) | 4.3 MB                        | 22.8 MB      | 8.9 MB                         |
-| Latin (`Latn`)      | 5.8 MB (+0.24 GB filtered out) | 4.7 MB                        | not included | —                              |
+| Writing system      | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Devanagari (`Deva`) | 10.0 MB   | — (no byte premium yet)       | 23.0 MB      | 8.9 MB                         |
+| Latin (`Latn`)      | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -62,21 +62,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                   |
 | UniMorph               | **None found**                                                                                                   |
-| Wikidata labels        | 267,734 Wikidata items have a label in Konkani. (Wikidata codes (labels): gom (267,734), kok (27))               |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                   |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 6,535 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (4,649), [wikimedia](https://opus.nlpl.eu/wikimedia) (1,884), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (2). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                 |
-| Tatoeba                                                                                  | 10 sentences, 5 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/gom/none)).                                                                                                              |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 997 sentences (Deva script) — the same sentences in 200+ languages                                                                                                                                                          |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Deva script) — paired with English                                                                                                                                                                         |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_gom) en → gom: 3,999 lexicon entries                                                                                                               |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 997 sentences (Deva script) — the same sentences in 200+ languages                                                                                          |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Deva script) — paired with English                                                                                                         |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_gom) en → gom: 3,999 lexicon entries                                               |
 
 ### How good are we at identifying data?
 
@@ -119,7 +119,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Konkani has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Konkani?
@@ -217,7 +216,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Konkani datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Konkani? Does it make sense to train one?
-  - ~9.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~113.7K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~8.9 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~111.1K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Konkani-only model is 7.2B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

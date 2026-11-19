@@ -16,8 +16,6 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (80% certain))
 
-**Writing systems:** `Cyrl`
-
 **Speakers:** no estimate found in CLDR or Wikidata
 
 **Official / recognised in:** Russia
@@ -38,12 +36,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                          |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                        |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                        |
-| FineWeb                | 2.5 MB (nog_Cyrl 3.0 MB), equivalent to ≈1.3 MB of English after byte-premium scaling; 2.1 MB removed by filtering. This is ~1/21,052,526 of English data and ranks 181 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                    |
+| Source                 | Amount                                                                                                                                                                        |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                      |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                      |
+| FineWeb                | 2.5 MB (nog_Cyrl 0); 2.1 MB removed by filtering. This is ~1/21,052,526 of English data and ranks 173 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                  |
 
 ### Structured and annotated data
 
@@ -53,21 +51,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                 |
 | UniMorph               | **None found**                                                                 |
-| Wikidata labels        | 383 Wikidata items have a label in Nogai. (Wikidata codes (labels): nog (383)) |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
 | Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                         |
-|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 814 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (717), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (97). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.         |
-| Tatoeba                                                                                  | 330 sentences, 109 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/nog/none)).                                                   |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                   |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                   |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                   |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
 
 ### How good are we at identifying data?
 
@@ -103,7 +101,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Nogai has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/nog/) video of Nogai yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
@@ -187,7 +184,7 @@ Nogai isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Nogai datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Nogai? Does it make sense to train one?
-  - ~1.3 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~16.0K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

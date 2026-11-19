@@ -52,12 +52,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                             |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 14,298 articles in hsb.wikipedia; 24 active users. This is ~1/528 of English data and ranks 92 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                          |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
-| FineWeb                | 49.8 MB (hsb_Latn 50.0 MB), equivalent to ≈41.1 MB of English after byte-premium scaling; 0.19 GB removed by filtering. This is ~1/1,073,631 of English data and ranks 123 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 12.3 MB (hsb_Latn 12.0 MB) (rank 164 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                 |
+| Source                 | Amount                                                                                                                                                                               |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 14,298 articles in hsb.wikipedia; 24 active users. This is ~1/528 of English data and ranks 92 of the 168 languages in the set with any data in Wikipedia; 164 have none.            |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
+| FineWeb                | 49.8 MB (hsb_Latn 50.0 MB); 0.19 GB removed by filtering. This is ~1/1,073,631 of English data and ranks 119 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 12.3 MB (hsb_Latn 12.0 MB) (rank 160 of the 166 languages in the set that have any; 166 have none)                                                                                   |
 
 ### Structured and annotated data
 
@@ -67,21 +67,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 644 sentences / 11,167 tokens in total: [UD_Upper_Sorbian-UFAL](https://github.com/UniversalDependencies/UD_Upper_Sorbian-UFAL) (644 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 345 lemmas, 400 inflected forms ([unimorph/hsb](https://github.com/unimorph/hsb))                                                                                                                                                   |
-| Wikidata labels        | 739,282 Wikidata items have a label in Upper Sorbian. (Wikidata codes (labels): hsb (739,282))                                                                                                                                      |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                      |
 | Wordnets               | **None found**                                                                                                                                                                                                                      |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                            |
-|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 42,648 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (23,007), [KDE4](https://opus.nlpl.eu/KDE4) (19,479), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (162). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                            |
-| Tatoeba                                                                                  | 1,554 sentences, 1,105 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/hsb/none)).                                                                                                  |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                      |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                      |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                      |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
 
 ### How good are we at identifying data?
 
@@ -216,7 +216,7 @@ Upper Sorbian isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation ta
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Upper Sorbian datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Upper Sorbian? Does it make sense to train one?
-  - ~41.1 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~513.8K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~10.4 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~129.4K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 4.8B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **2. Pragmatics, discourse & coreference**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

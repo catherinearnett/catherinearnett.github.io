@@ -16,8 +16,6 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** moribund (all 2 member languages; Glottolog)
 
-**Writing systems:** `Latn`
-
 **Speakers:** about 7,865 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** United States
@@ -38,36 +36,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                    |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 600 articles in ik.wikipedia; 11 active users. This is ~1/12,577 of English data and ranks 160 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                 |
-| Common Crawl           | 1,835 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/485,835 of English data and ranks 110 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                                                                    |
-| FineWeb                | 0.7 MB (esk_Latn 1.0 MB; esi_Latn 0), equivalent to ≈0.6 MB of English after byte-premium scaling; 4.9 MB removed by filtering. This is ~1/74,590,393 of English data and ranks 211 of the 261 languages in the set with any data in FineWeb; 71 have none. NB: counted as `esk_Latn, esi_Latn` together. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                 |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 600 articles in ik.wikipedia; 11 active users. This is ~1/12,577 of English data and ranks 160 of the 168 languages in the set with any data in Wikipedia; 164 have none.                              |
+| Common Crawl           | 1,835 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/485,835 of English data and ranks 108 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                         |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                           |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                             |
-|:-----------------------|:----------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                          |
-| UniMorph               | **None found**                                                                          |
-| Wikidata labels        | 476,595 Wikidata items have a label in Iñupiaq. (Wikidata codes (labels): ik (476,595)) |
-| Wordnets               | **None found**                                                                          |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                 |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 98 sentence pairs with English across 3 corpora; largest: [QED](https://opus.nlpl.eu/QED) (58), [wikimedia](https://opus.nlpl.eu/wikimedia) (22), [translatewiki](https://opus.nlpl.eu/translatewiki) (18). |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament ([eskNT](https://ebible.org/details.php?id=eskNT), by-nc-nd 4.0).                                                                                                    |
-| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                                                                 |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                           |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                           |
+| Resource                                                                                 | What exists                                                                                              |
+|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                  |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: New Testament ([eskNT](https://ebible.org/details.php?id=eskNT), by-nc-nd 4.0). |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                               |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                        |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                        |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                        |
 
 ### How good are we at identifying data?
 
@@ -103,7 +101,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Iñupiaq has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/ipk/) video of Iñupiaq yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
@@ -196,7 +193,7 @@ Iñupiaq isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Iñupiaq datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Iñupiaq? Does it make sense to train one?
-  - ~0.6 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~7.4K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Iñupiaq-only model is 1.0T, aim no higher than
   *5. Knowledge & open-domain QA* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

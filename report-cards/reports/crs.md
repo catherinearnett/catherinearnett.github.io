@@ -38,23 +38,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                             |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                           |
-| Common Crawl           | 2,180 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/408,948 of English data and ranks 108 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                             |
-| FineWeb                | 31.7 MB (crs_Latn 32.0 MB), equivalent to ≈24.1 MB of English after byte-premium scaling; 0.12 GB removed by filtering. This is ~1/1,686,806 of English data and ranks 126 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                       |
+| Source                 | Amount                                                                                                                                                                                                 |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                               |
+| Common Crawl           | 2,180 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/408,948 of English data and ranks 106 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
+| FineWeb                | 31.7 MB (crs_Latn 30.0 MB); 0.12 GB removed by filtering. This is ~1/1,686,806 of English data and ranks 122 of the 248 languages in the set with any data in FineWeb; 84 have none.                   |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                           |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                             |
-|:-----------------------|:----------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                          |
-| UniMorph               | **None found**                                                                          |
-| Wikidata labels        | 2 Wikidata items have a label in Seychellois Creole. (Wikidata codes (labels): crs (2)) |
-| Wordnets               | **None found**                                                                          |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -62,9 +62,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | **No sentence pairs with English in OPUS**                                                                                                                  |
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
-| Tatoeba                                                                                  | 66 sentences, 7 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/crs/none)).                                              |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_crs) en → crs: 3,989 lexicon entries                                               |
@@ -108,7 +108,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Seychellois Creole has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/crs/) video of Seychellois Creole yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
@@ -192,7 +191,7 @@ _None found._
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Seychellois Creole datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Seychellois Creole? Does it make sense to train one?
-  - ~24.1 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~301.8K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

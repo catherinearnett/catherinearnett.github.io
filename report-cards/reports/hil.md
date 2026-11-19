@@ -44,36 +44,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                         |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
-| FineWeb                | 55.3 MB (hil_Latn 55.0 MB), equivalent to ≈44.6 MB of English after byte-premium scaling; 84.0 MB removed by filtering. This is ~1/966,620 of English data and ranks 120 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 49.5 MB (hil_Latn 50.0 MB) (rank 137 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                             |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                           |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                           |
+| FineWeb                | 55.3 MB (hil_Latn 60.0 MB); 84.0 MB removed by filtering. This is ~1/966,620 of English data and ranks 116 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 49.5 MB (hil_Latn 50.0 MB) (rank 134 of the 166 languages in the set that have any; 166 have none)                                                                                 |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                                 |
-|:-----------------------|:--------------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                              |
-| UniMorph               | 97 lemmas, 1,256 inflected forms ([unimorph/hil](https://github.com/unimorph/hil))          |
-| Wikidata labels        | 433,037 Wikidata items have a label in Hiligaynon. (Wikidata codes (labels): hil (433,037)) |
-| Wordnets               | **None found**                                                                              |
+| Resource               | What exists                                                                        |
+|:-----------------------|:-----------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                     |
+| UniMorph               | 97 lemmas, 1,256 inflected forms ([unimorph/hil](https://github.com/unimorph/hil)) |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._     |
+| Wordnets               | **None found**                                                                     |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                             |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 5,252 sentence pairs with English across 2 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (5,230), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (22). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.             |
-| Tatoeba                                                                                  | 44 sentences, 22 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/hil/none)).                                                         |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                       |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                       |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_hil) en → hil: 4,001 lexicon entries                                                           |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_hil) en → hil: 4,001 lexicon entries                                               |
 
 ### How good are we at identifying data?
 
@@ -114,7 +114,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Hiligaynon has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Hiligaynon?
@@ -207,7 +206,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Hiligaynon datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Hiligaynon? Does it make sense to train one?
-  - ~44.6 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~557.3K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~39.4 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~492.1K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest tagged (multilingual) model is 8.6B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

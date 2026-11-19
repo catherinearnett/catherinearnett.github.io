@@ -58,16 +58,16 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                            |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 99,025 articles in bs.wikipedia; 268 active users. This is ~1/76 of English data and ranks 57 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                          |
-| Common Crawl           | 1,291,141 pages per crawl on average, which is 0.0599% of the crawl (2026). This is ~1/690 of English data and ranks 35 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                             |
-| FineWeb                | 26.49 GB (bos_Latn 26.49 GB), equivalent to ≈27.31 GB of English after byte-premium scaling; 21.38 GB removed by filtering. This is ~1/2,016 of English data and ranks 31 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 3.85 GB (bos_Cyrl 2.81 GB; bos_Latn 1.03 GB) (rank 49 of the 171 languages in the set that have any; 161 have none)                                                                                                                               |
+| Common Crawl           | 1,291,141 pages per crawl on average, which is 0.0599% of the crawl (2026). This is ~1/690 of English data and ranks 35 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                             |
+| FineWeb                | 26.49 GB (bos_Latn 26.49 GB), equivalent to ≈27.31 GB of English after byte-premium scaling; 21.38 GB removed by filtering. This is ~1/2,016 of English data and ranks 30 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 3.85 GB (bos_Cyrl 2.81 GB; bos_Latn 1.03 GB) (rank 49 of the 166 languages in the set that have any; 166 have none)                                                                                                                               |
 
 **By writing system:**
 
-| Writing system    | FineWeb                           | FineWeb, English-equivalent   | Goldfish   | Goldfish, English-equivalent   |
-|:------------------|:----------------------------------|:------------------------------|:-----------|:-------------------------------|
-| Latin (`Latn`)    | 26.49 GB (+21.38 GB filtered out) | 27.31 GB                      | 1.03 GB    | 1.06 GB                        |
-| Cyrillic (`Cyrl`) | not included                      | —                             | 2.81 GB    | 2.60 GB                        |
+| Writing system    | FineWeb      | FineWeb, English-equivalent   | Goldfish   | Goldfish, English-equivalent   |
+|:------------------|:-------------|:------------------------------|:-----------|:-------------------------------|
+| Latin (`Latn`)    | 26.49 GB     | 27.31 GB                      | 1.03 GB    | — (no byte premium yet)        |
+| Cyrillic (`Cyrl`) | not included | —                             | 2.81 GB    | — (no byte premium yet)        |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -75,25 +75,25 @@ _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                                 |
-|:-----------------------|:--------------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                              |
-| UniMorph               | **None found**                                                                              |
-| Wikidata labels        | 1,101,129 Wikidata items have a label in Bosnian. (Wikidata codes (labels): bs (1,101,129)) |
-| Wordnets               | **None found**                                                                              |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 113,790,954 sentence pairs with English across 23 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (79,334,034), [OpenSubtitles](https://opus.nlpl.eu/OpenSubtitles) (18,477,297), [HPLT](https://opus.nlpl.eu/HPLT) (6,822,086), [MultiHPLT](https://opus.nlpl.eu/MultiHPLT) (6,822,086), [MaCoCu](https://opus.nlpl.eu/MaCoCu) (501,241). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                                    |
-| Tatoeba                                                                                  | 1,759 sentences, 611 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/bos/none)).                                                                                                                                                                                                                            |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                           |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                                            |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                                                                                                                                              |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                        |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                         |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
 
 ### How good are we at identifying data?
 

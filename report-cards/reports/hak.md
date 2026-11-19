@@ -16,8 +16,6 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
-**Writing systems:** `Latn` and `Hani`
-
 **Speakers:** about 35.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Taiwan
@@ -38,19 +36,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                    |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,511 articles in hak.wikipedia; 27 active users. This is ~1/718 of English data and ranks 103 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                |
-| Common Crawl           | 100,182,847 pages per crawl on average, which is 4.6477% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `zho`, so this number is shared with Standard Chinese (`cmn`) and overstates Hakka.                                                                                                                                                                             |
-| FineWeb                | 2.1 MB (hak_Latn 1.0 MB; hak_Hani 1.0 MB), equivalent to ≈1.1 MB of English after byte-premium scaling (⚠️ only 69% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.12 GB removed by filtering. This is ~1/25,432,776 of English data and ranks 189 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                        |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,511 articles in hak.wikipedia; 27 active users. This is ~1/718 of English data and ranks 103 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                    |
+| Common Crawl           | 100,182,847 pages per crawl on average, which is 4.6477% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `zho`, so this number is shared with Standard Chinese (`cmn`) and overstates Hakka. |
+| FineWeb                | 2.1 MB (hak_Hani 0; hak_Latn 0); 0.12 GB removed by filtering. This is ~1/25,432,776 of English data and ranks 181 of the 248 languages in the set with any data in FineWeb; 84 have none.                    |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                  |
 
 **By writing system:**
 
-| Writing system   | FineWeb                        | FineWeb, English-equivalent   |
-|:-----------------|:-------------------------------|:------------------------------|
-| Latin (`Latn`)   | 1.4 MB (+42.3 MB filtered out) | 1.1 MB                        |
-| Han (`Hani`)     | 0.7 MB (+77.6 MB filtered out) | — (no byte premium yet)       |
+| Writing system   |   FineWeb | FineWeb, English-equivalent   |
+|:-----------------|----------:|:------------------------------|
+| Han (`Hani`)     |         0 | — (no byte premium yet)       |
+| Latin (`Latn`)   |         0 | — (no byte premium yet)       |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -58,25 +56,25 @@ _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                            |
-|:-----------------------|:---------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                         |
-| UniMorph               | **None found**                                                                         |
-| Wikidata labels        | 220,512 Wikidata items have a label in Hakka. (Wikidata codes (labels): hak (220,512)) |
-| Wordnets               | **None found**                                                                         |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                              |
-|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 2,070 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (2,050), [wikimedia](https://opus.nlpl.eu/wikimedia) (12), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (8). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                              |
-| Tatoeba                                                                                  | 64 sentences, 57 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/hak/none)).                                                                                                          |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                        |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                        |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                        |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
 
 ### How good are we at identifying data?
 
@@ -118,7 +116,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Hakka has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Hakka?
@@ -201,7 +198,7 @@ Hakka isn't in FLORES+, BOUQuET, SMOL, WMT24++ or any WMT translation task (2005
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Hakka datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Hakka? Does it make sense to train one?
-  - ~1.1 MB English-equivalent text ≈ 0.00B tokens, enough for a compute-optimal model of ~13.9K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). That is larger than anything currently tagged, so a dedicated model (or continued pre-training of a multilingual base) could be worthwhile.
+  - There is too little measured data (no FineWeb/Goldfish English-equivalent size) to say; data collection comes first.
 - **Create new evals.** Start from the bottom of the pyramid. Since no tagged model with a known size exists, aim no higher than
   *1. Linguistic knowledge* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

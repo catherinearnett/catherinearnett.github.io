@@ -55,36 +55,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                           |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 21,765 articles in mhr, mrj.wikipedia; 33 active users. NB: counted as `mhr` + `mrj` together.                                                                                                                                                                                                                   |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                         |
-| FineWeb                | 57.9 MB (mhr_Cyrl 48.0 MB; mrj_Cyrl 10.0 MB), equivalent to ≈30.9 MB of English after byte-premium scaling; 89.9 MB removed by filtering. This is ~1/922,505 of English data and ranks 117 of the 261 languages in the set with any data in FineWeb; 71 have none. NB: counted as `mhr_Cyrl, mrj_Cyrl` together. |
-| Goldfish training data | 96.4 MB (chm_Cyrl 96.0 MB) (rank 124 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                             |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|
+| Wikipedia              | 21,765 articles in mhr, mrj.wikipedia; 33 active users. NB: counted as `mhr` + `mrj` together.     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                           |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                     |
+| Goldfish training data | 96.4 MB (chm_Cyrl 96.0 MB) (rank 121 of the 166 languages in the set that have any; 166 have none) |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                                 |
-|:-----------------------|:--------------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                              |
-| UniMorph               | **None found**                                                                              |
-| Wikidata labels        | 1 Wikidata items have a label in Hill Mari, Meadow Mari. (Wikidata codes (labels): chm (1)) |
-| Wordnets               | **None found**                                                                              |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                              |
-|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 10,346 sentence pairs with English across 5 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (6,159), [translatewiki](https://opus.nlpl.eu/translatewiki) (4,081), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (100), [wikimedia](https://opus.nlpl.eu/wikimedia) (4), [wikimedia](https://opus.nlpl.eu/wikimedia) (2). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                              |
-| Tatoeba                                                                                  | 4,403 sentences, 296 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/mhr/none)).                                                                                                                                                                                                                      |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                     |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                                        |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_chm) en → chm: 3,997 lexicon entries; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_chm) en → chm: size not listed                                                                                                                   |
+| Resource                                                                                 | What exists                                                                                                                                                                                                            |
+|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                            |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                             |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Cyrl script) — the same sentences in 200+ languages                                                                                                                                                   |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                      |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_chm) en → chm: 3,997 lexicon entries; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_chm) en → chm: size not listed |
 
 ### How good are we at identifying data?
 

@@ -16,8 +16,6 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
 
-**Writing systems:** `Olck`
-
 **Speakers:** about 7.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India
@@ -50,19 +48,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                       |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 16,112 articles in sat.wikipedia; 36 active users. This is ~1/468 of English data and ranks 87 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                    |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                     |
-| FineWeb                | 3.3 MB (sat_Olck 3.0 MB; sat_Latn 0), equivalent to ≈1.3 MB of English after byte-premium scaling; 16.0 MB removed by filtering. This is ~1/16,388,740 of English data and ranks 178 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 26.0 MB (sat_Olck 26.0 MB) (rank 147 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                          |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 16,112 articles in sat.wikipedia; 36 active users. This is ~1/468 of English data and ranks 87 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                        |
+| FineWeb                | 3.3 MB (sat_Latn 0; sat_Olck 0), equivalent to ≈1.0 MB of English after byte-premium scaling (⚠️ only 88% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 16.0 MB removed by filtering. This is ~1/16,388,740 of English data and ranks 170 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 26.0 MB (sat_Olck 26.0 MB) (rank 144 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                              |
 
 **By writing system:**
 
-| Writing system    | FineWeb                        | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:------------------|:-------------------------------|:------------------------------|:-------------|:-------------------------------|
-| Ol Chiki (`Olck`) | 2.9 MB (+14.3 MB filtered out) | 1.0 MB                        | 26.0 MB      | 9.3 MB                         |
-| Latin (`Latn`)    | 0.4 MB (+1.7 MB filtered out)  | 0.3 MB                        | not included | —                              |
+| Writing system    |   FineWeb | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|----------:|:------------------------------|:-------------|:-------------------------------|
+| Ol Chiki (`Olck`) |         0 | — (no byte premium yet)       | 26.0 MB      | 9.3 MB                         |
+| Latin (`Latn`)    |         0 | — (no byte premium yet)       | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -70,12 +68,12 @@ _Common Crawl and Wikipedia statistics are not broken down by writing system._ _
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                              |
-|:-----------------------|:-----------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                           |
-| UniMorph               | **None found**                                                                           |
-| Wikidata labels        | 324,899 Wikidata items have a label in Santali. (Wikidata codes (labels): sat (324,899)) |
-| Wordnets               | **None found**                                                                           |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -83,9 +81,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 99,077 sentence pairs with English across 4 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (78,625), [wikimedia](https://opus.nlpl.eu/wikimedia) (16,441), [translatewiki](https://opus.nlpl.eu/translatewiki) (3,722), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (289).                                                                                                                                                                                |
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                                                                                                                    |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                                                                                                                                                |
-| Tatoeba                                                                                  | 6,331 sentences, 5,650 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/sat/none)).                                                                                                                                                                                                                                                                                                                                      |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                                                                                                                 |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Olck script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                                                                                                                                       |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Olck script) — paired with English                                                                                                                                                                                                                                                                                                                                                                                                        |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_sat) en → sat: size not listed; [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_sat-Latn) en → sat-Latn: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_sat) en → sat: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_sat-Latn) en → sat-Latn: size not listed |

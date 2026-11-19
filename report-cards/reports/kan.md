@@ -38,19 +38,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                          |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 34,905 articles in kn.wikipedia; 234 active users. This is ~1/216 of English data and ranks 74 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                       |
-| Common Crawl           | 369,120 pages per crawl on average, which is 0.0171% of the crawl (2026). This is ~1/2,415 of English data and ranks 48 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                                           |
-| FineWeb                | 3.56 GB (kan_Knda 3.56 GB; kan_Latn 2.0 MB), equivalent to ≈1.35 GB of English after byte-premium scaling; 2.82 GB removed by filtering. This is ~1/14,984 of English data and ranks 57 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 8.33 GB (kan_Knda 8.33 GB) (rank 23 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                                     |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 34,905 articles in kn.wikipedia; 234 active users. This is ~1/216 of English data and ranks 74 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                  |
+| Common Crawl           | 369,120 pages per crawl on average, which is 0.0171% of the crawl (2026). This is ~1/2,415 of English data and ranks 48 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                      |
+| FineWeb                | 3.56 GB (kan_Knda 3.56 GB; kan_Latn 0), equivalent to ≈1.35 GB of English after byte-premium scaling; 2.82 GB removed by filtering. This is ~1/14,984 of English data and ranks 56 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 8.33 GB (kan_Knda 8.33 GB) (rank 23 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                          |
 
 **By writing system:**
 
-| Writing system   | FineWeb                         | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
-|:-----------------|:--------------------------------|:------------------------------|:-------------|:-------------------------------|
-| Kannada (`Knda`) | 3.56 GB (+2.70 GB filtered out) | 1.35 GB                       | 8.33 GB      | 3.15 GB                        |
-| Latin (`Latn`)   | 2.5 MB (+0.13 GB filtered out)  | 1.9 MB                        | not included | —                              |
+| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Kannada (`Knda`) | 3.56 GB   | 1.35 GB                       | 8.33 GB      | 3.15 GB                        |
+| Latin (`Latn`)   | 0         | — (no byte premium yet)       | not included | —                              |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
 
@@ -62,21 +62,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                |
 | UniMorph               | 159 lemmas, 6,402 inflected forms ([unimorph/kan](https://github.com/unimorph/kan))                                                           |
-| Wikidata labels        | 541,012 Wikidata items have a label in Kannada. (Wikidata codes (labels): kn (541,012))                                                       |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                |
 | Wordnets               | IndianNet (size not listed); [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                                     |
-|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 40,241,625 sentence pairs with English across 15 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (34,347,151), [Samanantar](https://opus.nlpl.eu/Samanantar) (4,093,525), [Anuvaad](https://opus.nlpl.eu/Anuvaad) (1,352,029), [CCAligned](https://opus.nlpl.eu/CCAligned) (163,922), [wikimedia](https://opus.nlpl.eu/wikimedia) (86,511). |
-| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([kan2017](https://ebible.org/details.php?id=kan2017), by-sa 4.0).                                                                                                                                                                                                                                          |
-| Tatoeba                                                                                  | 312 sentences, 299 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/kan/none)).                                                                                                                                                                                                                               |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Knda script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                            |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Knda script) — paired with English                                                                                                                                                                                                                                                                                             |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_kn) en → kn: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_kn) en → kn: size not listed                                                                                                                                  |
+| Resource                                                                                 | What exists                                                                                                                                                                                                    |
+|:-----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
+| Bible translations (eBible corpus)                                                       | **Yes** — 1 translation: full Bible ([kan2017](https://ebible.org/details.php?id=kan2017), by-sa 4.0).                                                                                                         |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Knda script) — the same sentences in 200+ languages                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Knda script) — paired with English                                                                                                                                                            |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_kn) en → kn: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_kn) en → kn: size not listed |
 
 ### How good are we at identifying data?
 
@@ -123,7 +123,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Kannada has no UD treebank yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Kannada?

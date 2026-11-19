@@ -46,36 +46,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,675 articles in kbd.wikipedia; 10 active users. This is ~1/4,505 of English data and ranks 143 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                          |
-| FineWeb                | 16.2 MB (kbd_Cyrl 16.0 MB), equivalent to ≈9.0 MB of English after byte-premium scaling; 27.4 MB removed by filtering. This is ~1/3,302,196 of English data and ranks 138 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 70.6 MB (kbd_Cyrl 71.0 MB) (rank 129 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                |
+| Source                 | Amount                                                                                                                                                                               |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,675 articles in kbd.wikipedia; 10 active users. This is ~1/4,505 of English data and ranks 143 of the 168 languages in the set with any data in Wikipedia; 164 have none.          |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
+| FineWeb                | 16.2 MB (kbd_Cyrl 20.0 MB); 27.4 MB removed by filtering. This is ~1/3,302,196 of English data and ranks 133 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 70.6 MB (kbd_Cyrl 71.0 MB) (rank 126 of the 166 languages in the set that have any; 166 have none)                                                                                   |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                                |
-|:-----------------------|:-------------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                             |
-| UniMorph               | 250 lemmas, 3,092 inflected forms ([unimorph/kbd](https://github.com/unimorph/kbd))        |
-| Wikidata labels        | 158,851 Wikidata items have a label in Kabardian. (Wikidata codes (labels): kbd (158,851)) |
-| Wordnets               | **None found**                                                                             |
+| Resource               | What exists                                                                         |
+|:-----------------------|:------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                      |
+| UniMorph               | 250 lemmas, 3,092 inflected forms ([unimorph/kbd](https://github.com/unimorph/kbd)) |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._      |
+| Wordnets               | **None found**                                                                      |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                              |
-|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 1,243 sentence pairs with English across 3 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (1,221), [wikimedia](https://opus.nlpl.eu/wikimedia) (19), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (3). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                              |
-| Tatoeba                                                                                  | 118 sentences, 10 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/kbd/none)).                                                                                                         |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                        |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                        |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_kbd) en → kbd: size not listed                                                                                                                  |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                           |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                           |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_kbd) en → kbd: size not listed                                                     |
 
 ### How good are we at identifying data?
 
@@ -117,7 +117,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Kabardian has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Kabardian?
@@ -207,7 +206,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Kabardian datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Kabardian? Does it make sense to train one?
-  - ~39.3 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~491.6K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~39.0 MB English-equivalent text ≈ 0.01B tokens, enough for a compute-optimal model of ~488.0K parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Kabardian-only model is 630.5M, aim no higher than
   *3. Commonsense reasoning* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

@@ -50,9 +50,9 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                                                                                                                                                                                                         |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wikipedia              | 5,651 articles in lo.wikipedia; 59 active users. This is ~1/1,335 of English data and ranks 119 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                     |
-| Common Crawl           | 111,108 pages per crawl on average, which is 0.0051% of the crawl (2026). This is ~1/8,024 of English data and ranks 64 of the 115 languages in the set with any data in Common Crawl; 217 have none.                                          |
-| FineWeb                | 0.60 GB (lao_Laoo 0.60 GB), equivalent to ≈0.22 GB of English after byte-premium scaling; 0.44 GB removed by filtering. This is ~1/89,341 of English data and ranks 78 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 1.58 GB (lao_Laoo 1.58 GB) (rank 66 of the 171 languages in the set that have any; 161 have none)                                                                                                                                              |
+| Common Crawl           | 111,108 pages per crawl on average, which is 0.0051% of the crawl (2026). This is ~1/8,024 of English data and ranks 64 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
+| FineWeb                | 0.60 GB (lao_Laoo 0.60 GB), equivalent to ≈0.22 GB of English after byte-premium scaling; 0.44 GB removed by filtering. This is ~1/89,341 of English data and ranks 77 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 1.58 GB (lao_Laoo 1.58 GB) (rank 66 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -62,21 +62,21 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                      |
 | UniMorph               | **None found**                                                                      |
-| Wikidata labels        | 276,013 Wikidata items have a label in Lao. (Wikidata codes (labels): lo (276,013)) |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._      |
 | Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD. |
 
 ### Parallel data (for machine translation)
 
 Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
 
-| Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                          |
-|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 6,380,488 sentence pairs with English across 12 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (4,170,013), [ParaCrawl-Bonus](https://opus.nlpl.eu/ParaCrawl-Bonus) (1,994,090), [CCAligned](https://opus.nlpl.eu/CCAligned) (160,007), [XLEnt](https://opus.nlpl.eu/XLEnt) (29,049), [ALT](https://opus.nlpl.eu/ALT) (18,088). |
-| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                          |
-| Tatoeba                                                                                  | 231 sentences, 225 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/lao/none)).                                                                                                                                                                                                                    |
-| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Laoo script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                                 |
-| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Laoo script) — paired with English                                                                                                                                                                                                                                                                                  |
-| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                                                                                                                                                                                                    |
+| Resource                                                                                 | What exists                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Laoo script) — the same sentences in 200+ languages                                                                                        |
+| [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Laoo script) — paired with English                                                                                                         |
+| [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | **Not included.**                                                                                                                                           |
 
 ### How good are we at identifying data?
 
@@ -122,7 +122,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Lao has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Lao?

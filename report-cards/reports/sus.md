@@ -16,8 +16,6 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
-**Writing systems:** `Arab` and `Latn`
-
 **Speakers:** about 1.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Guinea
@@ -44,19 +42,19 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                           |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                                         |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                         |
-| FineWeb                | 1.7 MB (sus_Arab 1.0 MB; sus_Latn 1.0 MB), equivalent to ≈1.3 MB of English after byte-premium scaling; 1.5 MB removed by filtering. This is ~1/30,532,030 of English data and ranks 196 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                     |
+| Source                 | Amount                                                                                                                                                                                                                                                 |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                               |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                               |
+| FineWeb                | 1.7 MB (sus_Arab 0; sus_Latn 0), equivalent to ≈1.3 MB of English after byte-premium scaling; 1.5 MB removed by filtering. This is ~1/30,532,030 of English data and ranks 188 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                           |
 
 **By writing system:**
 
-| Writing system   | FineWeb                       | FineWeb, English-equivalent   |
-|:-----------------|:------------------------------|:------------------------------|
-| Arabic (`Arab`)  | 0.9 MB (+0.4 MB filtered out) | 0.5 MB                        |
-| Latin (`Latn`)   | 0.8 MB (+1.1 MB filtered out) | 0.8 MB                        |
+| Writing system   |   FineWeb | FineWeb, English-equivalent   |
+|:-----------------|----------:|:------------------------------|
+| Arabic (`Arab`)  |         0 | — (no byte premium yet)       |
+| Latin (`Latn`)   |         0 | — (no byte premium yet)       |
 
 _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
@@ -64,12 +62,12 @@ _Common Crawl and Wikipedia statistics are not broken down by writing system._
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists    |
-|:-----------------------|:---------------|
-| Universal Dependencies | **None found** |
-| UniMorph               | **None found** |
-| Wikidata labels        | **None found** |
-| Wordnets               | **None found** |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -77,9 +75,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | **No sentence pairs with English in OPUS**                                                                                                                                                                                                                                                                                  |
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                     |
 | Bible translations (eBible corpus)                                                       | **Yes** — 2 translations: full Bible ([sus](https://ebible.org/details.php?id=sus), by-nc-nd 4.0); full Bible ([susa](https://ebible.org/details.php?id=susa), by-nc-nd 4.0).                                                                                                                                               |
-| Tatoeba                                                                                  | **No sentences on Tatoeba**                                                                                                                                                                                                                                                                                                 |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                  |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                           |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | **Not included.**                                                                                                                                                                                                                                                                                                           |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_sus) en → sus: size not listed; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_sus) en → sus: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_sus) en → sus: size not listed |
@@ -124,8 +122,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Susu and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
-- **Create structured data:** Susu has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
+- **Create structured data:** Susu has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/sus/) video of Susu yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 

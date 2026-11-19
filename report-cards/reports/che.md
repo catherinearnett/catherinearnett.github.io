@@ -54,12 +54,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                             |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 871,420 articles in ce.wikipedia; 95 active users. This is ~1/9 of English data and ranks 17 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                            |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
-| FineWeb                | 39.5 MB (che_Cyrl 40.0 MB), equivalent to ≈20.5 MB of English after byte-premium scaling; 0.13 GB removed by filtering. This is ~1/1,351,620 of English data and ranks 125 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 0.17 GB (che_Cyrl 0.17 GB) (rank 112 of the 171 languages in the set that have any; 161 have none)                                                                                                                                                 |
+| Source                 | Amount                                                                                                                                                                               |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 871,420 articles in ce.wikipedia; 95 active users. This is ~1/9 of English data and ranks 17 of the 168 languages in the set with any data in Wikipedia; 164 have none.              |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
+| FineWeb                | 39.5 MB (che_Cyrl 40.0 MB); 0.13 GB removed by filtering. This is ~1/1,351,620 of English data and ranks 121 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 0.17 GB (che_Cyrl 0.17 GB) (rank 109 of the 166 languages in the set that have any; 166 have none)                                                                                   |
 
 ### Structured and annotated data
 
@@ -69,7 +69,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 489 sentences / 3,048 tokens in total: [UD_Chechen-MottDT](https://github.com/UniversalDependencies/UD_Chechen-MottDT) (489 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                             |
-| Wikidata labels        | 999,585 Wikidata items have a label in Chechen. (Wikidata codes (labels): ce (999,585))                                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                             |
 | Wordnets               | **None found**                                                                                                                                                                                                             |
 
 ### Parallel data (for machine translation)
@@ -78,9 +78,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 47,558 sentence pairs with English across 4 corpora; largest: [translatewiki](https://opus.nlpl.eu/translatewiki) (47,405), [wikimedia](https://opus.nlpl.eu/wikimedia) (107), [QED](https://opus.nlpl.eu/QED) (29), [Tatoeba](https://opus.nlpl.eu/Tatoeba) (17).                                                          |
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                     |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                 |
-| Tatoeba                                                                                  | 47 sentences, 22 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/che/none)).                                                                                                                                                                                                             |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                  |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | **Not included.**                                                                                                                                                                                                                                                                                                           |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Cyrl script) — paired with English                                                                                                                                                                                                                                                                         |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_ce) en → ce: 3,997 lexicon entries; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__ru_ce) ru → ce: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__ru_ce) ru → ce: size not listed |
@@ -124,7 +124,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Chechen has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Chechen?
@@ -221,7 +220,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 - **Implement tasks on the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness)** for the existing Chechen datasets listed above, if they're not there already.
 - **Make a leaderboard.** What is the best available model for Chechen? Does it make sense to train one?
-  - ~89.2 MB English-equivalent text ≈ 0.02B tokens, enough for a compute-optimal model of ~1.1M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
+  - ~99.9 MB English-equivalent text ≈ 0.02B tokens, enough for a compute-optimal model of ~1.2M parameters trained from scratch (rule of thumb: 20 tokens/parameter, 4 bytes/token). Existing tagged models are already at least this size; evaluating and adapting them is likely a better use of effort than training from scratch.
 - **Create new evals.** Start from the bottom of the pyramid. Since the largest Chechen-only model is 3.7B, aim no higher than
   *4. Reading comprehension* for now; the first gap to fill is **1. Linguistic knowledge**.
   (If the only model is ~100M parameters, don't build QA tasks: the models probably can't do them.)

@@ -16,8 +16,6 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
 
-**Writing systems:** `Latn`
-
 **Speakers:** about 10.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Mali
@@ -46,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 930 articles in bm.wikipedia; 13 active users. This is ~1/8,114 of English data and ranks 156 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                         |
-| FineWeb                | 2.1 MB (bam_Latn 2.0 MB), equivalent to ≈1.7 MB of English after byte-premium scaling; 97.1 MB removed by filtering. This is ~1/25,690,060 of English data and ranks 192 of the 261 languages in the set with any data in FineWeb; 71 have none. |
-| Goldfish training data | 16.9 MB (bam_Latn 17.0 MB) (rank 160 of the 171 languages in the set that have any; 161 have none)                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                      |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 930 articles in bm.wikipedia; 13 active users. This is ~1/8,114 of English data and ranks 156 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                    |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                    |
+| FineWeb                | 2.1 MB (bam_Latn 0), equivalent to ≈1.7 MB of English after byte-premium scaling; 97.1 MB removed by filtering. This is ~1/25,690,060 of English data and ranks 184 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 16.9 MB (bam_Latn 17.0 MB) (rank 156 of the 166 languages in the set that have any; 166 have none)                                                                                                                                          |
 
 ### Structured and annotated data
 
@@ -61,7 +59,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 1,026 sentences / 13,823 tokens in total: [UD_Bambara-CRB](https://github.com/UniversalDependencies/UD_Bambara-CRB) (1,026 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                            |
-| Wikidata labels        | 617,420 Wikidata items have a label in Bambara. (Wikidata codes (labels): bm (617,420))                                                                                                                                   |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                            |
 | Wordnets               | **None found**                                                                                                                                                                                                            |
 
 ### Parallel data (for machine translation)
@@ -70,9 +68,9 @@ Text aligned with translations in other languages, mostly English: the basis for
 
 | Resource                                                                                 | What exists                                                                                                                                                                                                                                                                                                                 |
 |:-----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPUS                                                                                     | 182,646 sentence pairs with English across 6 corpora; largest: [NLLB](https://opus.nlpl.eu/NLLB) (180,936), [QED](https://opus.nlpl.eu/QED) (1,296), [translatewiki](https://opus.nlpl.eu/translatewiki) (175), [CCAligned](https://opus.nlpl.eu/CCAligned) (150), [wikimedia](https://opus.nlpl.eu/wikimedia) (81).        |
+| OPUS                                                                                     | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                     |
 | Bible translations (eBible corpus)                                                       | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist.                                                                                                                                                                 |
-| Tatoeba                                                                                  | 63 sentences, 13 with an English translation ([browse](https://tatoeba.org/en/sentences/show_all_in/bam/none)).                                                                                                                                                                                                             |
+| Tatoeba                                                                                  | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                  |
 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                  | 2,009 sentences (Latn script) — the same sentences in 200+ languages                                                                                                                                                                                                                                                        |
 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                              | 1,358 sentences (Latn script) — paired with English                                                                                                                                                                                                                                                                         |
 | [SMOL](https://huggingface.co/datasets/google/smol) (SmolSent, SmolDoc, GATITOS lexicon) | [GATITOS](https://huggingface.co/datasets/google/smol/viewer/gatitos__en_bm) en → bm: 4,000 lexicon entries; [SmolDoc](https://huggingface.co/datasets/google/smol/viewer/smoldoc__en_bm) en → bm: size not listed; [SmolSent](https://huggingface.co/datasets/google/smol/viewer/smolsent__en_bm) en → bm: size not listed |
@@ -119,7 +117,6 @@ Language identification (LangID or LID) is a classification task that identifies
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
 - **Create structured data:** Bambara has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
-- **Add sentences and translations on [Tatoeba](https://tatoeba.org)**: it is openly licensed, easy to contribute to, and feeds LangID and translation datasets.
 
 
 ## What models are available for Bambara?
