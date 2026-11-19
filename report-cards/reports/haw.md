@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 30,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 26,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33569#P1098), 2010)
+**Speakers:** about 30,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** United States
 
@@ -47,23 +47,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                           |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,901 articles in haw.wikipedia; 23 active users. This is ~1/2,601 of English data and ranks 131 of 168 languages in the set in Wikipedia.                                                                       |
-| Common Crawl           | 17,520 pages per crawl on average, which is 0.0008% of the crawl (2026). This is ~1/50,885 of English data and ranks 91 of 113 languages in the set in Common Crawl.                                             |
-| FineWeb                | 0.13 GB (haw_Latn 0.13 GB), equivalent to ≈0.12 GB of English after byte-premium scaling; 68.0 MB removed by filtering. This is ~1/414,981 of English data and ranks 106 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 0.33 GB (haw_Latn 0.33 GB) (rank 102 of 166 in the set)                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,901 articles in haw.wikipedia; 23 active users. This is ~1/2,601 of English data and ranks 131 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | 17,520 pages per crawl on average, which is 0.0008% of the crawl (2026). This is ~1/50,885 of English data and ranks 91 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                            |
+| FineWeb                | 0.13 GB (haw_Latn 0.13 GB), equivalent to ≈0.12 GB of English after byte-premium scaling; 68.0 MB removed by filtering. This is ~1/414,981 of English data and ranks 106 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 0.33 GB (haw_Latn 0.33 GB) (rank 102 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                               |
-|:-----------------------|:------------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                            |
-| UniMorph               | **None found**                                                                            |
-| Wikidata labels        | 483,717 Wikidata items have a label in Hawaiian. (Wikidata codes (labels): haw (483,717)) |
-| Wordnets               | **None found**                                                                            |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                    |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([haw1868](https://ebible.org/details.php?id=haw1868), Public Domain). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                 |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                     |
 
 ### How good are we at identifying data?
 
@@ -177,41 +178,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [2]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [1]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 1 dataset" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 1 dataset</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                                             |   # test items | construction                                  |
-|:-------------------------|:--------------------|:----------------------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) |            100 | Native                                        |
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        |            103 | MT + human post-editing                       |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          |          1,903 | Synthetic (LLM-generated) on native Wikipedia |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                |             93 | Native (crowdsourced Tatoeba sentence pairs)  |
+| level                    | task               | dataset                                                                                             |   # test items | construction                                  |
+|:-------------------------|:-------------------|:----------------------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 3. Commonsense reasoning | PIQA               | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) |            100 | Native                                        |
+| 3. Commonsense reasoning | PIQA               | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        |            103 | MT + human post-editing                       |
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          |          1,903 | Synthetic (LLM-generated) on native Wikipedia |
+| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                |             93 | Native (crowdsourced Tatoeba sentence pairs)  |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -239,22 +221,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 41 of ~18,498 papers (0.22%) (rank 101 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 41 of ~18,498 papers (0.22%) (rank 101 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Hawaiian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 41):
+Here are up to ten papers published in 2026 that mention Hawaiian. None of the 41 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                                   | paper                                                                        |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| Controlling Distributional Bias in Multi-Round LLM Generation via KL-Optimized Fine-Tuning                                                                              | [2026.acl-long.802](https://aclanthology.org/2026.acl-long.802/)             |
-| Developing A Hawaiian Corpus Toolkit for Data-Driven Language Learning                                                                                                  | [2026.computel-1.18](https://aclanthology.org/2026.computel-1.18/)           |
-| Voice Activation Detection for Transcription of Indigenous Languages                                                                                                    | [2026.computel-1.19](https://aclanthology.org/2026.computel-1.19/)           |
-| Kinship Data Benchmark for Multi-hop Reasoning                                                                                                                          | [2026.findings-emnlp.274](https://aclanthology.org/2026.findings-emnlp.274/) |
-| Decoupled Analysis-Judging: An Automated Creativity Evaluator Using LLMs in Complex Multi-step Creativity Tasks                                                         | [2026.findings-emnlp.816](https://aclanthology.org/2026.findings-emnlp.816/) |
-| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings                                                                                     | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/)               |
-| Diacritic Restoration for Low-Resource Indigenous Languages: Case Study with Bribri and Cook Islands Māori                                                              | [2026.lrec-1.276](https://aclanthology.org/2026.lrec-1.276/)                 |
-| A Modern Online Learning Platform for ʻŌlelo Hawaiʻi Classrooms                                                                                                         | [2026.lrec-1.277](https://aclanthology.org/2026.lrec-1.277/)                 |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                                          | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                 |
-| Outlining an Experiment Design of Gamifying Language Learning in Low-Resource Contexts: Kurdish Learning in University, Language Courses, and on Web-Based Applications | [2026.multilll-1.10](https://aclanthology.org/2026.multilll-1.10/)           |
+| title                                                                                                                                                                   | paper                                                                        | mentioned in   |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
+| Controlling Distributional Bias in Multi-Round LLM Generation via KL-Optimized Fine-Tuning                                                                              | [2026.acl-long.802](https://aclanthology.org/2026.acl-long.802/)             | body only      |
+| Developing A Hawaiian Corpus Toolkit for Data-Driven Language Learning                                                                                                  | [2026.computel-1.18](https://aclanthology.org/2026.computel-1.18/)           | body only      |
+| Voice Activation Detection for Transcription of Indigenous Languages                                                                                                    | [2026.computel-1.19](https://aclanthology.org/2026.computel-1.19/)           | body only      |
+| Kinship Data Benchmark for Multi-hop Reasoning                                                                                                                          | [2026.findings-emnlp.274](https://aclanthology.org/2026.findings-emnlp.274/) | body only      |
+| Decoupled Analysis-Judging: An Automated Creativity Evaluator Using LLMs in Complex Multi-step Creativity Tasks                                                         | [2026.findings-emnlp.816](https://aclanthology.org/2026.findings-emnlp.816/) | body only      |
+| Tao–Filipino Neural Machine Translation: Strategies for Ultra–Low-Resource Settings                                                                                     | [2026.loresmt-1.2](https://aclanthology.org/2026.loresmt-1.2/)               | body only      |
+| Diacritic Restoration for Low-Resource Indigenous Languages: Case Study with Bribri and Cook Islands Māori                                                              | [2026.lrec-1.276](https://aclanthology.org/2026.lrec-1.276/)                 | body only      |
+| A Modern Online Learning Platform for ʻŌlelo Hawaiʻi Classrooms                                                                                                         | [2026.lrec-1.277](https://aclanthology.org/2026.lrec-1.277/)                 | body only      |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                                          | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                 | body only      |
+| Outlining an Experiment Design of Gamifying Language Learning in Low-Resource Contexts: Kurdish Learning in University, Language Courses, and on Web-Based Applications | [2026.multilll-1.10](https://aclanthology.org/2026.multilll-1.10/)           | body only      |
 
 {% endraw %}

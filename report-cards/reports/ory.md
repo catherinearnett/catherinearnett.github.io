@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Orya`
 
-**Speakers:** about 45.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `ori`, so includes other varieties · 34.5 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33810#P1098), 2001)
+**Speakers:** about 45.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `ori`, so includes other varieties
 
 **Official / recognised in:** India
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                              |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 21,187 articles in or.wikipedia; 55 active users. ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                                                    |
-| Common Crawl           | 154,474 pages per crawl on average, which is 0.0072% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                            |
-| FineWeb                | 1.39 GB (ory_Orya 1.39 GB; ory_Latn 0), equivalent to ≈0.55 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.60 GB removed by filtering. This is ~1/38,382 of English data and ranks 68 of 248 languages in the set in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                              |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 21,187 articles in or.wikipedia; 55 active users. ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                                                                                    |
+| Common Crawl           | 154,474 pages per crawl on average, which is 0.0072% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                                                            |
+| FineWeb                | 1.39 GB (ory_Orya 1.39 GB; ory_Latn 0), equivalent to ≈0.55 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.60 GB removed by filtering. This is ~1/38,382 of English data and ranks 68 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                        |
 
 **By writing system:**
 
@@ -62,8 +62,8 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 456 sentences / 5,818 tokens in total: [UD_Odia-ODTB](https://github.com/UniversalDependencies/UD_Odia-ODTB) (456 sentences). It has POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `ori`, so this may cover other varieties as well as Odia. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                    |
-| Wikidata labels        | 497,463 Wikidata items have a label in Odia. (Wikidata codes (labels): or (497,463))                                                                                                                                                                                                                              |
-| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; nan (size not listed).                                                                                                                                                                           |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                    |
+| Wordnets               | nan (size not listed); [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                                                                                           |
 
 ### Parallel data (for machine translation)
 
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                        |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([ory](https://ebible.org/details.php?id=ory), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                     |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                         |
 
 ### How good are we at identifying data?
 
@@ -180,32 +181,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [1]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [4]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [3]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [2]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 3 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 1 dataset; Machine translation: 2 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 3 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 1 dataset; Machine translation: 2 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#33691e" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -219,8 +197,12 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension      | QA – extractive RC            | [IndicQA (AI4Bharat, IndicXTREME)](https://huggingface.co/datasets/ai4bharat/IndicQA)               |          1,680 | Native                                                           |
 | 4. Reading comprehension      | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ       | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                              |          4,525 | Native (Indian exams; some translated)                           |
-| Machine translation           | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         |            854 | Human translation via English pivot                              |
-| Machine translation           | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation           |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         |            854 | Human translation via English pivot                              |
+| Machine translation           |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             |          1,012 | Human translation (professional, from English Wikimedia sources) |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -247,22 +229,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 84 of ~18,498 papers (0.45%) (rank 65 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 84 of ~18,498 papers (0.45%) (rank 65 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Odia
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 84):
+Here are up to ten papers published in 2026 that mention Odia. None of the 84 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                                                  | paper                                                                          |
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                                                                                                           | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/)             |
-| Common to Whom? Regional Cultural Commonsense and LLM Bias in India                                                                                                                    | [2026.acl-long.249](https://aclanthology.org/2026.acl-long.249/)               |
-| BHAID: A Dataset of LLM-Generated Text in Indian Languages with a Dual Contrastive Learning Framework for Detection                                                                    | [2026.findings-aacl.92](https://aclanthology.org/2026.findings-aacl.92/)       |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                                                                                    | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)     |
-| The Geometry of LLM-as-Judge: Why Inter-LLM Consensus Is Not Human Alignment                                                                                                           | [2026.findings-emnlp.1696](https://aclanthology.org/2026.findings-emnlp.1696/) |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                                                                | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
-| Towards Improving Multimodal Machine Translation with LLMs: A Focus on Indic Languages                                                                                                 | [2026.lrec-1.698](https://aclanthology.org/2026.lrec-1.698/)                   |
-| AIvengers at SemEval-2026 Task 9: Utilizing Language Specific Encoders for Multilingual Text Classification                                                                            | [2026.semeval-1.108](https://aclanthology.org/2026.semeval-1.108/)             |
-| PolarizedTeam at SemEval-2026 Task 9: Detecting Multilingual, Multicultural and Multievent Online Polarization                                                                         | [2026.semeval-1.180](https://aclanthology.org/2026.semeval-1.180/)             |
-| VGU-M.Tech-AI at SemEval-2026: Multilingual Multi-Label Classification of Online Polarization Types via Weighted Transformer Fine-Tuning and Adaptive Per-Label Threshold Optimization | [2026.semeval-1.183](https://aclanthology.org/2026.semeval-1.183/)             |
+| title                                                                                                                                                                                  | paper                                                                          | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                                                                                                           | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/)             | body only      |
+| Common to Whom? Regional Cultural Commonsense and LLM Bias in India                                                                                                                    | [2026.acl-long.249](https://aclanthology.org/2026.acl-long.249/)               | body only      |
+| BHAID: A Dataset of LLM-Generated Text in Indian Languages with a Dual Contrastive Learning Framework for Detection                                                                    | [2026.findings-aacl.92](https://aclanthology.org/2026.findings-aacl.92/)       | body only      |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                                                                                    | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)     | body only      |
+| The Geometry of LLM-as-Judge: Why Inter-LLM Consensus Is Not Human Alignment                                                                                                           | [2026.findings-emnlp.1696](https://aclanthology.org/2026.findings-emnlp.1696/) | body only      |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                                                                | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
+| Towards Improving Multimodal Machine Translation with LLMs: A Focus on Indic Languages                                                                                                 | [2026.lrec-1.698](https://aclanthology.org/2026.lrec-1.698/)                   | body only      |
+| AIvengers at SemEval-2026 Task 9: Utilizing Language Specific Encoders for Multilingual Text Classification                                                                            | [2026.semeval-1.108](https://aclanthology.org/2026.semeval-1.108/)             | body only      |
+| PolarizedTeam at SemEval-2026 Task 9: Detecting Multilingual, Multicultural and Multievent Online Polarization                                                                         | [2026.semeval-1.180](https://aclanthology.org/2026.semeval-1.180/)             | body only      |
+| VGU-M.Tech-AI at SemEval-2026: Multilingual Multi-Label Classification of Online Polarization Types via Weighted Transformer Fine-Tuning and Adaptive Per-Label Threshold Optimization | [2026.semeval-1.183](https://aclanthology.org/2026.semeval-1.183/)             | body only      |
 
 {% endraw %}

@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Deva` and `Latn`
 
-**Speakers:** about 17,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 26,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q11059#P1098), 2001)
+**Speakers:** about 17,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India, South Africa
 
@@ -42,12 +42,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                             |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 12,587 articles in sa.wikipedia; 82 active users. This is ~1/600 of English data and ranks 97 of 168 languages in the set in Wikipedia.                                                                                            |
-| Common Crawl           | 80,639 pages per crawl on average, which is 0.0037% of the crawl (2026). This is ~1/11,056 of English data and ranks 67 of 113 languages in the set in Common Crawl.                                                               |
-| FineWeb                | 0.11 GB (san_Deva 90.0 MB; san_Latn 30.0 MB), equivalent to ≈61.3 MB of English after byte-premium scaling; 0.78 GB removed by filtering. This is ~1/465,494 of English data and ranks 108 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 0.35 GB (san_Deva 0.35 GB) (rank 101 of 166 in the set)                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                                             |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 12,587 articles in sa.wikipedia; 82 active users. This is ~1/600 of English data and ranks 97 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                           |
+| Common Crawl           | 80,639 pages per crawl on average, which is 0.0037% of the crawl (2026). This is ~1/11,056 of English data and ranks 67 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                              |
+| FineWeb                | 0.11 GB (san_Deva 90.0 MB; san_Latn 30.0 MB), equivalent to ≈61.3 MB of English after byte-premium scaling; 0.78 GB removed by filtering. This is ~1/465,494 of English data and ranks 108 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 0.35 GB (san_Deva 0.35 GB) (rank 101 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                 |
 
 **By writing system:**
 
@@ -66,7 +66,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 27,412 sentences / 207,914 tokens in total: [UD_Sanskrit-UFAL](https://github.com/UniversalDependencies/UD_Sanskrit-UFAL) (230 sentences), [UD_Sanskrit-Vedic](https://github.com/UniversalDependencies/UD_Sanskrit-Vedic) (27,182 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 917 lemmas, 33,847 inflected forms ([unimorph/san](https://github.com/unimorph/san))                                                                                                                                                                                                                                                 |
-| Wikidata labels        | 469,249 Wikidata items have a label in Sanskrit. (Wikidata codes (labels): sa (469,249))                                                                                                                                                                                                                                             |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                       |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; [Sanskrit Wordnet](http://www.cfilt.iitb.ac.in/wordnet/webswn/english_version.php) (size not listed); licence: GNU FDL; [ilts-utkal.org](http://ilts-utkal.org/) (size not listed).                                 |
 
 ### Parallel data (for machine translation)
@@ -78,6 +78,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Bible translations (eBible corpus) | **Yes** — 20 translations: New Testament ([sanasm](https://ebible.org/details.php?id=sanasm), by-sa 4.0); New Testament ([santib](https://ebible.org/details.php?id=santib), by-sa 4.0); New Testament ([santha](https://ebible.org/details.php?id=santha), by-sa 4.0); New Testament ([santel](https://ebible.org/details.php?id=santel), by-sa 4.0); New Testament ([santam](https://ebible.org/details.php?id=santam), by-sa 4.0); New Testament ([sansin](https://ebible.org/details.php?id=sansin), by-sa 4.0); New Testament ([sanpun](https://ebible.org/details.php?id=sanpun), by-sa 4.0); New Testament ([sanori](https://ebible.org/details.php?id=sanori), by-sa 4.0); New Testament ([sanmal](https://ebible.org/details.php?id=sanmal), by-sa 4.0); New Testament ([sankhm](https://ebible.org/details.php?id=sankhm), by-sa 4.0); New Testament ([sanitr](https://ebible.org/details.php?id=sanitr), by-sa 4.0); New Testament ([saniso](https://ebible.org/details.php?id=saniso), by-sa 4.0); New Testament ([sanias](https://ebible.org/details.php?id=sanias), by-sa 4.0); New Testament ([sanhk](https://ebible.org/details.php?id=sanhk), by-sa 4.0); New Testament ([sanguj](https://ebible.org/details.php?id=sanguj), by-sa 4.0); New Testament ([sandev](https://ebible.org/details.php?id=sandev), by-sa 4.0); New Testament ([sanbur](https://ebible.org/details.php?id=sanbur), by-sa 4.0); New Testament ([sanben](https://ebible.org/details.php?id=sanben), by-sa 4.0); New Testament ([sanurd](https://ebible.org/details.php?id=sanurd), by-sa 4.0); New Testament ([sanvel](https://ebible.org/details.php?id=sanvel), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ### How good are we at identifying data?
 
@@ -184,44 +185,25 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [1]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [1]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: 1 dataset; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: 1 dataset; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">1 dataset</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | construction                                                     |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 4,442          | Treebank-based (automatic, UD + UniMorph)                        |
-| 3. Commonsense reasoning | COPA                | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                     | 500            | Human translation                                                |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                       | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 144            | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task               | dataset                                                                              | # test items   | construction                                                     |
+|:-------------------------|:-------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP              | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 4,442          | Treebank-based (automatic, UD + UniMorph)                        |
+| 3. Commonsense reasoning | COPA               | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                     | 500            | Human translation                                                |
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      |                    | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      |                    | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English)                   |
+| Machine translation      |                    | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                       | —              | Human translation (professional, from English)                   |
+| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 144            | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -249,22 +231,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 106 of ~18,498 papers (0.57%) (rank 57 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 106 of ~18,498 papers (0.57%) (rank 57 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Sanskrit
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 106):
+Here are up to ten papers published in 2026 that mention Sanskrit. None of the 106 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                              |
-|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| ThaiEditBench: A Mechanism-Typed, Length-Stratified Benchmark for Thai Orthographic Error Correction                 | [2026.aacl-short.17](https://aclanthology.org/2026.aacl-short.17/)                 |
-| Paramanu: Compact and Competitive Monolingual Language Models for Low-Resource Morphologically Rich Indian Languages | [2026.acl-long.1922](https://aclanthology.org/2026.acl-long.1922/)                 |
-| Digitizing Nepal’s Written Heritage: A Comprehensive HTR Pipeline for Old Nepali Manuscripts                         | [2026.acl-long.671](https://aclanthology.org/2026.acl-long.671/)                   |
-| LIMP: Linguistically-Informed Multi-Strategy Prompting for Telugu Multi-Turn Dialogue Generation                     | [2026.dravidianlangtech-1.5](https://aclanthology.org/2026.dravidianlangtech-1.5/) |
-| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                          | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)             |
-| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                  | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)                       |
-| Paradigms over Surface Cues: Inflection Class Drives Hindi Gender Assignment in Expert-Annotated Noun Paradigms      | [2026.mrl-1.9](https://aclanthology.org/2026.mrl-1.9/)                             |
-| Integrating Cultural Wisdom and Digital Technologies for Children’s Moral and Emotional Development                  | [2026.wildre-1.15](https://aclanthology.org/2026.wildre-1.15/)                     |
-| Konkani Wordnet Resources                                                                                            | [2026.wildre-1.6](https://aclanthology.org/2026.wildre-1.6/)                       |
-| StalePO: Anchored Token-Level Preference Optimization using Legacy Post-Edits in Machine Translation                 | [2026.wmt-main.8](https://aclanthology.org/2026.wmt-main.8/)                       |
+| title                                                                                                                | paper                                                                              | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:---------------|
+| ThaiEditBench: A Mechanism-Typed, Length-Stratified Benchmark for Thai Orthographic Error Correction                 | [2026.aacl-short.17](https://aclanthology.org/2026.aacl-short.17/)                 | body only      |
+| Paramanu: Compact and Competitive Monolingual Language Models for Low-Resource Morphologically Rich Indian Languages | [2026.acl-long.1922](https://aclanthology.org/2026.acl-long.1922/)                 | body only      |
+| Digitizing Nepal’s Written Heritage: A Comprehensive HTR Pipeline for Old Nepali Manuscripts                         | [2026.acl-long.671](https://aclanthology.org/2026.acl-long.671/)                   | body only      |
+| LIMP: Linguistically-Informed Multi-Strategy Prompting for Telugu Multi-Turn Dialogue Generation                     | [2026.dravidianlangtech-1.5](https://aclanthology.org/2026.dravidianlangtech-1.5/) | body only      |
+| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                          | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)             | body only      |
+| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                  | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)                       | body only      |
+| Paradigms over Surface Cues: Inflection Class Drives Hindi Gender Assignment in Expert-Annotated Noun Paradigms      | [2026.mrl-1.9](https://aclanthology.org/2026.mrl-1.9/)                             | body only      |
+| Integrating Cultural Wisdom and Digital Technologies for Children’s Moral and Emotional Development                  | [2026.wildre-1.15](https://aclanthology.org/2026.wildre-1.15/)                     | body only      |
+| Konkani Wordnet Resources                                                                                            | [2026.wildre-1.6](https://aclanthology.org/2026.wildre-1.6/)                       | body only      |
+| StalePO: Anchored Token-Level Preference Optimization using Legacy Post-Edits in Machine Translation                 | [2026.wmt-main.8](https://aclanthology.org/2026.wmt-main.8/)                       | body only      |
 
 {% endraw %}

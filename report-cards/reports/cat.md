@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 8.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 4.9 million first-language + 5.1 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q7026#P1098), 2021)
+**Speakers:** about 8.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Andorra, Spain
 
@@ -47,12 +47,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                            |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 807,554 articles in ca.wikipedia; 2,163 active users. This is ~1/9 of English data and ranks 18 of 168 languages in the set in Wikipedia.                                                                         |
-| Common Crawl           | 4,430,838 pages per crawl on average, which is 0.2056% of the crawl (2026). This is ~1/201 of English data and ranks 31 of 113 languages in the set in Common Crawl.                                              |
-| FineWeb                | 19.93 GB (cat_Latn 19.93 GB), equivalent to ≈18.24 GB of English after byte-premium scaling; 20.36 GB removed by filtering. This is ~1/2,680 of English data and ranks 34 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 4.21 GB (cat_Latn 4.21 GB) (rank 46 of 166 in the set)                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 807,554 articles in ca.wikipedia; 2,163 active users. This is ~1/9 of English data and ranks 18 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | 4,430,838 pages per crawl on average, which is 0.2056% of the crawl (2026). This is ~1/201 of English data and ranks 31 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                             |
+| FineWeb                | 19.93 GB (cat_Latn 19.93 GB), equivalent to ≈18.24 GB of English after byte-premium scaling; 20.36 GB removed by filtering. This is ~1/2,680 of English data and ranks 34 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 4.21 GB (cat_Latn 4.21 GB) (rank 46 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
@@ -62,7 +62,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 16,678 sentences / 531,390 tokens in total: [UD_Catalan-AnCora](https://github.com/UniversalDependencies/UD_Catalan-AnCora) (16,678 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 1,547 lemmas, 81,576 inflected forms ([unimorph/cat](https://github.com/unimorph/cat))                                                                                                                                             |
-| Wikidata labels        | 9,569,690 Wikidata items have a label in Catalan. (Wikidata codes (labels): ca (9,569,690))                                                                                                                                        |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                     |
 | Wordnets               | [Multilingual Central Repository (Catalan)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-ca-1.4.tar.xz): 45,826 synsets, 47,598 words, 70,622 senses; licence: https://creativecommons.org/licenses/by/3.0/.        |
 
 ### Parallel data (for machine translation)
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -181,32 +182,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [5]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [4]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [10]      \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [2]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 10 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 5 datasets; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 10 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 5 datasets; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">10 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">2 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -235,11 +213,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                            | —              | Machine translation (GPT-3.5, Okapi)                             |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | VeritasQA                                                                                                         | —              | Human translation                                                |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                            | 100            | Native (community-written, peer-verified)                        |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                       | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)                       | 2,024          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                         | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                              | 1,631          | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                         | 998            | Human translation (professional) + post-edits                    |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                       | 854            | Human translation via English pivot                              |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)                       | 2,024          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                         | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                              | 1,631          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                         | 998            | Human translation (professional) + post-edits                    |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -265,22 +247,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 170 of ~18,498 papers (0.92%) (rank 37 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 170 of ~18,498 papers (0.92%) (rank 37 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Catalan (Valencian) | Valencian | Catalan
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 170):
+Here are up to ten papers published in 2026 that mention Catalan. None of the 170 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                       | paper                                                                      |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| Post Hoc Agentic Refinement for Improving Precision in Multilingual Clinical Text De-identification                                         | [2026.bionlp-1.11](https://aclanthology.org/2026.bionlp-1.11/)             |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                                         | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/) |
-| QFrBLiMP: a Quebec-French Benchmark of Linguistic Minimal Pairs                                                                             | [2026.findings-eacl.224](https://aclanthology.org/2026.findings-eacl.224/) |
-| How Much Noise Can BERT Handle? Insights from Multilingual Sentence Difficulty Detection                                                    | [2026.lrec-1.485](https://aclanthology.org/2026.lrec-1.485/)               |
-| Beyond Fake News Detection: A Community-based Study of the Multicultural Nature of Information Disorder                                     | [2026.lrec-1.515](https://aclanthology.org/2026.lrec-1.515/)               |
-| Merge and Conquer: Instructing Multilingual Models by Adding Target Language Weights                                                        | [2026.lrec-1.800](https://aclanthology.org/2026.lrec-1.800/)               |
-| Exploring Cross-Lingual Transfer in Transformer-Based Fraud Detection Models                                                                | [2026.nlpaics-1.1](https://aclanthology.org/2026.nlpaics-1.1/)             |
-| Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification | [2026.politicalnlp-1.11](https://aclanthology.org/2026.politicalnlp-1.11/) |
-| The Construction of the CORALSE Corpus, Now and Beyond: A Tool for Documenting Spanish Sign Language                                        | [2026.signlang-1.15](https://aclanthology.org/2026.signlang-1.15/)         |
-| Zero-Shot Cross-Lingual Recognition of Sign Language Handshapes                                                                             | [2026.wslp-1.18](https://aclanthology.org/2026.wslp-1.18/)                 |
+| title                                                                                                                                       | paper                                                                      | mentioned in   |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
+| Post Hoc Agentic Refinement for Improving Precision in Multilingual Clinical Text De-identification                                         | [2026.bionlp-1.11](https://aclanthology.org/2026.bionlp-1.11/)             | body only      |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                                         | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/) | body only      |
+| QFrBLiMP: a Quebec-French Benchmark of Linguistic Minimal Pairs                                                                             | [2026.findings-eacl.224](https://aclanthology.org/2026.findings-eacl.224/) | body only      |
+| How Much Noise Can BERT Handle? Insights from Multilingual Sentence Difficulty Detection                                                    | [2026.lrec-1.485](https://aclanthology.org/2026.lrec-1.485/)               | body only      |
+| Beyond Fake News Detection: A Community-based Study of the Multicultural Nature of Information Disorder                                     | [2026.lrec-1.515](https://aclanthology.org/2026.lrec-1.515/)               | body only      |
+| Merge and Conquer: Instructing Multilingual Models by Adding Target Language Weights                                                        | [2026.lrec-1.800](https://aclanthology.org/2026.lrec-1.800/)               | body only      |
+| Exploring Cross-Lingual Transfer in Transformer-Based Fraud Detection Models                                                                | [2026.nlpaics-1.1](https://aclanthology.org/2026.nlpaics-1.1/)             | body only      |
+| Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification | [2026.politicalnlp-1.11](https://aclanthology.org/2026.politicalnlp-1.11/) | body only      |
+| The Construction of the CORALSE Corpus, Now and Beyond: A Tool for Documenting Spanish Sign Language                                        | [2026.signlang-1.15](https://aclanthology.org/2026.signlang-1.15/)         | body only      |
+| Zero-Shot Cross-Lingual Recognition of Sign Language Handshapes                                                                             | [2026.wslp-1.18](https://aclanthology.org/2026.wslp-1.18/)                 | body only      |
 
 {% endraw %}

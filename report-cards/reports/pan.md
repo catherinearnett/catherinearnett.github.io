@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Guru`
 
-**Speakers:** about 219.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 125.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q58635#P1098), 2021)
+**Speakers:** about 219.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 59,762 articles in pa.wikipedia; 145 active users. This is ~1/126 of English data and ranks 69 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                 |
-| Common Crawl           | 191,376 pages per crawl on average, which is 0.0089% of the crawl (2026). This is ~1/4,658 of English data and ranks 57 of 113 languages in the set in Common Crawl.                                                                                                                                                                                     |
-| FineWeb                | 1.61 GB (pan_Guru 1.59 GB; pan_Latn 10.0 MB), equivalent to ≈0.72 GB of English after byte-premium scaling (⚠️ only 99% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 2.02 GB removed by filtering. This is ~1/33,256 of English data and ranks 65 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 5.60 GB (pan_Guru 5.60 GB) (rank 35 of 166 in the set)                                                                                                                                                                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 59,762 articles in pa.wikipedia; 145 active users. This is ~1/126 of English data and ranks 69 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                |
+| Common Crawl           | 191,376 pages per crawl on average, which is 0.0089% of the crawl (2026). This is ~1/4,658 of English data and ranks 57 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                    |
+| FineWeb                | 1.61 GB (pan_Guru 1.59 GB; pan_Latn 10.0 MB), equivalent to ≈0.72 GB of English after byte-premium scaling (⚠️ only 99% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 2.02 GB removed by filtering. This is ~1/33,256 of English data and ranks 65 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 5.60 GB (pan_Guru 5.60 GB) (rank 35 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                        |
 
 **By writing system:**
 
@@ -62,7 +62,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 3 treebanks, 493 sentences / 8,428 tokens in total: [UD_Punjabi-CS](https://github.com/UniversalDependencies/UD_Punjabi-CS) (113 sentences), [UD_Punjabi-DYZ](https://github.com/UniversalDependencies/UD_Punjabi-DYZ) (243 sentences), [UD_Punjabi-Rang](https://github.com/UniversalDependencies/UD_Punjabi-Rang) (137 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                |
-| Wikidata labels        | 576,896 Wikidata items have a label in Punjabi. (Wikidata codes (labels): pa (576,896))                                                                                                                                                                                                                                                                                                                       |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                                                                                                                                                                                                              |
 
 ### Parallel data (for machine translation)
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                        |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([pan](https://ebible.org/details.php?id=pan), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                     |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                         |
 
 ### How good are we at identifying data?
 
@@ -182,32 +183,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [2]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [4]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [5]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [7]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 5 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 7 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 5 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 7 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -224,13 +202,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension      | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ       | IndicMMLU-Pro                                                                                       | —              | Machine translation (from MMLU-Pro)                                 |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ       | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                              | 4,099          | Native (Indian exams; some translated)                              |
-| Machine translation           | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation           | Machine translation           | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation           | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation           | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)                  | —              | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 87             | Native (crowdsourced Tatoeba sentence pairs)                        |
-| Machine translation           | Machine translation           | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                       |
+| Machine translation           |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation           |                               | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                      |
+| Machine translation           |                               | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
+| Machine translation           |                               | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation           |                               | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)                  | —              | Human translation (professional, from English)                      |
+| Machine translation           |                               | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 87             | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation           |                               | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                       |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -257,22 +239,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 110 of ~18,498 papers (0.59%) (rank 55 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 110 of ~18,498 papers (0.59%) (rank 55 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Punjabi
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 110):
+Here are up to ten papers published in 2026 that mention Punjabi. None of the 110 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                                                  | paper                                                                        |
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| Framing Political Bias in Multilingual LLMs Across Pakistani Languages                                                                                                                 | [2026.acl-long.1689](https://aclanthology.org/2026.acl-long.1689/)           |
-| Crosslingual Disparities in LLM Performance: Challenges for MT as Mitigation                                                                                                           | [2026.amta-research.9](https://aclanthology.org/2026.amta-research.9/)       |
-| Cross-Domain Evaluation of Transformer-Based Models for Punjabi Speech Emotion Recognition                                                                                             | [2026.chipsal-1.7](https://aclanthology.org/2026.chipsal-1.7/)               |
-| Script Gap: Evaluating LLM Triage on Indian Languages in Native vs Romanized Scripts in a Real-World Setting                                                                           | [2026.emnlp-industry.144](https://aclanthology.org/2026.emnlp-industry.144/) |
-| ALEE: Any-Language Evaluation of Embeddings via English-Centric Minimal Pairs                                                                                                          | [2026.emnlp-main.63](https://aclanthology.org/2026.emnlp-main.63/)           |
-| VGU-M.Tech-AI at SemEval-2026: Multilingual Multi-Label Classification of Online Polarization Types via Weighted Transformer Fine-Tuning and Adaptive Per-Label Threshold Optimization | [2026.semeval-1.183](https://aclanthology.org/2026.semeval-1.183/)           |
-| PingAn-NLP at SemEval-2026 Task 9: Multi-Stage Alignment via GRPO and Tiered Ensemble Voting for Multilingual Polarization Detection                                                   | [2026.semeval-1.354](https://aclanthology.org/2026.semeval-1.354/)           |
-| Sagarmatha at SemEval-2026 Task 9: Heterogeneous Ensembling and Hierarchical Task Conditioning for Multilingual Latent Distributional Divergence Modeling                              | [2026.semeval-1.382](https://aclanthology.org/2026.semeval-1.382/)           |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                                                                               | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                 |
-| North Small Translate: Advanced Cost-Effective Translation (Cohere CAT+)                                                                                                               | [2026.wmt-main.70](https://aclanthology.org/2026.wmt-main.70/)               |
+| title                                                                                                                                                                                  | paper                                                                        | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
+| Framing Political Bias in Multilingual LLMs Across Pakistani Languages                                                                                                                 | [2026.acl-long.1689](https://aclanthology.org/2026.acl-long.1689/)           | body only      |
+| Crosslingual Disparities in LLM Performance: Challenges for MT as Mitigation                                                                                                           | [2026.amta-research.9](https://aclanthology.org/2026.amta-research.9/)       | body only      |
+| Cross-Domain Evaluation of Transformer-Based Models for Punjabi Speech Emotion Recognition                                                                                             | [2026.chipsal-1.7](https://aclanthology.org/2026.chipsal-1.7/)               | body only      |
+| Script Gap: Evaluating LLM Triage on Indian Languages in Native vs Romanized Scripts in a Real-World Setting                                                                           | [2026.emnlp-industry.144](https://aclanthology.org/2026.emnlp-industry.144/) | body only      |
+| ALEE: Any-Language Evaluation of Embeddings via English-Centric Minimal Pairs                                                                                                          | [2026.emnlp-main.63](https://aclanthology.org/2026.emnlp-main.63/)           | body only      |
+| VGU-M.Tech-AI at SemEval-2026: Multilingual Multi-Label Classification of Online Polarization Types via Weighted Transformer Fine-Tuning and Adaptive Per-Label Threshold Optimization | [2026.semeval-1.183](https://aclanthology.org/2026.semeval-1.183/)           | body only      |
+| PingAn-NLP at SemEval-2026 Task 9: Multi-Stage Alignment via GRPO and Tiered Ensemble Voting for Multilingual Polarization Detection                                                   | [2026.semeval-1.354](https://aclanthology.org/2026.semeval-1.354/)           | body only      |
+| Sagarmatha at SemEval-2026 Task 9: Heterogeneous Ensembling and Hierarchical Task Conditioning for Multilingual Latent Distributional Divergence Modeling                              | [2026.semeval-1.382](https://aclanthology.org/2026.semeval-1.382/)           | body only      |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                                                                                               | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                 | body only      |
+| North Small Translate: Advanced Cost-Effective Translation (Cohere CAT+)                                                                                                               | [2026.wmt-main.70](https://aclanthology.org/2026.wmt-main.70/)               | body only      |
 
 {% endraw %}

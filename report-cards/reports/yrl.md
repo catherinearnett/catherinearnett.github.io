@@ -16,7 +16,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Endangered (80% certain))
 
-**Speakers:** about 27,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 8,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34333#P1098))
+**Speakers:** about 27,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Brazil
 
@@ -43,12 +43,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                         |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                         |
-| FineWeb                | 0.0 MB (yrl_Latn 0); 1.4 MB removed by filtering. This is ~1/3,029,948,070 of English data and ranks 243 of 248 languages in the set in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                     |
+| Source                 | Amount                                                                                                                                                                           |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                         |
+| FineWeb                | 0.0 MB (yrl_Latn 0); 1.4 MB removed by filtering. This is ~1/3,029,948,070 of English data and ranks 243 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                     |
 
 ### Structured and annotated data
 
@@ -58,7 +58,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 2,839 sentences / 26,444 tokens in total: [UD_Nheengatu-CompLin](https://github.com/UniversalDependencies/UD_Nheengatu-CompLin) (2,839 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                                        |
-| Wikidata labels        | 528 Wikidata items have a label in Nheengatu. (Wikidata codes (labels): yrl (528))                                                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                        |
 | Wordnets               | **None found**                                                                                                                                                                                                                        |
 
 ### Parallel data (for machine translation)
@@ -70,6 +70,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -137,38 +138,19 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ❌ 4. Reading    \
-            / comprehension [0]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [1]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ❌ Machine translation [0]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: none" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: none</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="136.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">1 dataset</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="310.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
 | level                   | task   | dataset                                                              |   # test items | construction                              |
 |:------------------------|:-------|:---------------------------------------------------------------------|---------------:|:------------------------------------------|
 | 1. Linguistic knowledge | BLiMP  | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) |            720 | Treebank-based (automatic, UD + UniMorph) |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -197,20 +179,20 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Nheengatu | Nhengatu
 
-Here are up to ten papers that were published mentioning this language in 2026:
+Here are up to ten papers published in 2026 that mention Nheengatu. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                          |
-|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|
-| OpenCor: Latin American and Iberian Languages Open Corpora Forum                                                     | [2026.lanlp-1.4](https://aclanthology.org/2026.lanlp-1.4/)     |
-| Parsing Nheengatu: Performance Gains for a Brazilian Indigenous Universal Dependencies Treebank                      | [2026.propor-2.29](https://aclanthology.org/2026.propor-2.29/) |
-| Extending Enhanced Universal Dependencies to Nheengatu: Semi-Automated Control and Raising Annotation                | [2026.stil-1.1](https://aclanthology.org/2026.stil-1.1/)       |
-| Desafios Tipológicos na Construção de Treebanks: O Mapeamento Morfossintático da Língua Kubeo no Padrão UD           | [2026.stil-1.53](https://aclanthology.org/2026.stil-1.53/)     |
-| Unsupervised Subword Segmentation for POS Tagging in Low-Resource Agglutinative Languages                            | [2026.stil-1.54](https://aclanthology.org/2026.stil-1.54/)     |
-| MesoTree: Annotated Linguistic Resources for Quantitative Comparative Linguistic Analysis and NLP in Mesoamerica     | [2026.udw-1.17](https://aclanthology.org/2026.udw-1.17/)       |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                            | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)         |
-| The Constitution Speaks Nheengatu: An Open MT System and Reproducible Corpus Pipeline for the Amazonian Língua Geral | [2026.wmt-main.4](https://aclanthology.org/2026.wmt-main.4/)   |
+| title                                                                                                                | paper                                                          | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|:---------------|
+| OpenCor: Latin American and Iberian Languages Open Corpora Forum                                                     | [2026.lanlp-1.4](https://aclanthology.org/2026.lanlp-1.4/)     | body only      |
+| Parsing Nheengatu: Performance Gains for a Brazilian Indigenous Universal Dependencies Treebank                      | [2026.propor-2.29](https://aclanthology.org/2026.propor-2.29/) | body only      |
+| Extending Enhanced Universal Dependencies to Nheengatu: Semi-Automated Control and Raising Annotation                | [2026.stil-1.1](https://aclanthology.org/2026.stil-1.1/)       | body only      |
+| Desafios Tipológicos na Construção de Treebanks: O Mapeamento Morfossintático da Língua Kubeo no Padrão UD           | [2026.stil-1.53](https://aclanthology.org/2026.stil-1.53/)     | body only      |
+| Unsupervised Subword Segmentation for POS Tagging in Low-Resource Agglutinative Languages                            | [2026.stil-1.54](https://aclanthology.org/2026.stil-1.54/)     | body only      |
+| MesoTree: Annotated Linguistic Resources for Quantitative Comparative Linguistic Analysis and NLP in Mesoamerica     | [2026.udw-1.17](https://aclanthology.org/2026.udw-1.17/)       | body only      |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                            | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)         | body only      |
+| The Constitution Speaks Nheengatu: An Open MT System and Reproducible Corpus Pipeline for the Amazonian Língua Geral | [2026.wmt-main.4](https://aclanthology.org/2026.wmt-main.4/)   | body only      |
 
 {% endraw %}

@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 13,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 13,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q13248#P1098), 2007)
+**Speakers:** about 13,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Germany
 
@@ -52,12 +52,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                               |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 14,298 articles in hsb.wikipedia; 24 active users. This is ~1/528 of English data and ranks 92 of 168 languages in the set in Wikipedia.             |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
-| FineWeb                | 49.8 MB (hsb_Latn 50.0 MB); 0.19 GB removed by filtering. This is ~1/1,073,631 of English data and ranks 119 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 12.3 MB (hsb_Latn 12.0 MB) (rank 160 of 166 in the set)                                                                                              |
+| Source                 | Amount                                                                                                                                                                               |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 14,298 articles in hsb.wikipedia; 24 active users. This is ~1/528 of English data and ranks 92 of the 168 languages in the set with any data in Wikipedia; 164 have none.            |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                             |
+| FineWeb                | 49.8 MB (hsb_Latn 50.0 MB); 0.19 GB removed by filtering. This is ~1/1,073,631 of English data and ranks 119 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 12.3 MB (hsb_Latn 12.0 MB) (rank 160 of the 166 languages in the set that have any; 166 have none)                                                                                   |
 
 ### Structured and annotated data
 
@@ -67,7 +67,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 644 sentences / 11,167 tokens in total: [UD_Upper_Sorbian-UFAL](https://github.com/UniversalDependencies/UD_Upper_Sorbian-UFAL) (644 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 345 lemmas, 400 inflected forms ([unimorph/hsb](https://github.com/unimorph/hsb))                                                                                                                                                   |
-| Wikidata labels        | 739,282 Wikidata items have a label in Upper Sorbian. (Wikidata codes (labels): hsb (739,282))                                                                                                                                      |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                      |
 | Wordnets               | **None found**                                                                                                                                                                                                                      |
 
 ### Parallel data (for machine translation)
@@ -79,6 +79,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -148,9 +149,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 | [ahmedeltawel/Qwen2.5-1.5B-Instruct-hsb-dsb](https://huggingface.co/ahmedeltawel/Qwen2.5-1.5B-Instruct-hsb-dsb) | 1.5B         |                    3 |   2026 | Qwen/Qwen2.5-1.5B      |
 | [ahmedeltawel/Qwen3.5-0.8B-hsb-dsb](https://huggingface.co/ahmedeltawel/Qwen3.5-0.8B-hsb-dsb)                   | 1.0B         |                    3 |   2026 | Qwen/Qwen3.5-0.8B-Base |
 
-### Largest models tagged *only* for Upper Sorbian
+### Models tagged *only* for Upper Sorbian
 
-_none_
+None of these has a known parameter count:
+
+| model                                                                                 |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|---------------------:|-------:|:----------------|
+| [goldfish-models/hsb_latn_10mb](https://huggingface.co/goldfish-models/hsb_latn_10mb) |                    1 |   2024 | —               |
+| [goldfish-models/hsb_latn_5mb](https://huggingface.co/goldfish-models/hsb_latn_5mb)   |                    1 |   2024 | —               |
+| [goldfish-models/hsb_latn_full](https://huggingface.co/goldfish-models/hsb_latn_full) |                    1 |   2024 | —               |
 
 _5 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -174,40 +181,21 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [1]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [1]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 1 dataset" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 1 dataset</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">1 dataset</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              |   # test items | construction                                  |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |            186 | Treebank-based (automatic, UD + UniMorph)     |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |            154 | Native (crowdsourced Tatoeba sentence pairs)  |
+| level                    | task               | dataset                                                                              |   # test items | construction                                  |
+|:-------------------------|:-------------------|:-------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP              | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |            186 | Treebank-based (automatic, UD + UniMorph)     |
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia |
+| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |            154 | Native (crowdsourced Tatoeba sentence pairs)  |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -235,22 +223,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 14 of ~18,498 papers (0.08%) (rank 139 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 14 of ~18,498 papers (0.08%) (rank 139 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Upper Sorbian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 14):
+Here are up to ten papers published in 2026 that mention Upper Sorbian. None of the 14 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                         | paper                                                                          |
-|:------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                           | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)             |
-| Dialects of Translationese Shape Language Model Learning                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                    | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   |
-| SNAPP: Segment-Level Neural Alignment Post-Processing for Low-Resource Parallel Sentence Mining                               | [2026.wmt-main.14](https://aclanthology.org/2026.wmt-main.14/)                 |
-| One Model, Five Tasks, Two RTX 3090 GPUs: The HSE System for the Sorbian Track of WMT26 Multitask LLMs with Limited Resources | [2026.wmt-main.209](https://aclanthology.org/2026.wmt-main.209/)               |
-| HeyBusan at WMT26: A System for the Sorbian Track                                                                             | [2026.wmt-main.210](https://aclanthology.org/2026.wmt-main.210/)               |
-| Getting More from Small LLMs and Limited Data: Fuzzy-Match Retrieval and Candidate Scoring for Multitask Sorbian NLP          | [2026.wmt-main.211](https://aclanthology.org/2026.wmt-main.211/)               |
-| TUMHN@WMT2026: LLMs with Limited Resources for Slavic Languages                                                               | [2026.wmt-main.212](https://aclanthology.org/2026.wmt-main.212/)               |
-| HITSZ at WMT 2026: Mixed Continued Pre-training and Supervised Fine-tuning for Low-Resource Sorbian                           | [2026.wmt-main.214](https://aclanthology.org/2026.wmt-main.214/)               |
-| Findings of the WMT 2026 Shared Task: Multitask LLMs with Limited Resources                                                   | [2026.wmt-main.59](https://aclanthology.org/2026.wmt-main.59/)                 |
+| title                                                                                                                         | paper                                                                          | mentioned in   |
+|:------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Aspects of Selecting the Right ASR Training Languages for Under-Resourced Languages                                           | [2026.computel-1.16](https://aclanthology.org/2026.computel-1.16/)             | body only      |
+| Dialects of Translationese Shape Language Model Learning                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) | body only      |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                    | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)                   | body only      |
+| SNAPP: Segment-Level Neural Alignment Post-Processing for Low-Resource Parallel Sentence Mining                               | [2026.wmt-main.14](https://aclanthology.org/2026.wmt-main.14/)                 | body only      |
+| One Model, Five Tasks, Two RTX 3090 GPUs: The HSE System for the Sorbian Track of WMT26 Multitask LLMs with Limited Resources | [2026.wmt-main.209](https://aclanthology.org/2026.wmt-main.209/)               | body only      |
+| HeyBusan at WMT26: A System for the Sorbian Track                                                                             | [2026.wmt-main.210](https://aclanthology.org/2026.wmt-main.210/)               | body only      |
+| Getting More from Small LLMs and Limited Data: Fuzzy-Match Retrieval and Candidate Scoring for Multitask Sorbian NLP          | [2026.wmt-main.211](https://aclanthology.org/2026.wmt-main.211/)               | body only      |
+| TUMHN@WMT2026: LLMs with Limited Resources for Slavic Languages                                                               | [2026.wmt-main.212](https://aclanthology.org/2026.wmt-main.212/)               | body only      |
+| HITSZ at WMT 2026: Mixed Continued Pre-training and Supervised Fine-tuning for Low-Resource Sorbian                           | [2026.wmt-main.214](https://aclanthology.org/2026.wmt-main.214/)               | body only      |
+| Findings of the WMT 2026 Shared Task: Multitask LLMs with Limited Resources                                                   | [2026.wmt-main.59](https://aclanthology.org/2026.wmt-main.59/)                 | body only      |
 
 {% endraw %}

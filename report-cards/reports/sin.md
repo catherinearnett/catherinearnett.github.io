@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Sinh`
 
-**Speakers:** about 14.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 15.3 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q13267#P1098), 2019)
+**Speakers:** about 14.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Sri Lanka
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 25,833 articles in si.wikipedia; 130 active users. This is ~1/292 of English data and ranks 79 of 168 languages in the set in Wikipedia.                                                                       |
-| Common Crawl           | 203,392 pages per crawl on average, which is 0.0094% of the crawl (2026). This is ~1/4,383 of English data and ranks 56 of 113 languages in the set in Common Crawl.                                           |
-| FineWeb                | 2.03 GB (sin_Sinh 2.03 GB), equivalent to ≈0.83 GB of English after byte-premium scaling; 1.53 GB removed by filtering. This is ~1/26,279 of English data and ranks 64 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 5.10 GB (sin_Sinh 5.10 GB) (rank 40 of 166 in the set)                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 25,833 articles in si.wikipedia; 130 active users. This is ~1/292 of English data and ranks 79 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | 203,392 pages per crawl on average, which is 0.0094% of the crawl (2026). This is ~1/4,383 of English data and ranks 56 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
+| FineWeb                | 2.03 GB (sin_Sinh 2.03 GB), equivalent to ≈0.83 GB of English after byte-premium scaling; 1.53 GB removed by filtering. This is ~1/26,279 of English data and ranks 64 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 5.10 GB (sin_Sinh 5.10 GB) (rank 40 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 169 sentences / 1,549 tokens in total: [UD_Sinhala-Appuwa](https://github.com/UniversalDependencies/UD_Sinhala-Appuwa) (69 sentences), [UD_Sinhala-STB](https://github.com/UniversalDependencies/UD_Sinhala-STB) (100 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                          |
-| Wikidata labels        | 222,189 Wikidata items have a label in Sinhala. (Wikidata codes (labels): si (222,189))                                                                                                                                                                                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                          |
 | Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [Sinhala Wordnet](http://www.wordnet.lk/) (size not listed); licence: not available yet.                                                                                                                                            |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -172,32 +173,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [2]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [2]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [6]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 6 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 6 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -209,12 +187,16 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                              | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                                   | 14,042         | MT + community post-editing                                         |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                                  | 100            | Native (community-written, peer-verified)                           |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Human translation via English pivot                                 |
-| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation           | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation           | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 47             | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation           |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Human translation via English pivot                                 |
+| Machine translation           |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation           |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
+| Machine translation           |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation           |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                      |
+| Machine translation           |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 47             | Native (crowdsourced Tatoeba sentence pairs)                        |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -240,22 +222,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 74 of ~18,498 papers (0.40%) (rank 70 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 74 of ~18,498 papers (0.40%) (rank 70 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Sinhala
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 74):
+Here are up to ten papers published in 2026 that mention Sinhala. None of the 74 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                        | paper                                                                          |
-|:---------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Leveraging CoHere Multilingual Embeddings and Inverted Softmax Retrieval for Automatic Parallel Sentence Alignment in Low-Resource Languages | [2026.africanlp-main.4](https://aclanthology.org/2026.africanlp-main.4/)       |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                        | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)         |
-| XQ-MEval: A Dataset with Cross-lingual Parallel Quality for Benchmarking Translation Metrics                                                 | [2026.findings-acl.1846](https://aclanthology.org/2026.findings-acl.1846/)     |
-| Speak No Evil, Just Prompt: Low-resource Multilingual Toxic Speech Detection with Audio Language Model                                       | [2026.findings-acl.439](https://aclanthology.org/2026.findings-acl.439/)       |
-| Confident but Wrong: A Constrained Decoding Diagnostic for Low-Resource Automatic Post-Editing                                               | [2026.findings-emnlp.1079](https://aclanthology.org/2026.findings-emnlp.1079/) |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                                 | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               |
-| OasisSimp: An Open-source Asian-English Sentence Simplification Dataset                                                                      | [2026.lrec-1.483](https://aclanthology.org/2026.lrec-1.483/)                   |
-| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                                          | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)                   |
-| Do LLMs Judge Distantly Supervised Named Entity Labels Well? Constructing the JudgeWEL Dataset                                               | [2026.lrec-1.612](https://aclanthology.org/2026.lrec-1.612/)                   |
-| PlurVA-LLM-2026 Shared Task Track-2: PluriGuide—Principle Distillation and Identifier-Bound Demonstrations for Pluralistic Value Alignment   | [2026.plurvallm-1.7](https://aclanthology.org/2026.plurvallm-1.7/)             |
+| title                                                                                                                                        | paper                                                                          | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Leveraging CoHere Multilingual Embeddings and Inverted Softmax Retrieval for Automatic Parallel Sentence Alignment in Low-Resource Languages | [2026.africanlp-main.4](https://aclanthology.org/2026.africanlp-main.4/)       | body only      |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                        | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)         | body only      |
+| XQ-MEval: A Dataset with Cross-lingual Parallel Quality for Benchmarking Translation Metrics                                                 | [2026.findings-acl.1846](https://aclanthology.org/2026.findings-acl.1846/)     | body only      |
+| Speak No Evil, Just Prompt: Low-resource Multilingual Toxic Speech Detection with Audio Language Model                                       | [2026.findings-acl.439](https://aclanthology.org/2026.findings-acl.439/)       | body only      |
+| Confident but Wrong: A Constrained Decoding Diagnostic for Low-Resource Automatic Post-Editing                                               | [2026.findings-emnlp.1079](https://aclanthology.org/2026.findings-emnlp.1079/) | body only      |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                                 | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               | body only      |
+| OasisSimp: An Open-source Asian-English Sentence Simplification Dataset                                                                      | [2026.lrec-1.483](https://aclanthology.org/2026.lrec-1.483/)                   | body only      |
+| SiDiaC-v.2.0: Sinhala Diachronic Corpus Version 2.0                                                                                          | [2026.lrec-1.537](https://aclanthology.org/2026.lrec-1.537/)                   | body only      |
+| Do LLMs Judge Distantly Supervised Named Entity Labels Well? Constructing the JudgeWEL Dataset                                               | [2026.lrec-1.612](https://aclanthology.org/2026.lrec-1.612/)                   | body only      |
+| PlurVA-LLM-2026 Shared Task Track-2: PluriGuide—Principle Distillation and Identifier-Bound Demonstrations for Pluralistic Value Alignment   | [2026.plurvallm-1.7](https://aclanthology.org/2026.plurvallm-1.7/)             | body only      |
 
 {% endraw %}

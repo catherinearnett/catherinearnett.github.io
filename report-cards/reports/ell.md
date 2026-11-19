@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Grek`
 
-**Speakers:** about 12.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 15.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q36510#P1098))
+**Speakers:** about 12.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Cyprus, Greece, South Africa
 
@@ -44,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                           |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 275,091 articles in el.wikipedia; 2,113 active users. This is ~1/27 of English data and ranks 36 of 168 languages in the set in Wikipedia.                                                                       |
-| Common Crawl           | 11,595,458 pages per crawl on average, which is 0.5380% of the crawl (2026). This is ~1/77 of English data and ranks 19 of 113 languages in the set in Common Crawl.                                             |
-| FineWeb                | 78.61 GB (ell_Grek 78.61 GB), equivalent to ≈39.96 GB of English after byte-premium scaling; 100.72 GB removed by filtering. This is ~1/680 of English data and ranks 22 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 12.84 GB (ell_Grek 12.84 GB) (rank 4 of 166 in the set)                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 275,091 articles in el.wikipedia; 2,113 active users. This is ~1/27 of English data and ranks 36 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | 11,595,458 pages per crawl on average, which is 0.5380% of the crawl (2026). This is ~1/77 of English data and ranks 19 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                            |
+| FineWeb                | 78.61 GB (ell_Grek 78.61 GB), equivalent to ≈39.96 GB of English after byte-premium scaling; 100.72 GB removed by filtering. This is ~1/680 of English data and ranks 22 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 12.84 GB (ell_Grek 12.84 GB) (rank 4 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -59,7 +59,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 8 treebanks, 6,204 sentences / 111,412 tokens in total: [UD_Greek-Cretan](https://github.com/UniversalDependencies/UD_Greek-Cretan) (270 sentences), [UD_Greek-Cypriot](https://github.com/UniversalDependencies/UD_Greek-Cypriot) (100 sentences), [UD_Greek-GDT](https://github.com/UniversalDependencies/UD_Greek-GDT) (2,521 sentences), [UD_Greek-GLCII](https://github.com/UniversalDependencies/UD_Greek-GLCII) (671 sentences), [UD_Greek-GUD](https://github.com/UniversalDependencies/UD_Greek-GUD) (1,807 sentences), [UD_Greek-Griko](https://github.com/UniversalDependencies/UD_Greek-Griko) (100 sentences), [UD_Greek-Lesbian](https://github.com/UniversalDependencies/UD_Greek-Lesbian) (625 sentences), [UD_Greek-Messinian](https://github.com/UniversalDependencies/UD_Greek-Messinian) (110 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 11,906 lemmas, 199,757 inflected forms ([unimorph/ell](https://github.com/unimorph/ell))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Wikidata labels        | 1,316,022 Wikidata items have a label in Greek. (Wikidata codes (labels): el (1,316,022))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Wordnets               | [Greek Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-el-1.4.tar.xz): 18,049 synsets, 18,264 words, 24,106 senses; licence: https://opensource.org/licenses/Apache-2.0; [BalkaNet](http://www.dblab.upatras.gr/balkanet/) (size not listed).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 ### Parallel data (for machine translation)
@@ -71,6 +71,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -177,32 +178,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [6]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [6]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [3]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 3 datasets; Pragmatics &amp; discourse: none; Commonsense reasoning: 6 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 6 datasets; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 3 datasets; Pragmatics &amp; discourse: none; Commonsense reasoning: 6 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 6 datasets; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">3 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -225,11 +203,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                               | 14,042         | Machine translation (Google Translate)                           |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                             | 500            | Native (cultural; native-speaker answers)                        |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation           | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation           | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 13,055         | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation           | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+| Machine translation           |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation           |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation           |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
+| Machine translation           |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 13,055         | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation           |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -255,22 +237,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 426 of ~18,498 papers (2.30%) (rank 17 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 426 of ~18,498 papers (2.30%) (rank 17 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Greek
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 426):
+Here are up to ten papers published in 2026 that mention Greek. None of the 426 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                          |
-|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                  | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             |
-| Hellenic National Corpus: The Current State                                                                           | [2026.cmlc-1.7](https://aclanthology.org/2026.cmlc-1.7/)                       |
-| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages                         | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/)       |
-| Thinking While Speaking: Inference-Time Knowledge Transfer for Responsive and Intelligent Conversational Voice Agents | [2026.findings-emnlp.1371](https://aclanthology.org/2026.findings-emnlp.1371/) |
-| ConvDeck: Conversational Paper-to-Slide Generation via Stage-Specific User Feedback                                   | [2026.findings-emnlp.541](https://aclanthology.org/2026.findings-emnlp.541/)   |
-| Universal NER v2: Towards a Massively Multilingual Named Entity Recognition Benchmark                                 | [2026.lrec-1.525](https://aclanthology.org/2026.lrec-1.525/)                   |
-| WikIPA: Integrating WikiPron and Lingua Libre for Multilingual IPA Transcription                                      | [2026.lrec-1.668](https://aclanthology.org/2026.lrec-1.668/)                   |
-| Building a Corpus and Database for Rare and Undeciphered Scripts                                                      | [2026.lt4hala-1.17](https://aclanthology.org/2026.lt4hala-1.17/)               |
-| When Retrieval Hurts: Evidence Utilization, Script Fidelity, and Knowledge Conflicts in Multilingual RAG              | [2026.mellm-1.9](https://aclanthology.org/2026.mellm-1.9/)                     |
-| Decoding News Narratives: A Critical Analysis of Large Language Models in Framing Detection                           | [2026.politicalnlp-1.2](https://aclanthology.org/2026.politicalnlp-1.2/)       |
+| title                                                                                                                 | paper                                                                          | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                  | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             | body only      |
+| Hellenic National Corpus: The Current State                                                                           | [2026.cmlc-1.7](https://aclanthology.org/2026.cmlc-1.7/)                       | body only      |
+| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages                         | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/)       | body only      |
+| Thinking While Speaking: Inference-Time Knowledge Transfer for Responsive and Intelligent Conversational Voice Agents | [2026.findings-emnlp.1371](https://aclanthology.org/2026.findings-emnlp.1371/) | body only      |
+| ConvDeck: Conversational Paper-to-Slide Generation via Stage-Specific User Feedback                                   | [2026.findings-emnlp.541](https://aclanthology.org/2026.findings-emnlp.541/)   | body only      |
+| Universal NER v2: Towards a Massively Multilingual Named Entity Recognition Benchmark                                 | [2026.lrec-1.525](https://aclanthology.org/2026.lrec-1.525/)                   | body only      |
+| WikIPA: Integrating WikiPron and Lingua Libre for Multilingual IPA Transcription                                      | [2026.lrec-1.668](https://aclanthology.org/2026.lrec-1.668/)                   | body only      |
+| Building a Corpus and Database for Rare and Undeciphered Scripts                                                      | [2026.lt4hala-1.17](https://aclanthology.org/2026.lt4hala-1.17/)               | body only      |
+| When Retrieval Hurts: Evidence Utilization, Script Fidelity, and Knowledge Conflicts in Multilingual RAG              | [2026.mellm-1.9](https://aclanthology.org/2026.mellm-1.9/)                     | body only      |
+| Decoding News Narratives: A Critical Analysis of Large Language Models in Framing Detection                           | [2026.politicalnlp-1.2](https://aclanthology.org/2026.politicalnlp-1.2/)       | body only      |
 
 {% endraw %}

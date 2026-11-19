@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 1.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 750,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q8752#P1098), 2016)
+**Speakers:** about 1.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Spain
 
@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 500,116 articles in eu.wikipedia; 898 active users. This is ~1/15 of English data and ranks 29 of 168 languages in the set in Wikipedia.                                                                       |
-| Common Crawl           | 831,392 pages per crawl on average, which is 0.0386% of the crawl (2026). This is ~1/1,072 of English data and ranks 40 of 113 languages in the set in Common Crawl.                                           |
-| FineWeb                | 2.06 GB (eus_Latn 2.06 GB), equivalent to ≈1.94 GB of English after byte-premium scaling; 3.59 GB removed by filtering. This is ~1/25,968 of English data and ranks 63 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 4.36 GB (eus_Latn 4.36 GB) (rank 42 of 166 in the set)                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 500,116 articles in eu.wikipedia; 898 active users. This is ~1/15 of English data and ranks 29 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | 831,392 pages per crawl on average, which is 0.0386% of the crawl (2026). This is ~1/1,072 of English data and ranks 40 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
+| FineWeb                | 2.06 GB (eus_Latn 2.06 GB), equivalent to ≈1.94 GB of English after byte-premium scaling; 3.59 GB removed by filtering. This is ~1/25,968 of English data and ranks 63 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 4.36 GB (eus_Latn 4.36 GB) (rank 42 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -61,7 +61,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 8,993 sentences / 121,443 tokens in total: [UD_Basque-BDT](https://github.com/UniversalDependencies/UD_Basque-BDT) (8,993 sentences). It has POS tags, dependency syntax, lemmas and morphological features.   |
 | UniMorph               | 26 lemmas, 11,889 inflected forms ([unimorph/eus](https://github.com/unimorph/eus))                                                                                                                                        |
-| Wikidata labels        | 7,665,973 Wikidata items have a label in Basque. (Wikidata codes (labels): eu (7,665,973))                                                                                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                             |
 | Wordnets               | [Multilingual Central Repository (Basque)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-eu-1.4.tar.xz): 29,413 synsets, 26,390 words, 48,934 senses; licence: https://creativecommons.org/licenses/by/3.0/. |
 
 ### Parallel data (for machine translation)
@@ -73,6 +73,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -179,32 +180,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [5]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [3]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [9]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [3]   |  & discourse [3]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 3 datasets; Pragmatics &amp; discourse: 3 datasets; Commonsense reasoning: 9 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 5 datasets; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 3 datasets; Pragmatics &amp; discourse: 3 datasets; Commonsense reasoning: 9 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 5 datasets; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">9 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">3 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">3 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -233,10 +211,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [EusTrivia](https://github.com/hitz-zentroa/latxa)                                                  | 1,715          | Native                                                            |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                              |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)              | —              | Machine translation (GPT-3.5, Okapi)                              |
-| Machine translation                    | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                               |
-| Machine translation                    | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)  |
-| Machine translation                    | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                    |
-| Machine translation                    | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 1,060          | Native (crowdsourced Tatoeba sentence pairs)                      |
+| Machine translation                    |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                               |
+| Machine translation                    |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)  |
+| Machine translation                    |                               | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                    |
+| Machine translation                    |                               | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 1,060          | Native (crowdsourced Tatoeba sentence pairs)                      |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -263,22 +245,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 178 of ~18,498 papers (0.96%) (rank 35 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 178 of ~18,498 papers (0.96%) (rank 35 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Basque
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 178):
+Here are up to ten papers published in 2026 that mention Basque. None of the 178 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                                        |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)           |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                         | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)   |
-| QFrBLiMP: a Quebec-French Benchmark of Linguistic Minimal Pairs                                                             | [2026.findings-eacl.224](https://aclanthology.org/2026.findings-eacl.224/)   |
-| Translation Asymmetry in LLMs as a Data Augmentation Factor: A Case Study for 6 Romansh Language Varieties                  | [2026.findings-emnlp.230](https://aclanthology.org/2026.findings-emnlp.230/) |
-| Benchmarking Mathematical Reasoning in a Low-Resource Language: Structured Prompting and Evaluation in Basque               | [2026.lrec-1.412](https://aclanthology.org/2026.lrec-1.412/)                 |
-| A Single Model Ensemble Framework for Neural Machine Translation Using Pivot Translation                                    | [2026.lrec-1.672](https://aclanthology.org/2026.lrec-1.672/)                 |
-| Extracting Medical Image-Related Entities from Spanish Electronic Health Records Using NER Methods                          | [2026.lrec-1.829](https://aclanthology.org/2026.lrec-1.829/)                 |
-| Proffiliadur: Welsh Language Text Profiling Toolkit                                                                         | [2026.lrec-1.88](https://aclanthology.org/2026.lrec-1.88/)                   |
-| Register Sensitivity in Scalar MT Evaluation: Evidence from Spanish–Basque Informal Discourse                               | [2026.sigul-1.2](https://aclanthology.org/2026.sigul-1.2/)                   |
-| CUS-QA: Local-Knowledge-Oriented Open-Ended Question Answering Dataset                                                      | [2026.tacl-1.67](https://aclanthology.org/2026.tacl-1.67/)                   |
+| title                                                                                                                       | paper                                                                        | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
+| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)           | body only      |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                         | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/)   | body only      |
+| QFrBLiMP: a Quebec-French Benchmark of Linguistic Minimal Pairs                                                             | [2026.findings-eacl.224](https://aclanthology.org/2026.findings-eacl.224/)   | body only      |
+| Translation Asymmetry in LLMs as a Data Augmentation Factor: A Case Study for 6 Romansh Language Varieties                  | [2026.findings-emnlp.230](https://aclanthology.org/2026.findings-emnlp.230/) | body only      |
+| Benchmarking Mathematical Reasoning in a Low-Resource Language: Structured Prompting and Evaluation in Basque               | [2026.lrec-1.412](https://aclanthology.org/2026.lrec-1.412/)                 | body only      |
+| A Single Model Ensemble Framework for Neural Machine Translation Using Pivot Translation                                    | [2026.lrec-1.672](https://aclanthology.org/2026.lrec-1.672/)                 | body only      |
+| Extracting Medical Image-Related Entities from Spanish Electronic Health Records Using NER Methods                          | [2026.lrec-1.829](https://aclanthology.org/2026.lrec-1.829/)                 | body only      |
+| Proffiliadur: Welsh Language Text Profiling Toolkit                                                                         | [2026.lrec-1.88](https://aclanthology.org/2026.lrec-1.88/)                   | body only      |
+| Register Sensitivity in Scalar MT Evaluation: Evidence from Spanish–Basque Informal Discourse                               | [2026.sigul-1.2](https://aclanthology.org/2026.sigul-1.2/)                   | body only      |
+| CUS-QA: Local-Knowledge-Oriented Open-Ended Question Answering Dataset                                                      | [2026.tacl-1.67](https://aclanthology.org/2026.tacl-1.67/)                   | body only      |
 
 {% endraw %}

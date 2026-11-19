@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Arab`
 
-**Speakers:** about 89.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `fas`, so includes other varieties · 52.8 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q3513637#P1098), 2019)
+**Speakers:** about 89.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `fas`, so includes other varieties
 
 **Official / recognised in:** Iran
 
@@ -43,7 +43,7 @@ Let's consider some of the most popular sources of training data:
 | Wikipedia              | 1,101,428 articles in fa.wikipedia; 8,324 active users. ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Dari (`prs`) and overstates Persian.                      |
 | Common Crawl           | 10,945,849 pages per crawl on average, which is 0.5082% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Dari (`prs`) and overstates Persian. |
 | FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                     |
-| Goldfish training data | 12.52 GB (pes_Arab 12.52 GB) (rank 5 of 166 in the set)                                                                                                                                            |
+| Goldfish training data | 12.52 GB (pes_Arab 12.52 GB) (rank 5 of the 166 languages in the set that have any; 166 have none)                                                                                                 |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 35,104 sentences / 645,790 tokens in total: [UD_Persian-PerDT](https://github.com/UniversalDependencies/UD_Persian-PerDT) (29,107 sentences), [UD_Persian-Seraji](https://github.com/UniversalDependencies/UD_Persian-Seraji) (5,997 sentences). All have POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `fas`, so this may cover other varieties as well as Persian. |
 | UniMorph               | 273 lemmas, 37,128 inflected forms ([unimorph/fas](https://github.com/unimorph/fas)) ⚠️ Listed under the macrolanguage code `fas`, so this may cover other varieties as well as Persian.                                                                                                                                                                                                                                                   |
-| Wikidata labels        | 2,789,245 Wikidata items have a label in Persian. (Wikidata codes (labels): fa (2,789,245))                                                                                                                                                                                                                                                                                                                                                |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                             |
 | Wordnets               | FarsNet (size not listed); licence: OPEN FOR ACADEMIC USE; PersiaNet (size not listed); Persian Wordnet (size not listed); licence: OPEN.                                                                                                                                                                                                                                                                                                  |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                  |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([pesOPV](https://ebible.org/details.php?id=pesOPV), Public Domain). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                               |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                   |
 
 ### How good are we at identifying data?
 
@@ -172,32 +173,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [6]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [3]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [4]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [4]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [8]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 4 datasets; Commonsense reasoning: 4 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 6 datasets; Machine translation: 8 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 4 datasets; Commonsense reasoning: 4 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 6 datasets; Machine translation: 8 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">4 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">8 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -222,14 +200,18 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                                        | 500            | Native (cultural; native-speaker answers)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                         | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                                | 250            | Native (locally sourced)                                            |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                    | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                        | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                      | 1,997          | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                  | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                 | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                        | 2,100          | Human translation (professional/volunteer, from English)            |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                           | 3,762          | Native (crowdsourced Tatoeba sentence pairs)                        |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                      | 998            | Human translation (professional) + post-edits                       |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                    | 854            | Human translation via English pivot                                 |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                        | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                      | 1,997          | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                  | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                 | —              | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                        | 2,100          | Human translation (professional/volunteer, from English)            |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                           | 3,762          | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                      | 998            | Human translation (professional) + post-edits                       |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -255,22 +237,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 285 of ~18,498 papers (1.54%) (rank 28 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 285 of ~18,498 papers (1.54%) (rank 28 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Iranian Persian | Persian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 285):
+Here are up to ten papers published in 2026 that mention Persian. None of the 285 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                     | paper                                                                          |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| AdabNER: Arabic Digital Archive Books with Nested Entity Recognition                                                                                      | [2026.acl-long.1541](https://aclanthology.org/2026.acl-long.1541/)             |
-| Multilingual Idioms in Sentences and Conversations Across High-, Medium-, and Low-Resource Languages                                                      | [2026.acl-long.564](https://aclanthology.org/2026.acl-long.564/)               |
-| Query Decomposition for RAG: Balancing Exploration-Exploitation                                                                                           | [2026.eacl-long.322](https://aclanthology.org/2026.eacl-long.322/)             |
-| ChemCLIR-Bench: Benchmarking Cross-Lingual Information Retrieval in Multilingual Chemical Patents                                                         | [2026.emnlp-industry.175](https://aclanthology.org/2026.emnlp-industry.175/)   |
-| CEAID: Benchmark of Multilingual Machine-Generated Text Detection Methods for Central European Languages                                                  | [2026.findings-acl.1458](https://aclanthology.org/2026.findings-acl.1458/)     |
-| Translation Circuit Discovery and Targeted Optimization for Low-Resource Multilingual Translation                                                         | [2026.findings-emnlp.1348](https://aclanthology.org/2026.findings-emnlp.1348/) |
-| Simple Additions, Substantial Gains: Expanding Scripts, Languages, and Lineage Coverage in URIEL+                                                         | [2026.lrec-1.863](https://aclanthology.org/2026.lrec-1.863/)                   |
-| Wisdom in Unity: The Role of Multilingual Training in Figurative Language Identification in Proverbs                                                      | [2026.mrl-1.12](https://aclanthology.org/2026.mrl-1.12/)                       |
-| We’re Cooked! – Probing LLM Political Alignment Via Conflict-Framed Recipe Translation                                                                    | [2026.oracle-main.18](https://aclanthology.org/2026.oracle-main.18/)           |
-| Sagarmatha at SemEval-2026 Task 9: Heterogeneous Ensembling and Hierarchical Task Conditioning for Multilingual Latent Distributional Divergence Modeling | [2026.semeval-1.382](https://aclanthology.org/2026.semeval-1.382/)             |
+| title                                                                                                                                                     | paper                                                                          | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| AdabNER: Arabic Digital Archive Books with Nested Entity Recognition                                                                                      | [2026.acl-long.1541](https://aclanthology.org/2026.acl-long.1541/)             | body only      |
+| Multilingual Idioms in Sentences and Conversations Across High-, Medium-, and Low-Resource Languages                                                      | [2026.acl-long.564](https://aclanthology.org/2026.acl-long.564/)               | body only      |
+| Query Decomposition for RAG: Balancing Exploration-Exploitation                                                                                           | [2026.eacl-long.322](https://aclanthology.org/2026.eacl-long.322/)             | body only      |
+| ChemCLIR-Bench: Benchmarking Cross-Lingual Information Retrieval in Multilingual Chemical Patents                                                         | [2026.emnlp-industry.175](https://aclanthology.org/2026.emnlp-industry.175/)   | body only      |
+| CEAID: Benchmark of Multilingual Machine-Generated Text Detection Methods for Central European Languages                                                  | [2026.findings-acl.1458](https://aclanthology.org/2026.findings-acl.1458/)     | body only      |
+| Translation Circuit Discovery and Targeted Optimization for Low-Resource Multilingual Translation                                                         | [2026.findings-emnlp.1348](https://aclanthology.org/2026.findings-emnlp.1348/) | body only      |
+| Simple Additions, Substantial Gains: Expanding Scripts, Languages, and Lineage Coverage in URIEL+                                                         | [2026.lrec-1.863](https://aclanthology.org/2026.lrec-1.863/)                   | body only      |
+| Wisdom in Unity: The Role of Multilingual Training in Figurative Language Identification in Proverbs                                                      | [2026.mrl-1.12](https://aclanthology.org/2026.mrl-1.12/)                       | body only      |
+| We’re Cooked! – Probing LLM Political Alignment Via Conflict-Framed Recipe Translation                                                                    | [2026.oracle-main.18](https://aclanthology.org/2026.oracle-main.18/)           | body only      |
+| Sagarmatha at SemEval-2026 Task 9: Heterogeneous Ensembling and Hierarchical Task Conditioning for Multilingual Latent Distributional Divergence Modeling | [2026.semeval-1.382](https://aclanthology.org/2026.semeval-1.382/)             | body only      |
 
 {% endraw %}

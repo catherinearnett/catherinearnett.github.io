@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Beng`
 
-**Speakers:** about 1.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 1.5 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33868#P1098), 2001)
+**Speakers:** about 1.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India
 
@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                            |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,531 articles in mni.wikipedia; 31 active users. This is ~1/717 of English data and ranks 102 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                         |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                          |
-| FineWeb                | 14.7 MB (mni_Beng 10.0 MB; mni_Latn 0; mni_Mtei 0), equivalent to ≈6.7 MB of English after byte-premium scaling (⚠️ only 98% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 42.8 MB removed by filtering. This is ~1/3,626,982 of English data and ranks 138 of 248 languages in the set in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                      |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,531 articles in mni.wikipedia; 31 active users. This is ~1/717 of English data and ranks 102 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                                                          |
+| FineWeb                | 14.7 MB (mni_Beng 10.0 MB; mni_Latn 0; mni_Mtei 0), equivalent to ≈6.7 MB of English after byte-premium scaling (⚠️ only 98% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 42.8 MB removed by filtering. This is ~1/3,626,982 of English data and ranks 138 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                                                      |
 
 **By writing system:**
 
@@ -71,7 +71,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                   |
 | UniMorph               | **None found**                                                                                                   |
-| Wikidata labels        | 254,550 Wikidata items have a label in Manipuri (Meitei). (Wikidata codes (labels): mni (254,550))               |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                   |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
 
 ### Parallel data (for machine translation)
@@ -83,6 +83,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -184,44 +185,25 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [2]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                                                                 | # test items   | construction                                                     |
-|:-------------------------|:--------------------|:------------------------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) (2 varieties/pairs) | 200            | Native                                                           |
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                            | 103            | MT + human post-editing                                          |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                              | 2,179          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)                             | 2,024          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 1              | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task               | dataset                                                                                                                 | # test items   | construction                                                     |
+|:-------------------------|:-------------------|:------------------------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
+| 3. Commonsense reasoning | PIQA               | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) (2 varieties/pairs) | 200            | Native                                                           |
+| 3. Commonsense reasoning | PIQA               | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                            | 103            | MT + human post-editing                                          |
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                              | 2,179          | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      |                    | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)                             | 2,024          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      |                    | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional, from English)                   |
+| Machine translation      |                    | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                   |
+| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 1              | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -249,22 +231,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 53 of ~18,498 papers (0.29%) (rank 84 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 53 of ~18,498 papers (0.29%) (rank 84 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Manipuri (Meitei) | Manipuri | Meitei
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 53):
+Here are up to ten papers published in 2026 that mention Manipuri (Meitei). None of the 53 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                           | paper                                                              |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
-| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                                                    | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/) |
-| AdaptBPE: From General Purpose to Specialized Tokenizers                                                                        | [2026.eacl-long.119](https://aclanthology.org/2026.eacl-long.119/) |
-| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                           | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)   |
-| Preserving Civilisation Memory: A Digital Humanities Approach to the Ramayan                                                    | [2026.wildre-1.10](https://aclanthology.org/2026.wildre-1.10/)     |
-| ADI-IITP: Reward-Guided Preference Optimization for Low-Resource English-Assamese Machine Translation                           | [2026.wmt-main.146](https://aclanthology.org/2026.wmt-main.146/)   |
-| BVSLP: Enhancing Machine Translation through NMT Fine-Tuning, Back-Translation, and LLM-Assisted Synthetic Data Generation      | [2026.wmt-main.147](https://aclanthology.org/2026.wmt-main.147/)   |
-| EROL: Transformer-Based Multilingual Translation for Northeastern Indian Language Pairs                                         | [2026.wmt-main.148](https://aclanthology.org/2026.wmt-main.148/)   |
-| MTG-LIRA: Scaling Neural Machine Translation for Low-Resource Indian Languages through Multilingual Learning and Synthetic Data | [2026.wmt-main.153](https://aclanthology.org/2026.wmt-main.153/)   |
-| KrenTransV0.1: Multi-Model Routing and Reranking for Low-Resource Northeast Indian Translation                                  | [2026.wmt-main.158](https://aclanthology.org/2026.wmt-main.158/)   |
-| Decepticons-IIITH : Morphology-Aware Lexicon Filtering of Back-Translated Data for Low-Resource English-to-Indic Translation    | [2026.wmt-main.160](https://aclanthology.org/2026.wmt-main.160/)   |
+| title                                                                                                                           | paper                                                              | mentioned in   |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
+| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                                                    | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/) | body only      |
+| AdaptBPE: From General Purpose to Specialized Tokenizers                                                                        | [2026.eacl-long.119](https://aclanthology.org/2026.eacl-long.119/) | body only      |
+| Cross-Lingual TTS for Indian Languages: A Benchmark and Inference-Time Duration Estimation Strategies                           | [2026.multilll-1.6](https://aclanthology.org/2026.multilll-1.6/)   | body only      |
+| Preserving Civilisation Memory: A Digital Humanities Approach to the Ramayan                                                    | [2026.wildre-1.10](https://aclanthology.org/2026.wildre-1.10/)     | body only      |
+| ADI-IITP: Reward-Guided Preference Optimization for Low-Resource English-Assamese Machine Translation                           | [2026.wmt-main.146](https://aclanthology.org/2026.wmt-main.146/)   | body only      |
+| BVSLP: Enhancing Machine Translation through NMT Fine-Tuning, Back-Translation, and LLM-Assisted Synthetic Data Generation      | [2026.wmt-main.147](https://aclanthology.org/2026.wmt-main.147/)   | body only      |
+| EROL: Transformer-Based Multilingual Translation for Northeastern Indian Language Pairs                                         | [2026.wmt-main.148](https://aclanthology.org/2026.wmt-main.148/)   | body only      |
+| MTG-LIRA: Scaling Neural Machine Translation for Low-Resource Indian Languages through Multilingual Learning and Synthetic Data | [2026.wmt-main.153](https://aclanthology.org/2026.wmt-main.153/)   | body only      |
+| KrenTransV0.1: Multi-Model Routing and Reranking for Low-Resource Northeast Indian Translation                                  | [2026.wmt-main.158](https://aclanthology.org/2026.wmt-main.158/)   | body only      |
+| Decepticons-IIITH : Morphology-Aware Lexicon Filtering of Back-Translated Data for Low-Resource English-to-Indic Translation    | [2026.wmt-main.160](https://aclanthology.org/2026.wmt-main.160/)   | body only      |
 
 {% endraw %}

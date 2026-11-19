@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Hani`
 
-**Speakers:** about 1.33 billion first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `zho`, so includes other varieties · 918.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9192#P1098), 2013)
+**Speakers:** about 1.33 billion first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `zho`, so includes other varieties
 
 **Official / recognised in:** People's Republic of China, Singapore, Taiwan
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,564,649 articles in zh.wikipedia; 13,379 active users. ⚠️ NB: counted under the macrolanguage code `zho`, so this number is shared with Hakka (`hak`) and overstates Standard Chinese.                                  |
-| Common Crawl           | 100,182,847 pages per crawl on average, which is 4.6477% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `zho`, so this number is shared with Hakka (`hak`) and overstates Standard Chinese.             |
-| FineWeb                | 1,622.07 GB (cmn_Hani 1,622.07 GB), equivalent to ≈1,963.92 GB of English after byte-premium scaling; 1,680.81 GB removed by filtering. This is ~1/33 of English data and ranks 3 of 248 languages in the set in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                                                                    |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,564,649 articles in zh.wikipedia; 13,379 active users. ⚠️ NB: counted under the macrolanguage code `zho`, so this number is shared with Hakka (`hak`) and overstates Standard Chinese.                                                                  |
+| Common Crawl           | 100,182,847 pages per crawl on average, which is 4.6477% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `zho`, so this number is shared with Hakka (`hak`) and overstates Standard Chinese.                                             |
+| FineWeb                | 1,622.07 GB (cmn_Hani 1,622.07 GB), equivalent to ≈1,963.92 GB of English after byte-premium scaling; 1,680.81 GB removed by filtering. This is ~1/33 of English data and ranks 3 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 7 treebanks, 14,944 sentences / 309,906 tokens in total: [UD_Chinese-Beginner](https://github.com/UniversalDependencies/UD_Chinese-Beginner) (2,295 sentences), [UD_Chinese-CFL](https://github.com/UniversalDependencies/UD_Chinese-CFL) (451 sentences), [UD_Chinese-GSD](https://github.com/UniversalDependencies/UD_Chinese-GSD) (4,997 sentences), [UD_Chinese-GSDSimp](https://github.com/UniversalDependencies/UD_Chinese-GSDSimp) (4,997 sentences), [UD_Chinese-HK](https://github.com/UniversalDependencies/UD_Chinese-HK) (1,004 sentences), [UD_Chinese-PUD](https://github.com/UniversalDependencies/UD_Chinese-PUD) (1,000 sentences), [UD_Chinese-PatentChar](https://github.com/UniversalDependencies/UD_Chinese-PatentChar) (200 sentences). All have POS tags, dependency syntax. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Wikidata labels        | 10,420,205 Wikidata items have a label in Standard Chinese. (Wikidata codes (labels): zh (10,420,205), zh-hans (2,305,468), zh-hant (1,955,941), zh-cn (1,533,261), zh-tw (829,947), zh-hk (603,020))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Wordnets               | [Chinese Open Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-cmn-1.4.tar.xz): 42,312 synsets, 63,347 words, 79,809 senses; licence: wordnet; [Multi-Lingual Semantic Network project](http://dcook.org/mlsn/about/) (size not listed); licence: MIT License (equivalent to the BSD and LGPL).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                |
 | Bible translations (eBible corpus) | **Yes** — 3 translations: full Bible ([cmn-cu89s](https://ebible.org/details.php?id=cmn-cu89s)); full Bible ([cmn-cu89t](https://ebible.org/details.php?id=cmn-cu89t)); New Testament ([cmnfeb](https://ebible.org/details.php?id=cmnfeb), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                             |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                                                                                                                 |
 
 ### How good are we at identifying data?
 
@@ -171,32 +172,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [13]   \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [4]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [10]      \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [7]   |  & discourse [16]  \
-  /____________________|_____________________\
- /         ✅ Machine translation [6]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 7 datasets; Pragmatics &amp; discourse: 16 datasets; Commonsense reasoning: 10 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 13 datasets; Machine translation: 6 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 7 datasets; Pragmatics &amp; discourse: 16 datasets; Commonsense reasoning: 10 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 13 datasets; Machine translation: 6 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">13 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">10 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">7 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">16 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -252,12 +230,16 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles) (4 varieties/pairs)              | 400            | Native (community-written, peer-verified)                                          |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa) (3 varieties/pairs)                                                            | 30,000         | Human translation                                                                  |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko) (2 varieties/pairs)                                     | 500            | Native (locally sourced)                                                           |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)                                         | 1,708          | Original (pivot language, linguist-written) + translations                         |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)                             | 2,024          | Human translation (professional, from English Wikimedia sources)                   |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX) (2 varieties/pairs)                                           | 3,994          | Human translation (professional, from English)                                     |
-| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                                 | 2,100          | Human translation (professional/volunteer, from English)                           |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 11,344         | Native (crowdsourced Tatoeba sentence pairs)                                       |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp) (2 varieties/pairs)                                           | 1,996          | Original WMT24 reference + new post-edits                                          |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)                                         | 1,708          | Original (pivot language, linguist-written) + translations                         |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)                             | 2,024          | Human translation (professional, from English Wikimedia sources)                   |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX) (2 varieties/pairs)                                           | 3,994          | Human translation (professional, from English)                                     |
+| Machine translation                    |                                | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                                 | 2,100          | Human translation (professional/volunteer, from English)                           |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 11,344         | Native (crowdsourced Tatoeba sentence pairs)                                       |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp) (2 varieties/pairs)                                           | 1,996          | Original WMT24 reference + new post-edits                                          |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **2. Pragmatics, discourse & coreference:** Gender-bias diagnostic (Winograd-format), Presupposition & scalar implicature, Pronoun/coref (WSC-style), WNLI, WinoGrande
@@ -282,22 +264,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 396 of ~18,498 papers (2.14%) (rank 19 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 396 of ~18,498 papers (2.14%) (rank 19 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Mandarin
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 396):
+Here are up to ten papers published in 2026 that mention Standard Chinese. None of the 396 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                        | paper                                                            |
-|:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
-| Findings of the BEA 2026 Shared Task on Vocabulary Difficulty Prediction for English Learners                                                | [2026.bea-1.65](https://aclanthology.org/2026.bea-1.65/)         |
-| SATLab at BEA 2026 Shared Task 1: Predicting the Difficulty of English Words for Three L1 Learners Using Primarily Psycholinguistic Features | [2026.bea-1.66](https://aclanthology.org/2026.bea-1.66/)         |
-| uogal at BEA 2026 Shared Task 1: Ensemble of Multilingual Encoders with NMT Augmentation for L1-Aware Vocabulary Difficulty Prediction       | [2026.bea-1.75](https://aclanthology.org/2026.bea-1.75/)         |
-| Cygnet: Refactoring the Open Multilingual Wordnet                                                                                            | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)     |
-| Dynamic Layer Selection for Efficient Tone Recognition in Self-Supervised Speech Models                                                      | [2026.lrec-1.792](https://aclanthology.org/2026.lrec-1.792/)     |
-| Axiom@MMLow 2026: Cascaded Prompting with QLoRA-Tuned Qwen2-VL for Hierarchical Tamil Political Meme Classification                          | [2026.mmlow-main.6](https://aclanthology.org/2026.mmlow-main.6/) |
-| Evaluating and Debiasing Multilingual Backpack Language Model Representations                                                                | [2026.mrl-1.24](https://aclanthology.org/2026.mrl-1.24/)         |
-| Large Language Models Put to the Test on Chinese Noun Compounds: Experiments on Natural Language Inference and Compound Semantics            | [2026.mwe-1.1](https://aclanthology.org/2026.mwe-1.1/)           |
-| DialogueSidon: Recovering Full-Duplex Dialogue Tracks from In-the-Wild Dialogue Audio                                                        | [2026.sigdial-1.1](https://aclanthology.org/2026.sigdial-1.1/)   |
-| Unseen Harm: Measuring Cross-Script Safety Inconsistency with "Missed-in-Urdu" Scores in LLM Hate Speech Detection.                          | [2026.woah-1.6](https://aclanthology.org/2026.woah-1.6/)         |
+| title                                                                                                                                        | paper                                                            | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------------|
+| Findings of the BEA 2026 Shared Task on Vocabulary Difficulty Prediction for English Learners                                                | [2026.bea-1.65](https://aclanthology.org/2026.bea-1.65/)         | body only      |
+| SATLab at BEA 2026 Shared Task 1: Predicting the Difficulty of English Words for Three L1 Learners Using Primarily Psycholinguistic Features | [2026.bea-1.66](https://aclanthology.org/2026.bea-1.66/)         | body only      |
+| uogal at BEA 2026 Shared Task 1: Ensemble of Multilingual Encoders with NMT Augmentation for L1-Aware Vocabulary Difficulty Prediction       | [2026.bea-1.75](https://aclanthology.org/2026.bea-1.75/)         | body only      |
+| Cygnet: Refactoring the Open Multilingual Wordnet                                                                                            | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)     | body only      |
+| Dynamic Layer Selection for Efficient Tone Recognition in Self-Supervised Speech Models                                                      | [2026.lrec-1.792](https://aclanthology.org/2026.lrec-1.792/)     | body only      |
+| Axiom@MMLow 2026: Cascaded Prompting with QLoRA-Tuned Qwen2-VL for Hierarchical Tamil Political Meme Classification                          | [2026.mmlow-main.6](https://aclanthology.org/2026.mmlow-main.6/) | body only      |
+| Evaluating and Debiasing Multilingual Backpack Language Model Representations                                                                | [2026.mrl-1.24](https://aclanthology.org/2026.mrl-1.24/)         | body only      |
+| Large Language Models Put to the Test on Chinese Noun Compounds: Experiments on Natural Language Inference and Compound Semantics            | [2026.mwe-1.1](https://aclanthology.org/2026.mwe-1.1/)           | body only      |
+| DialogueSidon: Recovering Full-Duplex Dialogue Tracks from In-the-Wild Dialogue Audio                                                        | [2026.sigdial-1.1](https://aclanthology.org/2026.sigdial-1.1/)   | body only      |
+| Unseen Harm: Measuring Cross-Script Safety Inconsistency with "Missed-in-Urdu" Scores in LLM Hate Speech Detection.                          | [2026.woah-1.6](https://aclanthology.org/2026.woah-1.6/)         | body only      |
 
 {% endraw %}

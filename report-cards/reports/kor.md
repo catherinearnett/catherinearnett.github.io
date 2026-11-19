@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Hang`
 
-**Speakers:** about 79.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 77.3 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9176#P1098), 2010)
+**Speakers:** about 79.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** North Korea, People's Republic of China, South Korea
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                             |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 770,480 articles in ko.wikipedia; 4,943 active users. This is ~1/10 of English data and ranks 20 of 168 languages in the set in Wikipedia.                                                                         |
-| Common Crawl           | 17,959,416 pages per crawl on average, which is 0.8336% of the crawl (2026). This is ~1/50 of English data and ranks 15 of 113 languages in the set in Common Crawl.                                               |
-| FineWeb                | 105.82 GB (kor_Hang 105.82 GB), equivalent to ≈81.82 GB of English after byte-premium scaling; 166.19 GB removed by filtering. This is ~1/505 of English data and ranks 17 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 9.81 GB (kor_Hang 9.81 GB) (rank 11 of 166 in the set)                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                                                             |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 770,480 articles in ko.wikipedia; 4,943 active users. This is ~1/10 of English data and ranks 20 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | 17,959,416 pages per crawl on average, which is 0.8336% of the crawl (2026). This is ~1/50 of English data and ranks 15 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                              |
+| FineWeb                | 105.82 GB (kor_Hang 105.82 GB), equivalent to ≈81.82 GB of English after byte-premium scaling; 166.19 GB removed by filtering. This is ~1/505 of English data and ranks 17 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 9.81 GB (kor_Hang 9.81 GB) (rank 11 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                  |
 
 ### Structured and annotated data
 
@@ -53,8 +53,8 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 5 treebanks, 53,622 sentences / 615,755 tokens in total: [UD_Korean-GSD](https://github.com/UniversalDependencies/UD_Korean-GSD) (6,339 sentences), [UD_Korean-KSL](https://github.com/UniversalDependencies/UD_Korean-KSL) (17,369 sentences), [UD_Korean-Kaist](https://github.com/UniversalDependencies/UD_Korean-Kaist) (27,363 sentences), [UD_Korean-LittlePrince](https://github.com/UniversalDependencies/UD_Korean-LittlePrince) (1,551 sentences), [UD_Korean-PUD](https://github.com/UniversalDependencies/UD_Korean-PUD) (1,000 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 2,686 lemmas, 241,323 inflected forms ([unimorph/kor](https://github.com/unimorph/kor))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Wikidata labels        | 2,154,771 Wikidata items have a label in Korean. (Wikidata codes (labels): ko (2,154,771))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Wordnets               | [KorLex (Korean WordNet)](http://www.lt-world.org/kb/resources-and-tools/language-descriptions/ltw_x3alanguage_x5fdescriptions_.2010-10-28.2540969419) (size not listed); licence: BROWSE ONLINE ONLY; nan (size not listed).                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Wordnets               | nan (size not listed); [KorLex (Korean WordNet)](http://www.lt-world.org/kb/resources-and-tools/language-descriptions/ltw_x3alanguage_x5fdescriptions_.2010-10-28.2540969419) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 ### Parallel data (for machine translation)
 
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -171,32 +172,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [11]   \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [3]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [8]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [7]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [7]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 7 datasets; Commonsense reasoning: 8 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 11 datasets; Machine translation: 7 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 7 datasets; Commonsense reasoning: 8 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 11 datasets; Machine translation: 7 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">11 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">8 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">7 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -231,13 +209,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                                       | 10,000         | Human translation                                                   |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                                | 250            | Native (locally sourced)                                            |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [XOR-TyDi QA](https://github.com/AkariAsai/XORQA)                                                              | 1,154          | Native (TyDi questions)                                             |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                    | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                        | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                      | 1,997          | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                  | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                 | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                           | 2,479          | Native (crowdsourced Tatoeba sentence pairs)                        |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                      | 998            | Human translation (professional) + post-edits                       |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                    | 854            | Human translation via English pivot                                 |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                        | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                      | 1,997          | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                  | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                 | —              | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                           | 2,479          | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                      | 998            | Human translation (professional) + post-edits                       |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -263,22 +245,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 855 of ~18,498 papers (4.62%) (rank 9 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 855 of ~18,498 papers (4.62%) (rank 9 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Korean
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 855):
+Here are up to ten papers published in 2026 that mention Korean. None of the 855 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                 | paper                                                                    |
-|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| Index-Time Prefix Injection for Multi-Tenant Retrieval: Improving Search Relevance Without Model Fine-Tuning          | [2026.acl-industry.149](https://aclanthology.org/2026.acl-industry.149/) |
-| Sequence Labeling for Constituent Parsing: A Comparative Study and Encoding Innovations                               | [2026.cl-2.3](https://aclanthology.org/2026.cl-2.3/)                     |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)   |
-| Visual Framing for News Stance Detection via Image Generation                                                         | [2026.emnlp-main.2524](https://aclanthology.org/2026.emnlp-main.2524/)   |
-| Talent or Luck? Evaluating Attribution Bias in Large Language Models                                                  | [2026.findings-acl.534](https://aclanthology.org/2026.findings-acl.534/) |
-| Tracing Mathematical Proficiency Through Problem-Solving Processes                                                    | [2026.findings-acl.961](https://aclanthology.org/2026.findings-acl.961/) |
-| StarDrinks: An English and Korean Test Set for SLU Evaluation in a Drink Ordering Scenario                            | [2026.lrec-1.453](https://aclanthology.org/2026.lrec-1.453/)             |
-| Can NLP Tackle Hate Speech in the Real World? Stakeholder-Informed Feedback and Survey on Counterspeech               | [2026.lrec-1.655](https://aclanthology.org/2026.lrec-1.655/)             |
-| Correction Is Not Response: Reframing the Unverifiable Majority of Health Infodemic Discourse as Communicative Acts   | [2026.nlp4pi-1.13](https://aclanthology.org/2026.nlp4pi-1.13/)           |
-| Multi-Test Nation Bias Benchmarking of LLMs with Explicit Unbiased Baselines                                          | [2026.tacl-1.109](https://aclanthology.org/2026.tacl-1.109/)             |
+| title                                                                                                                 | paper                                                                    | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
+| Index-Time Prefix Injection for Multi-Tenant Retrieval: Improving Search Relevance Without Model Fine-Tuning          | [2026.acl-industry.149](https://aclanthology.org/2026.acl-industry.149/) | body only      |
+| Sequence Labeling for Constituent Parsing: A Comparative Study and Encoding Innovations                               | [2026.cl-2.3](https://aclanthology.org/2026.cl-2.3/)                     | body only      |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)   | body only      |
+| Visual Framing for News Stance Detection via Image Generation                                                         | [2026.emnlp-main.2524](https://aclanthology.org/2026.emnlp-main.2524/)   | body only      |
+| Talent or Luck? Evaluating Attribution Bias in Large Language Models                                                  | [2026.findings-acl.534](https://aclanthology.org/2026.findings-acl.534/) | body only      |
+| Tracing Mathematical Proficiency Through Problem-Solving Processes                                                    | [2026.findings-acl.961](https://aclanthology.org/2026.findings-acl.961/) | body only      |
+| StarDrinks: An English and Korean Test Set for SLU Evaluation in a Drink Ordering Scenario                            | [2026.lrec-1.453](https://aclanthology.org/2026.lrec-1.453/)             | body only      |
+| Can NLP Tackle Hate Speech in the Real World? Stakeholder-Informed Feedback and Survey on Counterspeech               | [2026.lrec-1.655](https://aclanthology.org/2026.lrec-1.655/)             | body only      |
+| Correction Is Not Response: Reframing the Unverifiable Majority of Health Infodemic Discourse as Communicative Acts   | [2026.nlp4pi-1.13](https://aclanthology.org/2026.nlp4pi-1.13/)           | body only      |
+| Multi-Test Nation Bias Benchmarking of LLMs with Explicit Unbiased Baselines                                          | [2026.tacl-1.109](https://aclanthology.org/2026.tacl-1.109/)             | body only      |
 
 {% endraw %}

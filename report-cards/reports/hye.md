@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Armn`
 
-**Speakers:** about 5.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 6.7 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q8785#P1098), 2100)
+**Speakers:** about 5.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Armenia
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 333,079 articles in hy.wikipedia; 618 active users. This is ~1/23 of English data and ranks 32 of 168 languages in the set in Wikipedia.                                                                       |
-| Common Crawl           | 694,076 pages per crawl on average, which is 0.0322% of the crawl (2026). This is ~1/1,284 of English data and ranks 43 of 113 languages in the set in Common Crawl.                                           |
-| FineWeb                | 2.45 GB (hye_Armn 2.45 GB), equivalent to ≈1.42 GB of English after byte-premium scaling; 8.95 GB removed by filtering. This is ~1/21,847 of English data and ranks 61 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 1.93 GB (hye_Armn 1.93 GB) (rank 61 of 166 in the set)                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 333,079 articles in hy.wikipedia; 618 active users. This is ~1/23 of English data and ranks 32 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | 694,076 pages per crawl on average, which is 0.0322% of the crawl (2026). This is ~1/1,284 of English data and ranks 43 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
+| FineWeb                | 2.45 GB (hye_Armn 2.45 GB), equivalent to ≈1.42 GB of English after byte-premium scaling; 8.95 GB removed by filtering. This is ~1/21,847 of English data and ranks 61 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 1.93 GB (hye_Armn 1.93 GB) (rank 61 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 8,050 sentences / 149,683 tokens in total: [UD_Armenian-ArmTDP](https://github.com/UniversalDependencies/UD_Armenian-ArmTDP) (5,527 sentences), [UD_Armenian-BSUT](https://github.com/UniversalDependencies/UD_Armenian-BSUT) (2,523 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 6,989 lemmas, 333,870 inflected forms ([unimorph/hye](https://github.com/unimorph/hye))                                                                                                                                                                                                                                                |
-| Wikidata labels        | 1,072,703 Wikidata items have a label in Armenian. (Wikidata codes (labels): hy (1,072,703))                                                                                                                                                                                                                                           |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                         |
 | Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                         |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -172,32 +173,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [2]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [3]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 3 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 3 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -213,10 +191,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension               | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                        | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                   | —              | Native (local exams)                                             |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                            | —              | Machine translation (GPT-3.5, Okapi)                             |
-| Machine translation                    | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                       | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                           | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                         | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                              | 1,121          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                       | 854            | Human translation via English pivot                              |
+| Machine translation                    |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                           | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                               | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                         | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                               | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                              | 1,121          | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -243,22 +225,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 75 of ~18,498 papers (0.41%) (rank 69 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 75 of ~18,498 papers (0.41%) (rank 69 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Armenian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 75):
+Here are up to ten papers published in 2026 that mention Armenian. None of the 75 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                        | paper                                                                          |
-|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Automatic translation in public services: A survey of the Finnish public sector                                              | [2026.eamt-1.45](https://aclanthology.org/2026.eamt-1.45/)                     |
-| Script Choice in LLMs: Evidence for Late-Layer Commitment                                                                    | [2026.findings-emnlp.1173](https://aclanthology.org/2026.findings-emnlp.1173/) |
-| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/)   |
-| From Corpus to Concept Scheme: Developing a SKOS Vocabulary for Armenian Epigraphic Heritage                                 | [2026.latechclfl-1.1](https://aclanthology.org/2026.latechclfl-1.1/)           |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                 | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               |
-| We’re Cooked! – Probing LLM Political Alignment Via Conflict-Framed Recipe Translation                                       | [2026.oracle-main.18](https://aclanthology.org/2026.oracle-main.18/)           |
-| Population-Grounded Evaluation of Multilingual LLM Alignment with European Societal Values                                   | [2026.pandora-1.6](https://aclanthology.org/2026.pandora-1.6/)                 |
-| Frequency modulates structural choice in Turkish suspended affixation: a latent-process account                              | [2026.scil-main.32](https://aclanthology.org/2026.scil-main.32/)               |
-| Towards Universal Dependencies for L2 Learners of Modern Greek: Annotation and Challenges                                    | [2026.udw-1.8](https://aclanthology.org/2026.udw-1.8/)                         |
-| Yandex at WMT26: Translation Adaptation at 235B and Hard-Label Distillation to 8B                                            | [2026.wmt-main.77](https://aclanthology.org/2026.wmt-main.77/)                 |
+| title                                                                                                                        | paper                                                                          | mentioned in   |
+|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Automatic translation in public services: A survey of the Finnish public sector                                              | [2026.eamt-1.45](https://aclanthology.org/2026.eamt-1.45/)                     | body only      |
+| Script Choice in LLMs: Evidence for Late-Layer Commitment                                                                    | [2026.findings-emnlp.1173](https://aclanthology.org/2026.findings-emnlp.1173/) | body only      |
+| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/)   | body only      |
+| From Corpus to Concept Scheme: Developing a SKOS Vocabulary for Armenian Epigraphic Heritage                                 | [2026.latechclfl-1.1](https://aclanthology.org/2026.latechclfl-1.1/)           | body only      |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                 | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)               | body only      |
+| We’re Cooked! – Probing LLM Political Alignment Via Conflict-Framed Recipe Translation                                       | [2026.oracle-main.18](https://aclanthology.org/2026.oracle-main.18/)           | body only      |
+| Population-Grounded Evaluation of Multilingual LLM Alignment with European Societal Values                                   | [2026.pandora-1.6](https://aclanthology.org/2026.pandora-1.6/)                 | body only      |
+| Frequency modulates structural choice in Turkish suspended affixation: a latent-process account                              | [2026.scil-main.32](https://aclanthology.org/2026.scil-main.32/)               | body only      |
+| Towards Universal Dependencies for L2 Learners of Modern Greek: Annotation and Challenges                                    | [2026.udw-1.8](https://aclanthology.org/2026.udw-1.8/)                         | body only      |
+| Yandex at WMT26: Translation Adaptation at 235B and Hard-Label Distillation to 8B                                            | [2026.wmt-main.77](https://aclanthology.org/2026.wmt-main.77/)                 | body only      |
 
 {% endraw %}

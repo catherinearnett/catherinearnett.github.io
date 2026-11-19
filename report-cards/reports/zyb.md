@@ -16,7 +16,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
-**Speakers:** about 4.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `zha`, so includes other varieties · 2.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q8054983#P1098), 2007)
+**Speakers:** about 4.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `zha`, so includes other varieties
 
 **Official / recognised in:** People's Republic of China
 
@@ -36,23 +36,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3,028 articles in za.wikipedia; 14 active users. ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang.                        |
-| Common Crawl           | 1,784 pages per crawl on average, which is 0.0001% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang. |
-| FineWeb                | 1.5 MB (zyb_Latn 0); 6.6 MB removed by filtering. This is ~1/36,458,931 of English data and ranks 190 of 248 languages in the set in FineWeb.                            |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                        |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,028 articles in za.wikipedia; 14 active users. ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang.                             |
+| Common Crawl           | 1,784 pages per crawl on average, which is 0.0001% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang.      |
+| FineWeb                | 1.5 MB (zyb_Latn 0); 6.6 MB removed by filtering. This is ~1/36,458,931 of English data and ranks 190 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                  |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                            |
-|:-----------------------|:---------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                         |
-| UniMorph               | **None found**                                                                         |
-| Wikidata labels        | 529,928 Wikidata items have a label in Zhuang. (Wikidata codes (labels): za (529,928)) |
-| Wordnets               | **None found**                                                                         |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -63,6 +63,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -161,38 +162,19 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ❌ Machine translation [0]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: none" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: none</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="310.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
 | level                    | task               | dataset                                                                    |   # test items | construction                                  |
 |:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |            427 | Synthetic (LLM-generated) on native Wikipedia |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -221,23 +203,23 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 20 of ~18,498 papers (0.11%) (rank 122 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 20 of ~18,498 papers (0.11%) (rank 122 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Standard Zhuang (Yongbei) | Standard Zhuang | Yongbei | Zhuang
 - Because 'Zhuang' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 20):
+Here are up to ten papers published in 2026 that mention Zhuang. None of the 20 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                    | paper                                                                          |
-|:---------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR          | [2026.acl-long.1392](https://aclanthology.org/2026.acl-long.1392/)             |
-| Diversity in Unity, Theory in Practice: Hierarchical Multitask Benchmarks for Chinese Minority Languages | [2026.acl-long.1684](https://aclanthology.org/2026.acl-long.1684/)             |
-| A Catalog of Basque Dialectal Resources: Online Collections and Standard-to-Dialectal Adaptations        | [2026.dialres-1.16](https://aclanthology.org/2026.dialres-1.16/)               |
-| SUNDER: Selective Unmasking for Text Understanding                                                       | [2026.emnlp-main.825](https://aclanthology.org/2026.emnlp-main.825/)           |
-| HiMed: Incentivizing Hindi Reasoning in Medical LLMs                                                     | [2026.findings-emnlp.117](https://aclanthology.org/2026.findings-emnlp.117/)   |
-| Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation                        | [2026.findings-emnlp.2096](https://aclanthology.org/2026.findings-emnlp.2096/) |
-| Reasoning over Object Descriptions Improves Coreference Resolution in Task-Based Dialogue Systems        | [2026.lrec-1.224](https://aclanthology.org/2026.lrec-1.224/)                   |
-| A Single Model Ensemble Framework for Neural Machine Translation Using Pivot Translation                 | [2026.lrec-1.672](https://aclanthology.org/2026.lrec-1.672/)                   |
-| ManufactuBERT: Efficient Continual Pretraining for Manufacturing                                         | [2026.lrec-1.827](https://aclanthology.org/2026.lrec-1.827/)                   |
-| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande                   | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)           |
+| title                                                                                                    | paper                                                                          | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR          | [2026.acl-long.1392](https://aclanthology.org/2026.acl-long.1392/)             | body only      |
+| Diversity in Unity, Theory in Practice: Hierarchical Multitask Benchmarks for Chinese Minority Languages | [2026.acl-long.1684](https://aclanthology.org/2026.acl-long.1684/)             | body only      |
+| A Catalog of Basque Dialectal Resources: Online Collections and Standard-to-Dialectal Adaptations        | [2026.dialres-1.16](https://aclanthology.org/2026.dialres-1.16/)               | body only      |
+| SUNDER: Selective Unmasking for Text Understanding                                                       | [2026.emnlp-main.825](https://aclanthology.org/2026.emnlp-main.825/)           | body only      |
+| HiMed: Incentivizing Hindi Reasoning in Medical LLMs                                                     | [2026.findings-emnlp.117](https://aclanthology.org/2026.findings-emnlp.117/)   | body only      |
+| Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation                        | [2026.findings-emnlp.2096](https://aclanthology.org/2026.findings-emnlp.2096/) | body only      |
+| Reasoning over Object Descriptions Improves Coreference Resolution in Task-Based Dialogue Systems        | [2026.lrec-1.224](https://aclanthology.org/2026.lrec-1.224/)                   | body only      |
+| A Single Model Ensemble Framework for Neural Machine Translation Using Pivot Translation                 | [2026.lrec-1.672](https://aclanthology.org/2026.lrec-1.672/)                   | body only      |
+| ManufactuBERT: Efficient Continual Pretraining for Manufacturing                                         | [2026.lrec-1.827](https://aclanthology.org/2026.lrec-1.827/)                   | body only      |
+| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande                   | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)           | body only      |
 
 {% endraw %}

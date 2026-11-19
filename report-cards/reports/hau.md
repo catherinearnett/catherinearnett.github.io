@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 45.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 43.9 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q56475#P1098), 2019)
+**Speakers:** about 45.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Niger, Nigeria
 
@@ -48,12 +48,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 121,601 articles in ha.wikipedia; 310 active users. This is ~1/62 of English data and ranks 53 of 168 languages in the set in Wikipedia.                                                                       |
-| Common Crawl           | 73,201 pages per crawl on average, which is 0.0034% of the crawl (2026). This is ~1/12,179 of English data and ranks 70 of 113 languages in the set in Common Crawl.                                           |
-| FineWeb                | 0.60 GB (hau_Latn 0.60 GB), equivalent to ≈0.51 GB of English after byte-premium scaling; 1.09 GB removed by filtering. This is ~1/89,463 of English data and ranks 78 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 1.32 GB (hau_Latn 1.32 GB) (rank 70 of 166 in the set)                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 121,601 articles in ha.wikipedia; 310 active users. This is ~1/62 of English data and ranks 53 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | 73,201 pages per crawl on average, which is 0.0034% of the crawl (2026). This is ~1/12,179 of English data and ranks 70 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
+| FineWeb                | 0.60 GB (hau_Latn 0.60 GB), equivalent to ≈0.51 GB of English after byte-premium scaling; 1.09 GB removed by filtering. This is ~1/89,463 of English data and ranks 78 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 1.32 GB (hau_Latn 1.32 GB) (rank 70 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -63,7 +63,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 4 treebanks, 4,342 sentences / 53,069 tokens in total: [UD_Hausa-EasternAutogramm](https://github.com/UniversalDependencies/UD_Hausa-EasternAutogramm) (335 sentences), [UD_Hausa-NorthernAutogramm](https://github.com/UniversalDependencies/UD_Hausa-NorthernAutogramm) (1,305 sentences), [UD_Hausa-SouthernAutogramm](https://github.com/UniversalDependencies/UD_Hausa-SouthernAutogramm) (1,927 sentences), [UD_Hausa-WesternAutogramm](https://github.com/UniversalDependencies/UD_Hausa-WesternAutogramm) (775 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Wikidata labels        | 703,219 Wikidata items have a label in Hausa. (Wikidata codes (labels): ha (703,219))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ### Parallel data (for machine translation)
@@ -75,6 +75,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                            |
 | Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([hausa](https://ebible.org/details.php?id=hausa), by-sa 4.0); New Testament ([hauulb](https://ebible.org/details.php?id=hauulb), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                         |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                                             |
 
 ### How good are we at identifying data?
 
@@ -184,32 +185,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [4]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [2]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [7]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 4 datasets; Machine translation: 7 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 4 datasets; Machine translation: 7 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -223,13 +201,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                               | 14,042         | Machine translation (Google Translate)                              |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [AfriQA](https://github.com/masakhane-io/afriqa)                                                    | 300            | Native                                                              |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                             | 500            | Native (cultural; native-speaker answers)                           |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                                 |
-| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation           | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation           | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                             | 2,100          | Human translation (professional/volunteer, from English)            |
-| Machine translation           | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 256            | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation           |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                                 |
+| Machine translation           |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation           |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
+| Machine translation           |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation           |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
+| Machine translation           |                                | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                             | 2,100          | Human translation (professional/volunteer, from English)            |
+| Machine translation           |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 256            | Native (crowdsourced Tatoeba sentence pairs)                        |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -255,22 +237,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 180 of ~18,498 papers (0.97%) (rank 34 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 180 of ~18,498 papers (0.97%) (rank 34 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Hausa
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 180):
+Here are up to ten papers published in 2026 that mention Hausa. None of the 180 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                                         | paper                                                                          |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Afri-MCQA: Multimodal Cultural Question Answering for African Languages                                                                                                       | [2026.acl-long.1869](https://aclanthology.org/2026.acl-long.1869/)             |
-| POLAR: A Benchmark for Multilingual, Multicultural, and Multi-Event Online Polarization                                                                                       | [2026.findings-acl.1433](https://aclanthology.org/2026.findings-acl.1433/)     |
-| Code-Switching Reveals Language Anchoring in Multilingual LLMs                                                                                                                | [2026.findings-emnlp.1719](https://aclanthology.org/2026.findings-emnlp.1719/) |
-| How Does Continued African Adaptation Reshape Multilingual Representations?                                                                                                   | [2026.mrl-1.40](https://aclanthology.org/2026.mrl-1.40/)                       |
-| Gender Identification in Brazilian Portuguese Product Reviews: A Comparative Study of Classical Models, BERT, and LLMs                                                        | [2026.propor-1.2](https://aclanthology.org/2026.propor-1.2/)                   |
-| PSK at SemEval-2026 Task 9: Multilingual Polarization Detection Using Ensemble Gemma Models with Synthetic Data Augmentation                                                  | [2026.semeval-1.200](https://aclanthology.org/2026.semeval-1.200/)             |
-| Howard University-AI4PC at SemEval-2026 Task 7: Culturally Aware Multilingual Model Routing Through a Mixture-of-Specialists Framework                                        | [2026.semeval-1.327](https://aclanthology.org/2026.semeval-1.327/)             |
-| NASIMLab at SemEval-2026 Task 9: A Comparative Analysis of Fine-Tuned Small Language Models vs. Generative Large Language Models for Multilingual Polarization Type Detection | [2026.semeval-1.413](https://aclanthology.org/2026.semeval-1.413/)             |
-| DUTH at SemEval-2026 Task 9: Joint Multilingual Fine-Tuning for Online Polarization Detection                                                                                 | [2026.semeval-1.86](https://aclanthology.org/2026.semeval-1.86/)               |
-| YNU-HPCC at SemEval-2026 Task 9: Hybrid Augmentation and Regularization Strategies for Multilingual Polarization Type Classification                                          | [2026.semeval-1.99](https://aclanthology.org/2026.semeval-1.99/)               |
+| title                                                                                                                                                                         | paper                                                                          | mentioned in   |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Afri-MCQA: Multimodal Cultural Question Answering for African Languages                                                                                                       | [2026.acl-long.1869](https://aclanthology.org/2026.acl-long.1869/)             | body only      |
+| POLAR: A Benchmark for Multilingual, Multicultural, and Multi-Event Online Polarization                                                                                       | [2026.findings-acl.1433](https://aclanthology.org/2026.findings-acl.1433/)     | body only      |
+| Code-Switching Reveals Language Anchoring in Multilingual LLMs                                                                                                                | [2026.findings-emnlp.1719](https://aclanthology.org/2026.findings-emnlp.1719/) | body only      |
+| How Does Continued African Adaptation Reshape Multilingual Representations?                                                                                                   | [2026.mrl-1.40](https://aclanthology.org/2026.mrl-1.40/)                       | body only      |
+| Gender Identification in Brazilian Portuguese Product Reviews: A Comparative Study of Classical Models, BERT, and LLMs                                                        | [2026.propor-1.2](https://aclanthology.org/2026.propor-1.2/)                   | body only      |
+| PSK at SemEval-2026 Task 9: Multilingual Polarization Detection Using Ensemble Gemma Models with Synthetic Data Augmentation                                                  | [2026.semeval-1.200](https://aclanthology.org/2026.semeval-1.200/)             | body only      |
+| Howard University-AI4PC at SemEval-2026 Task 7: Culturally Aware Multilingual Model Routing Through a Mixture-of-Specialists Framework                                        | [2026.semeval-1.327](https://aclanthology.org/2026.semeval-1.327/)             | body only      |
+| NASIMLab at SemEval-2026 Task 9: A Comparative Analysis of Fine-Tuned Small Language Models vs. Generative Large Language Models for Multilingual Polarization Type Detection | [2026.semeval-1.413](https://aclanthology.org/2026.semeval-1.413/)             | body only      |
+| DUTH at SemEval-2026 Task 9: Joint Multilingual Fine-Tuning for Online Polarization Detection                                                                                 | [2026.semeval-1.86](https://aclanthology.org/2026.semeval-1.86/)               | body only      |
+| YNU-HPCC at SemEval-2026 Task 9: Hybrid Augmentation and Regularization Strategies for Multilingual Polarization Type Classification                                          | [2026.semeval-1.99](https://aclanthology.org/2026.semeval-1.99/)               | body only      |
 
 {% endraw %}

@@ -16,7 +16,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
 
-**Speakers:** about 30.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 27.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33578#P1098), 2019)
+**Speakers:** about 30.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Nigeria
 
@@ -42,23 +42,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                   |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 49,280 articles in ig.wikipedia; 107 active users. This is ~1/153 of English data and ranks 72 of 168 languages in the set in Wikipedia. |
-| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._                                                                                     |
-| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._                                                                                     |
-| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._                                                                                     |
+| Source                 | Amount                                                                                                                                                                    |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 49,280 articles in ig.wikipedia; 107 active users. This is ~1/153 of English data and ranks 72 of the 168 languages in the set with any data in Wikipedia; 164 have none. |
+| Common Crawl           | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                      |
+| FineWeb                | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                      |
+| Goldfish training data | _Not computed yet: run `python -m lrc build sizes`._                                                                                                                      |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                          |
-|:-----------------------|:-------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                       |
-| UniMorph               | **None found**                                                                       |
-| Wikidata labels        | 925,848 Wikidata items have a label in Igbo. (Wikidata codes (labels): ig (925,848)) |
-| Wordnets               | **None found**                                                                       |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -69,6 +69,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -177,32 +178,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [3]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [2]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 2 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 3 datasets; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 2 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 3 datasets; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -216,10 +194,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [AfriMMLU (IrokoBench)](https://huggingface.co/datasets/masakhane/afrimmlu)                                       | 500            | Human translation (professional)                                    |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                             | 14,042         | Machine translation (Google Translate)                              |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [AfriQA](https://github.com/masakhane-io/afriqa)                                                                  | —              | Native                                                              |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                       | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                           | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                     | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                    | —              | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                       | 854            | Human translation via English pivot                                 |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                           | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                     | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                    | —              | Human translation (professional, from English)                      |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -245,22 +227,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 89 of ~18,498 papers (0.48%) (rank 63 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 89 of ~18,498 papers (0.48%) (rank 63 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Igbo
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 89):
+Here are up to ten papers published in 2026 that mention Igbo. None of the 89 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                   | paper                                                                        |
-|:------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                   | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)           |
-| Full Fine-Tuning vs. Parameter-Efficient Adaptation for Low-Resource African ASR: A Controlled Study with Whisper-Small | [2026.africanlp-main.19](https://aclanthology.org/2026.africanlp-main.19/)   |
-| Parallel Tokenizers: Rethinking Vocabulary Design in Cross-Lingual Transfer of Low-Resource Languages                   | [2026.emnlp-main.117](https://aclanthology.org/2026.emnlp-main.117/)         |
-| PUMA: Projected Universal Multilingual ASR for Low-Resource Settings. Application to Diverse African Languages          | [2026.findings-acl.17](https://aclanthology.org/2026.findings-acl.17/)       |
-| Pseudo2Real: Task Arithmetic for Pseudo-Label Correction in Automatic Speech Recognition                                | [2026.findings-acl.59](https://aclanthology.org/2026.findings-acl.59/)       |
-| Active Learning with Non-Uniform Costs for African Natural Language Processing                                          | [2026.findings-eacl.349](https://aclanthology.org/2026.findings-eacl.349/)   |
-| AFRILANGTUTOR: Advancing Language Tutoring and Culture Education in Low-Resource Languages with Large Language Models   | [2026.findings-emnlp.546](https://aclanthology.org/2026.findings-emnlp.546/) |
-| Using Multimodal and Language-Agnostic Sentence Embeddings for Abstractive Summarization                                | [2026.lrec-1.774](https://aclanthology.org/2026.lrec-1.774/)                 |
-| MWE-2026 Shared Task: AdMIRe 2 Advancing Multimodal Idiomaticity Representation                                         | [2026.mwe-1.34](https://aclanthology.org/2026.mwe-1.34/)                     |
-| HurtNet: a Multilingual Dictionary of Hurtful Words                                                                     | [2026.woah-1.43](https://aclanthology.org/2026.woah-1.43/)                   |
+| title                                                                                                                   | paper                                                                        | mentioned in   |
+|:------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
+| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                   | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)           | body only      |
+| Full Fine-Tuning vs. Parameter-Efficient Adaptation for Low-Resource African ASR: A Controlled Study with Whisper-Small | [2026.africanlp-main.19](https://aclanthology.org/2026.africanlp-main.19/)   | body only      |
+| Parallel Tokenizers: Rethinking Vocabulary Design in Cross-Lingual Transfer of Low-Resource Languages                   | [2026.emnlp-main.117](https://aclanthology.org/2026.emnlp-main.117/)         | body only      |
+| PUMA: Projected Universal Multilingual ASR for Low-Resource Settings. Application to Diverse African Languages          | [2026.findings-acl.17](https://aclanthology.org/2026.findings-acl.17/)       | body only      |
+| Pseudo2Real: Task Arithmetic for Pseudo-Label Correction in Automatic Speech Recognition                                | [2026.findings-acl.59](https://aclanthology.org/2026.findings-acl.59/)       | body only      |
+| Active Learning with Non-Uniform Costs for African Natural Language Processing                                          | [2026.findings-eacl.349](https://aclanthology.org/2026.findings-eacl.349/)   | body only      |
+| AFRILANGTUTOR: Advancing Language Tutoring and Culture Education in Low-Resource Languages with Large Language Models   | [2026.findings-emnlp.546](https://aclanthology.org/2026.findings-emnlp.546/) | body only      |
+| Using Multimodal and Language-Agnostic Sentence Embeddings for Abstractive Summarization                                | [2026.lrec-1.774](https://aclanthology.org/2026.lrec-1.774/)                 | body only      |
+| MWE-2026 Shared Task: AdMIRe 2 Advancing Multimodal Idiomaticity Representation                                         | [2026.mwe-1.34](https://aclanthology.org/2026.mwe-1.34/)                     | body only      |
+| HurtNet: a Multilingual Dictionary of Hurtful Words                                                                     | [2026.woah-1.43](https://aclanthology.org/2026.woah-1.43/)                   | body only      |
 
 {% endraw %}

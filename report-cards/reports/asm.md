@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Beng`
 
-**Speakers:** about 18.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 15.3 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q29401#P1098), 2019)
+**Speakers:** about 18.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India
 
@@ -44,12 +44,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                               |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 26,013 articles in as.wikipedia; 186 active users. This is ~1/290 of English data and ranks 78 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                             |
-| Common Crawl           | 71,841 pages per crawl on average, which is 0.0033% of the crawl (2026). This is ~1/12,409 of English data and ranks 71 of 113 languages in the set in Common Crawl.                                                                                                                                                                                 |
-| FineWeb                | 0.39 GB (asm_Beng 0.39 GB; asm_Latn 0), equivalent to ≈0.15 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.37 GB removed by filtering. This is ~1/136,776 of English data and ranks 84 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 0.95 GB (asm_Beng 0.95 GB) (rank 77 of 166 in the set)                                                                                                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                               |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 26,013 articles in as.wikipedia; 186 active users. This is ~1/290 of English data and ranks 78 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                            |
+| Common Crawl           | 71,841 pages per crawl on average, which is 0.0033% of the crawl (2026). This is ~1/12,409 of English data and ranks 71 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                |
+| FineWeb                | 0.39 GB (asm_Beng 0.39 GB; asm_Latn 0), equivalent to ≈0.15 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.37 GB removed by filtering. This is ~1/136,776 of English data and ranks 84 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 0.95 GB (asm_Beng 0.95 GB) (rank 77 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                    |
 
 **By writing system:**
 
@@ -68,7 +68,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 73 sentences / 871 tokens in total: [UD_Assamese-AiW](https://github.com/UniversalDependencies/UD_Assamese-AiW) (73 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 1,575 lemmas, 94,147 inflected forms ([unimorph/asm](https://github.com/unimorph/asm))                                                                                                                             |
-| Wikidata labels        | 592,993 Wikidata items have a label in Assamese. (Wikidata codes (labels): as (592,993))                                                                                                                           |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                     |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                   |
 
 ### Parallel data (for machine translation)
@@ -80,6 +80,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                            |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([asmfb](https://ebible.org/details.php?id=asmfb), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                         |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                             |
 
 ### How good are we at identifying data?
 
@@ -185,32 +186,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [2]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [3]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [2]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -223,10 +201,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                             | 500            | Native (cultural; native-speaker answers)                        |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation           | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                   |
-| Machine translation           | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 233            | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation           |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation           |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation           |                                | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                   |
+| Machine translation           |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 233            | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -253,22 +235,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 94 of ~18,498 papers (0.51%) (rank 61 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 94 of ~18,498 papers (0.51%) (rank 61 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Assamese
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 94):
+Here are up to ten papers published in 2026 that mention Assamese. None of the 94 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                           | paper                                                                          |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| How Good is Your Wikipedia? Auditing Data Quality for Low-resource and Multilingual NLP                                         | [2026.acl-long.1373](https://aclanthology.org/2026.acl-long.1373/)             |
-| BornoDrishti: Leveraging Vision Encoders and Domain-Adaptive Learning for Bangla OCR on Diverse Documents                       | [2026.eacl-industry.20](https://aclanthology.org/2026.eacl-industry.20/)       |
-| NE-MultiSpeech: A Multilingual Speech Corpus and ASR Benchmark for Northeast Indian Languages                                   | [2026.emnlp-main.2471](https://aclanthology.org/2026.emnlp-main.2471/)         |
-| Morphological Analysis and Disambiguation of Agglutinative Assamese through Rule-Based Synthesis and Neural Candidate Ranking   | [2026.findings-emnlp.2118](https://aclanthology.org/2026.findings-emnlp.2118/) |
-| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                                      | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)                 |
-| One Vector, Thirty-Eight Languages: Benchmark-Derived Anti-Sycophancy Steering Works Worst Where Sycophancy Is Worst            | [2026.oracle-main.12](https://aclanthology.org/2026.oracle-main.12/)           |
-| Models Without Borders at SemEval-2026 Task 7: Bridging Cultural Contexts with Search-Grounded QA                               | [2026.semeval-1.407](https://aclanthology.org/2026.semeval-1.407/)             |
-| GUIR at SemEval-2026 Task 7: Probing Cultural Knowledge in LLMs via Multi-Agent Debate                                          | [2026.semeval-1.438](https://aclanthology.org/2026.semeval-1.438/)             |
-| TIP-RBG-AI: Overcoming Orthographic Discrepancies via Algorithmic Translinear Pipelines and Phylogenetic Script Mapping         | [2026.wmt-main.152](https://aclanthology.org/2026.wmt-main.152/)               |
-| MTG-LIRA: Scaling Neural Machine Translation for Low-Resource Indian Languages through Multilingual Learning and Synthetic Data | [2026.wmt-main.153](https://aclanthology.org/2026.wmt-main.153/)               |
+| title                                                                                                                           | paper                                                                          | mentioned in   |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| How Good is Your Wikipedia? Auditing Data Quality for Low-resource and Multilingual NLP                                         | [2026.acl-long.1373](https://aclanthology.org/2026.acl-long.1373/)             | body only      |
+| BornoDrishti: Leveraging Vision Encoders and Domain-Adaptive Learning for Bangla OCR on Diverse Documents                       | [2026.eacl-industry.20](https://aclanthology.org/2026.eacl-industry.20/)       | body only      |
+| NE-MultiSpeech: A Multilingual Speech Corpus and ASR Benchmark for Northeast Indian Languages                                   | [2026.emnlp-main.2471](https://aclanthology.org/2026.emnlp-main.2471/)         | body only      |
+| Morphological Analysis and Disambiguation of Agglutinative Assamese through Rule-Based Synthesis and Neural Candidate Ranking   | [2026.findings-emnlp.2118](https://aclanthology.org/2026.findings-emnlp.2118/) | body only      |
+| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                                      | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)                 | body only      |
+| One Vector, Thirty-Eight Languages: Benchmark-Derived Anti-Sycophancy Steering Works Worst Where Sycophancy Is Worst            | [2026.oracle-main.12](https://aclanthology.org/2026.oracle-main.12/)           | body only      |
+| Models Without Borders at SemEval-2026 Task 7: Bridging Cultural Contexts with Search-Grounded QA                               | [2026.semeval-1.407](https://aclanthology.org/2026.semeval-1.407/)             | body only      |
+| GUIR at SemEval-2026 Task 7: Probing Cultural Knowledge in LLMs via Multi-Agent Debate                                          | [2026.semeval-1.438](https://aclanthology.org/2026.semeval-1.438/)             | body only      |
+| TIP-RBG-AI: Overcoming Orthographic Discrepancies via Algorithmic Translinear Pipelines and Phylogenetic Script Mapping         | [2026.wmt-main.152](https://aclanthology.org/2026.wmt-main.152/)               | body only      |
+| MTG-LIRA: Scaling Neural Machine Translation for Low-Resource Indian Languages through Multilingual Learning and Synthetic Data | [2026.wmt-main.153](https://aclanthology.org/2026.wmt-main.153/)               | body only      |
 
 {% endraw %}

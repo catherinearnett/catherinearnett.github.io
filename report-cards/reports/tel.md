@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Telu`
 
-**Speakers:** about 101.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 82.0 million first-language + 5.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q8097#P1098), 1987)
+**Speakers:** about 101.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India, South Africa
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 130,448 articles in te.wikipedia; 318 active users. This is ~1/58 of English data and ranks 52 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                 |
-| Common Crawl           | 450,946 pages per crawl on average, which is 0.0209% of the crawl (2026). This is ~1/1,977 of English data and ranks 47 of 113 languages in the set in Common Crawl.                                                                                                                                                                                     |
-| FineWeb                | 4.04 GB (tel_Telu 3.99 GB; tel_Latn 50.0 MB), equivalent to ≈1.52 GB of English after byte-premium scaling (⚠️ only 99% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 6.21 GB removed by filtering. This is ~1/13,233 of English data and ranks 53 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 5.84 GB (tel_Telu 5.84 GB) (rank 33 of 166 in the set)                                                                                                                                                                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 130,448 articles in te.wikipedia; 318 active users. This is ~1/58 of English data and ranks 52 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                |
+| Common Crawl           | 450,946 pages per crawl on average, which is 0.0209% of the crawl (2026). This is ~1/1,977 of English data and ranks 47 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                    |
+| FineWeb                | 4.04 GB (tel_Telu 3.99 GB; tel_Latn 50.0 MB), equivalent to ≈1.52 GB of English after byte-premium scaling (⚠️ only 99% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 6.21 GB removed by filtering. This is ~1/13,233 of English data and ranks 53 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 5.84 GB (tel_Telu 5.84 GB) (rank 33 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                        |
 
 **By writing system:**
 
@@ -62,7 +62,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 1,328 sentences / 6,465 tokens in total: [UD_Telugu-MTG](https://github.com/UniversalDependencies/UD_Telugu-MTG) (1,328 sentences). It has POS tags, dependency syntax, morphological features. |
 | UniMorph               | 127 lemmas, 1,548 inflected forms ([unimorph/tel](https://github.com/unimorph/tel))                                                                                                                         |
-| Wikidata labels        | 643,871 Wikidata items have a label in Telugu. (Wikidata codes (labels): te (643,871))                                                                                                                      |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                              |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                            |
 
 ### Parallel data (for machine translation)
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([tel2017](https://ebible.org/details.php?id=tel2017), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                             |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                 |
 
 ### How good are we at identifying data?
 
@@ -181,32 +182,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [8]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [5]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [7]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [2]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [7]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 7 datasets; Reading comprehension: 5 datasets; Knowledge &amp; QA: 8 datasets; Machine translation: 7 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 7 datasets; Reading comprehension: 5 datasets; Knowledge &amp; QA: 8 datasets; Machine translation: 7 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">8 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">2 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -234,13 +212,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                                  | —              | Machine translation (GPT-3.5, Okapi)                                |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                                  | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [XOR-TyDi QA](https://github.com/AkariAsai/XORQA)                                                                       | 1,087          | Native (TyDi questions)                                             |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)                                         | 1,708          | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 262            | Native (crowdsourced Tatoeba sentence pairs)                        |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                               | 998            | Human translation (professional) + post-edits                       |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)                                         | 1,708          | Human translation via English pivot                                 |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 262            | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                               | 998            | Human translation (professional) + post-edits                       |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -266,22 +248,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 256 of ~18,498 papers (1.38%) (rank 29 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 256 of ~18,498 papers (1.38%) (rank 29 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Telugu
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 256):
+Here are up to ten papers published in 2026 that mention Telugu. None of the 256 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                   | paper                                                                              |
-|:------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| The Reasoning Lingua Franca: A Double-Edged Sword for Multilingual AI                                                   | [2026.eacl-short.25](https://aclanthology.org/2026.eacl-short.25/)                 |
-| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                             | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)             |
-| VLURes: Benchmarking Long-Text Grounding and Cross-Lingual Robustness in Vision Language Models                         | [2026.findings-acl.1367](https://aclanthology.org/2026.findings-acl.1367/)         |
-| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification  | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)         |
-| XLGoBench: Detecting cross-lingual skill gaps with algorithmic tasks                                                    | [2026.findings-emnlp.2139](https://aclanthology.org/2026.findings-emnlp.2139/)     |
-| Mind the Gap... or Not? How Translation Errors and Evaluation Details Skew Multilingual Results                         | [2026.gem-main.22](https://aclanthology.org/2026.gem-main.22/)                     |
-| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                              | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)                     |
-| Contextualizing Toxicity: An Annotation Framework for Unveiling Pragmatics in Conversations of Online Discussion Forums | [2026.lrec-1.314](https://aclanthology.org/2026.lrec-1.314/)                       |
-| Algebraic Classification of Reduplicative Processes                                                                     | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)                   |
-| Annotating Indian Regional Biases using Large Language Models: Evaluation and Analysis                                  | [2026.starsem-conference.16](https://aclanthology.org/2026.starsem-conference.16/) |
+| title                                                                                                                   | paper                                                                              | mentioned in   |
+|:------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:---------------|
+| The Reasoning Lingua Franca: A Double-Edged Sword for Multilingual AI                                                   | [2026.eacl-short.25](https://aclanthology.org/2026.eacl-short.25/)                 | body only      |
+| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                             | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)             | body only      |
+| VLURes: Benchmarking Long-Text Grounding and Cross-Lingual Robustness in Vision Language Models                         | [2026.findings-acl.1367](https://aclanthology.org/2026.findings-acl.1367/)         | body only      |
+| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification  | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)         | body only      |
+| XLGoBench: Detecting cross-lingual skill gaps with algorithmic tasks                                                    | [2026.findings-emnlp.2139](https://aclanthology.org/2026.findings-emnlp.2139/)     | body only      |
+| Mind the Gap... or Not? How Translation Errors and Evaluation Details Skew Multilingual Results                         | [2026.gem-main.22](https://aclanthology.org/2026.gem-main.22/)                     | body only      |
+| NE-BERT: A Multilingual Language Model for Nine Northeast Indian Languages                                              | [2026.loreslm-1.1](https://aclanthology.org/2026.loreslm-1.1/)                     | body only      |
+| Contextualizing Toxicity: An Annotation Framework for Unveiling Pragmatics in Conversations of Online Discussion Forums | [2026.lrec-1.314](https://aclanthology.org/2026.lrec-1.314/)                       | body only      |
+| Algebraic Classification of Reduplicative Processes                                                                     | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)                   | body only      |
+| Annotating Indian Regional Biases using Large Language Models: Evaluation and Analysis                                  | [2026.starsem-conference.16](https://aclanthology.org/2026.starsem-conference.16/) | body only      |
 
 {% endraw %}

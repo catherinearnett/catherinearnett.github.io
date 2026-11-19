@@ -16,7 +16,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
 
-**Speakers:** about 9.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `ful`, so includes other varieties · 24.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33454#P1098), 2007) — counted for the macrolanguage `ful`, so includes other varieties
+**Speakers:** about 9.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `ful`, so includes other varieties
 
 **Official / recognised in:** Guinea
 
@@ -36,23 +36,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                     |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. ⚠️ NB: counted under the macrolanguage code `ful`, so this number is shared with Fula (`ffm`) and overstates Fulani.                                     |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                   |
-| FineWeb                | 2.2 MB (fuf_Latn 0), equivalent to ≈2.1 MB of English after byte-premium scaling; 3.3 MB removed by filtering. This is ~1/24,668,626 of English data and ranks 178 of 248 languages in the set in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                                     |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. ⚠️ NB: counted under the macrolanguage code `ful`, so this number is shared with Fula (`ffm`) and overstates Fulani.                                                                     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                   |
+| FineWeb                | 2.2 MB (fuf_Latn 0), equivalent to ≈2.1 MB of English after byte-premium scaling; 3.3 MB removed by filtering. This is ~1/24,668,626 of English data and ranks 178 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                 |
-|:-----------------------|:----------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                              |
-| UniMorph               | **None found**                                                              |
-| Wikidata labels        | 3 Wikidata items have a label in Fulani. (Wikidata codes (labels): fuf (3)) |
-| Wordnets               | **None found**                                                              |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -63,6 +63,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                           |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([fuf](https://ebible.org/details.php?id=fuf), by-nd 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                        |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                            |
 
 ### How good are we at identifying data?
 
@@ -126,36 +127,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ❌ 4. Reading    \
-            / comprehension [0]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ❌ Machine translation [0]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: none" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: none</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="136.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="310.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
 _None found._
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -184,22 +166,22 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 12 of ~18,498 papers (0.06%) (rank 142 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 12 of ~18,498 papers (0.06%) (rank 142 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Fulani | Pular
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 12):
+Here are up to ten papers published in 2026 that mention Fulani. None of the 12 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                       | paper                                                                    |
-|:------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| Language Choice in Nigerian Social Media Hate Speech                                                        | [2026.africanlp-main.9](https://aclanthology.org/2026.africanlp-main.9/) |
-| Indigenous Writing Systems Matter: Rethinking NLP beyond Alphabetic Bias through Script-Aware Modeling      | [2026.computel-1.13](https://aclanthology.org/2026.computel-1.13/)       |
-| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                                          | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)       |
-| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)       |
-| AfriStereo: A Culturally Grounded Dataset for Evaluating Stereotypical Bias in Large Language Models        | [2026.lrec-1.18](https://aclanthology.org/2026.lrec-1.18/)               |
-| SALAN: A Massive ASR Dataset for the Languages of Niger                                                     | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)             |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             |
-| Open but Unvetted: The Ethics of African Language Data                                                      | [2026.rail-1.13](https://aclanthology.org/2026.rail-1.13/)               |
-| HaYo: Repurposing DiaSafety Dataset for Dialogue Safety Evaluation in Hausa and Yoruba                      | [2026.rail-1.9](https://aclanthology.org/2026.rail-1.9/)                 |
-| HurtNet: a Multilingual Dictionary of Hurtful Words                                                         | [2026.woah-1.43](https://aclanthology.org/2026.woah-1.43/)               |
+| title                                                                                                       | paper                                                                    | mentioned in   |
+|:------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
+| Language Choice in Nigerian Social Media Hate Speech                                                        | [2026.africanlp-main.9](https://aclanthology.org/2026.africanlp-main.9/) | body only      |
+| Indigenous Writing Systems Matter: Rethinking NLP beyond Alphabetic Bias through Script-Aware Modeling      | [2026.computel-1.13](https://aclanthology.org/2026.computel-1.13/)       | body only      |
+| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                                          | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)       | body only      |
+| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)       | body only      |
+| AfriStereo: A Culturally Grounded Dataset for Evaluating Stereotypical Bias in Large Language Models        | [2026.lrec-1.18](https://aclanthology.org/2026.lrec-1.18/)               | body only      |
+| SALAN: A Massive ASR Dataset for the Languages of Niger                                                     | [2026.lrec-1.460](https://aclanthology.org/2026.lrec-1.460/)             | body only      |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             | body only      |
+| Open but Unvetted: The Ethics of African Language Data                                                      | [2026.rail-1.13](https://aclanthology.org/2026.rail-1.13/)               | body only      |
+| HaYo: Repurposing DiaSafety Dataset for Dialogue Safety Evaluation in Hausa and Yoruba                      | [2026.rail-1.9](https://aclanthology.org/2026.rail-1.9/)                 | body only      |
+| HurtNet: a Multilingual Dictionary of Hurtful Words                                                         | [2026.woah-1.43](https://aclanthology.org/2026.woah-1.43/)               | body only      |
 
 {% endraw %}

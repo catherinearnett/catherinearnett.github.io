@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Arab`
 
-**Speakers:** about 20.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 9.6 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q178440#P1098), 2011)
+**Speakers:** about 20.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Afghanistan
 
@@ -43,7 +43,7 @@ Let's consider some of the most popular sources of training data:
 | Wikipedia              | 1,101,428 articles in fa.wikipedia; 8,324 active users. ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Persian (`pes`) and overstates Dari.                      |
 | Common Crawl           | 10,945,849 pages per crawl on average, which is 0.5082% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Persian (`pes`) and overstates Dari. |
 | FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                     |
-| Goldfish training data | 0.28 GB (prs_Arab 0.28 GB) (rank 104 of 166 in the set)                                                                                                                                            |
+| Goldfish training data | 0.28 GB (prs_Arab 0.28 GB) (rank 104 of the 166 languages in the set that have any; 166 have none)                                                                                                 |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 35,104 sentences / 645,790 tokens in total: [UD_Persian-PerDT](https://github.com/UniversalDependencies/UD_Persian-PerDT) (29,107 sentences), [UD_Persian-Seraji](https://github.com/UniversalDependencies/UD_Persian-Seraji) (5,997 sentences). All have POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `fas`, so this may cover other varieties as well as Dari. |
 | UniMorph               | 273 lemmas, 37,128 inflected forms ([unimorph/fas](https://github.com/unimorph/fas)) ⚠️ Listed under the macrolanguage code `fas`, so this may cover other varieties as well as Dari.                                                                                                                                                                                                                                                   |
-| Wikidata labels        | 3 Wikidata items have a label in Dari. (Wikidata codes (labels): prs (3))                                                                                                                                                                                                                                                                                                                                                               |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                          |
 | Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -160,45 +161,26 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ❌ 4. Reading    \
-            / comprehension [0]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [2]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="136.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                         | # test items   | construction                                                     |
-|:-------------------------|:--------------------|:--------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data) (as `fas`)            | 449            | Treebank-based (automatic)                                       |
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `fas`) | 2,553          | Treebank-based (automatic, UD + UniMorph)                        |
-| 3. Commonsense reasoning | HellaSwag           | [MuBench HellaSwag](https://github.com/aialt/MuBench) (as `fas`)                | 9,088          | Machine translation (GPT-4o, auto-checked)                       |
-| 3. Commonsense reasoning | StoryCloze          | [MuBench StoryCloze](https://github.com/aialt/MuBench) (as `fas`)               | 1,332          | Machine translation (GPT-4o, auto-checked)                       |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)         | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                   | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                       | 1,997          | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [TICO-19](https://github.com/tico-19/tico-19.github.io)                         | 2,100          | Human translation (professional/volunteer, from English)         |
+| level                    | task       | dataset                                                                         | # test items   | construction                                                     |
+|:-------------------------|:-----------|:--------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP      | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data) (as `fas`)            | 449            | Treebank-based (automatic)                                       |
+| 1. Linguistic knowledge  | BLiMP      | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `fas`) | 2,553          | Treebank-based (automatic, UD + UniMorph)                        |
+| 3. Commonsense reasoning | HellaSwag  | [MuBench HellaSwag](https://github.com/aialt/MuBench) (as `fas`)                | 9,088          | Machine translation (GPT-4o, auto-checked)                       |
+| 3. Commonsense reasoning | StoryCloze | [MuBench StoryCloze](https://github.com/aialt/MuBench) (as `fas`)               | 1,332          | Machine translation (GPT-4o, auto-checked)                       |
+| Machine translation      |            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)         | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      |            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                   | —              | Human translation (professional, from English)                   |
+| Machine translation      |            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                       | 1,997          | Human translation (professional, from English)                   |
+| Machine translation      |            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                         | 2,100          | Human translation (professional/volunteer, from English)         |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -226,22 +208,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 23 of ~18,498 papers (0.12%) (rank 119 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 23 of ~18,498 papers (0.12%) (rank 119 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Dari
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 23):
+Here are up to ten papers published in 2026 that mention Dari. None of the 23 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                    |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| Sharing is Caring: Advantages of Sharing a Language Background with Learners as an Annotator of Learner Data in UD                            | [2026.bea-1.35](https://aclanthology.org/2026.bea-1.35/)                 |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)           |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)             |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             |
-| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                                                 | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)             |
-| When Cross-Lingual Consistency Is Not Enough: Diagnostics for Low-Resource Political Actor Portrayal                                          | [2026.mrl-1.25](https://aclanthology.org/2026.mrl-1.25/)                 |
-| Segmentation Strategy Matters: Benchmarking Whisper on Persian YouTube Content                                                                | [2026.silkroadnlp-1.13](https://aclanthology.org/2026.silkroadnlp-1.13/) |
-| TajPersLexon: A Tajik–Persian Lexical Resource and Hybrid Model for Cross-Script Low-Resource NLP                                             | [2026.silkroadnlp-1.4](https://aclanthology.org/2026.silkroadnlp-1.4/)   |
-| APARSIN: A Multi-Variety Sentiment and Translation Benchmark for Iranic Languages                                                             | [2026.silkroadnlp-1.9](https://aclanthology.org/2026.silkroadnlp-1.9/)   |
+| title                                                                                                                                         | paper                                                                    | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
+| Sharing is Caring: Advantages of Sharing a Language Background with Learners as an Annotator of Learner Data in UD                            | [2026.bea-1.35](https://aclanthology.org/2026.bea-1.35/)                 | body only      |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)           | body only      |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)             | body only      |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             | body only      |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             | body only      |
+| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                                                 | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)             | body only      |
+| When Cross-Lingual Consistency Is Not Enough: Diagnostics for Low-Resource Political Actor Portrayal                                          | [2026.mrl-1.25](https://aclanthology.org/2026.mrl-1.25/)                 | body only      |
+| Segmentation Strategy Matters: Benchmarking Whisper on Persian YouTube Content                                                                | [2026.silkroadnlp-1.13](https://aclanthology.org/2026.silkroadnlp-1.13/) | body only      |
+| TajPersLexon: A Tajik–Persian Lexical Resource and Hybrid Model for Cross-Script Low-Resource NLP                                             | [2026.silkroadnlp-1.4](https://aclanthology.org/2026.silkroadnlp-1.4/)   | body only      |
+| APARSIN: A Multi-Variety Sentiment and Translation Benchmark for Iranic Languages                                                             | [2026.silkroadnlp-1.9](https://aclanthology.org/2026.silkroadnlp-1.9/)   | body only      |
 
 {% endraw %}

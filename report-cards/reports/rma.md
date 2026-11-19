@@ -16,7 +16,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Endangerment:** 🔴 moribund (level 4 of 6 on Glottolog’s scale; source: ElCat: Severely Endangered (20% certain))
 
-**Speakers:** 740 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q3444486#P1098), 2009)
+**Speakers:** no estimate found in CLDR or Wikidata
 
 **Official / recognised in:** Nicaragua
 
@@ -47,12 +47,12 @@ Let's consider some of the most popular sources of training data:
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists    |
-|:-----------------------|:---------------|
-| Universal Dependencies | **None found** |
-| UniMorph               | **None found** |
-| Wikidata labels        | **None found** |
-| Wordnets               | **None found** |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -63,6 +63,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -80,7 +81,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Rama and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
-- **Create structured data:** Rama has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Create structured data:** Rama has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 - **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/rma/) video of Rama yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
@@ -108,9 +109,13 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 | [Dhruvil8/SanskritGPT-Itihasa](https://huggingface.co/Dhruvil8/SanskritGPT-Itihasa)                                       | 41.9M        |                    2 |   2026 | —                                |
 | [namanadep/foundational-llama-scratch-epic-model](https://huggingface.co/namanadep/foundational-llama-scratch-epic-model) | 9.3M         |                    3 |   2026 | —                                |
 
-### Largest models tagged *only* for Rama
+### Models tagged *only* for Rama
 
-_none_
+None of these has a known parameter count:
+
+| model                                                                     |   # languages tagged |   year | derivative of               |
+|:--------------------------------------------------------------------------|---------------------:|-------:|:----------------------------|
+| [knc6/ramangpt_dft_model](https://huggingface.co/knc6/ramangpt_dft_model) |                    1 |   2026 | unsloth/mistral-7b-bnb-4bit |
 
 _1 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -134,36 +139,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ❌ 4. Reading    \
-            / comprehension [0]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ❌ Machine translation [0]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: none" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: none</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="136.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="310.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
 _None found._
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -192,21 +178,21 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Rama
 - Because 'Rama' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
 
-Here are up to ten papers that were published mentioning this language in 2026:
+Here are up to ten papers published in 2026 that mention Rama. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                              | paper                                                              |
-|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
-| Media Bias within Information Disorder: Bridging Two Research Communities through a Systematic Review                              | [2026.indor-1.5](https://aclanthology.org/2026.indor-1.5/)         |
-| Sentential Parsing of Upamā                                                                                                        | [2026.iscls-1.17](https://aclanthology.org/2026.iscls-1.17/)       |
-| Transparency as Architecture: Structural Compliance Gaps in EU AI Act Article 50 II                                                | [2026.legal-1.1](https://aclanthology.org/2026.legal-1.1/)         |
-| SACRED: A Faithful Annotated Multimedia Multimodal Multilingual Dataset for Classifying Connectedness Types in Online Spirituality | [2026.llms4ssh-1.13](https://aclanthology.org/2026.llms4ssh-1.13/) |
-| HNS2CF: A Mapping Tool from HamNoSys to SL CatForm                                                                                 | [2026.signlang-1.30](https://aclanthology.org/2026.signlang-1.30/) |
-| Improving phonological distance measures for signs: the CatFormCompare tool                                                        | [2026.signlang-1.36](https://aclanthology.org/2026.signlang-1.36/) |
-| The SignBeach Dataset of Dutch Sign Language (NGT) signs                                                                           | [2026.signlang-1.46](https://aclanthology.org/2026.signlang-1.46/) |
-| Naamah: A Large Scale Synthetic Sanskrit NER Corpus via DBpedia Seeding and LLM Generation                                         | [2026.wildre-1.11](https://aclanthology.org/2026.wildre-1.11/)     |
+| title                                                                                                                              | paper                                                              | mentioned in   |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
+| Media Bias within Information Disorder: Bridging Two Research Communities through a Systematic Review                              | [2026.indor-1.5](https://aclanthology.org/2026.indor-1.5/)         | body only      |
+| Sentential Parsing of Upamā                                                                                                        | [2026.iscls-1.17](https://aclanthology.org/2026.iscls-1.17/)       | body only      |
+| Transparency as Architecture: Structural Compliance Gaps in EU AI Act Article 50 II                                                | [2026.legal-1.1](https://aclanthology.org/2026.legal-1.1/)         | body only      |
+| SACRED: A Faithful Annotated Multimedia Multimodal Multilingual Dataset for Classifying Connectedness Types in Online Spirituality | [2026.llms4ssh-1.13](https://aclanthology.org/2026.llms4ssh-1.13/) | body only      |
+| HNS2CF: A Mapping Tool from HamNoSys to SL CatForm                                                                                 | [2026.signlang-1.30](https://aclanthology.org/2026.signlang-1.30/) | body only      |
+| Improving phonological distance measures for signs: the CatFormCompare tool                                                        | [2026.signlang-1.36](https://aclanthology.org/2026.signlang-1.36/) | body only      |
+| The SignBeach Dataset of Dutch Sign Language (NGT) signs                                                                           | [2026.signlang-1.46](https://aclanthology.org/2026.signlang-1.46/) | body only      |
+| Naamah: A Large Scale Synthetic Sanskrit NER Corpus via DBpedia Seeding and LLM Generation                                         | [2026.wildre-1.11](https://aclanthology.org/2026.wildre-1.11/)     | body only      |
 
 {% endraw %}

@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 73,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 69,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q25258#P1098), 2015)
+**Speakers:** about 73,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Denmark
 
@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                          |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 14,219 articles in fo.wikipedia; 40 active users. This is ~1/531 of English data and ranks 93 of 168 languages in the set in Wikipedia.                                                                         |
-| Common Crawl           | 115,983 pages per crawl on average, which is 0.0054% of the crawl (2026). This is ~1/7,687 of English data and ranks 63 of 113 languages in the set in Common Crawl.                                            |
-| FineWeb                | 0.29 GB (fao_Latn 0.29 GB), equivalent to ≈0.25 GB of English after byte-premium scaling; 0.31 GB removed by filtering. This is ~1/186,430 of English data and ranks 94 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 0.50 GB (fao_Latn 0.50 GB) (rank 89 of 166 in the set)                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 14,219 articles in fo.wikipedia; 40 active users. This is ~1/531 of English data and ranks 93 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | 115,983 pages per crawl on average, which is 0.0054% of the crawl (2026). This is ~1/7,687 of English data and ranks 63 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                           |
+| FineWeb                | 0.29 GB (fao_Latn 0.29 GB), equivalent to ≈0.25 GB of English after byte-premium scaling; 0.31 GB removed by filtering. This is ~1/186,430 of English data and ranks 94 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 0.50 GB (fao_Latn 0.50 GB) (rank 89 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -61,7 +61,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 2,829 sentences / 50,473 tokens in total: [UD_Faroese-FarPaHC](https://github.com/UniversalDependencies/UD_Faroese-FarPaHC) (1,621 sentences), [UD_Faroese-OFT](https://github.com/UniversalDependencies/UD_Faroese-OFT) (1,208 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 3,077 lemmas, 45,474 inflected forms ([unimorph/fao](https://github.com/unimorph/fao))                                                                                                                                                                                                                                            |
-| Wikidata labels        | 866,537 Wikidata items have a label in Faroese. (Wikidata codes (labels): fo (866,537))                                                                                                                                                                                                                                           |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                    |
 | Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                    |
 
 ### Parallel data (for machine translation)
@@ -73,6 +73,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -180,46 +181,27 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [2]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [1]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: 2 datasets; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">1 dataset</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                                             | # test items   | construction                                                     |
-|:-------------------------|:--------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 232            | Treebank-based (automatic, UD + UniMorph)                        |
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                           |
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                          |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 294            | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task               | dataset                                                                                             | # test items   | construction                                                     |
+|:-------------------------|:-------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP              | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 232            | Treebank-based (automatic, UD + UniMorph)                        |
+| 3. Commonsense reasoning | PIQA               | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                           |
+| 3. Commonsense reasoning | PIQA               | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                          |
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      |                    | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation      |                    | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      |                    | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                   |
+| Machine translation      |                    | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
+| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 294            | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -247,22 +229,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 30 of ~18,498 papers (0.16%) (rank 112 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 30 of ~18,498 papers (0.16%) (rank 112 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Faroese
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 30):
+Here are up to ten papers published in 2026 that mention Faroese. None of the 30 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                    |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                                                              | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/)       |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)             |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                                    | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)             |
-| Reformulate and Create, Don’t Translate: Creating Natural Prompts for Underserved Languages                                                   | [2026.lrec-1.841](https://aclanthology.org/2026.lrec-1.841/)             |
-| Progressing beyond Art Masterpieces or Touristic Clichés: how to assess your LLMs for cultural alignment?                                     | [2026.resourceful-4.13](https://aclanthology.org/2026.resourceful-4.13/) |
-| Stage-Aware Cross-Lingual Transfer for Faroese ASR: When and Which Languages Matter                                                           | [2026.speakable-1.17](https://aclanthology.org/2026.speakable-1.17/)     |
-| Which languages are "hot", and which are "cool"? Using Universal Dependencies for large-scale comparisons of subject expression               | [2026.udw-1.2](https://aclanthology.org/2026.udw-1.2/)                   |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                                     | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                   |
-| OpenLID-v3: Improving the Precision of Closely Related Language Identification – An Experience Report                                         | [2026.vardial-1.23](https://aclanthology.org/2026.vardial-1.23/)         |
+| title                                                                                                                                         | paper                                                                    | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
+| SoS: Analysis of Surface over Semantics in Multilingual Text-To-Image Generation                                                              | [2026.eacl-long.185](https://aclanthology.org/2026.eacl-long.185/)       | body only      |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)             | body only      |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             | body only      |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                                                    | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)             | body only      |
+| Reformulate and Create, Don’t Translate: Creating Natural Prompts for Underserved Languages                                                   | [2026.lrec-1.841](https://aclanthology.org/2026.lrec-1.841/)             | body only      |
+| Progressing beyond Art Masterpieces or Touristic Clichés: how to assess your LLMs for cultural alignment?                                     | [2026.resourceful-4.13](https://aclanthology.org/2026.resourceful-4.13/) | body only      |
+| Stage-Aware Cross-Lingual Transfer for Faroese ASR: When and Which Languages Matter                                                           | [2026.speakable-1.17](https://aclanthology.org/2026.speakable-1.17/)     | body only      |
+| Which languages are "hot", and which are "cool"? Using Universal Dependencies for large-scale comparisons of subject expression               | [2026.udw-1.2](https://aclanthology.org/2026.udw-1.2/)                   | body only      |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                                     | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                   | body only      |
+| OpenLID-v3: Improving the Precision of Closely Related Language Identification – An Experience Report                                         | [2026.vardial-1.23](https://aclanthology.org/2026.vardial-1.23/)         | body only      |
 
 {% endraw %}

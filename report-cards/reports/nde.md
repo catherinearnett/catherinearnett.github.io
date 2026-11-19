@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 2.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 1.6 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q35613#P1098))
+**Speakers:** about 2.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Zimbabwe
 
@@ -38,23 +38,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                             |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                           |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                           |
-| FineWeb                | 20.4 MB (nde_Latn 20.0 MB), equivalent to ≈21.1 MB of English after byte-premium scaling; 19.4 MB removed by filtering. This is ~1/2,616,979 of English data and ranks 128 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 10.3 MB (nde_Latn 10.0 MB) (rank 165 of 166 in the set)                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                             |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                           |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
+| FineWeb                | 20.4 MB (nde_Latn 20.0 MB), equivalent to ≈21.1 MB of English after byte-premium scaling; 19.4 MB removed by filtering. This is ~1/2,616,979 of English data and ranks 128 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 10.3 MB (nde_Latn 10.0 MB) (rank 165 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                 |
-|:-----------------------|:----------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                              |
-| UniMorph               | **None found**                                                              |
-| Wikidata labels        | 5 Wikidata items have a label in Ndebele. (Wikidata codes (labels): nd (5)) |
-| Wordnets               | **None found**                                                              |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -133,9 +134,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 | [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B)               | 8.2B         |                  143 |   2026 | Qwen/Qwen3-8B-Base  |
 | [BeardedMonster/gemma-3-270m-translate-rl2c](https://huggingface.co/BeardedMonster/gemma-3-270m-translate-rl2c) | 270.0M       |                   37 |   2026 | google/gemma-3-270m |
 
-### Largest models tagged *only* for Ndebele
+### Models tagged *only* for Ndebele
 
-_none_
+None of these has a known parameter count:
+
+| model                                                                                 |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|---------------------:|-------:|:----------------|
+| [goldfish-models/nde_latn_10mb](https://huggingface.co/goldfish-models/nde_latn_10mb) |                    1 |   2024 | —               |
+| [goldfish-models/nde_latn_5mb](https://huggingface.co/goldfish-models/nde_latn_5mb)   |                    1 |   2024 | —               |
+| [goldfish-models/nde_latn_full](https://huggingface.co/goldfish-models/nde_latn_full) |                    1 |   2024 | —               |
 
 _8 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -159,36 +166,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ❌ 4. Reading    \
-            / comprehension [0]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ❌ Machine translation [0]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: none" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: none; Knowledge &amp; QA: none; Machine translation: none</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="136.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="310.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
 _None found._
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -217,21 +205,21 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Southern Ndebele | Northern Ndebele | Ndebele
 - ⚠️ The name *Ndebele* is shared with Ndebele (`nbl`), so this count covers all of them.
 
-Here are up to ten papers that were published mentioning this language in 2026:
+Here are up to ten papers published in 2026 that mention Ndebele. None of the 8 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                        | paper                                                                          |
-|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                                            | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             |
-| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context                  | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             |
-| Large-scale Multilingual News Image Captioning with LLMs                                                                     | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)         |
-| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                       | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
-| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/)   |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
-| Breaking the Benchmark: Revealing LLM Bias via Minimal Contextual Augmentation                                               | [2026.lrec-1.322](https://aclanthology.org/2026.lrec-1.322/)                   |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                               | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
+| title                                                                                                                        | paper                                                                          | mentioned in   |
+|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                                            | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             | body only      |
+| SAFARI: A Community-Engaged Approach and Dataset of Stereotype Resources in the Sub-Saharan African Context                  | [2026.eacl-short.27](https://aclanthology.org/2026.eacl-short.27/)             | body only      |
+| Large-scale Multilingual News Image Captioning with LLMs                                                                     | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)         | body only      |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                       | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) | body only      |
+| Searching for a Unified Approach to Morpheme Segmentation: Benchmarking Supervised and LLM Architectures Across 20 Languages | [2026.findings-emnlp.715](https://aclanthology.org/2026.findings-emnlp.715/)   | body only      |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
+| Breaking the Benchmark: Revealing LLM Bias via Minimal Contextual Augmentation                                               | [2026.lrec-1.322](https://aclanthology.org/2026.lrec-1.322/)                   | body only      |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                               | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   | body only      |
 
 {% endraw %}

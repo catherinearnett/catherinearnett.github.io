@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 53,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 26,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33947#P1098), 2009)
+**Speakers:** about 53,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Finland, Norway
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                             |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 7,920 articles in se.wikipedia; 27 active users. This is ~1/953 of English data and ranks 110 of 168 languages in the set in Wikipedia.            |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                           |
-| FineWeb                | 83.6 MB (sme_Latn 80.0 MB); 2.95 GB removed by filtering. This is ~1/639,117 of English data and ranks 111 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 89.5 MB (sme_Latn 90.0 MB) (rank 123 of 166 in the set)                                                                                            |
+| Source                 | Amount                                                                                                                                                                             |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 7,920 articles in se.wikipedia; 27 active users. This is ~1/953 of English data and ranks 110 of the 168 languages in the set with any data in Wikipedia; 164 have none.           |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                           |
+| FineWeb                | 83.6 MB (sme_Latn 80.0 MB); 2.95 GB removed by filtering. This is ~1/639,117 of English data and ranks 111 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 89.5 MB (sme_Latn 90.0 MB) (rank 123 of the 166 languages in the set that have any; 166 have none)                                                                                 |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 3,122 sentences / 26,845 tokens in total: [UD_North_Sami-Giella](https://github.com/UniversalDependencies/UD_North_Sami-Giella) (3,122 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 2,103 lemmas, 62,677 inflected forms ([unimorph/sme](https://github.com/unimorph/sme))                                                                                                                                                |
-| Wikidata labels        | 879,842 Wikidata items have a label in Sámi. (Wikidata codes (labels): se (879,842))                                                                                                                                                  |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                        |
 | Wordnets               | **None found**                                                                                                                                                                                                                        |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -137,9 +138,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 | [Hob-forge/NorMistral-11B-long-GGUF](https://huggingface.co/Hob-forge/NorMistral-11B-long-GGUF) | 11.4B        |                    7 |   2026 | norallm/normistral-11b-warm      |
 | [ltg/normistral-11b-warm](https://huggingface.co/ltg/normistral-11b-warm)                       | 11.4B        |                    7 |   2024 | mistralai/Mistral-Nemo-Base-2407 |
 
-### Largest models tagged *only* for Sámi
+### Models tagged *only* for Sámi
 
-_none_
+None of these has a known parameter count:
+
+| model                                                                                 |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|---------------------:|-------:|:----------------|
+| [goldfish-models/sme_latn_10mb](https://huggingface.co/goldfish-models/sme_latn_10mb) |                    1 |   2024 | —               |
+| [goldfish-models/sme_latn_5mb](https://huggingface.co/goldfish-models/sme_latn_5mb)   |                    1 |   2024 | —               |
+| [goldfish-models/sme_latn_full](https://huggingface.co/goldfish-models/sme_latn_full) |                    1 |   2024 | —               |
 
 _12 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -163,42 +170,23 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [1]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [3]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 3 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 3 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">1 dataset</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | construction                                   |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 2,536          | Treebank-based (automatic, UD + UniMorph)      |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 4,257          | Synthetic (LLM-generated) on native Wikipedia  |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot            |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English) |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 64             | Native (crowdsourced Tatoeba sentence pairs)   |
+| level                    | task               | dataset                                                                              | # test items   | construction                                   |
+|:-------------------------|:-------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP              | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 2,536          | Treebank-based (automatic, UD + UniMorph)      |
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 4,257          | Synthetic (LLM-generated) on native Wikipedia  |
+| Machine translation      |                    | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot            |
+| Machine translation      |                    | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English) |
+| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 64             | Native (crowdsourced Tatoeba sentence pairs)   |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -226,22 +214,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 68 of ~18,498 papers (0.37%) (rank 73 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 68 of ~18,498 papers (0.37%) (rank 73 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Northern Sami | Sami
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 68):
+Here are up to ten papers published in 2026 that mention Sámi. None of the 68 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                          |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Dialects of Translationese Shape Language Model Learning                                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) |
-| How multilingual are multilingual LLMs? A case study in Northern Sámi-Finnish Translation                                                     | [2026.loreslm-1.42](https://aclanthology.org/2026.loreslm-1.42/)               |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
-| Slovene Morphological and Word Formation Segmentation: A Novel Dataset and Evaluation                                                         | [2026.lrec-1.140](https://aclanthology.org/2026.lrec-1.140/)                   |
-| ConceptKT: A Benchmark for Concept-Level Deficiency Prediction in Knowledge Tracing                                                           | [2026.lrec-1.22](https://aclanthology.org/2026.lrec-1.22/)                     |
-| Neural Machine Translation for Coptic-French: Strategies for Low-Resource Ancient Languages                                                   | [2026.lt4hala-1.50](https://aclanthology.org/2026.lt4hala-1.50/)               |
-| The Linguist’s Lie Detector: Linguistic Knowledge in Large Language Models                                                                    | [2026.nslp-1.23](https://aclanthology.org/2026.nslp-1.23/)                     |
-| Effects of Speaker Bias in Dialect Identification and Automatic Transcription with Self-Supervised Speech Models                              | [2026.vardial-1.3](https://aclanthology.org/2026.vardial-1.3/)                 |
-| Findings of the WMT26 General Machine Translation Shared Task: Contrastive Dynamic Human Evaluation at Scale                                  | [2026.wmt-main.48](https://aclanthology.org/2026.wmt-main.48/)                 |
-| BSC Submission for WMT26 General Machine Translation Shared Task                                                                              | [2026.wmt-main.72](https://aclanthology.org/2026.wmt-main.72/)                 |
+| title                                                                                                                                         | paper                                                                          | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Dialects of Translationese Shape Language Model Learning                                                                                      | [2026.findings-emnlp.2272](https://aclanthology.org/2026.findings-emnlp.2272/) | body only      |
+| How multilingual are multilingual LLMs? A case study in Northern Sámi-Finnish Translation                                                     | [2026.loreslm-1.42](https://aclanthology.org/2026.loreslm-1.42/)               | body only      |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   | body only      |
+| Slovene Morphological and Word Formation Segmentation: A Novel Dataset and Evaluation                                                         | [2026.lrec-1.140](https://aclanthology.org/2026.lrec-1.140/)                   | body only      |
+| ConceptKT: A Benchmark for Concept-Level Deficiency Prediction in Knowledge Tracing                                                           | [2026.lrec-1.22](https://aclanthology.org/2026.lrec-1.22/)                     | body only      |
+| Neural Machine Translation for Coptic-French: Strategies for Low-Resource Ancient Languages                                                   | [2026.lt4hala-1.50](https://aclanthology.org/2026.lt4hala-1.50/)               | body only      |
+| The Linguist’s Lie Detector: Linguistic Knowledge in Large Language Models                                                                    | [2026.nslp-1.23](https://aclanthology.org/2026.nslp-1.23/)                     | body only      |
+| Effects of Speaker Bias in Dialect Identification and Automatic Transcription with Self-Supervised Speech Models                              | [2026.vardial-1.3](https://aclanthology.org/2026.vardial-1.3/)                 | body only      |
+| Findings of the WMT26 General Machine Translation Shared Task: Contrastive Dynamic Human Evaluation at Scale                                  | [2026.wmt-main.48](https://aclanthology.org/2026.wmt-main.48/)                 | body only      |
+| BSC Submission for WMT26 General Machine Translation Shared Task                                                                              | [2026.wmt-main.72](https://aclanthology.org/2026.wmt-main.72/)                 | body only      |
 
 {% endraw %}

@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 2.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 4.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9083#P1098))
+**Speakers:** about 2.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Lithuania
 
@@ -47,12 +47,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                            |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 227,207 articles in lt.wikipedia; 650 active users. This is ~1/33 of English data and ranks 42 of 168 languages in the set in Wikipedia.                                                                          |
-| Common Crawl           | 3,752,289 pages per crawl on average, which is 0.1741% of the crawl (2026). This is ~1/238 of English data and ranks 32 of 113 languages in the set in Common Crawl.                                              |
-| FineWeb                | 27.71 GB (lit_Latn 27.71 GB), equivalent to ≈26.90 GB of English after byte-premium scaling; 25.60 GB removed by filtering. This is ~1/1,928 of English data and ranks 29 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 3.98 GB (lit_Latn 3.98 GB) (rank 47 of 166 in the set)                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 227,207 articles in lt.wikipedia; 650 active users. This is ~1/33 of English data and ranks 42 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
+| Common Crawl           | 3,752,289 pages per crawl on average, which is 0.1741% of the crawl (2026). This is ~1/238 of English data and ranks 32 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                             |
+| FineWeb                | 27.71 GB (lit_Latn 27.71 GB), equivalent to ≈26.90 GB of English after byte-premium scaling; 25.60 GB removed by filtering. This is ~1/1,928 of English data and ranks 29 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 3.98 GB (lit_Latn 3.98 GB) (rank 47 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
@@ -62,7 +62,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 3,333 sentences / 61,971 tokens in total: [UD_Lithuanian-ALKSNIS](https://github.com/UniversalDependencies/UD_Lithuanian-ALKSNIS) (3,070 sentences), [UD_Lithuanian-HSE](https://github.com/UniversalDependencies/UD_Lithuanian-HSE) (263 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 1,458 lemmas, 34,130 inflected forms ([unimorph/lit](https://github.com/unimorph/lit))                                                                                                                                                                                                                                                      |
-| Wikidata labels        | 1,300,057 Wikidata items have a label in Lithuanian. (Wikidata codes (labels): lt (1,300,057))                                                                                                                                                                                                                                              |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                              |
 | Wordnets               | [Lithuanian  WordNet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-lt-1.4.tar.xz): 9,462 synsets, 11,428 words, 16,032 senses; licence: https://creativecommons.org/licenses/by-sa/3.0/.                                                                                                                                     |
 
 ### Parallel data (for machine translation)
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                |
 | Bible translations (eBible corpus) | **Portions only** — 1 translation: portions ([lit](https://ebible.org/details.php?id=lit), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                             |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                 |
 
 ### How good are we at identifying data?
 
@@ -180,32 +181,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [6]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [6]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 6 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 6 datasets; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 6 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 6 datasets; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -228,11 +206,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [EXAMS](https://github.com/mhardalov/exams-qa)                                                      | 593            | Native (high-school exams)                                       |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                               | 14,042         | Machine translation (Google Translate)                           |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
-| Machine translation                    | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 2,585          | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation                    | Machine translation           | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+| Machine translation                    |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation                    |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                               | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                               | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 2,585          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                               | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -259,22 +241,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 85 of ~18,498 papers (0.46%) (rank 64 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 85 of ~18,498 papers (0.46%) (rank 64 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Lithuanian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 85):
+Here are up to ten papers published in 2026 that mention Lithuanian. None of the 85 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                      |
-|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| How to Improve LLMs’ Performance on Specific Languages: A Perspective on LLM-Derived Language Similarity             | [2026.acl-long.691](https://aclanthology.org/2026.acl-long.691/)           |
-| CRITICS: Critical Science Without Borders by Translation of Scientific Knowledge                                     | [2026.eamt-2.23](https://aclanthology.org/2026.eamt-2.23/)                 |
-| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                  | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/) |
-| WikiLingDiv: a dataset for quantifying digital linguistic diversity using Wikipedia page views                       | [2026.latechclfl-1.19](https://aclanthology.org/2026.latechclfl-1.19/)     |
-| Pretraining and Benchmarking Modern Encoders for Latvian                                                             | [2026.loreslm-1.40](https://aclanthology.org/2026.loreslm-1.40/)           |
-| Assessing the Political Fairness of Multilingual LLMs: A Case Study Based on a 21-Way Multiparallel EuroParl Dataset | [2026.lrec-1.17](https://aclanthology.org/2026.lrec-1.17/)                 |
-| SloPal: A 60-Million-Word Slovak Parliamentary Corpus with Aligned Speech and Fine-Tuned ASR Models                  | [2026.lrec-1.282](https://aclanthology.org/2026.lrec-1.282/)               |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                           | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                     | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)               |
-| Evaluating the Interplay of Information Status and Information Content in a Multilingual Parallel Corpus             | [2026.sigtyp-main.3](https://aclanthology.org/2026.sigtyp-main.3/)         |
+| title                                                                                                                | paper                                                                      | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
+| How to Improve LLMs’ Performance on Specific Languages: A Perspective on LLM-Derived Language Similarity             | [2026.acl-long.691](https://aclanthology.org/2026.acl-long.691/)           | body only      |
+| CRITICS: Critical Science Without Borders by Translation of Scientific Knowledge                                     | [2026.eamt-2.23](https://aclanthology.org/2026.eamt-2.23/)                 | body only      |
+| FiNERweb: Datasets and Artifacts for Scalable Multilingual Named Entity Recognition                                  | [2026.findings-eacl.121](https://aclanthology.org/2026.findings-eacl.121/) | body only      |
+| WikiLingDiv: a dataset for quantifying digital linguistic diversity using Wikipedia page views                       | [2026.latechclfl-1.19](https://aclanthology.org/2026.latechclfl-1.19/)     | body only      |
+| Pretraining and Benchmarking Modern Encoders for Latvian                                                             | [2026.loreslm-1.40](https://aclanthology.org/2026.loreslm-1.40/)           | body only      |
+| Assessing the Political Fairness of Multilingual LLMs: A Case Study Based on a 21-Way Multiparallel EuroParl Dataset | [2026.lrec-1.17](https://aclanthology.org/2026.lrec-1.17/)                 | body only      |
+| SloPal: A 60-Million-Word Slovak Parliamentary Corpus with Aligned Speech and Fine-Tuned ASR Models                  | [2026.lrec-1.282](https://aclanthology.org/2026.lrec-1.282/)               | body only      |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                           | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)               | body only      |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                     | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)               | body only      |
+| Evaluating the Interplay of Information Status and Information Content in a Multilingual Parallel Corpus             | [2026.sigtyp-main.3](https://aclanthology.org/2026.sigtyp-main.3/)         | body only      |
 
 {% endraw %}

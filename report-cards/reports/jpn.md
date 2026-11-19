@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Jpan`
 
-**Speakers:** about 117.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 128.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q5287#P1098), 2019)
+**Speakers:** about 117.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Japan
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                              |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,526,339 articles in ja.wikipedia; 23,391 active users. This is ~1/5 of English data and ranks 11 of 168 languages in the set in Wikipedia.                                                                        |
-| Common Crawl           | 116,145,534 pages per crawl on average, which is 5.3887% of the crawl (2026). This is ~1/8 of English data and ranks 4 of 113 languages in the set in Common Crawl.                                                 |
-| FineWeb                | 716.70 GB (jpn_Jpan 716.70 GB), equivalent to ≈542.14 GB of English after byte-premium scaling; 1,292.06 GB removed by filtering. This is ~1/75 of English data and ranks 5 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 13.59 GB (jpn_Jpan 13.59 GB) (rank 2 of 166 in the set)                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                                                              |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,526,339 articles in ja.wikipedia; 23,391 active users. This is ~1/5 of English data and ranks 11 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | 116,145,534 pages per crawl on average, which is 5.3887% of the crawl (2026). This is ~1/8 of English data and ranks 4 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                |
+| FineWeb                | 716.70 GB (jpn_Jpan 716.70 GB), equivalent to ≈542.14 GB of English after byte-premium scaling; 1,292.06 GB removed by filtering. This is ~1/75 of English data and ranks 5 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 13.59 GB (jpn_Jpan 13.59 GB) (rank 2 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                  |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 6 treebanks, 132,418 sentences / 2,645,130 tokens in total: [UD_Japanese-BCCWJ](https://github.com/UniversalDependencies/UD_Japanese-BCCWJ) (57,109 sentences), [UD_Japanese-BCCWJLUW](https://github.com/UniversalDependencies/UD_Japanese-BCCWJLUW) (57,109 sentences), [UD_Japanese-GSD](https://github.com/UniversalDependencies/UD_Japanese-GSD) (8,100 sentences), [UD_Japanese-GSDLUW](https://github.com/UniversalDependencies/UD_Japanese-GSDLUW) (8,100 sentences), [UD_Japanese-PUD](https://github.com/UniversalDependencies/UD_Japanese-PUD) (1,000 sentences), [UD_Japanese-PUDLUW](https://github.com/UniversalDependencies/UD_Japanese-PUDLUW) (1,000 sentences). All have POS tags, dependency syntax, morphological features. |
 | UniMorph               | 107 lemmas, 12,687 inflected forms ([unimorph/jpn](https://github.com/unimorph/jpn))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Wikidata labels        | 4,065,075 Wikidata items have a label in Japanese. (Wikidata codes (labels): ja (4,065,075))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Wordnets               | [Japanese Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-ja-1.4.tar.xz): 57,184 synsets, 94,002 words, 158,069 senses; licence: wordnet; [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [Multi-Lingual Semantic Network project](http://dcook.org/mlsn/about/) (size not listed); licence: MIT License (equivalent to the BSD and LGPL).                                                                                                                                                                                                                                                                                                                                             |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                       |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([jpn1965](https://ebible.org/details.php?id=jpn1965), Public Domain). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                    |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                        |
 
 ### How good are we at identifying data?
 
@@ -172,32 +173,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [10]   \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [3]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [5]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [1]   |  & discourse [7]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [7]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: 7 datasets; Commonsense reasoning: 5 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 10 datasets; Machine translation: 7 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: 7 datasets; Commonsense reasoning: 5 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 10 datasets; Machine translation: 7 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">10 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">1 dataset</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">7 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -229,13 +207,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [MKQA](https://github.com/apple/ml-mkqa)                                                            | 10,000         | Human translation                                                   |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                            |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [XOR-TyDi QA](https://github.com/AkariAsai/XORQA)                                                   | 1,318          | Native (TyDi questions)                                             |
-| Machine translation                    | Machine translation                 | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation                 | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation                 | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation                 | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation                 | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation                 | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 20,796         | Native (crowdsourced Tatoeba sentence pairs)                        |
-| Machine translation                    | Machine translation                 | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Original WMT24 reference + new post-edits                           |
+| Machine translation                    |                                     | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                                 |
+| Machine translation                    |                                     | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    |                                     | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
+| Machine translation                    |                                     | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    |                                     | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
+| Machine translation                    |                                     | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 20,796         | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation                    |                                     | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Original WMT24 reference + new post-edits                           |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -261,22 +243,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1,116 of ~18,498 papers (6.03%) (rank 6 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 1,116 of ~18,498 papers (6.03%) (rank 6 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Japanese
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 1,116):
+Here are up to ten papers published in 2026 that mention Japanese. None of the 1,116 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                     | paper                                                                      |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| Soft Prompts for Adapting LLMs to Cultural Commonsense Knowledge                                                                          | [2026.c3nlp-1.6](https://aclanthology.org/2026.c3nlp-1.6/)                 |
-| Multi-Agent Debate for Machine Translation: A Case Study on English-Japanese Translation                                                  | [2026.eamt-1.16](https://aclanthology.org/2026.eamt-1.16/)                 |
-| MM-COMPLIANCE: A Multilingual Multimodal Dataset for Sustainability Compliance Auditing                                                   | [2026.emnlp-main.802](https://aclanthology.org/2026.emnlp-main.802/)       |
-| The Overlooked Role of Graded Relevance Thresholds in Multilingual Dense Retrieval                                                        | [2026.findings-acl.382](https://aclanthology.org/2026.findings-acl.382/)   |
-| ILSIC: Corpora for Identifying Indian Legal Statutes from Queries by Laymen                                                               | [2026.findings-eacl.354](https://aclanthology.org/2026.findings-eacl.354/) |
-| Adapting Pretrained Models to Endangered Languages in Japan: A Comparative Study on Ryukyuan and Ainu Speech Recognition                  | [2026.lrec-1.112](https://aclanthology.org/2026.lrec-1.112/)               |
-| Revisiting the Effectiveness of Word-level Tokenization in Language Model Pretraining                                                     | [2026.mrl-1.44](https://aclanthology.org/2026.mrl-1.44/)                   |
-| Borrowed Words, Borrowed Minds: Probing LLM Choice of English-Derived Loanwords in Japanese                                               | [2026.nlpcss-1.2](https://aclanthology.org/2026.nlpcss-1.2/)               |
-| Takoyaki at SemEval-2026 Task 3: Ensembling LLM Predictions using Demonstration Retrieval for Dimensional Aspect-based Sentiment Analysis | [2026.semeval-1.219](https://aclanthology.org/2026.semeval-1.219/)         |
-| Do Multilingual Encoders Produce Language-Consistent Semantic IDs?                                                                        | [2026.winlp-main.12](https://aclanthology.org/2026.winlp-main.12/)         |
+| title                                                                                                                                     | paper                                                                      | mentioned in   |
+|:------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
+| Soft Prompts for Adapting LLMs to Cultural Commonsense Knowledge                                                                          | [2026.c3nlp-1.6](https://aclanthology.org/2026.c3nlp-1.6/)                 | body only      |
+| Multi-Agent Debate for Machine Translation: A Case Study on English-Japanese Translation                                                  | [2026.eamt-1.16](https://aclanthology.org/2026.eamt-1.16/)                 | body only      |
+| MM-COMPLIANCE: A Multilingual Multimodal Dataset for Sustainability Compliance Auditing                                                   | [2026.emnlp-main.802](https://aclanthology.org/2026.emnlp-main.802/)       | body only      |
+| The Overlooked Role of Graded Relevance Thresholds in Multilingual Dense Retrieval                                                        | [2026.findings-acl.382](https://aclanthology.org/2026.findings-acl.382/)   | body only      |
+| ILSIC: Corpora for Identifying Indian Legal Statutes from Queries by Laymen                                                               | [2026.findings-eacl.354](https://aclanthology.org/2026.findings-eacl.354/) | body only      |
+| Adapting Pretrained Models to Endangered Languages in Japan: A Comparative Study on Ryukyuan and Ainu Speech Recognition                  | [2026.lrec-1.112](https://aclanthology.org/2026.lrec-1.112/)               | body only      |
+| Revisiting the Effectiveness of Word-level Tokenization in Language Model Pretraining                                                     | [2026.mrl-1.44](https://aclanthology.org/2026.mrl-1.44/)                   | body only      |
+| Borrowed Words, Borrowed Minds: Probing LLM Choice of English-Derived Loanwords in Japanese                                               | [2026.nlpcss-1.2](https://aclanthology.org/2026.nlpcss-1.2/)               | body only      |
+| Takoyaki at SemEval-2026 Task 3: Ensembling LLM Predictions using Demonstration Retrieval for Dimensional Aspect-based Sentiment Analysis | [2026.semeval-1.219](https://aclanthology.org/2026.semeval-1.219/)         | body only      |
+| Do Multilingual Encoders Produce Language-Consistent Semantic IDs?                                                                        | [2026.winlp-main.12](https://aclanthology.org/2026.winlp-main.12/)         | body only      |
 
 {% endraw %}

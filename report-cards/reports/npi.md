@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Deva`
 
-**Speakers:** about 21.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `nep`, so includes other varieties · 15.8 million first-language + 8.7 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q33823#P1098), 2011) — counted for the macrolanguage `nep`, so includes other varieties
+**Speakers:** about 21.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `nep`, so includes other varieties
 
 **Official / recognised in:** India, Nepal
 
@@ -48,12 +48,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 30,073 articles in ne.wikipedia; 138 active users. ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                       |
-| Common Crawl           | 1,231,877 pages per crawl on average, which is 0.0571% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                              |
-| FineWeb                | 6.76 GB (npi_Deva 6.75 GB; npi_Latn 0), equivalent to ≈2.79 GB of English after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/7,905 of English data and ranks 46 of 248 languages in the set in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                                                                    |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 30,073 articles in ne.wikipedia; 138 active users. ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                                                       |
+| Common Crawl           | 1,231,877 pages per crawl on average, which is 0.0571% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `nep`, which can include other varieties of Nepali.                                                                              |
+| FineWeb                | 6.76 GB (npi_Deva 6.75 GB; npi_Latn 0), equivalent to ≈2.79 GB of English after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/7,905 of English data and ranks 46 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                              |
 
 **By writing system:**
 
@@ -72,8 +72,8 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 69 sentences / 801 tokens in total: [UD_Nepali-BK](https://github.com/UniversalDependencies/UD_Nepali-BK) (69 sentences). It has POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `nep`, so this may cover other varieties as well as Nepali. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                  |
-| Wikidata labels        | 312,583 Wikidata items have a label in Nepali. (Wikidata codes (labels): ne (312,583))                                                                                                                                                                                                                          |
-| Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; nan (size not listed).                                                                                     |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                  |
+| Wordnets               | nan (size not listed); [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                     |
 
 ### Parallel data (for machine translation)
 
@@ -84,6 +84,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                              |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([npiulb](https://ebible.org/details.php?id=npiulb), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                           |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                               |
 
 ### How good are we at identifying data?
 
@@ -189,32 +190,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [5]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [4]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [2]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [7]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 4 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 5 datasets; Machine translation: 7 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 4 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 5 datasets; Machine translation: 7 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">2 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -233,13 +211,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                                  | 11,829         | LLM translation + expert review                                     |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                         | —              | Machine translation (GPT-3.5, Okapi)                                |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                         | 100            | Native (community-written, peer-verified)                           |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                    | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                        | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                      | 1,997          | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                  | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                 | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                        | 2,100          | Human translation (professional/volunteer, from English)            |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                           | 116            | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                    | 854            | Human translation via English pivot                                 |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                        | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                      | 1,997          | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                  | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                 | —              | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                        | 2,100          | Human translation (professional/volunteer, from English)            |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                           | 116            | Native (crowdsourced Tatoeba sentence pairs)                        |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -265,22 +247,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 168 of ~18,498 papers (0.91%) (rank 39 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 168 of ~18,498 papers (0.91%) (rank 39 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Nepali
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 168):
+Here are up to ten papers published in 2026 that mention Nepali. None of the 168 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                     | paper                                                                      |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                                                                              | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/)         |
-| MUTANT: A Recipe for Multilingual Tokenizer Design                                                                                                        | [2026.acl-long.2146](https://aclanthology.org/2026.acl-long.2146/)         |
-| Seeing the Unseen: Visual Similarity for Pixel Language Model Adaptation                                                                                  | [2026.emnlp-main.1509](https://aclanthology.org/2026.emnlp-main.1509/)     |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                                     | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)     |
-| POLAR: A Benchmark for Multilingual, Multicultural, and Multi-Event Online Polarization                                                                   | [2026.findings-acl.1433](https://aclanthology.org/2026.findings-acl.1433/) |
-| Can Linguistically Related Languages Guide LLM Translation in Low-Resource Settings?                                                                      | [2026.loresmt-1.14](https://aclanthology.org/2026.loresmt-1.14/)           |
-| Estonian WinoGrande Dataset: Comparative Analysis of LLM Performance on Human and Machine Translation                                                     | [2026.lrec-1.549](https://aclanthology.org/2026.lrec-1.549/)               |
-| NepPlural: A Human-Anchored Benchmark for Persona Annotation in Nepali Migration Discourse                                                                | [2026.plurvallm-1.15](https://aclanthology.org/2026.plurvallm-1.15/)       |
-| OZemi at SemEval-2026 Task 9: A Cross-Lingual Approach to Online Text Polarization Classification Using Multilingual Models and Adaptive Loss Formulation | [2026.semeval-1.27](https://aclanthology.org/2026.semeval-1.27/)           |
-| SemEval-2026 Task 9: Detecting Multilingual, Multicultural and Multievent Online Polarization                                                             | [2026.semeval-1.453](https://aclanthology.org/2026.semeval-1.453/)         |
+| title                                                                                                                                                     | paper                                                                      | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
+| UPDESH: Synthesizing Grounded Instruction Tuning Data for 13 Indic Languages                                                                              | [2026.acl-long.1763](https://aclanthology.org/2026.acl-long.1763/)         | body only      |
+| MUTANT: A Recipe for Multilingual Tokenizer Design                                                                                                        | [2026.acl-long.2146](https://aclanthology.org/2026.acl-long.2146/)         | body only      |
+| Seeing the Unseen: Visual Similarity for Pixel Language Model Adaptation                                                                                  | [2026.emnlp-main.1509](https://aclanthology.org/2026.emnlp-main.1509/)     | body only      |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                                     | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)     | body only      |
+| POLAR: A Benchmark for Multilingual, Multicultural, and Multi-Event Online Polarization                                                                   | [2026.findings-acl.1433](https://aclanthology.org/2026.findings-acl.1433/) | body only      |
+| Can Linguistically Related Languages Guide LLM Translation in Low-Resource Settings?                                                                      | [2026.loresmt-1.14](https://aclanthology.org/2026.loresmt-1.14/)           | body only      |
+| Estonian WinoGrande Dataset: Comparative Analysis of LLM Performance on Human and Machine Translation                                                     | [2026.lrec-1.549](https://aclanthology.org/2026.lrec-1.549/)               | body only      |
+| NepPlural: A Human-Anchored Benchmark for Persona Annotation in Nepali Migration Discourse                                                                | [2026.plurvallm-1.15](https://aclanthology.org/2026.plurvallm-1.15/)       | body only      |
+| OZemi at SemEval-2026 Task 9: A Cross-Lingual Approach to Online Text Polarization Classification Using Multilingual Models and Adaptive Loss Formulation | [2026.semeval-1.27](https://aclanthology.org/2026.semeval-1.27/)           | body only      |
+| SemEval-2026 Task 9: Detecting Multilingual, Multicultural and Multievent Online Polarization                                                             | [2026.semeval-1.453](https://aclanthology.org/2026.semeval-1.453/)         | body only      |
 
 {% endraw %}

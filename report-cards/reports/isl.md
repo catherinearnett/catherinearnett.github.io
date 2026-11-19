@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 364,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 358,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q294#P1098), 2015)
+**Speakers:** about 364,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Iceland
 
@@ -49,12 +49,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 60,612 articles in is.wikipedia; 266 active users. This is ~1/125 of English data and ranks 68 of 168 languages in the set in Wikipedia.                                                                       |
-| Common Crawl           | 781,785 pages per crawl on average, which is 0.0363% of the crawl (2026). This is ~1/1,140 of English data and ranks 41 of 113 languages in the set in Common Crawl.                                           |
-| FineWeb                | 4.98 GB (isl_Latn 4.98 GB), equivalent to ≈4.31 GB of English after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/10,725 of English data and ranks 50 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 2.65 GB (isl_Latn 2.65 GB) (rank 55 of 166 in the set)                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 60,612 articles in is.wikipedia; 266 active users. This is ~1/125 of English data and ranks 68 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | 781,785 pages per crawl on average, which is 0.0363% of the crawl (2026). This is ~1/1,140 of English data and ranks 41 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
+| FineWeb                | 4.98 GB (isl_Latn 4.98 GB), equivalent to ≈4.31 GB of English after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/10,725 of English data and ranks 50 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 2.65 GB (isl_Latn 2.65 GB) (rank 55 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -64,7 +64,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 4 treebanks, 53,564 sentences / 1,182,501 tokens in total: [UD_Icelandic-GC](https://github.com/UniversalDependencies/UD_Icelandic-GC) (5,000 sentences), [UD_Icelandic-IcePaHC](https://github.com/UniversalDependencies/UD_Icelandic-IcePaHC) (44,029 sentences), [UD_Icelandic-Modern](https://github.com/UniversalDependencies/UD_Icelandic-Modern) (3,535 sentences), [UD_Icelandic-PUD](https://github.com/UniversalDependencies/UD_Icelandic-PUD) (1,000 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 4,775 lemmas, 76,915 inflected forms ([unimorph/isl](https://github.com/unimorph/isl))                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Wikidata labels        | 1,530,392 Wikidata items have a label in Icelandic. (Wikidata codes (labels): is (1,530,392))                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Wordnets               | [IceWordNet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-is-1.4.tar.xz): 4,951 synsets, 11,655 words, 16,004 senses; licence: https://creativecommons.org/licenses/by/3.0/; NordicNet (HuWN) (size not listed).                                                                                                                                                                                                                                                                                                                      |
 
 ### Parallel data (for machine translation)
@@ -76,6 +76,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -183,32 +184,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [1]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [3]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [4]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [7]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 4 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 1 dataset; Machine translation: 7 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 4 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 1 dataset; Machine translation: 7 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#33691e" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -225,13 +203,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension               | QA – extractive RC            | [Icelandic Wiki QA](https://huggingface.co/datasets/mideind/icelandic_wiki_qa)                      | 1,900          | Synthetic (GPT-4-turbo) + manual review                          |
 | 4. Reading comprehension               | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)              | —              | Machine translation (Greynir)                                    |
-| Machine translation                    | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation           | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 2,658          | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation                    | Machine translation           | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Original WMT24 reference (no post-edits)                         |
+| Machine translation                    |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation                    |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                               | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                   |
+| Machine translation                    |                               | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                               | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                   |
+| Machine translation                    |                               | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 2,658          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                               | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Original WMT24 reference (no post-edits)                         |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -258,22 +240,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 110 of ~18,498 papers (0.59%) (rank 55 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 110 of ~18,498 papers (0.59%) (rank 55 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Icelandic
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 110):
+Here are up to ten papers published in 2026 that mention Icelandic. None of the 110 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                         | paper                                                                        |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                                         | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)           |
-| BabyBabelLM: A Multilingual Benchmark of Developmentally Plausible Training Data                                                              | [2026.eacl-long.152](https://aclanthology.org/2026.eacl-long.152/)           |
-| Reading the News: Adapting Large Language Models to Swedish Journalism Through Continued Pre-Training                                         | [2026.emnlp-industry.255](https://aclanthology.org/2026.emnlp-industry.255/) |
-| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                         | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)       |
-| Learning to Translate by Translating: Stabilizing the Dual Loop via Semantic-Aware Self-Evolution                                             | [2026.findings-acl.723](https://aclanthology.org/2026.findings-acl.723/)     |
-| PressMint: Towards Interoperable Corpora of Historical Newspapers                                                                             | [2026.pressmint-1.1](https://aclanthology.org/2026.pressmint-1.1/)           |
-| Stage-Aware Cross-Lingual Transfer for Faroese ASR: When and Which Languages Matter                                                           | [2026.speakable-1.17](https://aclanthology.org/2026.speakable-1.17/)         |
-| Syntax is the Key to Semantics: Combining Universal Dependencies and Abstract Meaning Representation                                          | [2026.udw-1.27](https://aclanthology.org/2026.udw-1.27/)                     |
-| Findings of the WMT26 Shared Task on Automated Translation Quality Evaluation Systems: Compact Open Models are Competitive Quality Evaluators | [2026.wmt-main.49](https://aclanthology.org/2026.wmt-main.49/)               |
-| Isolated Sign Language Recognition for Icelandic Sign Language: Experiments in a Low-resource Setting                                         | [2026.wslp-1.9](https://aclanthology.org/2026.wslp-1.9/)                     |
+| title                                                                                                                                         | paper                                                                        | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
+| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                                         | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)           | body only      |
+| BabyBabelLM: A Multilingual Benchmark of Developmentally Plausible Training Data                                                              | [2026.eacl-long.152](https://aclanthology.org/2026.eacl-long.152/)           | body only      |
+| Reading the News: Adapting Large Language Models to Swedish Journalism Through Continued Pre-Training                                         | [2026.emnlp-industry.255](https://aclanthology.org/2026.emnlp-industry.255/) | body only      |
+| Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models                         | [2026.emnlp-main.2476](https://aclanthology.org/2026.emnlp-main.2476/)       | body only      |
+| Learning to Translate by Translating: Stabilizing the Dual Loop via Semantic-Aware Self-Evolution                                             | [2026.findings-acl.723](https://aclanthology.org/2026.findings-acl.723/)     | body only      |
+| PressMint: Towards Interoperable Corpora of Historical Newspapers                                                                             | [2026.pressmint-1.1](https://aclanthology.org/2026.pressmint-1.1/)           | body only      |
+| Stage-Aware Cross-Lingual Transfer for Faroese ASR: When and Which Languages Matter                                                           | [2026.speakable-1.17](https://aclanthology.org/2026.speakable-1.17/)         | body only      |
+| Syntax is the Key to Semantics: Combining Universal Dependencies and Abstract Meaning Representation                                          | [2026.udw-1.27](https://aclanthology.org/2026.udw-1.27/)                     | body only      |
+| Findings of the WMT26 Shared Task on Automated Translation Quality Evaluation Systems: Compact Open Models are Competitive Quality Evaluators | [2026.wmt-main.49](https://aclanthology.org/2026.wmt-main.49/)               | body only      |
+| Isolated Sign Language Recognition for Icelandic Sign Language: Experiments in a Low-resource Setting                                         | [2026.wslp-1.9](https://aclanthology.org/2026.wslp-1.9/)                     | body only      |
 
 {% endraw %}

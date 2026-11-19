@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 73.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 23.6 million first-language + 45.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q34057#P1098), 2019)
+**Speakers:** about 73.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Philippines
 
@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                               |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 50,782 articles in tl.wikipedia; 311 active users. This is ~1/149 of English data and ranks 71 of 168 languages in the set in Wikipedia.                             |
-| Common Crawl           | 235,294 pages per crawl on average, which is 0.0109% of the crawl (2026). This is ~1/3,789 of English data and ranks 53 of 113 languages in the set in Common Crawl. |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                       |
-| Goldfish training data | 1.24 GB (tgl_Latn 1.24 GB) (rank 71 of 166 in the set)                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 50,782 articles in tl.wikipedia; 311 active users. This is ~1/149 of English data and ranks 71 of the 168 languages in the set with any data in Wikipedia; 164 have none.                             |
+| Common Crawl           | 235,294 pages per crawl on average, which is 0.0109% of the crawl (2026). This is ~1/3,789 of English data and ranks 53 of the 113 languages in the set with any data in Common Crawl; 219 have none. |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                        |
+| Goldfish training data | 1.24 GB (tgl_Latn 1.24 GB) (rank 71 of the 166 languages in the set that have any; 166 have none)                                                                                                     |
 
 ### Structured and annotated data
 
@@ -61,7 +61,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 222 sentences / 1,745 tokens in total: [UD_Tagalog-TRG](https://github.com/UniversalDependencies/UD_Tagalog-TRG) (128 sentences), [UD_Tagalog-Ugnayan](https://github.com/UniversalDependencies/UD_Tagalog-Ugnayan) (94 sentences). All have POS tags, dependency syntax, lemmas. |
 | UniMorph               | 344 lemmas, 2,912 inflected forms ([unimorph/tgl](https://github.com/unimorph/tgl))                                                                                                                                                                                                            |
-| Wikidata labels        | 533,597 Wikidata items have a label in Tagalog. (Wikidata codes (labels): tl (533,597))                                                                                                                                                                                                        |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                 |
 | Wordnets               | **None found**                                                                                                                                                                                                                                                                                 |
 
 ### Parallel data (for machine translation)
@@ -73,6 +73,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                              |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([tglulb](https://ebible.org/details.php?id=tglulb), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                           |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                               |
 
 ### How good are we at identifying data?
 
@@ -177,32 +178,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [2]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [4]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [3]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 4 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 3 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 4 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 3 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -216,9 +194,13 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia            |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                     |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                 |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                      |
-| Machine translation           | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                             | 2,100          | Human translation (professional/volunteer, from English) |
-| Machine translation           | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 3,978          | Native (crowdsourced Tatoeba sentence pairs)             |
+| Machine translation           |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                      |
+| Machine translation           |                                | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                             | 2,100          | Human translation (professional/volunteer, from English) |
+| Machine translation           |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 3,978          | Native (crowdsourced Tatoeba sentence pairs)             |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -244,22 +226,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 67 of ~18,498 papers (0.36%) (rank 74 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 67 of ~18,498 papers (0.36%) (rank 74 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Tagalog
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 67):
+Here are up to ten papers published in 2026 that mention Tagalog. None of the 67 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                                          |
-|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| CultureConverse: A Multilingual Multi-turn Simulation Harness for Culturally Grounded Assistance in East and Southeast Asia | [2026.emnlp-main.976](https://aclanthology.org/2026.emnlp-main.976/)           |
-| SEA-SafeguardBench: Culturally Grounded Safety Benchmark for Southeast Asian Languages                                      | [2026.findings-acl.194](https://aclanthology.org/2026.findings-acl.194/)       |
-| Idiom Understanding as a Tool to Measure the Dialect Gap                                                                    | [2026.findings-acl.24](https://aclanthology.org/2026.findings-acl.24/)         |
-| EchoLens: A Human-Speech Dataset for Auditing Demographic Sensitivity in Audio-Language Models                              | [2026.findings-emnlp.2027](https://aclanthology.org/2026.findings-emnlp.2027/) |
-| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                               | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) |
-| On the Robustness of Code LLM Guardrails to Code-mixed and Transliterated Inputs                                            | [2026.findings-emnlp.568](https://aclanthology.org/2026.findings-emnlp.568/)   |
-| MultiCoS: A Multilingual Dataset of Connective Semantics with Context–Sentence Compatibility                                | [2026.lrec-1.381](https://aclanthology.org/2026.lrec-1.381/)                   |
-| APODICTUS: Automatic Processing of DICTionary Update candidateS                                                             | [2026.lrec-1.924](https://aclanthology.org/2026.lrec-1.924/)                   |
-| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                               | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)                   |
-| Algebraic Classification of Reduplicative Processes                                                                         | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)               |
+| title                                                                                                                       | paper                                                                          | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| CultureConverse: A Multilingual Multi-turn Simulation Harness for Culturally Grounded Assistance in East and Southeast Asia | [2026.emnlp-main.976](https://aclanthology.org/2026.emnlp-main.976/)           | body only      |
+| SEA-SafeguardBench: Culturally Grounded Safety Benchmark for Southeast Asian Languages                                      | [2026.findings-acl.194](https://aclanthology.org/2026.findings-acl.194/)       | body only      |
+| Idiom Understanding as a Tool to Measure the Dialect Gap                                                                    | [2026.findings-acl.24](https://aclanthology.org/2026.findings-acl.24/)         | body only      |
+| EchoLens: A Human-Speech Dataset for Auditing Demographic Sensitivity in Audio-Language Models                              | [2026.findings-emnlp.2027](https://aclanthology.org/2026.findings-emnlp.2027/) | body only      |
+| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                               | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) | body only      |
+| On the Robustness of Code LLM Guardrails to Code-mixed and Transliterated Inputs                                            | [2026.findings-emnlp.568](https://aclanthology.org/2026.findings-emnlp.568/)   | body only      |
+| MultiCoS: A Multilingual Dataset of Connective Semantics with Context–Sentence Compatibility                                | [2026.lrec-1.381](https://aclanthology.org/2026.lrec-1.381/)                   | body only      |
+| APODICTUS: Automatic Processing of DICTionary Update candidateS                                                             | [2026.lrec-1.924](https://aclanthology.org/2026.lrec-1.924/)                   | body only      |
+| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                               | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)                   | body only      |
+| Algebraic Classification of Reduplicative Processes                                                                         | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)               | body only      |
 
 {% endraw %}

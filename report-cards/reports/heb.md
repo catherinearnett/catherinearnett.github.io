@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Hebr`
 
-**Speakers:** about 9.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 5.4 million first-language + 4.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q9288#P1098), 2019)
+**Speakers:** about 9.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Israel, South Africa
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                            |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 408,229 articles in he.wikipedia; 6,504 active users. This is ~1/18 of English data and ranks 30 of 168 languages in the set in Wikipedia.                                                                        |
-| Common Crawl           | 5,486,293 pages per crawl on average, which is 0.2544% of the crawl (2026). This is ~1/162 of English data and ranks 28 of 113 languages in the set in Common Crawl.                                              |
-| FineWeb                | 24.90 GB (heb_Hebr 24.90 GB), equivalent to ≈18.37 GB of English after byte-premium scaling; 36.03 GB removed by filtering. This is ~1/2,145 of English data and ranks 31 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 8.75 GB (heb_Hebr 8.75 GB) (rank 21 of 166 in the set)                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 408,229 articles in he.wikipedia; 6,504 active users. This is ~1/18 of English data and ranks 30 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | 5,486,293 pages per crawl on average, which is 0.2544% of the crawl (2026). This is ~1/162 of English data and ranks 28 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                             |
+| FineWeb                | 24.90 GB (heb_Hebr 24.90 GB), equivalent to ≈18.37 GB of English after byte-premium scaling; 36.03 GB removed by filtering. This is ~1/2,145 of English data and ranks 31 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 8.75 GB (heb_Hebr 8.75 GB) (rank 21 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 4 treebanks, 14,361 sentences / 273,830 tokens in total: [UD_Hebrew-HTB](https://github.com/UniversalDependencies/UD_Hebrew-HTB) (6,143 sentences), [UD_Hebrew-IAHLTknesset](https://github.com/UniversalDependencies/UD_Hebrew-IAHLTknesset) (2,883 sentences), [UD_Hebrew-IAHLTwiki](https://github.com/UniversalDependencies/UD_Hebrew-IAHLTwiki) (5,039 sentences), [UD_Hebrew-PostRab](https://github.com/UniversalDependencies/UD_Hebrew-PostRab) (296 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 1,176 lemmas, 33,177 inflected forms ([unimorph/heb](https://github.com/unimorph/heb))                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Wikidata labels        | 1,632,862 Wikidata items have a label in Hebrew. (Wikidata codes (labels): he (1,632,862))                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Wordnets               | [Hebrew Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-he-1.4.tar.xz): 5,448 synsets, 5,379 words, 6,872 senses; licence: wordnet; [MultiWordNet](http://multiwordnet.fbk.eu/english/home.php) (size not listed); licence: CC-BY 3.0.                                                                                                                                                                                                                                                                                       |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                            |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([heb](https://ebible.org/details.php?id=heb), Public Domain). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                         |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                             |
 
 ### How good are we at identifying data?
 
@@ -172,32 +173,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [4]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [4]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [4]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [5]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 5 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 4 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 4 datasets; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 5 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 4 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 4 datasets; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">5 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -221,11 +199,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                            | 10,000         | Human translation                                                |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                         |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 10,915         | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 10,915         | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -251,22 +233,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 213 of ~18,498 papers (1.15%) (rank 32 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 213 of ~18,498 papers (1.15%) (rank 32 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Hebrew
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 213):
+Here are up to ten papers published in 2026 that mention Hebrew. None of the 213 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                  | paper                                                                          |
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| New Terms, New Toxicity: Consensus-based Chinese Neologism Toxicity Detection via Search-Augmented LLMs                | [2026.acl-long.1602](https://aclanthology.org/2026.acl-long.1602/)             |
-| Translation from the Information Bottleneck Perspective: an Efficiency Analysis of Spatial Prepositions in Bitexts     | [2026.cmcl-1.20](https://aclanthology.org/2026.cmcl-1.20/)                     |
-| NaijaS2ST: A Multi-Accent Benchmark for Speech-to-Speech Translation in Low-Resource Nigerian Languages                | [2026.emnlp-main.665](https://aclanthology.org/2026.emnlp-main.665/)           |
-| HSS-Synth: Humanities and Social Sciences Data Synthesis for LLMs                                                      | [2026.findings-acl.1880](https://aclanthology.org/2026.findings-acl.1880/)     |
-| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)     |
-| Loci Similes: A Benchmark for Extracting Intertextualities in Latin Literature                                         | [2026.findings-emnlp.1224](https://aclanthology.org/2026.findings-emnlp.1224/) |
-| ROG: A Multi-Layer Manually Annotated Corpus of Spoken Slovenian                                                       | [2026.lrec-1.449](https://aclanthology.org/2026.lrec-1.449/)                   |
-| Preserving Endangered Linguistic Heritage: Developing a Corpus for the Study of Contact-induced Changes in Corfioto    | [2026.lrec-1.76](https://aclanthology.org/2026.lrec-1.76/)                     |
-| Beyond Aggregate Loss: Training Dynamics and Language-Specific Scaling Laws for Multilingual Language Models           | [2026.mrl-1.23](https://aclanthology.org/2026.mrl-1.23/)                       |
-| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande                                 | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)           |
+| title                                                                                                                  | paper                                                                          | mentioned in   |
+|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| New Terms, New Toxicity: Consensus-based Chinese Neologism Toxicity Detection via Search-Augmented LLMs                | [2026.acl-long.1602](https://aclanthology.org/2026.acl-long.1602/)             | body only      |
+| Translation from the Information Bottleneck Perspective: an Efficiency Analysis of Spatial Prepositions in Bitexts     | [2026.cmcl-1.20](https://aclanthology.org/2026.cmcl-1.20/)                     | body only      |
+| NaijaS2ST: A Multi-Accent Benchmark for Speech-to-Speech Translation in Low-Resource Nigerian Languages                | [2026.emnlp-main.665](https://aclanthology.org/2026.emnlp-main.665/)           | body only      |
+| HSS-Synth: Humanities and Social Sciences Data Synthesis for LLMs                                                      | [2026.findings-acl.1880](https://aclanthology.org/2026.findings-acl.1880/)     | body only      |
+| Better as Generators Than Classifiers: Leveraging LLMs and Synthetic Data for Low-Resource Multilingual Classification | [2026.findings-eacl.148](https://aclanthology.org/2026.findings-eacl.148/)     | body only      |
+| Loci Similes: A Benchmark for Extracting Intertextualities in Latin Literature                                         | [2026.findings-emnlp.1224](https://aclanthology.org/2026.findings-emnlp.1224/) | body only      |
+| ROG: A Multi-Layer Manually Annotated Corpus of Spoken Slovenian                                                       | [2026.lrec-1.449](https://aclanthology.org/2026.lrec-1.449/)                   | body only      |
+| Preserving Endangered Linguistic Heritage: Developing a Corpus for the Study of Contact-induced Changes in Corfioto    | [2026.lrec-1.76](https://aclanthology.org/2026.lrec-1.76/)                     | body only      |
+| Beyond Aggregate Loss: Training Dynamics and Language-Specific Scaling Laws for Multilingual Language Models           | [2026.mrl-1.23](https://aclanthology.org/2026.mrl-1.23/)                       | body only      |
+| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande                                 | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)           | body only      |
 
 {% endraw %}

@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 100,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 186,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34094#P1098), 2015)
+**Speakers:** about 100,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Tonga
 
@@ -44,23 +44,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                           |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,047 articles in to.wikipedia; 7 active users. This is ~1/3,687 of English data and ranks 140 of 168 languages in the set in Wikipedia.                                                                         |
-| Common Crawl           | 3,006 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/296,576 of English data and ranks 101 of 113 languages in the set in Common Crawl.                                            |
-| FineWeb                | 9.9 MB (ton_Latn 10.0 MB), equivalent to ≈7.8 MB of English after byte-premium scaling; 14.2 MB removed by filtering. This is ~1/5,409,245 of English data and ranks 149 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 25.6 MB (ton_Latn 26.0 MB) (rank 145 of 166 in the set)                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,047 articles in to.wikipedia; 7 active users. This is ~1/3,687 of English data and ranks 140 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                        |
+| Common Crawl           | 3,006 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/296,576 of English data and ranks 101 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                           |
+| FineWeb                | 9.9 MB (ton_Latn 10.0 MB), equivalent to ≈7.8 MB of English after byte-premium scaling; 14.2 MB removed by filtering. This is ~1/5,409,245 of English data and ranks 149 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 25.6 MB (ton_Latn 26.0 MB) (rank 145 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                            |
-|:-----------------------|:---------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                         |
-| UniMorph               | **None found**                                                                         |
-| Wikidata labels        | 476,274 Wikidata items have a label in Tongan. (Wikidata codes (labels): to (476,274)) |
-| Wordnets               | **None found**                                                                         |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -71,6 +71,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                            |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([ton](https://ebible.org/details.php?id=ton), Public Domain). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                         |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                             |
 
 ### How good are we at identifying data?
 
@@ -142,9 +143,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 | [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
 | [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 8.2B         |                  143 |   2026 | Qwen/Qwen3-8B-Base |
 
-### Largest models tagged *only* for Tongan
+### Models tagged *only* for Tongan
 
-_none_
+None of these has a known parameter count:
+
+| model                                                                                 |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|---------------------:|-------:|:----------------|
+| [goldfish-models/ton_latn_10mb](https://huggingface.co/goldfish-models/ton_latn_10mb) |                    1 |   2024 | —               |
+| [goldfish-models/ton_latn_5mb](https://huggingface.co/goldfish-models/ton_latn_5mb)   |                    1 |   2024 | —               |
+| [goldfish-models/ton_latn_full](https://huggingface.co/goldfish-models/ton_latn_full) |                    1 |   2024 | —               |
 
 _6 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -168,41 +175,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [3]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 3 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: none; Machine translation: 3 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | construction                                   |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 1,187          | Synthetic (LLM-generated) on native Wikipedia  |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English) |
-| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English) |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 20             | Native (crowdsourced Tatoeba sentence pairs)   |
+| level                    | task               | dataset                                                                              | # test items   | construction                                   |
+|:-------------------------|:-------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 1,187          | Synthetic (LLM-generated) on native Wikipedia  |
+| Machine translation      |                    | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English) |
+| Machine translation      |                    | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English) |
+| Machine translation      |                    | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 20             | Native (crowdsourced Tatoeba sentence pairs)   |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -230,15 +218,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 3 of ~18,498 papers (0.02%) (rank 210 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 3 of ~18,498 papers (0.02%) (rank 210 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Tongan
 
-Here are up to ten papers that were published mentioning this language in 2026:
+Here are up to ten papers published in 2026 that mention Tongan. None of the 3 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                           | paper                                                                      |
-|:--------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| Toward a Coarse-Labeled Spoken Language Identification Dataset for Central Alaskan Yup’ik and Samoan from US Broadcast Archives | [2026.americasnlp-6.18](https://aclanthology.org/2026.americasnlp-6.18/)   |
-| Low-Resource Methods for Hawaiian Machine Translation                                                                           | [2026.computel-1.11](https://aclanthology.org/2026.computel-1.11/)         |
-| Uncovering Currency Bias and Syntax Gap in Text Embedding Models                                                                | [2026.findings-acl.2118](https://aclanthology.org/2026.findings-acl.2118/) |
+| title                                                                                                                           | paper                                                                      | mentioned in   |
+|:--------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
+| Toward a Coarse-Labeled Spoken Language Identification Dataset for Central Alaskan Yup’ik and Samoan from US Broadcast Archives | [2026.americasnlp-6.18](https://aclanthology.org/2026.americasnlp-6.18/)   | body only      |
+| Low-Resource Methods for Hawaiian Machine Translation                                                                           | [2026.computel-1.11](https://aclanthology.org/2026.computel-1.11/)         | body only      |
+| Uncovering Currency Bias and Syntax Gap in Text Embedding Models                                                                | [2026.findings-acl.2118](https://aclanthology.org/2026.findings-acl.2118/) | body only      |
 
 {% endraw %}

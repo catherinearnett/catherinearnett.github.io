@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Laoo`
 
-**Speakers:** about 5.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 5.2 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9211#P1098), 2006)
+**Speakers:** about 5.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Laos
 
@@ -47,12 +47,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 5,651 articles in lo.wikipedia; 59 active users. This is ~1/1,335 of English data and ranks 119 of 168 languages in the set in Wikipedia.                                                                      |
-| Common Crawl           | 111,108 pages per crawl on average, which is 0.0051% of the crawl (2026). This is ~1/8,024 of English data and ranks 64 of 113 languages in the set in Common Crawl.                                           |
-| FineWeb                | 0.60 GB (lao_Laoo 0.60 GB), equivalent to ≈0.22 GB of English after byte-premium scaling; 0.44 GB removed by filtering. This is ~1/89,341 of English data and ranks 77 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 1.58 GB (lao_Laoo 1.58 GB) (rank 66 of 166 in the set)                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 5,651 articles in lo.wikipedia; 59 active users. This is ~1/1,335 of English data and ranks 119 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                     |
+| Common Crawl           | 111,108 pages per crawl on average, which is 0.0051% of the crawl (2026). This is ~1/8,024 of English data and ranks 64 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
+| FineWeb                | 0.60 GB (lao_Laoo 0.60 GB), equivalent to ≈0.22 GB of English after byte-premium scaling; 0.44 GB removed by filtering. This is ~1/89,341 of English data and ranks 77 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 1.58 GB (lao_Laoo 1.58 GB) (rank 66 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -62,7 +62,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                      |
 | UniMorph               | **None found**                                                                      |
-| Wikidata labels        | 276,013 Wikidata items have a label in Lao. (Wikidata codes (labels): lo (276,013)) |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._      |
 | Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD. |
 
 ### Parallel data (for machine translation)
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -181,32 +182,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 2 datasets; Knowledge &amp; QA: none; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 2 datasets; Knowledge &amp; QA: none; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -214,10 +192,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 |:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
 | 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        |            900 | Human translation (professional)                                 |
 | 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
-| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |            166 | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation      |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
+| Machine translation      |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      |                               | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
+| Machine translation      |                               | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |            166 | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -244,23 +226,23 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 56 of ~18,498 papers (0.30%) (rank 82 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 56 of ~18,498 papers (0.30%) (rank 82 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Lao
 - Because 'Lao' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 56):
+Here are up to ten papers published in 2026 that mention Lao. None of the 56 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                          |
-|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| LaoBench: A Large-Scale Multidimensional Lao Benchmark for Large Language Models                                     | [2026.acl-long.1088](https://aclanthology.org/2026.acl-long.1088/)             |
-| DeepSEA: A Multilingual Evaluation Benchmark for Southeast Asia                                                      | [2026.emnlp-main.1](https://aclanthology.org/2026.emnlp-main.1/)               |
-| TIPA: Typologically Informed Parameter Aggregation                                                                   | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
-| Which Language Should a Skeleton Speak? Language Choices in Multilingual Reasoning                                   | [2026.findings-emnlp.1500](https://aclanthology.org/2026.findings-emnlp.1500/) |
-| OpenSeal: Good, Fast, and Cheap Construction of an Open-Source Southeast Asian LLM via Parallel Data                 | [2026.findings-emnlp.2205](https://aclanthology.org/2026.findings-emnlp.2205/) |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation         | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   |
-| Goldfish: Monolingual Language Models for 350 Languages                                                              | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                     | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                   |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                       | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
-| One Vector, Thirty-Eight Languages: Benchmark-Derived Anti-Sycophancy Steering Works Worst Where Sycophancy Is Worst | [2026.oracle-main.12](https://aclanthology.org/2026.oracle-main.12/)           |
+| title                                                                                                                | paper                                                                          | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| LaoBench: A Large-Scale Multidimensional Lao Benchmark for Large Language Models                                     | [2026.acl-long.1088](https://aclanthology.org/2026.acl-long.1088/)             | body only      |
+| DeepSEA: A Multilingual Evaluation Benchmark for Southeast Asia                                                      | [2026.emnlp-main.1](https://aclanthology.org/2026.emnlp-main.1/)               | body only      |
+| TIPA: Typologically Informed Parameter Aggregation                                                                   | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
+| Which Language Should a Skeleton Speak? Language Choices in Multilingual Reasoning                                   | [2026.findings-emnlp.1500](https://aclanthology.org/2026.findings-emnlp.1500/) | body only      |
+| OpenSeal: Good, Fast, and Cheap Construction of an Open-Source Southeast Asian LLM via Parallel Data                 | [2026.findings-emnlp.2205](https://aclanthology.org/2026.findings-emnlp.2205/) | body only      |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation         | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   | body only      |
+| Goldfish: Monolingual Language Models for 350 Languages                                                              | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   | body only      |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                     | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                   | body only      |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                       | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   | body only      |
+| One Vector, Thirty-Eight Languages: Benchmark-Derived Anti-Sycophancy Steering Works Worst Where Sycophancy Is Worst | [2026.oracle-main.12](https://aclanthology.org/2026.oracle-main.12/)           | body only      |
 
 {% endraw %}

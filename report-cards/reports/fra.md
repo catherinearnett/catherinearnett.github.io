@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 333.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 77.2 million first-language + 208.2 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q150#P1098), 2019)
+**Speakers:** about 333.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Belgium, Benin, Burkina Faso, Burundi, Cameroon, Canada, Central African Republic, Chad, Comoros, Democratic Republic of the Congo, Djibouti, Equatorial Guinea, France, Gabon, Guinea, Haiti, Italy, Ivory Coast, Luxembourg, Madagascar, Mauritius, Monaco, Republic of the Congo, Rwanda, Senegal, Seychelles, Switzerland, Togo, Vanuatu
 
@@ -46,12 +46,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                            |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,788,374 articles in fr.wikipedia; 36,540 active users. This is ~1/3 of English data and ranks 4 of 168 languages in the set in Wikipedia.                                                                       |
-| Common Crawl           | 101,510,461 pages per crawl on average, which is 4.7090% of the crawl (2026). This is ~1/9 of English data and ranks 5 of 113 languages in the set in Common Crawl.                                               |
-| FineWeb                | 539.96 GB (fra_Latn 539.96 GB), equivalent to ≈459.94 GB of English after byte-premium scaling; 630.89 GB removed by filtering. This is ~1/99 of English data and ranks 7 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 9.81 GB (fra_Latn 9.81 GB) (rank 10 of 166 in the set)                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,788,374 articles in fr.wikipedia; 36,540 active users. This is ~1/3 of English data and ranks 4 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                      |
+| Common Crawl           | 101,510,461 pages per crawl on average, which is 4.7090% of the crawl (2026). This is ~1/9 of English data and ranks 5 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                              |
+| FineWeb                | 539.96 GB (fra_Latn 539.96 GB), equivalent to ≈459.94 GB of English after byte-premium scaling; 630.89 GB removed by filtering. This is ~1/99 of English data and ranks 7 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 9.81 GB (fra_Latn 9.81 GB) (rank 10 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
@@ -61,7 +61,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 10 treebanks, 50,535 sentences / 1,247,278 tokens in total: [UD_French-ALTS](https://github.com/UniversalDependencies/UD_French-ALTS) (2,026 sentences), [UD_French-FQB](https://github.com/UniversalDependencies/UD_French-FQB) (2,289 sentences), [UD_French-FTB](https://github.com/UniversalDependencies/UD_French-FTB) (18,535 sentences), [UD_French-GSD](https://github.com/UniversalDependencies/UD_French-GSD) (16,342 sentences), [UD_French-PUD](https://github.com/UniversalDependencies/UD_French-PUD) (1,000 sentences), [UD_French-ParTUT](https://github.com/UniversalDependencies/UD_French-ParTUT) (1,020 sentences), [UD_French-ParisStories](https://github.com/UniversalDependencies/UD_French-ParisStories) (2,776 sentences), [UD_French-PoitevinDIVITAL](https://github.com/UniversalDependencies/UD_French-PoitevinDIVITAL) (239 sentences), [UD_French-Rhapsodie](https://github.com/UniversalDependencies/UD_French-Rhapsodie) (3,209 sentences), [UD_French-Sequoia](https://github.com/UniversalDependencies/UD_French-Sequoia) (3,099 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 7,535 lemmas, 367,732 inflected forms ([unimorph/fra](https://github.com/unimorph/fra))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Wikidata labels        | 18,934,103 Wikidata items have a label in French. (Wikidata codes (labels): fr (18,934,103))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Wordnets               | [WOLF (Wordnet Libre du Français)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-fr-1.4.tar.xz): 59,091 synsets, 59,616 words, 102,651 senses; licence: http://www.cecill.info/licenses/Licence_CeCILL-C_V1-en.html; EuroWordNet French (size not listed); licence: RESTRICTED; [Memodata – Alexandria](http://www.memodata.com/2004/fr/dictionnaire_en_ligne/index.shtml) (size not listed); licence: BROWSE ONLINE ONLY; [WoNeF](https://wonef.pradet.me/) (size not listed); licence: CC-BY SA 3.0 FR.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ### Parallel data (for machine translation)
@@ -73,6 +73,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                    |
 | Bible translations (eBible corpus) | **Yes** — 4 translations: full Bible ([fraLSG](https://ebible.org/details.php?id=fraLSG), Public Domain); full Bible ([fra_fob](https://ebible.org/details.php?id=fra_fob), Public Domain); full Bible ([frasbl](https://ebible.org/details.php?id=frasbl), Public Domain); Old Testament ([francl](https://ebible.org/details.php?id=francl), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                 |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                                                                                                                                                                                                                     |
 
 ### How good are we at identifying data?
 
@@ -178,32 +179,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [14]   \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [6]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [7]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [8]   |  & discourse [8]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [7]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 8 datasets; Pragmatics &amp; discourse: 8 datasets; Commonsense reasoning: 7 datasets; Reading comprehension: 6 datasets; Knowledge &amp; QA: 14 datasets; Machine translation: 7 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 8 datasets; Pragmatics &amp; discourse: 8 datasets; Commonsense reasoning: 7 datasets; Reading comprehension: 6 datasets; Knowledge &amp; QA: 14 datasets; Machine translation: 7 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">14 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">8 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">8 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -252,13 +230,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles) (2 varieties/pairs)              | 200            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                                                | 10,000         | Human translation                                                |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                                         | 250            | Native (locally sourced)                                         |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Original (pivot language, linguist-written) + translations       |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)                                       | —              | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX) (2 varieties/pairs)                                           | 3,994          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                                 | 2,100          | Human translation (professional/volunteer, from English)         |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 23,139         | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp) (2 varieties/pairs)                                           | 1,996          | Human translation (professional) + post-edits                    |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Original (pivot language, linguist-written) + translations       |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                                | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)                                       | —              | Human translation (professional, from English)                   |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX) (2 varieties/pairs)                                           | 3,994          | Human translation (professional, from English)                   |
+| Machine translation                    |                                | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                                 | 2,100          | Human translation (professional/volunteer, from English)         |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 23,139         | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp) (2 varieties/pairs)                                           | 1,996          | Human translation (professional) + post-edits                    |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **2. Pragmatics, discourse & coreference:** Gender-bias diagnostic (Winograd-format), Presupposition & scalar implicature, Pronoun/coref (WSC-style), WNLI
@@ -283,22 +265,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1,703 of ~18,498 papers (9.21%) (rank 3 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 1,703 of ~18,498 papers (9.21%) (rank 3 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: French
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 1,703):
+Here are up to ten papers published in 2026 that mention French. None of the 1,703 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                         | paper                                                                          |
-|:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Multidimensional Consistency Improves Reasoning in Language Models                                            | [2026.aacl-long.177](https://aclanthology.org/2026.aacl-long.177/)             |
-| Morphologically-informed Somali Lemmatization Corpus built with a Web-based Crowdsourcing Platform            | [2026.africanlp-main.17](https://aclanthology.org/2026.africanlp-main.17/)     |
-| Logic Haystacks: Probing LLMs’ Long-Context Logical Reasoning (Without Easily Identifiable Unrelated Padding) | [2026.eacl-short.3](https://aclanthology.org/2026.eacl-short.3/)               |
-| Understanding Toxic Behavior in Gaming Communities Using AI to Promote Healthier Digital Spaces               | [2026.eeuca-1.2](https://aclanthology.org/2026.eeuca-1.2/)                     |
-| The Geometry of Low-Resource Language Representations                                                         | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)         |
-| DualGuard: Dual-stream Large Language Model Watermarking Defense against Paraphrase and Spoofing Attack       | [2026.findings-acl.1169](https://aclanthology.org/2026.findings-acl.1169/)     |
-| Do You Get the Hint? Benchmarking LLMs on the Board Game Concept                                              | [2026.findings-acl.1219](https://aclanthology.org/2026.findings-acl.1219/)     |
-| Why are all LLMs Obsessed with Japanese Culture? On the Hidden Cultural and Regional Biases of LLMs           | [2026.findings-emnlp.1307](https://aclanthology.org/2026.findings-emnlp.1307/) |
-| MUNIChus: MUltilingual News Image Captioning Benchmark                                                        | [2026.lrec-1.708](https://aclanthology.org/2026.lrec-1.708/)                   |
-| Irums at SHROOM-Visions 2026: When One Fix Doesn’t Fit All — Category-Aware Hallucination Span Detection      | [2026.uncertainlp-main.49](https://aclanthology.org/2026.uncertainlp-main.49/) |
+| title                                                                                                         | paper                                                                          | mentioned in   |
+|:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Multidimensional Consistency Improves Reasoning in Language Models                                            | [2026.aacl-long.177](https://aclanthology.org/2026.aacl-long.177/)             | body only      |
+| Morphologically-informed Somali Lemmatization Corpus built with a Web-based Crowdsourcing Platform            | [2026.africanlp-main.17](https://aclanthology.org/2026.africanlp-main.17/)     | body only      |
+| Logic Haystacks: Probing LLMs’ Long-Context Logical Reasoning (Without Easily Identifiable Unrelated Padding) | [2026.eacl-short.3](https://aclanthology.org/2026.eacl-short.3/)               | body only      |
+| Understanding Toxic Behavior in Gaming Communities Using AI to Promote Healthier Digital Spaces               | [2026.eeuca-1.2](https://aclanthology.org/2026.eeuca-1.2/)                     | body only      |
+| The Geometry of Low-Resource Language Representations                                                         | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)         | body only      |
+| DualGuard: Dual-stream Large Language Model Watermarking Defense against Paraphrase and Spoofing Attack       | [2026.findings-acl.1169](https://aclanthology.org/2026.findings-acl.1169/)     | body only      |
+| Do You Get the Hint? Benchmarking LLMs on the Board Game Concept                                              | [2026.findings-acl.1219](https://aclanthology.org/2026.findings-acl.1219/)     | body only      |
+| Why are all LLMs Obsessed with Japanese Culture? On the Hidden Cultural and Regional Biases of LLMs           | [2026.findings-emnlp.1307](https://aclanthology.org/2026.findings-emnlp.1307/) | body only      |
+| MUNIChus: MUltilingual News Image Captioning Benchmark                                                        | [2026.lrec-1.708](https://aclanthology.org/2026.lrec-1.708/)                   | body only      |
+| Irums at SHROOM-Visions 2026: When One Fix Doesn’t Fit All — Category-Aware Hallucination Span Detection      | [2026.uncertainlp-main.49](https://aclanthology.org/2026.uncertainlp-main.49/) | body only      |
 
 {% endraw %}

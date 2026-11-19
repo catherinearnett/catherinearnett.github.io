@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Cyrl`
 
-**Speakers:** about 6.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `mon`, so includes other varieties · 2.7 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q6399808#P1098), 2016)
+**Speakers:** about 6.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `mon`, so includes other varieties
 
 **Official / recognised in:** Mongolia
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 28,674 articles in mn.wikipedia; 223 active users. ⚠️ NB: counted under the macrolanguage code `mon`, so this number is shared with Mongolian (`mvf`) and overstates Mongolian.                                |
-| Common Crawl           | 342,482 pages per crawl on average, which is 0.0159% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `mon`, so this number is shared with Mongolian (`mvf`) and overstates Mongolian.         |
-| FineWeb                | 2.80 GB (khk_Cyrl 2.80 GB), equivalent to ≈1.56 GB of English after byte-premium scaling; 5.33 GB removed by filtering. This is ~1/19,062 of English data and ranks 60 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 0.20 GB (khk_Cyrl 0.20 GB) (rank 106 of 166 in the set)                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 28,674 articles in mn.wikipedia; 223 active users. ⚠️ NB: counted under the macrolanguage code `mon`, so this number is shared with Mongolian (`mvf`) and overstates Mongolian.                                                                |
+| Common Crawl           | 342,482 pages per crawl on average, which is 0.0159% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `mon`, so this number is shared with Mongolian (`mvf`) and overstates Mongolian.                                         |
+| FineWeb                | 2.80 GB (khk_Cyrl 2.80 GB), equivalent to ≈1.56 GB of English after byte-premium scaling; 5.33 GB removed by filtering. This is ~1/19,062 of English data and ranks 60 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 0.20 GB (khk_Cyrl 0.20 GB) (rank 106 of the 166 languages in the set that have any; 166 have none)                                                                                                                                             |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 88 sentences / 472 tokens in total: [UD_Mongolian-GDUD](https://github.com/UniversalDependencies/UD_Mongolian-GDUD) (88 sentences). It has POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `mon`, so this may cover other varieties as well as Mongolian. |
 | UniMorph               | 2,140 lemmas, 30,143 inflected forms ([unimorph/khk](https://github.com/unimorph/khk))                                                                                                                                                                                                                                       |
-| Wikidata labels        | 253,995 Wikidata items have a label in Mongolian. (Wikidata codes (labels): mn (253,995))                                                                                                                                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                               |
 | Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD.                                                                                                                                                                                                                                          |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -171,32 +172,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 2 datasets; Knowledge &amp; QA: none; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 2 datasets; Knowledge &amp; QA: none; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -204,10 +182,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 |:-------------------------|:------------------------------|:--------------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
 | 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                               |            900 | Human translation (professional)                                 |
 | 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                  |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                 |            854 | Human translation via English pivot                              |
-| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs) |          2,024 | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                   |          1,997 | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)        |            417 | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation      |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                 |            854 | Human translation via English pivot                              |
+| Machine translation      |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs) |          2,024 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      |                               | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                   |          1,997 | Human translation (professional, from English)                   |
+| Machine translation      |                               | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)        |            417 | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -234,23 +216,23 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 80 of ~18,498 papers (0.43%) (rank 66 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 80 of ~18,498 papers (0.43%) (rank 66 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Peripheral Mongolian (Inner Mongolia) | Peripheral Mongolian | Halh Mongolian | Inner Mongolia | Mongolian
 - ⚠️ The name *Mongolian* is shared with Mongolian (`mvf`), so this count covers all of them.
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 80):
+Here are up to ten papers published in 2026 that mention Mongolian. None of the 80 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                               | paper                                                                    |
-|:--------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                         | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)   |
-| Masking Stale Observations Helps Search Agents — Until It Doesn’t: A Regime Map and Its Mechanism                   | [2026.emnlp-main.756](https://aclanthology.org/2026.emnlp-main.756/)     |
-| RAG-KT: Cross-platform Explainable Knowledge Tracing with Multi-view Fusion Retrieval Generation                    | [2026.findings-acl.257](https://aclanthology.org/2026.findings-acl.257/) |
-| Lightweight Haar Wavelet Subband Pruning for LLMs                                                                   | [2026.findings-acl.798](https://aclanthology.org/2026.findings-acl.798/) |
-| CausalityCheck: A Framework for Evaluating Causal Reasoning in Large Language Models                                | [2026.findings-acl.808](https://aclanthology.org/2026.findings-acl.808/) |
-| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)         |
-| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                          | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)             |
-| Cygnet: Refactoring the Open Multilingual Wordnet                                                                   | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)             |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                    | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)             |
-| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                            | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)             |
+| title                                                                                                               | paper                                                                    | mentioned in   |
+|:--------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
+| MUDIDI: A Two-Stage Framework for Multilingual Dictionary Digitization with Language Models                         | [2026.emnlp-main.2501](https://aclanthology.org/2026.emnlp-main.2501/)   | body only      |
+| Masking Stale Observations Helps Search Agents — Until It Doesn’t: A Regime Map and Its Mechanism                   | [2026.emnlp-main.756](https://aclanthology.org/2026.emnlp-main.756/)     | body only      |
+| RAG-KT: Cross-platform Explainable Knowledge Tracing with Multi-view Fusion Retrieval Generation                    | [2026.findings-acl.257](https://aclanthology.org/2026.findings-acl.257/) | body only      |
+| Lightweight Haar Wavelet Subband Pruning for LLMs                                                                   | [2026.findings-acl.798](https://aclanthology.org/2026.findings-acl.798/) | body only      |
+| CausalityCheck: A Framework for Evaluating Causal Reasoning in Large Language Models                                | [2026.findings-acl.808](https://aclanthology.org/2026.findings-acl.808/) | body only      |
+| Adapting Multilingual NMT to Language Isolates: The Role of Proxy Language Selection and Dialect Handling for Nivkh | [2026.loresmt-1.11](https://aclanthology.org/2026.loresmt-1.11/)         | body only      |
+| LexiPhon: A Collection of Phonetically Transcribed Lexicons from Wikipedia                                          | [2026.lrec-1.448](https://aclanthology.org/2026.lrec-1.448/)             | body only      |
+| Cygnet: Refactoring the Open Multilingual Wordnet                                                                   | [2026.lrec-1.628](https://aclanthology.org/2026.lrec-1.628/)             | body only      |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                    | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)             | body only      |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                            | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)             | body only      |
 
 {% endraw %}

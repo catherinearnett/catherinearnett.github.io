@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 194.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `swa`, so includes other varieties · 16.0 million first-language + 82.3 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q3197533#P1098), 2010)
+**Speakers:** about 194.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `swa`, so includes other varieties
 
 **Official / recognised in:** Kenya, Rwanda, Tanzania, Uganda
 
@@ -50,23 +50,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 132,705 articles in sw.wikipedia; 215 active users. ⚠️ NB: recorded under the macrolanguage code `swa`, which can include other varieties of Swahili.                                                          |
-| Common Crawl           | 252,345 pages per crawl on average, which is 0.0117% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `swa`, which can include other varieties of Swahili.                                    |
-| FineWeb                | 1.44 GB (swh_Latn 1.44 GB), equivalent to ≈1.35 GB of English after byte-premium scaling; 2.40 GB removed by filtering. This is ~1/37,005 of English data and ranks 67 of 248 languages in the set in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 132,705 articles in sw.wikipedia; 215 active users. ⚠️ NB: recorded under the macrolanguage code `swa`, which can include other varieties of Swahili.                                                                                          |
+| Common Crawl           | 252,345 pages per crawl on average, which is 0.0117% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `swa`, which can include other varieties of Swahili.                                                                    |
+| FineWeb                | 1.44 GB (swh_Latn 1.44 GB), equivalent to ≈1.35 GB of English after byte-premium scaling; 2.40 GB removed by filtering. This is ~1/37,005 of English data and ranks 67 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                   |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                                 |
-|:-----------------------|:--------------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                              |
-| UniMorph               | **None found**                                                                              |
-| Wikidata labels        | 1,721,362 Wikidata items have a label in Swahili. (Wikidata codes (labels): sw (1,721,362)) |
-| Wordnets               | **None found**                                                                              |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -77,6 +77,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                  |
 | Bible translations (eBible corpus) | **Yes** — 3 translations: full Bible ([swhonen](https://ebible.org/details.php?id=swhonen), by-sa 4.0); full Bible ([swhulb](https://ebible.org/details.php?id=swhulb), by-sa 4.0); New Testament ([swh1850](https://ebible.org/details.php?id=swh1850), Public Domain). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                               |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                                                                                                                                   |
 
 ### How good are we at identifying data?
 
@@ -184,32 +185,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [7]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [3]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [7]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [1]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [8]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 7 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 7 datasets; Machine translation: 8 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 7 datasets; Reading comprehension: 3 datasets; Knowledge &amp; QA: 7 datasets; Machine translation: 8 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">1 dataset</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">8 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -234,14 +212,18 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMMLU (OpenAI)](https://huggingface.co/datasets/openai/MMMLU)                                      | 14,042         | Human translation (professional)                                    |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [AfriQA](https://github.com/masakhane-io/afriqa)                                                    | 302            | Native                                                              |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                             | 2,100          | Human translation (professional/volunteer, from English)            |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 434            | Native (crowdsourced Tatoeba sentence pairs)                        |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp) (2 varieties/pairs)                       | 1,996          | Human translation (professional) + post-edits                       |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                                 |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                             | 2,100          | Human translation (professional/volunteer, from English)            |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 434            | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp) (2 varieties/pairs)                       | 1,996          | Human translation (professional) + post-edits                       |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -267,22 +249,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 323 of ~18,498 papers (1.75%) (rank 21 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 323 of ~18,498 papers (1.75%) (rank 21 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Swahili
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 323):
+Here are up to ten papers published in 2026 that mention Swahili. None of the 323 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                      | paper                                                                          |
-|:---------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                                          | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             |
-| Calibrating Beyond English: Language Diversity for Better Quantized Multilingual LLMs                                      | [2026.eacl-long.223](https://aclanthology.org/2026.eacl-long.223/)             |
-| MERLIN: Multi-Stage Curriculum Alignment for Multilingual Encoder-LLM Integration in Cross-Lingual Reasoning               | [2026.eacl-long.277](https://aclanthology.org/2026.eacl-long.277/)             |
-| Localizing Cross-Lingual Generalization in Parameter Space                                                                 | [2026.emnlp-main.2625](https://aclanthology.org/2026.emnlp-main.2625/)         |
-| KnowledgeBerg: Evaluating Systematic Knowledge Coverage and Compositional Reasoning in Large Language Models               | [2026.findings-acl.548](https://aclanthology.org/2026.findings-acl.548/)       |
-| Science Across Languages: Assessing LLM Multilingual Translation of Scientific Papers                                      | [2026.findings-eacl.204](https://aclanthology.org/2026.findings-eacl.204/)     |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation             | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
-| Cross-Lingual Bias in Large Language Models: A Comparative Analysis of English and Swahili                                 | [2026.mellm-1.17](https://aclanthology.org/2026.mellm-1.17/)                   |
-| CYUT at SemEval-2026 Task 3: Multi-Task Dimensional Aspect Sentiment Regression with Polar Multi-Zone Labeling in VA Space | [2026.semeval-1.23](https://aclanthology.org/2026.semeval-1.23/)               |
-| TUCNLP at SemEval-2026 Task 11: Neuro-Symbolic Content Stripping for Debiased Syllogistic Reasoning                        | [2026.semeval-1.423](https://aclanthology.org/2026.semeval-1.423/)             |
+| title                                                                                                                      | paper                                                                          | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                                          | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             | body only      |
+| Calibrating Beyond English: Language Diversity for Better Quantized Multilingual LLMs                                      | [2026.eacl-long.223](https://aclanthology.org/2026.eacl-long.223/)             | body only      |
+| MERLIN: Multi-Stage Curriculum Alignment for Multilingual Encoder-LLM Integration in Cross-Lingual Reasoning               | [2026.eacl-long.277](https://aclanthology.org/2026.eacl-long.277/)             | body only      |
+| Localizing Cross-Lingual Generalization in Parameter Space                                                                 | [2026.emnlp-main.2625](https://aclanthology.org/2026.emnlp-main.2625/)         | body only      |
+| KnowledgeBerg: Evaluating Systematic Knowledge Coverage and Compositional Reasoning in Large Language Models               | [2026.findings-acl.548](https://aclanthology.org/2026.findings-acl.548/)       | body only      |
+| Science Across Languages: Assessing LLM Multilingual Translation of Scientific Papers                                      | [2026.findings-eacl.204](https://aclanthology.org/2026.findings-eacl.204/)     | body only      |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation             | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
+| Cross-Lingual Bias in Large Language Models: A Comparative Analysis of English and Swahili                                 | [2026.mellm-1.17](https://aclanthology.org/2026.mellm-1.17/)                   | body only      |
+| CYUT at SemEval-2026 Task 3: Multi-Task Dimensional Aspect Sentiment Regression with Polar Multi-Zone Labeling in VA Space | [2026.semeval-1.23](https://aclanthology.org/2026.semeval-1.23/)               | body only      |
+| TUCNLP at SemEval-2026 Task 11: Neuro-Symbolic Content Stripping for Debiased Syllogistic Reasoning                        | [2026.semeval-1.423](https://aclanthology.org/2026.semeval-1.423/)             | body only      |
 
 {% endraw %}

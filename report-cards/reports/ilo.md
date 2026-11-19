@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 11.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 9.1 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q35936#P1098), 2007)
+**Speakers:** about 11.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Philippines
 
@@ -42,23 +42,23 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                             |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 15,527 articles in ilo.wikipedia; 26 active users. This is ~1/486 of English data and ranks 90 of 168 languages in the set in Wikipedia.                                                                           |
-| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                           |
-| FineWeb                | 22.8 MB (ilo_Latn 20.0 MB), equivalent to ≈21.2 MB of English after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/2,338,522 of English data and ranks 127 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 0.11 GB (ilo_Latn 0.11 GB) (rank 116 of 166 in the set)                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                             |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 15,527 articles in ilo.wikipedia; 26 active users. This is ~1/486 of English data and ranks 90 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                          |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                           |
+| FineWeb                | 22.8 MB (ilo_Latn 20.0 MB), equivalent to ≈21.2 MB of English after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/2,338,522 of English data and ranks 127 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 0.11 GB (ilo_Latn 0.11 GB) (rank 116 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
 Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
 
-| Resource               | What exists                                                                              |
-|:-----------------------|:-----------------------------------------------------------------------------------------|
-| Universal Dependencies | **None found**                                                                           |
-| UniMorph               | **None found**                                                                           |
-| Wikidata labels        | 526,112 Wikidata items have a label in Ilocano. (Wikidata codes (labels): ilo (526,112)) |
-| Wordnets               | **None found**                                                                           |
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._ |
+| Wordnets               | **None found**                                                                 |
 
 ### Parallel data (for machine translation)
 
@@ -69,6 +69,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                              |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([iloulb](https://ebible.org/details.php?id=iloulb), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                           |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                               |
 
 ### How good are we at identifying data?
 
@@ -140,9 +141,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 | [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)                   | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base   |
 | [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 3.9B         |                  155 |   2026 | google/gemma-3-4b-it |
 
-### Largest models tagged *only* for Ilocano
+### Models tagged *only* for Ilocano
 
-_none_
+None of these has a known parameter count:
+
+| model                                                                                 |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|---------------------:|-------:|:----------------|
+| [goldfish-models/ilo_latn_10mb](https://huggingface.co/goldfish-models/ilo_latn_10mb) |                    1 |   2024 | —               |
+| [goldfish-models/ilo_latn_5mb](https://huggingface.co/goldfish-models/ilo_latn_5mb)   |                    1 |   2024 | —               |
+| [goldfish-models/ilo_latn_full](https://huggingface.co/goldfish-models/ilo_latn_full) |                    1 |   2024 | —               |
 
 _4 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -166,32 +173,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ❌ 5. QA \
-                 /   [0]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [1]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 1 dataset; Reading comprehension: 2 datasets; Knowledge &amp; QA: none; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 1 dataset; Reading comprehension: 2 datasets; Knowledge &amp; QA: none; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="86.0" text-anchor="middle" fill="#90a4ae" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -200,10 +184,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 3. Commonsense reasoning | PIQA                          | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel) | 103            | MT + human post-editing                                          |
 | 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                | 900            | Human translation (professional)                                 |
 | 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                   | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                  | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                      | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation           | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)         | 1,093          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation      |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                  | 854            | Human translation via English pivot                              |
+| Machine translation      |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                      | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      |                               | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                | —              | Human translation (professional, from English)                   |
+| Machine translation      |                               | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)         | 1,093          | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -230,21 +218,21 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 9 of ~18,498 papers (0.05%) (rank 155 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 9 of ~18,498 papers (0.05%) (rank 155 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Ilocano
 
-Here are up to ten papers that were published mentioning this language in 2026:
+Here are up to ten papers published in 2026 that mention Ilocano. None of the 9 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                | paper                                                                          |
-|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                                    | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             |
-| Thesis Proposal: An Explainable Multimodal Framework for Detecting Harmful Content in Code-Switched Children’s Media | [2026.acl-srw.40](https://aclanthology.org/2026.acl-srw.40/)                   |
-| DeepSEA: A Multilingual Evaluation Benchmark for Southeast Asia                                                      | [2026.emnlp-main.1](https://aclanthology.org/2026.emnlp-main.1/)               |
-| TIPA: Typologically Informed Parameter Aggregation                                                                   | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation       | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                           | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                       | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
-| Pag-refuse: Safety Alignment Transfers Unevenly to Tagalog and Taglish                                               | [2026.mrl-1.41](https://aclanthology.org/2026.mrl-1.41/)                       |
-| Algebraic Classification of Reduplicative Processes                                                                  | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)               |
+| title                                                                                                                | paper                                                                          | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:---------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                                    | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             | body only      |
+| Thesis Proposal: An Explainable Multimodal Framework for Detecting Harmful Content in Code-Switched Children’s Media | [2026.acl-srw.40](https://aclanthology.org/2026.acl-srw.40/)                   | body only      |
+| DeepSEA: A Multilingual Evaluation Benchmark for Southeast Asia                                                      | [2026.emnlp-main.1](https://aclanthology.org/2026.emnlp-main.1/)               | body only      |
+| TIPA: Typologically Informed Parameter Aggregation                                                                   | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     | body only      |
+| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation       | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) | body only      |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                           | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)                 | body only      |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                       | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   | body only      |
+| Pag-refuse: Safety Alignment Transfers Unevenly to Tagalog and Taglish                                               | [2026.mrl-1.41](https://aclanthology.org/2026.mrl-1.41/)                       | body only      |
+| Algebraic Classification of Reduplicative Processes                                                                  | [2026.scil-main.42](https://aclanthology.org/2026.scil-main.42/)               | body only      |
 
 {% endraw %}

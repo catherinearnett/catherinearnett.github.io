@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 2.4 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9063#P1098))
+**Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Austria, Italy, Slovenia
 
@@ -47,12 +47,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                            |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 199,510 articles in sl.wikipedia; 632 active users. This is ~1/38 of English data and ranks 44 of 168 languages in the set in Wikipedia.                                                                          |
-| Common Crawl           | 3,147,200 pages per crawl on average, which is 0.1461% of the crawl (2026). This is ~1/283 of English data and ranks 33 of 113 languages in the set in Common Crawl.                                              |
-| FineWeb                | 20.70 GB (slv_Latn 20.70 GB), equivalent to ≈21.29 GB of English after byte-premium scaling; 20.04 GB removed by filtering. This is ~1/2,581 of English data and ranks 33 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 1.52 GB (slv_Latn 1.52 GB) (rank 67 of 166 in the set)                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 199,510 articles in sl.wikipedia; 632 active users. This is ~1/38 of English data and ranks 44 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                         |
+| Common Crawl           | 3,147,200 pages per crawl on average, which is 0.1461% of the crawl (2026). This is ~1/283 of English data and ranks 33 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                             |
+| FineWeb                | 20.70 GB (slv_Latn 20.70 GB), equivalent to ≈21.29 GB of English after byte-premium scaling; 20.04 GB removed by filtering. This is ~1/2,581 of English data and ranks 33 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 1.52 GB (slv_Latn 1.52 GB) (rank 67 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                 |
 
 ### Structured and annotated data
 
@@ -62,7 +62,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 19,556 sentences / 365,490 tokens in total: [UD_Slovenian-SSJ](https://github.com/UniversalDependencies/UD_Slovenian-SSJ) (13,435 sentences), [UD_Slovenian-SST](https://github.com/UniversalDependencies/UD_Slovenian-SST) (6,121 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 2,535 lemmas, 60,110 inflected forms ([unimorph/slv](https://github.com/unimorph/slv))                                                                                                                                                                                                                                               |
-| Wikidata labels        | 5,168,157 Wikidata items have a label in Slovene. (Wikidata codes (labels): sl (5,168,157))                                                                                                                                                                                                                                          |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                       |
 | Wordnets               | [sloWNet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-sl-1.4.tar.xz): 42,583 synsets, 40,340 words, 70,945 senses; licence: https://creativecommons.org/licenses/by-sa/3.0/.                                                                                                                                         |
 
 ### Parallel data (for machine translation)
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -178,32 +179,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [3]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [7]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 7 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 3 datasets; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 7 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 3 datasets; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -224,11 +202,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [EU20-ARC](https://hf.co/collections/openGPT-X/eu20-benchmarks-67093b13db8ff192dc39312d)                                | —              | Machine translation (DeepL)                                      |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [EU20-MMLU](https://hf.co/collections/openGPT-X/eu20-benchmarks-67093b13db8ff192dc39312d)                               | —              | Machine translation (DeepL)                                      |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [EU20-TruthfulQA](https://hf.co/collections/openGPT-X/eu20-benchmarks-67093b13db8ff192dc39312d)                         | —              | Machine translation (DeepL)                                      |
-| Machine translation                    | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 2,495          | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation                    | Machine translation           | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                               | 998            | Human translation (professional) + post-edits                    |
+| Machine translation                    |                               | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Human translation via English pivot                              |
+| Machine translation                    |                               | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                               | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                               | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 2,495          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                               | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                               | 998            | Human translation (professional) + post-edits                    |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -255,22 +237,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 57 of ~18,498 papers (0.31%) (rank 79 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 57 of ~18,498 papers (0.31%) (rank 79 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Slovene
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 57):
+Here are up to ten papers published in 2026 that mention Slovene. None of the 57 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                              | paper                                                            |
-|:-----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
-| A Lightweight N-gram Approach to Abbreviation Expansion in Large Corpora                                                           | [2026.cawl-1.10](https://aclanthology.org/2026.cawl-1.10/)       |
-| Environmental, Social and Governance Sentiment Analysis on Slovene News: A Novel Dataset and Models                                | [2026.fnp-1.5](https://aclanthology.org/2026.fnp-1.5/)           |
-| Modeling the Human Lexicon under Temperature Variations: Linguistic Factors, Diversity and Typicality in LLM Word Associations     | [2026.lrec-1.179](https://aclanthology.org/2026.lrec-1.179/)     |
-| PARSEME 2.0 Multilingual Corpus of Multiword Expressions                                                                           | [2026.lrec-1.378](https://aclanthology.org/2026.lrec-1.378/)     |
-| A Large-Scale Instruction-Tuning Dataset and Models for Slovenian Vision-Language Tasks                                            | [2026.lrec-1.740](https://aclanthology.org/2026.lrec-1.740/)     |
-| SemiAdapt: Semi-Supervised and Efficient LoRA-Based Domain Adaptation for Low-Resource Irish Machine Translation with Transformers | [2026.lrec-1.801](https://aclanthology.org/2026.lrec-1.801/)     |
-| MorfFlex: Handling Rich Morphology                                                                                                 | [2026.lrec-1.899](https://aclanthology.org/2026.lrec-1.899/)     |
-| Edition 2.0 of the PARSEME shared task on multilingual identification and paraphrasing of multiword expressions                    | [2026.mwe-1.33](https://aclanthology.org/2026.mwe-1.33/)         |
-| What Persists across Web Crawls? Genre and News Topic Variation in South Slavic Web Corpora                                        | [2026.wac-1.5](https://aclanthology.org/2026.wac-1.5/)           |
-| One Model, Five Tasks, Two RTX 3090 GPUs: The HSE System for the Sorbian Track of WMT26 Multitask LLMs with Limited Resources      | [2026.wmt-main.209](https://aclanthology.org/2026.wmt-main.209/) |
+| title                                                                                                                              | paper                                                            | mentioned in   |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------------|
+| A Lightweight N-gram Approach to Abbreviation Expansion in Large Corpora                                                           | [2026.cawl-1.10](https://aclanthology.org/2026.cawl-1.10/)       | body only      |
+| Environmental, Social and Governance Sentiment Analysis on Slovene News: A Novel Dataset and Models                                | [2026.fnp-1.5](https://aclanthology.org/2026.fnp-1.5/)           | body only      |
+| Modeling the Human Lexicon under Temperature Variations: Linguistic Factors, Diversity and Typicality in LLM Word Associations     | [2026.lrec-1.179](https://aclanthology.org/2026.lrec-1.179/)     | body only      |
+| PARSEME 2.0 Multilingual Corpus of Multiword Expressions                                                                           | [2026.lrec-1.378](https://aclanthology.org/2026.lrec-1.378/)     | body only      |
+| A Large-Scale Instruction-Tuning Dataset and Models for Slovenian Vision-Language Tasks                                            | [2026.lrec-1.740](https://aclanthology.org/2026.lrec-1.740/)     | body only      |
+| SemiAdapt: Semi-Supervised and Efficient LoRA-Based Domain Adaptation for Low-Resource Irish Machine Translation with Transformers | [2026.lrec-1.801](https://aclanthology.org/2026.lrec-1.801/)     | body only      |
+| MorfFlex: Handling Rich Morphology                                                                                                 | [2026.lrec-1.899](https://aclanthology.org/2026.lrec-1.899/)     | body only      |
+| Edition 2.0 of the PARSEME shared task on multilingual identification and paraphrasing of multiword expressions                    | [2026.mwe-1.33](https://aclanthology.org/2026.mwe-1.33/)         | body only      |
+| What Persists across Web Crawls? Genre and News Topic Variation in South Slavic Web Corpora                                        | [2026.wac-1.5](https://aclanthology.org/2026.wac-1.5/)           | body only      |
+| One Model, Five Tasks, Two RTX 3090 GPUs: The HSE System for the Sorbian Track of WMT26 Multitask LLMs with Limited Resources      | [2026.wmt-main.209](https://aclanthology.org/2026.wmt-main.209/) | body only      |
 
 {% endraw %}

@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Taml`
 
-**Speakers:** about 90.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 75.0 million first-language + 8.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q5885#P1098), 2019)
+**Speakers:** about 90.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India, Singapore, South Africa, Sri Lanka
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 191,848 articles in ta.wikipedia; 446 active users. This is ~1/39 of English data and ranks 46 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                 |
-| Common Crawl           | 1,009,629 pages per crawl on average, which is 0.0468% of the crawl (2026). This is ~1/883 of English data and ranks 36 of 113 languages in the set in Common Crawl.                                                                                                                                                                                     |
-| FineWeb                | 9.52 GB (tam_Taml 9.51 GB; tam_Latn 10.0 MB), equivalent to ≈3.48 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 9.94 GB removed by filtering. This is ~1/5,609 of English data and ranks 41 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 9.03 GB (tam_Taml 9.03 GB) (rank 17 of 166 in the set)                                                                                                                                                                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 191,848 articles in ta.wikipedia; 446 active users. This is ~1/39 of English data and ranks 46 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                |
+| Common Crawl           | 1,009,629 pages per crawl on average, which is 0.0468% of the crawl (2026). This is ~1/883 of English data and ranks 36 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                    |
+| FineWeb                | 9.52 GB (tam_Taml 9.51 GB; tam_Latn 10.0 MB), equivalent to ≈3.48 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 9.94 GB removed by filtering. This is ~1/5,609 of English data and ranks 41 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 9.03 GB (tam_Taml 9.03 GB) (rank 17 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                        |
 
 **By writing system:**
 
@@ -62,7 +62,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 1,134 sentences / 11,171 tokens in total: [UD_Tamil-MWTT](https://github.com/UniversalDependencies/UD_Tamil-MWTT) (534 sentences), [UD_Tamil-TTB](https://github.com/UniversalDependencies/UD_Tamil-TTB) (600 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                                  |
-| Wikidata labels        | 630,457 Wikidata items have a label in Tamil. (Wikidata codes (labels): ta (630,457))                                                                                                                                                                                                                           |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                  |
 | Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; [Tamil WordNet](http://www.au-kbc.org/research_areas/nlp/projects/tamil_wordnet.html) (size not listed); licence: OPEN.                                                                        |
 
 ### Parallel data (for machine translation)
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([tam2017](https://ebible.org/details.php?id=tam2017), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                             |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                 |
 
 ### How good are we at identifying data?
 
@@ -182,32 +183,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [5]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [5]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [7]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [2]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [8]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 7 datasets; Reading comprehension: 5 datasets; Knowledge &amp; QA: 5 datasets; Machine translation: 8 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 7 datasets; Reading comprehension: 5 datasets; Knowledge &amp; QA: 5 datasets; Machine translation: 8 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">2 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">8 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -234,14 +212,18 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                                                  | 6,372          | Native (Indian exams; some translated)                              |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                                  | —              | Machine translation (GPT-3.5, Okapi)                                |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                                  | 100            | Native (community-written, peer-verified)                           |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)                                         | 1,708          | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                                 | 2,100          | Human translation (professional/volunteer, from English)            |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 356            | Native (crowdsourced Tatoeba sentence pairs)                        |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                               | 998            | Human translation (professional) + post-edits                       |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)                                         | 1,708          | Human translation via English pivot                                 |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                      |
+| Machine translation                    |                                | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                                 | 2,100          | Human translation (professional/volunteer, from English)            |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 356            | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                               | 998            | Human translation (professional) + post-edits                       |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -267,22 +249,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 340 of ~18,498 papers (1.84%) (rank 20 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 340 of ~18,498 papers (1.84%) (rank 20 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Tamil
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 340):
+Here are up to ten papers published in 2026 that mention Tamil. None of the 340 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                    | paper                                                                                |
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
-| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                                                    | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)                   |
-| ByteBuilders@DravidianLangTech 2026: Transformer-Based Weighted Ensemble for Political Multiclass Sentiment Analysis of Tamil X (Twitter) Comments       | [2026.dravidianlangtech-1.20](https://aclanthology.org/2026.dravidianlangtech-1.20/) |
-| Dialectmind@DravidianLang Tech 2026: Zero-Shot Dialectal Tamil Automatic Speech Recognition Using a Large Pretrained Conformer Model                     | [2026.dravidianlangtech-1.32](https://aclanthology.org/2026.dravidianlangtech-1.32/) |
-| M4FC: a Multimodal, Multilingual, Multicultural, Multitask Real-World Fact-Checking Dataset                                                              | [2026.findings-emnlp.42](https://aclanthology.org/2026.findings-emnlp.42/)           |
-| BanglaLlama: LLaMA for Bangla Language                                                                                                                   | [2026.loreslm-1.7](https://aclanthology.org/2026.loreslm-1.7/)                       |
-| NEUNI@LT-EDI 2026: Counter Narrative Generation on Homophobic and Transphobic Comments                                                                   | [2026.ltedi-1.24](https://aclanthology.org/2026.ltedi-1.24/)                         |
-| Dual-Axis Compositional Contrastive Few-Shot Learning using Prototypes Across Linguistic and Semantic Dimensions for Indic Low-Resource Multilingual NLU | [2026.ltedi-1.3](https://aclanthology.org/2026.ltedi-1.3/)                           |
-| Polyglot-Lion: Efficient Multilingual ASR for Singapore via Balanced Fine-Tuning of Qwen3-ASR                                                            | [2026.mellm-1.18](https://aclanthology.org/2026.mellm-1.18/)                         |
-| CPS Lab 1@MMLow 2026: Hierarchical Multimodal Classification of Tamil Political Memes via Logit-Conditioned Stance-Target Prediction                     | [2026.mmlow-main.11](https://aclanthology.org/2026.mmlow-main.11/)                   |
-| PlurVA-LLM-2026 Shared Task Track-1: Curriculum Fine-Tuning with Soft Labels and Positional Consistency for Cross-Cultural Value Alignment               | [2026.plurvallm-1.14](https://aclanthology.org/2026.plurvallm-1.14/)                 |
+| title                                                                                                                                                    | paper                                                                                | mentioned in   |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|:---------------|
+| Towards Fast and Accurate Modeling for Cross-Lingual Label Projection                                                                                    | [2026.acl-long.1817](https://aclanthology.org/2026.acl-long.1817/)                   | body only      |
+| ByteBuilders@DravidianLangTech 2026: Transformer-Based Weighted Ensemble for Political Multiclass Sentiment Analysis of Tamil X (Twitter) Comments       | [2026.dravidianlangtech-1.20](https://aclanthology.org/2026.dravidianlangtech-1.20/) | body only      |
+| Dialectmind@DravidianLang Tech 2026: Zero-Shot Dialectal Tamil Automatic Speech Recognition Using a Large Pretrained Conformer Model                     | [2026.dravidianlangtech-1.32](https://aclanthology.org/2026.dravidianlangtech-1.32/) | body only      |
+| M4FC: a Multimodal, Multilingual, Multicultural, Multitask Real-World Fact-Checking Dataset                                                              | [2026.findings-emnlp.42](https://aclanthology.org/2026.findings-emnlp.42/)           | body only      |
+| BanglaLlama: LLaMA for Bangla Language                                                                                                                   | [2026.loreslm-1.7](https://aclanthology.org/2026.loreslm-1.7/)                       | body only      |
+| NEUNI@LT-EDI 2026: Counter Narrative Generation on Homophobic and Transphobic Comments                                                                   | [2026.ltedi-1.24](https://aclanthology.org/2026.ltedi-1.24/)                         | body only      |
+| Dual-Axis Compositional Contrastive Few-Shot Learning using Prototypes Across Linguistic and Semantic Dimensions for Indic Low-Resource Multilingual NLU | [2026.ltedi-1.3](https://aclanthology.org/2026.ltedi-1.3/)                           | body only      |
+| Polyglot-Lion: Efficient Multilingual ASR for Singapore via Balanced Fine-Tuning of Qwen3-ASR                                                            | [2026.mellm-1.18](https://aclanthology.org/2026.mellm-1.18/)                         | body only      |
+| CPS Lab 1@MMLow 2026: Hierarchical Multimodal Classification of Tamil Political Memes via Logit-Conditioned Stance-Target Prediction                     | [2026.mmlow-main.11](https://aclanthology.org/2026.mmlow-main.11/)                   | body only      |
+| PlurVA-LLM-2026 Shared Task Track-1: Curriculum Fine-Tuning with Soft Labels and Positional Consistency for Cross-Cultural Value Alignment               | [2026.plurvallm-1.14](https://aclanthology.org/2026.plurvallm-1.14/)                 | body only      |
 
 {% endraw %}

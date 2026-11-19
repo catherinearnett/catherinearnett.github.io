@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Cyrl` and `Latn`
 
-**Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 5.2 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q25285#P1098), 2010)
+**Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Russia
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 709,305 articles in tt.wikipedia; 101 active users. This is ~1/11 of English data and ranks 23 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                 |
-| Common Crawl           | 166,163 pages per crawl on average, which is 0.0077% of the crawl (2026). This is ~1/5,365 of English data and ranks 59 of 113 languages in the set in Common Crawl.                                                                                                                                                                                     |
-| FineWeb                | 0.56 GB (tat_Cyrl 0.52 GB; tat_Latn 40.0 MB), equivalent to ≈0.28 GB of English after byte-premium scaling (⚠️ only 92% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 1.94 GB removed by filtering. This is ~1/94,773 of English data and ranks 79 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 2.27 GB (tat_Cyrl 2.27 GB) (rank 57 of 166 in the set)                                                                                                                                                                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 709,305 articles in tt.wikipedia; 101 active users. This is ~1/11 of English data and ranks 23 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                |
+| Common Crawl           | 166,163 pages per crawl on average, which is 0.0077% of the crawl (2026). This is ~1/5,365 of English data and ranks 59 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                    |
+| FineWeb                | 0.56 GB (tat_Cyrl 0.52 GB; tat_Latn 40.0 MB), equivalent to ≈0.28 GB of English after byte-premium scaling (⚠️ only 92% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 1.94 GB removed by filtering. This is ~1/94,773 of English data and ranks 79 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 2.27 GB (tat_Cyrl 2.27 GB) (rank 57 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                        |
 
 **By writing system:**
 
@@ -62,7 +62,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 148 sentences / 2,280 tokens in total: [UD_Tatar-NMCTT](https://github.com/UniversalDependencies/UD_Tatar-NMCTT) (148 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 1,283 lemmas, 7,832 inflected forms ([unimorph/tat](https://github.com/unimorph/tat))                                                                                                                                |
-| Wikidata labels        | 843,016 Wikidata items have a label in Tatar. (Wikidata codes (labels): tt (843,016))                                                                                                                                |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                       |
 | Wordnets               | **None found**                                                                                                                                                                                                       |
 
 ### Parallel data (for machine translation)
@@ -74,6 +74,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -180,32 +181,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [1]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [1]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: 1 dataset; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 1 dataset; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 1 dataset; Knowledge &amp; QA: 1 dataset; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#33691e" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">1 dataset</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -214,10 +192,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 1. Linguistic knowledge       | BLiMP                   | [TatBLiMP](https://huggingface.co/datasets/ilchats/TatBLiMP)                         |          1,248 | Corpus-extracted + automatic perturbation                        |
 | 4. Reading comprehension      | QA – extractive RC      | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ | [TUMLU](https://github.com/ceferisbarov/TUMLU)                                       |            700 | Native (school/entrance exams)                                   |
-| Machine translation           | Machine translation     | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
-| Machine translation           | Machine translation     | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
-| Machine translation           | Machine translation     | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
-| Machine translation           | Machine translation     | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |          1,451 | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation           |                         | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
+| Machine translation           |                         | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation           |                         | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
+| Machine translation           |                         | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |          1,451 | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -245,22 +227,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 57 of ~18,498 papers (0.31%) (rank 79 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 57 of ~18,498 papers (0.31%) (rank 79 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Tatar
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 57):
+Here are up to ten papers published in 2026 that mention Tatar. None of the 57 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                                                     | paper                                                                      |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| Grammar as Control: Modular Language Generation for the Long Tail                                                                                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)         |
-| TIPA: Typologically Informed Parameter Aggregation                                                                                                        | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
-| Bootstrapping NLP for Sakha: Named Entity Recognition and Sentiment Analysis in an Extremely Low-Resource Setting                                         | [2026.lrec-1.259](https://aclanthology.org/2026.lrec-1.259/)               |
-| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                                                      | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)               |
-| ICT-NLP at SemEval-2026 Task 3: Less Is More — Multilingual Encoder with Joint Training and Adaptive Ensemble for Dimensional Aspect Sentiment Regression | [2026.semeval-1.131](https://aclanthology.org/2026.semeval-1.131/)         |
-| kevinyu66 at SemEval-2026 Task 3: A Retrieval-Augmented LLM System for Aspect–Opinion Triplet Extraction                                                  | [2026.semeval-1.16](https://aclanthology.org/2026.semeval-1.16/)           |
-| AILS-NTUA at SemEval-2026 Task 3: Efficient Dimensional Aspect-Based Sentiment Analysis                                                                   | [2026.semeval-1.163](https://aclanthology.org/2026.semeval-1.163/)         |
-| TeamLasse at SemEval-2026 Task 3: A Hybrid Generative-Discriminative Framework for Dimensional Aspect-Based Sentiment Analysis                            | [2026.semeval-1.273](https://aclanthology.org/2026.semeval-1.273/)         |
-| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                                                 | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                     |
-| Dictionary-Based Speculative Decoding for Non-Latin-Script Languages                                                                                      | [2026.unlp-1.15](https://aclanthology.org/2026.unlp-1.15/)                 |
+| title                                                                                                                                                     | paper                                                                      | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                                                                         | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)         | body only      |
+| TIPA: Typologically Informed Parameter Aggregation                                                                                                        | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) | body only      |
+| Bootstrapping NLP for Sakha: Named Entity Recognition and Sentiment Analysis in an Extremely Low-Resource Setting                                         | [2026.lrec-1.259](https://aclanthology.org/2026.lrec-1.259/)               | body only      |
+| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation                                                      | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)               | body only      |
+| ICT-NLP at SemEval-2026 Task 3: Less Is More — Multilingual Encoder with Joint Training and Adaptive Ensemble for Dimensional Aspect Sentiment Regression | [2026.semeval-1.131](https://aclanthology.org/2026.semeval-1.131/)         | body only      |
+| kevinyu66 at SemEval-2026 Task 3: A Retrieval-Augmented LLM System for Aspect–Opinion Triplet Extraction                                                  | [2026.semeval-1.16](https://aclanthology.org/2026.semeval-1.16/)           | body only      |
+| AILS-NTUA at SemEval-2026 Task 3: Efficient Dimensional Aspect-Based Sentiment Analysis                                                                   | [2026.semeval-1.163](https://aclanthology.org/2026.semeval-1.163/)         | body only      |
+| TeamLasse at SemEval-2026 Task 3: A Hybrid Generative-Discriminative Framework for Dimensional Aspect-Based Sentiment Analysis                            | [2026.semeval-1.273](https://aclanthology.org/2026.semeval-1.273/)         | body only      |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                                                                                 | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                     | body only      |
+| Dictionary-Based Speculative Decoding for Non-Latin-Script Languages                                                                                      | [2026.unlp-1.15](https://aclanthology.org/2026.unlp-1.15/)                 | body only      |
 
 {% endraw %}

@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Cyrl`
 
-**Speakers:** about 24.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 26.9 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q8798#P1098), 2003)
+**Speakers:** about 24.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Moldova, Russia, Ukraine
 
@@ -48,12 +48,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                          |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,440,528 articles in uk.wikipedia; 4,845 active users. This is ~1/5 of English data and ranks 12 of 168 languages in the set in Wikipedia.                                                                     |
-| Common Crawl           | 16,635,839 pages per crawl on average, which is 0.7720% of the crawl (2026). This is ~1/54 of English data and ranks 16 of 113 languages in the set in Common Crawl.                                            |
-| FineWeb                | 91.31 GB (ukr_Cyrl 91.31 GB), equivalent to ≈52.14 GB of English after byte-premium scaling; 70.51 GB removed by filtering. This is ~1/585 of English data and ranks 21 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 11.96 GB (ukr_Cyrl 11.96 GB) (rank 6 of 166 in the set)                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,440,528 articles in uk.wikipedia; 4,845 active users. This is ~1/5 of English data and ranks 12 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                    |
+| Common Crawl           | 16,635,839 pages per crawl on average, which is 0.7720% of the crawl (2026). This is ~1/54 of English data and ranks 16 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                           |
+| FineWeb                | 91.31 GB (ukr_Cyrl 91.31 GB), equivalent to ≈52.14 GB of English after byte-premium scaling; 70.51 GB removed by filtering. This is ~1/585 of English data and ranks 21 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 11.96 GB (ukr_Cyrl 11.96 GB) (rank 6 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -63,7 +63,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 3 treebanks, 14,582 sentences / 241,140 tokens in total: [UD_Ukrainian-IU](https://github.com/UniversalDependencies/UD_Ukrainian-IU) (7,092 sentences), [UD_Ukrainian-ParlaMint](https://github.com/UniversalDependencies/UD_Ukrainian-ParlaMint) (7,142 sentences), [UD_Ukrainian-Zhelekhivka](https://github.com/UniversalDependencies/UD_Ukrainian-Zhelekhivka) (348 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 1,493 lemmas, 20,904 inflected forms ([unimorph/ukr](https://github.com/unimorph/ukr))                                                                                                                                                                                                                                                                                                                                                                       |
-| Wikidata labels        | 6,994,447 Wikidata items have a label in Ukrainian. (Wikidata codes (labels): uk (6,994,447))                                                                                                                                                                                                                                                                                                                                                                |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                               |
 | Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ### Parallel data (for machine translation)
@@ -75,6 +75,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                       |
 | Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([ukr1871](https://ebible.org/details.php?id=ukr1871), Public Domain). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                    |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                        |
 
 ### How good are we at identifying data?
 
@@ -182,32 +183,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [7]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [6]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [2]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 6 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 7 datasets; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 2 datasets; Commonsense reasoning: 6 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 7 datasets; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">2 datasets</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -232,11 +210,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)              | —              | Machine translation (GPT-3.5, Okapi)                             |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CUS-QA](https://huggingface.co/datasets/ufal/cus-qa)                                               | 1,158          | Native (regional knowledge)                                      |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 15,984         | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Original WMT24 reference + new post-edits                        |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 15,984         | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Original WMT24 reference + new post-edits                        |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -262,22 +244,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 292 of ~18,498 papers (1.58%) (rank 26 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 292 of ~18,498 papers (1.58%) (rank 26 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Ukrainian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 292):
+Here are up to ten papers published in 2026 that mention Ukrainian. None of the 292 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                          | paper                                                                        |
-|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| Simultaneous Speech-to-Text Translation Web Application for Estonian                                                           | [2026.eacl-demo.40](https://aclanthology.org/2026.eacl-demo.40/)             |
-| Prompt Revision as a Source of Cultural Bias in Text-to-Image Systems                                                          | [2026.emnlp-main.1599](https://aclanthology.org/2026.emnlp-main.1599/)       |
-| xVerify: Efficient Answer Verifier for Reasoning Model Evaluations                                                             | [2026.findings-emnlp.159](https://aclanthology.org/2026.findings-emnlp.159/) |
-| Modeling the Language of Holocaust Survivors’ Testimony with Domain-Adapted Transformers                                       | [2026.htres-2.9](https://aclanthology.org/2026.htres-2.9/)                   |
-| A Longitudinal, Multinational, and Multilingual Corpus of News Coverage of the Russo-Ukrainian War                             | [2026.lrec-1.512](https://aclanthology.org/2026.lrec-1.512/)                 |
-| An Exploration-Analysis-Disambiguation Reasoning Framework for Word Sense Disambiguation with Low-Parameter LLMs               | [2026.lrec-1.816](https://aclanthology.org/2026.lrec-1.816/)                 |
-| TeamLasse at SemEval-2026 Task 3: A Hybrid Generative-Discriminative Framework for Dimensional Aspect-Based Sentiment Analysis | [2026.semeval-1.273](https://aclanthology.org/2026.semeval-1.273/)           |
-| What does Surprisal have to do with Information Status?                                                                        | [2026.sigtyp-main.4](https://aclanthology.org/2026.sigtyp-main.4/)           |
-| LAND: Learning an Adaptive Number of Draws for Bayesian Best-of-N Selection                                                    | [2026.wmt-main.28](https://aclanthology.org/2026.wmt-main.28/)               |
-| ReMova: Fine-tuning LLMs for English to Belarusian translation                                                                 | [2026.wmt-main.75](https://aclanthology.org/2026.wmt-main.75/)               |
+| title                                                                                                                          | paper                                                                        | mentioned in   |
+|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
+| Simultaneous Speech-to-Text Translation Web Application for Estonian                                                           | [2026.eacl-demo.40](https://aclanthology.org/2026.eacl-demo.40/)             | body only      |
+| Prompt Revision as a Source of Cultural Bias in Text-to-Image Systems                                                          | [2026.emnlp-main.1599](https://aclanthology.org/2026.emnlp-main.1599/)       | body only      |
+| xVerify: Efficient Answer Verifier for Reasoning Model Evaluations                                                             | [2026.findings-emnlp.159](https://aclanthology.org/2026.findings-emnlp.159/) | body only      |
+| Modeling the Language of Holocaust Survivors’ Testimony with Domain-Adapted Transformers                                       | [2026.htres-2.9](https://aclanthology.org/2026.htres-2.9/)                   | body only      |
+| A Longitudinal, Multinational, and Multilingual Corpus of News Coverage of the Russo-Ukrainian War                             | [2026.lrec-1.512](https://aclanthology.org/2026.lrec-1.512/)                 | body only      |
+| An Exploration-Analysis-Disambiguation Reasoning Framework for Word Sense Disambiguation with Low-Parameter LLMs               | [2026.lrec-1.816](https://aclanthology.org/2026.lrec-1.816/)                 | body only      |
+| TeamLasse at SemEval-2026 Task 3: A Hybrid Generative-Discriminative Framework for Dimensional Aspect-Based Sentiment Analysis | [2026.semeval-1.273](https://aclanthology.org/2026.semeval-1.273/)           | body only      |
+| What does Surprisal have to do with Information Status?                                                                        | [2026.sigtyp-main.4](https://aclanthology.org/2026.sigtyp-main.4/)           | body only      |
+| LAND: Learning an Adaptive Number of Draws for Bayesian Best-of-N Selection                                                    | [2026.wmt-main.28](https://aclanthology.org/2026.wmt-main.28/)               | body only      |
+| ReMova: Fine-tuning LLMs for English to Belarusian translation                                                                 | [2026.wmt-main.75](https://aclanthology.org/2026.wmt-main.75/)               | body only      |
 
 {% endraw %}

@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Arab`
 
-**Speakers:** about 43.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 24.6 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33997#P1098), 2014)
+**Speakers:** about 43.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** India, Pakistan
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                           |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 23,392 articles in sd.wikipedia; 43 active users. This is ~1/323 of English data and ranks 81 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                          |
-| Common Crawl           | 44,743 pages per crawl on average, which is 0.0021% of the crawl (2026). This is ~1/19,925 of English data and ranks 78 of 113 languages in the set in Common Crawl.                                                                                                                                                                                             |
-| FineWeb                | 0.42 GB (snd_Arab 0.42 GB; snd_Deva 0; snd_Latn 0), equivalent to ≈0.26 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.30 GB removed by filtering. This is ~1/127,115 of English data and ranks 82 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 0.81 GB (snd_Arab 0.81 GB) (rank 79 of 166 in the set)                                                                                                                                                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 23,392 articles in sd.wikipedia; 43 active users. This is ~1/323 of English data and ranks 81 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                                                                                                                                                         |
+| Common Crawl           | 44,743 pages per crawl on average, which is 0.0021% of the crawl (2026). This is ~1/19,925 of English data and ranks 78 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                                                                                                                                                            |
+| FineWeb                | 0.42 GB (snd_Arab 0.42 GB; snd_Deva 0; snd_Latn 0), equivalent to ≈0.26 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.30 GB removed by filtering. This is ~1/127,115 of English data and ranks 82 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 0.81 GB (snd_Arab 0.81 GB) (rank 79 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                                                                                                                                                |
 
 **By writing system:**
 
@@ -63,7 +63,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 5,766 sentences / 95,358 tokens in total: [UD_Sindhi-Isra](https://github.com/UniversalDependencies/UD_Sindhi-Isra) (5,766 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | **None found**                                                                                                                                                                                                            |
-| Wikidata labels        | 404,687 Wikidata items have a label in Sindhi. (Wikidata codes (labels): sd (404,687))                                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                            |
 | Wordnets               | **None found**                                                                                                                                                                                                            |
 
 ### Parallel data (for machine translation)
@@ -75,6 +75,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -180,32 +181,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [1]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [3]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 3 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 1 dataset; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: 3 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 1 dataset; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#33691e" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">3 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -217,11 +195,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension      | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                           | 900            | Human translation (professional)                                    |
 | 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                              | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                                  | 100            | Native (community-written, peer-verified)                           |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Human translation via English pivot                                 |
-| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)                             | 2,024          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation           | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation           | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 4              | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation           |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Human translation via English pivot                                 |
+| Machine translation           |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)                             | 2,024          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation           |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
+| Machine translation           |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation           |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 4              | Native (crowdsourced Tatoeba sentence pairs)                        |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -248,22 +230,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 44 of ~18,498 papers (0.24%) (rank 93 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 44 of ~18,498 papers (0.24%) (rank 93 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Sindhi
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 44):
+Here are up to ten papers published in 2026 that mention Sindhi. None of the 44 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                        | paper                                                                      |
-|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| Revisiting Evaluation of Question Answering Systems in Low-Resource Indic Languages: Bridging Human and Metric Alignment     | [2026.acl-short.58](https://aclanthology.org/2026.acl-short.58/)           |
-| Multilingual Tokenization through the Lens of Indian Languages: Challenges and Insights                                      | [2026.findings-acl.1632](https://aclanthology.org/2026.findings-acl.1632/) |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                          | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/) |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                   | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             |
-| Common Voice for Pakistan: Developing an Open Speech Corpus for Low-Resource Pakistani Languages                             | [2026.lrec-1.265](https://aclanthology.org/2026.lrec-1.265/)               |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
-| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                   | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)               |
-| MaskedVerbalizer: Automatic Verbalizer Construction for Few-Shot Text Classification in Low-Resource Right-to-Left Languages | [2026.lrec-1.59](https://aclanthology.org/2026.lrec-1.59/)                 |
-| SdQuAD: A Large Benchmark Question Answering Dataset for Low-resource Sindhi Language                                        | [2026.resourceful-4.6](https://aclanthology.org/2026.resourceful-4.6/)     |
-| Beyond Fine-Tuning: Procrustes Alignment of Multilingual Embeddings for Low-Resource Cross-Lingual Retrieval                 | [2026.sigul-1.23](https://aclanthology.org/2026.sigul-1.23/)               |
+| title                                                                                                                        | paper                                                                      | mentioned in   |
+|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:---------------|
+| Revisiting Evaluation of Question Answering Systems in Low-Resource Indic Languages: Bridging Human and Metric Alignment     | [2026.acl-short.58](https://aclanthology.org/2026.acl-short.58/)           | body only      |
+| Multilingual Tokenization through the Lens of Indian Languages: Challenges and Insights                                      | [2026.findings-acl.1632](https://aclanthology.org/2026.findings-acl.1632/) | body only      |
+| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                          | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/) | body only      |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                   | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             | body only      |
+| Common Voice for Pakistan: Developing an Open Speech Corpus for Low-Resource Pakistani Languages                             | [2026.lrec-1.265](https://aclanthology.org/2026.lrec-1.265/)               | body only      |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                      | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               | body only      |
+| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                   | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)               | body only      |
+| MaskedVerbalizer: Automatic Verbalizer Construction for Few-Shot Text Classification in Low-Resource Right-to-Left Languages | [2026.lrec-1.59](https://aclanthology.org/2026.lrec-1.59/)                 | body only      |
+| SdQuAD: A Large Benchmark Question Answering Dataset for Low-resource Sindhi Language                                        | [2026.resourceful-4.6](https://aclanthology.org/2026.resourceful-4.6/)     | body only      |
+| Beyond Fine-Tuning: Procrustes Alignment of Multilingual Embeddings for Low-Resource Cross-Lingual Retrieval                 | [2026.sigul-1.23](https://aclanthology.org/2026.sigul-1.23/)               | body only      |
 
 {% endraw %}

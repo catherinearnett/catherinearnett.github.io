@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 38.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `orm`, so includes other varieties · 24.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33864#P1098), 2007) — counted for the macrolanguage `orm`, so includes other varieties
+**Speakers:** about 38.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `orm`, so includes other varieties
 
 **Official / recognised in:** Ethiopia
 
@@ -38,12 +38,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                           |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,970 articles in om.wikipedia; 28 active users. ⚠️ NB: recorded under the macrolanguage code `orm`, which can include other varieties of Oromo.                                                                 |
-| Common Crawl           | 15,021 pages per crawl on average, which is 0.0007% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `orm`, which can include other varieties of Oromo.                                         |
-| FineWeb                | 58.6 MB (gaz_Latn 60.0 MB), equivalent to ≈44.0 MB of English after byte-premium scaling; 0.17 GB removed by filtering. This is ~1/911,458 of English data and ranks 113 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 0.11 GB (gaz_Latn 0.11 GB) (rank 118 of 166 in the set)                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,970 articles in om.wikipedia; 28 active users. ⚠️ NB: recorded under the macrolanguage code `orm`, which can include other varieties of Oromo.                                                                                                 |
+| Common Crawl           | 15,021 pages per crawl on average, which is 0.0007% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `orm`, which can include other varieties of Oromo.                                                                         |
+| FineWeb                | 58.6 MB (gaz_Latn 60.0 MB), equivalent to ≈44.0 MB of English after byte-premium scaling; 0.17 GB removed by filtering. This is ~1/911,458 of English data and ranks 113 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 0.11 GB (gaz_Latn 0.11 GB) (rank 118 of the 166 languages in the set that have any; 166 have none)                                                                                                                                               |
 
 ### Structured and annotated data
 
@@ -53,7 +53,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | **None found**                                                                                                                                                                       |
 | UniMorph               | 92 lemmas, 2,046 inflected forms ([unimorph/orm](https://github.com/unimorph/orm)) ⚠️ Listed under the macrolanguage code `orm`, so this may cover other varieties as well as Oromo. |
-| Wikidata labels        | 205,225 Wikidata items have a label in Oromo. (Wikidata codes (labels): om (205,225))                                                                                                |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                       |
 | Wordnets               | **None found**                                                                                                                                                                       |
 
 ### Parallel data (for machine translation)
@@ -65,6 +65,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
 | Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -140,9 +141,17 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 | [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)       | 14.8B        |                   21 |   2026 | Qwen/Qwen3-14B-Base   |
 | [McGill-NLP/AfriqueGemma-12B](https://huggingface.co/McGill-NLP/AfriqueGemma-12B)     | 12.2B        |                   21 |   2026 | google/gemma-3-12b-pt |
 
-### Largest models tagged *only* for Oromo
+### Models tagged *only* for Oromo
 
-_none_
+None of these has a known parameter count, so here is a random sample of 5 of the 8 model families:
+
+| model                                                                                 |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|---------------------:|-------:|:----------------|
+| [goldfish-models/gaz_latn_10mb](https://huggingface.co/goldfish-models/gaz_latn_10mb) |                    1 |   2024 | —               |
+| [goldfish-models/gaz_latn_5mb](https://huggingface.co/goldfish-models/gaz_latn_5mb)   |                    1 |   2024 | —               |
+| [goldfish-models/gaz_latn_full](https://huggingface.co/goldfish-models/gaz_latn_full) |                    1 |   2024 | —               |
+| [goldfish-models/orm_latn_5mb](https://huggingface.co/goldfish-models/orm_latn_5mb)   |                    1 |   2024 | —               |
+| [goldfish-models/orm_latn_full](https://huggingface.co/goldfish-models/orm_latn_full) |                    1 |   2024 | —               |
 
 _32 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -166,32 +175,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [2]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ❌ 3. Commonsense     \
-         /      reasoning [0]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [0]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [7]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 2 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 7 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: none; Commonsense reasoning: none; Reading comprehension: 2 datasets; Knowledge &amp; QA: 2 datasets; Machine translation: 7 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="300.0" y="192.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">none</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="430.2" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">none</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -201,13 +187,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)             | 4,458          | Synthetic (LLM-generated) on native Wikipedia                       |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [AfriMMLU (IrokoBench)](https://huggingface.co/datasets/masakhane/afrimmlu)            | 500            | Human translation (professional)                                    |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles) | 100            | Native (community-written, peer-verified)                           |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                            | 854            | Human translation via English pivot                                 |
-| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation           | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                          | —              | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                              | 1,997          | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                          | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation           | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                         | —              | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                | 2,100          | Human translation (professional/volunteer, from English)            |
+| Machine translation           |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                            | 854            | Human translation via English pivot                                 |
+| Machine translation           |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation           |                                | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                          | —              | Human translation (professional, from English)                      |
+| Machine translation           |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                              | 1,997          | Human translation (professional, from English)                      |
+| Machine translation           |                                | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                          | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation           |                                | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                         | —              | Human translation (professional, from English)                      |
+| Machine translation           |                                | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                | 2,100          | Human translation (professional/volunteer, from English)            |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -233,22 +223,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 39 of ~18,498 papers (0.21%) (rank 103 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 39 of ~18,498 papers (0.21%) (rank 103 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: West Central Oromo | Oromo
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 39):
+Here are up to ten papers published in 2026 that mention Oromo. None of the 39 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                        | paper                                                                        |
-|:-------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| Sample-Size Scaling of the African Languages NLI Evaluation                                                  | [2026.africanlp-main.22](https://aclanthology.org/2026.africanlp-main.22/)   |
-| Large-scale Multilingual News Image Captioning with LLMs                                                     | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)       |
-| AfrIFact: Cultural Information Retrieval, Evidence Extraction And Fact Checking for African Languages        | [2026.emnlp-main.133](https://aclanthology.org/2026.emnlp-main.133/)         |
-| Active Learning with Non-Uniform Costs for African Natural Language Processing                               | [2026.findings-eacl.349](https://aclanthology.org/2026.findings-eacl.349/)   |
-| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) |
-| Yeswa-Stories: A Three-Way Parallel Dataset of Female African Figures in Low-Web Data Languages              | [2026.gitt-1.7](https://aclanthology.org/2026.gitt-1.7/)                     |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                   | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)               |
-| Mining Naturally Romanized Seed Corpora without Romanizations                                                | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)                 |
-| Enhancing Multi-Label Emotion Analysis and Corresponding Intensities for Ethiopian Languages                 | [2026.lrec-1.639](https://aclanthology.org/2026.lrec-1.639/)                 |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                             | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                 |
+| title                                                                                                        | paper                                                                        | mentioned in   |
+|:-------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------|
+| Sample-Size Scaling of the African Languages NLI Evaluation                                                  | [2026.africanlp-main.22](https://aclanthology.org/2026.africanlp-main.22/)   | body only      |
+| Large-scale Multilingual News Image Captioning with LLMs                                                     | [2026.emnlp-main.1209](https://aclanthology.org/2026.emnlp-main.1209/)       | body only      |
+| AfrIFact: Cultural Information Retrieval, Evidence Extraction And Fact Checking for African Languages        | [2026.emnlp-main.133](https://aclanthology.org/2026.emnlp-main.133/)         | body only      |
+| Active Learning with Non-Uniform Costs for African Natural Language Processing                               | [2026.findings-eacl.349](https://aclanthology.org/2026.findings-eacl.349/)   | body only      |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/) | body only      |
+| Yeswa-Stories: A Three-Way Parallel Dataset of Female African Figures in Low-Web Data Languages              | [2026.gitt-1.7](https://aclanthology.org/2026.gitt-1.7/)                     | body only      |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                   | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)               | body only      |
+| Mining Naturally Romanized Seed Corpora without Romanizations                                                | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)                 | body only      |
+| Enhancing Multi-Label Emotion Analysis and Corresponding Intensities for Ethiopian Languages                 | [2026.lrec-1.639](https://aclanthology.org/2026.lrec-1.639/)                 | body only      |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                             | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                 | body only      |
 
 {% endraw %}

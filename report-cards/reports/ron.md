@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 20.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 24.3 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q7913#P1098), 2019)
+**Speakers:** about 20.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Moldova, Romania
 
@@ -47,12 +47,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                            |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 550,414 articles in ro.wikipedia; 1,880 active users. This is ~1/14 of English data and ranks 28 of 168 languages in the set in Wikipedia.                                                                                        |
-| Common Crawl           | 12,147,112 pages per crawl on average, which is 0.5638% of the crawl (2026). This is ~1/73 of English data and ranks 18 of 113 languages in the set in Common Crawl.                                                              |
-| FineWeb                | 91.75 GB (ron_Latn 91.75 GB; ron_Cyrl 10.0 MB), equivalent to ≈82.27 GB of English after byte-premium scaling; 76.76 GB removed by filtering. This is ~1/582 of English data and ranks 20 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 7.87 GB (ron_Latn 7.87 GB) (rank 26 of 166 in the set)                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                                            |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 550,414 articles in ro.wikipedia; 1,880 active users. This is ~1/14 of English data and ranks 28 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                                       |
+| Common Crawl           | 12,147,112 pages per crawl on average, which is 0.5638% of the crawl (2026). This is ~1/73 of English data and ranks 18 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                                             |
+| FineWeb                | 91.75 GB (ron_Latn 91.75 GB; ron_Cyrl 10.0 MB), equivalent to ≈82.27 GB of English after byte-premium scaling; 76.76 GB removed by filtering. This is ~1/582 of English data and ranks 20 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 7.87 GB (ron_Latn 7.87 GB) (rank 26 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                                 |
 
 **By writing system:**
 
@@ -71,7 +71,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 6 treebanks, 40,720 sentences / 942,149 tokens in total: [UD_Romanian-ArT](https://github.com/UniversalDependencies/UD_Romanian-ArT) (50 sentences), [UD_Romanian-MolDoRo](https://github.com/UniversalDependencies/UD_Romanian-MolDoRo) (30 sentences), [UD_Romanian-Nonstandard](https://github.com/UniversalDependencies/UD_Romanian-Nonstandard) (26,225 sentences), [UD_Romanian-RRT](https://github.com/UniversalDependencies/UD_Romanian-RRT) (9,524 sentences), [UD_Romanian-SiMoNERo](https://github.com/UniversalDependencies/UD_Romanian-SiMoNERo) (4,681 sentences), [UD_Romanian-TueCL](https://github.com/UniversalDependencies/UD_Romanian-TueCL) (210 sentences). All have POS tags, dependency syntax, lemmas. |
 | UniMorph               | 4,405 lemmas, 80,266 inflected forms ([unimorph/ron](https://github.com/unimorph/ron))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Wikidata labels        | 6,751,178 Wikidata items have a label in Romanian. (Wikidata codes (labels): ro (6,751,178))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Wordnets               | [Romanian Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-ro-1.4.tar.xz): 56,026 synsets, 52,600 words, 84,638 senses; licence: https://creativecommons.org/licenses/by-sa/; [BalkaNet](http://www.dblab.upatras.gr/balkanet/) (size not listed); [MultiWordNet](http://multiwordnet.fbk.eu/english/home.php) (size not listed); licence: CC-BY 3.0.                                                                                                                                                                                                                                                                                                                                                       |
 
 ### Parallel data (for machine translation)
@@ -83,6 +83,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                     |
 | Bible translations (eBible corpus) | **Yes** — 4 translations: full Bible ([ron1924](https://ebible.org/details.php?id=ron1924), Public Domain); New Testament ([ronlsb](https://ebible.org/details.php?id=ronlsb), Public Domain); portions ([ronBayash](https://ebible.org/details.php?id=ronBayash), by 4.0); portions ([ronludari](https://ebible.org/details.php?id=ronludari), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                  |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                                                                                                                                                                                                                      |
 
 ### How good are we at identifying data?
 
@@ -189,32 +190,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [6]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [2]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [7]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 7 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 6 datasets; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 7 datasets; Reading comprehension: 2 datasets; Knowledge &amp; QA: 6 datasets; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">7 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -238,11 +216,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                               | 14,042         | MT + community post-editing                                      |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)              | —              | Machine translation (GPT-3.5, Okapi)                             |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                         |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 6,632          | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 6,632          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -268,22 +250,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 211 of ~18,498 papers (1.14%) (rank 33 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 211 of ~18,498 papers (1.14%) (rank 33 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Romanian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 211):
+Here are up to ten papers published in 2026 that mention Romanian. None of the 211 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                                              |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)                 |
-| Disentangling Meaning and Language Components in Diverse Multilingual Sentence Embeddings                                   | [2026.acl-srw.102](https://aclanthology.org/2026.acl-srw.102/)                     |
-| MemeLens: Multilingual Multitask VLMs for Memes                                                                             | [2026.emnlp-main.2290](https://aclanthology.org/2026.emnlp-main.2290/)             |
-| PolERo: Studying Political Evasion in Romanian                                                                              | [2026.emnlp-main.2688](https://aclanthology.org/2026.emnlp-main.2688/)             |
-| Representation Collapse in Machine Translation Through the Lens of Angular Dispersion                                       | [2026.findings-eacl.126](https://aclanthology.org/2026.findings-eacl.126/)         |
-| PATCH: Mitigating PII Leakage in Language Models with Privacy-Aware Targeted Circuit PatcHing                               | [2026.findings-eacl.271](https://aclanthology.org/2026.findings-eacl.271/)         |
-| Register-based data selection for multilingual LLMs                                                                         | [2026.findings-emnlp.4](https://aclanthology.org/2026.findings-emnlp.4/)           |
-| Estonian WinoGrande Dataset: Comparative Analysis of LLM Performance on Human and Machine Translation                       | [2026.lrec-1.549](https://aclanthology.org/2026.lrec-1.549/)                       |
-| asetclarity at SemEval-2026 Task 6: An Imbalance-Aware RoBERTa Cross-Encoder for Political Response Clarity Classification  | [2026.semeval-1.146](https://aclanthology.org/2026.semeval-1.146/)                 |
-| Mitigating Language Bias in Multilingual Sentence Embeddings for Cross-Lingual Similarity Estimation                        | [2026.starsem-conference.26](https://aclanthology.org/2026.starsem-conference.26/) |
+| title                                                                                                                       | paper                                                                              | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:---------------|
+| ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models | [2026.acl-long.1555](https://aclanthology.org/2026.acl-long.1555/)                 | body only      |
+| Disentangling Meaning and Language Components in Diverse Multilingual Sentence Embeddings                                   | [2026.acl-srw.102](https://aclanthology.org/2026.acl-srw.102/)                     | body only      |
+| MemeLens: Multilingual Multitask VLMs for Memes                                                                             | [2026.emnlp-main.2290](https://aclanthology.org/2026.emnlp-main.2290/)             | body only      |
+| PolERo: Studying Political Evasion in Romanian                                                                              | [2026.emnlp-main.2688](https://aclanthology.org/2026.emnlp-main.2688/)             | body only      |
+| Representation Collapse in Machine Translation Through the Lens of Angular Dispersion                                       | [2026.findings-eacl.126](https://aclanthology.org/2026.findings-eacl.126/)         | body only      |
+| PATCH: Mitigating PII Leakage in Language Models with Privacy-Aware Targeted Circuit PatcHing                               | [2026.findings-eacl.271](https://aclanthology.org/2026.findings-eacl.271/)         | body only      |
+| Register-based data selection for multilingual LLMs                                                                         | [2026.findings-emnlp.4](https://aclanthology.org/2026.findings-emnlp.4/)           | body only      |
+| Estonian WinoGrande Dataset: Comparative Analysis of LLM Performance on Human and Machine Translation                       | [2026.lrec-1.549](https://aclanthology.org/2026.lrec-1.549/)                       | body only      |
+| asetclarity at SemEval-2026 Task 6: An Imbalance-Aware RoBERTa Cross-Encoder for Political Response Clarity Classification  | [2026.semeval-1.146](https://aclanthology.org/2026.semeval-1.146/)                 | body only      |
+| Mitigating Language Bias in Multilingual Sentence Embeddings for Cross-Lingual Similarity Estimation                        | [2026.starsem-conference.26](https://aclanthology.org/2026.starsem-conference.26/) | body only      |
 
 {% endraw %}

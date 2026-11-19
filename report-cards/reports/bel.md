@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Cyrl`
 
-**Speakers:** about 10.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 7.6 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9091#P1098), 2009)
+**Speakers:** about 10.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Belarus
 
@@ -50,12 +50,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 361,833 articles in be, be-tarask.wikipedia; 540 active users. This is ~1/21 of English data and ranks 31 of 168 languages in the set in Wikipedia.                                                            |
-| Common Crawl           | 351,227 pages per crawl on average, which is 0.0163% of the crawl (2026). This is ~1/2,538 of English data and ranks 50 of 113 languages in the set in Common Crawl.                                           |
-| FineWeb                | 4.19 GB (bel_Cyrl 4.19 GB), equivalent to ≈2.09 GB of English after byte-premium scaling; 3.20 GB removed by filtering. This is ~1/12,735 of English data and ranks 51 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 5.24 GB (bel_Cyrl 5.24 GB) (rank 39 of 166 in the set)                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 361,833 articles in be, be-tarask.wikipedia; 540 active users. This is ~1/21 of English data and ranks 31 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                           |
+| Common Crawl           | 351,227 pages per crawl on average, which is 0.0163% of the crawl (2026). This is ~1/2,538 of English data and ranks 50 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                          |
+| FineWeb                | 4.19 GB (bel_Cyrl 4.19 GB), equivalent to ≈2.09 GB of English after byte-premium scaling; 3.20 GB removed by filtering. This is ~1/12,735 of English data and ranks 51 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 5.24 GB (bel_Cyrl 5.24 GB) (rank 39 of the 166 languages in the set that have any; 166 have none)                                                                                                                                              |
 
 ### Structured and annotated data
 
@@ -65,7 +65,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 1 treebank, 25,231 sentences / 305,109 tokens in total: [UD_Belarusian-HSE](https://github.com/UniversalDependencies/UD_Belarusian-HSE) (25,231 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
 | UniMorph               | 1,027 lemmas, 16,113 inflected forms ([unimorph/bel](https://github.com/unimorph/bel))                                                                                                                                             |
-| Wikidata labels        | 849,504 Wikidata items have a label in Belarusian. (Wikidata codes (labels): be (849,504), be-tarask (678,309))                                                                                                                    |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                     |
 | Wordnets               | **None found**                                                                                                                                                                                                                     |
 
 ### Parallel data (for machine translation)
@@ -77,6 +77,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                 |
 | Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([bel](https://ebible.org/details.php?id=bel), by-nc 4.0); New Testament + parts of the Old Testament ([beln](https://ebible.org/details.php?id=beln), by-nc 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                              |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                                                                  |
 
 ### How good are we at identifying data?
 
@@ -184,32 +185,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [2]    \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [1]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [2]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [4]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 2 datasets; Reading comprehension: 1 dataset; Knowledge &amp; QA: 2 datasets; Machine translation: 4 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: 2 datasets; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 2 datasets; Reading comprehension: 1 dataset; Knowledge &amp; QA: 2 datasets; Machine translation: 4 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#1b3d0a" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">1 dataset</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">2 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="169.8" y="248.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">2 datasets</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -223,10 +201,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 2,500          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 2,500          | Native (crowdsourced Tatoeba sentence pairs)                     |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -253,22 +235,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 53 of ~18,498 papers (0.29%) (rank 84 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 53 of ~18,498 papers (0.29%) (rank 84 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Belarusian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 53):
+Here are up to ten papers published in 2026 that mention Belarusian. None of the 53 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                                       | paper                                                              |
-|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
-| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                                   | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/) |
-| Presentation of the Project CLingS: Cross-lingual information retrieval for scientific datasets in less-resourced languages | [2026.eamt-2.6](https://aclanthology.org/2026.eamt-2.6/)           |
-| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)   |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                     | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                            | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)       |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)       |
-| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets                                       | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)             |
-| Probing the Dynamics of Syntactic Ability Acquisition Throughout LLM Pretraining                                            | [2026.udw-1.1](https://aclanthology.org/2026.udw-1.1/)             |
-| From Treebank Metadata to Sentence-Level Genre in Universal Dependencies: A Reproducible, Versioned Resource                | [2026.udw-1.24](https://aclanthology.org/2026.udw-1.24/)           |
-| Evaluation Framework for Transfer Learning between Closely Related Lects: A Case Study of Lemko                             | [2026.vardial-1.25](https://aclanthology.org/2026.vardial-1.25/)   |
+| title                                                                                                                       | paper                                                              | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------------|
+| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                                   | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/) | body only      |
+| Presentation of the Project CLingS: Cross-lingual information retrieval for scientific datasets in less-resourced languages | [2026.eamt-2.6](https://aclanthology.org/2026.eamt-2.6/)           | body only      |
+| Overview of the Second Workshop on Language Models for Low-Resource Languages (LoResLM 2026)                                | [2026.loreslm-1.56](https://aclanthology.org/2026.loreslm-1.56/)   | body only      |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                     | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)       | body only      |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                            | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)       | body only      |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                              | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)       | body only      |
+| Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets                                       | [2026.mrl-1.4](https://aclanthology.org/2026.mrl-1.4/)             | body only      |
+| Probing the Dynamics of Syntactic Ability Acquisition Throughout LLM Pretraining                                            | [2026.udw-1.1](https://aclanthology.org/2026.udw-1.1/)             | body only      |
+| From Treebank Metadata to Sentence-Level Genre in Universal Dependencies: A Reproducible, Versioned Resource                | [2026.udw-1.24](https://aclanthology.org/2026.udw-1.24/)           | body only      |
+| Evaluation Framework for Transfer Learning between Closely Related Lects: A Case Study of Lemko                             | [2026.vardial-1.25](https://aclanthology.org/2026.vardial-1.25/)   | body only      |
 
 {% endraw %}

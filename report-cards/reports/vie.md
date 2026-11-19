@@ -18,7 +18,7 @@ This report is designed to help compile existing resources to give you an idea o
 
 **Writing systems:** `Latn`
 
-**Speakers:** about 92.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 76.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9199#P1098), 2019)
+**Speakers:** about 92.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
 
 **Official / recognised in:** Vietnam
 
@@ -54,12 +54,12 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                             |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,305,676 articles in vi.wikipedia; 4,115 active users. This is ~1/6 of English data and ranks 13 of 168 languages in the set in Wikipedia.                                                                        |
-| Common Crawl           | 22,767,822 pages per crawl on average, which is 1.0561% of the crawl (2026). This is ~1/39 of English data and ranks 14 of 113 languages in the set in Common Crawl.                                               |
-| FineWeb                | 130.19 GB (vie_Latn 130.19 GB), equivalent to ≈96.49 GB of English after byte-premium scaling; 178.08 GB removed by filtering. This is ~1/410 of English data and ranks 14 of 248 languages in the set in FineWeb. |
-| Goldfish training data | 9.60 GB (vie_Latn 9.60 GB) (rank 14 of 166 in the set)                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                                                             |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,305,676 articles in vi.wikipedia; 4,115 active users. This is ~1/6 of English data and ranks 13 of the 168 languages in the set with any data in Wikipedia; 164 have none.                                                                       |
+| Common Crawl           | 22,767,822 pages per crawl on average, which is 1.0561% of the crawl (2026). This is ~1/39 of English data and ranks 14 of the 113 languages in the set with any data in Common Crawl; 219 have none.                                              |
+| FineWeb                | 130.19 GB (vie_Latn 130.19 GB), equivalent to ≈96.49 GB of English after byte-premium scaling; 178.08 GB removed by filtering. This is ~1/410 of English data and ranks 14 of the 248 languages in the set with any data in FineWeb; 84 have none. |
+| Goldfish training data | 9.60 GB (vie_Latn 9.60 GB) (rank 14 of the 166 languages in the set that have any; 166 have none)                                                                                                                                                  |
 
 ### Structured and annotated data
 
@@ -69,7 +69,7 @@ Beyond raw text, annotated and lexical resources are useful for training, evalua
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Universal Dependencies | 2 treebanks, 3,423 sentences / 59,957 tokens in total: [UD_Vietnamese-TueCL](https://github.com/UniversalDependencies/UD_Vietnamese-TueCL) (100 sentences), [UD_Vietnamese-VTB](https://github.com/UniversalDependencies/UD_Vietnamese-VTB) (3,323 sentences). All have POS tags, dependency syntax, lemmas. |
 | UniMorph               | **None found**                                                                                                                                                                                                                                                                                               |
-| Wikidata labels        | 6,443,456 Wikidata items have a label in Vietnamese. (Wikidata codes (labels): vi (6,443,456))                                                                                                                                                                                                               |
+| Wikidata labels        | _Not computed yet: run `python -m lrc build structured --resources wikidata`._                                                                                                                                                                                                                               |
 | Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD.                                                                                                                                                                                                                          |
 
 ### Parallel data (for machine translation)
@@ -81,6 +81,7 @@ Text aligned with translations in other languages, mostly English: the basis for
 | OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                   |
 | Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([vie1934](https://ebible.org/details.php?id=vie1934), Public Domain); full Bible ([vieovcb](https://ebible.org/details.php?id=vieovcb), by-sa 4.0). |
 | Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                |
+| FLORES+, BOUQuET, SMOL             | _Not computed yet: run `python -m lrc build mt-sets`._                                                                                                                                    |
 
 ### How good are we at identifying data?
 
@@ -189,32 +190,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
-```
-                       /\
-                      /  \
-                     /    \
-                    /      \
-                   /        \
-                  / ✅ 5. QA \
-                 /   [11]   \
-                /______________\
-               /                \
-              /                  \
-             /   ✅ 4. Reading    \
-            / comprehension [4]  \
-           /________________________\
-          /    ✅ 3. Commonsense     \
-         /      reasoning [6]       \
-        /______________________________\
-       /               |                \
-      /                |                 \
-     /                 |                  \
-    / ❌ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [0]   |  & discourse [1]   \
-  /____________________|_____________________\
- /         ✅ Machine translation [5]         \
-/______________________________________________\
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 346" width="100%" style="max-width:600px" role="img" aria-label="Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 6 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 11 datasets; Machine translation: 5 datasets" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14"><title>Eval pyramid: Linguistic knowledge: none; Pragmatics &amp; discourse: 1 dataset; Commonsense reasoning: 6 datasets; Reading comprehension: 4 datasets; Knowledge &amp; QA: 11 datasets; Machine translation: 5 datasets</title><polygon points="300.0,8.0 407.1,112.0 192.9,112.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="86.0" text-anchor="middle" fill="#ffffff" font-size="13"><tspan font-weight="600">5. Knowledge &amp; QA</tspan><tspan x="300.0" dy="16" font-size="12">11 datasets</tspan></text><polygon points="192.9,112.0 407.1,112.0 464.7,168.0 135.3,168.0" fill="#aed581" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="136.6" text-anchor="middle" fill="#1b3d0a" font-size="14"><tspan font-weight="600">4. Reading comprehension</tspan><tspan x="300.0" dy="16" font-size="12">4 datasets</tspan></text><polygon points="135.3,168.0 464.7,168.0 522.4,224.0 77.6,224.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="192.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">3. Commonsense reasoning</tspan><tspan x="300.0" dy="16" font-size="12">6 datasets</tspan></text><polygon points="77.6,224.0 299.0,224.0 299.0,280.0 20.0,280.0" fill="#eceff1" stroke="#b0bec5" stroke-width="1.5" stroke-dasharray="5 4"/><text x="169.8" y="248.6" text-anchor="middle" fill="#90a4ae" font-size="14"><tspan font-weight="600">1. Linguistic knowledge</tspan><tspan x="169.8" dy="16" font-size="12">none</tspan></text><polygon points="301.0,224.0 522.4,224.0 580.0,280.0 301.0,280.0" fill="#dcedc8" stroke="#ffffff" stroke-width="1.5"/><text x="430.2" y="248.6" text-anchor="middle" fill="#33691e" font-size="14"><tspan font-weight="600">2. Pragmatics &amp; discourse</tspan><tspan x="430.2" dy="16" font-size="12">1 dataset</tspan></text><polygon points="20.0,286.0 580.0,286.0 580.0,342.0 20.0,342.0" fill="#689f38" stroke="#ffffff" stroke-width="1.5"/><text x="300.0" y="310.6" text-anchor="middle" fill="#ffffff" font-size="14"><tspan font-weight="600">Machine translation</tspan><tspan x="300.0" dy="16" font-size="12">5 datasets</tspan></text></svg>
+
+<sub>Darker = more datasets; grey with a dashed outline = none yet.</sub>
 
 ### What tasks exist?
 
@@ -242,11 +220,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                            | 10,000         | Human translation                                                |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                         |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 2,500          | Native (crowdsourced Tatoeba sentence pairs)                     |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+| Machine translation                    |                                | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
+| Machine translation                    |                                | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    |                                | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
+| Machine translation                    |                                | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 2,500          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| Machine translation                    |                                | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                    |
+
+### Standard machine translation test sets
+
+_Not computed yet: run `python -m lrc build mt-sets`._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -272,22 +254,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 317 of ~18,498 papers (1.71%) (rank 23 of 278 in the set); English is mentioned in 8,465.
+- **Mentions in ACL papers in 2026:** 317 of ~18,498 papers (1.71%) (rank 23 of the 278 languages in the set that have any; 54 have none); English is mentioned in 8,465.
 - Search terms: Vietnamese
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 317):
+Here are up to ten papers published in 2026 that mention Vietnamese. None of the 317 name it in the title or abstract, so these are a random sample of papers that mention it in the body.
 
-| title                                                                                                           | paper                                                                    |
-|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| AraDetox: A Multi-Dialect Arabic Detoxification Dataset                                                         | [2026.arabicnlp-main.4](https://aclanthology.org/2026.arabicnlp-main.4/) |
-| Intent vs. Surface: Recovering Acoustic Realization from Modern ASR for Pronunciation Training                  | [2026.bea-1.23](https://aclanthology.org/2026.bea-1.23/)                 |
-| When Flores Bloomz Wrong: Cross-Direction Contamination in Machine Translation Evaluation                       | [2026.eacl-short.26](https://aclanthology.org/2026.eacl-short.26/)       |
-| Text4Speech: Text-Driven Training for Massively Multilingual Speech Understanding                               | [2026.emnlp-main.2427](https://aclanthology.org/2026.emnlp-main.2427/)   |
-| Polyglot Teachers: Evaluating Language Models for Multilingual Synthetic Data Generation                        | [2026.emnlp-main.440](https://aclanthology.org/2026.emnlp-main.440/)     |
-| Anthropogenic Regional Adaptation in Multimodal Vision-Language Model                                           | [2026.findings-aacl.36](https://aclanthology.org/2026.findings-aacl.36/) |
-| ViKhoMT: A Vietnamese–K’Ho Neural Machine Translation Dataset and Evaluation for Community Health Communication | [2026.lrec-1.687](https://aclanthology.org/2026.lrec-1.687/)             |
-| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)             |
-| Instruction-Tuned Urdu LLMs: Efficient Adaptation of Llama Models and Evaluation Resources for Urdu             | [2026.lrec-1.832](https://aclanthology.org/2026.lrec-1.832/)             |
-| SCIR-TG-MT’s Submission for the WMT 2026 General Machine Translation Task                                       | [2026.wmt-main.61](https://aclanthology.org/2026.wmt-main.61/)           |
+| title                                                                                                           | paper                                                                    | mentioned in   |
+|:----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|:---------------|
+| AraDetox: A Multi-Dialect Arabic Detoxification Dataset                                                         | [2026.arabicnlp-main.4](https://aclanthology.org/2026.arabicnlp-main.4/) | body only      |
+| Intent vs. Surface: Recovering Acoustic Realization from Modern ASR for Pronunciation Training                  | [2026.bea-1.23](https://aclanthology.org/2026.bea-1.23/)                 | body only      |
+| When Flores Bloomz Wrong: Cross-Direction Contamination in Machine Translation Evaluation                       | [2026.eacl-short.26](https://aclanthology.org/2026.eacl-short.26/)       | body only      |
+| Text4Speech: Text-Driven Training for Massively Multilingual Speech Understanding                               | [2026.emnlp-main.2427](https://aclanthology.org/2026.emnlp-main.2427/)   | body only      |
+| Polyglot Teachers: Evaluating Language Models for Multilingual Synthetic Data Generation                        | [2026.emnlp-main.440](https://aclanthology.org/2026.emnlp-main.440/)     | body only      |
+| Anthropogenic Regional Adaptation in Multimodal Vision-Language Model                                           | [2026.findings-aacl.36](https://aclanthology.org/2026.findings-aacl.36/) | body only      |
+| ViKhoMT: A Vietnamese–K’Ho Neural Machine Translation Dataset and Evaluation for Community Health Communication | [2026.lrec-1.687](https://aclanthology.org/2026.lrec-1.687/)             | body only      |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)             | body only      |
+| Instruction-Tuned Urdu LLMs: Efficient Adaptation of Llama Models and Evaluation Resources for Urdu             | [2026.lrec-1.832](https://aclanthology.org/2026.lrec-1.832/)             | body only      |
+| SCIR-TG-MT’s Submission for the WMT 2026 General Machine Translation Task                                       | [2026.wmt-main.61](https://aclanthology.org/2026.wmt-main.61/)           | body only      |
 
 {% endraw %}
