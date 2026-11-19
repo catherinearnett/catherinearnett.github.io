@@ -12,11 +12,34 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `hrv` · macrolanguage `hbs` (also listed as: Burgenland Croatian)
 
+**Language family:** **Indo-European** › Classical Indo-European › Balto-Slavic › … › Eastern Herzegovinian Shtokavian. Glottolog treats Croatian Standard as a variety of Serbian-Croatian-Bosnian ([Glottolog](https://glottolog.org/resource/languoid/id/croa1245))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (40% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 6.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 7.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q6654#P1098))
 
 **Official / recognised in:** Austria, Bosnia and Herzegovina, Croatia
 
-**Status:** Official language; Regional official language
+**Status:** Regional official language; Official language
+
+
+## What does Croatian look and sound like?
+
+**Written (Croatian)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/croatian.htm):
+
+> Sva ljudska bića rađaju se slobodna i jednaka u
+> dostojanstvu i pravima. Ona su obdarena razumom i sviješću
+> i trebaju jedna prema drugima postupati u duhu bratstva.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_hr.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/hrv/) has 3 videos of Croatian speakers. Watch [Nela speaking Croatian](https://wikitongues.org/videos/nela_20180726_hrv/).
 
 
 ## Training Data
@@ -25,33 +48,56 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 236,370 articles in hr.wikipedia (rank 40 of 161 in the set) — ~1/32 of English; 1,007 active users                                                                                                                       |
-| Common Crawl 2026      | 4,662,570 pages per crawl on average, which is 0.2163% of the crawl. This is ~1/191 of English data and ranks 30 of 113 official languages in Common Crawl.                                                               |
-| FineWeb                | 17.60 GB (hrv_Latn (17.60)); which is equivalent to ≈17.78 GB English data after byte-premium scaling; 51.73 GB removed by filtering. This is ~1/3,036 of English data and ranks 36 of 248 official languages in FineWeb. |
-| Goldfish training data | 7.20 GB (hrv_latn) (rank 32 of 166 in the set)                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                            |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 236,370 articles in hr.wikipedia; 1,007 active users. This is ~1/32 of English data and ranks 41 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 4,662,570 pages per crawl on average, which is 0.2163% of the crawl (2026). This is ~1/191 of English data and ranks 30 of 113 languages in the set in Common Crawl.                                              |
+| FineWeb                | 17.60 GB (hrv_Latn 17.60 GB), equivalent to ≈17.78 GB of English after byte-premium scaling; 51.73 GB removed by filtering. This is ~1/3,036 of English data and ranks 36 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 7.20 GB (hrv_Latn 7.20 GB) (rank 32 of 166 in the set)                                                                                                                                                            |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                  |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 9,010 sentences / 199,409 tokens in total: [UD_Croatian-SET](https://github.com/UniversalDependencies/UD_Croatian-SET) (9,010 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                               |
+| Wikidata labels        | 1,965,490 Wikidata items have a label in Croatian. (Wikidata codes (labels): hr (1,965,490))                                                                                                                                 |
+| Wordnets               | [Croatian Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-hr-1.4.tar.xz): 23,120 synsets, 29,089 words, 47,900 senses; licence: https://creativecommons.org/licenses/by/3.0/.                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                        |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                            |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([hrv](https://ebible.org/details.php?id=hrv), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                         |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.705 (P 0.637, R 0.819, FPR 2.92e-03) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.670).
+- **Best model:** GlotLID — F1 0.705 (P 0.637, R 0.819, FPR 2.88e-03) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.669).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.637 |    0.819 | 0.705 | 0.003 | ✓                |
-| OpenLID-v2   |       0.577 |    0.834 | 0.670 | 0.006 | ✓                |
-| fasttext     |       0.502 |    0.878 | 0.629 | 0.008 | ✓                |
-| py3langid    |       0.500 |    0.695 | 0.574 | 0.007 | ✓                |
+| OpenLID-v2   |       0.575 |    0.834 | 0.669 | 0.006 | ✓                |
+| fasttext     |       0.500 |    0.878 | 0.628 | 0.008 | ✓                |
 | cld2         |       0.531 |    0.627 | 0.574 | 0.005 | ✓                |
-| commonlingua |       0.497 |    0.577 | 0.529 | 0.005 | ✓                |
+| py3langid    |       0.499 |    0.695 | 0.574 | 0.007 | ✓                |
+| commonlingua |       0.496 |    0.577 | 0.528 | 0.005 | ✓                |
+| cld3         |       0.445 |    0.605 | 0.506 | 0.009 | ✓                |
 | funlangid    |       0.401 |    0.530 | 0.450 | 0.007 | ✓                |
 | pyfranc      |       0.484 |    0.360 | 0.405 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -71,15 +117,16 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Croatian and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Croatian has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Croatian?
 
 We scraped all `text-generation` models on Hugging Face and analyzed the metadata. We counted how many models are explicitly tagged for Croatian (and whether the model is exclusively tagged for Croatian or tagged for multiple languages). We note which models are fine-tunes or have been derived from other (most likely massively multilingual) models.
 
-- **442** text-generation models are explicitly tagged for Croatian (114 original uploads, 328 fine-tunes/quantisations/merges).
+- **441** text-generation models are explicitly tagged for Croatian (114 original uploads, 327 fine-tunes/quantisations/merges).
 - **27** are tagged *only* for Croatian.
-- Including tags inherited from base models: **891**.
+- Including tags inherited from base models: **890**.
 
 **Uploads by year**
 
@@ -88,48 +135,28 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2022 |        2 | █                    |
 |   2023 |       15 | █                    |
 |   2024 |       87 | █████████            |
-|   2025 |      134 | █████████████        |
+|   2025 |      133 | █████████████        |
 |   2026 |      204 | ████████████████████ |
-
-### Most popular models tagged for Croatian
-
-| model                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct)         | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct)         | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B             |
-| [BSC-LT/salamandra-7b-instruct](https://huggingface.co/BSC-LT/salamandra-7b-instruct)                     | 713,529                | 36,481                | 7.8B         |                   33 |   2024 | BSC-LT/salamandra-7b                   |
-| [utter-project/EuroLLM-22B-Instruct-2512](https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512) | 603,901                | 7,106                 | 22.6B        |                   35 |   2025 | utter-project/EuroLLM-22B-2512         |
-| [kyutai/helium-1-2b](https://huggingface.co/kyutai/helium-1-2b)                                           | 551,842                | 1,269                 | 2.0B         |                   24 |   2025 | —                                      |
-
-### Most popular models tagged *only* for Croatian
-
-| model                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [macedonizer/hr-gpt2](https://huggingface.co/macedonizer/hr-gpt2)                         | 11,221                 |                    27 | unknown      |                    1 |   2022 | —                    |
-| [domsebalj/GPcroaT](https://huggingface.co/domsebalj/GPcroaT)                             | 1,069                  |                    14 | unknown      |                    1 |   2022 | —                    |
-| [goldfish-models/hrv_latn_1000mb](https://huggingface.co/goldfish-models/hrv_latn_1000mb) | 543                    |                    34 | unknown      |                    1 |   2024 | —                    |
-| [goldfish-models/hrv_latn_5mb](https://huggingface.co/goldfish-models/hrv_latn_5mb)       | 501                    |                    25 | unknown      |                    1 |   2024 | —                    |
-| [Shome/croguana-RC2-gguf](https://huggingface.co/Shome/croguana-RC2-gguf)                 | 500                    |                    19 | 7.2B         |                    1 |   2025 | gordicaleksa/YugoGPT |
 
 ### Largest models tagged for Croatian
 
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                 | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF) | 23,979                 | 3,521                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [CRD716/ggml-LLaMa-65B-quantized](https://huggingface.co/CRD716/ggml-LLaMa-65B-quantized)             | 0                      | 0                     | 65.0B        |                   20 |   2023 | —                                      |
-| [csala/ALIA-40b-Q3_K-GGUF](https://huggingface.co/csala/ALIA-40b-Q3_K-GGUF)                           | 213                    | 26                    | 40.4B        |                   33 |   2025 | BSC-LT/ALIA-40b                        |
+| model                                                                                                 | parameters   |   # languages tagged |   year | derivative of                          |
+|:------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                             | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                 | 856.0B       |                  143 |   2025 | —                                      |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF) | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [CRD716/ggml-LLaMa-65B-quantized](https://huggingface.co/CRD716/ggml-LLaMa-65B-quantized)             | 65.0B        |                   20 |   2023 | —                                      |
+| [csala/ALIA-40b-Q3_K-GGUF](https://huggingface.co/csala/ALIA-40b-Q3_K-GGUF)                           | 40.4B        |                   33 |   2025 | BSC-LT/ALIA-40b                        |
 
 ### Largest models tagged *only* for Croatian
 
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [Shome/croguana-RC2-gguf](https://huggingface.co/Shome/croguana-RC2-gguf)                           |                    500 |                    19 | 7.2B         |                    1 |   2025 | gordicaleksa/YugoGPT |
-| [alphaedge-ai/Qwen3.5-4B-hrv-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-hrv-32768)       |                     56 |                    11 | 4.0B         |                    1 |   2026 | Qwen3.5-4B           |
-| [alphaedge-ai/gemma-3-4b-it-hrv-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-hrv-32768) |                     49 |                     5 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-| [alphaedge-ai/Qwen3.5-2B-hrv-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-hrv-32768)       |                     58 |                    13 | 1.8B         |                    1 |   2026 | Qwen3.5-2B           |
-| [alphaedge-ai/Qwen3-1.7B-hrv-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-hrv-32768)       |                     51 |                     6 | 1.5B         |                    1 |   2026 | Qwen3-1.7B           |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [Shome/croguana-RC2](https://huggingface.co/Shome/croguana-RC2)                                     | 7.2B         |                    1 |   2025 | gordicaleksa/YugoGPT |
+| [alphaedge-ai/Qwen3.5-4B-hrv-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-hrv-32768)       | 4.0B         |                    1 |   2026 | Qwen3.5-4B           |
+| [alphaedge-ai/gemma-3-4b-it-hrv-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-hrv-32768) | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
+| [alphaedge-ai/Qwen3.5-2B-hrv-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-hrv-32768)       | 1.8B         |                    1 |   2026 | Qwen3.5-2B           |
+| [alphaedge-ai/Qwen3-1.7B-hrv-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-hrv-32768)       | 1.5B         |                    1 |   2026 | Qwen3-1.7B           |
 
 _58 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -160,15 +187,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [3]     \
+                 /   [3]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -182,7 +209,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                          | dataset                                                                                             | # test items   | Construction                                                     |
+| level                         | task                          | dataset                                                                                             | # test items   | construction                                                     |
 |:------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge       | BLiMP                         | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                           | 71             | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge       | BLiMP                         | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `hbs`)                     | 3,286          | Treebank-based (automatic, UD + UniMorph)                        |
@@ -228,7 +255,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 129 of ~18,460 papers (0.70%) (rank 47 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 129 of ~18,498 papers (0.70%) (rank 49 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Croatian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 129):

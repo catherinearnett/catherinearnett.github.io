@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ful`
 
+**Language family:** **Atlantic-Congo** › North-Central Atlantic › Fula-Sereer (all 9 member languages of the macrolanguage) (Glottolog)
+
+**Endangerment:** not endangered (all 9 member languages; Glottolog)
+
 **Writing systems:** `Latn`
 
-**Official / recognised in:** Burkina Faso
+**Speakers:** about 9.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 24.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33454#P1098), 2007)
 
-**Status:** Official language
+**Official / recognised in:** Burkina Faso, Nigeria
+
+**Status:** Official language; Major language (added to the set; not official)
+
+
+## What does Fula look and sound like?
+
+**Written:** no Omniglot page found for Fula.
+
+**Spoken:** no Wikitongues video of Fula yet ([its Wikitongues page](https://wikitongues.org/languages/ful/) says how to contribute one).
 
 
 ## Training Data
@@ -25,45 +38,68 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------|
-| Wikipedia              | 22,743 articles in ff.wikipedia (rank 79 of 161 in the set) — ~1/332 of English; 36 active users |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                         |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                   |
-| Goldfish training data | 31.6 MB (ful_latn) (rank 142 of 166 in the set)                                                  |
+| Source                 | Amount                                                                                                                                  |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. This is ~1/332 of English data and ranks 82 of 168 languages in the set in Wikipedia. |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                          |
+| Goldfish training data | 31.6 MB (ful_Latn 32.0 MB) (rank 142 of 166 in the set)                                                                                 |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                          |
+|:-----------------------|:-------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                       |
+| UniMorph               | **None found**                                                                       |
+| Wikidata labels        | 630,338 Wikidata items have a label in Fula. (Wikidata codes (labels): ff (630,338)) |
+| Wordnets               | **None found**                                                                       |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                                                                                                                                                             |
+|:-----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                 |
+| Bible translations (eBible corpus) | **Yes** — 4 translations: New Testament ([ffm](https://ebible.org/details.php?id=ffm), by-nc-nd 4.0); New Testament ([fuf](https://ebible.org/details.php?id=fuf), by-nd 4.0); New Testament ([fuhbkf](https://ebible.org/details.php?id=fuhbkf), by-nc-nd 4.0); portions ([fue](https://ebible.org/details.php?id=fue), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                              |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
-- **Eval datasets (7):** CommonLID (n=37), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=13), UDHR-LID (n=108), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.847 (P 0.967, R 0.771, FPR 3.72e-05) averaged over 7 dataset(s). Runner-up: OpenLID-v2 (F1 0.836).
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **Eval datasets (7):** CommonLID (n=37), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=35), UDHR-LID (n=108), Wikipedia (n=300)
+- **Best model:** OpenLID-v2 — F1 0.863 (P 0.865, R 0.915, FPR 3.40e-03) averaged over 7 dataset(s). Runner-up: GlotLID (F1 0.817).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.967 |    0.771 | 0.847 | 0.000 | ✓                |
-| OpenLID-v2   |       0.851 |    0.876 | 0.836 | 0.003 | ✓                |
-| fasttext     |       0.839 |    0.867 | 0.820 | 0.004 | ✓                |
-| funlangid    |       0.781 |    0.698 | 0.705 | 0.001 | ✓                |
-| commonlingua |       0.715 |    0.677 | 0.644 | 0.003 | ✓                |
-| pyfranc      |       0.839 |    0.457 | 0.539 | 0.000 | ✓                |
-| py3langid    |       0.427 |    0.939 | 0.538 | 0.031 | ✓                |
+| OpenLID-v2   |       0.865 |    0.915 | 0.863 | 0.003 | ✓                |
+| GlotLID      |       0.968 |    0.730 | 0.817 | 0.000 | ✓                |
+| fasttext     |       0.812 |    0.803 | 0.750 | 0.004 | ✓                |
+| funlangid    |       0.780 |    0.654 | 0.692 | 0.001 | ✓                |
+| commonlingua |       0.690 |    0.622 | 0.620 | 0.003 | ✓                |
+| py3langid    |       0.411 |    0.838 | 0.515 | 0.032 | ✓                |
+| pyfranc      |       0.818 |    0.418 | 0.512 | 0.000 | ✓                |
+| AfroLID      |       0.056 |    0.721 | 0.098 | 0.397 | ✓                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
-**Best model (GlotLID) by dataset**:
+**Best model (OpenLID-v2) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Wikipedia | 300 |       1.000 |    0.443 | 0.614 |
-| Tatoeba   |  13 |       0.818 |    0.692 | 0.750 |
-| UDHR-LID  | 108 |       0.951 |    0.713 | 0.815 |
-| CommonLID |  37 |       1.000 |    0.784 | 0.879 |
-| SmolSent  | 300 |       1.000 |    0.813 | 0.897 |
-| NTREX     | 300 |       1.000 |    0.967 | 0.983 |
-| FLORES    | 300 |       1.000 |    0.987 | 0.993 |
+| UDHR-LID  | 108 |       0.334 |    1.000 | 0.501 |
+| CommonLID |  37 |       0.963 |    0.703 | 0.812 |
+| Tatoeba   |  35 |       0.838 |    0.886 | 0.861 |
+| Wikipedia | 300 |       0.992 |    0.877 | 0.931 |
+| SmolSent  | 300 |       0.943 |    0.990 | 0.966 |
+| FLORES    | 300 |       0.990 |    0.977 | 0.983 |
+| NTREX     | 300 |       0.997 |    0.973 | 0.985 |
 
 ### What can you do?
 
@@ -73,6 +109,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Fula and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Fula has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/ful/) video of Fula yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Fula?
@@ -92,35 +130,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       22 | ██████████████████   |
 |   2026 |       25 | ████████████████████ |
 
-### Most popular models tagged for Fula
-
-| model                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [UBC-NLP/cheetah-base](https://huggingface.co/UBC-NLP/cheetah-base)         | 25,910                 |                   577 | unknown      |                   17 |   2024 | —               |
-| [LLaMAX/LLaMAX3-8B-Alpaca](https://huggingface.co/LLaMAX/LLaMAX3-8B-Alpaca) | 25,588                 |                    60 | 8.0B         |                   88 |   2024 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)     | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
-| [LLaMAX/LLaMAX3-8B](https://huggingface.co/LLaMAX/LLaMAX3-8B)               | 7,004                  |                    44 | 8.0B         |                   88 |   2024 | —               |
-| [LLaMAX/LLaMAX2-7B-XNLI](https://huggingface.co/LLaMAX/LLaMAX2-7B-XNLI)     | 6,875                  |                    16 | 7.0B         |                   88 |   2024 | —               |
-
-### Most popular models tagged *only* for Fula
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/fuv_latn_5mb](https://huggingface.co/goldfish-models/fuv_latn_5mb)   |                    429 |                    13 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/fuv_latn_10mb](https://huggingface.co/goldfish-models/fuv_latn_10mb) |                    421 |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/fuv_latn_full](https://huggingface.co/goldfish-models/fuv_latn_full) |                    414 |                    18 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ful_latn_5mb](https://huggingface.co/goldfish-models/ful_latn_5mb)   |                    404 |                    24 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ful_latn_full](https://huggingface.co/goldfish-models/ful_latn_full) |                    387 |                    12 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Fula
 
-| model                                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                           | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)               | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                    |
-| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B)               | 834                    | 141                   | 27.4B        |                   20 |   2026 | Qwen/Qwen3.8-27B     |
-| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs) | 602                    | 99                    | 9.4B         |                   29 |   2026 | Qwen/Qwen3.5-9B-Base |
-| [Sunbird/Sunflower-Qwen3.5-9B](https://huggingface.co/Sunbird/Sunflower-Qwen3.5-9B)                 | 5,710                  | 3,010                 | 9.4B         |                   20 |   2026 | Qwen/Qwen3.5-9B      |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                           | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)               | 856.0B       |                  143 |   2025 | —                    |
+| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B)               | 27.4B        |                   24 |   2026 | Qwen/Qwen3.8-27B     |
+| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs) | 9.4B         |                   32 |   2026 | Qwen/Qwen3.5-9B-Base |
+| [Sunbird/Sunflower-Qwen3.5-9B](https://huggingface.co/Sunbird/Sunflower-Qwen3.5-9B)                 | 9.4B         |                   24 |   2026 | Qwen/Qwen3.5-9B      |
 
 ### Largest models tagged *only* for Fula
 
@@ -144,7 +162,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**12** benchmark datasets in the survey include Fula.
+**10** benchmark datasets in the survey include Fula.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -155,15 +173,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -171,24 +189,22 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /        ✅ Machine translation [10]         \
+ /         ✅ Machine translation [8]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                              | # test items   | Construction                                                        |
+| level                    | task                          | dataset                                                                              | # test items   | construction                                                        |
 |:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        | 900            | Human translation (professional)                                    |
 | 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 2,701          | Synthetic (LLM-generated) on native Wikipedia                       |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                                 |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                                 |
+| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)      | 1,708          | Human translation via English pivot                                 |
 | Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources)    |
 | Machine translation      | Machine translation           | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English)                      |
 | Machine translation      | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                      |
 | Machine translation      | Machine translation           | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation      | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                       | —              | Human translation (professional, from English)                      |
-| Machine translation      | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                       | —              | Human translation (professional, from English)                      |
+| Machine translation      | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)   | —              | Human translation (professional, from English)                      |
 | Machine translation      | Machine translation           | [TICO-19](https://github.com/tico-19/tico-19.github.io)                              | 2,100          | Human translation (professional/volunteer, from English)            |
 | Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 41             | Native (crowdsourced Tatoeba sentence pairs)                        |
 
@@ -217,8 +233,8 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 19 of ~18,460 papers (0.10%) (rank 116 of 252 in the set); English is mentioned in 8,441.
-- Search terms: Maasina Fulfulde | Fulfulde | Fula
+- **Mentions in ACL papers in 2026:** 19 of ~18,498 papers (0.10%) (rank 124 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Nigerian Fulfulde | Maasina Fulfulde | Fulfulde | Fula
 - ⚠️ The name *Fula* is shared with Fula (`ffm`), so this count covers all of them.
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 19):

@@ -12,11 +12,34 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `que`
 
+**Language family:** **Quechuan** (all 44 member languages of the macrolanguage) (Glottolog)
+
+**Endangerment:** not endangered to extinct (range over its 44 member languages; Glottolog)
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 11.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 8.9 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q5218#P1098), 2017)
 
 **Official / recognised in:** Peru
 
 **Status:** Co-official language
+
+
+## What does Quechua look and sound like?
+
+**Written (colonial spelling)**, sample text from [Omniglot](https://www.omniglot.com/writing/quechua.htm):
+
+> Runa yndio ñiscap machonkuna ñaupa pacha quillcacta yachanman carca chayca hinantin causascancunapas manam canancamapas chincaycuc hinacho canman. Himanam viracochappas sinchi cascanpas canancama ricurin, hinatacmi canman.
+
+**Written (normalised orthography)**, sample text from [Omniglot](https://www.omniglot.com/writing/quechua.htm):
+
+> Runa Indio ñisqap machunkuna ñawpa pacha qillqakta yacanman karqan chayqa hinantin kawsasqankunapas manam kanankamapas chinkaykuq hinachu kanman. Imanam wiraquchappas sinchi kasqanpas kanankama rikurin, hinataqmi kanman.
+
+*Translation:* If the ancestors of the people called Indians had known writing in ancient times, then all the things they have lived certainly would not have kept disappearing like this until now, either. In the way the valorous acts of the Spaniards (Huiracochas) are still seen, too, so it would have been (with theirs as well).
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://en.wikipedia.org/wiki/Classical_Quechua#Sample_text_(from_the_beginning_of_the_Huarochirí_Manuscript).</sub>
+
+**Spoken:** no Wikitongues video of Quechua yet ([its Wikitongues page](https://wikitongues.org/languages/que/) says how to contribute one).
 
 
 ## Training Data
@@ -25,40 +48,63 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                      |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 24,672 articles in qu.wikipedia (rank 77 of 161 in the set) — ~1/306 of English; 66 active users                                                            |
-| Common Crawl 2026      | 19,258 pages per crawl on average, which is 0.0009% of the crawl. This is ~1/46,293 of English data and ranks 90 of 113 official languages in Common Crawl. |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                              |
-| Goldfish training data | 0.17 GB (que_latn) (rank 108 of 166 in the set)                                                                                                             |
+| Source                 | Amount                                                                                                                                                               |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 24,672 articles in qu.wikipedia; 66 active users. This is ~1/306 of English data and ranks 80 of 168 languages in the set in Wikipedia.                              |
+| Common Crawl           | 19,258 pages per crawl on average, which is 0.0009% of the crawl (2026). This is ~1/46,293 of English data and ranks 90 of 113 languages in the set in Common Crawl. |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                       |
+| Goldfish training data | 0.17 GB (que_Latn 0.17 GB) (rank 108 of 166 in the set)                                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | 1,006 lemmas, 180,004 inflected forms ([unimorph/que](https://github.com/unimorph/que)) |
+| Wikidata labels        | 514,810 Wikidata items have a label in Quechua. (Wikidata codes (labels): qu (514,810)) |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Bible translations (eBible corpus) | **Yes** — 17 translations: full Bible ([qub](https://ebible.org/details.php?id=qub), by-nc-nd 4.0); New Testament + parts of the Old Testament ([qvsNT](https://ebible.org/details.php?id=qvsNT), by-nc-nd 4.0); New Testament ([qxhNT](https://ebible.org/details.php?id=qxhNT), by-nc-nd 4.0); New Testament ([qwhNT](https://ebible.org/details.php?id=qwhNT), by-nc-nd 4.0); New Testament ([qvzNT](https://ebible.org/details.php?id=qvzNT), by-nc-nd 4.0); New Testament ([qvwNT](https://ebible.org/details.php?id=qvwNT), by-nc-nd 4.0); New Testament ([qvnNT](https://ebible.org/details.php?id=qvnNT), by-nc-nd 4.0); New Testament ([qxnNT](https://ebible.org/details.php?id=qxnNT), by-nc-nd 4.0); New Testament ([qvmNT](https://ebible.org/details.php?id=qvmNT), by-nc-nd 4.0); New Testament ([qveNT](https://ebible.org/details.php?id=qveNT), by-nc-nd 4.0); New Testament ([qvcNT](https://ebible.org/details.php?id=qvcNT), by-nc-nd 4.0); New Testament ([qupNT](https://ebible.org/details.php?id=qupNT), by-nc-nd 4.0); New Testament ([qulNT](https://ebible.org/details.php?id=qulNT), by-nc-nd 4.0); New Testament ([quhNT](https://ebible.org/details.php?id=quhNT), by-nc-nd 4.0); New Testament ([qufNT](https://ebible.org/details.php?id=qufNT), by-nc-nd 4.0); New Testament ([qvhNT](https://ebible.org/details.php?id=qvhNT), by-nc-nd 4.0); New Testament ([qxoNT](https://ebible.org/details.php?id=qxoNT), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.953 (P 0.948, R 0.962, FPR 8.00e-04) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.932).
+- **Best model:** GlotLID — F1 0.954 (P 0.949, R 0.963, FPR 7.90e-04) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.932).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.948 |    0.962 | 0.953 | 0.001 | ✓                |
+| GlotLID      |       0.949 |    0.963 | 0.954 | 0.001 | ✓                |
 | cld2         |       0.945 |    0.928 | 0.932 | 0.001 | ✓                |
-| OpenLID-v2   |       0.870 |    0.925 | 0.888 | 0.004 | ✓                |
-| funlangid    |       0.855 |    0.902 | 0.874 | 0.002 | ✓                |
-| pyfranc      |       0.836 |    0.871 | 0.851 | 0.002 | ✓                |
-| fasttext     |       0.805 |    0.951 | 0.850 | 0.007 | ✓                |
-| commonlingua |       0.789 |    0.871 | 0.820 | 0.004 | ✓                |
-| py3langid    |       0.514 |    0.972 | 0.658 | 0.025 | ✓                |
+| OpenLID-v2   |       0.871 |    0.927 | 0.890 | 0.004 | ✓                |
+| funlangid    |       0.854 |    0.903 | 0.874 | 0.002 | ✓                |
+| pyfranc      |       0.837 |    0.877 | 0.854 | 0.002 | ✓                |
+| fasttext     |       0.806 |    0.951 | 0.850 | 0.007 | ✓                |
+| commonlingua |       0.790 |    0.876 | 0.824 | 0.004 | ✓                |
+| py3langid    |       0.515 |    0.973 | 0.659 | 0.024 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | UDHR-LID  | 300 |       0.817 |    0.997 | 0.898 |
-| Tatoeba   | 300 |       0.981 |    0.867 | 0.920 |
+| Tatoeba   | 300 |       0.985 |    0.873 | 0.926 |
 | Wikipedia | 300 |       0.950 |    0.947 | 0.948 |
 | FLORES    | 300 |       0.997 |    1.000 | 0.998 |
 | SmolSent  | 300 |       0.997 |    1.000 | 0.998 |
@@ -71,6 +117,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Quechua and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Quechua has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/que/) video of Quechua yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Quechua?
@@ -91,35 +139,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       22 | ████████████████████ |
 |   2026 |       12 | ███████████          |
 
-### Most popular models tagged for Quechua
-
-| model                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [facebook/xglm-564M](https://huggingface.co/facebook/xglm-564M) | 1,709,301              | 8,655                 | 564.0M       |                   30 |   2022 | —               |
-| [facebook/xglm-4.5B](https://huggingface.co/facebook/xglm-4.5B) | 195,644                | 495                   | 5.1B         |                   30 |   2022 | —               |
-| [facebook/xglm-7.5B](https://huggingface.co/facebook/xglm-7.5B) | 175,871                | 555                   | 7.5B         |                   30 |   2022 | —               |
-| [facebook/xglm-1.7B](https://huggingface.co/facebook/xglm-1.7B) | 161,789                | 995                   | 1.7B         |                   30 |   2022 | —               |
-| [facebook/xglm-2.9B](https://huggingface.co/facebook/xglm-2.9B) | 110,596                | 379                   | 2.9B         |                   30 |   2022 | —               |
-
-### Most popular models tagged *only* for Quechua
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/que_latn_full](https://huggingface.co/goldfish-models/que_latn_full)   |                    459 |                    28 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/que_latn_5mb](https://huggingface.co/goldfish-models/que_latn_5mb)     |                    447 |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/que_latn_10mb](https://huggingface.co/goldfish-models/que_latn_10mb)   |                    432 |                    17 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/quy_latn_100mb](https://huggingface.co/goldfish-models/quy_latn_100mb) |                    414 |                    14 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/quz_latn_5mb](https://huggingface.co/goldfish-models/quz_latn_5mb)     |                    407 |                    12 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Quechua
 
-| model                                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of      |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                  |
-| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6) | 694                    | 69                    | 46.7B        |                   19 |   2023 | —                  |
-| [AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF](https://huggingface.co/AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF)       | 3,464                  | 746                   | 9.0B         |                   97 |   2026 | Qwen/Qwen3.5-9B    |
-| [AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16](https://huggingface.co/AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16)                           | 6,611                  | 1,111                 | 9.0B         |                   97 |   2026 | unsloth/Qwen3.5-9B |
+| model                                                                                                                                           | parameters   |   # languages tagged |   year | derivative of      |
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 1.9T         |                  143 |   2025 | —                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 856.0B       |                  143 |   2025 | —                  |
+| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6) | 46.7B        |                   19 |   2023 | —                  |
+| [AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16](https://huggingface.co/AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16)                           | 9.0B         |                   99 |   2026 | unsloth/Qwen3.5-9B |
+| [AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF](https://huggingface.co/AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF)       | 9.0B         |                   99 |   2026 | Qwen/Qwen3.5-9B    |
 
 ### Largest models tagged *only* for Quechua
 
@@ -154,15 +182,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -176,9 +204,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                    | # test items   | Construction                                  |
-|:-------------------------|:-------------------|:---------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 5,000          | Synthetic (LLM-generated) on native Wikipedia |
+| level                    | task               | dataset                                                                    |   # test items | construction                                  |
+|:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |          5,000 | Synthetic (LLM-generated) on native Wikipedia |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -207,7 +235,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 44 of ~18,460 papers (0.24%) (rank 89 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 44 of ~18,498 papers (0.24%) (rank 93 of 278 in the set); English is mentioned in 8,465.
 - Search terms: South Bolivian Quechua | Quechua
 - ⚠️ The name *Quechua* is shared with Quechua (`quh`), so this count covers all of them.
 

@@ -12,11 +12,38 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `hsb`
 
+**Language family:** **Indo-European** › Classical Indo-European › Balto-Slavic › … › Sorbian ([Glottolog](https://glottolog.org/resource/languoid/id/uppe1395))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable (20% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 13,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 13,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q13248#P1098), 2007)
 
 **Official / recognised in:** Germany
 
 **Status:** Regional official language
+
+
+## What does Upper Sorbian look and sound like?
+
+**Written (Upper Sorbian)**, sample text from [Omniglot](https://www.omniglot.com/writing/sorbian.htm):
+
+> Wšitcy čłowjekojo su wot naroda swobodni a su
+> jenacy po dostojnosći a prawach. Woni su z rozumom a swědomjom
+> wobdarjeni a maja mjezsobu w duchu bratrowstwa wobchadźeć.
+
+**Written (Lower Sorbian)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/sorbian.htm):
+
+> Wšykne luźe su lichotne roźone a jadnake po
+> dostojnosći a pšawach. Woni maju rozym a wědobnosć
+> a maju ze sobu w duchu bratšojstwa wobchadaś.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/hsb/) has 1 video of Upper Sorbian speakers. Watch [Rejzka speaking Upper Sorbian](https://wikitongues.org/videos/rejzka_20151107_hsb/).
 
 
 ## Training Data
@@ -25,20 +52,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 14,298 articles in hsb.wikipedia (rank 88 of 161 in the set) — ~1/528 of English; 24 active users                                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 49.8 MB (hsb_Latn (0.05)); 0.19 GB removed by filtering. This is ~1/1,073,631 of English data and ranks 119 of 248 official languages in FineWeb. |
-| Goldfish training data | 12.3 MB (hsb_latn) (rank 160 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 14,298 articles in hsb.wikipedia; 24 active users. This is ~1/528 of English data and ranks 92 of 168 languages in the set in Wikipedia.             |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
+| FineWeb                | 49.8 MB (hsb_Latn 50.0 MB); 0.19 GB removed by filtering. This is ~1/1,073,631 of English data and ranks 119 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 12.3 MB (hsb_Latn 12.0 MB) (rank 160 of 166 in the set)                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                         |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 644 sentences / 11,167 tokens in total: [UD_Upper_Sorbian-UFAL](https://github.com/UniversalDependencies/UD_Upper_Sorbian-UFAL) (644 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 345 lemmas, 400 inflected forms ([unimorph/hsb](https://github.com/unimorph/hsb))                                                                                                                                                   |
+| Wikidata labels        | 739,282 Wikidata items have a label in Upper Sorbian. (Wikidata codes (labels): hsb (739,282))                                                                                                                                      |
+| Wordnets               | **None found**                                                                                                                                                                                                                      |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **4 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid, pyfranc.
+- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid, pyfranc.
 - **Eval datasets (3):** Tatoeba (n=300), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.963 (P 0.973, R 0.953, FPR 1.70e-04) averaged over 3 dataset(s). Runner-up: commonlingua (F1 0.781).
+- **Best model:** GlotLID — F1 0.963 (P 0.973, R 0.953, FPR 1.68e-04) averaged over 3 dataset(s). Runner-up: commonlingua (F1 0.781).
 
 **All models (averaged over datasets):**
 
@@ -46,10 +94,12 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.973 |    0.953 | 0.963 | 0.000 | ✓                |
 | commonlingua |       0.945 |    0.700 | 0.781 | 0.000 | ✓                |
-| pyfranc      |       0.725 |    0.763 | 0.729 | 0.003 | ✓                |
-| funlangid    |       0.723 |    0.607 | 0.614 | 0.002 | ✓                |
+| pyfranc      |       0.726 |    0.763 | 0.730 | 0.003 | ✓                |
+| funlangid    |       0.724 |    0.607 | 0.613 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -69,6 +119,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Upper Sorbian and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Upper Sorbian has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Upper Sorbian?
@@ -87,33 +138,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        1 | ███                  |
 |   2026 |        7 | ████████████████████ |
 
-### Most popular models tagged for Upper Sorbian
-
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [tartuNLP/Qwen2.5-3B-Instruct-hsb-dsb](https://huggingface.co/tartuNLP/Qwen2.5-3B-Instruct-hsb-dsb) |                    853 |                    82 | 3.1B         |                    2 |   2025 | Qwen/Qwen2.5-3B |
-| [yhn112/WMT_Limited_Resources_Sorbian](https://huggingface.co/yhn112/WMT_Limited_Resources_Sorbian) |                    531 |                    62 | 1.9B         |                    4 |   2026 | Qwen/Qwen3.5-2B |
-| [goldfish-models/hsb_latn_5mb](https://huggingface.co/goldfish-models/hsb_latn_5mb)                 |                    414 |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/hsb_latn_full](https://huggingface.co/goldfish-models/hsb_latn_full)               |                    400 |                     9 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/hsb_latn_10mb](https://huggingface.co/goldfish-models/hsb_latn_10mb)               |                    397 |                    10 | unknown      |                    1 |   2024 | —               |
-
-### Most popular models tagged *only* for Upper Sorbian
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/hsb_latn_5mb](https://huggingface.co/goldfish-models/hsb_latn_5mb)   |                    414 |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/hsb_latn_full](https://huggingface.co/goldfish-models/hsb_latn_full) |                    400 |                     9 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/hsb_latn_10mb](https://huggingface.co/goldfish-models/hsb_latn_10mb) |                    397 |                    10 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Upper Sorbian
 
-| model                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of          |
-|:----------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-----------------------|
-| [ahmedeltawel/Qwen3.5-4B-hsb-dsb](https://huggingface.co/ahmedeltawel/Qwen3.5-4B-hsb-dsb)                       |                    361 |                   110 | 4.8B         |                    3 |   2026 | Qwen/Qwen3.5-4B        |
-| [Korla/Qwen2.5-3B-Instruct-hsb-dsb-mlx-4Bit](https://huggingface.co/Korla/Qwen2.5-3B-Instruct-hsb-dsb-mlx-4Bit) |                    176 |                     7 | 3.1B         |                    2 |   2026 | Qwen/Qwen2.5-3B        |
-| [yhn112/WMT_Limited_Resources_Sorbian](https://huggingface.co/yhn112/WMT_Limited_Resources_Sorbian)             |                    531 |                    62 | 1.9B         |                    4 |   2026 | Qwen/Qwen3.5-2B        |
-| [ahmedeltawel/Qwen2.5-1.5B-Instruct-hsb-dsb](https://huggingface.co/ahmedeltawel/Qwen2.5-1.5B-Instruct-hsb-dsb) |                    299 |                    57 | 1.5B         |                    3 |   2026 | Qwen/Qwen2.5-1.5B      |
-| [ahmedeltawel/Qwen3.5-0.8B-hsb-dsb](https://huggingface.co/ahmedeltawel/Qwen3.5-0.8B-hsb-dsb)                   |                    378 |                   129 | 1.0B         |                    3 |   2026 | Qwen/Qwen3.5-0.8B-Base |
+| model                                                                                                           | parameters   |   # languages tagged |   year | derivative of          |
+|:----------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------|
+| [ahmedeltawel/Qwen3.5-4B-hsb-dsb](https://huggingface.co/ahmedeltawel/Qwen3.5-4B-hsb-dsb)                       | 4.8B         |                    3 |   2026 | Qwen/Qwen3.5-4B        |
+| [Korla/Qwen2.5-3B-Instruct-hsb-dsb-mlx-4Bit](https://huggingface.co/Korla/Qwen2.5-3B-Instruct-hsb-dsb-mlx-4Bit) | 3.1B         |                    2 |   2026 | Qwen/Qwen2.5-3B        |
+| [yhn112/WMT_Limited_Resources_Sorbian](https://huggingface.co/yhn112/WMT_Limited_Resources_Sorbian)             | 1.9B         |                    4 |   2026 | Qwen/Qwen3.5-2B        |
+| [ahmedeltawel/Qwen2.5-1.5B-Instruct-hsb-dsb](https://huggingface.co/ahmedeltawel/Qwen2.5-1.5B-Instruct-hsb-dsb) | 1.5B         |                    3 |   2026 | Qwen/Qwen2.5-1.5B      |
+| [ahmedeltawel/Qwen3.5-0.8B-hsb-dsb](https://huggingface.co/ahmedeltawel/Qwen3.5-0.8B-hsb-dsb)                   | 1.0B         |                    3 |   2026 | Qwen/Qwen3.5-0.8B-Base |
 
 ### Largest models tagged *only* for Upper Sorbian
 
@@ -148,15 +181,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -170,11 +203,11 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                  |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 186            | Treebank-based (automatic, UD + UniMorph)     |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 154            | Native (crowdsourced Tatoeba sentence pairs)  |
+| level                    | task                | dataset                                                                              |   # test items | construction                                  |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |            186 | Treebank-based (automatic, UD + UniMorph)     |
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |            154 | Native (crowdsourced Tatoeba sentence pairs)  |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -202,7 +235,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 14 of ~18,460 papers (0.08%) (rank 131 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 14 of ~18,498 papers (0.08%) (rank 139 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Upper Sorbian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 14):

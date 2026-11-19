@@ -12,11 +12,31 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kin`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › West Highlands Kivu ([Glottolog](https://glottolog.org/resource/languoid/id/kiny1244))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 12.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 12.1 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33573#P1098), 2007)
 
 **Official / recognised in:** Rwanda
 
 **Status:** Official language
+
+
+## What does Kinyarwanda look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/kinyarwanda.htm):
+
+> Abantu bose bavuka aliko bakwiye agaciro no kwubahwa kimwe. Bose bavukana
+> ubwenge n'umutima, bagomba kugilirana kivandimwe.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/kin/) has 4 videos of Kinyarwanda speakers. Watch [Daisy speaking Kinyarwanda](https://wikitongues.org/videos/daisy_20160102_kin/).
 
 
 ## Training Data
@@ -25,39 +45,62 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,729 articles in rw.wikipedia (rank 97 of 161 in the set) — ~1/703 of English; 67 active users                                                                                                                        |
-| Common Crawl 2026      | 59,405 pages per crawl on average, which is 0.0028% of the crawl. This is ~1/15,007 of English data and ranks 74 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 0.37 GB (kin_Latn (0.37)); which is equivalent to ≈0.33 GB English data after byte-premium scaling; 2.26 GB removed by filtering. This is ~1/144,501 of English data and ranks 87 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.97 GB (kin_latn) (rank 75 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,729 articles in rw.wikipedia; 67 active users. This is ~1/703 of English data and ranks 101 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 59,405 pages per crawl on average, which is 0.0028% of the crawl (2026). This is ~1/15,007 of English data and ranks 74 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 0.37 GB (kin_Latn 0.37 GB), equivalent to ≈0.33 GB of English after byte-premium scaling; 2.26 GB removed by filtering. This is ~1/144,501 of English data and ranks 87 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.97 GB (kin_Latn 0.97 GB) (rank 75 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                              |
+| UniMorph               | **None found**                                                                              |
+| Wikidata labels        | 487,808 Wikidata items have a label in Kinyarwanda. (Wikidata codes (labels): rw (487,808)) |
+| Wordnets               | **None found**                                                                              |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=31), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** fasttext — F1 0.813 (P 0.787, R 0.863, FPR 1.21e-03) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.799).
+- **Best model:** fasttext — F1 0.813 (P 0.786, R 0.863, FPR 1.17e-03) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.799).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| fasttext     |       0.787 |    0.863 | 0.813 | 0.001 | ✓                |
+| fasttext     |       0.786 |    0.863 | 0.813 | 0.001 | ✓                |
 | GlotLID      |       0.728 |    0.949 | 0.799 | 0.002 | ✓                |
 | cld2         |       0.611 |    0.928 | 0.711 | 0.007 | ✓                |
-| commonlingua |       0.628 |    0.803 | 0.688 | 0.005 | ✓                |
-| OpenLID-v2   |       0.752 |    0.598 | 0.641 | 0.001 | ✓                |
-| pyfranc      |       0.706 |    0.595 | 0.635 | 0.003 | ✓                |
-| funlangid    |       0.568 |    0.669 | 0.604 | 0.005 | ✓                |
-| py3langid    |       0.462 |    0.981 | 0.587 | 0.017 | ✓                |
+| commonlingua |       0.626 |    0.803 | 0.687 | 0.005 | ✓                |
+| OpenLID-v2   |       0.748 |    0.598 | 0.639 | 0.001 | ✓                |
+| pyfranc      |       0.703 |    0.595 | 0.634 | 0.003 | ✓                |
+| funlangid    |       0.568 |    0.669 | 0.604 | 0.004 | ✓                |
+| py3langid    |       0.461 |    0.981 | 0.585 | 0.016 | ✓                |
+| AfroLID      |       0.387 |    0.888 | 0.523 | 0.057 | ✓                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (fasttext) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   |  31 |       0.230 |    0.548 | 0.324 |
+| Tatoeba   |  31 |       0.227 |    0.548 | 0.321 |
 | UDHR-LID  |  59 |       0.761 |    0.864 | 0.810 |
 | Wikipedia | 300 |       0.821 |    0.853 | 0.837 |
 | SmolSent  | 300 |       0.926 |    0.963 | 0.944 |
@@ -72,6 +115,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Kinyarwanda and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Kinyarwanda has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Kinyarwanda?
@@ -92,42 +136,22 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       37 | █████████████        |
 |   2026 |       56 | ████████████████████ |
 
-### Most popular models tagged for Kinyarwanda
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Kinyarwanda
-
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/kin_latn_5mb](https://huggingface.co/goldfish-models/kin_latn_5mb)                 |                    446 |                    13 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kin_latn_10mb](https://huggingface.co/goldfish-models/kin_latn_10mb)               |                    426 |                    23 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kin_latn_100mb](https://huggingface.co/goldfish-models/kin_latn_100mb)             |                    403 |                    13 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kin_latn_full](https://huggingface.co/goldfish-models/kin_latn_full)               |                    389 |                    19 | unknown      |                    1 |   2024 | —               |
-| [ChrisToukmaji/llama_kinyarwanda_LAFT](https://huggingface.co/ChrisToukmaji/llama_kinyarwanda_LAFT) |                    228 |                     4 | unknown      |                    1 |   2023 | —               |
-
 ### Largest models tagged for Kinyarwanda
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [itssarjunhere/bloom](https://huggingface.co/itssarjunhere/bloom)                     | 70                     |                     5 | 176.2B       |                   35 |   2026 | —               |
-| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 109                    |                    13 | 176.2B       |                   35 |   2026 | —               |
-| [bigscience/bloomz](https://huggingface.co/bigscience/bloomz)                         | 163,618                |                   983 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Kinyarwanda
 
-| model                                                                                                         |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [NiyonshutiDavid/uruti-advisory-model-best](https://huggingface.co/NiyonshutiDavid/uruti-advisory-model-best) |                     76 |                    14 | 7.6B         |                    1 |   2026 | Qwen/Qwen2.5-7B               |
-| [ptrdvn/kakugo-3B-kin](https://huggingface.co/ptrdvn/kakugo-3B-kin)                                           |                    185 |                    24 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| model                                                                                                         | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [NiyonshutiDavid/uruti-advisory-model-best](https://huggingface.co/NiyonshutiDavid/uruti-advisory-model-best) | 7.6B         |                    1 |   2026 | Qwen/Qwen2.5-7B               |
+| [ptrdvn/kakugo-3B-kin](https://huggingface.co/ptrdvn/kakugo-3B-kin)                                           | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
 
 _30 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -158,15 +182,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [2]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -180,7 +204,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                             | # test items   | Construction                                                        |
+| level                         | task                           | dataset                                                                                             | # test items   | construction                                                        |
 |:------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 3. Commonsense reasoning      | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                              |
 | 3. Commonsense reasoning      | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                             |
@@ -220,7 +244,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 52 of ~18,460 papers (0.28%) (rank 83 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 52 of ~18,498 papers (0.28%) (rank 87 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Kinyarwanda
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 52):

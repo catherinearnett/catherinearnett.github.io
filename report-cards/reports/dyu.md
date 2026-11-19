@@ -12,11 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `dyu`
 
-**Writing systems:** `Latn`
+**Language family:** **Mande** › Western Mande › Manding-Kpelle › … › East Manding ([Glottolog](https://glottolog.org/resource/languoid/id/dyul1238))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
+**Speakers:** about 7.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 2.7 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q32706#P1098))
 
 **Official / recognised in:** Burkina Faso
 
 **Status:** Official language
+
+
+## What does Dyula look and sound like?
+
+**Written:** no Omniglot page found for Dyula.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/dyu/) has 1 video of Dyula speakers. Watch [Achille speaking Mooré and Dioula](https://wikitongues.org/videos/achille_20180226_mos-dyu/).
 
 
 ## Training Data
@@ -25,20 +36,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                 |
-| FineWeb                | 2.3 MB (dyu_Latn (0.00)); which is equivalent to ≈2.0 MB English data after byte-premium scaling; 5.4 MB removed by filtering. This is ~1/23,441,546 of English data and ranks 176 of 248 official languages in FineWeb. |
-| Goldfish training data | 14.2 MB (dyu_latn) (rank 157 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                     |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                   |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                   |
+| FineWeb                | 2.3 MB (dyu_Latn 0), equivalent to ≈2.0 MB of English after byte-premium scaling; 5.4 MB removed by filtering. This is ~1/23,441,546 of English data and ranks 176 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 14.2 MB (dyu_Latn 14.0 MB) (rank 157 of 166 in the set)                                                                                                                                                    |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                |
+|:-----------------------|:---------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                             |
+| UniMorph               | **None found**                                                             |
+| Wikidata labels        | 2 Wikidata items have a label in Dyula. (Wikidata codes (labels): dyu (2)) |
+| Wordnets               | **None found**                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **5 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, fasttext, funlangid, pyfranc.
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, fasttext, funlangid, pyfranc.
 - **Eval datasets (3):** FLORES (n=300), SmolSent (n=300), UDHR-LID (n=58)
-- **Best model:** GlotLID — F1 0.572 (P 0.664, R 0.514, FPR 1.26e-03) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.333).
+- **Best model:** GlotLID — F1 0.572 (P 0.664, R 0.514, FPR 1.17e-03) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.333).
 
 **All models (averaged over datasets):**
 
@@ -47,9 +79,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.664 |    0.514 | 0.572 | 0.001 | ✓                |
 | pyfranc      |       0.333 |    0.333 | 0.333 | 0.000 | ✓                |
 | funlangid    |       0.629 |    0.228 | 0.333 | 0.001 | ✓                |
-| OpenLID-v2   |       0.388 |    0.206 | 0.247 | 0.004 | ✓                |
-| fasttext     |       0.351 |    0.213 | 0.236 | 0.006 | ✓                |
+| AfroLID      |       0.266 |    0.389 | 0.313 | 0.024 | ✓                |
+| OpenLID-v2   |       0.386 |    0.206 | 0.246 | 0.004 | ✓                |
+| fasttext     |       0.349 |    0.213 | 0.235 | 0.006 | ✓                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -69,6 +103,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Dyula and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Dyula has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Dyula?
@@ -88,33 +123,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        0 |                      |
 |   2026 |       13 | ████████████████████ |
 
-### Most popular models tagged for Dyula
-
-| model                                                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of          |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                 | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                      |
-| [McGill-NLP/AfriqueQwen3.5-4B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B-50Langs)     | 5,618                  | 499                   | 5.2B         |                   29 |   2026 | Qwen/Qwen3.5-4B-Base   |
-| [Tree-AI-lab/kouman-IA-1.5-1B](https://huggingface.co/Tree-AI-lab/kouman-IA-1.5-1B)                     | 1,617                  | 1,617                 | 1.2B         |                    3 |   2026 | —                      |
-| [McGill-NLP/AfriqueQwen3.5-0.8B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-0.8B-50Langs) | 1,530                  | 691                   | 1.1B         |                   29 |   2026 | Qwen/Qwen3.5-0.8B-Base |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                 | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —                      |
-
-### Most popular models tagged *only* for Dyula
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/dyu_latn_5mb](https://huggingface.co/goldfish-models/dyu_latn_5mb)   |                    436 |                    15 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/dyu_latn_10mb](https://huggingface.co/goldfish-models/dyu_latn_10mb) |                    380 |                    13 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/dyu_latn_full](https://huggingface.co/goldfish-models/dyu_latn_full) |                    366 |                    12 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Dyula
 
-| model                                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------|
-| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs) | 602                    | 99                    | 9.4B         |                   29 |   2026 | Qwen/Qwen3.5-9B-Base |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                             | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —                    |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                             | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                    |
-| [McGill-NLP/AfriqueQwen3.5-4B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B-50Langs) | 5,618                  | 499                   | 5.2B         |                   29 |   2026 | Qwen/Qwen3.5-4B-Base |
-| [Tree-AI-lab/kouman-IA-1.5-1B](https://huggingface.co/Tree-AI-lab/kouman-IA-1.5-1B)                 | 1,617                  | 1,617                 | 1.2B         |                    3 |   2026 | —                    |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs) | 9.4B         |                   32 |   2026 | Qwen/Qwen3.5-9B-Base |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                             | 8.6B         |                  189 |   2023 | —                    |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                             | 8.6B         |                  189 |   2023 | —                    |
+| [McGill-NLP/AfriqueQwen3.5-4B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B-50Langs) | 5.2B         |                   32 |   2026 | Qwen/Qwen3.5-4B-Base |
+| [Tree-AI-lab/kouman-IA-1.5-1B](https://huggingface.co/Tree-AI-lab/kouman-IA-1.5-1B)                 | 1.2B         |                    3 |   2026 | —                    |
 
 ### Largest models tagged *only* for Dyula
 
@@ -149,15 +166,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -171,7 +188,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                 | # test items   | Construction                                                        |
+| level               | task                | dataset                                                                 | # test items   | construction                                                        |
 |:--------------------|:--------------------|:------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | Machine translation | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) | 1,012          | Human translation (professional, from English Wikimedia sources)    |
 | Machine translation | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)           | —              | Human translation (professional, from English)                      |
@@ -204,7 +221,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 8 of ~18,460 papers (0.04%) (rank 151 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Dyula
 
 Here are up to ten papers that were published mentioning this language in 2026:

@@ -12,11 +12,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `sco`
 
+**Language family:** **Indo-European** › Classical Indo-European › Germanic › … › Later Anglic ([Glottolog](https://glottolog.org/resource/languoid/id/scot1243))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 1.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 99,000 first-language + 1.5 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q14549#P1098), 2011)
 
 **Official / recognised in:** United Kingdom
 
 **Status:** Regional official language
+
+
+## What does Scots look and sound like?
+
+**Written (An Introduction to the Scots Language Society)**, sample text from [Omniglot](https://www.omniglot.com/writing/scots.htm):
+
+> The Scots Leid Associe wis foondit in 1972 an ettles tae fordle Scots in leeteratur, drama, the media, eddication an in ilka day uiss. Akis Scots wis ance the state langage o Scotland, it's a vailid pairt o wir heirskip an the associe taks tent tae the fact that it shoud can tak its steid as a langage o Scotland, alang wi Gaelic an Inglis.
+
+*Translation:* The Scots Language Society was founded in 1972 and exists to promote Scots in literature, drama, the media, education and in every day usage. Since Scots was once the state language of Scotland, it is a valid part of our heritage and the society recognises that it should be able to take its place as a language of Scotland, along with Gaelic and English.
+
+**Written (Article 1 of the UDHR)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/scots.htm):
+
+> Aw human sowels is born free and equal in dignity and richts. They are tochered wi mense and conscience and shuld guide theirsels ane til ither in a speirit o britherheid.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/sco/) has 2 videos of Scots speakers. Watch [David speaking Scots (Doric),English](https://wikitongues.org/videos/david_20140923_sco-eng/).
 
 
 ## Training Data
@@ -25,29 +50,52 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                      |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 34,218 articles in sco.wikipedia (rank 72 of 161 in the set) — ~1/221 of English; 116 active users                                                          |
-| Common Crawl 2026      | 14,779 pages per crawl on average, which is 0.0007% of the crawl. This is ~1/60,323 of English data and ranks 97 of 113 official languages in Common Crawl. |
-| FineWeb                | 15.4 MB (sco_Latn (0.02)); 16.39 GB removed by filtering. This is ~1/3,478,572 of English data and ranks 136 of 248 official languages in FineWeb.          |
-| Goldfish training data | 59.1 MB (sco_latn) (rank 131 of 166 in the set)                                                                                                             |
+| Source                 | Amount                                                                                                                                                               |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 34,218 articles in sco.wikipedia; 116 active users. This is ~1/221 of English data and ranks 75 of 168 languages in the set in Wikipedia.                            |
+| Common Crawl           | 14,779 pages per crawl on average, which is 0.0007% of the crawl (2026). This is ~1/60,323 of English data and ranks 97 of 113 languages in the set in Common Crawl. |
+| FineWeb                | 15.4 MB (sco_Latn 20.0 MB); 16.39 GB removed by filtering. This is ~1/3,478,572 of English data and ranks 136 of 248 languages in the set in FineWeb.                |
+| Goldfish training data | 59.1 MB (sco_Latn 59.0 MB) (rank 131 of 166 in the set)                                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                |
+|:-----------------------|:-------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                             |
+| UniMorph               | **None found**                                                                             |
+| Wikidata labels        | 1,656,593 Wikidata items have a label in Scots. (Wikidata codes (labels): sco (1,656,593)) |
+| Wordnets               | **None found**                                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, pyfranc.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, pyfranc.
 - **Eval datasets (3):** Tatoeba (n=92), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.874 (P 0.970, R 0.800, FPR 1.04e-04) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.727).
+- **Best model:** GlotLID — F1 0.873 (P 0.969, R 0.800, FPR 1.10e-04) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.723).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.970 |    0.800 | 0.874 | 0.000 | ✓                |
-| pyfranc      |       0.679 |    0.796 | 0.727 | 0.003 | ✓                |
-| cld2         |       0.911 |    0.497 | 0.635 | 0.000 | ✓                |
+| GlotLID      |       0.969 |    0.800 | 0.873 | 0.000 | ✓                |
+| pyfranc      |       0.673 |    0.796 | 0.723 | 0.003 | ✓                |
+| cld2         |       0.906 |    0.497 | 0.634 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -59,7 +107,7 @@ Language identification (LangID or LID) is a classification task that identifies
 |:----------|----:|------------:|---------:|------:|
 | Tatoeba   |  92 |       0.985 |    0.707 | 0.823 |
 | UDHR-LID  |  58 |       0.957 |    0.776 | 0.857 |
-| Wikipedia | 300 |       0.968 |    0.917 | 0.942 |
+| Wikipedia | 300 |       0.965 |    0.917 | 0.940 |
 
 ### What can you do?
 
@@ -69,6 +117,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Scots and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Scots has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Scots?
@@ -87,43 +136,23 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       12 | ██████               |
 |   2026 |       42 | ████████████████████ |
 
-### Most popular models tagged for Scots
-
-| model                                                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of       |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------|
-| [britllm/britllm-3b-v0.1](https://huggingface.co/britllm/britllm-3b-v0.1)                                                   | 4,955                  |                   216 | 2.7B         |                    5 |   2024 | —                   |
-| [rubricreward/mR3-Qwen3-8B-en-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-8B-en-prompt-en-thinking)   | 924                    |                    18 | 8.2B         |                   64 |   2025 | Qwen/Qwen3-8B-Base  |
-| [rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking) | 732                    |                    24 | 14.8B        |                   64 |   2025 | Qwen/Qwen3-14B-Base |
-| [rubricreward/mR3-Qwen3-4B-en-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-4B-en-prompt-en-thinking)   | 466                    |                    22 | 4.0B         |                   64 |   2025 | Qwen/Qwen3-4B-Base  |
-| [goldfish-models/sco_latn_5mb](https://huggingface.co/goldfish-models/sco_latn_5mb)                                         | 402                    |                    16 | unknown      |                    1 |   2024 | —                   |
-
-### Most popular models tagged *only* for Scots
-
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [goldfish-models/sco_latn_5mb](https://huggingface.co/goldfish-models/sco_latn_5mb)                     |                    402 |                    16 | unknown      |                    1 |   2024 | —                    |
-| [goldfish-models/sco_latn_10mb](https://huggingface.co/goldfish-models/sco_latn_10mb)                   |                    377 |                    14 | unknown      |                    1 |   2024 | —                    |
-| [goldfish-models/sco_latn_full](https://huggingface.co/goldfish-models/sco_latn_full)                   |                    351 |                    11 | unknown      |                    1 |   2024 | —                    |
-| [alphaedge-ai/gemma-3-1b-it-sco-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-sco-32768)     |                     46 |                     7 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [alphaedge-ai/gemma-3-270m-it-sco-16384](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-sco-16384) |                     45 |                     7 | 110.8M       |                    1 |   2026 | google/gemma-3-270m  |
-
 ### Largest models tagged for Scots
 
-| model                                                                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [rubricreward/mR3-Qwen3-14B-tgt-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-14B-tgt-prompt-en-thinking)                       |                    178 |                    10 | 14.8B        |                   64 |   2025 | Qwen/Qwen3-14B-Base     |
-| [rubricreward/mR3-Qwen3-8B-tgt-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-8B-tgt-prompt-en-thinking)                         |                    177 |                     8 | 8.2B         |                   64 |   2025 | Qwen/Qwen3-8B-Base      |
-| [rubricreward/mR3-Qwen3-4B-tgt-prompt-tgt-thinking-translated](https://huggingface.co/rubricreward/mR3-Qwen3-4B-tgt-prompt-tgt-thinking-translated) |                    128 |                     6 | 4.0B         |                   64 |   2025 | Qwen/Qwen3-4B-Base      |
-| [alphaedge-ai/gemma-3-4b-it-sco-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-sco-32768)                                                 |                     36 |                     6 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it    |
-| [jonpojonpo/Machynlleth-3B-Instruct](https://huggingface.co/jonpojonpo/Machynlleth-3B-Instruct)                                                     |                    204 |                   204 | 2.7B         |                    5 |   2026 | britllm/britllm-3b-v0.1 |
+| model                                                                                                                       | parameters   |   # languages tagged |   year | derivative of           |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------|
+| [rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking) | 14.8B        |                   64 |   2025 | Qwen/Qwen3-14B-Base     |
+| [rubricreward/mR3-Qwen3-8B-en-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-8B-en-prompt-en-thinking)   | 8.2B         |                   64 |   2025 | Qwen/Qwen3-8B-Base      |
+| [rubricreward/mR3-Qwen3-4B-en-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-4B-en-prompt-en-thinking)   | 4.0B         |                   64 |   2025 | Qwen/Qwen3-4B-Base      |
+| [alphaedge-ai/gemma-3-4b-it-sco-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-sco-32768)                         | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it    |
+| [jonpojonpo/Machynlleth-3B-Instruct](https://huggingface.co/jonpojonpo/Machynlleth-3B-Instruct)                             | 2.7B         |                    5 |   2026 | britllm/britllm-3b-v0.1 |
 
 ### Largest models tagged *only* for Scots
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [alphaedge-ai/gemma-3-4b-it-sco-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-sco-32768)     |                     36 |                     6 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-| [alphaedge-ai/gemma-3-1b-it-sco-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-sco-32768)     |                     46 |                     7 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [alphaedge-ai/gemma-3-270m-it-sco-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-sco-32768) |                     43 |                     5 | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [alphaedge-ai/gemma-3-4b-it-sco-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-sco-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
+| [alphaedge-ai/gemma-3-1b-it-sco-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-sco-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
+| [alphaedge-ai/gemma-3-270m-it-sco-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-sco-32768) | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
 
 _5 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -154,15 +183,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -176,10 +205,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                  |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 73             | Native (crowdsourced Tatoeba sentence pairs)  |
+| level                    | task                | dataset                                                                              |   # test items | construction                                  |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             73 | Native (crowdsourced Tatoeba sentence pairs)  |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -207,7 +236,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 11 of ~18,460 papers (0.06%) (rank 136 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 11 of ~18,498 papers (0.06%) (rank 145 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Scots
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 11):

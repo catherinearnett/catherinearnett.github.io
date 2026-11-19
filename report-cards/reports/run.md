@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `run`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Rundic ([Glottolog](https://glottolog.org/resource/languoid/id/rund1242))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 8.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 10.8 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33583#P1098), 2007)
 
 **Official / recognised in:** Burundi
 
 **Status:** Official language
+
+
+## What does Kirundi look and sound like?
+
+**Written:** no Omniglot page found for Kirundi.
+
+**Spoken:** no Wikitongues video of Kirundi yet ([its Wikitongues page](https://wikitongues.org/languages/run/) says how to contribute one).
 
 
 ## Training Data
@@ -25,32 +38,55 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 729 articles in rn.wikipedia (rank 151 of 161 in the set) — ~1/10,352 of English; 6 active users                                                                                                                         |
-| Common Crawl 2026      | 2,747 pages per crawl on average, which is 0.0001% of the crawl. This is ~1/324,539 of English data and ranks 103 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 68.5 MB (run_Latn (0.07)); which is equivalent to ≈61.2 MB English data after byte-premium scaling; 2.80 GB removed by filtering. This is ~1/779,716 of English data and ranks 112 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.11 GB (run_latn) (rank 117 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 729 articles in rn.wikipedia; 6 active users. This is ~1/10,352 of English data and ranks 158 of 168 languages in the set in Wikipedia.                                                                          |
+| Common Crawl           | 2,747 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/324,539 of English data and ranks 103 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 68.5 MB (run_Latn 70.0 MB), equivalent to ≈61.2 MB of English after byte-premium scaling; 2.80 GB removed by filtering. This is ~1/779,716 of English data and ranks 112 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.11 GB (run_Latn 0.11 GB) (rank 117 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 476,335 Wikidata items have a label in Kirundi. (Wikidata codes (labels): rn (476,335)) |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** fasttext — F1 0.870 (P 0.865, R 0.899, FPR 1.48e-03) averaged over 5 dataset(s). Runner-up: GlotLID (F1 0.828).
+- **Best model:** fasttext — F1 0.870 (P 0.863, R 0.899, FPR 1.45e-03) averaged over 5 dataset(s). Runner-up: GlotLID (F1 0.828).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| fasttext     |       0.865 |    0.899 | 0.870 | 0.001 | ✓                |
+| fasttext     |       0.863 |    0.899 | 0.870 | 0.001 | ✓                |
 | GlotLID      |       0.983 |    0.727 | 0.828 | 0.000 | ✓                |
-| OpenLID-v2   |       0.705 |    0.927 | 0.780 | 0.005 | ✓                |
-| pyfranc      |       0.756 |    0.623 | 0.658 | 0.003 | ✓                |
-| cld2         |       0.973 |    0.426 | 0.586 | 0.000 | ✓                |
-| commonlingua |       0.686 |    0.516 | 0.572 | 0.002 | ✓                |
+| OpenLID-v2   |       0.704 |    0.927 | 0.779 | 0.005 | ✓                |
+| AfroLID      |       0.977 |    0.547 | 0.682 | 0.001 | ✓                |
+| pyfranc      |       0.752 |    0.623 | 0.657 | 0.003 | ✓                |
+| cld2         |       0.971 |    0.426 | 0.586 | 0.000 | ✓                |
+| commonlingua |       0.675 |    0.516 | 0.568 | 0.002 | ✓                |
 | funlangid    |       0.780 |    0.297 | 0.401 | 0.001 | ✓                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (fasttext) by dataset**:
@@ -58,8 +94,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | UDHR-LID  |  58 |       0.611 |    1.000 | 0.758 |
-| Wikipedia | 300 |       0.875 |    0.793 | 0.832 |
-| Tatoeba   | 300 |       0.938 |    0.757 | 0.838 |
+| Wikipedia | 300 |       0.872 |    0.793 | 0.831 |
+| Tatoeba   | 300 |       0.934 |    0.757 | 0.836 |
 | SmolSent  | 300 |       0.923 |    0.960 | 0.941 |
 | FLORES    | 300 |       0.977 |    0.987 | 0.982 |
 
@@ -71,6 +107,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Kirundi and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Kirundi has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/run/) video of Kirundi yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Kirundi?
@@ -91,42 +129,22 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       20 | █████████████        |
 |   2026 |       30 | ████████████████████ |
 
-### Most popular models tagged for Kirundi
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Kirundi
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [Nyehashai/Ntahokaja-0.31-Base](https://huggingface.co/Nyehashai/Ntahokaja-0.31-Base) |                    522 |                    19 | 91.2M        |                    1 |   2026 | —                             |
-| [goldfish-models/run_latn_5mb](https://huggingface.co/goldfish-models/run_latn_5mb)   |                    432 |                    14 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/run_latn_10mb](https://huggingface.co/goldfish-models/run_latn_10mb) |                    408 |                    12 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/run_latn_full](https://huggingface.co/goldfish-models/run_latn_full) |                    398 |                     9 | unknown      |                    1 |   2024 | —                             |
-| [ptrdvn/kakugo-3B-run](https://huggingface.co/ptrdvn/kakugo-3B-run)                   |                     69 |                    10 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-
 ### Largest models tagged for Kirundi
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 135                    |                    31 | 176.2B       |                   35 |   2024 | —               |
-| [bigscience/bloomz](https://huggingface.co/bigscience/bloomz)                         | 163,618                |                   983 | 176.2B       |                   35 |   2022 | —               |
-| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 89                     |                    15 | 176.2B       |                   35 |   2026 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Kirundi
 
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [ptrdvn/kakugo-3B-run](https://huggingface.co/ptrdvn/kakugo-3B-run)                   |                     69 |                    10 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [Nyehashai/Ntahokaja-0.31-Base](https://huggingface.co/Nyehashai/Ntahokaja-0.31-Base) |                    522 |                    19 | 91.2M        |                    1 |   2026 | —                             |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [ptrdvn/kakugo-3B-run](https://huggingface.co/ptrdvn/kakugo-3B-run)                   | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [Nyehashai/Ntahokaja-0.31-Base](https://huggingface.co/Nyehashai/Ntahokaja-0.31-Base) | 91.2M        |                    1 |   2026 | —                             |
 
 _22 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -157,15 +175,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -179,7 +197,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                        |
+| level                    | task                | dataset                                                                              | # test items   | construction                                                        |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 763            | Synthetic (LLM-generated) on native Wikipedia                       |
 | Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources)    |
@@ -214,7 +232,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 15 of ~18,460 papers (0.08%) (rank 129 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 15 of ~18,498 papers (0.08%) (rank 137 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Kirundi | Rundi
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 15):

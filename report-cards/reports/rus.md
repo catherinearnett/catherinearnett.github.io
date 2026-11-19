@@ -12,11 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `rus`
 
+**Language family:** **Indo-European** › Classical Indo-European › Balto-Slavic › … › East Slavic ([Glottolog](https://glottolog.org/resource/languoid/id/russ1263))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 193.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 154.0 million first-language + 110.4 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q7737#P1098), 2009)
 
 **Official / recognised in:** Belarus, Kazakhstan, Kyrgyzstan, Moldova, Russia, Tajikistan
 
 **Status:** Official language; Regional official language
+
+
+## What does Russian look and sound like?
+
+**Written (Russian)**, sample text from [Omniglot](https://www.omniglot.com/writing/russian.htm):
+
+> Все люди рождаются свободными и равными в своем достоинстве и правах. Они наделены разумом и совестью и должны поступать в отношении друг друга в духе братства.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/rus/) has 7 videos of Russian speakers. Watch [See all](https://wikitongues.org/videos/?language=rus).
 
 
 ## Training Data
@@ -25,20 +42,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                           |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,127,187 articles in ru.wikipedia (rank 8 of 161 in the set) — ~1/4 of English; 17,152 active users                                                                                                                             |
-| Common Crawl 2026      | 140,276,233 pages per crawl on average, which is 6.5103% of the crawl. This is ~1/6 of English data and ranks 2 of 113 official languages in Common Crawl.                                                                       |
-| FineWeb                | 1,987.66 GB (rus_Cyrl (1987.66)); which is equivalent to ≈1,090.48 GB English data after byte-premium scaling; 1,764.78 GB removed by filtering. This is ~1/27 of English data and ranks 2 of 248 official languages in FineWeb. |
-| Goldfish training data | 14.82 GB (rus_cyrl) (rank 1 of 166 in the set)                                                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                                    |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,127,187 articles in ru.wikipedia; 17,152 active users. This is ~1/4 of English data and ranks 8 of 168 languages in the set in Wikipedia.                                                                               |
+| Common Crawl           | 140,276,233 pages per crawl on average, which is 6.5103% of the crawl (2026). This is ~1/6 of English data and ranks 2 of 113 languages in the set in Common Crawl.                                                       |
+| FineWeb                | 1,987.66 GB (rus_Cyrl 1,987.66 GB), equivalent to ≈1,090.48 GB of English after byte-premium scaling; 1,764.78 GB removed by filtering. This is ~1/27 of English data and ranks 2 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 14.82 GB (rus_Cyrl 14.82 GB) (rank 1 of 166 in the set)                                                                                                                                                                   |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 5 treebanks, 220,419 sentences / 3,455,957 tokens in total: [UD_Russian-GSD](https://github.com/UniversalDependencies/UD_Russian-GSD) (5,030 sentences), [UD_Russian-PUD](https://github.com/UniversalDependencies/UD_Russian-PUD) (1,000 sentences), [UD_Russian-Poetry](https://github.com/UniversalDependencies/UD_Russian-Poetry) (5,085 sentences), [UD_Russian-SynTagRus](https://github.com/UniversalDependencies/UD_Russian-SynTagRus) (87,337 sentences), [UD_Russian-Taiga](https://github.com/UniversalDependencies/UD_Russian-Taiga) (121,967 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 28,068 lemmas, 473,481 inflected forms ([unimorph/rus](https://github.com/unimorph/rus))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Wikidata labels        | 10,904,992 Wikidata items have a label in Russian. (Wikidata codes (labels): ru (10,904,992))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Wordnets               | [RussNet](http://project.phil.spbu.ru/RussNet/) (size not listed); licence: RESTRICTED (sample available for free); Russian WordNet (size not listed); [Russian Wordnet (Русский Wordnet)](http://wordnet.ru/) (size not listed); licence: OPEN.                                                                                                                                                                                                                                                                                                                                                                                               |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                              |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                  |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([russyn](https://ebible.org/details.php?id=russyn), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                               |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.892 (P 0.828, R 0.993, FPR 1.49e-03) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.853).
+- **Best model:** GlotLID — F1 0.891 (P 0.828, R 0.993, FPR 1.48e-03) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.850).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,14 +84,16 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.828 |    0.993 | 0.892 | 0.001 | ✓                |
-| cld2         |       0.855 |    0.857 | 0.853 | 0.001 | ✓                |
-| commonlingua |       0.791 |    0.903 | 0.832 | 0.003 | ✓                |
-| pyfranc      |       0.759 |    0.806 | 0.762 | 0.004 | ✓                |
+| GlotLID      |       0.828 |    0.993 | 0.891 | 0.001 | ✓                |
+| cld2         |       0.849 |    0.857 | 0.850 | 0.002 | ✓                |
+| commonlingua |       0.792 |    0.903 | 0.832 | 0.003 | ✓                |
+| pyfranc      |       0.756 |    0.806 | 0.761 | 0.004 | ✓                |
 | funlangid    |       0.654 |    0.785 | 0.684 | 0.005 | ✓                |
-| fasttext     |       0.564 |    0.992 | 0.672 | 0.011 | ✓                |
-| py3langid    |       0.540 |    0.975 | 0.638 | 0.017 | ✓                |
-| OpenLID-v2   |       0.488 |    0.982 | 0.580 | 0.020 | ✓                |
+| fasttext     |       0.565 |    0.992 | 0.673 | 0.011 | ✓                |
+| py3langid    |       0.539 |    0.975 | 0.637 | 0.017 | ✓                |
+| OpenLID-v2   |       0.488 |    0.982 | 0.580 | 0.019 | ✓                |
+| cld3         |       0.468 |    0.954 | 0.576 | 0.023 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -61,7 +101,7 @@ Language identification (LangID or LID) is a classification task that identifies
 |:----------|----:|------------:|---------:|------:|
 | Wikipedia | 300 |       0.570 |    0.997 | 0.725 |
 | UDHR-LID  |  58 |       0.598 |    1.000 | 0.748 |
-| Tatoeba   | 300 |       0.872 |    0.997 | 0.930 |
+| Tatoeba   | 300 |       0.867 |    0.997 | 0.927 |
 | CommonLID | 300 |       0.948 |    0.963 | 0.955 |
 | NTREX     | 300 |       0.990 |    1.000 | 0.995 |
 | FLORES    | 300 |       0.993 |    1.000 | 0.997 |
@@ -81,7 +121,7 @@ Language identification (LangID or LID) is a classification task that identifies
 We scraped all `text-generation` models on Hugging Face and analyzed the metadata. We counted how many models are explicitly tagged for Russian (and whether the model is exclusively tagged for Russian or tagged for multiple languages). We note which models are fine-tunes or have been derived from other (most likely massively multilingual) models.
 
 - **4,777** text-generation models are explicitly tagged for Russian (1,390 original uploads, 3,387 fine-tunes/quantisations/merges).
-- **764** are tagged *only* for Russian.
+- **761** are tagged *only* for Russian.
 - Including tags inherited from base models: **11,604**.
 
 **Uploads by year**
@@ -94,45 +134,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |     1293 | ████████████         |
 |   2026 |     2162 | ████████████████████ |
 
-### Most popular models tagged for Russian
-
-| model                                                                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                        |
-|:------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------------------|
-| [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct)                                   | 9,633,401              | 331,860               | 3.8B         |                   23 |   2025 | —                                    |
-| [HuggingFaceTB/SmolLM3-3B](https://huggingface.co/HuggingFaceTB/SmolLM3-3B)                                             | 6,683,971              | 386,350               | 3.1B         |                    8 |   2025 | HuggingFaceTB/SmolLM3-3B-Base        |
-| [IlyaGusev/saiga_llama3_8b](https://huggingface.co/IlyaGusev/saiga_llama3_8b)                                           | 6,175,370              | 415,242               | 8.0B         |                    1 |   2024 | —                                    |
-| [unsloth/Qwen2.5-7B-Instruct-unsloth-bnb-4bit](https://huggingface.co/unsloth/Qwen2.5-7B-Instruct-unsloth-bnb-4bit)     | 4,438,987              | 87,208                | 7.8B         |                   13 |   2025 | Qwen/Qwen2.5-7B                      |
-| [Vikhrmodels/Vikhr-Nemo-12B-Instruct-R-21-09-24](https://huggingface.co/Vikhrmodels/Vikhr-Nemo-12B-Instruct-R-21-09-24) | 3,508,434              | 82,111                | 12.2B        |                    2 |   2024 | mistralai/Mistral-Nemo-Instruct-2407 |
-
-### Most popular models tagged *only* for Russian
-
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of      |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------|
-| [IlyaGusev/saiga_llama3_8b](https://huggingface.co/IlyaGusev/saiga_llama3_8b)                         | 6,175,370              | 415,242               | 8.0B         |                    1 |   2024 | —                  |
-| [ai-forever/rugpt3small_based_on_gpt2](https://huggingface.co/ai-forever/rugpt3small_based_on_gpt2)   | 1,203,857              | 15,457                | unknown      |                    1 |   2022 | —                  |
-| [ai-forever/rugpt3large_based_on_gpt2](https://huggingface.co/ai-forever/rugpt3large_based_on_gpt2)   | 519,755                | 1,857                 | unknown      |                    1 |   2022 | —                  |
-| [t-tech/T-lite-it-2.1](https://huggingface.co/t-tech/T-lite-it-2.1)                                   | 426,129                | 2,812                 | 8.2B         |                    1 |   2025 | Qwen/Qwen3-8B-Base |
-| [ai-forever/rugpt3medium_based_on_gpt2](https://huggingface.co/ai-forever/rugpt3medium_based_on_gpt2) | 405,293                | 2,765                 | unknown      |                    1 |   2022 | —                  |
-
 ### Largest models tagged for Russian
 
-| model                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                     |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                         | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                 |
-| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF)         | 1,316                  | 1,316                 | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
-| [Mini-Bleyz/Bleyzos-Coder_Fork_MiMo-V2.5-Pro](https://huggingface.co/Mini-Bleyz/Bleyzos-Coder_Fork_MiMo-V2.5-Pro) | 787                    | 161                   | 1.0T         |                    2 |   2026 | —                                 |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                             | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                 |
-| [defcdrh/GLM-5.3-UNCENSORED-FP8](https://huggingface.co/defcdrh/GLM-5.3-UNCENSORED-FP8)                           | 41                     | 41                    | 753.3B       |                   10 |   2026 | JANGQ-AI/GLM-5.3-FP8              |
+| model                                                                                                             | parameters   |   # languages tagged |   year | derivative of                     |
+|:------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                         | 1.9T         |                  143 |   2025 | —                                 |
+| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF)         | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
+| [Mini-Bleyz/Bleyzos-Coder_Fork_MiMo-V2.5-Pro](https://huggingface.co/Mini-Bleyz/Bleyzos-Coder_Fork_MiMo-V2.5-Pro) | 1.0T         |                    2 |   2026 | —                                 |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                             | 856.0B       |                  143 |   2025 | —                                 |
+| [Devopsopraiz/Baanzon-Revgarden-V5-R](https://huggingface.co/Devopsopraiz/Baanzon-Revgarden-V5-R)                 | 753.3B       |                   10 |   2026 | —                                 |
 
 ### Largest models tagged *only* for Russian
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of       |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------|
-| [IlyaGusev/saiga2_70b_lora](https://huggingface.co/IlyaGusev/saiga2_70b_lora)         | 0                      |                     0 | 70.0B        |                    1 |   2023 | —                   |
-| [gotzmann/Mira-70B-v0.8](https://huggingface.co/gotzmann/Mira-70B-v0.8)               | 282                    |                    10 | 70.0B        |                    1 |   2024 | —                   |
-| [IlyaGusev/saiga2_70b_gguf](https://huggingface.co/IlyaGusev/saiga2_70b_gguf)         | 4,862                  |                   125 | 69.0B        |                    1 |   2023 | —                   |
-| [nn-tech/MetalGPT-1-FP8](https://huggingface.co/nn-tech/MetalGPT-1-FP8)               | 806                    |                    12 | 32.8B        |                    1 |   2025 | Qwen/Qwen3-32B      |
-| [ai-forever/pollux-judge-32b-r](https://huggingface.co/ai-forever/pollux-judge-32b-r) | 327                    |                    28 | 32.8B        |                    1 |   2025 | t-tech/T-pro-it-1.0 |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of       |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------|
+| [IlyaGusev/saiga2_70b_lora](https://huggingface.co/IlyaGusev/saiga2_70b_lora)         | 70.0B        |                    1 |   2023 | —                   |
+| [gotzmann/Mira-70B-v0.8](https://huggingface.co/gotzmann/Mira-70B-v0.8)               | 70.0B        |                    1 |   2024 | —                   |
+| [IlyaGusev/saiga2_70b_gguf](https://huggingface.co/IlyaGusev/saiga2_70b_gguf)         | 69.0B        |                    1 |   2023 | —                   |
+| [nn-tech/MetalGPT-1-FP8](https://huggingface.co/nn-tech/MetalGPT-1-FP8)               | 32.8B        |                    1 |   2025 | Qwen/Qwen3-32B      |
+| [ai-forever/pollux-judge-32b-r](https://huggingface.co/ai-forever/pollux-judge-32b-r) | 32.8B        |                    1 |   2025 | t-tech/T-pro-it-1.0 |
 
 _528 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +172,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**39** benchmark datasets in the survey include Russian.
+**38** benchmark datasets in the survey include Russian.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,15 +183,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [11]    \
+                 /   [10]   \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -185,7 +205,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                           | # test items   | Construction                                                                |
+| level                                  | task                           | dataset                                                                                                           | # test items   | construction                                                                |
 |:---------------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:----------------------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                                         | 4,199          | Treebank-based (automatic)                                                  |
 | 1. Linguistic knowledge                | BLiMP                          | [CLAMS](https://github.com/aaronmueller/clams)                                                                    | 40,100         | Template-based (Marvin & Linzen grammars, translated)                       |
@@ -208,13 +228,12 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                     | 900            | Human translation (professional)                                            |
 | 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                        | 5,000          | Synthetic (LLM-generated) on native Wikipedia                               |
 | 4. Reading comprehension               | QA – extractive RC             | [SberQuAD](https://huggingface.co/datasets/kuznetsoffandrey/sberquad)                                             | —              | Native                                                                      |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | KazMMLU                                                                                                           | —              | Native                                                                      |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                             | 14,042         | MT + community post-editing                                                 |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                   | —              | Native (local exams)                                                        |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | KazMMLU                                                                                                           | —              | Native                                                                      |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                                     | 11,829         | LLM translation + expert review                                             |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [NOVA-63](https://huggingface.co/datasets/zjy1298/NOVA-63)                                                        | —              | Native (local exams/publications)                                           |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                            | —              | Machine translation (GPT-3.5, Okapi)                                        |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                            | 100            | Native (community-written, peer-verified)                                   |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                            | 100            | Native (community-written, peer-verified)                                   |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                                          | 10,000         | Human translation                                                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                                   | 250            | Native (locally sourced)                                                    |
@@ -251,22 +270,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 947 of ~18,460 papers (5.13%) (rank 8 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 951 of ~18,498 papers (5.14%) (rank 8 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Russian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 947):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 951):
 
 | title                                                                                                                              | paper                                                                        |
 |:-----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
 | Closing the Bilingual Gap: Cross-lingual Semantic Scaffolding for Fine-Grained Machine Translation Evaluation in Taiwanese Hokkien | [2026.aacl-short.43](https://aclanthology.org/2026.aacl-short.43/)           |
 | One Tokenizer To Rule Them All: Emergent Language Plasticity via Multilingual Tokenizers                                           | [2026.acl-long.141](https://aclanthology.org/2026.acl-long.141/)             |
 | Cloud and On-Premises Deployment of Uzbek Legal RAG via Targeted Retriever Fine-Tuning                                             | [2026.emnlp-industry.266](https://aclanthology.org/2026.emnlp-industry.266/) |
-| Preserving Historical Truth: Detecting Historical Revisionism in Large Language Models                                             | [2026.emnlp-main.82](https://aclanthology.org/2026.emnlp-main.82/)           |
-| AFRILANGTUTOR: Advancing Language Tutoring and Culture Education in Low-Resource Languages with Large Language Models              | [2026.findings-emnlp.546](https://aclanthology.org/2026.findings-emnlp.546/) |
-| Machine Translation for Low Resource Turkic Languages: English-Tatar                                                               | [2026.loresmt-1.21](https://aclanthology.org/2026.loresmt-1.21/)             |
-| JSTS-Neg: Japanese Semantic Textual Similarity Dataset for Evaluating Negation Understanding Ability                               | [2026.lrec-1.942](https://aclanthology.org/2026.lrec-1.942/)                 |
+| Translation-Induced Label Drift in Natural Language Inference: Evidence from Nine Languages                                        | [2026.emnlp-main.817](https://aclanthology.org/2026.emnlp-main.817/)         |
+| Adaptive Information Control for Search-Augmented LLM Reasoning                                                                    | [2026.findings-emnlp.52](https://aclanthology.org/2026.findings-emnlp.52/)   |
+| Script Correction and Synthetic Pivoting: Adapting Tencent HY-MT for Low-Resource Turkic Translation                               | [2026.loresmt-1.20](https://aclanthology.org/2026.loresmt-1.20/)             |
 | ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                               | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                     |
-| A Video-Based Reverse Dictionary for Sign Language Using Gesture Similarity                                                        | [2026.signlang-1.41](https://aclanthology.org/2026.signlang-1.41/)           |
-| Automatic Machine Translation Detection Using a Surrogate Multilingual Translation Model                                           | [2026.tacl-1.55](https://aclanthology.org/2026.tacl-1.55/)                   |
+| Pluralistic Annotation of Cultural Weaponization on Wikipedia: A Multi-Annotator Case Study across Ukraine and Armenia             | [2026.pandora-1.5](https://aclanthology.org/2026.pandora-1.5/)               |
+| Emotion Recognition in German Sign Language with Facial Action Units                                                               | [2026.signlang-1.31](https://aclanthology.org/2026.signlang-1.31/)           |
+| Automated Essay Scoring and Language Certification: Assessing Generalizability, Agreement and Validity for French                  | [2026.tacl-1.44](https://aclanthology.org/2026.tacl-1.44/)                   |
 
 {% endraw %}

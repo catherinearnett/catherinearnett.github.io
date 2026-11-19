@@ -12,9 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `trv` (also listed as: Truku)
 
+**Language family:** **Austronesian** › Atayalic ([Glottolog](https://glottolog.org/resource/languoid/id/taro1264))
+
+**Endangerment:** 🔴 nearly extinct (level 5 of 6 on Glottolog’s scale; source: ElCat: Critically Endangered (80% certain))
+
+**Speakers:** about 4,719 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 20,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q716686#P1098), 2008)
+
 **Official / recognised in:** Taiwan
 
 **Status:** National language
+
+
+## What does Seediq look and sound like?
+
+**Written**, sample text from [Omniglot](https://www.omniglot.com/writing/seediq.htm):
+
+> Smkuxul ku musa muuyas ka yaku. Slluhe jiyuga, muuyas, muuyas uyas ma kmeeki. Mqaras ku klaali ka yaku. Meniq ku sapah, tama bubu mu, ma qbsuran mu rseno, swai mu mqedil, smkuxul mbahang uyas mu ma, qmita keeki mu kana dheya.
+
+*Translation:* I like to go to school and learn to draw, read, sing and dance. I am very happy every day. The picture I drew was very beautiful. I also read books very much, and the teacher likes me very much. At home, my father, mother, brother, and sister all like to listen to me singing and watching me dance. Information provided by Michael Peter Füstumum
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Seediq yet ([its Wikitongues page](https://wikitongues.org/languages/trv/) says how to contribute one).
 
 
 ## Training Data
@@ -23,20 +42,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,201 articles in trv.wikipedia (rank 144 of 161 in the set) — ~1/6,283 of English; 11 active users                                               |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 1.4 MB (trv_Latn (0.00)); 0.24 GB removed by filtering. This is ~1/36,848,528 of English data and ranks 192 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                      |
+| Source                 | Amount                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,201 articles in trv.wikipedia; 11 active users. This is ~1/6,283 of English data and ranks 151 of 168 languages in the set in Wikipedia.     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                       |
+| FineWeb                | 1.4 MB (trv_Latn 0); 0.24 GB removed by filtering. This is ~1/36,848,528 of English data and ranks 192 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                   |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                         |
+|:-----------------------|:------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                      |
+| UniMorph               | **None found**                                                                      |
+| Wikidata labels        | 4,566 Wikidata items have a label in Seediq. (Wikidata codes (labels): trv (4,566)) |
+| Wordnets               | **None found**                                                                      |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **2 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua.
 - **Eval datasets (1):** Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.987 (P 0.997, R 0.977, FPR 2.03e-05) averaged over 1 dataset(s). Runner-up: commonlingua (F1 0.953).
+- **Best model:** GlotLID — F1 0.987 (P 0.997, R 0.977, FPR 1.99e-05) averaged over 1 dataset(s). Runner-up: commonlingua (F1 0.951).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
@@ -46,9 +86,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.997 |    0.977 | 0.987 | 0.000 | ✓                |
-| commonlingua |       0.933 |    0.973 | 0.953 | 0.000 | ✓                |
+| commonlingua |       0.930 |    0.973 | 0.951 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -63,6 +105,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Seediq and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Seediq has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/trv/) video of Seediq yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Seediq?
@@ -78,16 +122,6 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   year |   models |                      |
 |-------:|---------:|:---------------------|
 |   2026 |        1 | ████████████████████ |
-
-### Most popular models tagged for Seediq
-
-| model                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [wikilangs/trv](https://huggingface.co/wikilangs/trv) |                      0 |                     0 | unknown      |                    2 |   2026 | —               |
-
-### Most popular models tagged *only* for Seediq
-
-_none_
 
 ### Largest models tagged for Seediq
 
@@ -126,15 +160,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -148,9 +182,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                    | # test items   | Construction                                  |
-|:-------------------------|:-------------------|:---------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 5,000          | Synthetic (LLM-generated) on native Wikipedia |
+| level                    | task               | dataset                                                                    |   # test items | construction                                  |
+|:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |          5,000 | Synthetic (LLM-generated) on native Wikipedia |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -179,7 +213,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 7 of ~18,460 papers (0.04%) (rank 160 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 7 of ~18,498 papers (0.04%) (rank 172 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Seediq (Truku dialect) | Seediq | Truku
 
 Here are up to ten papers that were published mentioning this language in 2026:

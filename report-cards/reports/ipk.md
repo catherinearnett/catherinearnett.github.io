@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ipk`
 
+**Language family:** **Eskimo-Aleut** › Eskimo › Inuit (all 2 member languages of the macrolanguage) (Glottolog)
+
+**Endangerment:** moribund (all 2 member languages; Glottolog)
+
+**Speakers:** about 7,865 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 5,580 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q27183#P1098))
+
 **Official / recognised in:** United States
 
 **Status:** Regional official language
+
+
+## What does Iñupiaq look and sound like?
+
+**Written:** no Omniglot page found for Iñupiaq.
+
+**Spoken:** no Wikitongues video of Iñupiaq yet ([its Wikitongues page](https://wikitongues.org/languages/ipk/) says how to contribute one).
 
 
 ## Training Data
@@ -23,20 +36,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                       |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 600 articles in ik.wikipedia (rank 153 of 161 in the set) — ~1/12,577 of English; 11 active users                                                            |
-| Common Crawl 2026      | 1,835 pages per crawl on average, which is 0.0001% of the crawl. This is ~1/485,835 of English data and ranks 108 of 113 official languages in Common Crawl. |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                               |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                 |
+| Source                 | Amount                                                                                                                                                                |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 600 articles in ik.wikipedia; 11 active users. This is ~1/12,577 of English data and ranks 160 of 168 languages in the set in Wikipedia.                              |
+| Common Crawl           | 1,835 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/485,835 of English data and ranks 108 of 113 languages in the set in Common Crawl. |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                        |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 476,595 Wikidata items have a label in Iñupiaq. (Wikidata codes (labels): ik (476,595)) |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                              |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                  |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([eskNT](https://ebible.org/details.php?id=eskNT), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                               |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **4 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, funlangid.
+- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, funlangid.
 - **Eval datasets (1):** Wikipedia (n=300)
-- **Best model:** commonlingua — F1 0.946 (P 0.989, R 0.907, FPR 6.27e-05) averaged over 1 dataset(s). Runner-up: GlotLID (F1 0.943).
+- **Best model:** commonlingua — F1 0.946 (P 0.989, R 0.907, FPR 6.17e-05) averaged over 1 dataset(s). Runner-up: GlotLID (F1 0.943).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 **All models (averaged over datasets):**
@@ -47,7 +81,9 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.978 |    0.910 | 0.943 | 0.000 | ✓                |
 | funlangid    |       0.974 |    0.490 | 0.652 | 0.000 | ✓                |
 | cld2         |       0.879 |    0.410 | 0.559 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -61,6 +97,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Iñupiaq and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Iñupiaq has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/ipk/) video of Iñupiaq yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Iñupiaq?
@@ -78,45 +116,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       49 | ███████              |
 |   2026 |      139 | ████████████████████ |
 
-### Most popular models tagged for Iñupiaq
-
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------|
-| [ubergarm/GLM-4.5-Air-GGUF](https://huggingface.co/ubergarm/GLM-4.5-Air-GGUF)           | 73,938                 |                   237 | 110.5B       |                    1 |   2025 | zai-org/GLM-4.5-Air          |
-| [ubergarm/MiniMax-M2.5-GGUF](https://huggingface.co/ubergarm/MiniMax-M2.5-GGUF)         | 40,457                 |                   247 | 228.7B       |                    1 |   2026 | MiniMaxAI/MiniMax-M2.5       |
-| [ubergarm/Qwen3-Coder-Next-GGUF](https://huggingface.co/ubergarm/Qwen3-Coder-Next-GGUF) | 33,024                 |                   338 | 79.7B        |                    1 |   2026 | Qwen/Qwen3-Coder-Next        |
-| [ubergarm/DeepSeek-R1-0528-GGUF](https://huggingface.co/ubergarm/DeepSeek-R1-0528-GGUF) | 32,914                 |                   243 | 672.0B       |                    1 |   2025 | deepseek-ai/DeepSeek-R1-0528 |
-| [ubergarm/Qwen3.6-27B-GGUF](https://huggingface.co/ubergarm/Qwen3.6-27B-GGUF)           | 32,851                 |                   287 | 26.9B        |                    1 |   2026 | Qwen/Qwen3.6-27B             |
-
-### Most popular models tagged *only* for Iñupiaq
-
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------|
-| [ubergarm/GLM-4.5-Air-GGUF](https://huggingface.co/ubergarm/GLM-4.5-Air-GGUF)           | 73,938                 |                   237 | 110.5B       |                    1 |   2025 | zai-org/GLM-4.5-Air          |
-| [ubergarm/MiniMax-M2.5-GGUF](https://huggingface.co/ubergarm/MiniMax-M2.5-GGUF)         | 40,457                 |                   247 | 228.7B       |                    1 |   2026 | MiniMaxAI/MiniMax-M2.5       |
-| [ubergarm/Qwen3-Coder-Next-GGUF](https://huggingface.co/ubergarm/Qwen3-Coder-Next-GGUF) | 33,024                 |                   338 | 79.7B        |                    1 |   2026 | Qwen/Qwen3-Coder-Next        |
-| [ubergarm/DeepSeek-R1-0528-GGUF](https://huggingface.co/ubergarm/DeepSeek-R1-0528-GGUF) | 32,914                 |                   243 | 672.0B       |                    1 |   2025 | deepseek-ai/DeepSeek-R1-0528 |
-| [ubergarm/Qwen3.6-27B-GGUF](https://huggingface.co/ubergarm/Qwen3.6-27B-GGUF)           | 32,851                 |                   287 | 26.9B        |                    1 |   2026 | Qwen/Qwen3.6-27B             |
-
 ### Largest models tagged for Iñupiaq
 
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                    |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                                |
-| [ubergarm/Kimi-K2-Instruct-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Instruct-GGUF)           | 11,892                 |                   265 | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Instruct      |
-| [ubergarm/Kimi-K2.6-GGUF](https://huggingface.co/ubergarm/Kimi-K2.6-GGUF)                         | 8,930                  |                   221 | 1.0T         |                    1 |   2026 | moonshotai/Kimi-K2.6             |
-| [gghfexp/Kimi-K2.7-Code-GGUF](https://huggingface.co/gghfexp/Kimi-K2.7-Code-GGUF)                 | 319                    |                    57 | 1.0T         |                    1 |   2026 | moonshotai/Kimi-K2.7-Code        |
-| [ubergarm/Kimi-K2-Instruct-0905-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Instruct-0905-GGUF) | 12,923                 |                   165 | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Instruct-0905 |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of                    |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 1.9T         |                  143 |   2025 | —                                |
+| [ubergarm/Kimi-K2-Instruct-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Instruct-GGUF)           | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Instruct      |
+| [gghfexp/Kimi-K2.7-Code-GGUF](https://huggingface.co/gghfexp/Kimi-K2.7-Code-GGUF)                 | 1.0T         |                    1 |   2026 | moonshotai/Kimi-K2.7-Code        |
+| [ubergarm/Kimi-K2-Instruct-0905-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Instruct-0905-GGUF) | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Instruct-0905 |
+| [ubergarm/Kimi-K2-Thinking-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Thinking-GGUF)           | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Thinking      |
 
 ### Largest models tagged *only* for Iñupiaq
 
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of               |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------|
-| [ubergarm/Kimi-K2-Instruct-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Instruct-GGUF) | 11,892                 |                   265 | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Instruct |
-| [ubergarm/Kimi-K2.5-GGUF](https://huggingface.co/ubergarm/Kimi-K2.5-GGUF)               | 4,018                  |                    94 | 1.0T         |                    1 |   2026 | moonshotai/Kimi-K2.5        |
-| [gghfexp/Kimi-K2.7-Code-GGUF](https://huggingface.co/gghfexp/Kimi-K2.7-Code-GGUF)       | 319                    |                    57 | 1.0T         |                    1 |   2026 | moonshotai/Kimi-K2.7-Code   |
-| [ubergarm/Kimi-K2.6-GGUF](https://huggingface.co/ubergarm/Kimi-K2.6-GGUF)               | 8,930                  |                   221 | 1.0T         |                    1 |   2026 | moonshotai/Kimi-K2.6        |
-| [ubergarm/Kimi-K2-Thinking-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Thinking-GGUF) | 19,265                 |                   259 | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Thinking |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of                    |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------|
+| [ubergarm/Kimi-K2-Instruct-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Instruct-GGUF)           | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Instruct      |
+| [gghfexp/Kimi-K2.7-Code-GGUF](https://huggingface.co/gghfexp/Kimi-K2.7-Code-GGUF)                 | 1.0T         |                    1 |   2026 | moonshotai/Kimi-K2.7-Code        |
+| [ubergarm/Kimi-K2-Instruct-0905-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Instruct-0905-GGUF) | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Instruct-0905 |
+| [ubergarm/Kimi-K2-Thinking-GGUF](https://huggingface.co/ubergarm/Kimi-K2-Thinking-GGUF)           | 1.0T         |                    1 |   2025 | moonshotai/Kimi-K2-Thinking      |
+| [ubergarm/Kimi-K2.5-GGUF](https://huggingface.co/ubergarm/Kimi-K2.5-GGUF)                         | 1.0T         |                    1 |   2026 | moonshotai/Kimi-K2.5             |
 
 _9 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -147,15 +165,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -169,7 +187,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                    |   # test items | Construction                                  |
+| level                    | task               | dataset                                                                    |   # test items | construction                                  |
 |:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |             67 | Synthetic (LLM-generated) on native Wikipedia |
 
@@ -200,7 +218,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1 of ~18,460 papers (0.01%) (rank 217 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1 of ~18,498 papers (0.01%) (rank 241 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Inupiaq
 
 Here are up to ten papers that were published mentioning this language in 2026:

@@ -12,11 +12,40 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mwl`
 
+**Language family:** **Indo-European** › Classical Indo-European › Italic › … › Asturo-Leonese ([Glottolog](https://glottolog.org/resource/languoid/id/mira1251))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable (20% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** 15,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q13330#P1098), 2000)
 
 **Official / recognised in:** Portugal
 
 **Status:** Regional official language
+
+
+## What does Mirandese look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/mirandese.htm):
+
+> Quien dirie qu'antre ls matos eiriçados
+> Las ourriêtas i ls rius d'esta tiêrra,
+> Bibie, cumo l chaugarço de la siêrra,
+> Ua lhéngua de sons tan bariados?
+> Mostre-se i fale-s' essa lhéngua filha
+> D'un pobo que ten neilha l choro i l canto!
+> Nada por ciêrto mos cautiba tanto
+> Cumo la form' an que l'eideia brilha.
+> Zgraçiado d'aquel, qu'abandonando
+> La patri' an que naciu, la casa i l huôrto.
+> Tamien se squeçe …
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. (Article 1 of the Universal Declaration of Human Rights) Muitas lhénguas ténen proua de ls sous pergaminos antigos, de la lhiteratura screbida hai cientos d'anhos i de scritores hai muito afamados, hoije bandeiras dessas …
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://en.wikipedia.org/wiki/Mirandese_language#Sample_text.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/mwl/) has 4 videos of Mirandese speakers. Watch [Isabel speaking Mirandese](https://wikitongues.org/videos/isabel_20150815_mwl/).
 
 
 ## Training Data
@@ -25,30 +54,53 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 4,356 articles in mwl.wikipedia (rank 117 of 161 in the set) — ~1/1,732 of English; 19 active users                                               |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 13.5 MB (mwl_Latn (0.01)); 0.25 GB removed by filtering. This is ~1/3,958,730 of English data and ranks 140 of 248 official languages in FineWeb. |
-| Goldfish training data | 10.9 MB (mwl_latn) (rank 164 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 4,356 articles in mwl.wikipedia; 19 active users. This is ~1/1,732 of English data and ranks 121 of 168 languages in the set in Wikipedia.           |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
+| FineWeb                | 13.5 MB (mwl_Latn 10.0 MB); 0.25 GB removed by filtering. This is ~1/3,958,730 of English data and ranks 140 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 10.9 MB (mwl_Latn 11.0 MB) (rank 164 of 166 in the set)                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                |
+|:-----------------------|:-------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                             |
+| UniMorph               | **None found**                                                                             |
+| Wikidata labels        | 495,927 Wikidata items have a label in Mirandese. (Wikidata codes (labels): mwl (495,927)) |
+| Wordnets               | **None found**                                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
 - **Eval datasets (2):** Tatoeba (n=212), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.880 (P 0.986, R 0.811, FPR 5.60e-05) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.618).
+- **Best model:** GlotLID — F1 0.880 (P 0.986, R 0.811, FPR 5.52e-05) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.618).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.986 |    0.811 | 0.880 | 0.000 | ✓                |
-| funlangid    |       0.785 |    0.584 | 0.618 | 0.001 | ✓                |
-| commonlingua |       0.901 |    0.552 | 0.608 | 0.000 | ✓                |
+| funlangid    |       0.779 |    0.584 | 0.618 | 0.001 | ✓                |
+| commonlingua |       0.880 |    0.552 | 0.607 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -68,6 +120,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Mirandese and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Mirandese has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Mirandese?
@@ -85,21 +138,6 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2024 |        2 | ████████████████████ |
 |   2025 |        0 |                      |
 |   2026 |        1 | ██████████           |
-
-### Most popular models tagged for Mirandese
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/mwl_latn_full](https://huggingface.co/goldfish-models/mwl_latn_full) |                    391 |                    18 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/mwl_latn_5mb](https://huggingface.co/goldfish-models/mwl_latn_5mb)   |                    385 |                     7 | unknown      |                    1 |   2024 | —               |
-| [wikilangs/mwl](https://huggingface.co/wikilangs/mwl)                                 |                      0 |                     0 | unknown      |                    2 |   2026 | —               |
-
-### Most popular models tagged *only* for Mirandese
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/mwl_latn_full](https://huggingface.co/goldfish-models/mwl_latn_full) |                    391 |                    18 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/mwl_latn_5mb](https://huggingface.co/goldfish-models/mwl_latn_5mb)   |                    385 |                     7 | unknown      |                    1 |   2024 | —               |
 
 ### Largest models tagged for Mirandese
 
@@ -138,15 +176,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -160,10 +198,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                  |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 4              | Native (crowdsourced Tatoeba sentence pairs)  |
+| level                    | task                | dataset                                                                              |   # test items | construction                                  |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |              4 | Native (crowdsourced Tatoeba sentence pairs)  |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -191,7 +229,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1 of ~18,460 papers (0.01%) (rank 217 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1 of ~18,498 papers (0.01%) (rank 241 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Mirandese
 
 Here are up to ten papers that were published mentioning this language in 2026:

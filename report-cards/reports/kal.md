@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kal`
 
+**Language family:** **Eskimo-Aleut** › Eskimo › Inuit › Greenlandic Inuit ([Glottolog](https://glottolog.org/resource/languoid/id/kala1399))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable (20% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 56,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 56,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q25355#P1098), 2007)
 
 **Official / recognised in:** Denmark
 
 **Status:** Official language
+
+
+## What does Greenlandic look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/greenlandic.htm):
+
+> Inuit tamarmik inunngorput nammineersinnaassuseqarlutik assigiimmillu ataqqinassuseqarlutillu pisinnaatitaaffeqarlutik. Silaqassusermik tarnillu nalunngissusianik pilersugaapput, imminnullu iliorfigeqatigiittariaqaraluarput qatanngutigiittut peqatigiinnerup anersaavani.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_kl.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/kal/) has 1 video of Greenlandic speakers. Watch [Mark speaking Greenlandic Inuktitut](https://wikitongues.org/videos/mark_20150704_kal/).
 
 
 ## Training Data
@@ -25,20 +46,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                      |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 0 articles in kl.wikipedia; 3 active users                                                                                                                  |
-| Common Crawl 2026      | 20,499 pages per crawl on average, which is 0.0010% of the crawl. This is ~1/43,490 of English data and ranks 88 of 113 official languages in Common Crawl. |
-| FineWeb                | 57.2 MB (kal_Latn (0.06)); 0.37 GB removed by filtering. This is ~1/934,454 of English data and ranks 115 of 248 official languages in FineWeb.             |
-| Goldfish training data | 0.20 GB (kal_latn) (rank 107 of 166 in the set)                                                                                                             |
+| Source                 | Amount                                                                                                                                                               |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 0 articles in kl.wikipedia; 3 active users.                                                                                                                          |
+| Common Crawl           | 20,499 pages per crawl on average, which is 0.0010% of the crawl (2026). This is ~1/43,490 of English data and ranks 88 of 113 languages in the set in Common Crawl. |
+| FineWeb                | 57.2 MB (kal_Latn 60.0 MB); 0.37 GB removed by filtering. This is ~1/934,454 of English data and ranks 115 of 248 languages in the set in FineWeb.                   |
+| Goldfish training data | 0.20 GB (kal_Latn 0.20 GB) (rank 107 of 166 in the set)                                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                              |
+| UniMorph               | 23 lemmas, 368 inflected forms ([unimorph/kal](https://github.com/unimorph/kal))            |
+| Wikidata labels        | 550,373 Wikidata items have a label in Greenlandic. (Wikidata codes (labels): kl (550,373)) |
+| Wordnets               | **None found**                                                                              |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **6 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (4):** SmolSent (n=300), Tatoeba (n=178), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.970 (P 0.972, R 0.969, FPR 1.53e-04) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.968).
+- **Best model:** GlotLID — F1 0.970 (P 0.972, R 0.969, FPR 1.51e-04) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.968).
 
 **All models (averaged over datasets):**
 
@@ -47,10 +89,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.972 |    0.969 | 0.970 | 0.000 | ✓                |
 | cld2         |       0.981 |    0.956 | 0.968 | 0.000 | ✓                |
 | funlangid    |       0.957 |    0.863 | 0.897 | 0.000 | ✓                |
-| pyfranc      |       0.885 |    0.899 | 0.881 | 0.001 | ✓                |
+| pyfranc      |       0.881 |    0.899 | 0.879 | 0.001 | ✓                |
 | fasttext     |       0.796 |    0.958 | 0.860 | 0.002 | ✓                |
-| commonlingua |       0.790 |    0.861 | 0.807 | 0.002 | ✓                |
+| commonlingua |       0.795 |    0.861 | 0.809 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -70,6 +114,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Greenlandic and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Greenlandic has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Greenlandic?
@@ -89,41 +134,21 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        5 | ███████              |
 |   2026 |       15 | ████████████████████ |
 
-### Most popular models tagged for Greenlandic
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                            |
-| [sirfyyn/Qwen3.8-Flash-Next-FLE-GGUF](https://huggingface.co/sirfyyn/Qwen3.8-Flash-Next-FLE-GGUF) | 6,651                  | 3,047                 | 176.9B       |                    2 |   2026 | Qwen/Qwen3.8-Flash-Next      |
-| [Archsloth/Qwen3-4B-GGUF](https://huggingface.co/Archsloth/Qwen3-4B-GGUF)                         | 1,735                  | 291                   | 4.0B         |                   10 |   2026 | Qwen/Qwen3-4B-Base           |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —                            |
-| [ZeppelinCorp/Charm_15](https://huggingface.co/ZeppelinCorp/Charm_15)                             | 962                    | 307                   | unknown      |                   87 |   2025 | mattshumer/mistral-8x7b-chat |
-
-### Most popular models tagged *only* for Greenlandic
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of    |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-----------------|
-| [KikoCis/Qwen3.6-27B-GGUF](https://huggingface.co/KikoCis/Qwen3.6-27B-GGUF)             |                    957 |                    95 | 27.3B        |                    1 |   2026 | Qwen/Qwen3.6-27B |
-| [goldfish-models/kal_latn_5mb](https://huggingface.co/goldfish-models/kal_latn_5mb)     |                    395 |                    17 | unknown      |                    1 |   2024 | —                |
-| [goldfish-models/kal_latn_100mb](https://huggingface.co/goldfish-models/kal_latn_100mb) |                    393 |                    14 | unknown      |                    1 |   2024 | —                |
-| [goldfish-models/kal_latn_10mb](https://huggingface.co/goldfish-models/kal_latn_10mb)   |                    373 |                    10 | unknown      |                    1 |   2024 | —                |
-| [goldfish-models/kal_latn_full](https://huggingface.co/goldfish-models/kal_latn_full)   |                    358 |                    12 | unknown      |                    1 |   2024 | —                |
-
 ### Largest models tagged for Greenlandic
 
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of           |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                       |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                       |
-| [sirfyyn/Qwen3.8-Flash-Next-FLE-GGUF](https://huggingface.co/sirfyyn/Qwen3.8-Flash-Next-FLE-GGUF) | 6,651                  | 3,047                 | 176.9B       |                    2 |   2026 | Qwen/Qwen3.8-Flash-Next |
-| [KikoCis/Qwen3.6-27B-GGUF](https://huggingface.co/KikoCis/Qwen3.6-27B-GGUF)                       | 957                    | 95                    | 27.3B        |                    1 |   2026 | Qwen/Qwen3.6-27B        |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —                       |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of           |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 1.9T         |                  143 |   2025 | —                       |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 856.0B       |                  143 |   2025 | —                       |
+| [sirfyyn/Qwen3.8-Flash-Next-FLE-GGUF](https://huggingface.co/sirfyyn/Qwen3.8-Flash-Next-FLE-GGUF) | 176.9B       |                    2 |   2026 | Qwen/Qwen3.8-Flash-Next |
+| [KikoCis/Qwen3.6-27B-GGUF](https://huggingface.co/KikoCis/Qwen3.6-27B-GGUF)                       | 27.3B        |                    1 |   2026 | Qwen/Qwen3.6-27B        |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                       |
 
 ### Largest models tagged *only* for Greenlandic
 
-| model                                                                       |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of    |
-|:----------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-----------------|
-| [KikoCis/Qwen3.6-27B-GGUF](https://huggingface.co/KikoCis/Qwen3.6-27B-GGUF) |                    957 |                    95 | 27.3B        |                    1 |   2026 | Qwen/Qwen3.6-27B |
+| model                                                                       | parameters   |   # languages tagged |   year | derivative of    |
+|:----------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------|
+| [KikoCis/Qwen3.6-27B-GGUF](https://huggingface.co/KikoCis/Qwen3.6-27B-GGUF) | 27.3B        |                    1 |   2026 | Qwen/Qwen3.6-27B |
 
 _10 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -154,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -176,7 +201,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                   |
+| level                    | task                | dataset                                                                              | # test items   | construction                                   |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 529            | Synthetic (LLM-generated) on native Wikipedia  |
 | Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot            |
@@ -210,7 +235,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 4 of ~18,460 papers (0.02%) (rank 182 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 4 of ~18,498 papers (0.02%) (rank 199 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Kalaallisut | Greenlandic
 
 Here are up to ten papers that were published mentioning this language in 2026:

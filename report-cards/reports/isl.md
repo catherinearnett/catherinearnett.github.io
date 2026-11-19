@@ -12,11 +12,35 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `isl`
 
+**Language family:** **Indo-European** › Classical Indo-European › Germanic › … › Icelandic-Faroese ([Glottolog](https://glottolog.org/resource/languoid/id/icel1247))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 364,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 358,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q294#P1098), 2015)
 
 **Official / recognised in:** Iceland
 
 **Status:** Official language
+
+
+## What does Icelandic look and sound like?
+
+**Written (Icelandic)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/icelandic.htm):
+
+> Hver maður er borinn frjáls og jafn öðrum að virðingu og réttindum. Menn eru gæddir vitsmunum og samvisku, og ber þeim að breyta bróðurlega hverjum við annan.
+> A recording of this text by Marc Volhardt
+> A recording of this text by Alexander Jarl
+> A recording of this text by Stefan Steinsson
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_is3.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/isl/) has 3 videos of Icelandic speakers. Watch [Ljóni speaking Icelandic](https://wikitongues.org/videos/ljoni_20160404_isl/).
 
 
 ## Training Data
@@ -25,20 +49,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 60,612 articles in is.wikipedia (rank 67 of 161 in the set) — ~1/125 of English; 266 active users                                                                                                                      |
-| Common Crawl 2026      | 781,785 pages per crawl on average, which is 0.0363% of the crawl. This is ~1/1,140 of English data and ranks 41 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 4.98 GB (isl_Latn (4.98)); which is equivalent to ≈4.31 GB English data after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/10,725 of English data and ranks 50 of 248 official languages in FineWeb. |
-| Goldfish training data | 2.65 GB (isl_latn) (rank 55 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 60,612 articles in is.wikipedia; 266 active users. This is ~1/125 of English data and ranks 68 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 781,785 pages per crawl on average, which is 0.0363% of the crawl (2026). This is ~1/1,140 of English data and ranks 41 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 4.98 GB (isl_Latn 4.98 GB), equivalent to ≈4.31 GB of English after byte-premium scaling; 3.77 GB removed by filtering. This is ~1/10,725 of English data and ranks 50 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 2.65 GB (isl_Latn 2.65 GB) (rank 55 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 4 treebanks, 53,564 sentences / 1,182,501 tokens in total: [UD_Icelandic-GC](https://github.com/UniversalDependencies/UD_Icelandic-GC) (5,000 sentences), [UD_Icelandic-IcePaHC](https://github.com/UniversalDependencies/UD_Icelandic-IcePaHC) (44,029 sentences), [UD_Icelandic-Modern](https://github.com/UniversalDependencies/UD_Icelandic-Modern) (3,535 sentences), [UD_Icelandic-PUD](https://github.com/UniversalDependencies/UD_Icelandic-PUD) (1,000 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 4,775 lemmas, 76,915 inflected forms ([unimorph/isl](https://github.com/unimorph/isl))                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Wikidata labels        | 1,530,392 Wikidata items have a label in Icelandic. (Wikidata codes (labels): is (1,530,392))                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Wordnets               | [IceWordNet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-is-1.4.tar.xz): 4,951 synsets, 11,655 words, 16,004 senses; licence: https://creativecommons.org/licenses/by/3.0/; NordicNet (HuWN) (size not listed).                                                                                                                                                                                                                                                                                                                      |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.992 (P 0.990, R 0.994, FPR 7.92e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.992).
+- **Best model:** OpenLID-v2 — F1 0.992 (P 0.986, R 0.999, FPR 1.37e-04) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.992).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,25 +91,27 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
+| OpenLID-v2   |       0.986 |    0.999 | 0.992 | 0.000 | ✓                |
 | GlotLID      |       0.990 |    0.994 | 0.992 | 0.000 | ✓                |
-| OpenLID-v2   |       0.985 |    0.999 | 0.992 | 0.000 | ✓                |
 | cld2         |       0.992 |    0.977 | 0.984 | 0.000 | ✓                |
-| py3langid    |       0.965 |    0.995 | 0.979 | 0.000 | ✓                |
-| commonlingua |       0.929 |    0.912 | 0.920 | 0.001 | ✓                |
-| funlangid    |       0.957 |    0.864 | 0.907 | 0.000 | ✓                |
-| pyfranc      |       0.888 |    0.892 | 0.889 | 0.001 | ✓                |
-| fasttext     |       0.674 |    0.998 | 0.796 | 0.004 | ✓                |
+| py3langid    |       0.963 |    0.995 | 0.978 | 0.000 | ✓                |
+| commonlingua |       0.928 |    0.912 | 0.919 | 0.001 | ✓                |
+| funlangid    |       0.956 |    0.864 | 0.907 | 0.000 | ✓                |
+| pyfranc      |       0.887 |    0.892 | 0.889 | 0.001 | ✓                |
+| fasttext     |       0.673 |    0.998 | 0.795 | 0.004 | ✓                |
+| cld3         |       0.509 |    0.985 | 0.651 | 0.014 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
-**Best model (GlotLID) by dataset**:
+**Best model (OpenLID-v2) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.955 |    0.980 | 0.967 |
-| Wikipedia | 300 |       0.987 |    0.990 | 0.988 |
-| NTREX     | 300 |       1.000 |    0.993 | 0.997 |
+| Tatoeba   | 300 |       0.943 |    0.997 | 0.969 |
+| UDHR-LID  |  58 |       0.983 |    1.000 | 0.991 |
+| Wikipedia | 300 |       0.993 |    0.997 | 0.995 |
+| NTREX     | 300 |       0.997 |    1.000 | 0.998 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
 | SmolSent  | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -94,45 +141,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       98 | █████████████        |
 |   2026 |      146 | ████████████████████ |
 
-### Most popular models tagged for Icelandic
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [bineric/lynx-instruct-30b](https://huggingface.co/bineric/lynx-instruct-30b)                     | 1,242,663              | 1,313                 | 30.5B        |                    5 |   2026 | Qwen/Qwen3-30B-A3B-Instruct-2507       |
-| [AI-Sweden-Models/gpt-sw3-126m](https://huggingface.co/AI-Sweden-Models/gpt-sw3-126m)             | 805,423                | 8                     | 186.1M       |                    5 |   2022 | —                                      |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                               | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                                      |
-| [AI-Sweden-Models/gpt-sw3-356m](https://huggingface.co/AI-Sweden-Models/gpt-sw3-356m)             | 259,774                | 3                     | 470.6M       |                    5 |   2022 | —                                      |
-
-### Most popular models tagged *only* for Icelandic
-
-| model                                                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of              |
-|:--------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------|
-| [Sigurdur/icebreaker](https://huggingface.co/Sigurdur/icebreaker)                                                   | 27,540                 | 14                    | 110.4M       |                    1 |   2024 | —                          |
-| [mideind/yfirlestur-icelandic-correction-byt5](https://huggingface.co/mideind/yfirlestur-icelandic-correction-byt5) | 9,979                  | 172                   | 581.7M       |                    1 |   2022 | —                          |
-| [jekunz/smollm-135m-lora-fineweb-swedish](https://huggingface.co/jekunz/smollm-135m-lora-fineweb-swedish)           | 7,485                  | 87                    | 135.0M       |                    1 |   2025 | HuggingFaceTB/SmolLM2-135M |
-| [bartowski/darkps_ice-AI-GGUF](https://huggingface.co/bartowski/darkps_ice-AI-GGUF)                                 | 6,506                  | 2,725                 | 8.2B         |                    1 |   2026 | darkps/ice-AI              |
-| [mideind/icelandic-gpt-sw3-6.7b](https://huggingface.co/mideind/icelandic-gpt-sw3-6.7b)                             | 1,723                  | 10                    | 6.7B         |                    1 |   2024 | —                          |
-
 ### Largest models tagged for Icelandic
 
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                 | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF) | 23,979                 | 3,521                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [Unbabel/Tower-Plus-72B](https://huggingface.co/Unbabel/Tower-Plus-72B)                               | 13,521                 | 95                    | 72.7B        |                   22 |   2025 | Qwen/Qwen2.5-72B                       |
-| [AI-Sweden-Models/gpt-sw3-40b](https://huggingface.co/AI-Sweden-Models/gpt-sw3-40b)                   | 58,905                 | 3                     | 39.9B        |                    5 |   2023 | —                                      |
+| model                                                                                                 | parameters   |   # languages tagged |   year | derivative of                          |
+|:------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                             | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                 | 856.0B       |                  143 |   2025 | —                                      |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF) | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [Unbabel/Tower-Plus-72B](https://huggingface.co/Unbabel/Tower-Plus-72B)                               | 72.7B        |                   22 |   2025 | Qwen/Qwen2.5-72B                       |
+| [AI-Sweden-Models/gpt-sw3-40b](https://huggingface.co/AI-Sweden-Models/gpt-sw3-40b)                   | 39.9B        |                    5 |   2023 | —                                      |
 
 ### Largest models tagged *only* for Icelandic
 
-| model                                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of           |
-|:----------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------|
-| [cyboghostginx/gemma-4-31B-it-Adetayo](https://huggingface.co/cyboghostginx/gemma-4-31B-it-Adetayo) | 424                    | 6                     | 31.3B        |                    1 |   2026 | google/gemma-4-31b-it   |
-| [cyboghostginx/gemma-3-27b-it-Adetayo](https://huggingface.co/cyboghostginx/gemma-3-27b-it-Adetayo) | 342                    | 8                     | 27.0B        |                    1 |   2026 | google/gemma-3-27b-it   |
-| [Hodfa71/viking-13b-is-saga-delta-dpo](https://huggingface.co/Hodfa71/viking-13b-is-saga-delta-dpo) | 44                     | 6                     | 13.0B        |                    1 |   2026 | LumiOpen/Viking-13B     |
-| [bartowski/darkps_ice-AI-GGUF](https://huggingface.co/bartowski/darkps_ice-AI-GGUF)                 | 6,506                  | 2,725                 | 8.2B         |                    1 |   2026 | darkps/ice-AI           |
-| [DGurgurov/llama-3.1-8b-isl_latn](https://huggingface.co/DGurgurov/llama-3.1-8b-isl_latn)           | 108                    | 6                     | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of           |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------|
+| [cyboghostginx/gemma-4-31B-it-Adetayo](https://huggingface.co/cyboghostginx/gemma-4-31B-it-Adetayo) | 31.3B        |                    1 |   2026 | google/gemma-4-31b-it   |
+| [cyboghostginx/gemma-3-27b-it-Adetayo](https://huggingface.co/cyboghostginx/gemma-3-27b-it-Adetayo) | 27.0B        |                    1 |   2026 | google/gemma-3-27b-it   |
+| [Hodfa71/viking-13b-is-saga-delta-dpo](https://huggingface.co/Hodfa71/viking-13b-is-saga-delta-dpo) | 13.0B        |                    1 |   2026 | LumiOpen/Viking-13B     |
+| [darkps/ice-AI](https://huggingface.co/darkps/ice-AI)                                               | 8.2B         |                    1 |   2026 | —                       |
+| [DGurgurov/llama-3.1-8b-isl_latn](https://huggingface.co/DGurgurov/llama-3.1-8b-isl_latn)           | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B |
 
 _57 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -163,15 +190,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [4]        \
+         /      reasoning [4]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -185,7 +212,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                             | # test items   | Construction                                                     |
+| level                                  | task                          | dataset                                                                                             | # test items   | construction                                                     |
 |:---------------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                         | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                           | 47             | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge                | BLiMP                         | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 2,801          | Treebank-based (automatic, UD + UniMorph)                        |
@@ -231,7 +258,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 110 of ~18,460 papers (0.60%) (rank 53 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 110 of ~18,498 papers (0.59%) (rank 55 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Icelandic
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 110):

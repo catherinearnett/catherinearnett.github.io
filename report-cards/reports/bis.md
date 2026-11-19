@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `bis`
 
+**Language family:** **Indo-European** › Classical Indo-European › Germanic › … › Early Melanesian Pidgin ([Glottolog](https://glottolog.org/resource/languoid/id/bisl1239))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 286,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 10,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q35452#P1098), 2011)
 
 **Official / recognised in:** Vanuatu
 
 **Status:** Official language
+
+
+## What does Bislama look and sound like?
+
+**Written:** no Omniglot page found for Bislama.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/bis/) has 2 videos of Bislama speakers. Watch [Toukala speaking Bislama](https://wikitongues.org/videos/toukala_20141111_bis/).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                       |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,516 articles in bi.wikipedia (rank 139 of 161 in the set) — ~1/4,978 of English; 11 active users                                                           |
-| Common Crawl 2026      | 3,295 pages per crawl on average, which is 0.0002% of the crawl. This is ~1/270,564 of English data and ranks 100 of 113 official languages in Common Crawl. |
-| FineWeb                | 6.0 MB (bis_Latn (0.01)); 10.3 MB removed by filtering. This is ~1/8,897,854 of English data and ranks 156 of 248 official languages in FineWeb.             |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                 |
+| Source                 | Amount                                                                                                                                                                |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,516 articles in bi.wikipedia; 11 active users. This is ~1/4,978 of English data and ranks 145 of 168 languages in the set in Wikipedia.                             |
+| Common Crawl           | 3,295 pages per crawl on average, which is 0.0002% of the crawl (2026). This is ~1/270,564 of English data and ranks 100 of 113 languages in the set in Common Crawl. |
+| FineWeb                | 6.0 MB (bis_Latn 10.0 MB); 10.3 MB removed by filtering. This is ~1/8,897,854 of English data and ranks 156 of 248 languages in the set in FineWeb.                   |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 511,982 Wikidata items have a label in Bislama. (Wikidata codes (labels): bi (511,982)) |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **6 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (3):** Tatoeba (n=30), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.880 (P 0.928, R 0.842, FPR 4.65e-05) averaged over 3 dataset(s). Runner-up: fasttext (F1 0.794).
+- **Best model:** GlotLID — F1 0.880 (P 0.928, R 0.842, FPR 4.59e-05) averaged over 3 dataset(s). Runner-up: fasttext (F1 0.794).
 
 **All models (averaged over datasets):**
 
@@ -46,11 +80,13 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.928 |    0.842 | 0.880 | 0.000 | ✓                |
 | fasttext     |       0.718 |    0.914 | 0.794 | 0.002 | ✓                |
-| pyfranc      |       0.727 |    0.826 | 0.756 | 0.001 | ✓                |
-| commonlingua |       0.756 |    0.716 | 0.731 | 0.001 | ✓                |
+| pyfranc      |       0.724 |    0.826 | 0.753 | 0.001 | ✓                |
+| commonlingua |       0.755 |    0.716 | 0.730 | 0.001 | ✓                |
 | funlangid    |       0.709 |    0.739 | 0.711 | 0.001 | ✓                |
 | cld2         |       0.317 |    0.818 | 0.445 | 0.008 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -69,6 +105,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Bislama and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Bislama has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Bislama?
@@ -88,29 +125,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       21 | ████████████████████ |
 |   2026 |        2 | ██                   |
 
-### Most popular models tagged for Bislama
-
-| model                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                            |
-|:----------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                                        |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                                        |
-| [ZeppelinCorp/Charm_15](https://huggingface.co/ZeppelinCorp/Charm_15)             | 962                    |                   307 | unknown      |                   87 |   2025 | mattshumer/mistral-8x7b-chat             |
-| [AAU-NLP/CreoleVal-CreoleM2M](https://huggingface.co/AAU-NLP/CreoleVal-CreoleM2M) | 387                    |                    13 | 611.1M       |                    9 |   2025 | facebook/mbart-large-50-many-to-many-mmt |
-| [Zihao-Li/L2-Bi-Code-Alt](https://huggingface.co/Zihao-Li/L2-Bi-Code-Alt)         | 180                    |                     4 | 6.7B         |                    6 |   2025 | meta-llama/Llama-2-7b-hf                 |
-
-### Most popular models tagged *only* for Bislama
-
-_none_
-
 ### Largest models tagged for Bislama
 
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                  |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                  |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                  |
-| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 164                    |                    25 | 8.2B         |                  140 |   2026 | Qwen/Qwen3-8B-Base |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of      |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 1.9T         |                  143 |   2025 | —                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 856.0B       |                  143 |   2025 | —                  |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 8.2B         |                  143 |   2026 | Qwen/Qwen3-8B-Base |
 
 ### Largest models tagged *only* for Bislama
 
@@ -145,15 +168,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -167,7 +190,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                    |   # test items | Construction                                  |
+| level                    | task               | dataset                                                                    |   # test items | construction                                  |
 |:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |            149 | Synthetic (LLM-generated) on native Wikipedia |
 
@@ -198,7 +221,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 3 of ~18,460 papers (0.02%) (rank 189 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 3 of ~18,498 papers (0.02%) (rank 210 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Bislama
 
 Here are up to ten papers that were published mentioning this language in 2026:

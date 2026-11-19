@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tpi`
 
+**Language family:** **Indo-European** › Classical Indo-European › Germanic › … › Early Melanesian Pidgin ([Glottolog](https://glottolog.org/resource/languoid/id/tokp1240))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 7.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 122,000 first-language + 4.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q34159#P1098), 2004)
 
 **Official / recognised in:** Papua New Guinea
 
 **Status:** Official language
+
+
+## What does Tok Pisin look and sound like?
+
+**Written (Tok Pisin)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/tokpisin.htm):
+
+> Yumi olgeta mama karim umi long stap fri na wankain long wei yumi lukim i gutpela na strepela tru. Uumi olgeta igat ting ting bilong wanem samting I rait na rong na mipela olgeta I mas mekim gutpela pasin long ol narapela long tingting bilong brata susa.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tpi/) has 2 videos of Tok Pisin speakers. Watch [Kini speaking Kalo](https://wikitongues.org/videos/kini_20190813_khz-tpi-eng/).
 
 
 ## Training Data
@@ -25,20 +44,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,417 articles in tpi.wikipedia (rank 140 of 161 in the set) — ~1/5,326 of English; 7 active users                                                                                                                       |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                 |
-| FineWeb                | 5.4 MB (tpi_Latn (0.01)); which is equivalent to ≈4.6 MB English data after byte-premium scaling; 0.43 GB removed by filtering. This is ~1/9,922,929 of English data and ranks 159 of 248 official languages in FineWeb. |
-| Goldfish training data | 20.0 MB (tpi_latn) (rank 151 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,417 articles in tpi.wikipedia; 7 active users. This is ~1/5,326 of English data and ranks 146 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                         |
+| FineWeb                | 5.4 MB (tpi_Latn 10.0 MB), equivalent to ≈4.6 MB of English after byte-premium scaling; 0.43 GB removed by filtering. This is ~1/9,922,929 of English data and ranks 159 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 20.0 MB (tpi_Latn 20.0 MB) (rank 151 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                |
+|:-----------------------|:-------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                             |
+| UniMorph               | **None found**                                                                             |
+| Wikidata labels        | 489,125 Wikidata items have a label in Tok Pisin. (Wikidata codes (labels): tpi (489,125)) |
+| Wordnets               | **None found**                                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                         |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                             |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([tpi](https://ebible.org/details.php?id=tpi), by-nc-nd 4.0); full Bible ([tpiOTNT](https://ebible.org/details.php?id=tpiOTNT), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                          |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **6 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid, pyfranc.
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), Tatoeba (n=135), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.980 (P 0.989, R 0.972, FPR 4.01e-05) averaged over 4 dataset(s). Runner-up: fasttext (F1 0.960).
+- **Best model:** GlotLID — F1 0.980 (P 0.989, R 0.972, FPR 3.95e-05) averaged over 4 dataset(s). Runner-up: fasttext (F1 0.960).
 
 **All models (averaged over datasets):**
 
@@ -46,11 +86,13 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.989 |    0.972 | 0.980 | 0.000 | ✓                |
 | fasttext     |       0.971 |    0.952 | 0.960 | 0.000 | ✓                |
-| pyfranc      |       0.908 |    0.917 | 0.913 | 0.001 | ✓                |
-| funlangid    |       0.872 |    0.839 | 0.852 | 0.001 | ✓                |
-| commonlingua |       0.728 |    0.900 | 0.793 | 0.002 | ✓                |
-| OpenLID-v2   |       0.642 |    0.987 | 0.743 | 0.006 | ✓                |
+| pyfranc      |       0.911 |    0.917 | 0.914 | 0.001 | ✓                |
+| funlangid    |       0.868 |    0.839 | 0.850 | 0.001 | ✓                |
+| commonlingua |       0.723 |    0.900 | 0.790 | 0.002 | ✓                |
+| OpenLID-v2   |       0.634 |    0.987 | 0.736 | 0.006 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -70,6 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tok Pisin and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tok Pisin has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Tok Pisin?
@@ -88,34 +131,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        9 | ████████████████████ |
 |   2026 |        1 | ██                   |
 
-### Most popular models tagged for Tok Pisin
-
-| model                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [goldfish-models/tpi_latn_full](https://huggingface.co/goldfish-models/tpi_latn_full)                     | 1,147                  |                    24 | unknown      |                    1 |   2024 | —                    |
-| [Loom-Labs/Apollo-1-2B](https://huggingface.co/Loom-Labs/Apollo-1-2B)                                     | 1,129                  |                    41 | 1.7B         |                   90 |   2025 | Qwen/Qwen3-1.7B-Base |
-| [Loom-Labs/Apollo-1-8B](https://huggingface.co/Loom-Labs/Apollo-1-8B)                                     | 1,062                  |                    28 | 8.2B         |                   90 |   2025 | Qwen/Qwen3-8B-Base   |
-| [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)                                     | 795                    |                    33 | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base   |
-| [JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM](https://huggingface.co/JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM) | 534                    |                    49 | 751.6M       |                   89 |   2025 | Qwen/Qwen3-0.6B-Base |
-
-### Most popular models tagged *only* for Tok Pisin
-
-| model                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of    |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------|
-| [goldfish-models/tpi_latn_full](https://huggingface.co/goldfish-models/tpi_latn_full)                 | 1,147                  |                    24 | unknown      |                    1 |   2024 | —                |
-| [goldfish-models/tpi_latn_10mb](https://huggingface.co/goldfish-models/tpi_latn_10mb)                 | 414                    |                    10 | unknown      |                    1 |   2024 | —                |
-| [goldfish-models/tpi_latn_5mb](https://huggingface.co/goldfish-models/tpi_latn_5mb)                   | 397                    |                    19 | unknown      |                    1 |   2024 | —                |
-| [WilliamSotoM/PTHQL_language_Tok_Pisin](https://huggingface.co/WilliamSotoM/PTHQL_language_Tok_Pisin) | 57                     |                     5 | unknown      |                    1 |   2025 | google/mt5-large |
-
 ### Largest models tagged for Tok Pisin
 
-| model                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                            |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------------|
-| [Loom-Labs/Apollo-1-8B](https://huggingface.co/Loom-Labs/Apollo-1-8B)                                     | 1,062                  |                    28 | 8.2B         |                   90 |   2025 | Qwen/Qwen3-8B-Base                       |
-| [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)                                     | 795                    |                    33 | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base                       |
-| [Loom-Labs/Apollo-1-2B](https://huggingface.co/Loom-Labs/Apollo-1-2B)                                     | 1,129                  |                    41 | 1.7B         |                   90 |   2025 | Qwen/Qwen3-1.7B-Base                     |
-| [JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM](https://huggingface.co/JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM) | 534                    |                    49 | 751.6M       |                   89 |   2025 | Qwen/Qwen3-0.6B-Base                     |
-| [AAU-NLP/CreoleVal-CreoleM2M](https://huggingface.co/AAU-NLP/CreoleVal-CreoleM2M)                         | 387                    |                    13 | 611.1M       |                    9 |   2025 | facebook/mbart-large-50-many-to-many-mmt |
+| model                                                                                                     | parameters   |   # languages tagged |   year | derivative of                            |
+|:----------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------------|
+| [Loom-Labs/Apollo-1-8B](https://huggingface.co/Loom-Labs/Apollo-1-8B)                                     | 8.2B         |                   90 |   2025 | Qwen/Qwen3-8B-Base                       |
+| [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)                                     | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base                       |
+| [Loom-Labs/Apollo-1-2B](https://huggingface.co/Loom-Labs/Apollo-1-2B)                                     | 1.7B         |                   90 |   2025 | Qwen/Qwen3-1.7B-Base                     |
+| [JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM](https://huggingface.co/JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM) | 751.6M       |                   88 |   2025 | Qwen/Qwen3-0.6B-Base                     |
+| [AAU-NLP/CreoleVal-CreoleM2M](https://huggingface.co/AAU-NLP/CreoleVal-CreoleM2M)                         | 611.1M       |                   10 |   2025 | facebook/mbart-large-50-many-to-many-mmt |
 
 ### Largest models tagged *only* for Tok Pisin
 
@@ -150,15 +174,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -172,7 +196,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
+| level                    | task                | dataset                                                                              | # test items   | construction                                                     |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 397            | Synthetic (LLM-generated) on native Wikipedia                    |
 | Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
@@ -206,7 +230,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 9 of ~18,460 papers (0.05%) (rank 146 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 9 of ~18,498 papers (0.05%) (rank 155 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Tok Pisin
 
 Here are up to ten papers that were published mentioning this language in 2026:

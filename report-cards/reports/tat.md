@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tat`
 
+**Language family:** **Turkic** › Common Turkic › Kipchak-Turkestan › … › Bashkiric ([Glottolog](https://glottolog.org/resource/languoid/id/tata1255))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Cyrl` and `Latn`
+
+**Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 5.2 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q25285#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Tatar look and sound like?
+
+**Written:** Omniglot has [a page on Tatar](https://www.omniglot.com/writing/tatar.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tat/) has 3 videos of Tatar speakers. Watch [Chingis speaking Tatar](https://wikitongues.org/videos/chingis_20180409_tat/).
 
 
 ## Training Data
@@ -25,40 +38,72 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                  |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 709,305 articles in tt.wikipedia (rank 22 of 161 in the set) — ~1/11 of English; 101 active users                                                                                                                                       |
-| Common Crawl 2026      | 166,163 pages per crawl on average, which is 0.0077% of the crawl. This is ~1/5,365 of English data and ranks 59 of 113 official languages in Common Crawl.                                                                             |
-| FineWeb                | 0.56 GB (tat_Cyrl (0.52); tat_Latn (0.04)); which is equivalent to ≈0.28 GB English data after byte-premium scaling; 1.94 GB removed by filtering. This is ~1/94,773 of English data and ranks 79 of 248 official languages in FineWeb. |
-| Goldfish training data | 2.27 GB (tat_cyrl) (rank 57 of 166 in the set)                                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 709,305 articles in tt.wikipedia; 101 active users. This is ~1/11 of English data and ranks 23 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                 |
+| Common Crawl           | 166,163 pages per crawl on average, which is 0.0077% of the crawl (2026). This is ~1/5,365 of English data and ranks 59 of 113 languages in the set in Common Crawl.                                                                                                                                                                                     |
+| FineWeb                | 0.56 GB (tat_Cyrl 0.52 GB; tat_Latn 40.0 MB), equivalent to ≈0.28 GB of English after byte-premium scaling (⚠️ only 92% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 1.94 GB removed by filtering. This is ~1/94,773 of English data and ranks 79 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 2.27 GB (tat_Cyrl 2.27 GB) (rank 57 of 166 in the set)                                                                                                                                                                                                                                                                                                   |
+
+**By writing system:**
+
+| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Cyrillic (`Cyrl`) | 0.52 GB   | — (no byte premium yet)       | 2.27 GB      | 1.23 GB                        |
+| Latin (`Latn`)    | 40.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                          |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 148 sentences / 2,280 tokens in total: [UD_Tatar-NMCTT](https://github.com/UniversalDependencies/UD_Tatar-NMCTT) (148 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 1,283 lemmas, 7,832 inflected forms ([unimorph/tat](https://github.com/unimorph/tat))                                                                                                                                |
+| Wikidata labels        | 843,016 Wikidata items have a label in Tatar. (Wikidata codes (labels): tt (843,016))                                                                                                                                |
+| Wordnets               | **None found**                                                                                                                                                                                                       |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.963 (P 0.953, R 0.975, FPR 7.48e-04) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.895).
+- **Best model:** GlotLID — F1 0.963 (P 0.953, R 0.975, FPR 7.38e-04) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.894).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.953 |    0.975 | 0.963 | 0.001 | ✓                |
-| cld2         |       0.843 |    0.959 | 0.895 | 0.003 | ✓                |
-| commonlingua |       0.837 |    0.852 | 0.822 | 0.002 | ✓                |
-| funlangid    |       0.806 |    0.677 | 0.723 | 0.002 | ✓                |
-| py3langid    |       0.631 |    0.816 | 0.693 | 0.006 | ✓                |
+| cld2         |       0.842 |    0.959 | 0.894 | 0.003 | ✓                |
+| commonlingua |       0.836 |    0.852 | 0.821 | 0.002 | ✓                |
+| funlangid    |       0.803 |    0.677 | 0.722 | 0.002 | ✓                |
+| py3langid    |       0.630 |    0.816 | 0.692 | 0.006 | ✓                |
 | fasttext     |       0.594 |    0.856 | 0.672 | 0.006 | ✓                |
-| pyfranc      |       0.585 |    0.719 | 0.632 | 0.007 | ✓                |
-| OpenLID-v2   |       0.508 |    0.862 | 0.591 | 0.014 | ✓                |
+| pyfranc      |       0.584 |    0.719 | 0.631 | 0.007 | ✓                |
+| OpenLID-v2   |       0.509 |    0.862 | 0.592 | 0.013 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | CommonLID | 300 |       0.839 |    0.940 | 0.887 |
-| Tatoeba   | 300 |       0.882 |    0.973 | 0.926 |
+| Tatoeba   | 300 |       0.880 |    0.973 | 0.924 |
 | Wikipedia | 300 |       0.996 |    0.940 | 0.967 |
 | NTREX     | 300 |       1.000 |    0.997 | 0.998 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
@@ -72,6 +117,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tatar and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tatar has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Tatar?
@@ -92,45 +138,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       25 | █████                |
 |   2026 |      101 | ████████████████████ |
 
-### Most popular models tagged for Tatar
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)               | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —               |
-| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)       | 63,267                 | 939                   | 13.0B        |                   58 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —               |
-| [episod/tt-tnt](https://huggingface.co/episod/tt-tnt)                   | 5,091                  | 884                   | 22.0M        |                    2 |   2026 | —               |
-| [episod/tt-tnt-1024](https://huggingface.co/episod/tt-tnt-1024)         | 3,809                  | 874                   | 123.0M       |                    2 |   2026 | —               |
-
-### Most popular models tagged *only* for Tatar
-
-| model                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                      |
-|:------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------|
-| [Tweeties/tweety-7b-tatar-v24a](https://huggingface.co/Tweeties/tweety-7b-tatar-v24a)     | 1,726                  |                    26 | 7.2B         |                    1 |   2024 | mistralai/Mistral-7B-Instruct-v0.2 |
-| [goldfish-models/tat_cyrl_1000mb](https://huggingface.co/goldfish-models/tat_cyrl_1000mb) | 529                    |                    34 | unknown      |                    1 |   2024 | —                                  |
-| [goldfish-models/tat_cyrl_5mb](https://huggingface.co/goldfish-models/tat_cyrl_5mb)       | 462                    |                    13 | unknown      |                    1 |   2024 | —                                  |
-| [goldfish-models/tat_cyrl_100mb](https://huggingface.co/goldfish-models/tat_cyrl_100mb)   | 435                    |                    16 | unknown      |                    1 |   2024 | —                                  |
-| [goldfish-models/tat_cyrl_10mb](https://huggingface.co/goldfish-models/tat_cyrl_10mb)     | 409                    |                     8 | unknown      |                    1 |   2024 | —                                  |
-
 ### Largest models tagged for Tatar
 
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of             |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)               |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                         |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)   |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                         |
-| [raahemnabeel/qwen3-5-122b-a10b](https://huggingface.co/raahemnabeel/qwen3-5-122b-a10b) |                      0 |                     0 | 122.0B       |                    1 |   2026 | Qwen/Qwen3.5-122B-A10B    |
-| [raahemnabeel/ornith-1.5-122b](https://huggingface.co/raahemnabeel/ornith-1.5-122b)     |                      0 |                     0 | 122.0B       |                    1 |   2026 | ornith-ai/Ornith-1.5-122B |
-| [tt-hous/gpt-oss-120b](https://huggingface.co/tt-hous/gpt-oss-120b)                     |                      0 |                     0 | 120.0B       |                    1 |   2026 | openai/gpt-oss-120b       |
+| model                                                                                                         | parameters   |   # languages tagged |   year | derivative of             |
+|:--------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                     | 1.9T         |                  143 |   2025 | —                         |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                         | 856.0B       |                  143 |   2025 | —                         |
+| [raahemnabeel/ornith-1.5-122b](https://huggingface.co/raahemnabeel/ornith-1.5-122b)                           | 122.0B       |                    1 |   2026 | ornith-ai/Ornith-1.5-122B |
+| [raahemnabeel/qwen3-5-122b-a10b](https://huggingface.co/raahemnabeel/qwen3-5-122b-a10b)                       | 122.0B       |                    1 |   2026 | Qwen/Qwen3.5-122B-A10B    |
+| [jashansinghTT/gpt-oss-120b-blackhole-fast](https://huggingface.co/jashansinghTT/gpt-oss-120b-blackhole-fast) | 120.0B       |                    1 |   2026 | openai/gpt-oss-120b       |
 
 ### Largest models tagged *only* for Tatar
 
-| model                                                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                           |
-|:------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------------------------------|
-| [raahemnabeel/qwen3-5-122b-a10b](https://huggingface.co/raahemnabeel/qwen3-5-122b-a10b)                                             |                      0 |                     0 | 122.0B       |                    1 |   2026 | Qwen/Qwen3.5-122B-A10B                  |
-| [raahemnabeel/ornith-1.5-122b](https://huggingface.co/raahemnabeel/ornith-1.5-122b)                                                 |                      0 |                     0 | 122.0B       |                    1 |   2026 | ornith-ai/Ornith-1.5-122B               |
-| [tt-hous/gpt-oss-120b](https://huggingface.co/tt-hous/gpt-oss-120b)                                                                 |                      0 |                     0 | 120.0B       |                    1 |   2026 | openai/gpt-oss-120b                     |
-| [ndaly/Mistral-Small-4-119B-2603](https://huggingface.co/ndaly/Mistral-Small-4-119B-2603)                                           |                      0 |                     0 | 119.0B       |                    1 |   2026 | mistralai/Mistral-Small-4-119B-2603     |
-| [jashansinghTT/kimi-linear-48b-a3b-instruct-blackhole](https://huggingface.co/jashansinghTT/kimi-linear-48b-a3b-instruct-blackhole) |                      0 |                     0 | 48.0B        |                    1 |   2026 | moonshotai/Kimi-Linear-48B-A3B-Instruct |
+| model                                                                                                                               | parameters   |   # languages tagged |   year | derivative of                           |
+|:------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------------|
+| [raahemnabeel/ornith-1.5-122b](https://huggingface.co/raahemnabeel/ornith-1.5-122b)                                                 | 122.0B       |                    1 |   2026 | ornith-ai/Ornith-1.5-122B               |
+| [raahemnabeel/qwen3-5-122b-a10b](https://huggingface.co/raahemnabeel/qwen3-5-122b-a10b)                                             | 122.0B       |                    1 |   2026 | Qwen/Qwen3.5-122B-A10B                  |
+| [jashansinghTT/gpt-oss-120b-blackhole-fast](https://huggingface.co/jashansinghTT/gpt-oss-120b-blackhole-fast)                       | 120.0B       |                    1 |   2026 | openai/gpt-oss-120b                     |
+| [ndaly/Mistral-Small-4-119B-2603](https://huggingface.co/ndaly/Mistral-Small-4-119B-2603)                                           | 119.0B       |                    1 |   2026 | mistralai/Mistral-Small-4-119B-2603     |
+| [jashansinghTT/kimi-linear-48b-a3b-instruct-blackhole](https://huggingface.co/jashansinghTT/kimi-linear-48b-a3b-instruct-blackhole) | 48.0B        |                    1 |   2026 | moonshotai/Kimi-Linear-48B-A3B-Instruct |
 
 _26 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -161,15 +187,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,15 +209,15 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                    | dataset                                                                              | # test items   | Construction                                                     |
-|:------------------------------|:------------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge       | BLiMP                   | [TatBLiMP](https://huggingface.co/datasets/ilchats/TatBLiMP)                         | 1,248          | Corpus-extracted + automatic perturbation                        |
-| 4. Reading comprehension      | QA – extractive RC      | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ | [TUMLU](https://github.com/ceferisbarov/TUMLU)                                       | 700            | Native (school/entrance exams)                                   |
-| Machine translation           | Machine translation     | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
-| Machine translation           | Machine translation     | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation           | Machine translation     | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                   |
-| Machine translation           | Machine translation     | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 1,451          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                         | task                    | dataset                                                                              |   # test items | construction                                                     |
+|:------------------------------|:------------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge       | BLiMP                   | [TatBLiMP](https://huggingface.co/datasets/ilchats/TatBLiMP)                         |          1,248 | Corpus-extracted + automatic perturbation                        |
+| 4. Reading comprehension      | QA – extractive RC      | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ | [TUMLU](https://github.com/ceferisbarov/TUMLU)                                       |            700 | Native (school/entrance exams)                                   |
+| Machine translation           | Machine translation     | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
+| Machine translation           | Machine translation     | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation           | Machine translation     | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
+| Machine translation           | Machine translation     | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |          1,451 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -219,7 +245,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 57 of ~18,460 papers (0.31%) (rank 76 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 57 of ~18,498 papers (0.31%) (rank 79 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Tatar
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 57):

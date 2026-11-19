@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ron`
 
+**Language family:** **Indo-European** › Classical Indo-European › Italic › … › Eastern Romanian ([Glottolog](https://glottolog.org/resource/languoid/id/roma1327))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 20.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 24.3 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q7913#P1098), 2019)
 
 **Official / recognised in:** Moldova, Romania
 
 **Status:** Official and national language; Official language
+
+
+## What does Romanian look and sound like?
+
+**Written (Romanian)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/romanian.htm):
+
+> Toate ființele umane se nasc libere și egale în demnitate și în drepturi. Ele sunt înzestrate cu rațiune și conștiință și trebuie să se comporte unele față de altele în spiritul fraternității.
+> A recording of this text by Georgescu Alexandru Cristian
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_ro.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ron/) has 3 videos of Romanian speakers. Watch [Raluca speaking Romanian](https://wikitongues.org/videos/raluca_20170421_ron/).
 
 
 ## Training Data
@@ -25,20 +47,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                   |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 550,414 articles in ro.wikipedia (rank 27 of 161 in the set) — ~1/14 of English; 1,880 active users                                                                                                                                      |
-| Common Crawl 2026      | 12,147,112 pages per crawl on average, which is 0.5638% of the crawl. This is ~1/73 of English data and ranks 18 of 113 official languages in Common Crawl.                                                                              |
-| FineWeb                | 91.75 GB (ron_Cyrl (0.01); ron_Latn (91.75)); which is equivalent to ≈82.27 GB English data after byte-premium scaling; 76.76 GB removed by filtering. This is ~1/582 of English data and ranks 20 of 248 official languages in FineWeb. |
-| Goldfish training data | 7.87 GB (ron_latn) (rank 26 of 166 in the set)                                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                            |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 550,414 articles in ro.wikipedia; 1,880 active users. This is ~1/14 of English data and ranks 28 of 168 languages in the set in Wikipedia.                                                                                        |
+| Common Crawl           | 12,147,112 pages per crawl on average, which is 0.5638% of the crawl (2026). This is ~1/73 of English data and ranks 18 of 113 languages in the set in Common Crawl.                                                              |
+| FineWeb                | 91.75 GB (ron_Latn 91.75 GB; ron_Cyrl 10.0 MB), equivalent to ≈82.27 GB of English after byte-premium scaling; 76.76 GB removed by filtering. This is ~1/582 of English data and ranks 20 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 7.87 GB (ron_Latn 7.87 GB) (rank 26 of 166 in the set)                                                                                                                                                                            |
+
+**By writing system:**
+
+| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)    | 91.75 GB  | 82.27 GB                      | 7.87 GB      | 7.06 GB                        |
+| Cyrillic (`Cyrl`) | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 6 treebanks, 40,720 sentences / 942,149 tokens in total: [UD_Romanian-ArT](https://github.com/UniversalDependencies/UD_Romanian-ArT) (50 sentences), [UD_Romanian-MolDoRo](https://github.com/UniversalDependencies/UD_Romanian-MolDoRo) (30 sentences), [UD_Romanian-Nonstandard](https://github.com/UniversalDependencies/UD_Romanian-Nonstandard) (26,225 sentences), [UD_Romanian-RRT](https://github.com/UniversalDependencies/UD_Romanian-RRT) (9,524 sentences), [UD_Romanian-SiMoNERo](https://github.com/UniversalDependencies/UD_Romanian-SiMoNERo) (4,681 sentences), [UD_Romanian-TueCL](https://github.com/UniversalDependencies/UD_Romanian-TueCL) (210 sentences). All have POS tags, dependency syntax, lemmas. |
+| UniMorph               | 4,405 lemmas, 80,266 inflected forms ([unimorph/ron](https://github.com/unimorph/ron))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Wikidata labels        | 6,751,178 Wikidata items have a label in Romanian. (Wikidata codes (labels): ro (6,751,178))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Wordnets               | [Romanian Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-ro-1.4.tar.xz): 56,026 synsets, 52,600 words, 84,638 senses; licence: https://creativecommons.org/licenses/by-sa/; [BalkaNet](http://www.dblab.upatras.gr/balkanet/) (size not listed); [MultiWordNet](http://multiwordnet.fbk.eu/english/home.php) (size not listed); licence: CC-BY 3.0.                                                                                                                                                                                                                                                                                                                                                       |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                                                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                     |
+| Bible translations (eBible corpus) | **Yes** — 4 translations: full Bible ([ron1924](https://ebible.org/details.php?id=ron1924), Public Domain); New Testament ([ronlsb](https://ebible.org/details.php?id=ronlsb), Public Domain); portions ([ronBayash](https://ebible.org/details.php?id=ronBayash), by 4.0); portions ([ronludari](https://ebible.org/details.php?id=ronludari), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=97), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.989 (P 0.983, R 0.995, FPR 1.14e-04) averaged over 5 dataset(s). Runner-up: commonlingua (F1 0.957).
+- **Best model:** GlotLID — F1 0.990 (P 0.984, R 0.995, FPR 1.07e-04) averaged over 5 dataset(s). Runner-up: commonlingua (F1 0.956).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,20 +98,22 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.983 |    0.995 | 0.989 | 0.000 | ✓                |
-| commonlingua |       0.980 |    0.938 | 0.957 | 0.000 | ✓                |
-| OpenLID-v2   |       0.922 |    0.994 | 0.953 | 0.001 | ✓                |
-| cld2         |       0.950 |    0.951 | 0.948 | 0.001 | ✓                |
-| fasttext     |       0.906 |    0.994 | 0.945 | 0.001 | ✓                |
+| GlotLID      |       0.984 |    0.995 | 0.990 | 0.000 | ✓                |
+| commonlingua |       0.977 |    0.938 | 0.956 | 0.000 | ✓                |
+| OpenLID-v2   |       0.921 |    0.994 | 0.953 | 0.001 | ✓                |
+| cld2         |       0.948 |    0.951 | 0.947 | 0.001 | ✓                |
+| fasttext     |       0.907 |    0.994 | 0.946 | 0.001 | ✓                |
 | py3langid    |       0.850 |    0.996 | 0.912 | 0.002 | ✓                |
-| pyfranc      |       0.968 |    0.858 | 0.901 | 0.000 | ✓                |
-| funlangid    |       0.928 |    0.870 | 0.892 | 0.001 | ✓                |
+| pyfranc      |       0.967 |    0.858 | 0.900 | 0.000 | ✓                |
+| funlangid    |       0.925 |    0.870 | 0.891 | 0.001 | ✓                |
+| cld3         |       0.782 |    0.955 | 0.851 | 0.004 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.967 |    0.990 | 0.979 |
+| Tatoeba   | 300 |       0.971 |    0.990 | 0.980 |
 | UDHR-LID  |  97 |       0.970 |    1.000 | 0.985 |
 | Wikipedia | 300 |       0.983 |    0.987 | 0.985 |
 | NTREX     | 300 |       0.997 |    1.000 | 0.998 |
@@ -93,45 +147,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      375 | ████████████████████ |
 |   2026 |      276 | ███████████████      |
 
-### Most popular models tagged for Romanian
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [BioMistral/BioMistral-7B](https://huggingface.co/BioMistral/BioMistral-7B)                       | 1,767,964              | 10,381                | 7.0B         |                    9 |   2024 | —                                      |
-| [CohereLabs/aya-expanse-8b](https://huggingface.co/CohereLabs/aya-expanse-8b)                     | 1,136,081              | 22,682                | 8.0B         |                   23 |   2024 | —                                      |
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct) | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B             |
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                         | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                                      |
-
-### Most popular models tagged *only* for Romanian
-
-| model                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                    |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------|
-| [legraphista/RoGemma-7b-Instruct-IMat-GGUF](https://huggingface.co/legraphista/RoGemma-7b-Instruct-IMat-GGUF)     | 68,665                 | 2,210                 | 8.5B         |                    1 |   2024 | OpenLLM-Ro/RoGemma-7b-Instruct   |
-| [legraphista/RoLlama2-7b-Instruct-IMat-GGUF](https://huggingface.co/legraphista/RoLlama2-7b-Instruct-IMat-GGUF)   | 38,454                 | 4,464                 | 6.7B         |                    1 |   2024 | OpenLLM-Ro/RoLlama2-7b-Instruct  |
-| [legraphista/RoLlama2-7b-Base-IMat-GGUF](https://huggingface.co/legraphista/RoLlama2-7b-Base-IMat-GGUF)           | 37,240                 | 4,959                 | 6.7B         |                    1 |   2024 | OpenLLM-Ro/RoLlama2-7b-Base      |
-| [legraphista/RoMistral-7b-Instruct-IMat-GGUF](https://huggingface.co/legraphista/RoMistral-7b-Instruct-IMat-GGUF) | 35,536                 | 5,849                 | 7.2B         |                    1 |   2024 | OpenLLM-Ro/RoMistral-7b-Instruct |
-| [dumitrescustefan/gpt-neo-romanian-780m](https://huggingface.co/dumitrescustefan/gpt-neo-romanian-780m)           | 9,178                  | 317                   | 780.0M       |                    1 |   2022 | —                                |
-
 ### Largest models tagged for Romanian
 
-| model                                                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                   | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [kepom/Kimi-K2.7-Code](https://huggingface.co/kepom/Kimi-K2.7-Code)                                         | 651                    | 51                    | 1.1T         |                    2 |   2026 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                       | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)     | 604                    | 604                   | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
-| [diablomike20/command-a-plus-05-2026-GGUF](https://huggingface.co/diablomike20/command-a-plus-05-2026-GGUF) | 2,352                  | 2,352                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                          |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                               | 1.9T         |                  143 |   2025 | —                                      |
+| [kepom/Kimi-K2.7-Code](https://huggingface.co/kepom/Kimi-K2.7-Code)                                     | 1.1T         |                    2 |   2026 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                   | 856.0B       |                  143 |   2025 | —                                      |
+| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF) | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)   | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
 
 ### Largest models tagged *only* for Romanian
 
-| model                                                                                                         | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                               |
-|:--------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:--------------------------------------------|
-| [iulio/FiscMind-AI-v9-GGUF](https://huggingface.co/iulio/FiscMind-AI-v9-GGUF)                                 | 264                    | 84                    | 12.2B        |                    1 |   2026 | unsloth/mistral-nemo-instruct-2407-bnb-4bit |
-| [la2ydev/RoGemma2-9b-Instruct](https://huggingface.co/la2ydev/RoGemma2-9b-Instruct)                           | 1,575                  | 11                    | 9.2B         |                    1 |   2024 | OpenLLM-Ro/RoGemma2-9b-Instruct             |
-| [OpenLLM-Ro/RoGemma-7b-Instruct-2024-06-28](https://huggingface.co/OpenLLM-Ro/RoGemma-7b-Instruct-2024-06-28) | 214                    | 21                    | 8.5B         |                    1 |   2024 | google/gemma-7b                             |
-| [legraphista/RoGemma-7b-Instruct-IMat-GGUF](https://huggingface.co/legraphista/RoGemma-7b-Instruct-IMat-GGUF) | 68,665                 | 2,210                 | 8.5B         |                    1 |   2024 | OpenLLM-Ro/RoGemma-7b-Instruct              |
-| [ssmits/Falcon2-8B-Romanian](https://huggingface.co/ssmits/Falcon2-8B-Romanian)                               | 298                    | 19                    | 8.1B         |                    1 |   2024 | tiiuae/falcon-11B                           |
+| model                                                                                                         | parameters   |   # languages tagged |   year | derivative of                               |
+|:--------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------------------|
+| [iulio/FiscMind-AI-v9-GGUF](https://huggingface.co/iulio/FiscMind-AI-v9-GGUF)                                 | 12.2B        |                    1 |   2026 | unsloth/mistral-nemo-instruct-2407-bnb-4bit |
+| [la2ydev/RoGemma2-9b-Instruct](https://huggingface.co/la2ydev/RoGemma2-9b-Instruct)                           | 9.2B         |                    1 |   2024 | OpenLLM-Ro/RoGemma2-9b-Instruct             |
+| [OpenLLM-Ro/RoGemma-7b-Instruct-2024-06-28](https://huggingface.co/OpenLLM-Ro/RoGemma-7b-Instruct-2024-06-28) | 8.5B         |                    1 |   2024 | google/gemma-7b                             |
+| [legraphista/RoGemma-7b-Instruct-IMat-GGUF](https://huggingface.co/legraphista/RoGemma-7b-Instruct-IMat-GGUF) | 8.5B         |                    1 |   2024 | OpenLLM-Ro/RoGemma-7b-Instruct              |
+| [ssmits/Falcon2-8B-Romanian](https://huggingface.co/ssmits/Falcon2-8B-Romanian)                               | 8.1B         |                    1 |   2024 | tiiuae/falcon-11B                           |
 
 _97 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +196,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [6]     \
+                 /   [6]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [7]        \
+         /      reasoning [7]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +218,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                                  | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:---------------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                           | 246            | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 2,056          | Treebank-based (automatic, UD + UniMorph)                        |
@@ -234,7 +268,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 211 of ~18,460 papers (1.14%) (rank 33 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 211 of ~18,498 papers (1.14%) (rank 33 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Romanian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 211):

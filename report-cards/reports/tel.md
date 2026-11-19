@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tel`
 
+**Language family:** **Dravidian** › South Dravidian › South Dravidian II › Teluguic ([Glottolog](https://glottolog.org/resource/languoid/id/telu1262))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Telu`
+
+**Speakers:** about 101.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 82.0 million first-language + 5.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q8097#P1098), 1987)
 
 **Official / recognised in:** India, South Africa
 
-**Status:** Official language; Regional official language
+**Status:** Regional official language; Official language
+
+
+## What does Telugu look and sound like?
+
+**Written:** Omniglot has [a page on Telugu](https://www.omniglot.com/writing/telugu.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tel/) has 5 videos of Telugu speakers. Watch [Naren speaking Telugu](https://wikitongues.org/videos/naren_20190106_tel/).
 
 
 ## Training Data
@@ -25,20 +38,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                  |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 130,448 articles in te.wikipedia (rank 51 of 161 in the set) — ~1/58 of English; 318 active users                                                                                                                                       |
-| Common Crawl 2026      | 450,946 pages per crawl on average, which is 0.0209% of the crawl. This is ~1/1,977 of English data and ranks 47 of 113 official languages in Common Crawl.                                                                             |
-| FineWeb                | 4.04 GB (tel_Latn (0.05); tel_Telu (3.99)); which is equivalent to ≈1.52 GB English data after byte-premium scaling; 6.21 GB removed by filtering. This is ~1/13,233 of English data and ranks 53 of 248 official languages in FineWeb. |
-| Goldfish training data | 5.84 GB (tel_telu) (rank 33 of 166 in the set)                                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 130,448 articles in te.wikipedia; 318 active users. This is ~1/58 of English data and ranks 52 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                 |
+| Common Crawl           | 450,946 pages per crawl on average, which is 0.0209% of the crawl (2026). This is ~1/1,977 of English data and ranks 47 of 113 languages in the set in Common Crawl.                                                                                                                                                                                     |
+| FineWeb                | 4.04 GB (tel_Telu 3.99 GB; tel_Latn 50.0 MB), equivalent to ≈1.52 GB of English after byte-premium scaling (⚠️ only 99% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 6.21 GB removed by filtering. This is ~1/13,233 of English data and ranks 53 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 5.84 GB (tel_Telu 5.84 GB) (rank 33 of 166 in the set)                                                                                                                                                                                                                                                                                                   |
+
+**By writing system:**
+
+| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Telugu (`Telu`)  | 3.99 GB   | 1.52 GB                       | 5.84 GB      | 2.23 GB                        |
+| Latin (`Latn`)   | 50.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                 |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 1,328 sentences / 6,465 tokens in total: [UD_Telugu-MTG](https://github.com/UniversalDependencies/UD_Telugu-MTG) (1,328 sentences). It has POS tags, dependency syntax, morphological features. |
+| UniMorph               | 127 lemmas, 1,548 inflected forms ([unimorph/tel](https://github.com/unimorph/tel))                                                                                                                         |
+| Wikidata labels        | 643,871 Wikidata items have a label in Telugu. (Wikidata codes (labels): te (643,871))                                                                                                                      |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                            |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                            |
+|:-----------------------------------|:-------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([tel2017](https://ebible.org/details.php?id=tel2017), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                             |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.999 (P 0.999, R 0.999, FPR 1.51e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.999).
+- **Best model:** GlotLID — F1 0.999 (P 0.999, R 0.999, FPR 1.49e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.999).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -53,7 +96,9 @@ Language identification (LangID or LID) is a classification task that identifies
 | fasttext     |       1.000 |    0.996 | 0.998 | 0.000 | ✓                |
 | commonlingua |       0.998 |    0.996 | 0.997 | 0.000 | ✓                |
 | pyfranc      |       1.000 |    0.986 | 0.993 | 0.000 | ✗                |
+| cld3         |       0.999 |    0.986 | 0.992 | 0.000 | ✓                |
 | funlangid    |       0.970 |    0.916 | 0.941 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -63,8 +108,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Wikipedia | 300 |       1.000 |    0.997 | 0.998 |
 | Tatoeba   | 300 |       0.997 |    1.000 | 0.998 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -94,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      189 | ███████████          |
 |   2026 |      338 | ████████████████████ |
 
-### Most popular models tagged for Telugu
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Telugu
-
-| model                                                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [jayasuryajsk/Llama-3-8b-Telugu-Romanized](https://huggingface.co/jayasuryajsk/Llama-3-8b-Telugu-Romanized) | 2,812                  | 19                    | 8.0B         |                    1 |   2024 | —               |
-| [jayasuryajsk/Llama-3-telugu](https://huggingface.co/jayasuryajsk/Llama-3-telugu)                           | 2,417                  | 164                   | 8.0B         |                    1 |   2024 | —               |
-| [mradermacher/Kavya-1-7B-GGUF](https://huggingface.co/mradermacher/Kavya-1-7B-GGUF)                         | 1,362                  | 380                   | 7.6B         |                    1 |   2026 | Qwen/Qwen2.5-7B |
-| [udgamlabs/Vemana-Base](https://huggingface.co/udgamlabs/Vemana-Base)                                       | 1,049                  | 1,049                 | 278.2M       |                    1 |   2026 | —               |
-| [samvaran/chandohasam](https://huggingface.co/samvaran/chandohasam)                                         | 842                    | 538                   | 120.0M       |                    1 |   2026 | —               |
-
 ### Largest models tagged for Telugu
 
-| model                                                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                   | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                       | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [diablomike20/command-a-plus-05-2026-GGUF](https://huggingface.co/diablomike20/command-a-plus-05-2026-GGUF) | 2,352                  | 2,352                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)                                                 | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —                                      |
-| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                                       | 109                    | 13                    | 176.2B       |                   35 |   2026 | —                                      |
+| model                                                                                                 | parameters   |   # languages tagged |   year | derivative of                          |
+|:------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                             | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                 | 856.0B       |                  143 |   2025 | —                                      |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF) | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                                 | 176.2B       |                   37 |   2026 | —                                      |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                                 | 176.2B       |                   37 |   2026 | —                                      |
 
 ### Largest models tagged *only* for Telugu
 
-| model                                                                                                                               | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [atsuki-yamaguchi/Qwen3-14B-Base-te-madlad-mean-tuned](https://huggingface.co/atsuki-yamaguchi/Qwen3-14B-Base-te-madlad-mean-tuned) | 83                     |                     8 | 14.9B        |                    1 |   2025 | Qwen/Qwen3-14B-Base     |
-| [bharadwajswarna/Zephyr-Gemma-7B-Telugu](https://huggingface.co/bharadwajswarna/Zephyr-Gemma-7B-Telugu)                             | 425                    |                    47 | 8.5B         |                    1 |   2024 | —                       |
-| [saucam/Navrasa-2.0-Rudra-7b-dare-ties](https://huggingface.co/saucam/Navrasa-2.0-Rudra-7b-dare-ties)                               | 84                     |                    11 | 8.5B         |                    1 |   2024 | google/gemma-7b         |
-| [atsuki-yamaguchi/Llama-3.1-8B-te-madlad-mean-tuned](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-te-madlad-mean-tuned)     | 139                    |                     6 | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B |
-| [jayasuryajsk/Llama-3-telugu](https://huggingface.co/jayasuryajsk/Llama-3-telugu)                                                   | 2,417                  |                   164 | 8.0B         |                    1 |   2024 | —                       |
+| model                                                                                                                                                             | parameters   |   # languages tagged |   year | derivative of           |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------|
+| [atsuki-yamaguchi/Qwen3-14B-Base-te-madlad-mean-cv](https://huggingface.co/atsuki-yamaguchi/Qwen3-14B-Base-te-madlad-mean-cv)                                     | 14.9B        |                    1 |   2025 | Qwen/Qwen3-14B-Base     |
+| [bharadwajswarna/Zephyr-Gemma-7B-Telugu](https://huggingface.co/bharadwajswarna/Zephyr-Gemma-7B-Telugu)                                                           | 8.5B         |                    1 |   2024 | —                       |
+| [saucam/Navrasa-2.0-Rudra-7b-dare-ties](https://huggingface.co/saucam/Navrasa-2.0-Rudra-7b-dare-ties)                                                             | 8.5B         |                    1 |   2024 | google/gemma-7b         |
+| [atsuki-yamaguchi/Llama-3.1-8B-Instruct-te-madlad-mean-slerp0305-emb](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-Instruct-te-madlad-mean-slerp0305-emb) | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B |
+| [jayasuryajsk/Llama-3-8b-Telugu-Romanized](https://huggingface.co/jayasuryajsk/Llama-3-8b-Telugu-Romanized)                                                       | 8.0B         |                    1 |   2024 | —                       |
 
 _95 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +177,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**33** benchmark datasets in the survey include Telugu.
+**29** benchmark datasets in the survey include Telugu.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [9]     \
+                 /   [8]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [5]   \
+            / comprehension [5]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [9]        \
+         /      reasoning [7]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -179,47 +204,43 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ✅ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [2]   \
   /____________________|_____________________\
- /         ✅ Machine translation [8]         \
+ /         ✅ Machine translation [7]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                    | # test items   | Construction                                                        |
-|:---------------------------------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom)                                     | —              | Native (curated by native speakers; generated contexts + MCQs)      |
-| 2. Pragmatics, discourse & coreference | WinoGrande                     | [Winogrande_translated (CognitiveLab)](https://huggingface.co/datasets/CognitiveLab/Winogrande_translated) | —              | Machine translation (method not stated)                             |
-| 3. Commonsense reasoning               | COPA                           | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                                           | 500            | Human translation                                                   |
-| 3. Commonsense reasoning               | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                                      | 9,088          | Machine translation (GPT-4o, auto-checked)                          |
-| 3. Commonsense reasoning               | HellaSwag                      | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)                   | 8,724          | Machine translation (GPT-3.5-turbo)                                 |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)        | 100            | Native                                                              |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)        | 100            | Native                                                              |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)               | 103            | MT + human post-editing                                             |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)               | 103            | MT + human post-editing                                             |
-| 3. Commonsense reasoning               | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench)                                                     | 1,332          | Machine translation (GPT-4o, auto-checked)                          |
-| 3. Commonsense reasoning               | StoryCloze                     | [XStoryCloze](https://huggingface.co/datasets/juletxara/xstory_cloze)                                      | 1,511          | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                              | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – extractive RC             | [Indic QA Benchmark](https://github.com/ayushayush591/IndicQA-Benchmark)                                   | 10,489         | Mixed: mostly MT of English/Hindi sources + native IndicQA/chaii    |
-| 4. Reading comprehension               | QA – extractive RC             | [IndicQA (AI4Bharat, IndicXTREME)](https://huggingface.co/datasets/ai4bharat/IndicQA)                      | 1,734          | Native                                                              |
-| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                 | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
-| 4. Reading comprehension               | QA – extractive RC             | TeQuAD                                                                                                     | 82,000         | Translation (SQuAD → Telugu)                                        |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                      | 14,042         | MT + community post-editing                                         |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                            | —              | Native (local exams)                                                |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | IndicMMLU-Pro                                                                                              | —              | Machine translation (from MMLU-Pro)                                 |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                                     | 7,304          | Native (Indian exams; some translated)                              |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                              | 11,829         | LLM translation + expert review                                     |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                     | —              | Machine translation (GPT-3.5, Okapi)                                |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [XOR-TyDi QA](https://github.com/AkariAsai/XORQA)                                                          | 1,087          | Native (TyDi questions)                                             |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                    | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                  | 1,997          | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                              | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                             | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                       | 262            | Native (crowdsourced Tatoeba sentence pairs)                        |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                  | 998            | Human translation (professional) + post-edits                       |
+| level                                  | task                           | dataset                                                                                                                 | # test items   | construction                                                        |
+|:---------------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
+| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom)                                                  | —              | Native (curated by native speakers; generated contexts + MCQs)      |
+| 2. Pragmatics, discourse & coreference | WinoGrande                     | [Winogrande_translated (CognitiveLab)](https://huggingface.co/datasets/CognitiveLab/Winogrande_translated)              | —              | Machine translation (method not stated)                             |
+| 3. Commonsense reasoning               | COPA                           | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                                                        | 500            | Human translation                                                   |
+| 3. Commonsense reasoning               | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                                                   | 9,088          | Machine translation (GPT-4o, auto-checked)                          |
+| 3. Commonsense reasoning               | HellaSwag                      | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)                                | 8,724          | Machine translation (GPT-3.5-turbo)                                 |
+| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) (2 varieties/pairs) | 200            | Native                                                              |
+| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel) (2 varieties/pairs)        | 206            | MT + human post-editing                                             |
+| 3. Commonsense reasoning               | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench)                                                                  | 1,332          | Machine translation (GPT-4o, auto-checked)                          |
+| 3. Commonsense reasoning               | StoryCloze                     | [XStoryCloze](https://huggingface.co/datasets/juletxara/xstory_cloze)                                                   | 1,511          | Human translation (professional)                                    |
+| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                           | 900            | Human translation (professional)                                    |
+| 4. Reading comprehension               | QA – extractive RC             | TeQuAD                                                                                                                  | 82,000         | Translation (SQuAD → Telugu)                                        |
+| 4. Reading comprehension               | QA – extractive RC             | [Indic QA Benchmark](https://github.com/ayushayush591/IndicQA-Benchmark)                                                | 10,489         | Mixed: mostly MT of English/Hindi sources + native IndicQA/chaii    |
+| 4. Reading comprehension               | QA – extractive RC             | [IndicQA (AI4Bharat, IndicXTREME)](https://huggingface.co/datasets/ai4bharat/IndicQA)                                   | 1,734          | Native                                                              |
+| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                              | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | IndicMMLU-Pro                                                                                                           | —              | Machine translation (from MMLU-Pro)                                 |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                                   | 14,042         | MT + community post-editing                                         |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                         | —              | Native (local exams)                                                |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                                                  | 7,304          | Native (Indian exams; some translated)                              |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                                           | 11,829         | LLM translation + expert review                                     |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                                  | —              | Machine translation (GPT-3.5, Okapi)                                |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                                  | 100            | Native (community-written, peer-verified)                           |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [XOR-TyDi QA](https://github.com/AkariAsai/XORQA)                                                                       | 1,087          | Native (TyDi questions)                                             |
+| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)                                         | 1,708          | Human translation via English pivot                                 |
+| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
+| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                      |
+| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 262            | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                               | 998            | Human translation (professional) + post-edits                       |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -245,7 +266,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 256 of ~18,460 papers (1.39%) (rank 29 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 256 of ~18,498 papers (1.38%) (rank 29 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Telugu
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 256):

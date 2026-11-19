@@ -12,9 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `toi`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Kafue ([Glottolog](https://glottolog.org/resource/languoid/id/tong1318))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 4 (Educational))
+
+**Speakers:** about 2.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 1.3 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34101#P1098))
+
 **Official / recognised in:** Zimbabwe
 
 **Status:** Official language
+
+
+## What does Tonga look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/tonga.htm):
+
+> Bantu boonse balazyalwa kabaangulukide alimwi kabeelene alimwi akwaanguluka kucita zyobayanda. Balazyalwa amaanu akuyeeya, aakusala alimwi beelede kulanga bambi mbuli banabokwabo.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Tonga yet ([its Wikitongues page](https://wikitongues.org/languages/toi/) says how to contribute one).
 
 
 ## Training Data
@@ -23,20 +42,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                          |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 2.9 MB (toi_Latn (0.00)); 62.9 MB removed by filtering. This is ~1/18,400,845 of English data and ranks 172 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                      |
+| Source                 | Amount                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                       |
+| FineWeb                | 2.9 MB (toi_Latn 0); 62.9 MB removed by filtering. This is ~1/18,400,845 of English data and ranks 172 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                   |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                |
+|:-----------------------|:---------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                             |
+| UniMorph               | **None found**                                                             |
+| Wikidata labels        | 1 Wikidata items have a label in Tonga. (Wikidata codes (labels): toi (1)) |
+| Wordnets               | **None found**                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
+- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, funlangid, pyfranc.
 - **Eval datasets (2):** Tatoeba (n=58), UDHR-LID (n=57)
-- **Best model:** GlotLID — F1 0.934 (P 0.979, R 0.897, FPR 2.80e-05) averaged over 2 dataset(s). Runner-up: pyfranc (F1 0.638).
+- **Best model:** GlotLID — F1 0.934 (P 0.979, R 0.897, FPR 2.75e-05) averaged over 2 dataset(s). Runner-up: pyfranc (F1 0.638).
 
 **All models (averaged over datasets):**
 
@@ -44,9 +84,11 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.979 |    0.897 | 0.934 | 0.000 | ✓                |
 | pyfranc      |       0.707 |    0.603 | 0.638 | 0.000 | ✓                |
-| funlangid    |       0.821 |    0.385 | 0.485 | 0.000 | ✓                |
+| AfroLID      |       1.000 |    0.534 | 0.603 | 0.000 | ✓                |
+| funlangid    |       0.787 |    0.385 | 0.484 | 0.000 | ✓                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -66,6 +108,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tonga and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tonga has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/toi/) video of Tonga yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Tonga?
@@ -82,23 +126,12 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2026 |        2 | ████████████████████ |
 
-### Most popular models tagged for Tonga
-
-| model                                                                                     |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of         |
-|:------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------------|
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3)   |                    425 |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it  |
-| [zamai-zambia/chitonga-chat-run3](https://huggingface.co/zamai-zambia/chitonga-chat-run3) |                    147 |                   147 | 7.5B         |                    2 |   2026 | google/gemma-4-E4B-it |
-
-### Most popular models tagged *only* for Tonga
-
-_none_
-
 ### Largest models tagged for Tonga
 
-| model                                                                                     |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of         |
-|:------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------------|
-| [zamai-zambia/chitonga-chat-run3](https://huggingface.co/zamai-zambia/chitonga-chat-run3) |                    147 |                   147 | 7.5B         |                    2 |   2026 | google/gemma-4-E4B-it |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3)   |                    425 |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it  |
+| model                                                                                     | parameters   |   # languages tagged |   year | derivative of         |
+|:------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------|
+| [zamai-zambia/chitonga-chat-run3](https://huggingface.co/zamai-zambia/chitonga-chat-run3) | 7.5B         |                    2 |   2026 | google/gemma-4-E4B-it |
+| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3)   | 3.9B         |                  155 |   2026 | google/gemma-3-4b-it  |
 
 ### Largest models tagged *only* for Tonga
 
@@ -131,15 +164,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -153,7 +186,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                              |   # test items | Construction                                 |
+| level               | task                | dataset                                                                              |   # test items | construction                                 |
 |:--------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:---------------------------------------------|
 | Machine translation | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |              2 | Native (crowdsourced Tatoeba sentence pairs) |
 
@@ -183,6 +216,16 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026: not reported.** The search term 'Tonga' (also the country / Tongan) is ambiguous, so the raw count mostly reflects other uses of the word.
+- **Mentions in ACL papers in 2026:** 3 of ~18,498 papers (0.02%) (rank 210 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Tonga
+- Because 'Tonga' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
+
+Here are up to ten papers that were published mentioning this language in 2026:
+
+| title                                                                  | paper                                                                          |
+|:-----------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Goldfish: Monolingual Language Models for 350 Languages                | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| ARB: A Comprehensive Arabic Multimodal Reasoning Benchmark             | [2026.lrec-1.723](https://aclanthology.org/2026.lrec-1.723/)                   |
 
 {% endraw %}

@@ -12,11 +12,26 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mdf`
 
-**Writing systems:** `Cyrl`
+**Language family:** **Uralic** › Mordvin ([Glottolog](https://glottolog.org/resource/languoid/id/moks1248))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: ElCat: At risk (20% certain))
+
+**Speakers:** about 296,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 2,025 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q13343#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Moksha look and sound like?
+
+**Written (Moksha)**, sample text from [Omniglot](https://www.omniglot.com/writing/moksha.htm):
+
+> Мокшень кяль Суоми-Равонь кяльхнень эзда фкясь, Суоми-Угронь кяльхнень тарадоц, канневи уралень кяльса корхтайхнень кяльснон ёткс. Мокшень кяльсь эрзянь кяльти ди тяни кулоф мяшярань кяльти сембода малады. Мокшень кяльсь ащи масторонь кялькс Мордовия республикаса, рузонь эди эрзянь кяльхнень мархтост.
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://mdf.wikipedia.org/wiki/Мокшень_кяль.</sub>
+
+**Spoken:** no Wikitongues video of Moksha yet ([its Wikitongues page](https://wikitongues.org/languages/mdf/) says how to contribute one).
 
 
 ## Training Data
@@ -25,20 +40,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 7,631 articles in mdf.wikipedia (rank 108 of 161 in the set) — ~1/989 of English; 16 active users                                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 4.2 MB (mdf_Cyrl (0.00)); 33.8 MB removed by filtering. This is ~1/12,679,801 of English data and ranks 165 of 248 official languages in FineWeb. |
-| Goldfish training data | 11.4 MB (mdf_cyrl) (rank 163 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 7,631 articles in mdf.wikipedia; 16 active users. This is ~1/989 of English data and ranks 112 of 168 languages in the set in Wikipedia.       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                       |
+| FineWeb                | 4.2 MB (mdf_Cyrl 0); 33.8 MB removed by filtering. This is ~1/12,679,801 of English data and ranks 165 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 11.4 MB (mdf_Cyrl 11.0 MB) (rank 163 of 166 in the set)                                                                                        |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                      |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 490 sentences / 4,572 tokens in total: [UD_Moksha-JR](https://github.com/UniversalDependencies/UD_Moksha-JR) (490 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                   |
+| Wikidata labels        | 175,085 Wikidata items have a label in Moksha. (Wikidata codes (labels): mdf (175,085))                                                                                                                          |
+| Wordnets               | **None found**                                                                                                                                                                                                   |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
 - **Eval datasets (1):** Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.939 (P 0.989, R 0.893, FPR 6.07e-05) averaged over 1 dataset(s). Runner-up: commonlingua (F1 0.907).
+- **Best model:** GlotLID — F1 0.939 (P 0.989, R 0.893, FPR 5.98e-05) averaged over 1 dataset(s). Runner-up: commonlingua (F1 0.907).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 **All models (averaged over datasets):**
@@ -48,8 +84,10 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.989 |    0.893 | 0.939 | 0.000 | ✓                |
 | commonlingua |       0.981 |    0.843 | 0.907 | 0.000 | ✓                |
 | funlangid    |       0.870 |    0.850 | 0.860 | 0.001 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -63,6 +101,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Moksha and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Moksha has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/mdf/) video of Moksha yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Moksha?
@@ -82,30 +122,13 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        0 |                      |
 |   2026 |        2 | ████████████████████ |
 
-### Most popular models tagged for Moksha
-
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 425                    |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
-| [goldfish-models/mdf_cyrl_5mb](https://huggingface.co/goldfish-models/mdf_cyrl_5mb)     | 389                    |                    11 | unknown      |                    1 |   2024 | —                    |
-| [goldfish-models/mdf_cyrl_full](https://huggingface.co/goldfish-models/mdf_cyrl_full)   | 372                    |                    14 | unknown      |                    1 |   2024 | —                    |
-
-### Most popular models tagged *only* for Moksha
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/mdf_cyrl_5mb](https://huggingface.co/goldfish-models/mdf_cyrl_5mb)   |                    389 |                    11 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/mdf_cyrl_full](https://huggingface.co/goldfish-models/mdf_cyrl_full) |                    372 |                    14 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Moksha
 
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 425                    |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
+| model                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 8.6B         |                  189 |   2023 | —                    |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 8.6B         |                  189 |   2023 | —                    |
+| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 3.9B         |                  155 |   2026 | google/gemma-3-4b-it |
 
 ### Largest models tagged *only* for Moksha
 
@@ -140,15 +163,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -162,11 +185,11 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                  |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 82             | Treebank-based (automatic, UD + UniMorph)     |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 3,957          | Synthetic (LLM-generated) on native Wikipedia |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 7              | Native (crowdsourced Tatoeba sentence pairs)  |
+| level                    | task                | dataset                                                                              |   # test items | construction                                  |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |             82 | Treebank-based (automatic, UD + UniMorph)     |
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          3,957 | Synthetic (LLM-generated) on native Wikipedia |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |              7 | Native (crowdsourced Tatoeba sentence pairs)  |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -194,6 +217,18 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026: not reported.** The search term 'Moksha' (common religious term) is ambiguous, so the raw count mostly reflects other uses of the word.
+- **Mentions in ACL papers in 2026:** 5 of ~18,498 papers (0.03%) (rank 190 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Moksha
+- Because 'Moksha' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
+
+Here are up to ten papers that were published mentioning this language in 2026:
+
+| title                                                                                            | paper                                                                      |
+|:-------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Confusable Characters as Endangered Language Markers: The Case of North Caucasus Writing Systems | [2026.cawl-1.5](https://aclanthology.org/2026.cawl-1.5/)                   |
+| The Two Towers for Estonian-Centric and Finno-Ugric Machine Translation                          | [2026.eamt-1.32](https://aclanthology.org/2026.eamt-1.32/)                 |
+| TIPA: Typologically Informed Parameter Aggregation                                               | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| Verifying the Menzerath-Altmann law in the verbal domain in 180 languages                        | [2026.udw-1.5](https://aclanthology.org/2026.udw-1.5/)                     |
 
 {% endraw %}

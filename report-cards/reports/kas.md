@@ -12,11 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kas`
 
-**Writing systems:** `Deva`
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Kashmiric ([Glottolog](https://glottolog.org/resource/languoid/id/kash1277))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 4 (Educational))
+
+**Speakers:** about 6.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 6.9 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33552#P1098), 2011)
 
 **Official / recognised in:** India
 
 **Status:** Regional official language
+
+
+## What does Kashmiri look and sound like?
+
+**Written:** Omniglot has [a page on Kashmiri](https://www.omniglot.com/writing/kashmiri.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/kas/) has 1 video of Kashmiri speakers. Watch [Aakriti speaking Kashmiri](https://wikitongues.org/videos/aakriti_20180802_kas/).
 
 
 ## Training Data
@@ -25,20 +36,51 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                      |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 11,926 articles in ks.wikipedia (rank 95 of 161 in the set) — ~1/633 of English; 24 active users                                                                                                                                                            |
-| Common Crawl 2026      | 92 pages per crawl on average, which is 0.0000% of the crawl. This is ~1/9,690,299 of English data and ranks 113 of 113 official languages in Common Crawl.                                                                                                 |
-| FineWeb                | 1.1 MB (kas_Arab (0.00); kas_Deva (0.00); kas_Latn (0.00)); which is equivalent to ≈0.5 MB English data after byte-premium scaling; 0.19 GB removed by filtering. This is ~1/48,354,845 of English data and ranks 198 of 248 official languages in FineWeb. |
-| Goldfish training data | 17.9 MB (kas_deva) (rank 153 of 166 in the set)                                                                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                      |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 11,926 articles in ks.wikipedia; 24 active users. This is ~1/633 of English data and ranks 99 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                     |
+| Common Crawl           | 92 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/9,690,299 of English data and ranks 113 of 113 languages in the set in Common Crawl.                                                                                                                                                                                        |
+| FineWeb                | 1.1 MB (kas_Arab 0; kas_Deva 0; kas_Latn 0), equivalent to ≈0.5 MB of English after byte-premium scaling (⚠️ only 95% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.19 GB removed by filtering. This is ~1/48,354,845 of English data and ranks 198 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 17.9 MB (kas_Deva 18.0 MB) (rank 153 of 166 in the set)                                                                                                                                                                                                                                                                                                     |
+
+**By writing system:**
+
+| Writing system      |   FineWeb | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|----------:|:------------------------------|:-------------|:-------------------------------|
+| Devanagari (`Deva`) |         0 | — (no byte premium yet)       | 18.0 MB      | 7.1 MB                         |
+| Arabic (`Arab`)     |         0 | — (no byte premium yet)       | not included | —                              |
+| Latin (`Latn`)      |         0 | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                              |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 180 sentences / 2,148 tokens in total: [UD_Kashmiri-Zaan](https://github.com/UniversalDependencies/UD_Kashmiri-Zaan) (180 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                           |
+| Wikidata labels        | 172,636 Wikidata items have a label in Kashmiri. (Wikidata codes (labels): ks (172,636))                                                                                                                                 |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **6 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid.
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid.
 - **Eval datasets (4):** FLORES (n=300), SmolSent (n=300), Tatoeba (n=280), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.948 (P 0.995, R 0.910, FPR 2.61e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.731).
+- **Best model:** GlotLID — F1 0.948 (P 0.995, R 0.910, FPR 2.57e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.731).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -48,10 +90,12 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.995 |    0.910 | 0.948 | 0.000 | ✓                |
 | OpenLID-v2   |       0.947 |    0.703 | 0.731 | 0.001 | ✓                |
-| funlangid    |       0.789 |    0.648 | 0.696 | 0.001 | ✓                |
+| funlangid    |       0.787 |    0.648 | 0.696 | 0.001 | ✓                |
 | fasttext     |       0.929 |    0.634 | 0.672 | 0.001 | ✓                |
-| commonlingua |       0.843 |    0.512 | 0.615 | 0.000 | ✓                |
+| commonlingua |       0.817 |    0.512 | 0.609 | 0.001 | ✓                |
 | cld2         |       0.825 |    0.091 | 0.160 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -72,6 +116,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Kashmiri and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Kashmiri has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Kashmiri?
@@ -91,41 +136,21 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        6 | ██                   |
 |   2026 |       63 | ████████████████████ |
 
-### Most popular models tagged for Kashmiri
-
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [sarvamai/sarvam-30b](https://huggingface.co/sarvamai/sarvam-30b)                                     | 588,834                | 4,329                 | 32.2B        |                   23 |   2026 | —               |
-| [sarvamai/sarvam-105b](https://huggingface.co/sarvamai/sarvam-105b)                                   | 206,543                | 5,765                 | 106.0B       |                   23 |   2026 | —               |
-| [bharatgenai/Param2-17B-A2.4B-Thinking](https://huggingface.co/bharatgenai/Param2-17B-A2.4B-Thinking) | 166,640                | 9,968                 | 17.2B        |                   22 |   2026 | —               |
-| [aoxo/sarvam-105b-uncensored](https://huggingface.co/aoxo/sarvam-105b-uncensored)                     | 132,751                | 55                    | 55.7B        |                   23 |   2026 | —               |
-| [aoxo/sarvam-30b-uncensored](https://huggingface.co/aoxo/sarvam-30b-uncensored)                       | 97,121                 | 89                    | 32.2B        |                   23 |   2026 | —               |
-
-### Most popular models tagged *only* for Kashmiri
-
-| model                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of       |
-|:----------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------|
-| [Omarrran/ks-byte-lm-spacebyte-transformers](https://huggingface.co/Omarrran/ks-byte-lm-spacebyte-transformers) |                    776 |                    25 | 15.8M        |                    1 |   2026 | —                   |
-| [goldfish-models/kas_deva_5mb](https://huggingface.co/goldfish-models/kas_deva_5mb)                             |                    417 |                    11 | unknown      |                    1 |   2024 | —                   |
-| [goldfish-models/kas_deva_full](https://huggingface.co/goldfish-models/kas_deva_full)                           |                    363 |                     9 | unknown      |                    1 |   2024 | —                   |
-| [yashwardhan20417/KongPosh-Gemma3n-Kashmiri](https://huggingface.co/yashwardhan20417/KongPosh-Gemma3n-Kashmiri) |                     20 |                    11 | unknown      |                    1 |   2026 | google/gemma-3n-E4B |
-| [megaketu555/kashmiri-nastaliq-llm](https://huggingface.co/megaketu555/kashmiri-nastaliq-llm)                   |                      0 |                     0 | unknown      |                    1 |   2026 | Qwen/Qwen2.5-0.5B   |
-
 ### Largest models tagged for Kashmiri
 
-| model                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                   | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)       | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                    |
-| [RedHatAI/sarvam-105b-FP8-dynamic](https://huggingface.co/RedHatAI/sarvam-105b-FP8-dynamic) | 1,337                  |                   117 | 106.1B       |                   23 |   2026 | sarvamai/sarvam-105b |
-| [chinmaykumar-vyas/sarvam-105b](https://huggingface.co/chinmaykumar-vyas/sarvam-105b)       | 71                     |                     5 | 106.0B       |                   23 |   2026 | —                    |
-| [justkapoor/sarvam-105b](https://huggingface.co/justkapoor/sarvam-105b)                     | 66                     |                    10 | 106.0B       |                   23 |   2026 | —                    |
+| model                                                                                       | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                   | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)       | 856.0B       |                  143 |   2025 | —                    |
+| [RedHatAI/sarvam-105b-FP8-dynamic](https://huggingface.co/RedHatAI/sarvam-105b-FP8-dynamic) | 106.1B       |                   23 |   2026 | sarvamai/sarvam-105b |
+| [DurgaPrasad04/sarvam-105b](https://huggingface.co/DurgaPrasad04/sarvam-105b)               | 106.0B       |                   23 |   2026 | —                    |
+| [anipleades/sarvam-105b](https://huggingface.co/anipleades/sarvam-105b)                     | 106.0B       |                   23 |   2026 | —                    |
 
 ### Largest models tagged *only* for Kashmiri
 
-| model                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [Omarrran/ks-byte-lm-spacebyte-transformers](https://huggingface.co/Omarrran/ks-byte-lm-spacebyte-transformers) |                    776 |                    25 | 15.8M        |                    1 |   2026 | —               |
+| model                                                                                                           | parameters   |   # languages tagged |   year | derivative of   |
+|:----------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [Omarrran/ks-byte-lm-spacebyte-transformers](https://huggingface.co/Omarrran/ks-byte-lm-spacebyte-transformers) | 15.8M        |                    1 |   2026 | —               |
 
 _12 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -145,7 +170,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**7** benchmark datasets in the survey include Kashmiri.
+**4** benchmark datasets in the survey include Kashmiri.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -156,15 +181,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -172,21 +197,18 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [6]         \
+ /         ✅ Machine translation [3]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                    | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:---------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 1,571          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)    | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)    | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)              | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)              | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)             | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)             | —              | Human translation (professional, from English)                   |
+| level                    | task                | dataset                                                                                     | # test items   | construction                                                     |
+|:-------------------------|:--------------------|:--------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                  | 1,571          | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs) | 2,024          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)           | —              | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)          | —              | Human translation (professional, from English)                   |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -214,7 +236,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 16 of ~18,460 papers (0.09%) (rank 125 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 16 of ~18,498 papers (0.09%) (rank 133 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Kashmiri
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 16):

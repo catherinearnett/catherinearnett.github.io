@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `bcl` · macrolanguage `bik`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Greater Central Philippine › … › Coastal Bikol ([Glottolog](https://glottolog.org/resource/languoid/id/cent2087))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 3.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `bik`, so includes other varieties · 2.5 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33284#P1098), 1990)
 
 **Official / recognised in:** Philippines
 
 **Status:** Regional official language
+
+
+## What does Bikol look and sound like?
+
+**Written:** no Omniglot page found for Bikol.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/bcl/) has 1 video of Bikol speakers. Watch [Adela speaking Bicolano](https://wikitongues.org/videos/adela_20190220_bcl/).
 
 
 ## Training Data
@@ -25,40 +38,63 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 22,671 articles in bcl.wikipedia (rank 80 of 161 in the set) — ~1/333 of English; 91 active users                                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 10.3 MB (bcl_Latn (0.01)); 81.3 MB removed by filtering. This is ~1/5,192,969 of English data and ranks 148 of 248 official languages in FineWeb. |
-| Goldfish training data | 13.3 MB (bcl_latn) (rank 158 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 22,671 articles in bcl.wikipedia; 91 active users. This is ~1/333 of English data and ranks 83 of 168 languages in the set in Wikipedia.             |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
+| FineWeb                | 10.3 MB (bcl_Latn 10.0 MB); 81.3 MB removed by filtering. This is ~1/5,192,969 of English data and ranks 148 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 13.3 MB (bcl_Latn 13.0 MB) (rank 158 of 166 in the set)                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                       |
+|:-----------------------|:--------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                    |
+| UniMorph               | **None found**                                                                                    |
+| Wikidata labels        | 611,384 Wikidata items have a label in Bikol. (Wikidata codes (labels): bcl (611,384), bik (691)) |
+| Wordnets               | **None found**                                                                                    |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **5 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid, py3langid, pyfranc.
+- **5 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid, py3langid, pyfranc.
 - **Eval datasets (4):** CommonLID (n=300), Tatoeba (n=15), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.836 (P 0.820, R 0.873, FPR 2.02e-04) averaged over 4 dataset(s). Runner-up: commonlingua (F1 0.697).
+- **Best model:** GlotLID — F1 0.821 (P 0.803, R 0.873, FPR 2.62e-04) averaged over 4 dataset(s). Runner-up: commonlingua (F1 0.697).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.820 |    0.873 | 0.836 | 0.000 | ✓                |
-| commonlingua |       0.718 |    0.688 | 0.697 | 0.001 | ✓                |
-| funlangid    |       0.693 |    0.679 | 0.683 | 0.001 | ✓                |
-| pyfranc      |       0.659 |    0.599 | 0.614 | 0.002 | ✓                |
+| GlotLID      |       0.803 |    0.873 | 0.821 | 0.000 | ✓                |
+| commonlingua |       0.717 |    0.688 | 0.697 | 0.001 | ✓                |
+| funlangid    |       0.692 |    0.679 | 0.683 | 0.001 | ✓                |
+| pyfranc      |       0.657 |    0.599 | 0.613 | 0.002 | ✓                |
 | py3langid    |       0.316 |    0.809 | 0.383 | 0.024 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   |  15 |       0.321 |    0.600 | 0.419 |
-| CommonLID | 300 |       0.993 |    0.940 | 0.966 |
+| Tatoeba   |  15 |       0.257 |    0.600 | 0.360 |
+| CommonLID | 300 |       0.989 |    0.940 | 0.964 |
 | Wikipedia | 300 |       0.983 |    0.953 | 0.968 |
 | UDHR-LID  |  59 |       0.983 |    1.000 | 0.992 |
 
@@ -70,6 +106,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Bikol and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Bikol has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Bikol?
@@ -89,33 +126,13 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        1 | ████                 |
 |   2026 |        1 | ████                 |
 
-### Most popular models tagged for Bikol
-
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 425                    |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
-| [goldfish-models/bik_latn_full](https://huggingface.co/goldfish-models/bik_latn_full)   | 405                    |                    14 | unknown      |                    1 |   2024 | —                    |
-| [goldfish-models/bcl_latn_full](https://huggingface.co/goldfish-models/bcl_latn_full)   | 402                    |                    12 | unknown      |                    1 |   2024 | —                    |
-
-### Most popular models tagged *only* for Bikol
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/bik_latn_full](https://huggingface.co/goldfish-models/bik_latn_full) |                    405 |                    14 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/bcl_latn_full](https://huggingface.co/goldfish-models/bcl_latn_full) |                    402 |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/bcl_latn_5mb](https://huggingface.co/goldfish-models/bcl_latn_5mb)   |                    384 |                    10 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/bik_latn_10mb](https://huggingface.co/goldfish-models/bik_latn_10mb) |                    380 |                     8 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/bik_latn_5mb](https://huggingface.co/goldfish-models/bik_latn_5mb)   |                    112 |                     9 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Bikol
 
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 425                    |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
+| model                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 8.6B         |                  189 |   2023 | —                    |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 8.6B         |                  189 |   2023 | —                    |
+| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 3.9B         |                  155 |   2026 | google/gemma-3-4b-it |
 
 ### Largest models tagged *only* for Bikol
 
@@ -150,15 +167,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -172,7 +189,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                    | # test items   | Construction                                   |
+| level                    | task                | dataset                                                                    | # test items   | construction                                   |
 |:-------------------------|:--------------------|:---------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 5,000          | Synthetic (LLM-generated) on native Wikipedia  |
 | Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)              | —              | Human translation (professional, from English) |
@@ -203,7 +220,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 4 of ~18,460 papers (0.02%) (rank 182 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 4 of ~18,498 papers (0.02%) (rank 199 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Central Bikol | Bikol
 
 Here are up to ten papers that were published mentioning this language in 2026:

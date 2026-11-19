@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `eus`
 
+**Language family:** none: a language isolate (no demonstrated relatives) ([Glottolog](https://glottolog.org/resource/languoid/id/basq1248))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 1.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 750,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q8752#P1098), 2016)
 
 **Official / recognised in:** Spain
 
 **Status:** Regional official language
+
+
+## What does Basque look and sound like?
+
+**Written (Basque)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/basque.htm):
+
+> Gizon-emakume guztiak aske jaiotzen dira, duintasun eta eskubide berberak dituztela; eta ezaguera eta kontzientzia dutenez gero, elkarren artean senide legez jokatu beharra dute.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. (Article 1 of the Universal Declaration of Human Rights) Iberiar Penintsulan bizirik dirauen erromatarren aurreko hizkuntza bakarra da euskara. Gutxitze prozesu gogorra jasan du, etenik gabe lurraldeak eta hiztunak galduz. …
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/basque/smp_basque.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/eus/) has 5 videos of Basque speakers. Watch [Txeli speaking Euskara](https://wikitongues.org/videos/txeli_20171103_eus/).
 
 
 ## Training Data
@@ -25,20 +46,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 500,116 articles in eu.wikipedia (rank 28 of 161 in the set) — ~1/15 of English; 898 active users                                                                                                                      |
-| Common Crawl 2026      | 831,392 pages per crawl on average, which is 0.0386% of the crawl. This is ~1/1,072 of English data and ranks 40 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 2.06 GB (eus_Latn (2.06)); which is equivalent to ≈1.94 GB English data after byte-premium scaling; 3.59 GB removed by filtering. This is ~1/25,968 of English data and ranks 63 of 248 official languages in FineWeb. |
-| Goldfish training data | 4.36 GB (eus_latn) (rank 42 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 500,116 articles in eu.wikipedia; 898 active users. This is ~1/15 of English data and ranks 29 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 831,392 pages per crawl on average, which is 0.0386% of the crawl (2026). This is ~1/1,072 of English data and ranks 40 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 2.06 GB (eus_Latn 2.06 GB), equivalent to ≈1.94 GB of English after byte-premium scaling; 3.59 GB removed by filtering. This is ~1/25,968 of English data and ranks 63 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 4.36 GB (eus_Latn 4.36 GB) (rank 42 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 8,993 sentences / 121,443 tokens in total: [UD_Basque-BDT](https://github.com/UniversalDependencies/UD_Basque-BDT) (8,993 sentences). It has POS tags, dependency syntax, lemmas and morphological features.   |
+| UniMorph               | 26 lemmas, 11,889 inflected forms ([unimorph/eus](https://github.com/unimorph/eus))                                                                                                                                        |
+| Wikidata labels        | 7,665,973 Wikidata items have a label in Basque. (Wikidata codes (labels): eu (7,665,973))                                                                                                                                 |
+| Wordnets               | [Multilingual Central Repository (Basque)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-eu-1.4.tar.xz): 29,413 synsets, 26,390 words, 48,934 senses; licence: https://creativecommons.org/licenses/by/3.0/. |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.987 (P 0.980, R 0.994, FPR 1.25e-04) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.980).
+- **Best model:** GlotLID — F1 0.987 (P 0.980, R 0.994, FPR 1.23e-04) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.980).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,13 +89,15 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.980 |    0.994 | 0.987 | 0.000 | ✓                |
-| cld2         |       0.992 |    0.969 | 0.980 | 0.000 | ✓                |
-| fasttext     |       0.896 |    0.996 | 0.939 | 0.001 | ✓                |
-| pyfranc      |       0.969 |    0.910 | 0.937 | 0.000 | ✓                |
+| cld2         |       0.991 |    0.969 | 0.980 | 0.000 | ✓                |
+| fasttext     |       0.892 |    0.996 | 0.937 | 0.001 | ✓                |
+| pyfranc      |       0.969 |    0.910 | 0.936 | 0.000 | ✓                |
 | funlangid    |       0.989 |    0.871 | 0.920 | 0.000 | ✓                |
 | commonlingua |       0.940 |    0.904 | 0.919 | 0.001 | ✓                |
-| py3langid    |       0.869 |    0.993 | 0.916 | 0.002 | ✓                |
-| OpenLID-v2   |       0.792 |    1.000 | 0.839 | 0.006 | ✓                |
+| py3langid    |       0.868 |    0.993 | 0.915 | 0.002 | ✓                |
+| OpenLID-v2   |       0.792 |    1.000 | 0.838 | 0.006 | ✓                |
+| cld3         |       0.700 |    0.965 | 0.779 | 0.008 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -93,45 +137,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      139 | ███████████████      |
 |   2026 |      182 | ████████████████████ |
 
-### Most popular models tagged for Basque
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Basque
-
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [HiTZ/gpt2-eus-euscrawl](https://huggingface.co/HiTZ/gpt2-eus-euscrawl)               | 8,848                  |                   766 | 137.1M       |                    1 |   2023 | —                       |
-| [orai-nlp/Llama-eus-8B](https://huggingface.co/orai-nlp/Llama-eus-8B)                 | 6,682                  |                   102 | 8.0B         |                    1 |   2024 | meta-llama/Llama-3.1-8B |
-| [orai-nlp/Gemma-Kimu-9b-it](https://huggingface.co/orai-nlp/Gemma-Kimu-9b-it)         | 2,858                  |                   187 | 9.2B         |                    1 |   2025 | google/gemma-2-9b       |
-| [xezpeleta/latxa-7b-v1-gguf](https://huggingface.co/xezpeleta/latxa-7b-v1-gguf)       | 1,175                  |                    96 | 6.7B         |                    1 |   2024 | HiTZ/latxa-7b-v1        |
-| [ClassCat/gpt2-small-basque-v2](https://huggingface.co/ClassCat/gpt2-small-basque-v2) | 1,157                  |                   168 | unknown      |                    1 |   2022 | —                       |
-
 ### Largest models tagged for Basque
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 135                    |                    31 | 176.2B       |                   35 |   2024 | —               |
-| [itssarjunhere/bloom](https://huggingface.co/itssarjunhere/bloom)                     | 70                     |                     5 | 176.2B       |                   35 |   2026 | —               |
-| [bigscience/bloomz-p3](https://huggingface.co/bigscience/bloomz-p3)                   | 8,063                  |                   187 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Basque
 
-| model                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of            |
-|:----------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-------------------------|
-| [Iker/Latxa-Llama-3.1-70B-Instruct-w8a8_fp8](https://huggingface.co/Iker/Latxa-Llama-3.1-70B-Instruct-w8a8_fp8) |                    119 |                    14 | 70.6B        |                    1 |   2025 | meta-llama/Llama-3.1-70B |
-| [SimpleLLM/kode-32b-lora](https://huggingface.co/SimpleLLM/kode-32b-lora)                                       |                     94 |                    16 | 32.0B        |                    1 |   2026 | Qwen/Qwen2.5-32B         |
-| [HiTZ/eu_Qwen3-14B-Base](https://huggingface.co/HiTZ/eu_Qwen3-14B-Base)                                         |                    131 |                    19 | 14.0B        |                    1 |   2025 | Qwen/Qwen3-14B-Base      |
-| [itzune/Gemma-Kimu-9b-it-Q4_K_M-GGUF](https://huggingface.co/itzune/Gemma-Kimu-9b-it-Q4_K_M-GGUF)               |                    128 |                     6 | 9.2B         |                    1 |   2025 | google/gemma-2-9b        |
-| [HiTZ/eu_Qwen3-8B-Base](https://huggingface.co/HiTZ/eu_Qwen3-8B-Base)                                           |                    159 |                    19 | 8.2B         |                    1 |   2025 | Qwen/Qwen3-8B-Base       |
+| model                                                                                                           | parameters   |   # languages tagged |   year | derivative of            |
+|:----------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------|
+| [Iker/Latxa-Llama-3.1-70B-Instruct-w8a8_fp8](https://huggingface.co/Iker/Latxa-Llama-3.1-70B-Instruct-w8a8_fp8) | 70.6B        |                    1 |   2025 | meta-llama/Llama-3.1-70B |
+| [SimpleLLM/kode-32b-lora](https://huggingface.co/SimpleLLM/kode-32b-lora)                                       | 32.0B        |                    1 |   2026 | Qwen/Qwen2.5-32B         |
+| [HiTZ/eu_Qwen3-14B-Base](https://huggingface.co/HiTZ/eu_Qwen3-14B-Base)                                         | 14.0B        |                    1 |   2025 | Qwen/Qwen3-14B-Base      |
+| [aetxebeste/Gemma-Kimu-9b-it-Q4_K_M-GGUF](https://huggingface.co/aetxebeste/Gemma-Kimu-9b-it-Q4_K_M-GGUF)       | 9.2B         |                    1 |   2025 | google/gemma-2-9b        |
+| [HiTZ/eu_Qwen3-8B-Base](https://huggingface.co/HiTZ/eu_Qwen3-8B-Base)                                           | 8.2B         |                    1 |   2025 | Qwen/Qwen3-8B-Base       |
 
 _66 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +186,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [5]     \
+                 /   [5]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [9]        \
+         /      reasoning [9]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +208,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                             | # test items   | Construction                                                      |
+| level                                  | task                          | dataset                                                                                             | # test items   | construction                                                      |
 |:---------------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:------------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                         | [BHS](https://github.com/dariakryvosheieva/syntactic_generalization_multilingual)                   | 8,000          | Template-based                                                    |
 | 1. Linguistic knowledge                | BLiMP                         | [BL2MP](https://huggingface.co/datasets/orai-nlp/bl2mp)                                             | 1,800          | Existing material                                                 |
@@ -197,8 +221,8 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 3. Commonsense reasoning               | HellaSwag                     | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)            | 9,255          | Machine translation (GPT-3.5-turbo)                               |
 | 3. Commonsense reasoning               | PIQA                          | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                            |
 | 3. Commonsense reasoning               | PIQA                          | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                           |
-| 3. Commonsense reasoning               | Physical commonsense          | [BasPhyCo](https://github.com/hitz-zentroa/BasPhyCo)                                                | 356            | Human translation from Italian GITA (with localisation)           |
 | 3. Commonsense reasoning               | Physical commonsense          | [BasPhyCo-west](https://github.com/hitz-zentroa/BasPhyCo)                                           | 356            | LLM conversion (Latxa) from standard Basque + native post-editing |
+| 3. Commonsense reasoning               | Physical commonsense          | [BasPhyCo](https://github.com/hitz-zentroa/BasPhyCo)                                                | 356            | Human translation from Italian GITA (with localisation)           |
 | 3. Commonsense reasoning               | Physical commonsense          | [PIQA-eu](https://huggingface.co/datasets/HiTZ/PIQA-eu)                                             | —              | Human translation (professional)                                  |
 | 3. Commonsense reasoning               | StoryCloze                    | [XStoryCloze](https://huggingface.co/datasets/juletxara/xstory_cloze)                               | 1,511          | Human translation (professional)                                  |
 | 4. Reading comprehension               | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                  |
@@ -239,10 +263,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 177 of ~18,460 papers (0.96%) (rank 35 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 178 of ~18,498 papers (0.96%) (rank 35 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Basque
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 177):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 178):
 
 | title                                                                                                                       | paper                                                                        |
 |:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|

@@ -12,9 +12,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `hai`
 
+**Language family:** **Haida** (all 2 member languages of the macrolanguage) (Glottolog)
+
+**Endangerment:** nearly extinct (all 2 member languages; Glottolog)
+
+**Speakers:** 90 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33303#P1098), 2021)
+
 **Official / recognised in:** United States
 
 **Status:** Regional official language
+
+
+## What does Haida look and sound like?
+
+**Written (Haida)**, sample text from [Omniglot](https://www.omniglot.com/writing/haida.htm):
+
+> Yáahl uu st'igáalaan, hal st'i'áwyaagaan.
+> 'Wáadluu xíl hal tlaahláayaan.
+> Gut'iláa ḵ'íit ḵ'uts hal ts'asláangaan.
+> 'Wáadluu sáng ḵwáan hal néilaan gyaan hal 'lagáalaan
+> Asgáayst hal xitgwáangaan táawk uu hal diyáangaan.
+> 'Wáadluu, chíin ḵwáan gándlaay aa hal táagaan.
+> Hal sk'ísdlaayaan gyaan xitgáay aa hal jagíyaayaan.
+> 'Wáadluu hingáan an sáanjuudaayaan.
+> Ahljíihl uu tl' hlgúujuu jahlíis gám …
+
+*Translation:* Raven got sick, he was very sick. Then he made some medicine. He boiled different kinds of tree roots. Then he drank it for many days and got well. Then he flew around looking for food. Then he ate a lot of fish in a creek. He got full and couldn't fly. So, then, he just rested. That is why it doesn't pay to be too greedy. Yáahl (Raven), a story by Erma Lawrence
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: http://www.haidalanguage.org/raven.html.</sub>
+
+**Spoken:** no Wikitongues video of Haida yet ([its Wikitongues page](https://wikitongues.org/languages/hai/) says how to contribute one).
 
 
 ## Training Data
@@ -26,15 +53,36 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                   |
 |:-----------------------|:---------------------------------------------------------|
 | Wikipedia              | **No Wikipedia edition**                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics** |
+| Common Crawl           | **Not identified in Common Crawl's language statistics** |
 | FineWeb                | **Not in FineWeb / FineWeb-2**                           |
 | Goldfish training data | **No Goldfish model / data**                             |
 
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                        |
+|:-----------------------|:-----------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                     |
+| UniMorph               | 41 lemmas, 7,040 inflected forms ([unimorph/hai](https://github.com/unimorph/hai)) |
+| Wikidata labels        | **None found**                                                                     |
+| Wordnets               | **None found**                                                                     |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- Support across the 8 evaluated LangID models is unknown: there is no labelled test data to run them on.
+- **0 of 10** LangID models evaluated have this language code as a label that can be predicted.
 - **No labelled LangID eval data** for this language — creating some is a high-value contribution.
 - No model performance numbers are available.
 
@@ -46,6 +94,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Haida and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Haida has no UD treebank, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/hai/) video of Haida yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Haida?
@@ -63,26 +113,13 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        1 | █████                |
 |   2026 |        4 | ████████████████████ |
 
-### Most popular models tagged for Haida
-
-| model                                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                      |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------|
-| [DALabCommunity/Haidass-143M-v1](https://huggingface.co/DALabCommunity/Haidass-143M-v1)                           | 1,180                  |                    40 | 143.1M       |                    3 |   2026 | —                                  |
-| [jegan902/qwen2.5-3b-vietnam-legal-logistics](https://huggingface.co/jegan902/qwen2.5-3b-vietnam-legal-logistics) | 252                    |                    13 | 3.1B         |                    2 |   2025 | —                                  |
-| [Haiintel/hai-indexer-7B](https://huggingface.co/Haiintel/hai-indexer-7B)                                         | 79                     |                     2 | 7.2B         |                    2 |   2026 | mistralai/Mistral-7B-Instruct-v0.2 |
-| [Tushar9802/medscribe-soap-lora](https://huggingface.co/Tushar9802/medscribe-soap-lora)                           | 64                     |                     9 | unknown      |                    2 |   2026 | google/medgemma-4b-it              |
-
-### Most popular models tagged *only* for Haida
-
-_none_
-
 ### Largest models tagged for Haida
 
-| model                                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                      |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------|
-| [Haiintel/hai-indexer-7B](https://huggingface.co/Haiintel/hai-indexer-7B)                                         | 79                     |                     2 | 7.2B         |                    2 |   2026 | mistralai/Mistral-7B-Instruct-v0.2 |
-| [jegan902/qwen2.5-3b-vietnam-legal-logistics](https://huggingface.co/jegan902/qwen2.5-3b-vietnam-legal-logistics) | 252                    |                    13 | 3.1B         |                    2 |   2025 | —                                  |
-| [DALabCommunity/Haidass-143M-v1](https://huggingface.co/DALabCommunity/Haidass-143M-v1)                           | 1,180                  |                    40 | 143.1M       |                    3 |   2026 | —                                  |
+| model                                                                                                             | parameters   |   # languages tagged |   year | derivative of                      |
+|:------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------|
+| [Haiintel/hai-indexer-7B](https://huggingface.co/Haiintel/hai-indexer-7B)                                         | 7.2B         |                    2 |   2026 | mistralai/Mistral-7B-Instruct-v0.2 |
+| [jegan902/qwen2.5-3b-vietnam-legal-logistics](https://huggingface.co/jegan902/qwen2.5-3b-vietnam-legal-logistics) | 3.1B         |                    2 |   2025 | —                                  |
+| [DALabCommunity/Haidass-143M-v1](https://huggingface.co/DALabCommunity/Haidass-143M-v1)                           | 143.1M       |                    3 |   2026 | —                                  |
 
 ### Largest models tagged *only* for Haida
 
@@ -117,15 +154,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -168,7 +205,7 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 2 of ~18,460 papers (0.01%) (rank 204 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 2 of ~18,498 papers (0.01%) (rank 227 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Haida
 
 Here are up to ten papers that were published mentioning this language in 2026:

@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `lez`
 
+**Language family:** **Nakh-Daghestanian** › Daghestanian › Lezgic › … › Aghul-Lezgi ([Glottolog](https://glottolog.org/resource/languoid/id/lezg1247))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 253,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 634,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q31746#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Lezgi look and sound like?
+
+**Written:** Omniglot has [a page on Lezgi](https://www.omniglot.com/writing/lezgi.htm) but no sample text.
+
+**Spoken:** no Wikitongues video of Lezgi yet ([its Wikitongues page](https://wikitongues.org/languages/lez/) says how to contribute one).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 4,498 articles in lez.wikipedia (rank 116 of 161 in the set) — ~1/1,678 of English; 20 active users                                               |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 15.8 MB (lez_Cyrl (0.02)); 10.0 MB removed by filtering. This is ~1/3,388,485 of English data and ranks 134 of 248 official languages in FineWeb. |
-| Goldfish training data | 18.9 MB (lez_cyrl) (rank 152 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 4,498 articles in lez.wikipedia; 20 active users. This is ~1/1,678 of English data and ranks 120 of 168 languages in the set in Wikipedia.           |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
+| FineWeb                | 15.8 MB (lez_Cyrl 20.0 MB); 10.0 MB removed by filtering. This is ~1/3,388,485 of English data and ranks 134 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 18.9 MB (lez_Cyrl 19.0 MB) (rank 152 of 166 in the set)                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | **None found**                                                                         |
+| Wikidata labels        | 167,154 Wikidata items have a label in Lezgi. (Wikidata codes (labels): lez (167,154)) |
+| Wordnets               | **None found**                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
 - **Eval datasets (2):** Tatoeba (n=259), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.881 (P 0.992, R 0.793, FPR 4.21e-05) averaged over 2 dataset(s). Runner-up: commonlingua (F1 0.677).
+- **Best model:** GlotLID — F1 0.881 (P 0.992, R 0.793, FPR 4.15e-05) averaged over 2 dataset(s). Runner-up: commonlingua (F1 0.671).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,10 +81,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.992 |    0.793 | 0.881 | 0.000 | ✓                |
-| commonlingua |       0.793 |    0.592 | 0.677 | 0.001 | ✓                |
-| funlangid    |       0.787 |    0.552 | 0.638 | 0.001 | ✓                |
+| commonlingua |       0.776 |    0.592 | 0.671 | 0.002 | ✓                |
+| funlangid    |       0.779 |    0.552 | 0.637 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -70,6 +106,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Lezgi and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Lezgi has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/lez/) video of Lezgi yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Lezgi?
@@ -88,27 +126,11 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        0 |                      |
 |   2026 |        2 | ████████████████████ |
 
-### Most popular models tagged for Lezgi
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [goldfish-models/lez_cyrl_5mb](https://huggingface.co/goldfish-models/lez_cyrl_5mb)     |                    448 |                    12 | unknown      |                    1 |   2024 | —                    |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) |                    425 |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
-| [goldfish-models/lez_cyrl_full](https://huggingface.co/goldfish-models/lez_cyrl_full)   |                    394 |                    12 | unknown      |                    1 |   2024 | —                    |
-| [wikilangs/lez](https://huggingface.co/wikilangs/lez)                                   |                      0 |                     0 | unknown      |                    2 |   2026 | —                    |
-
-### Most popular models tagged *only* for Lezgi
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/lez_cyrl_5mb](https://huggingface.co/goldfish-models/lez_cyrl_5mb)   |                    448 |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/lez_cyrl_full](https://huggingface.co/goldfish-models/lez_cyrl_full) |                    394 |                    12 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Lezgi
 
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) |                    425 |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
+| model                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 3.9B         |                  155 |   2026 | google/gemma-3-4b-it |
 
 ### Largest models tagged *only* for Lezgi
 
@@ -143,15 +165,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -165,9 +187,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                    | # test items   | Construction                                  |
-|:-------------------------|:-------------------|:---------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 5,000          | Synthetic (LLM-generated) on native Wikipedia |
+| level                    | task               | dataset                                                                    |   # test items | construction                                  |
+|:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |          5,000 | Synthetic (LLM-generated) on native Wikipedia |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -196,7 +218,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 3 of ~18,460 papers (0.02%) (rank 189 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 3 of ~18,498 papers (0.02%) (rank 210 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Lezgi
 
 Here are up to ten papers that were published mentioning this language in 2026:

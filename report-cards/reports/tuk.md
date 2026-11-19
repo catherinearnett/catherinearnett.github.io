@@ -12,11 +12,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tuk`
 
+**Language family:** **Turkic** › Common Turkic › Oghuz › … › East Oghuz ([Glottolog](https://glottolog.org/resource/languoid/id/turk1304))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 7.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 16.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9267#P1098), 2007)
 
 **Official / recognised in:** Afghanistan, Turkmenistan
 
-**Status:** Official language; Regional official language
+**Status:** Regional official language; Official language
+
+
+## What does Turkmen look and sound like?
+
+**Written (Turkmen)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/turkmen.htm):
+
+> Хемме
+> адамлар өз
+> мертебеси ве
+> хукуклары
+> бюнча дең
+> ягдайда
+> дүнйә
+> инйәрлер.
+> Олара аң хем
+> выждан
+> берлендир ве
+> олар бир-бирлери
+> билен
+> доганлык
+> рухундакы
+> гарайышда
+> болмалыдырлар.
+
+*Transliteration:* Hemme adamlar öz mertebesi we hukuklary boýunça deň ýagdaýda dünýä inyärler. Olara aň hem wyždan berlendir we olar bir-birleri bilen doganlyk ruhundaky garaýyşda bolmalydyrlar.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_turkmen.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tuk/) has 2 videos of Turkmen speakers. Watch [Nafiseh speaking Turkmen and Turkish](https://wikitongues.org/videos/nafiseh_20200325_tuk-tur/).
 
 
 ## Training Data
@@ -25,33 +64,66 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                    |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 7,353 articles in tk.wikipedia (rank 109 of 161 in the set) — ~1/1,026 of English; 61 active users                                                                                                                                                        |
-| Common Crawl 2026      | 74,862 pages per crawl on average, which is 0.0035% of the crawl. This is ~1/11,909 of English data and ranks 69 of 113 official languages in Common Crawl.                                                                                               |
-| FineWeb                | 0.32 GB (tuk_Arab (0.00); tuk_Cyrl (0.01); tuk_Latn (0.31)); which is equivalent to ≈0.18 GB English data after byte-premium scaling; 0.39 GB removed by filtering. This is ~1/165,881 of English data and ranks 90 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.36 GB (tuk_latn) (rank 100 of 166 in the set)                                                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                                |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 7,353 articles in tk.wikipedia; 61 active users. This is ~1/1,026 of English data and ranks 113 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                             |
+| Common Crawl           | 74,862 pages per crawl on average, which is 0.0035% of the crawl (2026). This is ~1/11,909 of English data and ranks 69 of 113 languages in the set in Common Crawl.                                                                                                                                                                                                  |
+| FineWeb                | 0.32 GB (tuk_Latn 0.31 GB; tuk_Cyrl 10.0 MB; tuk_Arab 0), equivalent to ≈0.18 GB of English after byte-premium scaling (⚠️ only 97% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.39 GB removed by filtering. This is ~1/165,881 of English data and ranks 90 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.36 GB (tuk_Latn 0.36 GB) (rank 100 of 166 in the set)                                                                                                                                                                                                                                                                                                               |
+
+**By writing system:**
+
+| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)    | 0.31 GB   | 0.18 GB                       | 0.36 GB      | 0.20 GB                        |
+| Cyrillic (`Cyrl`) | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Arabic (`Arab`)   | 0         | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | 68 lemmas, 810 inflected forms ([unimorph/tuk](https://github.com/unimorph/tuk))        |
+| Wikidata labels        | 217,268 Wikidata items have a label in Turkmen. (Wikidata codes (labels): tk (217,268)) |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=22), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=116), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.973 (P 0.981, R 0.965, FPR 1.03e-04) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.909).
+- **Best model:** GlotLID — F1 0.973 (P 0.981, R 0.965, FPR 1.01e-04) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.909).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.981 |    0.965 | 0.973 | 0.000 | ✓                |
-| cld2         |       0.882 |    0.943 | 0.909 | 0.001 | ✓                |
 | fasttext     |       0.951 |    0.887 | 0.909 | 0.000 | ✓                |
-| OpenLID-v2   |       0.876 |    0.902 | 0.878 | 0.001 | ✓                |
+| cld2         |       0.879 |    0.943 | 0.907 | 0.002 | ✓                |
+| OpenLID-v2   |       0.876 |    0.902 | 0.877 | 0.001 | ✓                |
 | py3langid    |       0.885 |    0.893 | 0.874 | 0.001 | ✓                |
-| commonlingua |       0.941 |    0.817 | 0.863 | 0.000 | ✓                |
-| funlangid    |       0.881 |    0.823 | 0.849 | 0.001 | ✓                |
-| pyfranc      |       0.708 |    0.810 | 0.750 | 0.004 | ✓                |
+| commonlingua |       0.939 |    0.817 | 0.863 | 0.000 | ✓                |
+| funlangid    |       0.882 |    0.823 | 0.850 | 0.001 | ✓                |
+| pyfranc      |       0.706 |    0.810 | 0.749 | 0.004 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -61,8 +133,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Tatoeba   | 300 |       0.937 |    0.940 | 0.938 |
 | Wikipedia | 300 |       0.996 |    0.940 | 0.967 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  | 116 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  | 116 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -72,6 +144,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Turkmen and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Turkmen has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Turkmen?
@@ -92,41 +165,21 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        5 | ██████               |
 |   2026 |       16 | ████████████████████ |
 
-### Most popular models tagged for Turkmen
-
-| model                                                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of      |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                                                                 | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                  |
-| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)                                                                         | 63,267                 | 939                   | 13.0B        |                   58 |   2023 | —                  |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                                   | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                  |
-| [AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16](https://huggingface.co/AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16)                     | 6,611                  | 1,111                 | 9.0B         |                   97 |   2026 | unsloth/Qwen3.5-9B |
-| [AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF](https://huggingface.co/AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF) | 3,464                  | 746                   | 9.0B         |                   97 |   2026 | Qwen/Qwen3.5-9B    |
-
-### Most popular models tagged *only* for Turkmen
-
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [goldfish-models/tuk_latn_5mb](https://huggingface.co/goldfish-models/tuk_latn_5mb)                     |                    441 |                    12 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/tuk_latn_10mb](https://huggingface.co/goldfish-models/tuk_latn_10mb)                   |                    417 |                     7 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/tuk_latn_100mb](https://huggingface.co/goldfish-models/tuk_latn_100mb)                 |                    411 |                    11 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/tuk_latn_full](https://huggingface.co/goldfish-models/tuk_latn_full)                   |                    368 |                     8 | unknown      |                    1 |   2024 | —                             |
-| [NikolayKozloff/kakugo-3B-tuk-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-tuk-Q8_0-GGUF) |                    257 |                   134 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-
 ### Largest models tagged for Turkmen
 
-| model                                                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                 | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                     | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                    |
-| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF)                     | 875                    |                   175 | 34.7B        |                   80 |   2026 | Qwen/Qwen3.6-35B-A3B |
-| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)                                                                         | 63,267                 |                   939 | 13.0B        |                   58 |   2023 | —                    |
-| [AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF](https://huggingface.co/AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF) | 3,464                  |                   746 | 9.0B         |                   97 |   2026 | Qwen/Qwen3.5-9B      |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                    |
+| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 34.7B        |                   82 |   2026 | Qwen/Qwen3.6-35B-A3B |
+| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)                                                     | 13.0B        |                   59 |   2023 | —                    |
+| [AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16](https://huggingface.co/AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16) | 9.0B         |                   99 |   2026 | unsloth/Qwen3.5-9B   |
 
 ### Largest models tagged *only* for Turkmen
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [NikolayKozloff/kakugo-3B-tuk-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-tuk-Q8_0-GGUF) |                    257 |                   134 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [NikolayKozloff/kakugo-3B-tuk-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-tuk-Q8_0-GGUF) | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
 
 _13 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -157,15 +210,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -179,12 +232,12 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 2,500          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                | dataset                                                                              |   # test items | construction                                                     |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |          2,500 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -212,7 +265,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 16 of ~18,460 papers (0.09%) (rank 125 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 16 of ~18,498 papers (0.09%) (rank 133 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Iraqi Turkmen (South Azerbaijani) | South Azerbaijani | Iraqi Turkmen | Turkmen
 - ⚠️ The name *Turkmen* is shared with Turkmen (`azb`), so this count covers all of them.
 

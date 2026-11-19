@@ -12,11 +12,34 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `gag`
 
+**Language family:** **Turkic** › Common Turkic › Oghuz › … › West Oghuz ([Glottolog](https://glottolog.org/resource/languoid/id/gaga1249))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable (80% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 119,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 149,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33457#P1098), 2014)
 
 **Official / recognised in:** Moldova
 
 **Status:** Regional official language
+
+
+## What does Gagauz look and sound like?
+
+**Written (Latin alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/gagauz.htm):
+
+> Insannar hepsi duuêrlar serbest hem birtakım kendi kıymetindä hem haklarında. Onnara verilmiş akıl hem üz da läazım biri-birinä davransınnar kardaşlık ruhuna uygun.
+
+**Written (Cyrillic alphabet)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/gagauz.htm):
+
+> Инсаннар хепси дууэрлар сербест хем биртакым кенди кыйметиндӓ хем хакларында. Оннара верилмиш акыл хем ӱз да лӓазым бири-биринӓ даврансыннар кардашлык рухуна уйгун.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Gagauz yet ([its Wikitongues page](https://wikitongues.org/languages/gag/) says how to contribute one).
 
 
 ## Training Data
@@ -25,30 +48,62 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                             |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3,009 articles in gag.wikipedia (rank 125 of 161 in the set) — ~1/2,508 of English; 21 active users                                                                |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                           |
-| FineWeb                | 15.2 MB (gag_Cyrl (0.00); gag_Latn (0.01)); 94.3 MB removed by filtering. This is ~1/3,515,461 of English data and ranks 137 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                       |
+| Source                 | Amount                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,009 articles in gag.wikipedia; 21 active users. This is ~1/2,508 of English data and ranks 129 of 168 languages in the set in Wikipedia.                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                         |
+| FineWeb                | 15.2 MB (gag_Latn 10.0 MB; gag_Cyrl 0); 94.3 MB removed by filtering. This is ~1/3,515,461 of English data and ranks 137 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                     |
+
+**By writing system:**
+
+| Writing system    | FineWeb   | FineWeb, English-equivalent   |
+|:------------------|:----------|:------------------------------|
+| Latin (`Latn`)    | 10.0 MB   | — (no byte premium yet)       |
+| Cyrillic (`Cyrl`) | 0         | — (no byte premium yet)       |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 588,662 Wikidata items have a label in Gagauz. (Wikidata codes (labels): gag (588,662)) |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, pyfranc.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, pyfranc.
 - **Eval datasets (3):** Tatoeba (n=64), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.925 (P 0.951, R 0.905, FPR 1.11e-04) averaged over 3 dataset(s). Runner-up: commonlingua (F1 0.681).
+- **Best model:** GlotLID — F1 0.925 (P 0.951, R 0.905, FPR 1.09e-04) averaged over 3 dataset(s). Runner-up: commonlingua (F1 0.682).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.951 |    0.905 | 0.925 | 0.000 | ✓                |
-| commonlingua |       0.639 |    0.768 | 0.681 | 0.002 | ✓                |
-| pyfranc      |       0.612 |    0.650 | 0.607 | 0.003 | ✓                |
+| commonlingua |       0.640 |    0.768 | 0.682 | 0.002 | ✓                |
+| pyfranc      |       0.611 |    0.650 | 0.606 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -69,6 +124,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Gagauz and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Gagauz has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/gag/) video of Gagauz yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Gagauz?
@@ -88,24 +145,12 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        0 |                      |
 |   2026 |        1 | ██████████           |
 
-### Most popular models tagged for Gagauz
-
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [wikilangs/gag](https://huggingface.co/wikilangs/gag)                   | 0                      |                     0 | unknown      |                    2 |   2026 | —               |
-
-### Most popular models tagged *only* for Gagauz
-
-_none_
-
 ### Largest models tagged for Gagauz
 
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
+| model                                                                   | parameters   |   # languages tagged |   year | derivative of   |
+|:------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
 
 ### Largest models tagged *only* for Gagauz
 
@@ -140,15 +185,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -162,10 +207,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                  |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 3,409          | Synthetic (LLM-generated) on native Wikipedia |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 1              | Native (crowdsourced Tatoeba sentence pairs)  |
+| level                    | task                | dataset                                                                              |   # test items | construction                                  |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          3,409 | Synthetic (LLM-generated) on native Wikipedia |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |              1 | Native (crowdsourced Tatoeba sentence pairs)  |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -193,7 +238,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1 of ~18,460 papers (0.01%) (rank 217 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1 of ~18,498 papers (0.01%) (rank 241 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Gagauz
 
 Here are up to ten papers that were published mentioning this language in 2026:

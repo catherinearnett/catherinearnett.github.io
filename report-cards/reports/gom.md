@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `gom` · macrolanguage `kok`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Marathi-Konkani ([Glottolog](https://glottolog.org/resource/languoid/id/goan1235))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
 **Writing systems:** `Deva` and `Latn`
+
+**Speakers:** about 4.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `kok`, so includes other varieties · 3.6 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q5575236#P1098), 2000)
 
 **Official / recognised in:** India
 
 **Status:** Regional official language
+
+
+## What does Konkani look and sound like?
+
+**Written:** Omniglot has [a page on Konkani](https://www.omniglot.com/writing/konkani.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/gom/) has 1 video of Konkani speakers. Watch [Savio speaking Mangalorean Konkani](https://wikitongues.org/videos/savio_20200711_gom/).
 
 
 ## Training Data
@@ -25,32 +38,64 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                             |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3,644 articles in gom.wikipedia (rank 121 of 161 in the set) — ~1/2,071 of English; 10 active users                                                                |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                           |
-| FineWeb                | 16.9 MB (gom_Deva (0.01); gom_Latn (0.01)); 0.25 GB removed by filtering. This is ~1/3,165,464 of English data and ranks 131 of 248 official languages in FineWeb. |
-| Goldfish training data | 22.8 MB (gom_deva) (rank 149 of 166 in the set)                                                                                                                    |
+| Source                 | Amount                                                                                                                                                                 |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,644 articles in gom.wikipedia; 10 active users. This is ~1/2,071 of English data and ranks 125 of 168 languages in the set in Wikipedia.                             |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                               |
+| FineWeb                | 16.9 MB (gom_Deva 10.0 MB; gom_Latn 10.0 MB); 0.25 GB removed by filtering. This is ~1/3,165,464 of English data and ranks 131 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 22.8 MB (gom_Deva 23.0 MB) (rank 149 of 166 in the set)                                                                                                                |
+
+**By writing system:**
+
+| Writing system      | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Devanagari (`Deva`) | 10.0 MB   | — (no byte premium yet)       | 23.0 MB      | 8.9 MB                         |
+| Latin (`Latn`)      | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                      |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                   |
+| UniMorph               | **None found**                                                                                                   |
+| Wikidata labels        | 267,734 Wikidata items have a label in Konkani. (Wikidata codes (labels): gom (267,734), kok (27))               |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **5 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, fasttext, funlangid, py3langid.
+- **5 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (4):** CommonLID (n=300), FLORES (n=300), Tatoeba (n=10), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.914 (P 0.933, R 0.897, FPR 2.90e-04) averaged over 4 dataset(s). Runner-up: fasttext (F1 0.865).
+- **Best model:** GlotLID — F1 0.914 (P 0.933, R 0.897, FPR 2.84e-04) averaged over 4 dataset(s). Runner-up: fasttext (F1 0.858).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.933 |    0.897 | 0.914 | 0.000 | ✓                |
-| fasttext     |       0.860 |    0.883 | 0.865 | 0.000 | ✓                |
+| fasttext     |       0.850 |    0.883 | 0.858 | 0.000 | ✓                |
 | py3langid    |       0.803 |    0.795 | 0.794 | 0.001 | ✓                |
 | funlangid    |       0.724 |    0.811 | 0.724 | 0.001 | ✓                |
-| commonlingua |       0.717 |    0.808 | 0.717 | 0.002 | ✓                |
+| commonlingua |       0.717 |    0.808 | 0.716 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -70,6 +115,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Konkani and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Konkani has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Konkani?
@@ -89,43 +135,23 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        1 | █                    |
 |   2026 |       60 | ████████████████████ |
 
-### Most popular models tagged for Konkani
-
-| model                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [sarvamai/sarvam-30b](https://huggingface.co/sarvamai/sarvam-30b)                 | 588,834                | 4,329                 | 32.2B        |                   23 |   2026 | —               |
-| [sarvamai/sarvam-105b](https://huggingface.co/sarvamai/sarvam-105b)               | 206,543                | 5,765                 | 106.0B       |                   23 |   2026 | —               |
-| [aoxo/sarvam-105b-uncensored](https://huggingface.co/aoxo/sarvam-105b-uncensored) | 132,751                | 55                    | 55.7B        |                   23 |   2026 | —               |
-| [aoxo/sarvam-30b-uncensored](https://huggingface.co/aoxo/sarvam-30b-uncensored)   | 97,121                 | 89                    | 32.2B        |                   23 |   2026 | —               |
-| [sarvamai/sarvam-30b-fp8](https://huggingface.co/sarvamai/sarvam-30b-fp8)         | 16,247                 | 3,243                 | 32.2B        |                   23 |   2026 | —               |
-
-### Most popular models tagged *only* for Konkani
-
-| model                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [nischay185/konkani-qwen2-1.5b-v3-full](https://huggingface.co/nischay185/konkani-qwen2-1.5b-v3-full) |                    821 |                   110 | 1.5B         |                    1 |   2026 | Qwen/Qwen2-1.5B |
-| [goldfish-models/gom_latn_10mb](https://huggingface.co/goldfish-models/gom_latn_10mb)                 |                    420 |                    18 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/gom_deva_5mb](https://huggingface.co/goldfish-models/gom_deva_5mb)                   |                    420 |                    20 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/gom_deva_10mb](https://huggingface.co/goldfish-models/gom_deva_10mb)                 |                    408 |                     7 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/gom_deva_full](https://huggingface.co/goldfish-models/gom_deva_full)                 |                    390 |                    15 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Konkani
 
-| model                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [RedHatAI/sarvam-105b-FP8-dynamic](https://huggingface.co/RedHatAI/sarvam-105b-FP8-dynamic) | 1,337                  |                   117 | 106.1B       |                   23 |   2026 | sarvamai/sarvam-105b |
-| [sarvamai/sarvam-105b-gguf](https://huggingface.co/sarvamai/sarvam-105b-gguf)               | 2,337                  |                   197 | 106.0B       |                   23 |   2026 | —                    |
-| [justkapoor/sarvam-105b](https://huggingface.co/justkapoor/sarvam-105b)                     | 66                     |                    10 | 106.0B       |                   23 |   2026 | —                    |
-| [mygitphase/guhan1-105b-gguf](https://huggingface.co/mygitphase/guhan1-105b-gguf)           | 45                     |                     2 | 106.0B       |                   23 |   2026 | —                    |
-| [mrmanan762/EarthMind](https://huggingface.co/mrmanan762/EarthMind)                         | 284                    |                    30 | 106.0B       |                   23 |   2026 | —                    |
+| model                                                                                       | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [RedHatAI/sarvam-105b-FP8-dynamic](https://huggingface.co/RedHatAI/sarvam-105b-FP8-dynamic) | 106.1B       |                   23 |   2026 | sarvamai/sarvam-105b |
+| [DurgaPrasad04/sarvam-105b](https://huggingface.co/DurgaPrasad04/sarvam-105b)               | 106.0B       |                   23 |   2026 | —                    |
+| [anipleades/sarvam-105b](https://huggingface.co/anipleades/sarvam-105b)                     | 106.0B       |                   23 |   2026 | —                    |
+| [chinmaykumar-vyas/sarvam-105b](https://huggingface.co/chinmaykumar-vyas/sarvam-105b)       | 106.0B       |                   23 |   2026 | —                    |
+| [justkapoor/sarvam-105b](https://huggingface.co/justkapoor/sarvam-105b)                     | 106.0B       |                   23 |   2026 | —                    |
 
 ### Largest models tagged *only* for Konkani
 
-| model                                                                                                       |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                             |
-|:------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------------------|
-| [konkani/mistral-7b-instruct-konkani-awq](https://huggingface.co/konkani/mistral-7b-instruct-konkani-awq)   |                     56 |                    11 | 7.2B         |                    1 |   2026 | mistralai/Mistral-7B-Instruct-v0.2        |
-| [konkani/mistral-7b-instruct-konkani-lora](https://huggingface.co/konkani/mistral-7b-instruct-konkani-lora) |                     22 |                     5 | 7.0B         |                    1 |   2026 | togethercomputer/Mistral-7B-Instruct-v0.2 |
-| [nischay185/konkani-qwen2-1.5b-v3-full](https://huggingface.co/nischay185/konkani-qwen2-1.5b-v3-full)       |                    821 |                   110 | 1.5B         |                    1 |   2026 | Qwen/Qwen2-1.5B                           |
+| model                                                                                                       | parameters   |   # languages tagged |   year | derivative of                             |
+|:------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------------------|
+| [konkani/mistral-7b-instruct-konkani-awq](https://huggingface.co/konkani/mistral-7b-instruct-konkani-awq)   | 7.2B         |                    1 |   2026 | mistralai/Mistral-7B-Instruct-v0.2        |
+| [konkani/mistral-7b-instruct-konkani-lora](https://huggingface.co/konkani/mistral-7b-instruct-konkani-lora) | 7.0B         |                    1 |   2026 | togethercomputer/Mistral-7B-Instruct-v0.2 |
+| [nischay185/konkani-qwen2-1.5b-v3-full](https://huggingface.co/nischay185/konkani-qwen2-1.5b-v3-full)       | 1.5B         |                    1 |   2026 | Qwen/Qwen2-1.5B                           |
 
 _7 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -145,7 +171,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**7** benchmark datasets in the survey include Konkani.
+**6** benchmark datasets in the survey include Konkani.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -156,15 +182,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [2]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [1]        \
+         /      reasoning [1]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -178,11 +204,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                | # test items   | Construction                                                     |
+| level                         | task                           | dataset                                                                                | # test items   | construction                                                     |
 |:------------------------------|:-------------------------------|:---------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 3. Commonsense reasoning      | COPA                           | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                       | 500            | Human translation                                                |
 | 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)             | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles) | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles) | 100            | Native (community-written, peer-verified)                        |
 | Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                            | 854            | Human translation via English pivot                              |
 | Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                | 1,012          | Human translation (professional, from English Wikimedia sources) |
@@ -214,7 +239,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 27 of ~18,460 papers (0.15%) (rank 110 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 27 of ~18,498 papers (0.15%) (rank 116 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Goan Konkani | Konkani
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 27):

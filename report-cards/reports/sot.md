@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `sot` (also listed as: Sotho)
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Sesotho-Lozi ([Glottolog](https://glottolog.org/resource/languoid/id/sout2807))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 7.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 6.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34340#P1098))
 
 **Official / recognised in:** Lesotho, South Africa, Zimbabwe
 
 **Status:** Official language
+
+
+## What does Sesotho look and sound like?
+
+**Written (Southern Sotho)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/sesotho.htm):
+
+> Batho bohle ba tswetswe ba lokolohile mme ba lekana ka botho le ditokelo.
+> Ba tswetswe le monahano le letswalo mme ba tlamehile ho phedisana le ba
+> bang ka moya wa boena.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Sesotho yet ([its Wikitongues page](https://wikitongues.org/languages/sot/) says how to contribute one).
 
 
 ## Training Data
@@ -25,20 +46,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,252 articles in st.wikipedia (rank 134 of 161 in the set) — ~1/3,351 of English; 26 active users                                                                                                                       |
-| Common Crawl 2026      | 15,365 pages per crawl on average, which is 0.0007% of the crawl. This is ~1/58,022 of English data and ranks 95 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 0.15 GB (sot_Latn (0.15)); which is equivalent to ≈0.13 GB English data after byte-premium scaling; 0.21 GB removed by filtering. This is ~1/356,614 of English data and ranks 103 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.42 GB (sot_latn) (rank 96 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,252 articles in st.wikipedia; 26 active users. This is ~1/3,351 of English data and ranks 138 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 15,365 pages per crawl on average, which is 0.0007% of the crawl (2026). This is ~1/58,022 of English data and ranks 95 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 0.15 GB (sot_Latn 0.15 GB), equivalent to ≈0.13 GB of English after byte-premium scaling; 0.21 GB removed by filtering. This is ~1/356,614 of English data and ranks 103 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.42 GB (sot_Latn 0.42 GB) (rank 96 of 166 in the set)                                                                                                                                                           |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                     |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                  |
+| UniMorph               | 26 lemmas, 494 inflected forms ([unimorph/sot](https://github.com/unimorph/sot))                                                                                                |
+| Wikidata labels        | 477,110 Wikidata items have a label in Sesotho. (Wikidata codes (labels): st (477,110))                                                                                         |
+| Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), SmolSent (n=300), Tatoeba (n=12), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.954 (P 0.999, R 0.918, FPR 1.38e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.882).
+- **Best model:** GlotLID — F1 0.954 (P 0.999, R 0.918, FPR 1.35e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.882).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -48,12 +90,14 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.999 |    0.918 | 0.954 | 0.000 | ✓                |
 | OpenLID-v2   |       0.973 |    0.834 | 0.882 | 0.000 | ✓                |
-| cld2         |       0.870 |    0.880 | 0.872 | 0.001 | ✓                |
-| commonlingua |       0.787 |    0.859 | 0.810 | 0.001 | ✓                |
+| cld2         |       0.858 |    0.880 | 0.866 | 0.001 | ✓                |
+| commonlingua |       0.788 |    0.859 | 0.812 | 0.001 | ✓                |
 | pyfranc      |       0.778 |    0.853 | 0.796 | 0.001 | ✓                |
-| funlangid    |       0.774 |    0.728 | 0.726 | 0.001 | ✓                |
-| fasttext     |       0.812 |    0.702 | 0.710 | 0.001 | ✓                |
-| py3langid    |       0.498 |    0.939 | 0.604 | 0.012 | ✓                |
+| funlangid    |       0.773 |    0.728 | 0.726 | 0.001 | ✓                |
+| fasttext     |       0.810 |    0.702 | 0.708 | 0.001 | ✓                |
+| py3langid    |       0.497 |    0.939 | 0.602 | 0.011 | ✓                |
+| cld3         |       0.344 |    0.894 | 0.471 | 0.033 | ✓                |
+| AfroLID      |       0.778 |    0.123 | 0.163 | 0.000 | ✓                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -74,6 +118,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Sesotho and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Sesotho has no UD treebank yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/sot/) video of Sesotho yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Sesotho?
@@ -94,45 +140,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       38 | █████████            |
 |   2026 |       81 | ████████████████████ |
 
-### Most popular models tagged for Sesotho
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Sesotho
-
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/sot_latn_10mb](https://huggingface.co/goldfish-models/sot_latn_10mb)   | 1,676                  |                    18 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/sot_latn_5mb](https://huggingface.co/goldfish-models/sot_latn_5mb)     | 442                    |                    16 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/sot_latn_100mb](https://huggingface.co/goldfish-models/sot_latn_100mb) | 400                    |                     8 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/sot_latn_full](https://huggingface.co/goldfish-models/sot_latn_full)   | 388                    |                    14 | unknown      |                    1 |   2024 | —               |
-| [56m/Dumb-1.1-Rc-1](https://huggingface.co/56m/Dumb-1.1-Rc-1)                           | 169                    |                    22 | 18.9M        |                    1 |   2026 | —               |
-
 ### Largest models tagged for Sesotho
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [Wwayu/GLM-4.7-PRISM-mlx-2Bit](https://huggingface.co/Wwayu/GLM-4.7-PRISM-mlx-2Bit)   | 8,124                  |                   280 | 352.8B       |                    3 |   2025 | zai-org/GLM-4.7 |
-| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 89                     |                    15 | 176.2B       |                   35 |   2026 | —               |
-| [bigscience/bloomz-mt](https://huggingface.co/bigscience/bloomz-mt)                   | 28,969                 |                   329 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [Wwayu/GLM-4.7-PRISM-mlx-2Bit](https://huggingface.co/Wwayu/GLM-4.7-PRISM-mlx-2Bit)   | 352.8B       |                    3 |   2025 | zai-org/GLM-4.7 |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
 
 ### Largest models tagged *only* for Sesotho
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/gemma-3-4b-it-sot-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-sot-32768)     |                     35 |                     5 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-sot](https://huggingface.co/ptrdvn/kakugo-3B-sot)                                     |                     82 |                     9 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/gemma-3-1b-it-sot-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-sot-32768)     |                     50 |                     8 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
-| [alphaedge-ai/gemma-3-270m-it-sot-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-sot-32768) |                     57 |                     9 | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
-| [56m/Dumb-1.1-Rc-1](https://huggingface.co/56m/Dumb-1.1-Rc-1)                                           |                    169 |                    22 | 18.9M        |                    1 |   2026 | —                             |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/gemma-3-4b-it-sot-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-sot-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [ptrdvn/kakugo-3B-sot](https://huggingface.co/ptrdvn/kakugo-3B-sot)                                     | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/gemma-3-1b-it-sot-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-sot-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
+| [alphaedge-ai/gemma-3-270m-it-sot-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-sot-32768) | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
+| [56m/Dumb-1.1-Rc-1](https://huggingface.co/56m/Dumb-1.1-Rc-1)                                           | 18.9M        |                    1 |   2026 | —                             |
 
 _24 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -163,15 +189,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -185,7 +211,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                                           | # test items   | Construction                                                        |
+| level                                  | task                          | dataset                                                                                                           | # test items   | construction                                                        |
 |:---------------------------------------|:------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 2. Pragmatics, discourse & coreference | WinoGrande                    | [WinoGrande-afr (Alhanai et al.)](https://huggingface.co/datasets/Institute-Disease-Modeling/mmlu-winogrande-afr) | —              | Human translation                                                   |
 | 4. Reading comprehension               | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                     | 900            | Human translation (professional)                                    |
@@ -221,22 +247,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 27 of ~18,460 papers (0.15%) (rank 110 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 27 of ~18,498 papers (0.15%) (rank 116 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Southern Sotho | Sesotho
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 37):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 27):
 
-| title                                                                                                                                         | paper                                                                          |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                                                     | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)             |
-| MERLIN: Multi-Stage Curriculum Alignment for Multilingual Encoder-LLM Integration in Cross-Lingual Reasoning                                  | [2026.eacl-long.277](https://aclanthology.org/2026.eacl-long.277/)             |
-| TranslatePsy-AfriSLM: High-Quality Data Scaling For Low-Resource Machine Translation                                                          | [2026.emnlp-main.1686](https://aclanthology.org/2026.emnlp-main.1686/)         |
-| The Geometry of Low-Resource Language Representations                                                                                         | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)         |
-| Mending the Holes: Mitigating Reward Hacking in Reinforcement Learning for Multilingual Translation                                           | [2026.findings-acl.1682](https://aclanthology.org/2026.findings-acl.1682/)     |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation                                | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
-| Linguistic Distance Segregates Latent Representations in Automatic Speech Recognition Systems                                                 | [2026.findings-emnlp.2366](https://aclanthology.org/2026.findings-emnlp.2366/) |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
-| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                                    | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)                   |
-| Benchmarking Text Embedding Models for South African Languages                                                                                | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       |
+| title                                                                                                                                         | paper                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP                                                     | [2026.acl-long.1965](https://aclanthology.org/2026.acl-long.1965/)         |
+| Sample-Size Scaling of the African Languages NLI Evaluation                                                                                   | [2026.africanlp-main.22](https://aclanthology.org/2026.africanlp-main.22/) |
+| The Geometry of Low-Resource Language Representations                                                                                         | [2026.emnlp-main.2097](https://aclanthology.org/2026.emnlp-main.2097/)     |
+| TIPA: Typologically Informed Parameter Aggregation                                                                                            | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Multi-Hall-SA: A Cross-lingual Benchmark for Multi-Type Hallucination Detection in Low-Resource South African Languages                       | [2026.findings-eacl.330](https://aclanthology.org/2026.findings-eacl.330/) |
+| Learning from Scarcity: Building and Benchmarking Speech Technology for Sukuma.                                                               | [2026.loreslm-1.25](https://aclanthology.org/2026.loreslm-1.25/)           |
+| MzansiText and MzansiLM: An Open Corpus and Decoder-Only Language Model for South African Languages                                           | [2026.lrec-1.109](https://aclanthology.org/2026.lrec-1.109/)               |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)               |
+| Code-Switching in End-to-End Automatic Speech Recognition: A Systematic Literature Review                                                     | [2026.lrec-1.768](https://aclanthology.org/2026.lrec-1.768/)               |
+| Extension of Linguistic Resources for South African Languages: Part-of-Speech Annotated Domain-Specific Data                                  | [2026.rail-1.2](https://aclanthology.org/2026.rail-1.2/)                   |
 
 {% endraw %}

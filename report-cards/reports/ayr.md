@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ayr` · macrolanguage `aym`
 
+**Language family:** **Aymaran** › Central-Southern Aymara ([Glottolog](https://glottolog.org/resource/languoid/id/cent2142))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 3.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `aym`, so includes other varieties · 4.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q4627#P1098), 2020) — counted for the macrolanguage `aym`, so includes other varieties
 
 **Official / recognised in:** Bolivia, Peru
 
-**Status:** Co-official language; Official language
+**Status:** Official language; Co-official language
+
+
+## What does Aymara look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/aymara.htm):
+
+> Taqpach jaqejh khuskat uñjatatäpjhewa munañapansa, lurañapansa, amuyasiñapansa, ukatwa jilani sullkanípjhaspas ukham uñjasipjhañapawa.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ayr/) has 1 video of Aymara speakers. Watch [Martha speaking Central Aymara](https://wikitongues.org/videos/martha_20151013_ayr/).
 
 
 ## Training Data
@@ -25,39 +44,62 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                  |
-| Common Crawl 2026      | 2,475 pages per crawl on average, which is 0.0001% of the crawl. ⚠️ NB: this is counted using `aym` (macrolanguage code), so this number is shared with other varieties and overstates Aymara.                            |
-| FineWeb                | 5.2 MB (ayr_Latn (0.01)); which is equivalent to ≈4.7 MB English data after byte-premium scaling; 0.86 GB removed by filtering. This is ~1/10,367,524 of English data and ranks 160 of 248 official languages in FineWeb. |
-| Goldfish training data | 31.8 MB (ayr_latn) (rank 141 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                            |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 5,297 articles in ay.wikipedia; 22 active users. ⚠️ NB: recorded under the macrolanguage code `aym`, which can include other varieties of Aymara.                                                                 |
+| Common Crawl           | 2,475 pages per crawl on average, which is 0.0001% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `aym`, which can include other varieties of Aymara.                                          |
+| FineWeb                | 5.2 MB (ayr_Latn 10.0 MB), equivalent to ≈4.7 MB of English after byte-premium scaling; 0.86 GB removed by filtering. This is ~1/10,367,524 of English data and ranks 160 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 31.8 MB (ayr_Latn 32.0 MB) (rank 141 of 166 in the set)                                                                                                                                                           |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                             |
+| UniMorph               | 3,410 lemmas, 336,342 inflected forms ([unimorph/aym](https://github.com/unimorph/aym)) ⚠️ Listed under the macrolanguage code `aym`, so this may cover other varieties as well as Aymara. |
+| Wikidata labels        | 592,303 Wikidata items have a label in Aymara. (Wikidata codes (labels): ay (592,303))                                                                                                     |
+| Wordnets               | **None found**                                                                                                                                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **7 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), SmolSent (n=300), Tatoeba (n=13), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.933 (P 0.926, R 0.945, FPR 7.08e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.865).
+- **Best model:** GlotLID — F1 0.944 (P 0.945, R 0.945, FPR 5.91e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.859).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.926 |    0.945 | 0.933 | 0.000 | ✓                |
-| cld2         |       0.966 |    0.806 | 0.865 | 0.000 | ✓                |
-| OpenLID-v2   |       0.801 |    0.916 | 0.844 | 0.001 | ✓                |
-| fasttext     |       0.860 |    0.854 | 0.838 | 0.001 | ✓                |
-| pyfranc      |       0.833 |    0.738 | 0.773 | 0.000 | ✓                |
-| funlangid    |       0.862 |    0.701 | 0.759 | 0.000 | ✓                |
-| commonlingua |       0.669 |    0.596 | 0.602 | 0.002 | ✓                |
+| GlotLID      |       0.945 |    0.945 | 0.944 | 0.000 | ✓                |
+| cld2         |       0.942 |    0.806 | 0.859 | 0.000 | ✓                |
+| OpenLID-v2   |       0.809 |    0.916 | 0.851 | 0.001 | ✓                |
+| fasttext     |       0.880 |    0.854 | 0.844 | 0.001 | ✓                |
+| pyfranc      |       0.838 |    0.738 | 0.776 | 0.000 | ✓                |
+| funlangid    |       0.850 |    0.701 | 0.754 | 0.000 | ✓                |
+| commonlingua |       0.667 |    0.596 | 0.601 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   |  13 |       0.688 |    0.846 | 0.759 |
+| Tatoeba   |  13 |       0.786 |    0.846 | 0.815 |
 | Wikipedia | 300 |       0.989 |    0.887 | 0.935 |
 | UDHR-LID  |  59 |       0.952 |    1.000 | 0.975 |
 | SmolSent  | 300 |       1.000 |    0.993 | 0.997 |
@@ -71,6 +113,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Aymara and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Aymara has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Aymara?
@@ -90,35 +133,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       10 | ████████████████████ |
 |   2026 |        2 | ████                 |
 
-### Most popular models tagged for Aymara
-
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)               | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                            |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)               | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                            |
-| [ZeppelinCorp/Charm_15](https://huggingface.co/ZeppelinCorp/Charm_15)                 | 962                    |                   307 | unknown      |                   87 |   2025 | mattshumer/mistral-8x7b-chat |
-| [goldfish-models/ayr_latn_full](https://huggingface.co/goldfish-models/ayr_latn_full) | 573                    |                    11 | unknown      |                    1 |   2024 | —                            |
-| [goldfish-models/aym_latn_full](https://huggingface.co/goldfish-models/aym_latn_full) | 433                    |                    14 | unknown      |                    1 |   2024 | —                            |
-
-### Most popular models tagged *only* for Aymara
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/ayr_latn_full](https://huggingface.co/goldfish-models/ayr_latn_full) |                    573 |                    11 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/aym_latn_full](https://huggingface.co/goldfish-models/aym_latn_full) |                    433 |                    14 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ayr_latn_10mb](https://huggingface.co/goldfish-models/ayr_latn_10mb) |                    427 |                    13 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/aym_latn_5mb](https://huggingface.co/goldfish-models/aym_latn_5mb)   |                    419 |                    11 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ayr_latn_5mb](https://huggingface.co/goldfish-models/ayr_latn_5mb)   |                    416 |                    11 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Aymara
 
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                  |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                  |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                  |
-| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 164                    |                    25 | 8.2B         |                  140 |   2026 | Qwen/Qwen3-8B-Base |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of      |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 1.9T         |                  143 |   2025 | —                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 856.0B       |                  143 |   2025 | —                  |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 8.2B         |                  143 |   2026 | Qwen/Qwen3-8B-Base |
 
 ### Largest models tagged *only* for Aymara
 
@@ -153,15 +176,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -175,7 +198,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                    | # test items   | Construction                                                     |
+| level                    | task                | dataset                                                                    | # test items   | construction                                                     |
 |:-------------------------|:--------------------|:---------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
 | Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                | 854            | Human translation via English pivot                              |
@@ -209,7 +232,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 17 of ~18,460 papers (0.09%) (rank 123 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 17 of ~18,498 papers (0.09%) (rank 131 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Central Aymara | Aymara
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 17):

@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `zsm` · macrolanguage `msa`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Malayo-Chamic › … › Standard Malay-Indonesian ([Glottolog](https://glottolog.org/resource/languoid/id/stan1306))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 40.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `msa`, so includes other varieties · 77.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9237#P1098), 2007) — counted for the macrolanguage `msa`, so includes other varieties
 
 **Official / recognised in:** Brunei, Malaysia, Singapore
 
-**Status:** Official and national language; Official language
+**Status:** Official language; Official and national language
+
+
+## What does Malay look and sound like?
+
+**Written (Latin alphabet)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/malay.htm):
+
+> Semua manusia dilahirkan bebas dan samarata dari segi kemuliaan dan hak-hak. Mereka mempunyai pemikiran dan perasaan hati dan hendaklah bertindak di antara satu sama lain dengan semangat persaudaraan.
+> A recording of this text
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_ms.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/zsm/) has 3 videos of Malay speakers. Watch [Zairul speaking Standard Malay](https://wikitongues.org/videos/zairul_20170402_zsm/).
 
 
 ## Training Data
@@ -25,39 +47,71 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                   |
-| Common Crawl 2026      | 1,846,066 pages per crawl on average, which is 0.0857% of the crawl. ⚠️ NB: this is counted using `msa` (macrolanguage code), so this number is shared with other varieties and overstates Malay.                                          |
-| FineWeb                | 14.31 GB (zsm_Arab (0.00); zsm_Latn (14.31)); which is equivalent to ≈12.51 GB English data after byte-premium scaling; 18.31 GB removed by filtering. This is ~1/3,732 of English data and ranks 38 of 248 official languages in FineWeb. |
-| Goldfish training data | 1.00 GB (zsm_latn) (rank 73 of 166 in the set)                                                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                                        |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 445,295 articles in ms.wikipedia; 1,835 active users. ⚠️ NB: counted under the macrolanguage code `msa`, so this number is shared with Indonesian (`ind`) and overstates Malay.                                               |
+| Common Crawl           | 1,846,066 pages per crawl on average, which is 0.0857% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `msa`, so this number is shared with Indonesian (`ind`) and overstates Malay.                         |
+| FineWeb                | 14.31 GB (zsm_Latn 14.31 GB; zsm_Arab 0), equivalent to ≈12.51 GB of English after byte-premium scaling; 18.31 GB removed by filtering. This is ~1/3,732 of English data and ranks 38 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 1.00 GB (zsm_Latn 1.00 GB) (rank 73 of 166 in the set)                                                                                                                                                                        |
+
+**By writing system:**
+
+| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)   | 14.31 GB  | 12.51 GB                      | 1.00 GB      | 0.88 GB                        |
+| Arabic (`Arab`)  | 0         | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                            |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                                         |
+| UniMorph               | **None found**                                                                                                                                                                                         |
+| Wikidata labels        | 1,981,673 Wikidata items have a label in Malay. (Wikidata codes (labels): ms (1,981,673), ms-arab (26,476))                                                                                            |
+| Wordnets               | [Wordnet Bahasa (Malaysian)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-zsm-1.4.tar.xz): 36,911 synsets, 38,755 words, 105,028 senses; licence: https://opensource.org/licenses/MIT/. |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (5):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.881 (P 0.976, R 0.805, FPR 1.75e-04) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.863).
+- **Best model:** GlotLID — F1 0.880 (P 0.976, R 0.805, FPR 1.78e-04) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.863).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.976 |    0.805 | 0.881 | 0.000 | ✓                |
+| GlotLID      |       0.976 |    0.805 | 0.880 | 0.000 | ✓                |
 | fasttext     |       0.888 |    0.842 | 0.863 | 0.001 | ✓                |
-| OpenLID-v2   |       0.882 |    0.827 | 0.845 | 0.001 | ✓                |
-| cld2         |       0.866 |    0.806 | 0.834 | 0.001 | ✓                |
-| py3langid    |       0.868 |    0.755 | 0.806 | 0.001 | ✓                |
-| commonlingua |       0.717 |    0.627 | 0.668 | 0.003 | ✓                |
-| funlangid    |       0.560 |    0.265 | 0.357 | 0.003 | ✓                |
+| OpenLID-v2   |       0.880 |    0.827 | 0.844 | 0.001 | ✓                |
+| cld2         |       0.865 |    0.806 | 0.834 | 0.001 | ✓                |
+| py3langid    |       0.866 |    0.755 | 0.805 | 0.001 | ✓                |
+| cld3         |       0.626 |    0.790 | 0.693 | 0.007 | ✓                |
+| commonlingua |       0.714 |    0.627 | 0.667 | 0.003 | ✓                |
+| funlangid    |       0.557 |    0.265 | 0.356 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.941 |    0.633 | 0.757 |
+| Tatoeba   | 300 |       0.936 |    0.633 | 0.755 |
 | NTREX     | 300 |       0.980 |    0.823 | 0.895 |
 | CommonLID | 300 |       0.984 |    0.823 | 0.897 |
 | FLORES    | 300 |       0.992 |    0.870 | 0.927 |
@@ -71,6 +125,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Malay and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Malay has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Malay?
@@ -91,45 +146,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      257 | ████████████████████ |
 |   2026 |      218 | █████████████████    |
 
-### Most popular models tagged for Malay
-
-| model                                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                                                 | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                             |
-| [lmstudio-community/Devstral-Small-2507-MLX-8bit](https://huggingface.co/lmstudio-community/Devstral-Small-2507-MLX-8bit) | 817,747                | 10,371                | 23.6B        |                   24 |   2025 | mistralai/Devstral-Small-2507 |
-| [lmstudio-community/Devstral-Small-2505-MLX-4bit](https://huggingface.co/lmstudio-community/Devstral-Small-2505-MLX-4bit) | 638,937                | 6,557                 | 23.6B        |                   24 |   2025 | mistralai/Devstral-Small-2505 |
-| [SeaLLMs/SeaLLM-7B-v2.5](https://huggingface.co/SeaLLMs/SeaLLM-7B-v2.5)                                                   | 474,458                | 9,316                 | 8.5B         |                   10 |   2024 | —                             |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                                                       | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                             |
-
-### Most popular models tagged *only* for Malay
-
-| model                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [mesolitica/llama-3-8b-8192-hf](https://huggingface.co/mesolitica/llama-3-8b-8192-hf)                   | 19,654                 |                    35 | 8.0B         |                    1 |   2024 | —               |
-| [mesolitica/llama-2b-hf-32768-fpf](https://huggingface.co/mesolitica/llama-2b-hf-32768-fpf)             | 17,970                 |                   642 | 1.9B         |                    1 |   2023 | —               |
-| [mesolitica/malaysian-mistral-474M-4096](https://huggingface.co/mesolitica/malaysian-mistral-474M-4096) | 11,077                 |                    30 | 474.5M       |                    1 |   2024 | —               |
-| [mesolitica/mallam-1.1B-4096](https://huggingface.co/mesolitica/mallam-1.1B-4096)                       | 10,715                 |                   267 | 1.1B         |                    1 |   2023 | —               |
-| [mesolitica/malaysian-mistral-191M-4096](https://huggingface.co/mesolitica/malaysian-mistral-191M-4096) | 6,684                  |                   372 | 190.7M       |                    1 |   2023 | —               |
-
 ### Largest models tagged for Malay
 
-| model                                                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                               | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                   | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF) | 604                    | 604                   | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
-| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)   | 23,979                 | 3,521                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [olka-fi/Mistral-Medium-3.5-128B-MXFP4](https://huggingface.co/olka-fi/Mistral-Medium-3.5-128B-MXFP4)   | 1,950                  | 34                    | 127.7B       |                   24 |   2026 | mistralai/Mistral-Medium-3.5-128B      |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                          |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                               | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                   | 856.0B       |                  143 |   2025 | —                                      |
+| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF) | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)   | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [olka-fi/Mistral-Medium-3.5-128B-MXFP4](https://huggingface.co/olka-fi/Mistral-Medium-3.5-128B-MXFP4)   | 127.7B       |                   24 |   2026 | mistralai/Mistral-Medium-3.5-128B      |
 
 ### Largest models tagged *only* for Malay
 
-| model                                                                                                                       |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of       |
-|:----------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------|
-| [Yuki6666/qwen3-14b-cspider-posttraining](https://huggingface.co/Yuki6666/qwen3-14b-cspider-posttraining)                   |                      0 |                     0 | 14.0B        |                    1 |   2026 | Qwen/Qwen3-14B-Base |
-| [mesolitica/llama-13b-hf-16384-fpf](https://huggingface.co/mesolitica/llama-13b-hf-16384-fpf)                               |                    708 |                    15 | 13.0B        |                    1 |   2023 | —                   |
-| [mesolitica/llama-13b-hf-2048-fpf](https://huggingface.co/mesolitica/llama-13b-hf-2048-fpf)                                 |                    453 |                     9 | 13.0B        |                    1 |   2023 | —                   |
-| [mesolitica/llama-13b-hf-32768-fpf](https://huggingface.co/mesolitica/llama-13b-hf-32768-fpf)                               |                    565 |                    10 | 13.0B        |                    1 |   2023 | —                   |
-| [mesolitica/malaysian-llama2-13b-32k-instructions](https://huggingface.co/mesolitica/malaysian-llama2-13b-32k-instructions) |                    508 |                    31 | 13.0B        |                    1 |   2023 | —                   |
+| model                                                                                                                       | parameters   |   # languages tagged |   year | derivative of       |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------|
+| [Yuki6666/qwen3-14b-cspider-posttraining](https://huggingface.co/Yuki6666/qwen3-14b-cspider-posttraining)                   | 14.0B        |                    1 |   2026 | Qwen/Qwen3-14B-Base |
+| [mesolitica/llama-13b-hf-16384-fpf](https://huggingface.co/mesolitica/llama-13b-hf-16384-fpf)                               | 13.0B        |                    1 |   2023 | —                   |
+| [mesolitica/llama-13b-hf-2048-fpf](https://huggingface.co/mesolitica/llama-13b-hf-2048-fpf)                                 | 13.0B        |                    1 |   2023 | —                   |
+| [mesolitica/llama-13b-hf-32768-fpf](https://huggingface.co/mesolitica/llama-13b-hf-32768-fpf)                               | 13.0B        |                    1 |   2023 | —                   |
+| [mesolitica/malaysian-llama2-13b-32k-instructions](https://huggingface.co/mesolitica/malaysian-llama2-13b-32k-instructions) | 13.0B        |                    1 |   2023 | —                   |
 
 _82 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -149,7 +184,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**20** benchmark datasets in the survey include Malay.
+**19** benchmark datasets in the survey include Malay.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -160,15 +195,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [7]     \
+                 /   [6]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [4]        \
+         /      reasoning [4]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -182,7 +217,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                         | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge       | BLiMP                          | [MALINDO BLiMP](https://github.com/matbahasa/MALINDO_BLiMP)                                         | 174            | Existing material (linguistics literature)                       |
 | 3. Commonsense reasoning      | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                               | 9,088          | Machine translation (GPT-4o, auto-checked)                       |
@@ -191,10 +226,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 3. Commonsense reasoning      | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench)                                              | 1,332          | Machine translation (GPT-4o, auto-checked)                       |
 | 4. Reading comprehension      | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                 |
 | 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
+| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | MalayMMLU                                                                                           | 24,213         | Native                                                           |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                               | 14,042         | MT + community post-editing                                      |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
-| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | MalayMMLU                                                                                           | 24,213         | Native                                                           |
-| 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                            | 10,000         | Human translation                                                |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                         |
@@ -229,7 +263,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 161 of ~18,460 papers (0.87%) (rank 40 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 161 of ~18,498 papers (0.87%) (rank 40 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Standard Malay | Malay
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 161):

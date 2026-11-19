@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tgl`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Greater Central Philippine › … › Tagalog-Filipino ([Glottolog](https://glottolog.org/resource/languoid/id/taga1270))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 73.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 23.6 million first-language + 45.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q34057#P1098), 2019)
 
 **Official / recognised in:** Philippines
 
 **Status:** Regional official language
+
+
+## What does Tagalog look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/tagalog.htm):
+
+> Ang lahat ng tao'y isinilang na malaya at pantay-pantay sa karangalan at mga karapatan. Sila'y pinagkalooban ng katwiran at budhi at dapat magpalagayan ang isa't isa sa diwa ng pagkakapatiran.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_tl.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tgl/) has 1 video of Tagalog speakers. Watch [Josh speaking Tagalog](https://wikitongues.org/videos/josh_20180728_tgl/).
 
 
 ## Training Data
@@ -25,32 +46,55 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                      |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 50,782 articles in tl.wikipedia (rank 70 of 161 in the set) — ~1/149 of English; 311 active users                                                           |
-| Common Crawl 2026      | 235,294 pages per crawl on average, which is 0.0109% of the crawl. This is ~1/3,789 of English data and ranks 53 of 113 official languages in Common Crawl. |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                              |
-| Goldfish training data | 1.24 GB (tgl_latn) (rank 71 of 166 in the set)                                                                                                              |
+| Source                 | Amount                                                                                                                                                               |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 50,782 articles in tl.wikipedia; 311 active users. This is ~1/149 of English data and ranks 71 of 168 languages in the set in Wikipedia.                             |
+| Common Crawl           | 235,294 pages per crawl on average, which is 0.0109% of the crawl (2026). This is ~1/3,789 of English data and ranks 53 of 113 languages in the set in Common Crawl. |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                       |
+| Goldfish training data | 1.24 GB (tgl_Latn 1.24 GB) (rank 71 of 166 in the set)                                                                                                               |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                    |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 222 sentences / 1,745 tokens in total: [UD_Tagalog-TRG](https://github.com/UniversalDependencies/UD_Tagalog-TRG) (128 sentences), [UD_Tagalog-Ugnayan](https://github.com/UniversalDependencies/UD_Tagalog-Ugnayan) (94 sentences). All have POS tags, dependency syntax, lemmas. |
+| UniMorph               | 344 lemmas, 2,912 inflected forms ([unimorph/tgl](https://github.com/unimorph/tgl))                                                                                                                                                                                                            |
+| Wikidata labels        | 533,597 Wikidata items have a label in Tagalog. (Wikidata codes (labels): tl (533,597))                                                                                                                                                                                                        |
+| Wordnets               | **None found**                                                                                                                                                                                                                                                                                 |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                          |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                              |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([tglulb](https://ebible.org/details.php?id=tglulb), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                           |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **6 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, fasttext, py3langid, pyfranc.
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, fasttext, py3langid, pyfranc.
 - **Eval datasets (4):** CommonLID (n=300), Tatoeba (n=300), UDHR-LID (n=61), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.944 (P 0.932, R 0.957, FPR 1.03e-03) averaged over 4 dataset(s). Runner-up: commonlingua (F1 0.791).
+- **Best model:** GlotLID — F1 0.942 (P 0.929, R 0.957, FPR 1.05e-03) averaged over 4 dataset(s). Runner-up: commonlingua (F1 0.790).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.932 |    0.957 | 0.944 | 0.001 | ✓                |
-| commonlingua |       0.783 |    0.809 | 0.791 | 0.003 | ✓                |
-| cld2         |       0.663 |    0.892 | 0.748 | 0.006 | ✓                |
-| pyfranc      |       0.651 |    0.723 | 0.663 | 0.006 | ✓                |
-| fasttext     |       0.520 |    0.962 | 0.663 | 0.010 | ✓                |
-| py3langid    |       0.396 |    0.968 | 0.520 | 0.022 | ✓                |
+| GlotLID      |       0.929 |    0.957 | 0.942 | 0.001 | ✓                |
+| commonlingua |       0.780 |    0.809 | 0.790 | 0.003 | ✓                |
+| cld2         |       0.658 |    0.892 | 0.746 | 0.006 | ✓                |
+| pyfranc      |       0.648 |    0.723 | 0.662 | 0.006 | ✓                |
+| fasttext     |       0.517 |    0.962 | 0.661 | 0.010 | ✓                |
+| py3langid    |       0.394 |    0.968 | 0.519 | 0.022 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -58,7 +102,7 @@ Language identification (LangID or LID) is a classification task that identifies
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | CommonLID | 300 |       0.834 |    0.907 | 0.869 |
-| Tatoeba   | 300 |       0.932 |    0.957 | 0.944 |
+| Tatoeba   | 300 |       0.917 |    0.957 | 0.936 |
 | Wikipedia | 300 |       0.980 |    0.980 | 0.980 |
 | UDHR-LID  |  61 |       0.984 |    0.984 | 0.984 |
 
@@ -70,6 +114,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tagalog and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tagalog has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Tagalog?
@@ -90,45 +135,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      117 | ████████████████████ |
 |   2026 |      110 | ███████████████████  |
 
-### Most popular models tagged for Tagalog
-
-| model                                                                                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                             |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------------------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                                                                           | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                                         |
-| [SeaLLMs/SeaLLM-7B-v2.5](https://huggingface.co/SeaLLMs/SeaLLM-7B-v2.5)                                                                             | 474,458                | 9,316                 | 8.5B         |                   10 |   2024 | —                                         |
-| [SeaLLMs/SeaLLM-7B-v2](https://huggingface.co/SeaLLMs/SeaLLM-7B-v2)                                                                                 | 279,260                | 9,358                 | 7.4B         |                   10 |   2024 | —                                         |
-| [bartowski/meta-llama_Llama-4-Scout-17B-16E-Instruct-old-GGUF](https://huggingface.co/bartowski/meta-llama_Llama-4-Scout-17B-16E-Instruct-old-GGUF) | 273,916                | 5,879                 | 107.8B       |                   12 |   2025 | meta-llama/Llama-4-Scout-17B-16E-Instruct |
-| [SeaLLMs/SeaLLMs-v3-7B-Chat](https://huggingface.co/SeaLLMs/SeaLLMs-v3-7B-Chat)                                                                     | 154,867                | 1,330                 | 7.6B         |                   11 |   2024 | —                                         |
-
-### Most popular models tagged *only* for Tagalog
-
-| model                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [dost-asti/gpt2-tl-cased](https://huggingface.co/dost-asti/gpt2-tl-cased)                 | 2,681                  |                    19 | unknown      |                    1 |   2023 | —               |
-| [goldfish-models/tgl_latn_1000mb](https://huggingface.co/goldfish-models/tgl_latn_1000mb) | 554                    |                    37 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/tgl_latn_5mb](https://huggingface.co/goldfish-models/tgl_latn_5mb)       | 459                    |                    10 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/tgl_latn_100mb](https://huggingface.co/goldfish-models/tgl_latn_100mb)   | 457                    |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/tgl_latn_10mb](https://huggingface.co/goldfish-models/tgl_latn_10mb)     | 430                    |                    16 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Tagalog
 
-| model                                                                                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                                 |
-|:----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                               | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                             |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                   | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                             |
-| [mlx-community/Llama-4-Maverick-17B-16E-Instruct-4bit](https://huggingface.co/mlx-community/Llama-4-Maverick-17B-16E-Instruct-4bit)     | 13,768                 | 187                   | 400.7B       |                   12 |   2025 | meta-llama/Llama-4-Maverick-17B-128E-Instruct |
-| [from-our-page/Llama-4-Maverick-17B-128E-mlx-4bit](https://huggingface.co/from-our-page/Llama-4-Maverick-17B-128E-mlx-4bit)             | 2,743                  | 64                    | 400.7B       |                   12 |   2025 | meta-llama/Llama-4-Maverick-17B-128E          |
-| [lmstudio-community/Llama-4-Scout-17B-16E-Instruct-GGUF](https://huggingface.co/lmstudio-community/Llama-4-Scout-17B-16E-Instruct-GGUF) | 73,354                 | 1,170                 | 107.8B       |                   12 |   2025 | meta-llama/Llama-4-Scout-17B-16E-Instruct     |
+| model                                                                                                                                               | parameters   |   # languages tagged |   year | derivative of                                 |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                           | 1.9T         |                  143 |   2025 | —                                             |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                               | 856.0B       |                  143 |   2025 | —                                             |
+| [from-our-page/Llama-4-Maverick-17B-128E-mlx-4bit](https://huggingface.co/from-our-page/Llama-4-Maverick-17B-128E-mlx-4bit)                         | 400.7B       |                   12 |   2025 | meta-llama/Llama-4-Maverick-17B-128E          |
+| [mlx-community/Llama-4-Maverick-17B-16E-Instruct-4bit](https://huggingface.co/mlx-community/Llama-4-Maverick-17B-16E-Instruct-4bit)                 | 400.7B       |                   12 |   2025 | meta-llama/Llama-4-Maverick-17B-128E-Instruct |
+| [bartowski/meta-llama_Llama-4-Scout-17B-16E-Instruct-old-GGUF](https://huggingface.co/bartowski/meta-llama_Llama-4-Scout-17B-16E-Instruct-old-GGUF) | 107.8B       |                   12 |   2025 | meta-llama/Llama-4-Scout-17B-16E-Instruct     |
 
 ### Largest models tagged *only* for Tagalog
 
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [sapinsapin/llama31-8b-balitanlp-cpt](https://huggingface.co/sapinsapin/llama31-8b-balitanlp-cpt)   |                    200 |                     7 | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B |
-| [alphaedge-ai/Qwen3.5-4B-tgl-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-tgl-32768)       |                     42 |                     5 | 4.0B         |                    1 |   2026 | Qwen3.5-4B              |
-| [alphaedge-ai/gemma-3-4b-it-tgl-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-tgl-32768) |                     35 |                     5 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it    |
-| [alphaedge-ai/Qwen3.5-2B-tgl-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-tgl-32768)       |                     59 |                     8 | 1.8B         |                    1 |   2026 | Qwen3.5-2B              |
-| [alphaedge-ai/Qwen3-1.7B-tgl-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-tgl-32768)       |                     51 |                     8 | 1.5B         |                    1 |   2026 | Qwen3-1.7B              |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of           |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------|
+| [sapinsapin/llama31-8b-balitanlp-cpt](https://huggingface.co/sapinsapin/llama31-8b-balitanlp-cpt)   | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B |
+| [alphaedge-ai/Qwen3.5-4B-tgl-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-tgl-32768)       | 4.0B         |                    1 |   2026 | Qwen3.5-4B              |
+| [alphaedge-ai/gemma-3-4b-it-tgl-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-tgl-32768) | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it    |
+| [alphaedge-ai/Qwen3.5-2B-tgl-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-tgl-32768)       | 1.8B         |                    1 |   2026 | Qwen3.5-2B              |
+| [alphaedge-ai/Qwen3-1.7B-tgl-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-tgl-32768)       | 1.5B         |                    1 |   2026 | Qwen3-1.7B              |
 
 _43 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -159,15 +184,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [2]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [4]        \
+         /      reasoning [4]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -181,7 +206,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                             | # test items   | Construction                                             |
+| level                         | task                           | dataset                                                                                             | # test items   | construction                                             |
 |:------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:---------------------------------------------------------|
 | 3. Commonsense reasoning      | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                               | 9,088          | Machine translation (GPT-4o, auto-checked)               |
 | 3. Commonsense reasoning      | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                   |
@@ -219,7 +244,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 67 of ~18,460 papers (0.36%) (rank 70 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 67 of ~18,498 papers (0.36%) (rank 74 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Tagalog
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 67):

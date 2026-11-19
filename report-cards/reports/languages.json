@@ -296,6 +296,14 @@
 "name": "Dëne Sųłıné"
 },
 {
+"iso": "bin",
+"name": "Edo"
+},
+{
+"iso": "efi",
+"name": "Efik"
+},
+{
 "iso": "eng",
 "name": "English"
 },
@@ -456,8 +464,16 @@
 "name": "Ibanag"
 },
 {
+"iso": "ibb",
+"name": "Ibibio"
+},
+{
 "iso": "isl",
 "name": "Icelandic"
+},
+{
+"iso": "ibo",
+"name": "Igbo"
 },
 {
 "iso": "ilo",
@@ -522,6 +538,10 @@
 {
 "iso": "kan",
 "name": "Kannada"
+},
+{
+"iso": "knc",
+"name": "Kanuri"
 },
 {
 "iso": "pam",
@@ -776,6 +796,10 @@
 "name": "Movima"
 },
 {
+"iso": "mzm",
+"name": "Mumuye"
+},
+{
 "iso": "mri",
 "name": "Māori"
 },
@@ -812,12 +836,20 @@
 "name": "Nheengatu"
 },
 {
+"iso": "pcm",
+"name": "Nigerian Pidgin"
+},
+{
 "iso": "nog",
 "name": "Nogai"
 },
 {
 "iso": "nor",
 "name": "Norwegian"
+},
+{
+"iso": "nup",
+"name": "Nupe"
 },
 {
 "iso": "crk",
@@ -1132,6 +1164,10 @@
 "name": "Tigrinya"
 },
 {
+"iso": "tiv",
+"name": "Tiv"
+},
+{
 "iso": "tli",
 "name": "Tlingit"
 },
@@ -1266,6 +1302,10 @@
 {
 "iso": "yaa",
 "name": "Yaminawa"
+},
+{
+"iso": "yor",
+"name": "Yoruba"
 },
 {
 "iso": "yuq",

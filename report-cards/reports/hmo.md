@@ -12,9 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `hmo`
 
+**Language family:** none: Glottolog classifies it as a pidgin ([Glottolog](https://glottolog.org/resource/languoid/id/hiri1237))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
+**Speakers:** about 211,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 180,000 second-language ([Wikidata](https://www.wikidata.org/wiki/Q33617#P1098), 1989)
+
 **Official / recognised in:** Papua New Guinea
 
 **Status:** Official language
+
+
+## What does Hiri Motu look and sound like?
+
+**Written (The Lord's Prayer)**, sample text from [Omniglot](https://www.omniglot.com/writing/hirimotu.htm):
+
+> ‘Aiemai Tamana e, guba dekenai oi noho, oiemu ladana do ai hahelagaia. Oiemu Basileia do ia mai, oiemu ura gauna tanobada dekenai do ai karaia, guba dekenai idia karaia bamona. Hari dina aiemai aniani mani oi henia ai dekenai. Aiemai dika mani oi gwauatao, badina be ai dekenai idia hadikaia taudia edia dika ai gwauatao. Dibagani dika gabuna dekenai ai do oi hakaua vareai lasi, to Satani ena imana …
+
+*Translation:* Our Father which art in heaven, Hallowed be thy name. Thy kingdom come. Thy will be done in earth, as it is in heaven. Give us this day our daily bread. And forgive us our debts, as we forgive our debtors. And lead us not into temptation, but deliver us from evil: For thine is the kingdom, and the power, and the glory, for ever. Amen.
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://ebible.org; Source: https://www.kingjamesbibleonline.org/Matthew-Chapter-6/.</sub>
+
+**Spoken:** no Wikitongues video of Hiri Motu yet ([its Wikitongues page](https://wikitongues.org/languages/hmo/) says how to contribute one).
 
 
 ## Training Data
@@ -23,18 +42,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3 articles in ho.wikipedia (rank 161 of 161 in the set) — ~1/2,515,489 of English; 0 active users                                                                                                                         |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                  |
-| FineWeb                | 2.2 MB (hmo_Latn (0.00)); which is equivalent to ≈1.6 MB English data after byte-premium scaling; 23.5 MB removed by filtering. This is ~1/24,781,580 of English data and ranks 179 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                      |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3 articles in ho.wikipedia; 0 active users. This is ~1/2,515,489 of English data and ranks 168 of 168 languages in the set in Wikipedia.                                                                    |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                    |
+| FineWeb                | 2.2 MB (hmo_Latn 0), equivalent to ≈1.6 MB of English after byte-premium scaling; 23.5 MB removed by filtering. This is ~1/24,781,580 of English data and ranks 179 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                               |
+|:-----------------------|:------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                            |
+| UniMorph               | **None found**                                                                            |
+| Wikidata labels        | 476,678 Wikidata items have a label in Hiri Motu. (Wikidata codes (labels): ho (476,678)) |
+| Wordnets               | **None found**                                                                            |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                       |
+|:-----------------------------------|:--------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                           |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([hmo](https://ebible.org/details.php?id=hmo), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                        |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- Support across the 8 evaluated LangID models is unknown: there is no labelled test data to run them on.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
 - **No labelled LangID eval data** for this language — creating some is a high-value contribution.
 - No model performance numbers are available.
 
@@ -46,6 +86,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Hiri Motu and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Hiri Motu has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/hmo/) video of Hiri Motu yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Hiri Motu?
@@ -65,29 +107,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        6 | ████████████████████ |
 |   2026 |        2 | ███████              |
 
-### Most popular models tagged for Hiri Motu
-
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                            |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                            |
-| [ZeppelinCorp/Charm_15](https://huggingface.co/ZeppelinCorp/Charm_15)                             | 962                    |                   307 | unknown      |                   87 |   2025 | mattshumer/mistral-8x7b-chat |
-| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 164                    |                    25 | 8.2B         |                  140 |   2026 | Qwen/Qwen3-8B-Base           |
-| [Xois/BuuClientPublicV1-MD-BOT](https://huggingface.co/Xois/BuuClientPublicV1-MD-BOT)             | 0                      |                     0 | unknown      |                  105 |   2025 | deepseek-ai/DeepSeek-V3-Base |
-
-### Most popular models tagged *only* for Hiri Motu
-
-_none_
-
 ### Largest models tagged for Hiri Motu
 
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                  |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                  |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                  |
-| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 164                    |                    25 | 8.2B         |                  140 |   2026 | Qwen/Qwen3-8B-Base |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of      |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 1.9T         |                  143 |   2025 | —                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 856.0B       |                  143 |   2025 | —                  |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 8.2B         |                  143 |   2026 | Qwen/Qwen3-8B-Base |
 
 ### Largest models tagged *only* for Hiri Motu
 
@@ -122,15 +150,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -173,7 +201,7 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 0 of ~18,460 papers (0.00%); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 0 of ~18,498 papers (0.00%); English is mentioned in 8,465.
 - Search terms: Hiri Motu
 - **No ACL 2026 papers mention Hiri Motu** — any published work would be a first.
 

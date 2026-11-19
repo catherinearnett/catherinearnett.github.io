@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `guj`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Gujaratic ([Glottolog](https://glottolog.org/resource/languoid/id/guja1252))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Gujr`
+
+**Speakers:** about 65.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 56.4 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q5137#P1098), 2001)
 
 **Official / recognised in:** India, South Africa
 
-**Status:** Official language; Regional official language
+**Status:** Regional official language; Official language
+
+
+## What does Gujarati look and sound like?
+
+**Written:** Omniglot has [a page on Gujarati](https://www.omniglot.com/writing/gujarati.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/guj/) has 3 videos of Gujarati speakers. Watch [Sanjay speaking Gujarati](https://wikitongues.org/videos/sanjay_20200711_guj/).
 
 
 ## Training Data
@@ -25,18 +38,48 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                  |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 30,937 articles in gu.wikipedia (rank 73 of 161 in the set) — ~1/244 of English; 101 active users                                                                                                                                       |
-| Common Crawl 2026      | 271,347 pages per crawl on average, which is 0.0126% of the crawl. This is ~1/3,285 of English data and ranks 51 of 113 official languages in Common Crawl.                                                                             |
-| FineWeb                | 3.37 GB (guj_Gujr (3.37); guj_Latn (0.00)); which is equivalent to ≈1.56 GB English data after byte-premium scaling; 2.19 GB removed by filtering. This is ~1/15,840 of English data and ranks 57 of 248 official languages in FineWeb. |
-| Goldfish training data | 5.49 GB (guj_gujr) (rank 36 of 166 in the set)                                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                     |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 30,937 articles in gu.wikipedia; 101 active users. This is ~1/244 of English data and ranks 76 of 168 languages in the set in Wikipedia.                                                                                   |
+| Common Crawl           | 271,347 pages per crawl on average, which is 0.0126% of the crawl (2026). This is ~1/3,285 of English data and ranks 51 of 113 languages in the set in Common Crawl.                                                       |
+| FineWeb                | 3.37 GB (guj_Gujr 3.37 GB; guj_Latn 0), equivalent to ≈1.56 GB of English after byte-premium scaling; 2.19 GB removed by filtering. This is ~1/15,840 of English data and ranks 57 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 5.49 GB (guj_Gujr 5.49 GB) (rank 36 of 166 in the set)                                                                                                                                                                     |
+
+**By writing system:**
+
+| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Gujarati (`Gujr`) | 3.37 GB   | 1.56 GB                       | 5.49 GB      | 2.54 GB                        |
+| Latin (`Latn`)    | 0         | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 225 sentences / 2,187 tokens in total: [UD_Gujarati-GujTB](https://github.com/UniversalDependencies/UD_Gujarati-GujTB) (187 sentences), [UD_Gujarati-ShabdaSetu](https://github.com/UniversalDependencies/UD_Gujarati-ShabdaSetu) (38 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 397 lemmas, 7,505 inflected forms ([unimorph/guj](https://github.com/unimorph/guj))                                                                                                                                                                                                                                                     |
+| Wikidata labels        | 608,225 Wikidata items have a label in Gujarati. (Wikidata codes (labels): gu (608,225))                                                                                                                                                                                                                                                |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                                                                                                                                        |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                            |
+|:-----------------------------------|:-------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([guj2017](https://ebible.org/details.php?id=guj2017), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                             |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=168), UDHR-LID (n=58), Wikipedia (n=300)
 - **Best model:** py3langid — F1 0.997 (P 1.000, R 0.993, FPR 0.00e+00) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.995).
 
@@ -49,11 +92,13 @@ Language identification (LangID or LID) is a classification task that identifies
 | py3langid    |       1.000 |    0.993 | 0.997 | 0.000 | ✓                |
 | cld2         |       0.999 |    0.992 | 0.995 | 0.000 | ✓                |
 | OpenLID-v2   |       1.000 |    0.991 | 0.995 | 0.000 | ✓                |
-| fasttext     |       1.000 |    0.986 | 0.993 | 0.000 | ✓                |
 | GlotLID      |       0.995 |    0.991 | 0.993 | 0.000 | ✓                |
+| fasttext     |       0.999 |    0.986 | 0.992 | 0.000 | ✓                |
 | commonlingua |       0.999 |    0.985 | 0.992 | 0.000 | ✓                |
+| cld3         |       1.000 |    0.974 | 0.986 | 0.000 | ✓                |
 | pyfranc      |       1.000 |    0.954 | 0.975 | 0.000 | ✗                |
-| funlangid    |       0.925 |    0.555 | 0.691 | 0.000 | ✓                |
+| funlangid    |       0.924 |    0.555 | 0.691 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (py3langid) by dataset**:
 
@@ -62,9 +107,9 @@ Language identification (LangID or LID) is a classification task that identifies
 | CommonLID | 300 |       1.000 |    0.967 | 0.983 |
 | Wikipedia | 300 |       1.000 |    0.993 | 0.997 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
-| Tatoeba   | 168 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| Tatoeba   | 168 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -94,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      155 | ██████████████       |
 |   2026 |      226 | ████████████████████ |
 
-### Most popular models tagged for Gujarati
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Gujarati
-
-| model                                                                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [atsuki-yamaguchi/Llama-3.1-8B-Instruct-gu-madlad-mean-tuned](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-Instruct-gu-madlad-mean-tuned) | 1,477                  |                   851 | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B |
-| [goldfish-models/guj_gujr_1000mb](https://huggingface.co/goldfish-models/guj_gujr_1000mb)                                                         | 531                    |                    30 | unknown      |                    1 |   2024 | —                       |
-| [goldfish-models/guj_gujr_5mb](https://huggingface.co/goldfish-models/guj_gujr_5mb)                                                               | 476                    |                    15 | unknown      |                    1 |   2024 | —                       |
-| [goldfish-models/guj_gujr_100mb](https://huggingface.co/goldfish-models/guj_gujr_100mb)                                                           | 470                    |                    16 | unknown      |                    1 |   2024 | —                       |
-| [goldfish-models/guj_gujr_10mb](https://huggingface.co/goldfish-models/guj_gujr_10mb)                                                             | 451                    |                    19 | unknown      |                    1 |   2024 | —                       |
-
 ### Largest models tagged for Gujarati
 
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      | 0                     | 856.0B       |                  140 |   2025 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)                           | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [itssarjunhere/bloom](https://huggingface.co/itssarjunhere/bloom)                     | 70                     | 5                     | 176.2B       |                   35 |   2026 | —               |
-| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 109                    | 13                    | 176.2B       |                   35 |   2026 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Gujarati
 
-| model                                                                                                                                                                         |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [atsuki-yamaguchi/Llama-3.1-8B-gu-madlad-mean-tuned](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-gu-madlad-mean-tuned)                                               |                    136 |                     8 | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B |
-| [atsuki-yamaguchi/Qwen2.5-7B-Instruct-gu-madlad-mean-slerp0305-emb-special](https://huggingface.co/atsuki-yamaguchi/Qwen2.5-7B-Instruct-gu-madlad-mean-slerp0305-emb-special) |                    189 |                    10 | 7.7B         |                    1 |   2024 | Qwen/Qwen2.5-7B         |
-| [alphaedge-ai/Qwen3.5-4B-guj-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-guj-32768)                                                                                 |                     41 |                     9 | 4.0B         |                    1 |   2026 | Qwen3.5-4B              |
-| [alphaedge-ai/gemma-3-4b-it-guj-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-guj-32768)                                                                           |                     35 |                    11 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it    |
-| [alphaedge-ai/Qwen3.5-2B-guj-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-guj-32768)                                                                                 |                     50 |                     8 | 1.8B         |                    1 |   2026 | Qwen3.5-2B              |
+| model                                                                                                                                                                         | parameters   |   # languages tagged |   year | derivative of           |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------|
+| [atsuki-yamaguchi/Llama-3.1-8B-Instruct-gu-madlad-mean-slerp0305-emb](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-Instruct-gu-madlad-mean-slerp0305-emb)             | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B |
+| [atsuki-yamaguchi/Qwen2.5-7B-Instruct-gu-madlad-mean-slerp0305-emb-special](https://huggingface.co/atsuki-yamaguchi/Qwen2.5-7B-Instruct-gu-madlad-mean-slerp0305-emb-special) | 7.7B         |                    1 |   2024 | Qwen/Qwen2.5-7B         |
+| [alphaedge-ai/Qwen3.5-4B-guj-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-guj-32768)                                                                                 | 4.0B         |                    1 |   2026 | Qwen3.5-4B              |
+| [alphaedge-ai/gemma-3-4b-it-guj-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-guj-32768)                                                                           | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it    |
+| [alphaedge-ai/Qwen3.5-2B-guj-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-guj-32768)                                                                                 | 1.8B         |                    1 |   2026 | Qwen3.5-2B              |
 
 _56 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +177,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**23** benchmark datasets in the survey include Gujarati.
+**22** benchmark datasets in the survey include Gujarati.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [5]     \
+                 /   [4]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -185,7 +210,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                    | # test items   | Construction                                                        |
+| level                                  | task                           | dataset                                                                                                    | # test items   | construction                                                        |
 |:---------------------------------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                       | 7              | Treebank-based (automatic, UD + UniMorph)                           |
 | 2. Pragmatics, discourse & coreference | WinoGrande                     | [Winogrande_translated (CognitiveLab)](https://huggingface.co/datasets/CognitiveLab/Winogrande_translated) | —              | Machine translation (method not stated)                             |
@@ -201,7 +226,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | IndicMMLU-Pro                                                                                              | —              | Machine translation (from MMLU-Pro)                                 |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                                     | 4,827          | Native (Indian exams; some translated)                              |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                     | —              | Machine translation (GPT-3.5, Okapi)                                |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                           |
 | Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                | 854            | Human translation via English pivot                                 |
 | Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                    | 1,012          | Human translation (professional, from English Wikimedia sources)    |
@@ -235,7 +259,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 100 of ~18,460 papers (0.54%) (rank 58 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 100 of ~18,498 papers (0.54%) (rank 60 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Gujarati
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 100):

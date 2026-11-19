@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ben`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Gauda-Banga ([Glottolog](https://glottolog.org/resource/languoid/id/beng1280))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Beng`
+
+**Speakers:** about 279.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 300.0 million first-language + 19.2 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q9610#P1098), 2011)
 
 **Official / recognised in:** Bangladesh, India
 
 **Status:** Official and national language; Regional official language
+
+
+## What does Bengali look and sound like?
+
+**Written:** Omniglot has [a page on Bengali](https://www.omniglot.com/writing/bengali.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ben/) has 7 videos of Bengali speakers. Watch [See all](https://wikitongues.org/videos/?language=ben).
 
 
 ## Training Data
@@ -25,20 +38,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                    |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 192,418 articles in bn.wikipedia (rank 44 of 161 in the set) — ~1/39 of English; 1,740 active users                                                                                                                                       |
-| Common Crawl 2026      | 2,365,388 pages per crawl on average, which is 0.1097% of the crawl. This is ~1/377 of English data and ranks 34 of 113 official languages in Common Crawl.                                                                               |
-| FineWeb                | 24.02 GB (ben_Beng (23.99); ben_Latn (0.03)); which is equivalent to ≈9.87 GB English data after byte-premium scaling; 17.61 GB removed by filtering. This is ~1/2,224 of English data and ranks 32 of 248 official languages in FineWeb. |
-| Goldfish training data | 4.50 GB (ben_beng) (rank 41 of 166 in the set)                                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                      |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 192,418 articles in bn.wikipedia; 1,740 active users. This is ~1/39 of English data and ranks 45 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                  |
+| Common Crawl           | 2,365,388 pages per crawl on average, which is 0.1097% of the crawl (2026). This is ~1/377 of English data and ranks 34 of 113 languages in the set in Common Crawl.                                                                                                                                                                                        |
+| FineWeb                | 24.02 GB (ben_Beng 23.99 GB; ben_Latn 30.0 MB), equivalent to ≈9.87 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 17.61 GB removed by filtering. This is ~1/2,224 of English data and ranks 32 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 4.50 GB (ben_Beng 4.50 GB) (rank 41 of 166 in the set)                                                                                                                                                                                                                                                                                                      |
+
+**By writing system:**
+
+| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Bengali (`Beng`) | 23.99 GB  | 9.87 GB                       | 4.50 GB      | 1.85 GB                        |
+| Latin (`Latn`)   | 30.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                         |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 56 sentences / 320 tokens in total: [UD_Bengali-BRU](https://github.com/UniversalDependencies/UD_Bengali-BRU) (56 sentences). It has POS tags, dependency syntax, lemmas and morphological features.    |
+| UniMorph               | 136 lemmas, 4,443 inflected forms ([unimorph/ben](https://github.com/unimorph/ben))                                                                                                                                 |
+| Wikidata labels        | 10,326,434 Wikidata items have a label in Bengali. (Wikidata codes (labels): bn (10,326,434))                                                                                                                       |
+| Wordnets               | [Bengali WordNet](http://www.isical.ac.in/~lru/wordnetnew/) (size not listed); licence: CC By 3.0; [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                 |
+|:-----------------------------------|:--------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                     |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([ben2017](https://ebible.org/details.php?id=ben2017)). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** fasttext — F1 0.989 (P 0.986, R 0.992, FPR 1.74e-04) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.989).
+- **Best model:** fasttext — F1 0.989 (P 0.986, R 0.992, FPR 1.71e-04) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.989).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -52,8 +95,10 @@ Language identification (LangID or LID) is a classification task that identifies
 | cld2         |       0.995 |    0.943 | 0.966 | 0.000 | ✓                |
 | py3langid    |       0.933 |    0.984 | 0.954 | 0.001 | ✓                |
 | commonlingua |       0.921 |    0.955 | 0.933 | 0.001 | ✓                |
+| cld3         |       0.668 |    0.984 | 0.773 | 0.010 | ✓                |
 | pyfranc      |       0.667 |    0.971 | 0.769 | 0.009 | ✗                |
-| funlangid    |       0.875 |    0.628 | 0.727 | 0.001 | ✓                |
+| funlangid    |       0.874 |    0.628 | 0.727 | 0.001 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (fasttext) by dataset**:
 
@@ -63,8 +108,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | CommonLID | 300 |       0.980 |    0.973 | 0.977 |
 | Wikipedia | 300 |       0.990 |    0.980 | 0.985 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -94,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      333 | ██████████████       |
 |   2026 |      467 | ████████████████████ |
 
-### Most popular models tagged for Bengali
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Bengali
-
-| model                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of           |
-|:------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------|
-| [flax-community/gpt2-bengali](https://huggingface.co/flax-community/gpt2-bengali)         | 42,603                 | 998                   | 137.0M       |                    1 |   2022 | —                       |
-| [hishab/titulm-llama-3.2-3b-v2.0](https://huggingface.co/hishab/titulm-llama-3.2-3b-v2.0) | 20,246                 | 1,293                 | 3.3B         |                    1 |   2024 | —                       |
-| [hishab/titulm-llama-3.2-1b-v2.0](https://huggingface.co/hishab/titulm-llama-3.2-1b-v2.0) | 8,187                  | 925                   | 1.3B         |                    1 |   2024 | —                       |
-| [ritog/bangla-gpt2](https://huggingface.co/ritog/bangla-gpt2)                             | 7,186                  | 172                   | unknown      |                    1 |   2022 | —                       |
-| [hishab/titulm-llama-3.2-1b-v1.1](https://huggingface.co/hishab/titulm-llama-3.2-1b-v1.1) | 6,296                  | 358                   | 1.2B         |                    1 |   2024 | meta-llama/Llama-3.2-1B |
-
 ### Largest models tagged for Bengali
 
-| model                                                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                   | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                       | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)     | 604                    | 604                   | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
-| [diablomike20/command-a-plus-05-2026-GGUF](https://huggingface.co/diablomike20/command-a-plus-05-2026-GGUF) | 2,352                  | 2,352                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [bigscience/bloomz](https://huggingface.co/bigscience/bloomz)                                               | 163,618                | 983                   | 176.2B       |                   35 |   2022 | —                                      |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                          |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                               | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                   | 856.0B       |                  143 |   2025 | —                                      |
+| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF) | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)   | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                                   | 176.2B       |                   37 |   2026 | —                                      |
 
 ### Largest models tagged *only* for Bengali
 
-| model                                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of              |
-|:------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------|
-| [1-800-LLMs/OSS20B_BN](https://huggingface.co/1-800-LLMs/OSS20B_BN)                                                           | 29                     |                     0 | 21.5B        |                    1 |   2025 | openai/gpt-oss-20b         |
-| [atsuki-yamaguchi/Qwen3-14B-Base-bn-madlad-mean-cv](https://huggingface.co/atsuki-yamaguchi/Qwen3-14B-Base-bn-madlad-mean-cv) | 83                     |                     4 | 14.9B        |                    1 |   2025 | Qwen/Qwen3-14B-Base        |
-| [KillerShoaib/gemma-2-9b-bangla-16bit](https://huggingface.co/KillerShoaib/gemma-2-9b-bangla-16bit)                           | 274                    |                     6 | 9.0B         |                    1 |   2024 | google/gemma-2-9b          |
-| [KillerShoaib/llama-3-8b-bangla-4bit](https://huggingface.co/KillerShoaib/llama-3-8b-bangla-4bit)                             | 1,174                  |                     7 | 8.2B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B |
-| [atsuki-yamaguchi/Llama-3.1-8B-bn-madlad-mean-cv](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-bn-madlad-mean-cv)     | 161                    |                     5 | 8.1B         |                    1 |   2025 | meta-llama/Llama-3.1-8B    |
+| model                                                                                                                                                             | parameters   |   # languages tagged |   year | derivative of              |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------|
+| [1-800-LLMs/OSS20B_BN](https://huggingface.co/1-800-LLMs/OSS20B_BN)                                                                                               | 21.5B        |                    1 |   2025 | openai/gpt-oss-20b         |
+| [atsuki-yamaguchi/Qwen3-14B-Base-bn-madlad-mean-cv](https://huggingface.co/atsuki-yamaguchi/Qwen3-14B-Base-bn-madlad-mean-cv)                                     | 14.9B        |                    1 |   2025 | Qwen/Qwen3-14B-Base        |
+| [KillerShoaib/gemma-2-9b-bangla-16bit](https://huggingface.co/KillerShoaib/gemma-2-9b-bangla-16bit)                                                               | 9.0B         |                    1 |   2024 | google/gemma-2-9b          |
+| [KillerShoaib/llama-3-8b-bangla-4bit](https://huggingface.co/KillerShoaib/llama-3-8b-bangla-4bit)                                                                 | 8.2B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B |
+| [atsuki-yamaguchi/Llama-3.1-8B-Instruct-bn-madlad-mean-slerp0305-emb](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-Instruct-bn-madlad-mean-slerp0305-emb) | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B    |
 
 _140 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +177,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**38** benchmark datasets in the survey include Bengali.
+**31** benchmark datasets in the survey include Bengali.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [13]    \
+                 /   [10]   \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [5]   \
+            / comprehension [4]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [8]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -179,52 +204,45 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
    /   knowledge [1]   |  & discourse [2]   \
   /____________________|_____________________\
- /         ✅ Machine translation [9]         \
+ /         ✅ Machine translation [8]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                        | # test items   | Construction                                                                |
-|:---------------------------------------|:-------------------------------|:---------------------------------------------------------------------------------------------------------------|:---------------|:----------------------------------------------------------------------------|
-| 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                           | 21             | Treebank-based (automatic, UD + UniMorph)                                   |
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MAPS (proverbs)](https://github.com/UKPLab/maps)                                                              | 340            | Native proverbs; contexts written in English, MT, then corrected by natives |
-| 2. Pragmatics, discourse & coreference | Implicature & indirect answers | [Multilingual indirect yes/no answers (Wang & Blanco)](https://github.com/wang-zijie/yn-question-multilingual) | 240            | Native                                                                      |
-| 3. Commonsense reasoning               | COPA                           | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                                               | 500            | Human translation                                                           |
-| 3. Commonsense reasoning               | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                                          | 9,088          | Machine translation (GPT-4o, auto-checked)                                  |
-| 3. Commonsense reasoning               | HellaSwag                      | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)                       | 9,242          | Machine translation (GPT-3.5-turbo)                                         |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)            | 100            | Native                                                                      |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)            | 100            | Native                                                                      |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                   | 103            | MT + human post-editing                                                     |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                   | 103            | MT + human post-editing                                                     |
-| 3. Commonsense reasoning               | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench)                                                         | 1,332          | Machine translation (GPT-4o, auto-checked)                                  |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                  | 900            | Human translation (professional)                                            |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                  | 900            | Human translation (professional)                                            |
-| 4. Reading comprehension               | QA – extractive RC             | BanglaRQA                                                                                                      | —              | Native                                                                      |
-| 4. Reading comprehension               | QA – extractive RC             | [Indic QA Benchmark](https://github.com/ayushayush591/IndicQA-Benchmark)                                       | 10,835         | Mixed: mostly MT of English/Hindi sources + native IndicQA/chaii            |
-| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                     | 5,000          | Synthetic (LLM-generated) on native Wikipedia                               |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                          | 14,042         | Human translation (professional)                                            |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                | —              | Native (local exams)                                                        |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | IndicMMLU-Pro                                                                                                  | —              | Machine translation (from MMLU-Pro)                                         |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                                         | 6,638          | Native (Indian exams; some translated)                                      |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                                  | 11,829         | LLM translation + expert review                                             |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMMLU (OpenAI)](https://huggingface.co/datasets/openai/MMMLU)                                                 | 14,042         | Human translation (professional)                                            |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                         | —              | Machine translation (GPT-3.5, Okapi)                                        |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                         | 100            | Native (community-written, peer-verified)                                   |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                         | 100            | Native (community-written, peer-verified)                                   |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                         | 100            | Native (community-written, peer-verified)                                   |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                         | 100            | Native (community-written, peer-verified)                                   |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                                | 250            | Native (locally sourced)                                                    |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [XOR-TyDi QA](https://github.com/AkariAsai/XORQA)                                                              | 266            | Native (TyDi questions)                                                     |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                    | 854            | Human translation via English pivot                                         |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                    | 854            | Human translation via English pivot                                         |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                        | 1,012          | Human translation (professional, from English Wikimedia sources)            |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                      | 1,997          | Human translation (professional, from English)                              |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                  | —              | Human translation (professional) of LLM-generated English documents         |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                 | —              | Human translation (professional, from English)                              |
-| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                        | 2,100          | Human translation (professional/volunteer, from English)                    |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                           | 2,500          | Native (crowdsourced Tatoeba sentence pairs)                                |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                      | 998            | Human translation (professional) + post-edits                               |
+| level                                  | task                           | dataset                                                                                                                 | # test items   | construction                                                                |
+|:---------------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------------|:---------------|:----------------------------------------------------------------------------|
+| 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                                    | 21             | Treebank-based (automatic, UD + UniMorph)                                   |
+| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MAPS (proverbs)](https://github.com/UKPLab/maps)                                                                       | 340            | Native proverbs; contexts written in English, MT, then corrected by natives |
+| 2. Pragmatics, discourse & coreference | Implicature & indirect answers | [Multilingual indirect yes/no answers (Wang & Blanco)](https://github.com/wang-zijie/yn-question-multilingual)          | 240            | Native                                                                      |
+| 3. Commonsense reasoning               | COPA                           | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                                                        | 500            | Human translation                                                           |
+| 3. Commonsense reasoning               | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                                                   | 9,088          | Machine translation (GPT-4o, auto-checked)                                  |
+| 3. Commonsense reasoning               | HellaSwag                      | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)                                | 9,242          | Machine translation (GPT-3.5-turbo)                                         |
+| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) (2 varieties/pairs) | 200            | Native                                                                      |
+| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel) (2 varieties/pairs)        | 206            | MT + human post-editing                                                     |
+| 3. Commonsense reasoning               | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench)                                                                  | 1,332          | Machine translation (GPT-4o, auto-checked)                                  |
+| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele) (2 varieties/pairs)                                       | 1,800          | Human translation (professional)                                            |
+| 4. Reading comprehension               | QA – extractive RC             | BanglaRQA                                                                                                               | —              | Native                                                                      |
+| 4. Reading comprehension               | QA – extractive RC             | [Indic QA Benchmark](https://github.com/ayushayush591/IndicQA-Benchmark)                                                | 10,835         | Mixed: mostly MT of English/Hindi sources + native IndicQA/chaii            |
+| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                              | 5,000          | Synthetic (LLM-generated) on native Wikipedia                               |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | IndicMMLU-Pro                                                                                                           | —              | Machine translation (from MMLU-Pro)                                         |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                                   | 14,042         | Human translation (professional)                                            |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                         | —              | Native (local exams)                                                        |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                                                  | 6,638          | Native (Indian exams; some translated)                                      |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                                           | 11,829         | LLM translation + expert review                                             |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMMLU (OpenAI)](https://huggingface.co/datasets/openai/MMMLU)                                                          | 14,042         | Human translation (professional)                                            |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                                  | —              | Machine translation (GPT-3.5, Okapi)                                        |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles) (2 varieties/pairs)              | 200            | Native (community-written, peer-verified)                                   |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                                         | 250            | Native (locally sourced)                                                    |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [XOR-TyDi QA](https://github.com/AkariAsai/XORQA)                                                                       | 266            | Native (TyDi questions)                                                     |
+| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)                                         | 1,708          | Human translation via English pivot                                         |
+| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources)            |
+| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                              |
+| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents         |
+| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                              |
+| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                                 | 2,100          | Human translation (professional/volunteer, from English)                    |
+| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 2,500          | Native (crowdsourced Tatoeba sentence pairs)                                |
+| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                               | 998            | Human translation (professional) + post-edits                               |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -250,7 +268,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 427 of ~18,460 papers (2.31%) (rank 16 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 427 of ~18,498 papers (2.31%) (rank 16 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Bengali
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 427):

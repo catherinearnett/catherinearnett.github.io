@@ -12,11 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ssw`
 
-**Writing systems:** `Latn`
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Swatic ([Glottolog](https://glottolog.org/resource/languoid/id/swat1243))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
+**Speakers:** about 2.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 2.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34014#P1098))
 
 **Official / recognised in:** Eswatini, South Africa
 
 **Status:** Official language
+
+
+## What does Swazi look and sound like?
+
+**Written:** no Omniglot page found for Swazi.
+
+**Spoken:** no Wikitongues video of Swazi yet ([its Wikitongues page](https://wikitongues.org/languages/ssw/) says how to contribute one).
 
 
 ## Training Data
@@ -25,20 +36,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,195 articles in ss.wikipedia (rank 145 of 161 in the set) — ~1/6,315 of English; 8 active users                                                                                                                         |
-| Common Crawl 2026      | 1,073 pages per crawl on average, which is 0.0001% of the crawl. This is ~1/830,855 of English data and ranks 110 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 4.2 MB (ssw_Latn (0.00)); which is equivalent to ≈3.7 MB English data after byte-premium scaling; 53.0 MB removed by filtering. This is ~1/12,676,467 of English data and ranks 164 of 248 official languages in FineWeb. |
-| Goldfish training data | 24.7 MB (ssw_latn) (rank 146 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                      |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,195 articles in ss.wikipedia; 8 active users. This is ~1/6,315 of English data and ranks 152 of 168 languages in the set in Wikipedia.                                                                    |
+| Common Crawl           | 1,073 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/830,855 of English data and ranks 110 of 113 languages in the set in Common Crawl.                                       |
+| FineWeb                | 4.2 MB (ssw_Latn 0), equivalent to ≈3.7 MB of English after byte-premium scaling; 53.0 MB removed by filtering. This is ~1/12,676,467 of English data and ranks 164 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 24.7 MB (ssw_Latn 25.0 MB) (rank 146 of 166 in the set)                                                                                                                                                     |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                     |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                  |
+| UniMorph               | **None found**                                                                                                                                                                  |
+| Wikidata labels        | 472,731 Wikidata items have a label in Swazi. (Wikidata codes (labels): ss (472,731))                                                                                           |
+| Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=12), UDHR-LID (n=60), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.879 (P 0.902, R 0.861, FPR 3.59e-05) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.845).
+- **Best model:** GlotLID — F1 0.879 (P 0.902, R 0.861, FPR 3.54e-05) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.845).
 
 **All models (averaged over datasets):**
 
@@ -47,10 +79,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.902 |    0.861 | 0.879 | 0.000 | ✓                |
 | fasttext     |       0.862 |    0.836 | 0.845 | 0.000 | ✓                |
 | cld2         |       0.875 |    0.789 | 0.828 | 0.000 | ✓                |
-| OpenLID-v2   |       0.799 |    0.889 | 0.826 | 0.001 | ✓                |
-| pyfranc      |       0.804 |    0.764 | 0.778 | 0.001 | ✓                |
+| OpenLID-v2   |       0.798 |    0.889 | 0.826 | 0.001 | ✓                |
+| pyfranc      |       0.801 |    0.764 | 0.776 | 0.001 | ✓                |
+| AfroLID      |       0.998 |    0.689 | 0.761 | 0.000 | ✓                |
 | funlangid    |       0.833 |    0.684 | 0.741 | 0.000 | ✓                |
-| commonlingua |       0.685 |    0.821 | 0.716 | 0.003 | ✓                |
+| commonlingua |       0.683 |    0.821 | 0.714 | 0.003 | ✓                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -72,6 +106,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Swazi and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Swazi has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/ssw/) video of Swazi yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Swazi?
@@ -91,40 +127,21 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       19 | ████████████████████ |
 |   2026 |       17 | ██████████████████   |
 
-### Most popular models tagged for Swazi
-
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                       |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------------------|
-| [uctnlp/mzansilm-125m](https://huggingface.co/uctnlp/mzansilm-125m)                                   | 374,957                | 1,377                 | 125.0M       |                   11 |   2026 | —                                   |
-| [ncsgobubble/Llama-7B-rollercoaster_v2](https://huggingface.co/ncsgobubble/Llama-7B-rollercoaster_v2) | 12,872                 | 52                    | 6.7B         |                    1 |   2024 | SuvajitGB/rollercoaster_emotions_v2 |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                               | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                                   |
-| [UBC-NLP/toucan-1.2B](https://huggingface.co/UBC-NLP/toucan-1.2B)                                     | 7,456                  | 82                    | 1.2B         |                   21 |   2024 | —                                   |
-| [UBC-NLP/toucan-base](https://huggingface.co/UBC-NLP/toucan-base)                                     | 7,049                  | 22                    | 582.4M       |                   21 |   2024 | —                                   |
-
-### Most popular models tagged *only* for Swazi
-
-| model                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                       |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------------------|
-| [ncsgobubble/Llama-7B-rollercoaster_v2](https://huggingface.co/ncsgobubble/Llama-7B-rollercoaster_v2) | 12,872                 |                    52 | 6.7B         |                    1 |   2024 | SuvajitGB/rollercoaster_emotions_v2 |
-| [goldfish-models/ssw_latn_5mb](https://huggingface.co/goldfish-models/ssw_latn_5mb)                   | 430                    |                    12 | unknown      |                    1 |   2024 | —                                   |
-| [goldfish-models/ssw_latn_full](https://huggingface.co/goldfish-models/ssw_latn_full)                 | 385                    |                    19 | unknown      |                    1 |   2024 | —                                   |
-| [goldfish-models/ssw_latn_10mb](https://huggingface.co/goldfish-models/ssw_latn_10mb)                 | 104                    |                    13 | unknown      |                    1 |   2024 | —                                   |
-
 ### Largest models tagged for Swazi
 
-| model                                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of             |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                         |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                         |
-| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs)                   | 602                    |                    99 | 9.4B         |                   29 |   2026 | Qwen/Qwen3.5-9B-Base      |
-| [AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4](https://huggingface.co/AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4) | 162                    |                    41 | 9.0B         |                   46 |   2026 | inclusionAI/UI-Venus-2-9B |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                               | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                         |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of             |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                         |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                         |
+| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs)                   | 9.4B         |                   32 |   2026 | Qwen/Qwen3.5-9B-Base      |
+| [AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4](https://huggingface.co/AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4) | 9.0B         |                   48 |   2026 | inclusionAI/UI-Venus-2-9B |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                               | 8.6B         |                  189 |   2023 | —                         |
 
 ### Largest models tagged *only* for Swazi
 
-| model                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                       |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------------------|
-| [ncsgobubble/Llama-7B-rollercoaster_v2](https://huggingface.co/ncsgobubble/Llama-7B-rollercoaster_v2) | 12,872                 |                    52 | 6.7B         |                    1 |   2024 | SuvajitGB/rollercoaster_emotions_v2 |
+| model                                                                                                 | parameters   |   # languages tagged |   year | derivative of                       |
+|:------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------------|
+| [ncsgobubble/Llama-7B-rollercoaster_v2](https://huggingface.co/ncsgobubble/Llama-7B-rollercoaster_v2) | 6.7B         |                    1 |   2024 | SuvajitGB/rollercoaster_emotions_v2 |
 
 _22 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -155,15 +172,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -177,7 +194,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                    | # test items   | Construction                                                        |
+| level                    | task                          | dataset                                                                    | # test items   | construction                                                        |
 |:-------------------------|:------------------------------|:---------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)              | 900            | Human translation (professional)                                    |
 | 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 1,856          | Synthetic (LLM-generated) on native Wikipedia                       |
@@ -213,7 +230,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 2 of ~18,460 papers (0.01%) (rank 204 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 2 of ~18,498 papers (0.01%) (rank 227 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Swazi
 
 Here are up to ten papers that were published mentioning this language in 2026:

@@ -12,11 +12,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `srp` · macrolanguage `hbs`
 
+**Language family:** **Indo-European** › Classical Indo-European › Balto-Slavic › … › Eastern Herzegovinian Shtokavian. Glottolog treats Serbian Standard as a variety of Serbian-Croatian-Bosnian ([Glottolog](https://glottolog.org/resource/languoid/id/serb1264))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Cyrl` and `Latn`
+
+**Speakers:** about 14.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 9.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9299#P1098))
 
 **Official / recognised in:** Bosnia and Herzegovina, Kosovo, Serbia
 
 **Status:** Official language
+
+
+## What does Serbian look and sound like?
+
+**Written (Serbian in the Cyrillic)**, sample text from [Omniglot](https://www.omniglot.com/writing/serbian.htm):
+
+> Сва људска бића рађају се слободна и једнака у достојанству и правима. Она су обдарена разумом и свешћу и треба једни према другима да поступају у духу братства.
+
+**Written (Serbian in the Latin alphabet)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/serbian.htm):
+
+> Sva ljudska bića rađaju se slobodna i jednaka u dostojanstvu
+> i pravima. Ona su obdarena razumom i svešću i treba jedni prema
+> drugima da postupaju u duhu bratstva.
+> A recording of this text by Robert Todorić
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_sr.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/srp/) has 4 videos of Serbian speakers. Watch [Slobodan speaking Serbian](https://wikitongues.org/videos/slobodan_20140729_srp/).
 
 
 ## Training Data
@@ -25,40 +53,72 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                  |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 710,638 articles in sr.wikipedia (rank 20 of 161 in the set) — ~1/11 of English; 1,491 active users                                                                                                                                     |
-| Common Crawl 2026      | 5,491,412 pages per crawl on average, which is 0.2549% of the crawl. This is ~1/162 of English data and ranks 27 of 113 official languages in Common Crawl.                                                                             |
-| FineWeb                | 10.49 GB (srp_Cyrl (9.37); srp_Latn (1.12)); which is equivalent to ≈7.93 GB English data after byte-premium scaling; 8.22 GB removed by filtering. This is ~1/5,093 of English data and ranks 40 of 248 official languages in FineWeb. |
-| Goldfish training data | 3.39 GB (srp_cyrl; srp_latn) (rank 51 of 166 in the set)                                                                                                                                                                                |
+| Source                 | Amount                                                                                                                                                                                                                           |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 710,638 articles in sr.wikipedia; 1,491 active users. This is ~1/11 of English data and ranks 21 of 168 languages in the set in Wikipedia.                                                                                       |
+| Common Crawl           | 5,491,412 pages per crawl on average, which is 0.2549% of the crawl (2026). This is ~1/162 of English data and ranks 27 of 113 languages in the set in Common Crawl.                                                             |
+| FineWeb                | 10.49 GB (srp_Cyrl 9.37 GB; srp_Latn 1.12 GB), equivalent to ≈7.93 GB of English after byte-premium scaling; 8.22 GB removed by filtering. This is ~1/5,093 of English data and ranks 40 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 3.39 GB (srp_Cyrl 2.34 GB; srp_Latn 1.05 GB) (rank 51 of 166 in the set)                                                                                                                                                         |
+
+**By writing system:**
+
+| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish   | Goldfish, English-equivalent   |
+|:------------------|:----------|:------------------------------|:-----------|:-------------------------------|
+| Cyrillic (`Cyrl`) | 9.37 GB   | — (no byte premium yet)       | 2.34 GB    | — (no byte premium yet)        |
+| Latin (`Latn`)    | 1.12 GB   | — (no byte premium yet)       | 1.05 GB    | — (no byte premium yet)        |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                          |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 6,131 sentences / 143,354 tokens in total: [UD_Serbian-ParCoLab](https://github.com/UniversalDependencies/UD_Serbian-ParCoLab) (1,747 sentences), [UD_Serbian-SET](https://github.com/UniversalDependencies/UD_Serbian-SET) (4,384 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                       |
+| Wikidata labels        | 1,441,350 Wikidata items have a label in Serbian. (Wikidata codes (labels): sr-el (1,441,350), sr (1,314,862), sr-ec (371,497))                                                                                                                                                                                                      |
+| Wordnets               | [BalkaNet](http://www.dblab.upatras.gr/balkanet/) (size not listed); [Serbian Wordnet (SrpWN)](http://korpus.matf.bg.ac.rs/SrpWN/) (size not listed); licence: CC_BY-NC.                                                                                                                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                    |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([srp1865](https://ebible.org/details.php?id=srp1865), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                 |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=118), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.793 (P 0.773, R 0.847, FPR 2.43e-03) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.774).
+- **Best model:** GlotLID — F1 0.794 (P 0.773, R 0.847, FPR 2.40e-03) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.774).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.773 |    0.847 | 0.793 | 0.002 | ✓                |
+| GlotLID      |       0.773 |    0.847 | 0.794 | 0.002 | ✓                |
 | OpenLID-v2   |       0.833 |    0.748 | 0.774 | 0.002 | ✓                |
-| fasttext     |       0.823 |    0.749 | 0.768 | 0.002 | ✓                |
-| py3langid    |       0.742 |    0.792 | 0.750 | 0.004 | ✓                |
+| fasttext     |       0.824 |    0.749 | 0.769 | 0.002 | ✓                |
+| py3langid    |       0.742 |    0.792 | 0.749 | 0.004 | ✓                |
 | commonlingua |       0.667 |    0.794 | 0.722 | 0.004 | ✓                |
-| cld2         |       0.656 |    0.814 | 0.720 | 0.005 | ✓                |
-| funlangid    |       0.787 |    0.602 | 0.667 | 0.002 | ✓                |
-| pyfranc      |       0.487 |    0.499 | 0.491 | 0.006 | ✓                |
+| cld2         |       0.655 |    0.814 | 0.719 | 0.005 | ✓                |
+| cld3         |       0.740 |    0.731 | 0.708 | 0.005 | ✓                |
+| funlangid    |       0.788 |    0.602 | 0.667 | 0.002 | ✓                |
+| pyfranc      |       0.486 |    0.499 | 0.490 | 0.006 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | UDHR-LID  | 118 |       0.527 |    0.653 | 0.583 |
-| Tatoeba   | 300 |       0.517 |    0.937 | 0.666 |
+| Tatoeba   | 300 |       0.517 |    0.937 | 0.667 |
 | NTREX     | 300 |       0.860 |    0.653 | 0.742 |
 | FLORES    | 300 |       0.968 |    1.000 | 0.984 |
 | Wikipedia | 300 |       0.993 |    0.990 | 0.992 |
@@ -71,6 +131,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Serbian and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Serbian has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Serbian?
@@ -91,45 +152,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      211 | ██████████████████   |
 |   2026 |      232 | ████████████████████ |
 
-### Most popular models tagged for Serbian
-
-| model                                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct)                         | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [lmstudio-community/Devstral-Small-2507-MLX-8bit](https://huggingface.co/lmstudio-community/Devstral-Small-2507-MLX-8bit) | 817,747                | 10,371                | 23.6B        |                   24 |   2025 | mistralai/Devstral-Small-2507          |
-| [BSC-LT/salamandra-7b-instruct](https://huggingface.co/BSC-LT/salamandra-7b-instruct)                                     | 713,529                | 36,481                | 7.8B         |                   33 |   2024 | BSC-LT/salamandra-7b                   |
-| [lmstudio-community/Devstral-Small-2505-MLX-4bit](https://huggingface.co/lmstudio-community/Devstral-Small-2505-MLX-4bit) | 638,937                | 6,557                 | 23.6B        |                   24 |   2025 | mistralai/Devstral-Small-2505          |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                                                       | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                                      |
-
-### Most popular models tagged *only* for Serbian
-
-| model                                                                           | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                         |
-|:--------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------------------------|
-| [jerteh/gpt2-orao](https://huggingface.co/jerteh/gpt2-orao)                     | 9,917                  |                   755 | 810.4M       |                    1 |   2023 | —                                     |
-| [macedonizer/sr-gpt2](https://huggingface.co/macedonizer/sr-gpt2)               | 6,792                  |                   223 | unknown      |                    1 |   2022 | —                                     |
-| [jerteh/gpt2-vrabac](https://huggingface.co/jerteh/gpt2-vrabac)                 | 5,312                  |                   182 | 136.2M       |                    1 |   2023 | —                                     |
-| [edukom/Serbian-GPT-2](https://huggingface.co/edukom/Serbian-GPT-2)             | 2,632                  |                    25 | unknown      |                    1 |   2023 | —                                     |
-| [datatab/Yugo55-GPT-v4-4bit](https://huggingface.co/datatab/Yugo55-GPT-v4-4bit) | 1,161                  |                    25 | 7.5B         |                    1 |   2024 | datatab/YugoGPT-Alpaca-v1-epoch1-good |
-
 ### Largest models tagged for Serbian
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-----------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                               |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                            |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                   |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                            |
-| [GreatZM/GLM-5.3-CYBERSECURITY-FP8](https://huggingface.co/GreatZM/GLM-5.3-CYBERSECURITY-FP8)           |                     75 |                    22 | 753.3B       |                   10 |   2026 | JANGQ-AI/GLM-5.3-FP8         |
-| [Devopsopraiz/Baanzon-Revgarden-V5-R](https://huggingface.co/Devopsopraiz/Baanzon-Revgarden-V5-R)       |                     46 |                    46 | 753.3B       |                   10 |   2026 | —                            |
-| [AIAgens/GLM-5.3-Flash-UNCENSORED-W4A16](https://huggingface.co/AIAgens/GLM-5.3-Flash-UNCENSORED-W4A16) |                    682 |                   233 | 321.3B       |                   10 |   2026 | JANGQ-AI/GLM-5.3-Flash-W4A16 |
+| model                                                                                                     | parameters   |   # languages tagged |   year | derivative of                |
+|:----------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                 | 1.9T         |                  143 |   2025 | —                            |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                     | 856.0B       |                  143 |   2025 | —                            |
+| [Devopsopraiz/Baanzon-Revgarden-V5-R](https://huggingface.co/Devopsopraiz/Baanzon-Revgarden-V5-R)         | 753.3B       |                   10 |   2026 | —                            |
+| [AleaiactaEst1/GLM-5.3-CYBERSECURITY-FP8](https://huggingface.co/AleaiactaEst1/GLM-5.3-CYBERSECURITY-FP8) | 753.3B       |                   10 |   2026 | JANGQ-AI/GLM-5.3-FP8         |
+| [AIAgens/GLM-5.3-Flash-UNCENSORED-W4A16](https://huggingface.co/AIAgens/GLM-5.3-Flash-UNCENSORED-W4A16)   | 321.3B       |                   10 |   2026 | JANGQ-AI/GLM-5.3-Flash-W4A16 |
 
 ### Largest models tagged *only* for Serbian
 
-| model                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                         |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------------------------|
-| [IvanCvetanovic/Slava-Qwen3-14B-Serbian](https://huggingface.co/IvanCvetanovic/Slava-Qwen3-14B-Serbian)   | 174                    |                    19 | 14.8B        |                    1 |   2026 | Qwen/Qwen3-14B-Base                   |
-| [te-sla/serbian-emotion-qwen3.5-9b](https://huggingface.co/te-sla/serbian-emotion-qwen3.5-9b)             | 284                    |                    35 | 9.4B         |                    1 |   2026 | unsloth/Qwen3.5-9B                    |
-| [datatab/Yugo55A-4bit](https://huggingface.co/datatab/Yugo55A-4bit)                                       | 719                    |                    10 | 7.5B         |                    1 |   2024 | mistralai/Mistral-7B-v0.1             |
-| [datatab/Yugo55-GPT-v4-4bit](https://huggingface.co/datatab/Yugo55-GPT-v4-4bit)                           | 1,161                  |                    25 | 7.5B         |                    1 |   2024 | datatab/YugoGPT-Alpaca-v1-epoch1-good |
-| [MarkoRadojcic/YugoGPT-Florida_Q8_0-GGUF](https://huggingface.co/MarkoRadojcic/YugoGPT-Florida_Q8_0-GGUF) | 239                    |                    15 | 7.2B         |                    1 |   2025 | datatab/YugoGPT-Florida               |
+| model                                                                                                     | parameters   |   # languages tagged |   year | derivative of                         |
+|:----------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------------|
+| [IvanCvetanovic/Slava-Qwen3-14B-Serbian](https://huggingface.co/IvanCvetanovic/Slava-Qwen3-14B-Serbian)   | 14.8B        |                    1 |   2026 | Qwen/Qwen3-14B-Base                   |
+| [te-sla/serbian-emotion-qwen3.5-9b](https://huggingface.co/te-sla/serbian-emotion-qwen3.5-9b)             | 9.4B         |                    1 |   2026 | unsloth/Qwen3.5-9B                    |
+| [datatab/Yugo55A-4bit](https://huggingface.co/datatab/Yugo55A-4bit)                                       | 7.5B         |                    1 |   2024 | mistralai/Mistral-7B-v0.1             |
+| [datatab/Yugo55-GPT-v4-4bit](https://huggingface.co/datatab/Yugo55-GPT-v4-4bit)                           | 7.5B         |                    1 |   2024 | datatab/YugoGPT-Alpaca-v1-epoch1-good |
+| [MarkoRadojcic/YugoGPT-Florida_Q4_0.GGUF](https://huggingface.co/MarkoRadojcic/YugoGPT-Florida_Q4_0.GGUF) | 7.2B         |                    1 |   2025 | datatab/YugoGPT-Florida               |
 
 _74 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -149,7 +190,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**30** benchmark datasets in the survey include Serbian (plus 1 labelled with the macrolanguage `hbs`, included below).
+**22** benchmark datasets in the survey include Serbian (plus 1 labelled with the macrolanguage `hbs`, included below).
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -160,15 +201,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [7]     \
+                 /   [6]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [14]       \
+         /      reasoning [8]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -176,45 +217,37 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
    /   knowledge [2]   |  & discourse [1]   \
   /____________________|_____________________\
- /         ✅ Machine translation [5]         \
+ /         ✅ Machine translation [4]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                           | # test items   | Construction                                                     |
-|:---------------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                                         | 24             | Treebank-based (automatic)                                       |
-| 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `hbs`)                                   | 3,286          | Treebank-based (automatic, UD + UniMorph)                        |
-| 2. Pragmatics, discourse & coreference | Coherence & discourse          | [Multilingual DiscoEval-style probing (Godunova & Voloshina)](https://github.com/mashagodunova/discource_probing) | —              | Automatically derived from UD treebanks                          |
-| 3. Commonsense reasoning               | COPA                           | [COPA-SR](https://huggingface.co/datasets/classla/COPA-SR)                                                        | 500            | Human translation                                                |
-| 3. Commonsense reasoning               | COPA                           | [COPA-SR_lat](https://huggingface.co/datasets/classla/COPA-SR_lat)                                                | 500            | Human translation (transliterated)                               |
-| 3. Commonsense reasoning               | COPA                           | [DIALECT-COPA (COPA-SR-TOR)](https://github.com/clarinsi/dialect-copa)                                            | 500            | Human translation                                                |
-| 3. Commonsense reasoning               | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                                             | 9,088          | Machine translation (GPT-4o, auto-checked)                       |
-| 3. Commonsense reasoning               | HellaSwag                      | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)                          | 9,449          | Machine translation (GPT-3.5-turbo)                              |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)               | 100            | Native                                                           |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)               | 100            | Native                                                           |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)               | 100            | Native                                                           |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)               | 100            | Native                                                           |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                      | 103            | MT + human post-editing                                          |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                      | 103            | MT + human post-editing                                          |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                      | 103            | MT + human post-editing                                          |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                      | 103            | MT + human post-editing                                          |
-| 3. Commonsense reasoning               | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench)                                                            | 1,332          | Machine translation (GPT-4o, auto-checked)                       |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                     | 900            | Human translation (professional)                                 |
-| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                        | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [EXAMS](https://github.com/mhardalov/exams-qa)                                                                    | 1,637          | Native (high-school exams)                                       |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                             | 14,042         | Machine translation (Google Translate)                           |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                   | —              | Native (local exams)                                             |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                                     | 11,829         | LLM translation + expert review                                  |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                            | —              | Machine translation (GPT-3.5, Okapi)                             |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                            | 100            | Native (community-written, peer-verified)                        |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                            | 100            | Native (community-written, peer-verified)                        |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                       | 854            | Human translation via English pivot                              |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                           | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                         | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                         | 1,997          | Human translation (professional, from English)                   |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                         | 998            | Human translation (professional) + post-edits                    |
+| level                                  | task                           | dataset                                                                                                                 | # test items   | construction                                                     |
+|:---------------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                                               | 24             | Treebank-based (automatic)                                       |
+| 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `hbs`)                                         | 3,286          | Treebank-based (automatic, UD + UniMorph)                        |
+| 2. Pragmatics, discourse & coreference | Coherence & discourse          | [Multilingual DiscoEval-style probing (Godunova & Voloshina)](https://github.com/mashagodunova/discource_probing)       | —              | Automatically derived from UD treebanks                          |
+| 3. Commonsense reasoning               | COPA                           | [COPA-SR](https://huggingface.co/datasets/classla/COPA-SR)                                                              | 500            | Human translation                                                |
+| 3. Commonsense reasoning               | COPA                           | [COPA-SR_lat](https://huggingface.co/datasets/classla/COPA-SR_lat)                                                      | 500            | Human translation (transliterated)                               |
+| 3. Commonsense reasoning               | COPA                           | [DIALECT-COPA (COPA-SR-TOR)](https://github.com/clarinsi/dialect-copa)                                                  | 500            | Human translation                                                |
+| 3. Commonsense reasoning               | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                                                   | 9,088          | Machine translation (GPT-4o, auto-checked)                       |
+| 3. Commonsense reasoning               | HellaSwag                      | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)                                | 9,449          | Machine translation (GPT-3.5-turbo)                              |
+| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) (4 varieties/pairs) | 400            | Native                                                           |
+| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel) (4 varieties/pairs)        | 412            | MT + human post-editing                                          |
+| 3. Commonsense reasoning               | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench)                                                                  | 1,332          | Machine translation (GPT-4o, auto-checked)                       |
+| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                           | 900            | Human translation (professional)                                 |
+| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                              | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [EXAMS](https://github.com/mhardalov/exams-qa)                                                                          | 1,637          | Native (high-school exams)                                       |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                                   | 14,042         | Machine translation (Google Translate)                           |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                         | —              | Native (local exams)                                             |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                                           | 11,829         | LLM translation + expert review                                  |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                                  | —              | Machine translation (GPT-3.5, Okapi)                             |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                                  | 100            | Native (community-written, peer-verified)                        |
+| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Human translation via English pivot                              |
+| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX) (2 varieties/pairs)                                           | 3,994          | Human translation (professional, from English)                   |
+| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                                               | 998            | Human translation (professional) + post-edits                    |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -240,7 +273,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 115 of ~18,460 papers (0.62%) (rank 51 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 115 of ~18,498 papers (0.62%) (rank 52 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Serbian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 115):

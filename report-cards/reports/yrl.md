@@ -12,9 +12,29 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `yrl`
 
+**Language family:** **Tupian** › Eastern Tupian › Maweti-Guarani › … › Tupi-Guarani Subgroup III ([Glottolog](https://glottolog.org/resource/languoid/id/nhen1239))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Endangered (80% certain))
+
+**Speakers:** about 27,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 8,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34333#P1098))
+
 **Official / recognised in:** Brazil
 
 **Status:** Regional official language
+
+
+## What does Nheengatu look and sound like?
+
+**Written**, sample text from [Omniglot](https://www.omniglot.com/writing/nheengatu.htm):
+
+> Brasil, ker pi upé, coaracyáua,
+> Çaiçú í çaarúçáua çui ouié,
+> Marecê, ne yuakaupé, poranga.
+> Ocenipuca Curuça iepé!
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Nheengatu yet ([its Wikitongues page](https://wikitongues.org/languages/yrl/) says how to contribute one).
 
 
 ## Training Data
@@ -23,18 +43,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                              |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                            |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                            |
-| FineWeb                | 0.0 MB (yrl_Latn (0.00)); 1.4 MB removed by filtering. This is ~1/3,029,948,070 of English data and ranks 243 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                        |
+| Source                 | Amount                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                         |
+| FineWeb                | 0.0 MB (yrl_Latn 0); 1.4 MB removed by filtering. This is ~1/3,029,948,070 of English data and ranks 243 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                     |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                           |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 2,839 sentences / 26,444 tokens in total: [UD_Nheengatu-CompLin](https://github.com/UniversalDependencies/UD_Nheengatu-CompLin) (2,839 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                        |
+| Wikidata labels        | 528 Wikidata items have a label in Nheengatu. (Wikidata codes (labels): yrl (528))                                                                                                                                                    |
+| Wordnets               | **None found**                                                                                                                                                                                                                        |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- Support across the 8 evaluated LangID models is unknown: there is no labelled test data to run them on.
+- **1 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID.
 - **No labelled LangID eval data** for this language — creating some is a high-value contribution.
 - No model performance numbers are available.
 
@@ -46,6 +87,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Nheengatu and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Nheengatu has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/yrl/) video of Nheengatu yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Nheengatu?
@@ -62,22 +105,11 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2026 |        4 | ████████████████████ |
 
-### Most popular models tagged for Nheengatu
-
-| model                                                                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [voz-ancestral/nheengatu-portuguese-qwen-2b](https://huggingface.co/voz-ancestral/nheengatu-portuguese-qwen-2b)                                         |                    928 |                   116 | 1.9B         |                    3 |   2026 | Qwen/Qwen3.5-2B   |
-| [megagonlabs/omnes-flores-84-lang-99-treebank-non-commercial-v0](https://huggingface.co/megagonlabs/omnes-flores-84-lang-99-treebank-non-commercial-v0) |                    307 |                    29 | unknown      |                   57 |   2026 | google/gemma-2-9b |
-
-### Most popular models tagged *only* for Nheengatu
-
-_none_
-
 ### Largest models tagged for Nheengatu
 
-| model                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [voz-ancestral/nheengatu-portuguese-qwen-2b](https://huggingface.co/voz-ancestral/nheengatu-portuguese-qwen-2b) |                    928 |                   116 | 1.9B         |                    3 |   2026 | Qwen/Qwen3.5-2B |
+| model                                                                                                           | parameters   |   # languages tagged |   year | derivative of   |
+|:----------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [voz-ancestral/nheengatu-portuguese-qwen-2b](https://huggingface.co/voz-ancestral/nheengatu-portuguese-qwen-2b) | 1.9B         |                    3 |   2026 | Qwen/Qwen3.5-2B |
 
 ### Largest models tagged *only* for Nheengatu
 
@@ -112,15 +144,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -134,7 +166,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                   | task   | dataset                                                              |   # test items | Construction                              |
+| level                   | task   | dataset                                                              |   # test items | construction                              |
 |:------------------------|:-------|:---------------------------------------------------------------------|---------------:|:------------------------------------------|
 | 1. Linguistic knowledge | BLiMP  | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) |            720 | Treebank-based (automatic, UD + UniMorph) |
 
@@ -165,7 +197,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 8 of ~18,460 papers (0.04%) (rank 151 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Nheengatu | Nhengatu
 
 Here are up to ten papers that were published mentioning this language in 2026:

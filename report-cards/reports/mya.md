@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mya`
 
+**Language family:** **Sino-Tibetan** › Burmo-Qiangic › Lolo-Burmese › … › Nuclear Mranmaic ([Glottolog](https://glottolog.org/resource/languoid/id/nucl1310))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Mymr`
+
+**Speakers:** about 37.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 32.9 million first-language + 10.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q9228#P1098), 2019)
 
 **Official / recognised in:** Myanmar
 
 **Status:** Official language
+
+
+## What does Burmese look and sound like?
+
+**Written:** Omniglot has [a page on Burmese](https://www.omniglot.com/writing/burmese.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/mya/) has 3 videos of Burmese speakers. Watch [Naw speaking Burmese](https://wikitongues.org/videos/naw_20180425_mya/).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 113,397 articles in my.wikipedia (rank 54 of 161 in the set) — ~1/67 of English; 260 active users                                                                                                                      |
-| Common Crawl 2026      | 359,828 pages per crawl on average, which is 0.0167% of the crawl. This is ~1/2,478 of English data and ranks 49 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 3.14 GB (mya_Mymr (3.14)); which is equivalent to ≈0.62 GB English data after byte-premium scaling; 1.32 GB removed by filtering. This is ~1/16,996 of English data and ranks 58 of 248 official languages in FineWeb. |
-| Goldfish training data | 4.29 GB (mya_mymr) (rank 44 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 113,397 articles in my.wikipedia; 260 active users. This is ~1/67 of English data and ranks 55 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 359,828 pages per crawl on average, which is 0.0167% of the crawl (2026). This is ~1/2,478 of English data and ranks 49 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 3.14 GB (mya_Mymr 3.14 GB), equivalent to ≈0.62 GB of English after byte-premium scaling; 1.32 GB removed by filtering. This is ~1/16,996 of English data and ranks 58 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 4.29 GB (mya_Mymr 4.29 GB) (rank 44 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 391,709 Wikidata items have a label in Burmese. (Wikidata codes (labels): my (391,709)) |
+| Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD.     |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                         |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                             |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([mya](https://ebible.org/details.php?id=mya), Public Domain); full Bible ([myajvb](https://ebible.org/details.php?id=myajvb), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                          |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=56), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.998 (P 0.999, R 0.997, FPR 4.05e-06) averaged over 5 dataset(s). Runner-up: pyfranc (F1 0.978).
+- **Best model:** GlotLID — F1 0.999 (P 0.999, R 0.998, FPR 3.99e-06) averaged over 5 dataset(s). Runner-up: pyfranc (F1 0.979).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,20 +80,22 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.999 |    0.997 | 0.998 | 0.000 | ✓                |
-| pyfranc      |       0.998 |    0.962 | 0.978 | 0.000 | ✓                |
-| commonlingua |       0.996 |    0.907 | 0.945 | 0.000 | ✓                |
+| GlotLID      |       0.999 |    0.998 | 0.999 | 0.000 | ✓                |
+| pyfranc      |       0.998 |    0.963 | 0.979 | 0.000 | ✓                |
+| commonlingua |       0.996 |    0.909 | 0.946 | 0.000 | ✓                |
 | OpenLID-v2   |       0.904 |    1.000 | 0.938 | 0.001 | ✓                |
-| fasttext     |       0.905 |    0.991 | 0.934 | 0.001 | ✓                |
-| funlangid    |       0.999 |    0.839 | 0.901 | 0.000 | ✓                |
+| fasttext     |       0.905 |    0.993 | 0.935 | 0.001 | ✓                |
+| funlangid    |       0.999 |    0.841 | 0.903 | 0.000 | ✓                |
 | cld2         |       0.841 |    1.000 | 0.889 | 0.002 | ✓                |
 | py3langid    |       0.841 |    1.000 | 0.889 | 0.003 | ✓                |
+| cld3         |       0.843 |    0.964 | 0.871 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       1.000 |    0.990 | 0.995 |
+| Tatoeba   | 300 |       1.000 |    0.993 | 0.997 |
 | NTREX     | 300 |       1.000 |    0.997 | 0.998 |
 | Wikipedia | 300 |       0.997 |    1.000 | 0.998 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
@@ -73,6 +109,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Burmese and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Burmese has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Burmese?
@@ -93,45 +130,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      128 | ████████████████     |
 |   2026 |      157 | ████████████████████ |
 
-### Most popular models tagged for Burmese
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [facebook/xglm-564M](https://huggingface.co/facebook/xglm-564M)         | 1,709,301              | 8,655                 | 564.0M       |                   30 |   2022 | —               |
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)               | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —               |
-| [SeaLLMs/SeaLLM-7B-v2.5](https://huggingface.co/SeaLLMs/SeaLLM-7B-v2.5) | 474,458                | 9,316                 | 8.5B         |                   10 |   2024 | —               |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)     | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [SeaLLMs/SeaLLM-7B-v2](https://huggingface.co/SeaLLMs/SeaLLM-7B-v2)     | 279,260                | 9,358                 | 7.4B         |                   10 |   2024 | —               |
-
-### Most popular models tagged *only* for Burmese
-
-| model                                                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [WYNN747/Burmese-GPT](https://huggingface.co/WYNN747/Burmese-GPT)                                                                       | 13,686                 |                   101 | 1.4B         |                    1 |   2024 | —                             |
-| [jojo-ai-mst/MyanmarGPT](https://huggingface.co/jojo-ai-mst/MyanmarGPT)                                                                 | 12,261                 |                   804 | 127.1M       |                    1 |   2023 | —                             |
-| [mradermacher/ShweYon-V3-Base-i1-GGUF](https://huggingface.co/mradermacher/ShweYon-V3-Base-i1-GGUF)                                     | 3,691                  |                   364 | 1.6B         |                    1 |   2025 | Qwen/Qwen2.5-1.5B             |
-| [simbolo-ai/Myanmarsar-GPT](https://huggingface.co/simbolo-ai/Myanmarsar-GPT)                                                           | 3,531                  |                    40 | 1.4B         |                    1 |   2024 | —                             |
-| [mradermacher/ShweYon-Qwen2.5-Burmese-1.5B-v1.0-i1-GGUF](https://huggingface.co/mradermacher/ShweYon-Qwen2.5-Burmese-1.5B-v1.0-i1-GGUF) | 3,450                  |                   425 | 1.5B         |                    1 |   2025 | URajinda/Qwen2.5-MM-1.5B-Base |
-
 ### Largest models tagged for Burmese
 
-| model                                                                                                               | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                      |
-|:--------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                           | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                                                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                               | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                                                  |
-| [aisingapore/Nemotron-SEA-LION-v4.8-120B-A12B](https://huggingface.co/aisingapore/Nemotron-SEA-LION-v4.8-120B-A12B) | 2,369                  |                   424 | 123.6B       |                    8 |   2026 | nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16 |
-| [bartowski/Tower-Babel_Babel-83B-Chat-GGUF](https://huggingface.co/bartowski/Tower-Babel_Babel-83B-Chat-GGUF)       | 13,458                 |                   800 | 83.2B        |                   24 |   2025 | Tower-Babel/Babel-83B-Chat                         |
-| [Sakalti/ultiima-72B](https://huggingface.co/Sakalti/ultiima-72B)                                                   | 5,251                  |                    86 | 72.7B        |                   29 |   2025 | Qwen/Qwen2.5-72B                                   |
+| model                                                                                                               | parameters   |   # languages tagged |   year | derivative of                                      |
+|:--------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                           | 1.9T         |                  143 |   2025 | —                                                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                               | 856.0B       |                  143 |   2025 | —                                                  |
+| [aisingapore/Nemotron-SEA-LION-v4.8-120B-A12B](https://huggingface.co/aisingapore/Nemotron-SEA-LION-v4.8-120B-A12B) | 123.6B       |                    8 |   2026 | nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16 |
+| [bartowski/Tower-Babel_Babel-83B-Chat-GGUF](https://huggingface.co/bartowski/Tower-Babel_Babel-83B-Chat-GGUF)       | 83.2B        |                   24 |   2025 | Tower-Babel/Babel-83B-Chat                         |
+| [Sakalti/ultiima-72B](https://huggingface.co/Sakalti/ultiima-72B)                                                   | 72.7B        |                   29 |   2025 | Qwen/Qwen2.5-72B                                   |
 
 ### Largest models tagged *only* for Burmese
 
-| model                                                                                                                                                                             |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [atsuki-yamaguchi/Llama-3.1-8B-Instruct-my-madlad-mean-slerp0305-emb-special](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-Instruct-my-madlad-mean-slerp0305-emb-special) |                    133 |                     5 | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B |
-| [atsuki-yamaguchi/Qwen2.5-7B-my-madlad-mean-cv](https://huggingface.co/atsuki-yamaguchi/Qwen2.5-7B-my-madlad-mean-cv)                                                             |                    137 |                    13 | 7.7B         |                    1 |   2025 | Qwen/Qwen2.5-7B         |
-| [hmone231/mistral_burmese_health_update](https://huggingface.co/hmone231/mistral_burmese_health_update)                                                                           |                     77 |                     8 | 7.4B         |                    1 |   2024 | —                       |
-| [Turtle344/mistral-health-faq-v1](https://huggingface.co/Turtle344/mistral-health-faq-v1)                                                                                         |                     52 |                     2 | 7.4B         |                    1 |   2024 | —                       |
-| [la-min/mistral-health-faq](https://huggingface.co/la-min/mistral-health-faq)                                                                                                     |                    205 |                    11 | 7.2B         |                    1 |   2024 | —                       |
+| model                                                                                                                                                                         | parameters   |   # languages tagged |   year | derivative of           |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------|
+| [atsuki-yamaguchi/Llama-3.1-8B-Instruct-my-madlad-mean-slerp0305-emb](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-Instruct-my-madlad-mean-slerp0305-emb)             | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B |
+| [atsuki-yamaguchi/Qwen2.5-7B-Instruct-my-madlad-mean-slerp0305-emb-special](https://huggingface.co/atsuki-yamaguchi/Qwen2.5-7B-Instruct-my-madlad-mean-slerp0305-emb-special) | 7.7B         |                    1 |   2024 | Qwen/Qwen2.5-7B         |
+| [Turtle344/mistral-health-faq-v1](https://huggingface.co/Turtle344/mistral-health-faq-v1)                                                                                     | 7.4B         |                    1 |   2024 | —                       |
+| [hmone231/mistral_burmese_health_update](https://huggingface.co/hmone231/mistral_burmese_health_update)                                                                       | 7.4B         |                    1 |   2024 | —                       |
+| [la-min/mistral-health-faq](https://huggingface.co/la-min/mistral-health-faq)                                                                                                 | 7.2B         |                    1 |   2024 | —                       |
 
 _48 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [3]        \
+         /      reasoning [3]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +201,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                              | # test items   | Construction                                                        |
+| level                    | task                          | dataset                                                                              | # test items   | construction                                                        |
 |:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 3. Commonsense reasoning | HellaSwag                     | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                | 9,088          | Machine translation (GPT-4o, auto-checked)                          |
 | 3. Commonsense reasoning | StoryCloze                    | [MuBench StoryCloze](https://github.com/aialt/MuBench)                               | 1,332          | Machine translation (GPT-4o, auto-checked)                          |
@@ -225,7 +242,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 105 of ~18,460 papers (0.57%) (rank 56 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 105 of ~18,498 papers (0.57%) (rank 58 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Burmese
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 105):

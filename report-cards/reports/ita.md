@@ -12,11 +12,35 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ita`
 
+**Language family:** **Indo-European** › Classical Indo-European › Italic › … › Central Italian Romance ([Glottolog](https://glottolog.org/resource/languoid/id/ital1282))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 70.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 64.8 million first-language + 3.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q652#P1098), 2019)
 
 **Official / recognised in:** Italy, San Marino, Switzerland, Vatican City
 
 **Status:** Official language
+
+
+## What does Italian look and sound like?
+
+**Written (Italian)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/italian.htm):
+
+> Tutti gli esseri umani nascono liberi ed eguali in dignità e diritti.
+> Essi sono dotati di ragione e di coscienza e devono agire gli uni verso
+> gli altri in spirito di fratellanza.
+> A recording of this text by Jacopo Sebastiano Foroni
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_it.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ita/) has 7 videos of Italian speakers. Watch [See all](https://wikitongues.org/videos/?language=ita).
 
 
 ## Training Data
@@ -25,33 +49,56 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                     |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,994,311 articles in it.wikipedia (rank 9 of 161 in the set) — ~1/4 of English; 25,562 active users                                                                                                                       |
-| Common Crawl 2026      | 52,377,309 pages per crawl on average, which is 2.4298% of the crawl. This is ~1/17 of English data and ranks 8 of 113 official languages in Common Crawl.                                                                 |
-| FineWeb                | 357.05 GB (ita_Latn (357.05)); which is equivalent to ≈334.67 GB English data after byte-premium scaling; 264.43 GB removed by filtering. This is ~1/150 of English data and ranks 8 of 248 official languages in FineWeb. |
-| Goldfish training data | 10.16 GB (ita_latn) (rank 9 of 166 in the set)                                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                             |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,994,311 articles in it.wikipedia; 25,562 active users. This is ~1/4 of English data and ranks 9 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 52,377,309 pages per crawl on average, which is 2.4298% of the crawl (2026). This is ~1/17 of English data and ranks 8 of 113 languages in the set in Common Crawl.                                                |
+| FineWeb                | 357.05 GB (ita_Latn 357.05 GB), equivalent to ≈334.67 GB of English after byte-premium scaling; 264.43 GB removed by filtering. This is ~1/150 of English data and ranks 8 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 10.16 GB (ita_Latn 10.16 GB) (rank 9 of 166 in the set)                                                                                                                                                            |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 11 treebanks, 43,771 sentences / 966,453 tokens in total: [UD_Italian-ISDT](https://github.com/UniversalDependencies/UD_Italian-ISDT) (14,167 sentences), [UD_Italian-KIParlaForest](https://github.com/UniversalDependencies/UD_Italian-KIParlaForest) (2,481 sentences), [UD_Italian-MarkIT](https://github.com/UniversalDependencies/UD_Italian-MarkIT) (1,292 sentences), [UD_Italian-Old](https://github.com/UniversalDependencies/UD_Italian-Old) (3,419 sentences), [UD_Italian-PUD](https://github.com/UniversalDependencies/UD_Italian-PUD) (1,000 sentences), [UD_Italian-ParTUT](https://github.com/UniversalDependencies/UD_Italian-ParTUT) (2,090 sentences), [UD_Italian-ParlaMint](https://github.com/UniversalDependencies/UD_Italian-ParlaMint) (701 sentences), [UD_Italian-PoSTWITA](https://github.com/UniversalDependencies/UD_Italian-PoSTWITA) (6,712 sentences), [UD_Italian-TWITTIRO](https://github.com/UniversalDependencies/UD_Italian-TWITTIRO) (1,424 sentences), [UD_Italian-VIT](https://github.com/UniversalDependencies/UD_Italian-VIT) (10,087 sentences), [UD_Italian-Valico](https://github.com/UniversalDependencies/UD_Italian-Valico) (398 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 10,009 lemmas, 509,574 inflected forms ([unimorph/ita](https://github.com/unimorph/ita))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Wikidata labels        | 12,679,477 Wikidata items have a label in Italian. (Wikidata codes (labels): it (12,679,477))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Wordnets               | [MultiWordNet (Italian)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-it-1.4.tar.xz): 35,001 synsets, 43,011 words, 63,133 senses; licence: https://creativecommons.org/licenses/by/3.0/; [ItalWordNet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-iwn-1.4.tar.xz): 15,563 synsets, 19,680 words, 24,135 senses; licence: http://opendefinition.org/licenses/odc-by/; [ItalWordNet (EuroWordNet Italian)](http://www.ilc.cnr.it/viewpage.php/sez=ricerca/id=834/vers=ita) (size not listed); licence: RESTRICTED; [Multilingual Central Repository](http://adimen.si.ehu.es/web/MCR) (size not listed); licence: CC By 3.0; CC-BY-NC-SA.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                   |
+|:-----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                       |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([ita1885](https://ebible.org/details.php?id=ita1885), Public Domain); full Bible ([ita1927](https://ebible.org/details.php?id=ita1927), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                    |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.936 (P 0.900, R 0.981, FPR 9.21e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.866).
+- **Best model:** GlotLID — F1 0.936 (P 0.900, R 0.981, FPR 9.02e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.865).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.900 |    0.981 | 0.936 | 0.001 | ✓                |
-| OpenLID-v2   |       0.877 |    0.886 | 0.866 | 0.001 | ✓                |
-| fasttext     |       0.791 |    0.982 | 0.861 | 0.003 | ✓                |
-| commonlingua |       0.852 |    0.848 | 0.841 | 0.001 | ✓                |
-| cld2         |       0.811 |    0.873 | 0.828 | 0.003 | ✓                |
-| py3langid    |       0.734 |    0.979 | 0.817 | 0.005 | ✓                |
-| pyfranc      |       0.872 |    0.768 | 0.806 | 0.001 | ✓                |
-| funlangid    |       0.832 |    0.806 | 0.806 | 0.002 | ✓                |
+| OpenLID-v2   |       0.876 |    0.886 | 0.865 | 0.001 | ✓                |
+| fasttext     |       0.788 |    0.982 | 0.860 | 0.003 | ✓                |
+| commonlingua |       0.853 |    0.848 | 0.842 | 0.001 | ✓                |
+| cld2         |       0.812 |    0.873 | 0.828 | 0.002 | ✓                |
+| py3langid    |       0.735 |    0.979 | 0.818 | 0.005 | ✓                |
+| funlangid    |       0.834 |    0.806 | 0.806 | 0.001 | ✓                |
+| pyfranc      |       0.871 |    0.768 | 0.806 | 0.001 | ✓                |
+| cld3         |       0.549 |    0.937 | 0.658 | 0.015 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -60,7 +107,7 @@ Language identification (LangID or LID) is a classification task that identifies
 | UDHR-LID  |  58 |       0.725 |    1.000 | 0.841 |
 | CommonLID | 300 |       0.850 |    0.927 | 0.887 |
 | Wikipedia | 300 |       0.927 |    0.977 | 0.951 |
-| Tatoeba   | 300 |       0.925 |    0.983 | 0.953 |
+| Tatoeba   | 300 |       0.928 |    0.983 | 0.955 |
 | FLORES    | 300 |       0.971 |    1.000 | 0.985 |
 | NTREX     | 300 |       1.000 |    0.997 | 0.998 |
 
@@ -92,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |     2307 | ██████████████████   |
 |   2026 |     2612 | ████████████████████ |
 
-### Most popular models tagged for Italian
-
-| model                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of           |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------|
-| [meta-llama/Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)                                     | 193,587,916            | 4,504,499             | 8.0B         |                    8 |   2024 | meta-llama/Llama-3.1-8B |
-| [meta-llama/Llama-3.2-1B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct)                                     | 109,758,422            | 1,331,481             | 1.2B         |                    8 |   2024 | —                       |
-| [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B)                                                       | 60,177,779             | 477,238               | 1.2B         |                    8 |   2024 | —                       |
-| [meta-llama/Llama-3.2-3B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)                                     | 50,920,320             | 872,223               | 3.2B         |                    8 |   2024 | —                       |
-| [context-labs/meta-llama-Llama-3.2-3B-Instruct-FP16](https://huggingface.co/context-labs/meta-llama-Llama-3.2-3B-Instruct-FP16) | 27,918,610             | 132                   | 3.2B         |                    8 |   2025 | —                       |
-
-### Most popular models tagged *only* for Italian
-
-| model                                                                                                                         | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of              |
-|:------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------|
-| [LorenzoDeMattei/GePpeTto](https://huggingface.co/LorenzoDeMattei/GePpeTto)                                                   | 246,588                | 2,747                 | 121.5M       |                    1 |   2022 | —                          |
-| [DeepMount00/Mistral-Ita-7b](https://huggingface.co/DeepMount00/Mistral-Ita-7b)                                               | 113,958                | 1,520                 | 7.2B         |                    1 |   2023 | —                          |
-| [swap-uniba/LLaMAntino-2-7b-hf-ITA](https://huggingface.co/swap-uniba/LLaMAntino-2-7b-hf-ITA)                                 | 111,955                | 3,264                 | 6.7B         |                    1 |   2023 | —                          |
-| [walid-iguider/Llama-3-8B-4bit-UltraChat-Ita](https://huggingface.co/walid-iguider/Llama-3-8B-4bit-UltraChat-Ita)             | 107,093                | 3,264                 | 8.0B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B |
-| [swap-uniba/LLaMAntino-2-chat-13b-hf-UltraChat-ITA](https://huggingface.co/swap-uniba/LLaMAntino-2-chat-13b-hf-UltraChat-ITA) | 101,416                | 3,312                 | 13.0B        |                    1 |   2023 | —                          |
-
 ### Largest models tagged for Italian
 
-| model                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                     |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                       | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                 |
-| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF)                       | 1,316                  | 1,316                 | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                           | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                 |
-| [buddalaw/DeepSeek-V4.1-Flash-buddalaw-K160-Q2-GGUF](https://huggingface.co/buddalaw/DeepSeek-V4.1-Flash-buddalaw-K160-Q2-GGUF) | 349                    | 349                   | 754.6B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4.1-Flash   |
-| [LGAI-EXAONE/K-EXAONE-2.0-750B-A37B-DSpark](https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B-DSpark)                   | 2,057                  | 350                   | 751.4B       |                   10 |   2026 | —                                 |
+| model                                                                                                                           | parameters   |   # languages tagged |   year | derivative of                     |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                       | 1.9T         |                  143 |   2025 | —                                 |
+| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF)                       | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                           | 856.0B       |                  143 |   2025 | —                                 |
+| [buddalaw/DeepSeek-V4.1-Flash-buddalaw-K128-Q2-GGUF](https://huggingface.co/buddalaw/DeepSeek-V4.1-Flash-buddalaw-K128-Q2-GGUF) | 754.6B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4.1-Flash   |
+| [LGAI-EXAONE/K-EXAONE-2.0-750B-A37B-DSpark](https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B-DSpark)                   | 751.4B       |                   10 |   2026 | —                                 |
 
 ### Largest models tagged *only* for Italian
 
-| model                                                                                                                                         | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:--------------------------------|
-| [buddalaw/DeepSeek-V4.1-Flash-buddalaw-K128-Q2-GGUF](https://huggingface.co/buddalaw/DeepSeek-V4.1-Flash-buddalaw-K128-Q2-GGUF)               | 314                    | 314                   | 754.6B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4.1-Flash |
-| [swap-uniba/LLaMAntino-2-70b-hf-UltraChat-ITA](https://huggingface.co/swap-uniba/LLaMAntino-2-70b-hf-UltraChat-ITA)                           | 62,367                 | 1,757                 | 69.0B        |                    1 |   2024 | —                               |
-| [buddalaw/Qwen3.6-27B-buddalaw-UD-Q2-imatrix-GGUF](https://huggingface.co/buddalaw/Qwen3.6-27B-buddalaw-UD-Q2-imatrix-GGUF)                   | 73                     | 15                    | 26.9B        |                    1 |   2026 | Qwen/Qwen3.6-27B                |
-| [buddalaw/Qwen3.6-35B-A3B-buddalaw-M179-Q5-imatrix-GGUF-v2](https://huggingface.co/buddalaw/Qwen3.6-35B-A3B-buddalaw-M179-Q5-imatrix-GGUF-v2) | 633                    | 55                    | 25.0B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B            |
-| [OpenAdminOS/openadmin-20b-GGUF](https://huggingface.co/OpenAdminOS/openadmin-20b-GGUF)                                                       | 334                    | 10                    | 20.9B        |                    1 |   2026 | openai/gpt-oss-20b              |
+| model                                                                                                                                   | parameters   |   # languages tagged |   year | derivative of                   |
+|:----------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------|
+| [buddalaw/DeepSeek-V4.1-Flash-buddalaw-K128-Q2-GGUF](https://huggingface.co/buddalaw/DeepSeek-V4.1-Flash-buddalaw-K128-Q2-GGUF)         | 754.6B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4.1-Flash |
+| [swap-uniba/LLaMAntino-2-70b-hf-UltraChat-ITA](https://huggingface.co/swap-uniba/LLaMAntino-2-70b-hf-UltraChat-ITA)                     | 69.0B        |                    1 |   2024 | —                               |
+| [buddalaw/Qwen3.6-27B-buddalaw-UD-Q2-imatrix-GGUF](https://huggingface.co/buddalaw/Qwen3.6-27B-buddalaw-UD-Q2-imatrix-GGUF)             | 26.9B        |                    1 |   2026 | Qwen/Qwen3.6-27B                |
+| [buddalaw/Qwen3.6-35B-A3B-buddalaw-M179-Q3-imatrix-GGUF](https://huggingface.co/buddalaw/Qwen3.6-35B-A3B-buddalaw-M179-Q3-imatrix-GGUF) | 25.0B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B            |
+| [Lutifya/gpt-oss-20b-q5_0](https://huggingface.co/Lutifya/gpt-oss-20b-q5_0)                                                             | 20.9B        |                    1 |   2025 | —                               |
 
 _513 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -150,7 +177,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**45** benchmark datasets in the survey include Italian.
+**44** benchmark datasets in the survey include Italian.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -161,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [17]    \
+                 /   [16]   \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [4]   \
+            / comprehension [4]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [10]       \
+         /      reasoning [10]      \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,7 +210,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                                  | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:---------------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [ACS](https://github.com/igorsterner/acs)                                                           | 1,000          | Corpus-extracted + automatic manipulation                        |
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMP-IT](https://nets-lab.github.io/blimpit-generation/)                                          | 2,899          | Template-based (+ expert review)                                 |
@@ -222,7 +249,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [TruthfulQA (ITA-Bench)](https://github.com/SapienzaNLP/ita-bench)                                  | —              | Translation                                                      |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)              | —              | Machine translation (GPT-3.5, Okapi)                             |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                            | 10,000         | Human translation                                                |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                         |
 | Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
@@ -254,22 +280,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1,003 of ~18,460 papers (5.43%) (rank 7 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1,010 of ~18,498 papers (5.46%) (rank 7 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Italian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 1,003):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 1,010):
 
-| title                                                                                                                            | paper                                                                  |
-|:---------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
-| TOWER+: Bridging Generality and Translation Specialization in Multilingual LLMs                                                  | [2026.acl-long.1366](https://aclanthology.org/2026.acl-long.1366/)     |
-| Can We Still Trace L1 Signals? Investigating the Resilience of Native Language Signals in the LLM Era                            | [2026.emnlp-main.2042](https://aclanthology.org/2026.emnlp-main.2042/) |
-| EVALITA 2026: Overview of the 9th evaluation campaign of natural language processing and speech tools for italian                | [2026.evalita-1.2](https://aclanthology.org/2026.evalita-1.2/)         |
-| INFOTEC-NLP at MultiPRIDE: Region-Aware Transformer Models for Spanish Reclaimed Language Classification                         | [2026.evalita-1.27](https://aclanthology.org/2026.evalita-1.27/)       |
-| ProverbIT - Easy to complete, hard to choose: A CALAMITA Challenge                                                               | [2026.evalita-1.72](https://aclanthology.org/2026.evalita-1.72/)       |
-| Can Linguistically Related Languages Guide LLM Translation in Low-Resource Settings?                                             | [2026.loresmt-1.14](https://aclanthology.org/2026.loresmt-1.14/)       |
-| An Enhanced Pipeline for the Manzini-Savoia Dialect Corpus                                                                       | [2026.lrec-1.268](https://aclanthology.org/2026.lrec-1.268/)           |
-| RespondeoQA: A Benchmark for Bilingual Latin-English Question Answering                                                          | [2026.lrec-1.80](https://aclanthology.org/2026.lrec-1.80/)             |
-| MKJ at SemEval-2026 Task 9: A Comparative Study of Generalist, Specialist, and Ensemble Strategies for Multilingual Polarization | [2026.semeval-1.181](https://aclanthology.org/2026.semeval-1.181/)     |
-| Overview of the 11th Social Media Mining for Health (#SMM4H) and Health Real-World Data (HeaRD) Shared Tasks at ACL 2026         | [2026.smm4h-1.53](https://aclanthology.org/2026.smm4h-1.53/)           |
+| title                                                                                                                                    | paper                                                                          |
+|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Edit Policy-Aligned Text Simplification                                                                                                  | [2026.aacl-long.150](https://aclanthology.org/2026.aacl-long.150/)             |
+| CAP: A Source-Grounded Proposition Scaffold for Faithful Clinical Dialogue-to-Note Generation                                            | [2026.bionlp-1.46](https://aclanthology.org/2026.bionlp-1.46/)                 |
+| Pearmut: Human Evaluation of Translation Made Trivial                                                                                    | [2026.emnlp-demos.7](https://aclanthology.org/2026.emnlp-demos.7/)             |
+| AVAHI at MultiPRIDE: Multilingual Reclaimed Language Detection via Knowledge Graphs and Retrieval-Augmented Generation                   | [2026.evalita-1.20](https://aclanthology.org/2026.evalita-1.20/)               |
+| NamDang at MultiPride@EVALITA 2026: Multilingual Classification of Reclaimed Language in LGBTQ+ Discourse using Transformer-based Models | [2026.evalita-1.31](https://aclanthology.org/2026.evalita-1.31/)               |
+| Performance of Grapheme-Based Tokenizers on Word-level and Natural Language Understanding tasks for Indic Languages                      | [2026.findings-emnlp.1093](https://aclanthology.org/2026.findings-emnlp.1093/) |
+| Separating Syntax from Language: A Mechanistic Account of Translation in Multilingual LLMs                                               | [2026.findings-emnlp.2115](https://aclanthology.org/2026.findings-emnlp.2115/) |
+| When Consistency Becomes Bias: Interviewer Effects in Semi-Structured Clinical Interviews                                                | [2026.lrec-1.185](https://aclanthology.org/2026.lrec-1.185/)                   |
+| Matching Meaning at Scale: Evaluating Semantic Search for 18th-Century Intellectual History through the Case of Locke                    | [2026.nlp4dh-1.20](https://aclanthology.org/2026.nlp4dh-1.20/)                 |
+| The Sycophancy Matrix: Measuring and Steering Ethos-Driven Sycophancy Across Languages and Cultures                                      | [2026.oracle-main.2](https://aclanthology.org/2026.oracle-main.2/)             |
 
 {% endraw %}

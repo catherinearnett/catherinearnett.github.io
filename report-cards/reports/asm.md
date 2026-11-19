@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `asm`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Eastern Kamrupa ([Glottolog](https://glottolog.org/resource/languoid/id/assa1263))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Beng`
+
+**Speakers:** about 18.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 15.3 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q29401#P1098), 2019)
 
 **Official / recognised in:** India
 
 **Status:** Regional official language
+
+
+## What does Assamese look and sound like?
+
+**Written (Assamese)**, sample text from [Omniglot](https://www.omniglot.com/writing/assamese.htm):
+
+> জন্মগতভাৱে সকলো মানুহ মৰ্য্যদা আৰু অধিকাৰত সমান আৰু স্বতন্ত্ৰ। তেওঁলোকৰ বিবেক আছে, বুদ্ধি আছে। তেওঁলোকে প্ৰত্যেকে প্ৰেত্যেকক ভ্ৰাতৃভাৱে ব্যৱহাৰ কৰা উচিত।
+
+*Transliteration:* Zonmogotobhawe xokolü manuh moirjjoda aru odhikarot xoman aru sotontro. Teü̃lükor bibek ase, buddhi ase. Teü̃lüke proitteke proittekok bhratribhawe bebohar kora usit.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/asm/) has 4 videos of Assamese speakers. Watch [Kangkana speaking Assamese, English](https://wikitongues.org/videos/kangkana_20181228_asm-eng/).
 
 
 ## Training Data
@@ -25,20 +44,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                   |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 26,013 articles in as.wikipedia (rank 75 of 161 in the set) — ~1/290 of English; 186 active users                                                                                                                                        |
-| Common Crawl 2026      | 71,841 pages per crawl on average, which is 0.0033% of the crawl. This is ~1/12,409 of English data and ranks 71 of 113 official languages in Common Crawl.                                                                              |
-| FineWeb                | 0.39 GB (asm_Beng (0.39); asm_Latn (0.00)); which is equivalent to ≈0.15 GB English data after byte-premium scaling; 0.37 GB removed by filtering. This is ~1/136,776 of English data and ranks 84 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.95 GB (asm_beng) (rank 77 of 166 in the set)                                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 26,013 articles in as.wikipedia; 186 active users. This is ~1/290 of English data and ranks 78 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                             |
+| Common Crawl           | 71,841 pages per crawl on average, which is 0.0033% of the crawl (2026). This is ~1/12,409 of English data and ranks 71 of 113 languages in the set in Common Crawl.                                                                                                                                                                                 |
+| FineWeb                | 0.39 GB (asm_Beng 0.39 GB; asm_Latn 0), equivalent to ≈0.15 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.37 GB removed by filtering. This is ~1/136,776 of English data and ranks 84 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.95 GB (asm_Beng 0.95 GB) (rank 77 of 166 in the set)                                                                                                                                                                                                                                                                                               |
+
+**By writing system:**
+
+| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Bengali (`Beng`) | 0.39 GB   | — (no byte premium yet)       | 0.95 GB      | 0.38 GB                        |
+| Latin (`Latn`)   | 0         | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                        |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 73 sentences / 871 tokens in total: [UD_Assamese-AiW](https://github.com/UniversalDependencies/UD_Assamese-AiW) (73 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 1,575 lemmas, 94,147 inflected forms ([unimorph/asm](https://github.com/unimorph/asm))                                                                                                                             |
+| Wikidata labels        | 592,993 Wikidata items have a label in Assamese. (Wikidata codes (labels): as (592,993))                                                                                                                           |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                   |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                        |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                            |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([asmfb](https://ebible.org/details.php?id=asmfb), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                         |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **7 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (4):** CommonLID (n=213), FLORES (n=300), Tatoeba (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.976 (P 0.997, R 0.956, FPR 1.91e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.974).
+- **Best model:** GlotLID — F1 0.976 (P 0.997, R 0.956, FPR 1.88e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.974).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -53,6 +102,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | commonlingua |       0.997 |    0.895 | 0.940 | 0.000 | ✓                |
 | cld2         |       0.999 |    0.878 | 0.931 | 0.000 | ✓                |
 | funlangid    |       0.994 |    0.735 | 0.830 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -92,45 +143,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      131 | ████████████████████ |
 |   2026 |      113 | █████████████████    |
 
-### Most popular models tagged for Assamese
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Assamese
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [BharatVLM/AssameseGPT2](https://huggingface.co/BharatVLM/AssameseGPT2)                 |                    591 |                    13 | 124.2M       |                    1 |   2025 | —               |
-| [goldfish-models/asm_beng_5mb](https://huggingface.co/goldfish-models/asm_beng_5mb)     |                    504 |                    21 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/asm_beng_100mb](https://huggingface.co/goldfish-models/asm_beng_100mb) |                    458 |                    18 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/asm_beng_full](https://huggingface.co/goldfish-models/asm_beng_full)   |                    440 |                    22 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/asm_beng_10mb](https://huggingface.co/goldfish-models/asm_beng_10mb)   |                    421 |                    21 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Assamese
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [bigscience/bloomz](https://huggingface.co/bigscience/bloomz)                         | 163,618                |                   983 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloomz-mt](https://huggingface.co/bigscience/bloomz-mt)                   | 28,969                 |                   329 | 176.2B       |                   35 |   2022 | —               |
-| [itssarjunhere/bloom](https://huggingface.co/itssarjunhere/bloom)                     | 70                     |                     5 | 176.2B       |                   35 |   2026 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Assamese
 
-| model                                                                                                       |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/Qwen3.5-4B-asm-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-asm-32768)               |                     57 |                    11 | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
-| [alphaedge-ai/gemma-3-4b-it-asm-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-asm-32768)         |                     46 |                     8 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-asm](https://huggingface.co/ptrdvn/kakugo-3B-asm)                                         |                    140 |                    24 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/Qwen3.5-2B-asm-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-asm-32768)               |                     46 |                    12 | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
-| [dheeyantra/dhee-nxtgen-qwen3-assamese-v2](https://huggingface.co/dheeyantra/dhee-nxtgen-qwen3-assamese-v2) |                    126 |                    11 | 1.7B         |                    1 |   2025 | —                             |
+| model                                                                                                       | parameters   |   # languages tagged |   year | derivative of                 |
+|:------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/Qwen3.5-4B-asm-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-asm-32768)               | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
+| [alphaedge-ai/gemma-3-4b-it-asm-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-asm-32768)         | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [ptrdvn/kakugo-3B-asm](https://huggingface.co/ptrdvn/kakugo-3B-asm)                                         | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/Qwen3.5-2B-asm-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-asm-32768)               | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
+| [dheeyantra/dhee-nxtgen-qwen3-assamese-v2](https://huggingface.co/dheeyantra/dhee-nxtgen-qwen3-assamese-v2) | 1.7B         |                    1 |   2025 | —                             |
 
 _54 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -150,7 +181,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**12** benchmark datasets in the survey include Assamese.
+**11** benchmark datasets in the survey include Assamese.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -161,15 +192,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [3]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,7 +214,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                         | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 3. Commonsense reasoning      | COPA                           | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                                    | 500            | Human translation                                                |
 | 3. Commonsense reasoning      | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                           |
@@ -191,7 +222,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension      | QA – extractive RC             | [Indic QA Benchmark](https://github.com/ayushayush591/IndicQA-Benchmark)                            | 10,778         | Mixed: mostly MT of English/Hindi sources + native IndicQA/chaii |
 | 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                             | 500            | Native (cultural; native-speaker answers)                        |
-| 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
 | Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
@@ -223,7 +253,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 94 of ~18,460 papers (0.51%) (rank 59 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 94 of ~18,498 papers (0.51%) (rank 61 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Assamese
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 94):

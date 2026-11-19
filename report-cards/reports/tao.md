@@ -12,9 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tao`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Batanic › Yami-Itbayat ([Glottolog](https://glottolog.org/resource/languoid/id/yami1254))
+
+**Endangerment:** 🔴 moribund (level 4 of 6 on Glottolog’s scale; source: ElCat: Severely Endangered (100% certain))
+
+**Speakers:** 3,800 first-language ([Wikidata](https://www.wikidata.org/wiki/Q715760#P1098), 2006)
+
 **Official / recognised in:** Taiwan
 
 **Status:** National language
+
+
+## What does Tao look and sound like?
+
+**Written**, sample text from [Omniglot](https://www.omniglot.com/writing/yami.htm):
+
+> O nimanoma do pongso ta ya a tao nokakoa am, sira mina Paloy, aka nira mina Ozamen, aka nira Pacilalaw. Sira rana ori am, ji sia mingongoyod pa a tao, ta somavik sira a tao. Sira Paloy rana ya am, ji sia hakakaw, ta ji sia ateneng a omhakaw, so ikabo no kanen da, to sia nginonginom so sazowsaw am ranom, ori o ikaviay da nira ori am, iyangay da nira mina Paloy ya.
+
+*Translation:* About the earliest humans on this island, there were si Paloy, si Ozamen, si Pacilalaw, etc. These people, though, were not real people, for some of the things they thought or did were not like normal people. Now, Si Paloy and that group, they did not work in the fields because they did not understand agriculture, and therefore they did not have food. They lived by drinking the wind and water. …
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: http://yamiproject.cs.pu.edu.tw/elearn/reading.php?sn=72.</sub>
+
+**Spoken:** no Wikitongues video of Tao yet ([its Wikitongues page](https://wikitongues.org/languages/tao/) says how to contribute one).
 
 
 ## Training Data
@@ -26,15 +45,36 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                   |
 |:-----------------------|:---------------------------------------------------------|
 | Wikipedia              | **No Wikipedia edition**                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics** |
+| Common Crawl           | **Not identified in Common Crawl's language statistics** |
 | FineWeb                | **Not in FineWeb / FineWeb-2**                           |
 | Goldfish training data | **No Goldfish model / data**                             |
 
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                              |
+|:-----------------------|:-------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                           |
+| UniMorph               | **None found**                                                           |
+| Wikidata labels        | 5 Wikidata items have a label in Tao. (Wikidata codes (labels): tao (5)) |
+| Wordnets               | **None found**                                                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- Support across the 8 evaluated LangID models is unknown: there is no labelled test data to run them on.
+- **0 of 10** LangID models evaluated have this language code as a label that can be predicted.
 - **No labelled LangID eval data** for this language — creating some is a high-value contribution.
 - No model performance numbers are available.
 
@@ -46,6 +86,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tao and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tao has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/tao/) video of Tao yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Tao?
@@ -81,15 +123,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -132,6 +174,23 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026: not reported.** The search term 'Tao' (common surname) is ambiguous, so the raw count mostly reflects other uses of the word.
+- **Mentions in ACL papers in 2026:** 115 of ~18,498 papers (0.62%) (rank 52 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Yami | Tao
+- Because 'Tao' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
+
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 115):
+
+| title                                                                                                                         | paper                                                                |
+|:------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
+| WisPerMed at ArchEHR-QA 2026: Retrieval-Augmented Prompting for Grounded EHR Question Answering                               | [2026.cl4health-1.42](https://aclanthology.org/2026.cl4health-1.42/) |
+| Neural at ArchEHR-QA 2026: One Method Fits All: Unified Prompt Optimization for Clinical QA over EHRs                         | [2026.cl4health-1.50](https://aclanthology.org/2026.cl4health-1.50/) |
+| Automatic Speech Recognition for Documenting Endangered Languages: Case Study of Ikema Miyakoan                               | [2026.lrec-1.284](https://aclanthology.org/2026.lrec-1.284/)         |
+| Southern Kurdish Speech Recognition Resources and Benchmarking                                                                | [2026.lrec-1.432](https://aclanthology.org/2026.lrec-1.432/)         |
+| Listening for Ideology: Automatic Analysis of Character Speech in Historical Nazi Propaganda Films                            | [2026.lrec-1.461](https://aclanthology.org/2026.lrec-1.461/)         |
+| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages                                    | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)         |
+| Do Multimodal LLMs Understand Order? Measuring the Fragility of Multimodal Reasoning under Input Order Perturbations          | [2026.lrec-1.716](https://aclanthology.org/2026.lrec-1.716/)         |
+| Reason-to-Learn (R2L): Multi-Agent Knowledge Distillation for Lightweight LLMs in Sentiment Analysis                          | [2026.lrec-1.809](https://aclanthology.org/2026.lrec-1.809/)         |
+| Is Biomedical Specialization Still Worth It? Insights from Domain-Adaptive Language Modelling with a New French Health Corpus | [2026.lrec-1.833](https://aclanthology.org/2026.lrec-1.833/)         |
+| A Meta-evaluation of Automatic Metrics for Elaborative Simplification                                                         | [2026.readi-1.15](https://aclanthology.org/2026.readi-1.15/)         |
 
 {% endraw %}

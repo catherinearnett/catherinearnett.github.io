@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ind` · macrolanguage `msa`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Malayo-Chamic › … › Standard Malay-Indonesian ([Glottolog](https://glottolog.org/resource/languoid/id/indo1316))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 180.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 43.6 million first-language + 155.4 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q9240#P1098), 2010)
 
 **Official / recognised in:** Indonesia
 
 **Status:** Official language
+
+
+## What does Indonesian look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/indonesian.htm):
+
+> Semua orang dilahirkan merdeka dan mempunyai martabat dan hak-hak yang sama. Mereka dikaruniai akal dan hati nurani dan hendaknya bergaul satu sama lain dalam semangat persaudaraan.
+> A recording of this text by Ali Aulia Ghozali
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_in.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ind/) has 7 videos of Indonesian speakers. Watch [See all](https://wikitongues.org/videos/?language=ind).
 
 
 ## Training Data
@@ -25,39 +47,62 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                      |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 803,751 articles in id.wikipedia (rank 18 of 161 in the set) — ~1/9 of English; 4,808 active users                                                                                                                          |
-| Common Crawl 2026      | 24,023,990 pages per crawl on average, which is 1.1142% of the crawl. This is ~1/37 of English data and ranks 13 of 113 official languages in Common Crawl.                                                                 |
-| FineWeb                | 152.21 GB (ind_Latn (152.21)); which is equivalent to ≈129.13 GB English data after byte-premium scaling; 159.63 GB removed by filtering. This is ~1/351 of English data and ranks 12 of 248 official languages in FineWeb. |
-| Goldfish training data | 7.82 GB (ind_latn) (rank 27 of 166 in the set)                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                              |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 803,751 articles in id.wikipedia; 4,808 active users. This is ~1/9 of English data and ranks 19 of 168 languages in the set in Wikipedia.                                                                           |
+| Common Crawl           | 24,023,990 pages per crawl on average, which is 1.1142% of the crawl (2026). This is ~1/37 of English data and ranks 13 of 113 languages in the set in Common Crawl.                                                |
+| FineWeb                | 152.21 GB (ind_Latn 152.21 GB), equivalent to ≈129.13 GB of English after byte-premium scaling; 159.63 GB removed by filtering. This is ~1/351 of English data and ranks 12 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 7.82 GB (ind_Latn 7.82 GB) (rank 27 of 166 in the set)                                                                                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 3 treebanks, 7,628 sentences / 166,635 tokens in total: [UD_Indonesian-CSUI](https://github.com/UniversalDependencies/UD_Indonesian-CSUI) (1,030 sentences), [UD_Indonesian-GSD](https://github.com/UniversalDependencies/UD_Indonesian-GSD) (5,598 sentences), [UD_Indonesian-PUD](https://github.com/UniversalDependencies/UD_Indonesian-PUD) (1,000 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 3,877 lemmas, 27,714 inflected forms ([unimorph/ind](https://github.com/unimorph/ind))                                                                                                                                                                                                                                                                                                                                                      |
+| Wikidata labels        | 4,005,574 Wikidata items have a label in Indonesian. (Wikidata codes (labels): id (4,005,574))                                                                                                                                                                                                                                                                                                                                              |
+| Wordnets               | [Wordnet Bahasa (Indonesian)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-id-1.4.tar.xz): 38,085 synsets, 41,478 words, 106,688 senses; licence: https://opensource.org/licenses/MIT/; [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD.                                                                                                                                                  |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                                    |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                        |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: New Testament + parts of the Old Testament ([ind](https://ebible.org/details.php?id=ind), by-sa 4.0); New Testament ([indags](https://ebible.org/details.php?id=indags), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                     |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (7):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=60), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.919 (P 0.876, R 0.970, FPR 1.34e-03) averaged over 7 dataset(s). Runner-up: OpenLID-v2 (F1 0.874).
+- **Best model:** GlotLID — F1 0.919 (P 0.876, R 0.970, FPR 1.32e-03) averaged over 7 dataset(s). Runner-up: OpenLID-v2 (F1 0.871).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.876 |    0.970 | 0.919 | 0.001 | ✓                |
-| OpenLID-v2   |       0.859 |    0.901 | 0.874 | 0.002 | ✓                |
-| fasttext     |       0.766 |    0.934 | 0.827 | 0.003 | ✓                |
+| OpenLID-v2   |       0.854 |    0.901 | 0.871 | 0.002 | ✓                |
+| fasttext     |       0.762 |    0.934 | 0.825 | 0.003 | ✓                |
 | cld2         |       0.780 |    0.860 | 0.811 | 0.003 | ✓                |
-| py3langid    |       0.690 |    0.837 | 0.747 | 0.005 | ✓                |
-| commonlingua |       0.674 |    0.666 | 0.663 | 0.004 | ✓                |
+| py3langid    |       0.686 |    0.837 | 0.745 | 0.005 | ✓                |
+| cld3         |       0.691 |    0.710 | 0.691 | 0.006 | ✓                |
+| commonlingua |       0.673 |    0.666 | 0.662 | 0.004 | ✓                |
 | pyfranc      |       0.645 |    0.594 | 0.613 | 0.004 | ✓                |
-| funlangid    |       0.596 |    0.591 | 0.578 | 0.005 | ✓                |
+| funlangid    |       0.594 |    0.591 | 0.577 | 0.005 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.708 |    0.953 | 0.812 |
+| Tatoeba   | 300 |       0.710 |    0.953 | 0.814 |
 | CommonLID | 300 |       0.874 |    0.927 | 0.900 |
 | NTREX     | 300 |       0.850 |    0.983 | 0.912 |
 | FLORES    | 300 |       0.874 |    0.993 | 0.930 |
@@ -93,45 +138,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      441 | ██████████           |
 |   2026 |      886 | ████████████████████ |
 
-### Most popular models tagged for Indonesian
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Indonesian
-
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [cahya/gpt2-small-indonesian-522M](https://huggingface.co/cahya/gpt2-small-indonesian-522M)           | 141,448                | 1,098                 | 522.0M       |                    1 |   2022 | —               |
-| [indobenchmark/indogpt](https://huggingface.co/indobenchmark/indogpt)                                 | 32,779                 | 261                   | unknown      |                    1 |   2022 | —               |
-| [flax-community/gpt2-small-indonesian](https://huggingface.co/flax-community/gpt2-small-indonesian)   | 27,885                 | 825                   | unknown      |                    1 |   2022 | —               |
-| [indonesian-nlp/gpt2-medium-indonesian](https://huggingface.co/indonesian-nlp/gpt2-medium-indonesian) | 19,400                 | 199                   | 380.0M       |                    1 |   2022 | —               |
-| [indonesian-nlp/gpt2](https://huggingface.co/indonesian-nlp/gpt2)                                     | 19,244                 | 847                   | 137.0M       |                    1 |   2022 | —               |
-
 ### Largest models tagged for Indonesian
 
-| model                                                                                                                               | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                 |
-|:------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                           | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                                             |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                               | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                                             |
-| [Langitzt/Vector-1-lite](https://huggingface.co/Langitzt/Vector-1-lite)                                                             | 101                    |                    10 | 753.9B       |                    3 |   2026 | —                                             |
-| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)                             | 604                    |                   604 | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019               |
-| [mlx-community/Llama-4-Maverick-17B-16E-Instruct-6bit](https://huggingface.co/mlx-community/Llama-4-Maverick-17B-16E-Instruct-6bit) | 8,316                  |                    77 | 400.7B       |                   12 |   2025 | meta-llama/Llama-4-Maverick-17B-128E-Instruct |
+| model                                                                                                                       | parameters   |   # languages tagged |   year | derivative of                        |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                   | 1.9T         |                  143 |   2025 | —                                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                       | 856.0B       |                  143 |   2025 | —                                    |
+| [Langitzt/Vector-1-lite](https://huggingface.co/Langitzt/Vector-1-lite)                                                     | 753.9B       |                    3 |   2026 | —                                    |
+| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)                     | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019      |
+| [from-our-page/Llama-4-Maverick-17B-128E-mlx-4bit](https://huggingface.co/from-our-page/Llama-4-Maverick-17B-128E-mlx-4bit) | 400.7B       |                   12 |   2025 | meta-llama/Llama-4-Maverick-17B-128E |
 
 ### Largest models tagged *only* for Indonesian
 
-| model                                                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------------------|
-| [komixenon/GoToCompany-Llama-Sahabat-AI-v2-70B-IT-BNB4](https://huggingface.co/komixenon/GoToCompany-Llama-Sahabat-AI-v2-70B-IT-BNB4) | 156                    |                     7 | 72.7B        |                    1 |   2025 | GoToCompany/Llama-Sahabat-AI-v2-70B-IT |
-| [TheCoderScientist/GarudaCoder-27B-ID-lora](https://huggingface.co/TheCoderScientist/GarudaCoder-27B-ID-lora)                         | 170                    |                     9 | 27.0B        |                    1 |   2026 | unsloth/Qwen3.8-27B-unsloth-bnb-4bit   |
-| [Lobus22/Lidya-Natalia-1.5-20B](https://huggingface.co/Lobus22/Lidya-Natalia-1.5-20B)                                                 | 0                      |                     0 | 20.0B        |                    1 |   2026 | openai/gpt-oss-20b                     |
-| [microsoft/LLaMA-2-13b-GTL-Delta](https://huggingface.co/microsoft/LLaMA-2-13b-GTL-Delta)                                             | 1,465                  |                   223 | 13.0B        |                    1 |   2024 | —                                      |
-| [indonlp/cendol-llama2-13b-merged-chat](https://huggingface.co/indonlp/cendol-llama2-13b-merged-chat)                                 | 511                    |                    11 | 13.0B        |                    1 |   2023 | —                                      |
+| model                                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                          |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [komixenon/GoToCompany-Llama-Sahabat-AI-v2-70B-IT-BNB4](https://huggingface.co/komixenon/GoToCompany-Llama-Sahabat-AI-v2-70B-IT-BNB4) | 72.7B        |                    1 |   2025 | GoToCompany/Llama-Sahabat-AI-v2-70B-IT |
+| [TheCoderScientist/GarudaCoder-27B-ID-lora](https://huggingface.co/TheCoderScientist/GarudaCoder-27B-ID-lora)                         | 27.0B        |                    1 |   2026 | unsloth/Qwen3.8-27B-unsloth-bnb-4bit   |
+| [Lobus22/Lidya-Natalia-1.5-20B](https://huggingface.co/Lobus22/Lidya-Natalia-1.5-20B)                                                 | 20.0B        |                    1 |   2026 | openai/gpt-oss-20b                     |
+| [indonlp/cendol-llama2-13b-merged-chat](https://huggingface.co/indonlp/cendol-llama2-13b-merged-chat)                                 | 13.0B        |                    1 |   2023 | —                                      |
+| [microsoft/LLaMA-2-13b-GTL-Delta](https://huggingface.co/microsoft/LLaMA-2-13b-GTL-Delta)                                             | 13.0B        |                    1 |   2024 | —                                      |
 
 _231 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -151,7 +176,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**38** benchmark datasets in the survey include Indonesian.
+**37** benchmark datasets in the survey include Indonesian.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -162,15 +187,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [11]    \
+                 /   [10]   \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [10]       \
+         /      reasoning [10]      \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +209,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                             | # test items   | Construction                                                                       |
+| level                                  | task                           | dataset                                                                                             | # test items   | construction                                                                       |
 |:---------------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [ACS](https://github.com/igorsterner/acs)                                                           | 1,000          | Corpus-extracted + automatic manipulation                                          |
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                           | 6              | Treebank-based (automatic)                                                         |
@@ -193,8 +218,8 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MABL (Multilingual Fig-QA)](https://huggingface.co/datasets/cmu-lti/multi-figqa)                   | 1,140          | Native (written by native speakers)                                                |
 | 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MAPS (proverbs)](https://github.com/UKPLab/maps)                                                   | 341            | Native (Wikiquote/Wiktionary proverbs; GPT-3.5 seed contexts rewritten by natives) |
 | 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom)                              | —              | Native (curated by native speakers; generated contexts + MCQs)                     |
-| 3. Commonsense reasoning               | COPA                           | [COPAL-ID](https://huggingface.co/datasets/haryoaw/COPAL)                                           | 559            | Native                                                                             |
 | 3. Commonsense reasoning               | COPA                           | [COPAL-ID (colloquial)](https://huggingface.co/datasets/haryoaw/COPAL)                              | 559            | Native (paraphrased from standard)                                                 |
+| 3. Commonsense reasoning               | COPA                           | [COPAL-ID](https://huggingface.co/datasets/haryoaw/COPAL)                                           | 559            | Native                                                                             |
 | 3. Commonsense reasoning               | COPA                           | [XCOPA](https://huggingface.co/datasets/cambridgeltl/xcopa)                                         | 500            | Human translation                                                                  |
 | 3. Commonsense reasoning               | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                               | 9,088          | Machine translation (GPT-4o, auto-checked)                                         |
 | 3. Commonsense reasoning               | HellaSwag                      | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)            | 9,314          | Machine translation (GPT-3.5-turbo)                                                |
@@ -206,15 +231,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                                   |
 | 4. Reading comprehension               | QA – extractive RC             | IDK-MRC                                                                                             | —              | Native                                                                             |
 | 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                                      |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | IndoMMLU                                                                                            | 14,981         | Native (school exams)                                                              |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                               | 14,042         | Human translation (professional)                                                   |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                                               |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | IndoMMLU                                                                                            | 14,981         | Native (school exams)                                                              |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                       | 11,829         | LLM translation + expert review                                                    |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMMLU (OpenAI)](https://huggingface.co/datasets/openai/MMMLU)                                      | 14,042         | Human translation (professional)                                                   |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [NOVA-63](https://huggingface.co/datasets/zjy1298/NOVA-63)                                          | —              | Native (local exams/publications)                                                  |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)              | —              | Machine translation (GPT-3.5, Okapi)                                               |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                             | 500            | Native (cultural; native-speaker answers)                                          |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                                          |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                                          |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                                           |
 | Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Original (pivot language, linguist-written) + translations                         |
@@ -249,7 +273,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 314 of ~18,460 papers (1.70%) (rank 23 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 314 of ~18,498 papers (1.70%) (rank 24 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Indonesian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 314):

@@ -12,9 +12,38 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `lld`
 
+**Language family:** **Indo-European** › Classical Indo-European › Italic › … › Italian Romance ([Glottolog](https://glottolog.org/resource/languoid/id/ladi1250))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (80% certain))
+
+**Speakers:** about 29,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 30,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q36202#P1098))
+
 **Official / recognised in:** Italy
 
 **Status:** Regional official language
+
+
+## What does Ladin look and sound like?
+
+**Written (Gardena Ladin)**, sample text from [Omniglot](https://www.omniglot.com/writing/ladin.htm):
+
+> Duta la jënt ie nasciuda liedia y à la medema denità y i medemi dërc. I à na mënt y na cuscienza y dëssa cunviver coche fredesc.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_ladin-gardena.mp3) (Omniglot).
+
+**Written (Val Badia Ladin)**, sample text from [Omniglot](https://www.omniglot.com/writing/ladin.htm):
+
+> Dötes les porsones nasc lëdies y cun la medema dignité y i medemi dërć. Ares à na rajun y na cosciënza y mëss sʼincuntè öna cun lʼatra te n spirit de fraternité.
+
+**Written (Comelico Ladin)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/ladin.htm):
+
+> Duce cuance i omin nasse libere e conpains zla dignité e zi derite. Löre inà la reson e la cossenzia e dovaraa tnisse duce a une conpagn de frades.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/lld/) has 2 videos of Ladin speakers. Watch [Andrea speaking Solandro](https://wikitongues.org/videos/andrea_20151117_lld/).
 
 
 ## Training Data
@@ -23,20 +52,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 183,227 articles in lld.wikipedia (rank 47 of 161 in the set) — ~1/41 of English; 28 active users                                                |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                         |
-| FineWeb                | 1.5 MB (lld_Latn (0.00)); 7.6 MB removed by filtering. This is ~1/35,019,483 of English data and ranks 189 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                     |
+| Source                 | Amount                                                                                                                                        |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 183,227 articles in lld.wikipedia; 28 active users. This is ~1/41 of English data and ranks 48 of 168 languages in the set in Wikipedia.      |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                      |
+| FineWeb                | 1.5 MB (lld_Latn 0); 7.6 MB removed by filtering. This is ~1/35,019,483 of English data and ranks 189 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                  |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | 180 lemmas, 7,656 inflected forms ([unimorph/lld](https://github.com/unimorph/lld))    |
+| Wikidata labels        | 226,742 Wikidata items have a label in Ladin. (Wikidata codes (labels): lld (226,742)) |
+| Wordnets               | **None found**                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, pyfranc.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), Tatoeba (n=85), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.893 (P 0.988, R 0.830, FPR 2.68e-05) averaged over 4 dataset(s). Runner-up: pyfranc (F1 0.701).
+- **Best model:** GlotLID — F1 0.893 (P 0.988, R 0.830, FPR 2.65e-05) averaged over 4 dataset(s). Runner-up: pyfranc (F1 0.701).
 
 **All models (averaged over datasets):**
 
@@ -44,9 +94,11 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.988 |    0.830 | 0.893 | 0.000 | ✓                |
 | pyfranc      |       0.782 |    0.648 | 0.701 | 0.001 | ✓                |
-| commonlingua |       0.796 |    0.505 | 0.605 | 0.000 | ✓                |
+| commonlingua |       0.792 |    0.505 | 0.605 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -68,6 +120,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Ladin and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Ladin has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Ladin?
@@ -83,16 +136,6 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   year |   models |                      |
 |-------:|---------:|:---------------------|
 |   2026 |        1 | ████████████████████ |
-
-### Most popular models tagged for Ladin
-
-| model                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [wikilangs/lld](https://huggingface.co/wikilangs/lld) |                      0 |                     0 | unknown      |                    2 |   2026 | —               |
-
-### Most popular models tagged *only* for Ladin
-
-_none_
 
 ### Largest models tagged for Ladin
 
@@ -120,7 +163,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**6** benchmark datasets in the survey include Ladin.
+**4** benchmark datasets in the survey include Ladin.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -131,15 +174,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -147,20 +190,18 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [5]         \
+ /         ✅ Machine translation [3]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 4,745          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Community-contributed translation                                |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Community-contributed translation                                |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 21             | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                | dataset                                                                                     |   # test items | construction                                                     |
+|:-------------------------|:--------------------|:--------------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                  |          4,745 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)             |          1,708 | Community-contributed translation                                |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs) |          2,024 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)        |             21 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -188,7 +229,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 26 of ~18,460 papers (0.14%) (rank 112 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 26 of ~18,498 papers (0.14%) (rank 118 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Ladin
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 26):

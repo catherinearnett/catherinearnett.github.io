@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `som`
 
+**Language family:** **Afro-Asiatic** › Cushitic › East Cushitic › … › Eastern Omo-Tana ([Glottolog](https://glottolog.org/resource/languoid/id/soma1255))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 18.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 16.2 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q13275#P1098), 2019)
 
 **Official / recognised in:** Ethiopia, Somalia
 
 **Status:** Official language
+
+
+## What does Somali look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/somali.htm):
+
+> Aadanaha dhammaantiis wuxuu dhashaa isagoo xor ah kana siman xagga sharafta iyo xuquuqada Waxaa Alle (Ilaah) siiyay aqoon iyo wacyi, waana in qof la arkaa qofka kale ula dhaqmaa si walaaltinimo ah.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. (Article 1 of the Universal Declaration of Human Rights) [top]
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_so.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/som/) has 3 videos of Somali speakers. Watch [Sedday speaking English, Somali, Swahili](https://wikitongues.org/videos/sedday_20150217_eng-som-swh/).
 
 
 ## Training Data
@@ -25,20 +46,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 14,177 articles in so.wikipedia (rank 90 of 161 in the set) — ~1/532 of English; 95 active users                                                                                                                       |
-| Common Crawl 2026      | 120,016 pages per crawl on average, which is 0.0056% of the crawl. This is ~1/7,428 of English data and ranks 62 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 1.01 GB (som_Latn (1.01)); which is equivalent to ≈0.71 GB English data after byte-premium scaling; 1.79 GB removed by filtering. This is ~1/52,955 of English data and ranks 71 of 248 official languages in FineWeb. |
-| Goldfish training data | 1.71 GB (som_latn) (rank 64 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 14,177 articles in so.wikipedia; 95 active users. This is ~1/532 of English data and ranks 94 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 120,016 pages per crawl on average, which is 0.0056% of the crawl (2026). This is ~1/7,428 of English data and ranks 62 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 1.01 GB (som_Latn 1.01 GB), equivalent to ≈0.71 GB of English after byte-premium scaling; 1.79 GB removed by filtering. This is ~1/52,955 of English data and ranks 71 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 1.71 GB (som_Latn 1.71 GB) (rank 64 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | **None found**                                                                         |
+| Wikidata labels        | 513,940 Wikidata items have a label in Somali. (Wikidata codes (labels): so (513,940)) |
+| Wordnets               | **None found**                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                       |
+|:-----------------------------------|:--------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                           |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([som](https://ebible.org/details.php?id=som), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                        |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=164), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** cld2 — F1 0.980 (P 0.985, R 0.975, FPR 9.63e-05) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.976).
+- **Best model:** cld2 — F1 0.980 (P 0.985, R 0.975, FPR 9.57e-05) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.976).
 
 **All models (averaged over datasets):**
 
@@ -46,12 +88,14 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | cld2         |       0.985 |    0.975 | 0.980 | 0.000 | ✓                |
 | GlotLID      |       0.977 |    0.978 | 0.976 | 0.000 | ✓                |
-| pyfranc      |       0.952 |    0.922 | 0.933 | 0.000 | ✓                |
+| pyfranc      |       0.945 |    0.922 | 0.930 | 0.000 | ✓                |
 | funlangid    |       0.967 |    0.886 | 0.916 | 0.000 | ✓                |
-| fasttext     |       0.819 |    0.974 | 0.873 | 0.003 | ✓                |
-| commonlingua |       0.772 |    0.901 | 0.817 | 0.003 | ✓                |
-| OpenLID-v2   |       0.740 |    0.995 | 0.816 | 0.007 | ✓                |
-| py3langid    |       0.648 |    0.990 | 0.750 | 0.014 | ✓                |
+| fasttext     |       0.817 |    0.974 | 0.870 | 0.003 | ✓                |
+| commonlingua |       0.768 |    0.901 | 0.815 | 0.003 | ✓                |
+| OpenLID-v2   |       0.737 |    0.995 | 0.814 | 0.007 | ✓                |
+| py3langid    |       0.636 |    0.990 | 0.740 | 0.014 | ✓                |
+| cld3         |       0.335 |    0.972 | 0.477 | 0.053 | ✓                |
+| AfroLID      |       0.237 |    0.920 | 0.338 | 0.176 | ✓                |
 
 **Best model (cld2) by dataset**:
 
@@ -61,8 +105,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Wikipedia | 300 |       0.993 |    0.960 | 0.976 |
 | UDHR-LID  |  57 |       0.983 |    1.000 | 0.991 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| SmolSent  | 300 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| SmolSent  | 300 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -72,6 +116,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Somali and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Somali has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Somali?
@@ -92,45 +137,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       36 | ████████████         |
 |   2026 |       58 | ████████████████████ |
 
-### Most popular models tagged for Somali
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)       | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —               |
-| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)     | 81,196                 | 228                   | 13.9B        |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Somali
-
-| model                                                                                     |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [tacab/somali-agriculture](https://huggingface.co/tacab/somali-agriculture)               |                    616 |                   266 | 7.1M         |                    1 |   2025 | —               |
-| [goldfish-models/som_latn_1000mb](https://huggingface.co/goldfish-models/som_latn_1000mb) |                    508 |                    30 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/som_latn_5mb](https://huggingface.co/goldfish-models/som_latn_5mb)       |                    437 |                    22 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/som_latn_100mb](https://huggingface.co/goldfish-models/som_latn_100mb)   |                    424 |                    19 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/som_latn_10mb](https://huggingface.co/goldfish-models/som_latn_10mb)     |                    405 |                    25 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Somali
 
-| model                                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                         |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:--------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                     |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                     |
-| [frankmorales2020/mixtral-8x22b-instruct-v0.1-topo-cbp-GGUF](https://huggingface.co/frankmorales2020/mixtral-8x22b-instruct-v0.1-topo-cbp-GGUF) | 320                    | 320                   | 140.6B       |                    2 |   2026 | mistralai/Mixtral-8x22B-Instruct-v0.1 |
-| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B)                                                           | 834                    | 141                   | 27.4B        |                   20 |   2026 | Qwen/Qwen3.8-27B                      |
-| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)                                                                 | 20,964                 | 1,255                 | 14.8B        |                   19 |   2026 | Qwen/Qwen3-14B-Base                   |
+| model                                                                                                                                           | parameters   |   # languages tagged |   year | derivative of                         |
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 1.9T         |                  143 |   2025 | —                                     |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 856.0B       |                  143 |   2025 | —                                     |
+| [frankmorales2020/mixtral-8x22b-instruct-v0.1-topo-cbp-GGUF](https://huggingface.co/frankmorales2020/mixtral-8x22b-instruct-v0.1-topo-cbp-GGUF) | 140.6B       |                    2 |   2026 | mistralai/Mixtral-8x22B-Instruct-v0.1 |
+| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B)                                                           | 27.4B        |                   24 |   2026 | Qwen/Qwen3.8-27B                      |
+| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)                                                                 | 14.8B        |                   21 |   2026 | Qwen/Qwen3-14B-Base                   |
 
 ### Largest models tagged *only* for Somali
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [alphaedge-ai/gemma-3-4b-it-som-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-som-32768)     |                     49 |                     8 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-| [alphaedge-ai/gemma-3-1b-it-som-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-som-32768)     |                     39 |                     8 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [boore1/SOMA-S1](https://huggingface.co/boore1/SOMA-S1)                                                 |                     61 |                    61 | 126.2M       |                    1 |   2026 | —                    |
-| [alphaedge-ai/gemma-3-270m-it-som-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-som-32768) |                     52 |                     7 | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
-| [tacab/somali-agriculture](https://huggingface.co/tacab/somali-agriculture)                             |                    616 |                   266 | 7.1M         |                    1 |   2025 | —                    |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [alphaedge-ai/gemma-3-4b-it-som-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-som-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
+| [alphaedge-ai/gemma-3-1b-it-som-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-som-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
+| [boore1/SOMA-S1](https://huggingface.co/boore1/SOMA-S1)                                                 | 126.2M       |                    1 |   2026 | —                    |
+| [alphaedge-ai/gemma-3-270m-it-som-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-som-32768) | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
+| [tacab/somali-agriculture](https://huggingface.co/tacab/somali-agriculture)                             | 7.1M         |                    1 |   2025 | —                    |
 
 _34 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -161,15 +186,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,7 +208,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                          | dataset                                                                              | # test items   | Construction                                                        |
+| level                         | task                          | dataset                                                                              | # test items   | construction                                                        |
 |:------------------------------|:------------------------------|:-------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 4. Reading comprehension      | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        | 900            | Human translation (professional)                                    |
 | 4. Reading comprehension      | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
@@ -221,7 +246,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 65 of ~18,460 papers (0.35%) (rank 72 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 65 of ~18,498 papers (0.35%) (rank 75 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Somali
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 65):

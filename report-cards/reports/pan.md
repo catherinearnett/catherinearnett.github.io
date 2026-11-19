@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `pan`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Eastern Panjabic ([Glottolog](https://glottolog.org/resource/languoid/id/panj1256))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Guru`
+
+**Speakers:** about 219.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 125.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q58635#P1098), 2021)
 
 **Official / recognised in:** India
 
 **Status:** Regional official language
+
+
+## What does Punjabi look and sound like?
+
+**Written:** Omniglot has [a page on Punjabi](https://www.omniglot.com/writing/punjabi.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/pan/) has 3 videos of Punjabi speakers. Watch [Randeep speaking Powadhi Punjabi](https://wikitongues.org/videos/randeep_20160419_pan/).
 
 
 ## Training Data
@@ -25,18 +38,48 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                  |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 59,762 articles in pa.wikipedia (rank 68 of 161 in the set) — ~1/126 of English; 145 active users                                                                                                                                       |
-| Common Crawl 2026      | 191,376 pages per crawl on average, which is 0.0089% of the crawl. This is ~1/4,658 of English data and ranks 57 of 113 official languages in Common Crawl.                                                                             |
-| FineWeb                | 1.61 GB (pan_Guru (1.59); pan_Latn (0.01)); which is equivalent to ≈0.72 GB English data after byte-premium scaling; 2.02 GB removed by filtering. This is ~1/33,256 of English data and ranks 65 of 248 official languages in FineWeb. |
-| Goldfish training data | 5.60 GB (pan_guru) (rank 35 of 166 in the set)                                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 59,762 articles in pa.wikipedia; 145 active users. This is ~1/126 of English data and ranks 69 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                 |
+| Common Crawl           | 191,376 pages per crawl on average, which is 0.0089% of the crawl (2026). This is ~1/4,658 of English data and ranks 57 of 113 languages in the set in Common Crawl.                                                                                                                                                                                     |
+| FineWeb                | 1.61 GB (pan_Guru 1.59 GB; pan_Latn 10.0 MB), equivalent to ≈0.72 GB of English after byte-premium scaling (⚠️ only 99% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 2.02 GB removed by filtering. This is ~1/33,256 of English data and ranks 65 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 5.60 GB (pan_Guru 5.60 GB) (rank 35 of 166 in the set)                                                                                                                                                                                                                                                                                                   |
+
+**By writing system:**
+
+| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Gurmukhi (`Guru`) | 1.59 GB   | 0.72 GB                       | 5.60 GB      | 2.52 GB                        |
+| Latin (`Latn`)    | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 3 treebanks, 493 sentences / 8,428 tokens in total: [UD_Punjabi-CS](https://github.com/UniversalDependencies/UD_Punjabi-CS) (113 sentences), [UD_Punjabi-DYZ](https://github.com/UniversalDependencies/UD_Punjabi-DYZ) (243 sentences), [UD_Punjabi-Rang](https://github.com/UniversalDependencies/UD_Punjabi-Rang) (137 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                |
+| Wikidata labels        | 576,896 Wikidata items have a label in Punjabi. (Wikidata codes (labels): pa (576,896))                                                                                                                                                                                                                                                                                                                       |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                                                                                                                                                                                                              |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                    |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                        |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([pan](https://ebible.org/details.php?id=pan), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                     |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=217), UDHR-LID (n=58), Wikipedia (n=300)
 - **Best model:** py3langid — F1 0.998 (P 1.000, R 0.996, FPR 0.00e+00) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.997).
 
@@ -51,9 +94,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | OpenLID-v2   |       1.000 |    0.994 | 0.997 | 0.000 | ✓                |
 | GlotLID      |       0.997 |    0.994 | 0.995 | 0.000 | ✓                |
 | fasttext     |       1.000 |    0.990 | 0.995 | 0.000 | ✓                |
-| commonlingua |       0.991 |    0.996 | 0.994 | 0.000 | ✓                |
+| commonlingua |       0.990 |    0.996 | 0.993 | 0.000 | ✓                |
 | pyfranc      |       1.000 |    0.976 | 0.988 | 0.000 | ✗                |
-| funlangid    |       0.881 |    0.949 | 0.903 | 0.001 | ✓                |
+| cld3         |       1.000 |    0.976 | 0.988 | 0.000 | ✓                |
+| funlangid    |       0.880 |    0.949 | 0.903 | 0.001 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (py3langid) by dataset**:
 
@@ -63,8 +108,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Wikipedia | 300 |       1.000 |    0.993 | 0.997 |
 | Tatoeba   | 217 |       1.000 |    0.995 | 0.998 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -74,6 +119,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Punjabi and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Punjabi has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Punjabi?
@@ -94,45 +140,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      144 | ██████████████       |
 |   2026 |      207 | ████████████████████ |
 
-### Most popular models tagged for Punjabi
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Punjabi
-
-| model                                                                                     |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/pan_guru_5mb](https://huggingface.co/goldfish-models/pan_guru_5mb)       |                    890 |                   191 | unknown      |                    1 |   2024 | —               |
-| [balgeet/Gurmukh-370M-base](https://huggingface.co/balgeet/Gurmukh-370M-base)             |                    687 |                    35 | 435.5M       |                    1 |   2026 | —               |
-| [goldfish-models/pan_guru_1000mb](https://huggingface.co/goldfish-models/pan_guru_1000mb) |                    420 |                    22 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/pan_guru_100mb](https://huggingface.co/goldfish-models/pan_guru_100mb)   |                    407 |                    25 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/pan_guru_10mb](https://huggingface.co/goldfish-models/pan_guru_10mb)     |                    398 |                    13 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Punjabi
 
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                 | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF) | 23,979                 | 3,521                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                                 | 109                    | 13                    | 176.2B       |                   35 |   2026 | —                                      |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)                                           | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —                                      |
+| model                                                                                                 | parameters   |   # languages tagged |   year | derivative of                          |
+|:------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                             | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                 | 856.0B       |                  143 |   2025 | —                                      |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF) | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                                 | 176.2B       |                   37 |   2026 | —                                      |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                                 | 176.2B       |                   37 |   2026 | —                                      |
 
 ### Largest models tagged *only* for Punjabi
 
-| model                                                                                                                                       |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [mahnoornaeem47/Llama-3.1-8B-Punjabi-Shahmukhi-QA-adapter](https://huggingface.co/mahnoornaeem47/Llama-3.1-8B-Punjabi-Shahmukhi-QA-adapter) |                     37 |                     6 | 8.0B         |                    1 |   2026 | meta-llama/Llama-3.1-8B       |
-| [alphaedge-ai/Qwen3.5-4B-pan-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-pan-32768)                                               |                     50 |                    16 | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
-| [alphaedge-ai/gemma-3-4b-it-pan-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-pan-32768)                                         |                     45 |                     5 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-pan](https://huggingface.co/ptrdvn/kakugo-3B-pan)                                                                         |                     86 |                    12 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [amanpreetsingh459/gemma-2-2b-punjabi-finetuned-4](https://huggingface.co/amanpreetsingh459/gemma-2-2b-punjabi-finetuned-4)                 |                     48 |                     7 | 2.6B         |                    1 |   2024 | google/gemma-2-2b             |
+| model                                                                                                                                       | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [mahnoornaeem47/Llama-3.1-8B-Punjabi-Shahmukhi-QA-adapter](https://huggingface.co/mahnoornaeem47/Llama-3.1-8B-Punjabi-Shahmukhi-QA-adapter) | 8.0B         |                    1 |   2026 | meta-llama/Llama-3.1-8B       |
+| [alphaedge-ai/Qwen3.5-4B-pan-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-pan-32768)                                               | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
+| [alphaedge-ai/gemma-3-4b-it-pan-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-pan-32768)                                         | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [ptrdvn/kakugo-3B-pan](https://huggingface.co/ptrdvn/kakugo-3B-pan)                                                                         | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [amanpreetsingh459/gemma-2-2b-it-punjabi-finetuned](https://huggingface.co/amanpreetsingh459/gemma-2-2b-it-punjabi-finetuned)               | 2.6B         |                    1 |   2024 | google/gemma-2-2b             |
 
 _56 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +178,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**19** benchmark datasets in the survey include Punjabi.
+**18** benchmark datasets in the survey include Punjabi.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,15 +189,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [2]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [4]   \
+            / comprehension [4]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [5]        \
+         /      reasoning [5]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -179,13 +205,13 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [8]         \
+ /         ✅ Machine translation [7]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                         | task                          | dataset                                                                                             | # test items   | Construction                                                        |
+| level                         | task                          | dataset                                                                                             | # test items   | construction                                                        |
 |:------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 3. Commonsense reasoning      | COPA                          | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                                    | 500            | Human translation                                                   |
 | 3. Commonsense reasoning      | HellaSwag                     | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                               | 9,088          | Machine translation (GPT-4o, auto-checked)                          |
@@ -202,8 +228,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 | Machine translation           | Machine translation           | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                      |
 | Machine translation           | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
 | Machine translation           | Machine translation           | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation           | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
+| Machine translation           | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)                  | —              | Human translation (professional, from English)                      |
 | Machine translation           | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 87             | Native (crowdsourced Tatoeba sentence pairs)                        |
 | Machine translation           | Machine translation           | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                       |
 
@@ -232,7 +257,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 110 of ~18,460 papers (0.60%) (rank 53 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 110 of ~18,498 papers (0.59%) (rank 55 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Punjabi
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 110):

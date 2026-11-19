@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `gla`
 
+**Language family:** **Indo-European** › Classical Indo-European › Celtic › … › Eastern Goidelic ([Glottolog](https://glottolog.org/resource/languoid/id/scot1245))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (80% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 75,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 57,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9314#P1098), 2011)
 
 **Official / recognised in:** United Kingdom
 
 **Status:** Regional official language
+
+
+## What does Scottish Gaelic look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/gaelic.htm):
+
+> Rugadh na h-uile duine saor agus co-ionnan nan urram 's nan còirichean. Tha iad reusanta is cogaiseach, agus bu chòir dhaibh a ghiùlain ris a chèile ann an spiorad bràthaireil.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_ga.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/gla/) has 5 videos of Scottish Gaelic speakers. Watch [Alan speaking Scottish Gaelic](https://wikitongues.org/videos/alan_20150625_gla/).
 
 
 ## Training Data
@@ -25,20 +46,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 16,044 articles in gd.wikipedia (rank 84 of 161 in the set) — ~1/470 of English; 25 active users                                                                                                                        |
-| Common Crawl 2026      | 39,799 pages per crawl on average, which is 0.0018% of the crawl. This is ~1/22,400 of English data and ranks 81 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 0.37 GB (gla_Latn (0.37)); which is equivalent to ≈0.37 GB English data after byte-premium scaling; 0.22 GB removed by filtering. This is ~1/144,811 of English data and ranks 88 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.60 GB (gla_latn) (rank 85 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 16,044 articles in gd.wikipedia; 25 active users. This is ~1/470 of English data and ranks 88 of 168 languages in the set in Wikipedia.                                                                         |
+| Common Crawl           | 39,799 pages per crawl on average, which is 0.0018% of the crawl (2026). This is ~1/22,400 of English data and ranks 81 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 0.37 GB (gla_Latn 0.37 GB), equivalent to ≈0.37 GB of English after byte-premium scaling; 0.22 GB removed by filtering. This is ~1/144,811 of English data and ranks 88 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.60 GB (gla_Latn 0.60 GB) (rank 85 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                     |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 4,748 sentences / 86,139 tokens in total: [UD_Scottish_Gaelic-ARCOSG](https://github.com/UniversalDependencies/UD_Scottish_Gaelic-ARCOSG) (4,748 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 73 lemmas, 781 inflected forms ([unimorph/gla](https://github.com/unimorph/gla))                                                                                                                                                                |
+| Wikidata labels        | 1,573,122 Wikidata items have a label in Scottish Gaelic. (Wikidata codes (labels): gd (1,573,122))                                                                                                                                             |
+| Wordnets               | **None found**                                                                                                                                                                                                                                  |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** CommonLID (n=300), FLORES (n=300), Tatoeba (n=300), UDHR-LID (n=62), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.980 (P 0.995, R 0.965, FPR 1.99e-05) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.968).
+- **Best model:** GlotLID — F1 0.980 (P 0.995, R 0.965, FPR 1.97e-05) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.969).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,13 +89,15 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.995 |    0.965 | 0.980 | 0.000 | ✓                |
-| fasttext     |       0.992 |    0.947 | 0.968 | 0.000 | ✓                |
-| cld2         |       0.993 |    0.931 | 0.960 | 0.000 | ✓                |
-| py3langid    |       0.933 |    0.968 | 0.948 | 0.001 | ✓                |
-| OpenLID-v2   |       0.901 |    0.972 | 0.927 | 0.001 | ✓                |
-| funlangid    |       0.967 |    0.873 | 0.914 | 0.000 | ✓                |
-| pyfranc      |       0.896 |    0.911 | 0.902 | 0.001 | ✓                |
-| commonlingua |       0.958 |    0.846 | 0.894 | 0.000 | ✓                |
+| fasttext     |       0.992 |    0.948 | 0.969 | 0.000 | ✓                |
+| cld2         |       0.993 |    0.933 | 0.961 | 0.000 | ✓                |
+| py3langid    |       0.931 |    0.968 | 0.947 | 0.001 | ✓                |
+| OpenLID-v2   |       0.900 |    0.972 | 0.927 | 0.001 | ✓                |
+| funlangid    |       0.964 |    0.861 | 0.906 | 0.000 | ✓                |
+| pyfranc      |       0.902 |    0.911 | 0.905 | 0.001 | ✓                |
+| commonlingua |       0.955 |    0.847 | 0.893 | 0.000 | ✓                |
+| cld3         |       0.781 |    0.912 | 0.823 | 0.004 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -73,6 +117,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Scottish Gaelic and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Scottish Gaelic has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Scottish Gaelic?
@@ -93,44 +138,24 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       34 | ███████████          |
 |   2026 |       60 | ████████████████████ |
 
-### Most popular models tagged for Scottish Gaelic
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)       | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —               |
-| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)     | 81,196                 | 228                   | 13.9B        |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Scottish Gaelic
-
-| model                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [goldfish-models/gla_latn_full](https://huggingface.co/goldfish-models/gla_latn_full)                   | 2,680                  |                    12 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/gla_latn_5mb](https://huggingface.co/goldfish-models/gla_latn_5mb)                     | 896                    |                   225 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/gla_latn_10mb](https://huggingface.co/goldfish-models/gla_latn_10mb)                   | 620                    |                    24 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/gla_latn_100mb](https://huggingface.co/goldfish-models/gla_latn_100mb)                 | 517                    |                    18 | unknown      |                    1 |   2024 | —                             |
-| [NikolayKozloff/kakugo-3B-gla-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-gla-Q8_0-GGUF) | 184                    |                    44 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-
 ### Largest models tagged for Scottish Gaelic
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [bigscience/mt0-xxl-mt](https://huggingface.co/bigscience/mt0-xxl-mt)                 | 66,063                 |                   168 | 13.9B        |                   90 |   2022 | —               |
-| [bigscience/mt0-xxl-p3](https://huggingface.co/bigscience/mt0-xxl-p3)                 | 4,719                  |                   107 | 13.9B        |                   90 |   2022 | —               |
-| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                 | 84                     |                     7 | 13.9B        |                   90 |   2024 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                 | 13.9B        |                   92 |   2024 | —               |
+| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)                       | 13.9B        |                   92 |   2022 | —               |
+| [bigscience/mt0-xxl-mt](https://huggingface.co/bigscience/mt0-xxl-mt)                 | 13.9B        |                   92 |   2022 | —               |
 
 ### Largest models tagged *only* for Scottish Gaelic
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/gemma-3-4b-it-gla-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-gla-32768)     |                     50 |                     8 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [NikolayKozloff/kakugo-3B-gla-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-gla-Q8_0-GGUF) |                    184 |                    44 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/gemma-3-1b-it-gla-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-gla-32768)     |                     49 |                    10 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
-| [alphaedge-ai/gemma-3-270m-it-gla-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-gla-32768) |                     58 |                     9 | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/gemma-3-4b-it-gla-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-gla-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [NikolayKozloff/kakugo-3B-gla-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-gla-Q8_0-GGUF) | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/gemma-3-1b-it-gla-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-gla-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
+| [alphaedge-ai/gemma-3-270m-it-gla-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-gla-32768) | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
 
 _41 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -161,15 +186,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,13 +208,13 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 66             | Treebank-based (automatic, UD + UniMorph)                        |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 957            | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                | dataset                                                                              |   # test items | construction                                                     |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |             66 | Treebank-based (automatic, UD + UniMorph)                        |
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |            957 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -217,7 +242,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 20 of ~18,460 papers (0.11%) (rank 115 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 20 of ~18,498 papers (0.11%) (rank 122 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Scottish Gaelic
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 20):

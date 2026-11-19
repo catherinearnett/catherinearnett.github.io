@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `amh`
 
+**Language family:** **Afro-Asiatic** › Semitic › West Semitic › … › Amharic-Argobba ([Glottolog](https://glottolog.org/resource/languoid/id/amha1245))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Ethi`
+
+**Speakers:** about 39.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 21.9 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q28244#P1098), 2003)
 
 **Official / recognised in:** Ethiopia
 
 **Status:** Official language
+
+
+## What does Amharic look and sound like?
+
+**Written:** Omniglot has [a page on Amharic](https://www.omniglot.com/writing/amharic.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/amh/) has 3 videos of Amharic speakers. Watch [Semere speaking Amharic](https://wikitongues.org/videos/semere_20160815_amh/).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 15,736 articles in am.wikipedia (rank 85 of 161 in the set) — ~1/480 of English; 57 active users                                                                                                                       |
-| Common Crawl 2026      | 90,795 pages per crawl on average, which is 0.0042% of the crawl. This is ~1/9,819 of English data and ranks 65 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 0.90 GB (amh_Ethi (0.90)); which is equivalent to ≈0.52 GB English data after byte-premium scaling; 2.08 GB removed by filtering. This is ~1/59,465 of English data and ranks 73 of 248 official languages in FineWeb. |
-| Goldfish training data | 1.92 GB (amh_ethi) (rank 62 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 15,736 articles in am.wikipedia; 57 active users. This is ~1/480 of English data and ranks 89 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 90,795 pages per crawl on average, which is 0.0042% of the crawl (2026). This is ~1/9,819 of English data and ranks 65 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 0.90 GB (amh_Ethi 0.90 GB), equivalent to ≈0.52 GB of English after byte-premium scaling; 2.08 GB removed by filtering. This is ~1/59,465 of English data and ranks 73 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 1.92 GB (amh_Ethi 1.92 GB) (rank 62 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                              |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 1,074 sentences / 5,245 tokens in total: [UD_Amharic-ATT](https://github.com/UniversalDependencies/UD_Amharic-ATT) (1,074 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 2,461 lemmas, 46,224 inflected forms ([unimorph/amh](https://github.com/unimorph/amh))                                                                                                                                   |
+| Wikidata labels        | 284,131 Wikidata items have a label in Amharic. (Wikidata codes (labels): am (284,131))                                                                                                                                  |
+| Wordnets               | **None found**                                                                                                                                                                                                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (7):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=51), Wikipedia (n=300)
-- **Best model:** OpenLID-v2 — F1 0.993 (P 0.997, R 0.988, FPR 2.64e-05) averaged over 7 dataset(s). Runner-up: fasttext (F1 0.983).
+- **Best model:** OpenLID-v2 — F1 0.993 (P 0.997, R 0.988, FPR 2.59e-05) averaged over 7 dataset(s). Runner-up: AfroLID (F1 0.987).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,12 +81,14 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | OpenLID-v2   |       0.997 |    0.988 | 0.993 | 0.000 | ✓                |
+| AfroLID      |       0.985 |    0.989 | 0.987 | 0.001 | ✓                |
 | fasttext     |       0.991 |    0.976 | 0.983 | 0.000 | ✓                |
 | GlotLID      |       0.997 |    0.965 | 0.980 | 0.000 | ✓                |
-| commonlingua |       0.977 |    0.972 | 0.974 | 0.000 | ✓                |
+| commonlingua |       0.976 |    0.972 | 0.974 | 0.000 | ✓                |
 | cld2         |       0.855 |    0.707 | 0.758 | 0.000 | ✓                |
 | funlangid    |       0.965 |    0.581 | 0.707 | 0.000 | ✓                |
-| py3langid    |       0.411 |    0.998 | 0.543 | 0.030 | ✓                |
+| cld3         |       0.564 |    0.974 | 0.701 | 0.017 | ✓                |
+| py3langid    |       0.411 |    0.998 | 0.543 | 0.028 | ✓                |
 | pyfranc      |       0.920 |    0.392 | 0.512 | 0.001 | ✓                |
 
 **Best model (OpenLID-v2) by dataset**:
@@ -64,8 +100,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Tatoeba   | 300 |       0.993 |    0.990 | 0.992 |
 | Wikipedia | 300 |       0.987 |    1.000 | 0.993 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| SmolSent  | 300 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| SmolSent  | 300 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -75,6 +111,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Amharic and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Amharic has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Amharic?
@@ -95,45 +132,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       71 | ███████████          |
 |   2026 |      135 | ████████████████████ |
 
-### Most popular models tagged for Amharic
-
-| model                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of            |
-|:--------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)             | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                        |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)             | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —                        |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)               | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —                        |
-| [CohereLabs/tiny-aya-global](https://huggingface.co/CohereLabs/tiny-aya-global) | 145,769                | 21,318                | 3.3B         |                   63 |   2026 | CohereLabs/tiny-aya-base |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)                   | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —                        |
-
-### Most popular models tagged *only* for Amharic
-
-| model                                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                    |
-|:------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------------|
-| [rasyosef/Llama-3.2-1B-Amharic-Instruct](https://huggingface.co/rasyosef/Llama-3.2-1B-Amharic-Instruct)     | 3,758                  |                   827 | 1.3B         |                    1 |   2024 | meta-llama/Llama-3.2-1B-Instruct |
-| [rasyosef/Llama-3.2-180M-Amharic-Instruct](https://huggingface.co/rasyosef/Llama-3.2-180M-Amharic-Instruct) | 3,038                  |                    38 | 180.3M       |                    1 |   2024 | rasyosef/Llama-3.2-180M-Amharic  |
-| [rasyosef/Llama-3.2-400M-Amharic](https://huggingface.co/rasyosef/Llama-3.2-400M-Amharic)                   | 2,908                  |                   603 | 412.5M       |                    1 |   2024 | —                                |
-| [rasyosef/gpt2-small-amharic](https://huggingface.co/rasyosef/gpt2-small-amharic)                           | 2,649                  |                    99 | 33.7M        |                    1 |   2024 | —                                |
-| [rasyosef/llama-3.2-amharic-64k-1024](https://huggingface.co/rasyosef/llama-3.2-amharic-64k-1024)           | 2,344                  |                   302 | 178.8M       |                    1 |   2024 | —                                |
-
 ### Largest models tagged for Amharic
 
-| model                                                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                            |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                                        |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                                        |
-| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6) |                    694 |                    69 | 46.7B        |                   19 |   2023 | —                                        |
-| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF)                           |                    875 |                   175 | 34.7B        |                   80 |   2026 | Qwen/Qwen3.6-35B-A3B                     |
-| [Phpcool/DeepSeek-R1-Distill-SRE-Qwen-32B-INT8](https://huggingface.co/Phpcool/DeepSeek-R1-Distill-SRE-Qwen-32B-INT8)                           |                      0 |                     0 | 32.8B        |                    2 |   2025 | deepseek-ai/DeepSeek-R1-Distill-Qwen-32B |
+| model                                                                                                                                           | parameters   |   # languages tagged |   year | derivative of                            |
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 1.9T         |                  143 |   2025 | —                                        |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 856.0B       |                  143 |   2025 | —                                        |
+| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6) | 46.7B        |                   19 |   2023 | —                                        |
+| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF)                           | 34.7B        |                   82 |   2026 | Qwen/Qwen3.6-35B-A3B                     |
+| [Phpcool/DeepSeek-R1-Distill-SRE-Qwen-32B-INT8](https://huggingface.co/Phpcool/DeepSeek-R1-Distill-SRE-Qwen-32B-INT8)                           | 32.8B        |                    2 |   2025 | deepseek-ai/DeepSeek-R1-Distill-Qwen-32B |
 
 ### Largest models tagged *only* for Amharic
 
-| model                                                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of              |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------|
-| [atsuki-yamaguchi/Qwen3-14B-Base-am-madlad-mean-tuned](https://huggingface.co/atsuki-yamaguchi/Qwen3-14B-Base-am-madlad-mean-tuned)           | 87                     |                     9 | 14.9B        |                    1 |   2025 | Qwen/Qwen3-14B-Base        |
-| [atsuki-yamaguchi/Llama-3.1-8B-am-madlad-mean-cv](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-am-madlad-mean-cv)                     | 147                    |                     3 | 8.1B         |                    1 |   2025 | meta-llama/Llama-3.1-8B    |
-| [atsuki-yamaguchi/Qwen2.5-7B-Instruct-am-madlad-mean-tuned](https://huggingface.co/atsuki-yamaguchi/Qwen2.5-7B-Instruct-am-madlad-mean-tuned) | 1,581                  |                   410 | 7.7B         |                    1 |   2024 | Qwen/Qwen2.5-7B            |
-| [BiniyamAjaw/llama-2-7b-finetuned-adapters](https://huggingface.co/BiniyamAjaw/llama-2-7b-finetuned-adapters)                                 | 213                    |                    10 | 7.0B         |                    1 |   2024 | NousResearch/Llama-2-7b-hf |
-| [AbelBekele/llama-2-7b-Amharic-finetuned](https://huggingface.co/AbelBekele/llama-2-7b-Amharic-finetuned)                                     | 93                     |                    11 | 6.7B         |                    1 |   2024 | —                          |
+| model                                                                                                                                                                         | parameters   |   # languages tagged |   year | derivative of              |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------|
+| [atsuki-yamaguchi/Qwen3-14B-Base-am-madlad-mean-cv](https://huggingface.co/atsuki-yamaguchi/Qwen3-14B-Base-am-madlad-mean-cv)                                                 | 14.9B        |                    1 |   2025 | Qwen/Qwen3-14B-Base        |
+| [atsuki-yamaguchi/Llama-3.1-8B-Instruct-am-madlad-mean-slerp0305-emb](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-Instruct-am-madlad-mean-slerp0305-emb)             | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B    |
+| [atsuki-yamaguchi/Qwen2.5-7B-Instruct-am-madlad-mean-slerp0305-emb-special](https://huggingface.co/atsuki-yamaguchi/Qwen2.5-7B-Instruct-am-madlad-mean-slerp0305-emb-special) | 7.7B         |                    1 |   2024 | Qwen/Qwen2.5-7B            |
+| [BiniyamAjaw/llama-2-7b-finetuned-adapters](https://huggingface.co/BiniyamAjaw/llama-2-7b-finetuned-adapters)                                                                 | 7.0B         |                    1 |   2024 | NousResearch/Llama-2-7b-hf |
+| [AbelBekele/llama-2-7b-Amharic-finetuned](https://huggingface.co/AbelBekele/llama-2-7b-Amharic-finetuned)                                                                     | 6.7B         |                    1 |   2024 | —                          |
 
 _53 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -164,15 +181,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [3]     \
+                 /   [3]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -186,7 +203,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                           | # test items   | Construction                                                        |
+| level                                  | task                           | dataset                                                                                                           | # test items   | construction                                                        |
 |:---------------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                              | 112            | Treebank-based (automatic, UD + UniMorph)                           |
 | 2. Pragmatics, discourse & coreference | WinoGrande                     | [WinoGrande-afr (Alhanai et al.)](https://huggingface.co/datasets/Institute-Disease-Modeling/mmlu-winogrande-afr) | —              | Human translation                                                   |
@@ -230,7 +247,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 170 of ~18,460 papers (0.92%) (rank 37 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 170 of ~18,498 papers (0.92%) (rank 37 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Amharic
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 170):

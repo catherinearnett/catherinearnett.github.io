@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `sin`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Sinhalaic ([Glottolog](https://glottolog.org/resource/languoid/id/sinh1246))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Sinh`
+
+**Speakers:** about 14.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 15.3 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q13267#P1098), 2019)
 
 **Official / recognised in:** Sri Lanka
 
 **Status:** Official and national language
+
+
+## What does Sinhala look and sound like?
+
+**Written:** Omniglot has [a page on Sinhala](https://www.omniglot.com/writing/sinhala.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/sin/) has 4 videos of Sinhala speakers. Watch [Shehan speaking Sinhala](https://wikitongues.org/videos/shehan_20200819_sin/).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 25,833 articles in si.wikipedia (rank 76 of 161 in the set) — ~1/292 of English; 130 active users                                                                                                                      |
-| Common Crawl 2026      | 203,392 pages per crawl on average, which is 0.0094% of the crawl. This is ~1/4,383 of English data and ranks 56 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 2.03 GB (sin_Sinh (2.03)); which is equivalent to ≈0.83 GB English data after byte-premium scaling; 1.53 GB removed by filtering. This is ~1/26,279 of English data and ranks 64 of 248 official languages in FineWeb. |
-| Goldfish training data | 5.10 GB (sin_sinh) (rank 40 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 25,833 articles in si.wikipedia; 130 active users. This is ~1/292 of English data and ranks 79 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 203,392 pages per crawl on average, which is 0.0094% of the crawl (2026). This is ~1/4,383 of English data and ranks 56 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 2.03 GB (sin_Sinh 2.03 GB), equivalent to ≈0.83 GB of English after byte-premium scaling; 1.53 GB removed by filtering. This is ~1/26,279 of English data and ranks 64 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 5.10 GB (sin_Sinh 5.10 GB) (rank 40 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                             |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 169 sentences / 1,549 tokens in total: [UD_Sinhala-Appuwa](https://github.com/UniversalDependencies/UD_Sinhala-Appuwa) (69 sentences), [UD_Sinhala-STB](https://github.com/UniversalDependencies/UD_Sinhala-STB) (100 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                          |
+| Wikidata labels        | 222,189 Wikidata items have a label in Sinhala. (Wikidata codes (labels): si (222,189))                                                                                                                                                                                                                                 |
+| Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [Sinhala Wordnet](http://www.wordnet.lk/) (size not listed); licence: not available yet.                                                                                                                                            |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=75), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** py3langid — F1 0.995 (P 0.999, R 0.990, FPR 6.59e-06) averaged over 5 dataset(s). Runner-up: GlotLID (F1 0.994).
+- **Best model:** py3langid — F1 0.995 (P 0.999, R 0.990, FPR 6.41e-06) averaged over 5 dataset(s). Runner-up: GlotLID (F1 0.994).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -51,9 +85,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | cld2         |       0.999 |    0.987 | 0.993 | 0.000 | ✓                |
 | commonlingua |       0.999 |    0.983 | 0.991 | 0.000 | ✓                |
 | OpenLID-v2   |       0.999 |    0.983 | 0.991 | 0.000 | ✓                |
+| cld3         |       0.998 |    0.975 | 0.986 | 0.000 | ✓                |
 | fasttext     |       0.999 |    0.970 | 0.984 | 0.000 | ✓                |
 | pyfranc      |       0.999 |    0.932 | 0.962 | 0.000 | ✗                |
 | funlangid    |       0.999 |    0.869 | 0.917 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (py3langid) by dataset**:
 
@@ -61,9 +97,9 @@ Language identification (LangID or LID) is a classification task that identifies
 |:----------|----:|------------:|---------:|------:|
 | Wikipedia | 300 |       0.997 |    0.950 | 0.973 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  59 |       1.000 |    1.000 | 1.000 |
-| Tatoeba   |  75 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| Tatoeba   |  75 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  59 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -73,6 +109,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Sinhala and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Sinhala has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Sinhala?
@@ -93,45 +130,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       62 | ██████████████████   |
 |   2026 |       69 | ████████████████████ |
 
-### Most popular models tagged for Sinhala
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)       | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —               |
-| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)     | 81,196                 | 228                   | 13.9B        |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Sinhala
-
-| model                                                                                           | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                   |
-|:------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------------------|
-| [keshan/sinhala-gpt2](https://huggingface.co/keshan/sinhala-gpt2)                               | 8,546                  |                    31 | unknown      |                    1 |   2022 | —                               |
-| [Thimira/sinhala-llama-2-7b-chat-hf](https://huggingface.co/Thimira/sinhala-llama-2-7b-chat-hf) | 4,946                  |                    82 | 7.0B         |                    1 |   2024 | NousResearch/Llama-2-7b-chat-hf |
-| [mradermacher/AI-Guru-GGUF](https://huggingface.co/mradermacher/AI-Guru-GGUF)                   | 3,773                  |                   365 | 7.2B         |                    1 |   2024 | openai-community/gpt2           |
-| [keshan/sinhala-gpt2-newswire](https://huggingface.co/keshan/sinhala-gpt2-newswire)             | 3,545                  |                    34 | unknown      |                    1 |   2022 | —                               |
-| [flax-community/Sinhala-gpt2](https://huggingface.co/flax-community/Sinhala-gpt2)               | 1,914                  |                    46 | unknown      |                    1 |   2022 | —                               |
-
 ### Largest models tagged for Sinhala
 
-| model                                                                                                                       |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of       |
-|:----------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                   |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                   |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                       |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                   |
-| [dgsr2809/GraveTextAI](https://huggingface.co/dgsr2809/GraveTextAI)                                                         |                     92 |                    28 | 70.6B        |                   20 |   2025 | —                   |
-| [rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking) |                    732 |                    24 | 14.8B        |                   64 |   2025 | Qwen/Qwen3-14B-Base |
-| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                                                       |                     84 |                     7 | 13.9B        |                   90 |   2024 | —                   |
+| model                                                                                                                       | parameters   |   # languages tagged |   year | derivative of       |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                   | 1.9T         |                  143 |   2025 | —                   |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                       | 856.0B       |                  143 |   2025 | —                   |
+| [dgsr2809/GraveTextAI](https://huggingface.co/dgsr2809/GraveTextAI)                                                         | 70.6B        |                   20 |   2025 | —                   |
+| [rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking) | 14.8B        |                   64 |   2025 | Qwen/Qwen3-14B-Base |
+| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                                                       | 13.9B        |                   92 |   2024 | —                   |
 
 ### Largest models tagged *only* for Sinhala
 
-| model                                                                                                                                                                         |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                               |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------------------------------|
-| [lm-spell/gemma-2-9b-it-ft-ssc](https://huggingface.co/lm-spell/gemma-2-9b-it-ft-ssc)                                                                                         |                      2 |                     2 | 9.0B         |                    1 |   2025 | google/gemma-2-9b                           |
-| [atsuki-yamaguchi/Llama-3.1-8B-Instruct-si-madlad-mean-tuned](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-Instruct-si-madlad-mean-tuned)                             |                    419 |                     8 | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B                     |
-| [Chamaka8/Serendip-LLM-CPT-SFT-v2](https://huggingface.co/Chamaka8/Serendip-LLM-CPT-SFT-v2)                                                                                   |                    699 |                     9 | 8.0B         |                    1 |   2026 | Chamaka8/serendib-llm-cpt-llama3-8b         |
-| [lm-spell/llama-3.1-8b-it-ft-ssc](https://huggingface.co/lm-spell/llama-3.1-8b-it-ft-ssc)                                                                                     |                      0 |                     0 | 8.0B         |                    1 |   2025 | unsloth/meta-llama-3.1-8b-instruct-bnb-4bit |
-| [atsuki-yamaguchi/Qwen2.5-7B-Instruct-si-madlad-mean-slerp0305-emb-special](https://huggingface.co/atsuki-yamaguchi/Qwen2.5-7B-Instruct-si-madlad-mean-slerp0305-emb-special) |                    321 |                     9 | 7.7B         |                    1 |   2024 | Qwen/Qwen2.5-7B                             |
+| model                                                                                                                                                                         | parameters   |   # languages tagged |   year | derivative of                               |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------------------|
+| [lm-spell/gemma-2-9b-it-ft-ssc](https://huggingface.co/lm-spell/gemma-2-9b-it-ft-ssc)                                                                                         | 9.0B         |                    1 |   2025 | google/gemma-2-9b                           |
+| [atsuki-yamaguchi/Llama-3.1-8B-Instruct-si-madlad-mean-slerp0305-emb](https://huggingface.co/atsuki-yamaguchi/Llama-3.1-8B-Instruct-si-madlad-mean-slerp0305-emb)             | 8.1B         |                    1 |   2024 | meta-llama/Llama-3.1-8B                     |
+| [Chamaka8/Serendip-LLM-CPT-SFT-v2](https://huggingface.co/Chamaka8/Serendip-LLM-CPT-SFT-v2)                                                                                   | 8.0B         |                    1 |   2026 | Chamaka8/serendib-llm-cpt-llama3-8b         |
+| [lm-spell/llama-3.1-8b-it-ft-ssc](https://huggingface.co/lm-spell/llama-3.1-8b-it-ft-ssc)                                                                                     | 8.0B         |                    1 |   2025 | unsloth/meta-llama-3.1-8b-instruct-bnb-4bit |
+| [atsuki-yamaguchi/Qwen2.5-7B-Instruct-si-madlad-mean-slerp0305-emb-special](https://huggingface.co/atsuki-yamaguchi/Qwen2.5-7B-Instruct-si-madlad-mean-slerp0305-emb-special) | 7.7B         |                    1 |   2024 | Qwen/Qwen2.5-7B                             |
 
 _42 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -151,7 +168,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**16** benchmark datasets in the survey include Sinhala.
+**12** benchmark datasets in the survey include Sinhala.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -162,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [3]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [4]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,24 +201,20 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                             | # test items   | Construction                                                        |
-|:------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
-| 3. Commonsense reasoning      | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                              |
-| 3. Commonsense reasoning      | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                              |
-| 3. Commonsense reasoning      | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                             |
-| 3. Commonsense reasoning      | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                             |
-| 4. Reading comprehension      | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension      | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
-| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                               | 14,042         | MT + community post-editing                                         |
-| 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                                 |
-| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation           | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation           | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 47             | Native (crowdsourced Tatoeba sentence pairs)                        |
+| level                         | task                           | dataset                                                                                                                 | # test items   | construction                                                        |
+|:------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
+| 3. Commonsense reasoning      | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) (2 varieties/pairs) | 200            | Native                                                              |
+| 3. Commonsense reasoning      | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel) (2 varieties/pairs)        | 206            | MT + human post-editing                                             |
+| 4. Reading comprehension      | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele) (2 varieties/pairs)                                       | 1,800          | Human translation (professional)                                    |
+| 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                              | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
+| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                                   | 14,042         | MT + community post-editing                                         |
+| 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                                  | 100            | Native (community-written, peer-verified)                           |
+| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                             | 854            | Human translation via English pivot                                 |
+| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                                 | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation           | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                               | 1,997          | Human translation (professional, from English)                      |
+| Machine translation           | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation           | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                      |
+| Machine translation           | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 47             | Native (crowdsourced Tatoeba sentence pairs)                        |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -227,7 +240,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 74 of ~18,460 papers (0.40%) (rank 67 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 74 of ~18,498 papers (0.40%) (rank 70 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Sinhala
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 74):

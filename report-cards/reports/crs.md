@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `crs`
 
+**Language family:** **Indo-European** › Classical Indo-European › Italic › … › Isle-de-France Creole ([Glottolog](https://glottolog.org/resource/languoid/id/sese1246))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 96,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 85,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34015#P1098), 2021)
 
 **Official / recognised in:** Seychelles
 
 **Status:** Official language
+
+
+## What does Seychellois Creole look and sound like?
+
+**Written:** no Omniglot page found for Seychellois Creole.
+
+**Spoken:** no Wikitongues video of Seychellois Creole yet ([its Wikitongues page](https://wikitongues.org/languages/crs/) says how to contribute one).
 
 
 ## Training Data
@@ -25,30 +38,53 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                       |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                     |
-| Common Crawl 2026      | 2,180 pages per crawl on average, which is 0.0001% of the crawl. This is ~1/408,948 of English data and ranks 106 of 113 official languages in Common Crawl. |
-| FineWeb                | 31.7 MB (crs_Latn (0.03)); 0.12 GB removed by filtering. This is ~1/1,686,806 of English data and ranks 122 of 248 official languages in FineWeb.            |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                 |
+| Source                 | Amount                                                                                                                                                                |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                              |
+| Common Crawl           | 2,180 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/408,948 of English data and ranks 106 of 113 languages in the set in Common Crawl. |
+| FineWeb                | 31.7 MB (crs_Latn 30.0 MB); 0.12 GB removed by filtering. This is ~1/1,686,806 of English data and ranks 122 of 248 languages in the set in FineWeb.                  |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 2 Wikidata items have a label in Seychellois Creole. (Wikidata codes (labels): crs (2)) |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **4 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, funlangid, pyfranc.
+- **5 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, cld2, funlangid, pyfranc.
 - **Eval datasets (2):** Tatoeba (n=66), UDHR-LID (n=58)
-- **Best model:** GlotLID — F1 0.855 (P 0.963, R 0.788, FPR 4.19e-05) averaged over 2 dataset(s). Runner-up: cld2 (F1 0.732).
+- **Best model:** GlotLID — F1 0.855 (P 0.963, R 0.788, FPR 4.13e-05) averaged over 2 dataset(s). Runner-up: cld2 (F1 0.729).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.963 |    0.788 | 0.855 | 0.000 | ✓                |
-| cld2         |       0.875 |    0.656 | 0.732 | 0.000 | ✓                |
-| funlangid    |       0.666 |    0.590 | 0.613 | 0.001 | ✓                |
-| pyfranc      |       0.529 |    0.583 | 0.555 | 0.002 | ✓                |
+| cld2         |       0.864 |    0.656 | 0.729 | 0.000 | ✓                |
+| funlangid    |       0.651 |    0.590 | 0.609 | 0.001 | ✓                |
+| pyfranc      |       0.527 |    0.583 | 0.554 | 0.002 | ✓                |
+| AfroLID      |       0.515 |    0.505 | 0.412 | 0.005 | ✓                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -68,6 +104,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Seychellois Creole and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Seychellois Creole has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/crs/) video of Seychellois Creole yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Seychellois Creole?
@@ -86,25 +124,13 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2024 |        0 |                      |
 |   2025 |        1 | ██████████           |
 
-### Most popular models tagged for Seychellois Creole
-
-| model                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                            |
-|:----------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                                        |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                                        |
-| [AAU-NLP/CreoleVal-CreoleM2M](https://huggingface.co/AAU-NLP/CreoleVal-CreoleM2M) | 387                    |                    13 | 611.1M       |                    9 |   2025 | facebook/mbart-large-50-many-to-many-mmt |
-
-### Most popular models tagged *only* for Seychellois Creole
-
-_none_
-
 ### Largest models tagged for Seychellois Creole
 
-| model                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                            |
-|:----------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                                        |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                                        |
-| [AAU-NLP/CreoleVal-CreoleM2M](https://huggingface.co/AAU-NLP/CreoleVal-CreoleM2M) | 387                    |                    13 | 611.1M       |                    9 |   2025 | facebook/mbart-large-50-many-to-many-mmt |
+| model                                                                             | parameters   |   # languages tagged |   year | derivative of                            |
+|:----------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)           | 8.6B         |                  189 |   2023 | —                                        |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)           | 8.6B         |                  189 |   2023 | —                                        |
+| [AAU-NLP/CreoleVal-CreoleM2M](https://huggingface.co/AAU-NLP/CreoleVal-CreoleM2M) | 611.1M       |                   10 |   2025 | facebook/mbart-large-50-many-to-many-mmt |
 
 ### Largest models tagged *only* for Seychellois Creole
 
@@ -137,15 +163,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -159,7 +185,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                       | # test items   | Construction                                   |
+| level               | task                | dataset                                                       | # test items   | construction                                   |
 |:--------------------|:--------------------|:--------------------------------------------------------------|:---------------|:-----------------------------------------------|
 | Machine translation | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol) | —              | Human translation (professional, from English) |
 
@@ -189,7 +215,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 4 of ~18,460 papers (0.02%) (rank 182 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 4 of ~18,498 papers (0.02%) (rank 199 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Seselwa Creole French | Seychellois Creole
 
 Here are up to ten papers that were published mentioning this language in 2026:

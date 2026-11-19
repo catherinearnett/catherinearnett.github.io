@@ -12,9 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mrw`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Greater Central Philippine › Danaw ([Glottolog](https://glottolog.org/resource/languoid/id/mara1404))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 6b (Threatened))
+
+**Speakers:** 780,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q33800#P1098), 1990)
+
 **Official / recognised in:** Philippines
 
 **Status:** Regional official language
+
+
+## What does Maranao look and sound like?
+
+**Written (Maranao in the Latin alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/maranao.htm):
+
+> Langon a taw na inimbawata a ndudon so kapaar ago ndatadatar sa bantogan
+> ago kabnar. Bigan siran sa kabnar ago gagaw na aya patot a di kapakasusurota
+> o omani isa ko kapakiphapagariya.
+
+**Written (Maranao in Batang Arab)**, sample text from [Omniglot](https://www.omniglot.com/writing/maranao.htm):
+
+> لاڠون ع تاو نا اينيمباواتا ع ندُدون سو كڤاعر اڬو نداتاداتار سا بانتوڬان اڬو كابنار۔ بيڬان سيران سا كابنار اڬو ڬاڬاو نا عيا ڤاتوت ع دي كاڤاكاسُسُروتا عو اوماني ايسا كو كاڤاكيڤحاڤاڬارِيا۔
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/mrw/) has 1 video of Maranao speakers. Watch [Naif speaking Maranao](https://wikitongues.org/videos/naif_20210730_mrw/).
 
 
 ## Training Data
@@ -23,18 +46,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                          |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 0.8 MB (mrw_Latn (0.00)); 44.2 MB removed by filtering. This is ~1/67,235,481 of English data and ranks 199 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                      |
+| Source                 | Amount                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                       |
+| FineWeb                | 0.8 MB (mrw_Latn 0); 44.2 MB removed by filtering. This is ~1/67,235,481 of English data and ranks 199 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                   |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- Support across the 8 evaluated LangID models is unknown: there is no labelled test data to run them on.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
 - **No labelled LangID eval data** for this language — creating some is a high-value contribution.
 - No model performance numbers are available.
 
@@ -46,6 +90,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Maranao and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Maranao has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
 
 
 ## What models are available for Maranao?
@@ -62,23 +107,12 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2023 |        2 | ████████████████████ |
 
-### Most popular models tagged for Maranao
-
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-
-### Most popular models tagged *only* for Maranao
-
-_none_
-
 ### Largest models tagged for Maranao
 
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
+| model                                                                   | parameters   |   # languages tagged |   year | derivative of   |
+|:------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
 
 ### Largest models tagged *only* for Maranao
 
@@ -111,15 +145,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -162,7 +196,7 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1 of ~18,460 papers (0.01%) (rank 217 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1 of ~18,498 papers (0.01%) (rank 241 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Maranao
 
 Here are up to ten papers that were published mentioning this language in 2026:

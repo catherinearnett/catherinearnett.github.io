@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `nbl`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Zulu. Glottolog treats South Transvaal Ndebele as a variety of Zulu ([Glottolog](https://glottolog.org/resource/languoid/id/sout3270))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 967,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 640,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q36785#P1098))
 
 **Official / recognised in:** South Africa
 
 **Status:** Official language
+
+
+## What does Ndebele look and sound like?
+
+**Written:** no Omniglot page found for Ndebele.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/nbl/) has 1 video of Ndebele speakers. Watch [Nontokozo speaking IsiNdebele](https://wikitongues.org/videos/nontokozo_20250730_nbl/).
 
 
 ## Training Data
@@ -25,40 +38,63 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 338 articles in nr.wikipedia (rank 159 of 161 in the set) — ~1/22,327 of English; 7 active users                                                  |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 5.1 MB (nbl_Latn (0.01)); 0.64 GB removed by filtering. This is ~1/10,428,589 of English data and ranks 161 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                      |
+| Source                 | Amount                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 338 articles in nr.wikipedia; 7 active users. This is ~1/22,327 of English data and ranks 166 of 168 languages in the set in Wikipedia.              |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
+| FineWeb                | 5.1 MB (nbl_Latn 10.0 MB); 0.64 GB removed by filtering. This is ~1/10,428,589 of English data and ranks 161 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                     |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                  |
+| UniMorph               | **None found**                                                                                                                                                                  |
+| Wikidata labels        | 751 Wikidata items have a label in Ndebele. (Wikidata codes (labels): nr (751))                                                                                                 |
+| Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **4 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, funlangid, pyfranc.
+- **5 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, cld2, funlangid, pyfranc.
 - **Eval datasets (2):** SmolSent (n=300), UDHR-LID (n=58)
-- **Best model:** pyfranc — F1 0.557 (P 0.558, R 0.558, FPR 1.61e-02) averaged over 2 dataset(s). Runner-up: GlotLID (F1 0.472).
+- **Best model:** AfroLID — F1 0.703 (P 0.688, R 0.748, FPR 1.19e-02) averaged over 2 dataset(s). Runner-up: pyfranc (F1 0.557).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| pyfranc      |       0.558 |    0.558 | 0.557 | 0.016 | ✓                |
+| AfroLID      |       0.688 |    0.748 | 0.703 | 0.012 | ✓                |
+| pyfranc      |       0.558 |    0.558 | 0.557 | 0.015 | ✓                |
 | GlotLID      |       0.498 |    0.448 | 0.472 | 0.000 | ✓                |
-| funlangid    |       0.461 |    0.247 | 0.303 | 0.003 | ✓                |
+| funlangid    |       0.461 |    0.247 | 0.303 | 0.002 | ✓                |
 | cld2         |       0.500 |    0.003 | 0.007 | 0.000 | ✓                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
-**Best model (pyfranc) by dataset**:
+**Best model (AfroLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| SmolSent  | 300 |       0.171 |    0.220 | 0.193 |
-| UDHR-LID  |  58 |       0.945 |    0.897 | 0.920 |
+| SmolSent  | 300 |       0.583 |    0.840 | 0.689 |
+| UDHR-LID  |  58 |       0.792 |    0.655 | 0.717 |
 
 ### What can you do?
 
@@ -68,6 +104,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Ndebele and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Ndebele has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Ndebele?
@@ -87,29 +124,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        4 | █████                |
 |   2026 |       17 | ████████████████████ |
 
-### Most popular models tagged for Ndebele
-
-| model                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [uctnlp/mzansilm-125m](https://huggingface.co/uctnlp/mzansilm-125m)                 | 374,957                | 1,377                 | 125.0M       |                   11 |   2026 | —               |
-| [UBC-NLP/cheetah-base](https://huggingface.co/UBC-NLP/cheetah-base)                 | 25,910                 | 577                   | unknown      |                   17 |   2024 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)             | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —               |
-| [Sunbird/Sunflower-Qwen3.5-9B](https://huggingface.co/Sunbird/Sunflower-Qwen3.5-9B) | 5,710                  | 3,010                 | 9.4B         |                   20 |   2026 | Qwen/Qwen3.5-9B |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)             | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —               |
-
-### Most popular models tagged *only* for Ndebele
-
-_none_
-
 ### Largest models tagged for Ndebele
 
-| model                                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of             |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:--------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                         |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                         |
-| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B)                                 | 834                    | 141                   | 27.4B        |                   20 |   2026 | Qwen/Qwen3.8-27B          |
-| [Sunbird/Sunflower-Qwen3.5-9B](https://huggingface.co/Sunbird/Sunflower-Qwen3.5-9B)                                   | 5,710                  | 3,010                 | 9.4B         |                   20 |   2026 | Qwen/Qwen3.5-9B           |
-| [AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4](https://huggingface.co/AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4) | 162                    | 41                    | 9.0B         |                   46 |   2026 | inclusionAI/UI-Venus-2-9B |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of             |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                         |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                         |
+| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B)                                 | 27.4B        |                   24 |   2026 | Qwen/Qwen3.8-27B          |
+| [Sunbird/Sunflower-Qwen3.5-9B](https://huggingface.co/Sunbird/Sunflower-Qwen3.5-9B)                                   | 9.4B         |                   24 |   2026 | Qwen/Qwen3.5-9B           |
+| [AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4](https://huggingface.co/AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4) | 9.0B         |                   48 |   2026 | inclusionAI/UI-Venus-2-9B |
 
 ### Largest models tagged *only* for Ndebele
 
@@ -133,7 +156,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**7** benchmark datasets in the survey include Ndebele.
+**4** benchmark datasets in the survey include Ndebele.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -144,15 +167,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -160,21 +183,18 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [7]         \
+ /         ✅ Machine translation [4]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                        | # test items   | Construction                                                        |
-|:--------------------|:--------------------|:---------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
-| Machine translation | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional, from English)                      |
-| Machine translation | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional, from English)                      |
-| Machine translation | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)      | 1,997          | Human translation (professional, from English)                      |
-| Machine translation | Machine translation | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation | Machine translation | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) | —              | Human translation (professional, from English)                      |
-| Machine translation | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) | —              | Human translation (professional, from English)                      |
+| level               | task                | dataset                                                                            | # test items   | construction                                                        |
+|:--------------------|:--------------------|:-----------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
+| Machine translation | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)  | —              | Human translation (professional, from English)                      |
+| Machine translation | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                          | 1,997          | Human translation (professional, from English)                      |
+| Machine translation | Machine translation | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol) (2 varieties/pairs)  | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) (2 varieties/pairs) | —              | Human translation (professional, from English)                      |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -202,7 +222,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 8 of ~18,460 papers (0.04%) (rank 151 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Southern Ndebele | Northern Ndebele | Ndebele
 - ⚠️ The name *Ndebele* is shared with Ndebele (`nde`), so this count covers all of them.
 

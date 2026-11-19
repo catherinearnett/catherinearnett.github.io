@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `swe`
 
+**Language family:** **Indo-European** › Classical Indo-European › Germanic › … › East Swedic ([Glottolog](https://glottolog.org/resource/languoid/id/swed1254))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 13.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 9.2 million first-language + 3.1 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q9027#P1098), 2012)
 
 **Official / recognised in:** Finland, Sweden
 
 **Status:** Official language
+
+
+## What does Swedish look and sound like?
+
+**Written (Swedish)**, sample text from [Omniglot](https://www.omniglot.com/writing/swedish.htm):
+
+> Alla människor är födda fria och lika i värde och rättigheter. De är utrustade med förnuft och samvete och bör handla gentemot varandra i en anda av broderskap.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_sv.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/swe/) has 7 videos of Swedish speakers. Watch [See all](https://wikitongues.org/videos/?language=swe).
 
 
 ## Training Data
@@ -25,20 +44,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,629,888 articles in sv.wikipedia (rank 5 of 161 in the set) — ~1/3 of English; 4,777 active users                                                                                                                      |
-| Common Crawl 2026      | 15,372,610 pages per crawl on average, which is 0.7136% of the crawl. This is ~1/58 of English data and ranks 17 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 95.21 GB (swe_Latn (95.21)); which is equivalent to ≈93.25 GB English data after byte-premium scaling; 146.95 GB removed by filtering. This is ~1/561 of English data and ranks 19 of 248 official languages in FineWeb. |
-| Goldfish training data | 8.36 GB (swe_latn) (rank 22 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,629,888 articles in sv.wikipedia; 4,777 active users. This is ~1/3 of English data and ranks 5 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 15,372,610 pages per crawl on average, which is 0.7136% of the crawl (2026). This is ~1/58 of English data and ranks 17 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 95.21 GB (swe_Latn 95.21 GB), equivalent to ≈93.25 GB of English after byte-premium scaling; 146.95 GB removed by filtering. This is ~1/561 of English data and ranks 19 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 8.36 GB (swe_Latn 8.37 GB) (rank 22 of 166 in the set)                                                                                                                                                           |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 6 treebanks, 14,152 sentences / 246,250 tokens in total: [UD_Swedish-LinES](https://github.com/UniversalDependencies/UD_Swedish-LinES) (5,696 sentences), [UD_Swedish-Modern](https://github.com/UniversalDependencies/UD_Swedish-Modern) (735 sentences), [UD_Swedish-Old](https://github.com/UniversalDependencies/UD_Swedish-Old) (40 sentences), [UD_Swedish-PUD](https://github.com/UniversalDependencies/UD_Swedish-PUD) (1,000 sentences), [UD_Swedish-SweLL](https://github.com/UniversalDependencies/UD_Swedish-SweLL) (643 sentences), [UD_Swedish-Talbanken](https://github.com/UniversalDependencies/UD_Swedish-Talbanken) (6,038 sentences). All have POS tags, dependency syntax, morphological features. |
+| UniMorph               | 12,520 lemmas, 131,697 inflected forms ([unimorph/swe](https://github.com/unimorph/swe))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Wikidata labels        | 9,662,411 Wikidata items have a label in Swedish. (Wikidata codes (labels): sv (9,662,411))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Wordnets               | [WordNet-SALDO](https://github.com/omwn/omw-data/releases/download/v1.4/omw-sv-1.4.tar.xz): 6,796 synsets, 5,872 words, 6,904 senses; licence: https://creativecommons.org/licenses/by/3.0/; nan (size not listed).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                       |
+|:-----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                           |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament + parts of the Old Testament ([swe](https://ebible.org/details.php?id=swe), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                        |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=61), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.987 (P 0.975, R 0.999, FPR 1.93e-04) averaged over 5 dataset(s). Runner-up: py3langid (F1 0.970).
+- **Best model:** GlotLID — F1 0.987 (P 0.975, R 0.999, FPR 1.90e-04) averaged over 5 dataset(s). Runner-up: py3langid (F1 0.969).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,13 +87,15 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.975 |    0.999 | 0.987 | 0.000 | ✓                |
-| py3langid    |       0.950 |    0.992 | 0.970 | 0.001 | ✓                |
-| cld2         |       0.996 |    0.924 | 0.958 | 0.000 | ✓                |
+| py3langid    |       0.949 |    0.992 | 0.969 | 0.001 | ✓                |
+| cld2         |       0.991 |    0.924 | 0.956 | 0.000 | ✓                |
 | fasttext     |       0.914 |    0.997 | 0.952 | 0.001 | ✓                |
+| cld3         |       0.882 |    0.969 | 0.922 | 0.002 | ✓                |
 | OpenLID-v2   |       0.846 |    0.995 | 0.909 | 0.002 | ✓                |
 | commonlingua |       0.929 |    0.891 | 0.904 | 0.001 | ✓                |
-| funlangid    |       0.871 |    0.894 | 0.882 | 0.001 | ✓                |
-| pyfranc      |       0.931 |    0.811 | 0.859 | 0.001 | ✓                |
+| funlangid    |       0.869 |    0.894 | 0.881 | 0.001 | ✓                |
+| pyfranc      |       0.932 |    0.811 | 0.859 | 0.001 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -93,45 +135,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      425 | ██████████████████   |
 |   2026 |      465 | ████████████████████ |
 
-### Most popular models tagged for Swedish
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct)             | 9,633,401              | 331,860               | 3.8B         |                   23 |   2025 | —                                      |
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [bineric/lynx-instruct-30b](https://huggingface.co/bineric/lynx-instruct-30b)                     | 1,242,663              | 1,313                 | 30.5B        |                    5 |   2026 | Qwen/Qwen3-30B-A3B-Instruct-2507       |
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct) | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B             |
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                         | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                                      |
-
-### Most popular models tagged *only* for Swedish
-
-| model                                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of            |
-|:----------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------|
-| [AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-BF16](https://huggingface.co/AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-BF16) | 432,038                | 2,700                 | 35.1B        |                    1 |   2026 | ornith-ai/Ornith-1.0-35B |
-| [bartowski/Skywork_Skywork-SWE-32B-GGUF](https://huggingface.co/bartowski/Skywork_Skywork-SWE-32B-GGUF)                           | 16,719                 | 3,043                 | 32.8B        |                    1 |   2025 | Qwen/Qwen2.5-32B         |
-| [Ttimms/KAT-Coder-V2.5-Dev-REAP-50-NVFP4A16](https://huggingface.co/Ttimms/KAT-Coder-V2.5-Dev-REAP-50-NVFP4A16)                   | 13,199                 | 4,128                 | 18.5B        |                    1 |   2026 | Qwen3.6-35B-A3B          |
-| [birgermoell/swedish-gpt](https://huggingface.co/birgermoell/swedish-gpt)                                                         | 12,268                 | 160                   | unknown      |                    1 |   2022 | —                        |
-| [neph1/bellman-7b-mistral-instruct-v0.2](https://huggingface.co/neph1/bellman-7b-mistral-instruct-v0.2)                           | 9,087                  | 395                   | 7.2B         |                    1 |   2023 | —                        |
-
 ### Largest models tagged for Swedish
 
-| model                                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                   | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                       | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [batiai/GLM-5.2-GGUF](https://huggingface.co/batiai/GLM-5.2-GGUF)                                           | 1,048                  |                    98 | 753.3B       |                    4 |   2026 | zai-org/GLM-5.2 |
-| [mindlab-research/Macaron-V1-Coding-Venti](https://huggingface.co/mindlab-research/Macaron-V1-Coding-Venti) | 1,610                  |                   241 | 753.3B       |                    4 |   2026 | —               |
-| [Kronumos/Kronumos-Aion](https://huggingface.co/Kronumos/Kronumos-Aion)                                     | 467                    |                     0 | 684.5B       |                    2 |   2026 | —               |
+| model                                                                                                       | parameters   |   # languages tagged |   year | derivative of   |
+|:------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                   | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                       | 856.0B       |                  143 |   2025 | —               |
+| [mindlab-research/Macaron-V1-Coding-Venti](https://huggingface.co/mindlab-research/Macaron-V1-Coding-Venti) | 753.3B       |                    4 |   2026 | —               |
+| [batiai/GLM-5.2-GGUF](https://huggingface.co/batiai/GLM-5.2-GGUF)                                           | 753.3B       |                    4 |   2026 | zai-org/GLM-5.2 |
+| [Kronumos/Kronumos-Aion](https://huggingface.co/Kronumos/Kronumos-Aion)                                     | 684.5B       |                    2 |   2026 | —               |
 
 ### Largest models tagged *only* for Swedish
 
-| model                                                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                   |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:--------------------------------|
-| [banyaaiofficial/Qwen3.5-122B-A10B-Tuned-v21-grpo](https://huggingface.co/banyaaiofficial/Qwen3.5-122B-A10B-Tuned-v21-grpo)           | 89                     | 12                    | 122.0B       |                    1 |   2026 | Qwen/Qwen3.5-122B-A10B          |
-| [ansulev/Ornith-1.0-35B-AEON-Uncensored](https://huggingface.co/ansulev/Ornith-1.0-35B-AEON-Uncensored)                               | 77                     | 13                    | 35.1B        |                    1 |   2026 | deepreinforce-ai/Ornith-1.0-35B |
-| [AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-NVFP4](https://huggingface.co/AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-NVFP4)   | 70,132                 | 3,234                 | 35.1B        |                    1 |   2026 | ornith-ai/Ornith-1.0-35B        |
-| [nanoswe/qwen-3.6-35b-a3b-teacher](https://huggingface.co/nanoswe/qwen-3.6-35b-a3b-teacher)                                           | 260                    | 31                    | 35.1B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B            |
-| [davidanugraha/Qwen3.5-35B-A3B-SWE-Smith-LoRA-Adapters](https://huggingface.co/davidanugraha/Qwen3.5-35B-A3B-SWE-Smith-LoRA-Adapters) | 0                      | 0                     | 35.0B        |                    1 |   2026 | Qwen/Qwen3.5-35B-A3B            |
+| model                                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                   |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------|
+| [banyaaiofficial/Qwen3.5-122B-A10B-Tuned-v10](https://huggingface.co/banyaaiofficial/Qwen3.5-122B-A10B-Tuned-v10)                     | 122.0B       |                    1 |   2026 | Qwen/Qwen3.5-122B-A10B          |
+| [AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-BF16](https://huggingface.co/AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-BF16)     | 35.1B        |                    1 |   2026 | ornith-ai/Ornith-1.0-35B        |
+| [ansulev/Ornith-1.0-35B-AEON-Uncensored](https://huggingface.co/ansulev/Ornith-1.0-35B-AEON-Uncensored)                               | 35.1B        |                    1 |   2026 | deepreinforce-ai/Ornith-1.0-35B |
+| [nanoswe/qwen-3.6-35b-a3b-teacher](https://huggingface.co/nanoswe/qwen-3.6-35b-a3b-teacher)                                           | 35.1B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B            |
+| [davidanugraha/Qwen3.5-35B-A3B-SWE-Smith-LoRA-Adapters](https://huggingface.co/davidanugraha/Qwen3.5-35B-A3B-SWE-Smith-LoRA-Adapters) | 35.0B        |                    1 |   2026 | Qwen/Qwen3.5-35B-A3B            |
 
 _105 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +184,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [7]     \
+                 /   [7]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +206,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                                  | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:---------------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [ACS](https://github.com/igorsterner/acs)                                                           | 760            | Corpus-extracted + automatic manipulation                        |
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                           | 59             | Treebank-based (automatic)                                       |
@@ -236,22 +258,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 311 of ~18,460 papers (1.68%) (rank 24 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 321 of ~18,498 papers (1.74%) (rank 22 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Swedish
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 311):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 321):
 
-| title                                                                                                    | paper                                                                        |
-|:---------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| How to Improve LLMs’ Performance on Specific Languages: A Perspective on LLM-Derived Language Similarity | [2026.acl-long.691](https://aclanthology.org/2026.acl-long.691/)             |
-| Embedding Similarity Is Not Quality Estimation: Lessons from Replacing a Dedicated QE Model              | [2026.eamt-2.26](https://aclanthology.org/2026.eamt-2.26/)                   |
-| ALEE: Any-Language Evaluation of Embeddings via English-Centric Minimal Pairs                            | [2026.emnlp-main.63](https://aclanthology.org/2026.emnlp-main.63/)           |
-| Uncovering Currency Bias and Syntax Gap in Text Embedding Models                                         | [2026.findings-acl.2118](https://aclanthology.org/2026.findings-acl.2118/)   |
-| Transformer-Encoder Trees for Efficient Multilingual Machine Translation and Speech Translation          | [2026.findings-emnlp.434](https://aclanthology.org/2026.findings-emnlp.434/) |
-| Transparent Semantic Change Detection with Dependency-Based Profiles                                     | [2026.lchange-1.8](https://aclanthology.org/2026.lchange-1.8/)               |
-| OpenSubtitles2024: A Massively Parallel Dataset of Movie Subtitles for MT Development and Evaluation     | [2026.lrec-1.700](https://aclanthology.org/2026.lrec-1.700/)                 |
-| BRAGD: Constrained Multi-Label POS Tagging for Faroese                                                   | [2026.lrec-1.913](https://aclanthology.org/2026.lrec-1.913/)                 |
-| Contemporizing 20-th Century Estonian                                                                    | [2026.lt4hala-1.41](https://aclanthology.org/2026.lt4hala-1.41/)             |
-| Why Calques Look Rare in Hindi Model Output: A Human-Anchored Measurement Study                          | [2026.oracle-main.21](https://aclanthology.org/2026.oracle-main.21/)         |
+| title                                                                                                                                       | paper                                                                        |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Apertus: Democratizing Open and Compliant LLMs for Global Language Environments                                                             | [2026.acl-long.2172](https://aclanthology.org/2026.acl-long.2172/)           |
+| Adaptive CAT-embedded MT for low-memory, low-compute end-user devices                                                                       | [2026.eamt-2.14](https://aclanthology.org/2026.eamt-2.14/)                   |
+| Reading the News: Adapting Large Language Models to Swedish Journalism Through Continued Pre-Training                                       | [2026.emnlp-industry.255](https://aclanthology.org/2026.emnlp-industry.255/) |
+| IREKIER: An Easy Read Corpus for Basque and Spanish                                                                                         | [2026.lrec-1.128](https://aclanthology.org/2026.lrec-1.128/)                 |
+| Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource                                                | [2026.lrec-1.287](https://aclanthology.org/2026.lrec-1.287/)                 |
+| Universal NER v2: Towards a Massively Multilingual Named Entity Recognition Benchmark                                                       | [2026.lrec-1.525](https://aclanthology.org/2026.lrec-1.525/)                 |
+| APODICTUS: Automatic Processing of DICTionary Update candidateS                                                                             | [2026.lrec-1.924](https://aclanthology.org/2026.lrec-1.924/)                 |
+| BEReshiT: an Ancient Hebrew Model based on DictaBERT                                                                                        | [2026.lt4hala-1.7](https://aclanthology.org/2026.lt4hala-1.7/)               |
+| Exploring the syntactic parsing of learner texts in Modern Greek: Variety trumps size, genre trumps grammaticality                          | [2026.nlp4call-1.11](https://aclanthology.org/2026.nlp4call-1.11/)           |
+| Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification | [2026.politicalnlp-1.11](https://aclanthology.org/2026.politicalnlp-1.11/)   |
 
 {% endraw %}

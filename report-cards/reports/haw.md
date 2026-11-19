@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `haw`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Eastern Malayo-Polynesian › … › East Polynesian Proximal ([Glottolog](https://glottolog.org/resource/languoid/id/hawa1245))
+
+**Endangerment:** 🔴 moribund (level 4 of 6 on Glottolog’s scale; source: ElCat: Severely Endangered (100% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 30,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 26,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33569#P1098), 2010)
 
 **Official / recognised in:** United States
 
 **Status:** Regional official language
+
+
+## What does Hawaiian look and sound like?
+
+**Written (Hawaiian)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/hawaiian.htm):
+
+> Hānau kū'oko'a 'ia nā kānaka apau loa, a ua kau like ka hanohano a me nā pono kīvila ma luna o kākou pākahi. Ua ku'u mai ka no'ono'o pono a me ka 'ike pono ma luna o kākou, no laila, e aloha kākou kekahi i kekahi.
+> A recording of this text by Tamati Taylor
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_hawaiian.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/haw/) has 3 videos of Hawaiian speakers. Watch [Awapuhi speaking Niʻihau, ʻŌlelo Niʻihau, ʻŌlelo Matuahine](https://wikitongues.org/videos/awapuhi_20250626_haw/).
 
 
 ## Training Data
@@ -25,20 +47,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,901 articles in haw.wikipedia (rank 127 of 161 in the set) — ~1/2,601 of English; 23 active users                                                                                                                      |
-| Common Crawl 2026      | 17,520 pages per crawl on average, which is 0.0008% of the crawl. This is ~1/50,885 of English data and ranks 91 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 0.13 GB (haw_Latn (0.13)); which is equivalent to ≈0.12 GB English data after byte-premium scaling; 68.0 MB removed by filtering. This is ~1/414,981 of English data and ranks 106 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.33 GB (haw_latn) (rank 102 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,901 articles in haw.wikipedia; 23 active users. This is ~1/2,601 of English data and ranks 131 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 17,520 pages per crawl on average, which is 0.0008% of the crawl (2026). This is ~1/50,885 of English data and ranks 91 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 0.13 GB (haw_Latn 0.13 GB), equivalent to ≈0.12 GB of English after byte-premium scaling; 68.0 MB removed by filtering. This is ~1/414,981 of English data and ranks 106 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.33 GB (haw_Latn 0.33 GB) (rank 102 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                               |
+|:-----------------------|:------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                            |
+| UniMorph               | **None found**                                                                            |
+| Wikidata labels        | 483,717 Wikidata items have a label in Hawaiian. (Wikidata codes (labels): haw (483,717)) |
+| Wordnets               | **None found**                                                                            |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                    |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([haw1868](https://ebible.org/details.php?id=haw1868), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                 |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **5 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, funlangid, pyfranc.
-- **Eval datasets (3):** Tatoeba (n=161), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.983 (P 1.000, R 0.967, FPR 0.00e+00) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.902).
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, cld3, commonlingua, funlangid, pyfranc.
+- **Eval datasets (3):** Tatoeba (n=166), UDHR-LID (n=58), Wikipedia (n=300)
+- **Best model:** GlotLID — F1 0.983 (P 1.000, R 0.967, FPR 0.00e+00) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.904).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,10 +90,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       1.000 |    0.967 | 0.983 | 0.000 | ✓                |
-| pyfranc      |       0.955 |    0.864 | 0.902 | 0.000 | ✓                |
-| cld2         |       0.961 |    0.853 | 0.893 | 0.000 | ✓                |
-| commonlingua |       0.777 |    0.891 | 0.817 | 0.002 | ✓                |
-| funlangid    |       0.866 |    0.769 | 0.803 | 0.001 | ✓                |
+| pyfranc      |       0.956 |    0.866 | 0.904 | 0.000 | ✓                |
+| cld2         |       0.962 |    0.851 | 0.892 | 0.000 | ✓                |
+| commonlingua |       0.777 |    0.892 | 0.818 | 0.002 | ✓                |
+| funlangid    |       0.870 |    0.769 | 0.804 | 0.001 | ✓                |
+| cld3         |       0.391 |    0.934 | 0.512 | 0.028 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -59,7 +104,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 161 |       1.000 |    0.913 | 0.955 |
+| Tatoeba   | 166 |       1.000 |    0.916 | 0.956 |
 | Wikipedia | 300 |       1.000 |    0.987 | 0.993 |
 | UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
@@ -71,6 +116,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Hawaiian and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Hawaiian has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Hawaiian?
@@ -91,43 +137,23 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        6 | █████████            |
 |   2026 |       13 | ████████████████████ |
 
-### Most popular models tagged for Hawaiian
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)       | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —               |
-| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)     | 81,196                 | 228                   | 13.9B        |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Hawaiian
-
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of       |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------|
-| [goldfish-models/haw_latn_100mb](https://huggingface.co/goldfish-models/haw_latn_100mb)                 |                    402 |                    13 | unknown      |                    1 |   2024 | —                   |
-| [goldfish-models/haw_latn_full](https://huggingface.co/goldfish-models/haw_latn_full)                   |                    368 |                    11 | unknown      |                    1 |   2024 | —                   |
-| [goldfish-models/haw_latn_5mb](https://huggingface.co/goldfish-models/haw_latn_5mb)                     |                    360 |                    17 | unknown      |                    1 |   2024 | —                   |
-| [goldfish-models/haw_latn_10mb](https://huggingface.co/goldfish-models/haw_latn_10mb)                   |                    343 |                    21 | unknown      |                    1 |   2024 | —                   |
-| [alphaedge-ai/gemma-3-270m-it-haw-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-haw-32768) |                     57 |                    10 | 121.3M       |                    1 |   2026 | google/gemma-3-270m |
-
 ### Largest models tagged for Hawaiian
 
-| model                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)       | 81,196                 |                   228 | 13.9B        |                   90 |   2022 | —               |
-| [bigscience/mt0-xxl-mt](https://huggingface.co/bigscience/mt0-xxl-mt) | 66,063                 |                   168 | 13.9B        |                   90 |   2022 | —               |
-| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                 | 84                     |                     7 | 13.9B        |                   90 |   2024 | —               |
-| [bigscience/mt0-xxl-p3](https://huggingface.co/bigscience/mt0-xxl-p3) | 4,719                  |                   107 | 13.9B        |                   90 |   2022 | —               |
-| [akoksal/muri-101](https://huggingface.co/akoksal/muri-101)           | 458                    |                    19 | 12.9B        |                   88 |   2024 | google/mt5-xxl  |
+| model                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:----------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                 | 13.9B        |                   92 |   2024 | —               |
+| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)       | 13.9B        |                   92 |   2022 | —               |
+| [bigscience/mt0-xxl-mt](https://huggingface.co/bigscience/mt0-xxl-mt) | 13.9B        |                   92 |   2022 | —               |
+| [bigscience/mt0-xxl-p3](https://huggingface.co/bigscience/mt0-xxl-p3) | 13.9B        |                   92 |   2022 | —               |
+| [akoksal/muri-101](https://huggingface.co/akoksal/muri-101)           | 12.9B        |                   90 |   2024 | google/mt5-xxl  |
 
 ### Largest models tagged *only* for Hawaiian
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [alphaedge-ai/gemma-3-4b-it-haw-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-haw-32768)     |                     42 |                     5 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-| [alphaedge-ai/gemma-3-1b-it-haw-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-haw-32768)     |                     46 |                     7 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [alphaedge-ai/gemma-3-270m-it-haw-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-haw-32768) |                     57 |                    10 | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [alphaedge-ai/gemma-3-4b-it-haw-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-haw-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
+| [alphaedge-ai/gemma-3-1b-it-haw-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-haw-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
+| [alphaedge-ai/gemma-3-270m-it-haw-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-haw-32768) | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
 
 _8 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -158,15 +184,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -180,12 +206,12 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                                             | # test items   | Construction                                  |
-|:-------------------------|:--------------------|:----------------------------------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                        |
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                       |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 1,903          | Synthetic (LLM-generated) on native Wikipedia |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 93             | Native (crowdsourced Tatoeba sentence pairs)  |
+| level                    | task                | dataset                                                                                             |   # test items | construction                                  |
+|:-------------------------|:--------------------|:----------------------------------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 3. Commonsense reasoning | PIQA                | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) |            100 | Native                                        |
+| 3. Commonsense reasoning | PIQA                | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        |            103 | MT + human post-editing                       |
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          |          1,903 | Synthetic (LLM-generated) on native Wikipedia |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                |             93 | Native (crowdsourced Tatoeba sentence pairs)  |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -213,7 +239,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 41 of ~18,460 papers (0.22%) (rank 96 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 41 of ~18,498 papers (0.22%) (rank 101 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Hawaiian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 41):

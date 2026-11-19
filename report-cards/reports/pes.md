@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `pes` · macrolanguage `fas`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Farsic ([Glottolog](https://glottolog.org/resource/languoid/id/west2369))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Arab`
+
+**Speakers:** about 89.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `fas`, so includes other varieties · 52.8 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q3513637#P1098), 2019)
 
 **Official / recognised in:** Iran
 
 **Status:** Official language
+
+
+## What does Persian look and sound like?
+
+**Written:** no Omniglot page found for Persian.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/pes/) has 6 videos of Persian speakers. Watch [Daniel speaking Farsi](https://wikitongues.org/videos/daniel_20180207_pes/).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                               |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                             |
-| Common Crawl 2026      | 10,945,849 pages per crawl on average, which is 0.5082% of the crawl. ⚠️ NB: this is counted using `fas` (macrolanguage code), so this number is shared with other varieties and overstates Persian. |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                       |
-| Goldfish training data | 12.52 GB (pes_arab) (rank 5 of 166 in the set)                                                                                                                                                       |
+| Source                 | Amount                                                                                                                                                                                             |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,101,428 articles in fa.wikipedia; 8,324 active users. ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Dari (`prs`) and overstates Persian.                      |
+| Common Crawl           | 10,945,849 pages per crawl on average, which is 0.5082% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Dari (`prs`) and overstates Persian. |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                     |
+| Goldfish training data | 12.52 GB (pes_Arab 12.52 GB) (rank 5 of 166 in the set)                                                                                                                                            |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 35,104 sentences / 645,790 tokens in total: [UD_Persian-PerDT](https://github.com/UniversalDependencies/UD_Persian-PerDT) (29,107 sentences), [UD_Persian-Seraji](https://github.com/UniversalDependencies/UD_Persian-Seraji) (5,997 sentences). All have POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `fas`, so this may cover other varieties as well as Persian. |
+| UniMorph               | 273 lemmas, 37,128 inflected forms ([unimorph/fas](https://github.com/unimorph/fas)) ⚠️ Listed under the macrolanguage code `fas`, so this may cover other varieties as well as Persian.                                                                                                                                                                                                                                                   |
+| Wikidata labels        | 2,789,245 Wikidata items have a label in Persian. (Wikidata codes (labels): fa (2,789,245))                                                                                                                                                                                                                                                                                                                                                |
+| Wordnets               | FarsNet (size not listed); licence: OPEN FOR ACADEMIC USE; PersiaNet (size not listed); Persian Wordnet (size not listed); licence: OPEN.                                                                                                                                                                                                                                                                                                  |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                              |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                  |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([pesOPV](https://ebible.org/details.php?id=pesOPV), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                               |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.823 (P 0.733, R 0.998, FPR 3.45e-03) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.814).
+- **Best model:** GlotLID — F1 0.823 (P 0.733, R 0.998, FPR 3.41e-03) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.814).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -48,12 +82,14 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.733 |    0.998 | 0.823 | 0.003 | ✓                |
 | fasttext     |       0.728 |    0.978 | 0.814 | 0.004 | ✓                |
-| OpenLID-v2   |       0.750 |    0.903 | 0.809 | 0.003 | ✓                |
+| OpenLID-v2   |       0.747 |    0.903 | 0.807 | 0.003 | ✓                |
 | cld2         |       0.717 |    0.983 | 0.804 | 0.005 | ✓                |
 | commonlingua |       0.721 |    0.967 | 0.799 | 0.004 | ✓                |
 | py3langid    |       0.699 |    0.993 | 0.797 | 0.006 | ✓                |
 | funlangid    |       0.737 |    0.545 | 0.585 | 0.002 | ✓                |
+| cld3         |       0.440 |    0.978 | 0.575 | 0.020 | ✓                |
 | pyfranc      |       0.477 |    0.410 | 0.413 | 0.006 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -94,45 +130,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      436 | █████████            |
 |   2026 |      968 | ████████████████████ |
 
-### Most popular models tagged for Persian
-
-| model                                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------------|
-| [CohereLabs/aya-expanse-8b](https://huggingface.co/CohereLabs/aya-expanse-8b)                                             | 1,136,081              | 22,682                | 8.0B         |                   23 |   2024 | —                             |
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                                                 | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                             |
-| [lmstudio-community/Devstral-Small-2507-MLX-8bit](https://huggingface.co/lmstudio-community/Devstral-Small-2507-MLX-8bit) | 817,747                | 10,371                | 23.6B        |                   24 |   2025 | mistralai/Devstral-Small-2507 |
-| [lmstudio-community/Devstral-Small-2505-MLX-4bit](https://huggingface.co/lmstudio-community/Devstral-Small-2505-MLX-4bit) | 638,937                | 6,557                 | 23.6B        |                   24 |   2025 | mistralai/Devstral-Small-2505 |
-| [CohereLabs/aya-23-8B](https://huggingface.co/CohereLabs/aya-23-8B)                                                       | 599,867                | 6,242                 | 8.0B         |                   23 |   2024 | —                             |
-
-### Most popular models tagged *only* for Persian
-
-| model                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [adept/persimmon-8b-chat](https://huggingface.co/adept/persimmon-8b-chat)                       | 242,136                | 1,158                 | 8.0B         |                    1 |   2023 | —               |
-| [flax-community/gpt2-medium-persian](https://huggingface.co/flax-community/gpt2-medium-persian) | 170,390                | 431                   | unknown      |                    1 |   2022 | —               |
-| [HooshvareLab/gpt2-fa](https://huggingface.co/HooshvareLab/gpt2-fa)                             | 153,008                | 1,110                 | unknown      |                    1 |   2022 | —               |
-| [bolbolzaban/gpt2-persian](https://huggingface.co/bolbolzaban/gpt2-persian)                     | 107,858                | 949                   | unknown      |                    1 |   2022 | —               |
-| [adept/persimmon-8b-base](https://huggingface.co/adept/persimmon-8b-base)                       | 107,299                | 2,309                 | 8.0B         |                    1 |   2023 | —               |
-
 ### Largest models tagged for Persian
 
-| model                                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                 | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                     | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [mindlab-research/Macaron-V1-Preview-744B-Merged](https://huggingface.co/mindlab-research/Macaron-V1-Preview-744B-Merged) | 610                    |                   248 | 753.9B       |                    4 |   2026 | zai-org/GLM-5.1 |
-| [mindlab-research/Macaron-V1-Venti](https://huggingface.co/mindlab-research/Macaron-V1-Venti)                             | 1,630                  |                   212 | 753.3B       |                    4 |   2026 | —               |
-| [mindlab-research/Macaron-V1.1](https://huggingface.co/mindlab-research/Macaron-V1.1)                                     | 702                    |                   285 | 753.3B       |                    2 |   2026 | —               |
+| model                                                                                                                     | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                 | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                     | 856.0B       |                  143 |   2025 | —               |
+| [mindlab-research/Macaron-V1-Preview-744B-Merged](https://huggingface.co/mindlab-research/Macaron-V1-Preview-744B-Merged) | 753.9B       |                    4 |   2026 | zai-org/GLM-5.1 |
+| [mindlab-research/Macaron-V1-Venti](https://huggingface.co/mindlab-research/Macaron-V1-Venti)                             | 753.3B       |                    4 |   2026 | —               |
+| [mindlab-research/Macaron-V1.1](https://huggingface.co/mindlab-research/Macaron-V1.1)                                     | 753.3B       |                    2 |   2026 | —               |
 
 ### Largest models tagged *only* for Persian
 
-| model                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                |
-|:--------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------|
-| [bartowski/QuixiAI_Ina-v11.1-GGUF](https://huggingface.co/bartowski/QuixiAI_Ina-v11.1-GGUF)                   | 9,200                  |                   423 | 70.6B        |                    1 |   2025 | NeverSleep/Lumimaid-v0.2-70B |
-| [anonymousAAK/impersona](https://huggingface.co/anonymousAAK/impersona)                                       | 87                     |                     6 | 40.2B        |                    1 |   2026 | —                            |
-| [GemMaroc/Qwen2.5-32B-Instruct-darija-gguf](https://huggingface.co/GemMaroc/Qwen2.5-32B-Instruct-darija-gguf) | 216                    |                    50 | 32.8B        |                    1 |   2025 | Qwen/Qwen2.5-32B             |
-| [projectmiko/miko-persona-31b-w4a16](https://huggingface.co/projectmiko/miko-persona-31b-w4a16)               | 842                    |                     6 | 31.5B        |                    1 |   2026 | unsloth/gemma-4-31B-it       |
-| [debaterhub/Einstein-LoRA-v2-Qwen3-30B](https://huggingface.co/debaterhub/Einstein-LoRA-v2-Qwen3-30B)         | 47                     |                    11 | 30.0B        |                    1 |   2025 | Qwen/Qwen3-30B-A3B-Base      |
+| model                                                                                                         | parameters   |   # languages tagged |   year | derivative of                |
+|:--------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------|
+| [bartowski/QuixiAI_Ina-v11.1-GGUF](https://huggingface.co/bartowski/QuixiAI_Ina-v11.1-GGUF)                   | 70.6B        |                    1 |   2025 | NeverSleep/Lumimaid-v0.2-70B |
+| [anonymousAAK/impersona](https://huggingface.co/anonymousAAK/impersona)                                       | 40.2B        |                    1 |   2026 | —                            |
+| [GemMaroc/Qwen2.5-32B-Instruct-darija-gguf](https://huggingface.co/GemMaroc/Qwen2.5-32B-Instruct-darija-gguf) | 32.8B        |                    1 |   2025 | Qwen/Qwen2.5-32B             |
+| [projectmiko/miko-persona-31b-w4a16](https://huggingface.co/projectmiko/miko-persona-31b-w4a16)               | 31.5B        |                    1 |   2026 | unsloth/gemma-4-31B-it       |
+| [debaterhub/Bohr-LoRA-v1-Qwen3-30B](https://huggingface.co/debaterhub/Bohr-LoRA-v1-Qwen3-30B)                 | 30.0B        |                    1 |   2025 | Qwen/Qwen3-30B-A3B-Base      |
 
 _271 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +168,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**24** benchmark datasets in the survey include Persian (plus 4 labelled with the macrolanguage `fas`, included below).
+**23** benchmark datasets in the survey include Persian (plus 4 labelled with the macrolanguage `fas`, included below).
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [7]     \
+                 /   [6]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [4]        \
+         /      reasoning [4]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -185,7 +201,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                        | # test items   | Construction                                                        |
+| level                                  | task                           | dataset                                                                                                        | # test items   | construction                                                        |
 |:---------------------------------------|:-------------------------------|:---------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data) (as `fas`)                                           | 449            | Treebank-based (automatic)                                          |
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `fas`)                                | 2,553          | Treebank-based (automatic, UD + UniMorph)                           |
@@ -198,13 +214,12 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                   | 103            | MT + human post-editing                                             |
 | 3. Commonsense reasoning               | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench) (as `fas`)                                              | 1,332          | Machine translation (GPT-4o, auto-checked)                          |
 | 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                  | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                     | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
 | 4. Reading comprehension               | QA – extractive RC             | PQuAD                                                                                                          | —              | Native                                                              |
+| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                     | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | Khayyam Challenge (PersianMMLU)                                                                                | 20,192         | Native (exams)                                                      |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                          | 14,042         | MT + community post-editing                                         |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                | —              | Native (local exams)                                                |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | Khayyam Challenge (PersianMMLU)                                                                                | 20,192         | Native (exams)                                                      |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                                        | 500            | Native (cultural; native-speaker answers)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                         | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                         | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                                | 250            | Native (locally sourced)                                            |
 | Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                    | 854            | Human translation via English pivot                                 |
@@ -224,7 +239,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 ### Community benchmarks you can contribute to
 
 - **[Global PIQA](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)** (✅ included): Physical-commonsense questions written by native speakers about their own culture.
-- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (❌ not yet — contribute it!): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
+- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (✅ included): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
 - **[Cultural Riddles](https://culturalriddles.ai/)** (✅ included): Human-written, culturally grounded riddles (Cohere Labs Community); open contribution process.
 
 ### What can you do?
@@ -240,22 +255,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 284 of ~18,460 papers (1.54%) (rank 28 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 285 of ~18,498 papers (1.54%) (rank 28 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Iranian Persian | Persian
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 284):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 285):
 
-| title                                                                                                                                | paper                                                                          |
-|:-------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| AdabNER: Arabic Digital Archive Books with Nested Entity Recognition                                                                 | [2026.acl-long.1541](https://aclanthology.org/2026.acl-long.1541/)             |
-| Multilingual Idioms in Sentences and Conversations Across High-, Medium-, and Low-Resource Languages                                 | [2026.acl-long.564](https://aclanthology.org/2026.acl-long.564/)               |
-| Edits in the Wild: A Multilingual Benchmark for Localizing On-Device Generative Image Edits on Consumer Platforms                    | [2026.emnlp-main.1661](https://aclanthology.org/2026.emnlp-main.1661/)         |
-| CORAL: Adaptive Retrieval Loop for Culturally-Aligned Multilingual RAG                                                               | [2026.findings-acl.1356](https://aclanthology.org/2026.findings-acl.1356/)     |
-| CLIN: an Objective Framework for Evaluating Creativity in Short Persian Literary Text                                                | [2026.findings-emnlp.2368](https://aclanthology.org/2026.findings-emnlp.2368/) |
-| Artful Writing, Authentic Emotions: Distinguishing Human-Written from LLM-Generated Metaphors by Annotation and Classification       | [2026.nonliteral-1.6](https://aclanthology.org/2026.nonliteral-1.6/)           |
-| SEABED: SouthEast Asian Benchmark for Evaluating Audio Reasoning                                                                     | [2026.salma-1.8](https://aclanthology.org/2026.salma-1.8/)                     |
-| YNU-HPCC at SemEval-2026 Task 9: Hybrid Augmentation and Regularization Strategies for Multilingual Polarization Type Classification | [2026.semeval-1.99](https://aclanthology.org/2026.semeval-1.99/)               |
-| Evaluating the Interplay of Information Status and Information Content in a Multilingual Parallel Corpus                             | [2026.sigtyp-main.3](https://aclanthology.org/2026.sigtyp-main.3/)             |
-| Synthetic Slang Generation for Benchmarking Machine Translation                                                                      | [2026.wmt-main.3](https://aclanthology.org/2026.wmt-main.3/)                   |
+| title                                                                                                                                                     | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| AdabNER: Arabic Digital Archive Books with Nested Entity Recognition                                                                                      | [2026.acl-long.1541](https://aclanthology.org/2026.acl-long.1541/)             |
+| Multilingual Idioms in Sentences and Conversations Across High-, Medium-, and Low-Resource Languages                                                      | [2026.acl-long.564](https://aclanthology.org/2026.acl-long.564/)               |
+| Query Decomposition for RAG: Balancing Exploration-Exploitation                                                                                           | [2026.eacl-long.322](https://aclanthology.org/2026.eacl-long.322/)             |
+| ChemCLIR-Bench: Benchmarking Cross-Lingual Information Retrieval in Multilingual Chemical Patents                                                         | [2026.emnlp-industry.175](https://aclanthology.org/2026.emnlp-industry.175/)   |
+| CEAID: Benchmark of Multilingual Machine-Generated Text Detection Methods for Central European Languages                                                  | [2026.findings-acl.1458](https://aclanthology.org/2026.findings-acl.1458/)     |
+| Translation Circuit Discovery and Targeted Optimization for Low-Resource Multilingual Translation                                                         | [2026.findings-emnlp.1348](https://aclanthology.org/2026.findings-emnlp.1348/) |
+| Simple Additions, Substantial Gains: Expanding Scripts, Languages, and Lineage Coverage in URIEL+                                                         | [2026.lrec-1.863](https://aclanthology.org/2026.lrec-1.863/)                   |
+| Wisdom in Unity: The Role of Multilingual Training in Figurative Language Identification in Proverbs                                                      | [2026.mrl-1.12](https://aclanthology.org/2026.mrl-1.12/)                       |
+| We’re Cooked! – Probing LLM Political Alignment Via Conflict-Framed Recipe Translation                                                                    | [2026.oracle-main.18](https://aclanthology.org/2026.oracle-main.18/)           |
+| Sagarmatha at SemEval-2026 Task 9: Heterogeneous Ensembling and Hierarchical Task Conditioning for Multilingual Latent Distributional Divergence Modeling | [2026.semeval-1.382](https://aclanthology.org/2026.semeval-1.382/)             |
 
 {% endraw %}

@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mal`
 
+**Language family:** **Dravidian** › South Dravidian › South Dravidian I › … › Malayalamoid ([Glottolog](https://glottolog.org/resource/languoid/id/mala1464))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Mlym`
+
+**Speakers:** about 45.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 37.1 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q36236#P1098), 2019)
 
 **Official / recognised in:** India
 
 **Status:** Regional official language
+
+
+## What does Malayalam look and sound like?
+
+**Written:** Omniglot has [a page on Malayalam](https://www.omniglot.com/writing/malayalam.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/mal/) has 5 videos of Malayalam speakers. Watch [Netha speaking Malayalam](https://wikitongues.org/videos/netha_20180728_mal/).
 
 
 ## Training Data
@@ -25,20 +38,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                 |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 89,337 articles in ml.wikipedia (rank 58 of 161 in the set) — ~1/84 of English; 422 active users                                                                                                                                       |
-| Common Crawl 2026      | 542,320 pages per crawl on average, which is 0.0252% of the crawl. This is ~1/1,644 of English data and ranks 46 of 113 official languages in Common Crawl.                                                                            |
-| FineWeb                | 5.98 GB (mal_Latn (0.01); mal_Mlym (5.98)); which is equivalent to ≈2.07 GB English data after byte-premium scaling; 6.88 GB removed by filtering. This is ~1/8,925 of English data and ranks 48 of 248 official languages in FineWeb. |
-| Goldfish training data | 5.39 GB (mal_mlym) (rank 37 of 166 in the set)                                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 89,337 articles in ml.wikipedia; 422 active users. This is ~1/84 of English data and ranks 59 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                  |
+| Common Crawl           | 542,320 pages per crawl on average, which is 0.0252% of the crawl (2026). This is ~1/1,644 of English data and ranks 46 of 113 languages in the set in Common Crawl.                                                                                                                                                                                     |
+| FineWeb                | 5.98 GB (mal_Mlym 5.98 GB; mal_Latn 10.0 MB), equivalent to ≈2.07 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 6.88 GB removed by filtering. This is ~1/8,925 of English data and ranks 48 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 5.39 GB (mal_Mlym 5.39 GB) (rank 37 of 166 in the set)                                                                                                                                                                                                                                                                                                   |
+
+**By writing system:**
+
+| Writing system     | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Malayalam (`Mlym`) | 5.98 GB   | 2.07 GB                       | 5.39 GB      | 1.87 GB                        |
+| Latin (`Latn`)     | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 218 sentences / 2,090 tokens in total: [UD_Malayalam-UFAL](https://github.com/UniversalDependencies/UD_Malayalam-UFAL) (218 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                             |
+| Wikidata labels        | 3,585,883 Wikidata items have a label in Malayalam. (Wikidata codes (labels): ml (3,585,883))                                                                                                                              |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY.                                                                                                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                             |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                 |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([mal](https://ebible.org/details.php?id=mal), by-sa 4.0); full Bible ([malc](https://ebible.org/details.php?id=malc), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                              |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=100), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.998 (P 0.999, R 0.997, FPR 4.69e-06) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.998).
+- **Best model:** OpenLID-v2 — F1 0.998 (P 1.000, R 0.996, FPR 0.00e+00) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.998).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,25 +89,27 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.999 |    0.997 | 0.998 | 0.000 | ✓                |
 | OpenLID-v2   |       1.000 |    0.996 | 0.998 | 0.000 | ✓                |
+| GlotLID      |       0.999 |    0.997 | 0.998 | 0.000 | ✓                |
 | cld2         |       0.999 |    0.996 | 0.998 | 0.000 | ✓                |
 | py3langid    |       0.999 |    0.996 | 0.997 | 0.000 | ✓                |
 | commonlingua |       0.999 |    0.996 | 0.997 | 0.000 | ✓                |
 | fasttext     |       0.999 |    0.993 | 0.996 | 0.000 | ✓                |
 | pyfranc      |       1.000 |    0.986 | 0.993 | 0.000 | ✗                |
-| funlangid    |       0.989 |    0.979 | 0.984 | 0.000 | ✓                |
+| cld3         |       1.000 |    0.979 | 0.989 | 0.000 | ✓                |
+| funlangid    |       0.988 |    0.979 | 0.983 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
-**Best model (GlotLID) by dataset**:
+**Best model (OpenLID-v2) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| CommonLID | 300 |       1.000 |    0.990 | 0.995 |
+| CommonLID | 300 |       1.000 |    0.987 | 0.993 |
 | Wikipedia | 300 |       1.000 |    0.990 | 0.995 |
-| Tatoeba   | 300 |       0.997 |    1.000 | 0.998 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  | 100 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| Tatoeba   | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  | 100 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -74,6 +119,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Malayalam and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Malayalam has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Malayalam?
@@ -94,45 +140,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      173 | ██████████████       |
 |   2026 |      245 | ████████████████████ |
 
-### Most popular models tagged for Malayalam
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Malayalam
-
-| model                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of     |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------|
-| [apple/FastVLM-0.5B](https://huggingface.co/apple/FastVLM-0.5B)                                                   | 193,997                | 15,263                | 758.8M       |                    1 |   2025 | —                 |
-| [apple/FastVLM-1.5B](https://huggingface.co/apple/FastVLM-1.5B)                                                   | 51,510                 | 1,695                 | 1.9B         |                    1 |   2025 | —                 |
-| [apple/FastVLM-7B](https://huggingface.co/apple/FastVLM-7B)                                                       | 51,252                 | 1,012                 | 7.8B         |                    1 |   2025 | —                 |
-| [andito/Qwen3.5-0.8B-ConvFill](https://huggingface.co/andito/Qwen3.5-0.8B-ConvFill)                               | 3,741                  | 3,741                 | 752.4M       |                    1 |   2026 | Qwen/Qwen3.5-0.8B |
-| [VishnuPJ/MalayaLLM_Gemma_2_9B_Instruct_V1.0](https://huggingface.co/VishnuPJ/MalayaLLM_Gemma_2_9B_Instruct_V1.0) | 2,475                  | 25                    | 10.2B        |                    1 |   2024 | —                 |
-
 ### Largest models tagged for Malayalam
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [bigscience/bloomz](https://huggingface.co/bigscience/bloomz)                         | 163,618                |                   983 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloomz-mt](https://huggingface.co/bigscience/bloomz-mt)                   | 28,969                 |                   329 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloomz-p3](https://huggingface.co/bigscience/bloomz-p3)                   | 8,063                  |                   187 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Malayalam
 
-| model                                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [VishnuPJ/MalayaLLM_Gemma_2_9B_Instruct_V1.0](https://huggingface.co/VishnuPJ/MalayaLLM_Gemma_2_9B_Instruct_V1.0) | 2,475                  |                    25 | 10.2B        |                    1 |   2024 | —                  |
-| [VishnuPJ/MalayaLLM_Gemma_2_9B_Base_V1.0](https://huggingface.co/VishnuPJ/MalayaLLM_Gemma_2_9B_Base_V1.0)         | 2,102                  |                    13 | 10.2B        |                    1 |   2024 | —                  |
-| [VishnuPJ/MalayaLLM_Gemma_7B_Instruct_V1](https://huggingface.co/VishnuPJ/MalayaLLM_Gemma_7B_Instruct_V1)         | 373                    |                    13 | 9.3B         |                    1 |   2024 | —                  |
-| [VishnuPJ/MalayaLLM_Gemma_7B_Base_V1](https://huggingface.co/VishnuPJ/MalayaLLM_Gemma_7B_Base_V1)                 | 254                    |                    10 | 9.3B         |                    1 |   2024 | —                  |
-| [sequelbox/Qwen3-8B-PlumEsper](https://huggingface.co/sequelbox/Qwen3-8B-PlumEsper)                               | 284                    |                    13 | 8.2B         |                    1 |   2025 | Qwen/Qwen3-8B-Base |
+| model                                                                                                             | parameters   |   # languages tagged |   year | derivative of      |
+|:------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------|
+| [VishnuPJ/MalayaLLM_Gemma_2_9B_Base_V1.0](https://huggingface.co/VishnuPJ/MalayaLLM_Gemma_2_9B_Base_V1.0)         | 10.2B        |                    1 |   2024 | —                  |
+| [VishnuPJ/MalayaLLM_Gemma_2_9B_Instruct_V1.0](https://huggingface.co/VishnuPJ/MalayaLLM_Gemma_2_9B_Instruct_V1.0) | 10.2B        |                    1 |   2024 | —                  |
+| [VishnuPJ/MalayaLLM_Gemma_7B_Base_V1](https://huggingface.co/VishnuPJ/MalayaLLM_Gemma_7B_Base_V1)                 | 9.3B         |                    1 |   2024 | —                  |
+| [VishnuPJ/MalayaLLM_Gemma_7B_Instruct_V1](https://huggingface.co/VishnuPJ/MalayaLLM_Gemma_7B_Instruct_V1)         | 9.3B         |                    1 |   2024 | —                  |
+| [sequelbox/Qwen3-8B-PlumEsper](https://huggingface.co/sequelbox/Qwen3-8B-PlumEsper)                               | 8.2B         |                    1 |   2025 | Qwen/Qwen3-8B-Base |
 
 _79 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +178,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**22** benchmark datasets in the survey include Malayalam.
+**21** benchmark datasets in the survey include Malayalam.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,15 +189,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [5]     \
+                 /   [4]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -185,7 +211,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                    | # test items   | Construction                                                        |
+| level                                  | task                           | dataset                                                                                                    | # test items   | construction                                                        |
 |:---------------------------------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 2. Pragmatics, discourse & coreference | WinoGrande                     | [Winogrande_translated (CognitiveLab)](https://huggingface.co/datasets/CognitiveLab/Winogrande_translated) | —              | Machine translation (method not stated)                             |
 | 3. Commonsense reasoning               | COPA                           | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                                           | 500            | Human translation                                                   |
@@ -200,7 +226,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                            | —              | Native (local exams)                                                |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                                     | 4,321          | Native (Indian exams; some translated)                              |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                     | —              | Machine translation (GPT-3.5, Okapi)                                |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                           |
 | Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                | 854            | Human translation via English pivot                                 |
 | Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                    | 1,012          | Human translation (professional, from English Wikimedia sources)    |
@@ -234,7 +259,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 147 of ~18,460 papers (0.80%) (rank 43 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 147 of ~18,498 papers (0.79%) (rank 44 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Malayalam
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 147):

@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `nog`
 
+**Language family:** **Turkic** › Common Turkic › Kipchak-Turkestan › … › South Kipchak ([Glottolog](https://glottolog.org/resource/languoid/id/noga1249))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (80% certain))
+
+**Speakers:** 87,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33871#P1098), 2010)
+
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Nogai look and sound like?
+
+**Written:** Omniglot has [a page on Nogai](https://www.omniglot.com/writing/nogai.htm) but no sample text.
+
+**Spoken:** no Wikitongues video of Nogai yet ([its Wikitongues page](https://wikitongues.org/languages/nog/) says how to contribute one).
 
 
 ## Training Data
@@ -23,20 +36,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                         |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                         |
-| FineWeb                | 2.5 MB (nog_Cyrl (0.00)); 2.1 MB removed by filtering. This is ~1/21,052,526 of English data and ranks 173 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                     |
+| Source                 | Amount                                                                                                                                        |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                      |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                      |
+| FineWeb                | 2.5 MB (nog_Cyrl 0); 2.1 MB removed by filtering. This is ~1/21,052,526 of English data and ranks 173 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                  |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | 383 Wikidata items have a label in Nogai. (Wikidata codes (labels): nog (383)) |
+| Wordnets               | **None found**                                                                 |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **2 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
 - **Eval datasets (1):** Tatoeba (n=300)
-- **Best model:** GlotLID — F1 0.942 (P 0.989, R 0.900, FPR 8.44e-05) averaged over 1 dataset(s). Runner-up: funlangid (F1 0.413).
+- **Best model:** GlotLID — F1 0.942 (P 0.989, R 0.900, FPR 8.31e-05) averaged over 1 dataset(s). Runner-up: funlangid (F1 0.411).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 **All models (averaged over datasets):**
@@ -44,9 +78,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.989 |    0.900 | 0.942 | 0.000 | ✓                |
-| funlangid    |       0.741 |    0.287 | 0.413 | 0.002 | ✓                |
+| funlangid    |       0.729 |    0.287 | 0.411 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -61,6 +97,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Nogai and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Nogai has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/nog/) video of Nogai yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Nogai?
@@ -80,25 +118,13 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        0 |                      |
 |   2026 |        2 | ████████████████████ |
 
-### Most popular models tagged for Nogai
-
-| model                                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                       | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                 |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                                       | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                 |
-| [ansarzeinulla/Qwen2.5-1.5B-Nogai-SFT-Experimental](https://huggingface.co/ansarzeinulla/Qwen2.5-1.5B-Nogai-SFT-Experimental) | 0                      |                     0 | 1.5B         |                    3 |   2026 | Qwen/Qwen2.5-1.5B |
-
-### Most popular models tagged *only* for Nogai
-
-_none_
-
 ### Largest models tagged for Nogai
 
-| model                                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                                       | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                 |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                       | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                 |
-| [ansarzeinulla/Qwen2.5-1.5B-Nogai-SFT-Experimental](https://huggingface.co/ansarzeinulla/Qwen2.5-1.5B-Nogai-SFT-Experimental) | 0                      |                     0 | 1.5B         |                    3 |   2026 | Qwen/Qwen2.5-1.5B |
+| model                                                                                                 | parameters   |   # languages tagged |   year | derivative of     |
+|:------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                               | 8.6B         |                  189 |   2023 | —                 |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                               | 8.6B         |                  189 |   2023 | —                 |
+| [ansarzeinulla/Qwen2.5-1.5B-Nogai-LoRA](https://huggingface.co/ansarzeinulla/Qwen2.5-1.5B-Nogai-LoRA) | 1.5B         |                    2 |   2026 | Qwen/Qwen2.5-1.5B |
 
 ### Largest models tagged *only* for Nogai
 
@@ -131,15 +157,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -153,7 +179,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                              |   # test items | Construction                                 |
+| level               | task                | dataset                                                                              |   # test items | construction                                 |
 |:--------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:---------------------------------------------|
 | Machine translation | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             84 | Native (crowdsourced Tatoeba sentence pairs) |
 
@@ -183,7 +209,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 0 of ~18,460 papers (0.00%); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 0 of ~18,498 papers (0.00%); English is mentioned in 8,465.
 - Search terms: Nogai
 - **No ACL 2026 papers mention Nogai** — any published work would be a first.
 

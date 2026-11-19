@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ces`
 
+**Language family:** **Indo-European** › Classical Indo-European › Balto-Slavic › … › Czech-Slovak ([Glottolog](https://glottolog.org/resource/languoid/id/czec1258))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 13.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 10.7 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9056#P1098), 2019)
 
 **Official / recognised in:** Czech Republic
 
 **Status:** Official language
+
+
+## What does Czech look and sound like?
+
+**Written (Czech)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/czech.htm):
+
+> Všichni lidé se rodí svobodní a sobě rovní co do důstojnosti a práv. Jsou nadáni rozumem a svědomím a mají spolu jednat v duchu bratrství.
+> A recording of this text by Vaclav Dekanovsky
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_cz.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ces/) has 6 videos of Czech speakers. Watch [Dr. Karel Oliva speaking Czech, English, Bulgarian, Italian, Standard German, Russian](https://wikitongues.org/videos/dr-kareloliva_20160330_ces-eng-bul-ita-deu-rus/).
 
 
 ## Training Data
@@ -25,20 +47,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                      |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 601,212 articles in cs.wikipedia (rank 25 of 161 in the set) — ~1/13 of English; 4,549 active users                                                                                                                         |
-| Common Crawl 2026      | 24,730,182 pages per crawl on average, which is 1.1474% of the crawl. This is ~1/36 of English data and ranks 12 of 113 official languages in Common Crawl.                                                                 |
-| FineWeb                | 109.98 GB (ces_Latn (109.98)); which is equivalent to ≈106.17 GB English data after byte-premium scaling; 161.70 GB removed by filtering. This is ~1/486 of English data and ranks 15 of 248 official languages in FineWeb. |
-| Goldfish training data | 8.25 GB (ces_latn) (rank 24 of 166 in the set)                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                              |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 601,212 articles in cs.wikipedia; 4,549 active users. This is ~1/13 of English data and ranks 26 of 168 languages in the set in Wikipedia.                                                                          |
+| Common Crawl           | 24,730,182 pages per crawl on average, which is 1.1474% of the crawl (2026). This is ~1/36 of English data and ranks 12 of 113 languages in the set in Common Crawl.                                                |
+| FineWeb                | 109.98 GB (ces_Latn 109.98 GB), equivalent to ≈106.17 GB of English after byte-premium scaling; 161.70 GB removed by filtering. This is ~1/486 of English data and ranks 15 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 8.25 GB (ces_Latn 8.25 GB) (rank 24 of 166 in the set)                                                                                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 7 treebanks, 255,426 sentences / 4,162,615 tokens in total: [UD_Czech-CAC](https://github.com/UniversalDependencies/UD_Czech-CAC) (24,709 sentences), [UD_Czech-CLTT](https://github.com/UniversalDependencies/UD_Czech-CLTT) (1,121 sentences), [UD_Czech-CzeSL](https://github.com/UniversalDependencies/UD_Czech-CzeSL) (1,642 sentences), [UD_Czech-FicTree](https://github.com/UniversalDependencies/UD_Czech-FicTree) (12,760 sentences), [UD_Czech-PDTC](https://github.com/UniversalDependencies/UD_Czech-PDTC) (213,897 sentences), [UD_Czech-PUD](https://github.com/UniversalDependencies/UD_Czech-PUD) (1,000 sentences), [UD_Czech-Poetry](https://github.com/UniversalDependencies/UD_Czech-Poetry) (297 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 5,125 lemmas, 134,527 inflected forms ([unimorph/ces](https://github.com/unimorph/ces))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Wikidata labels        | 6,115,893 Wikidata items have a label in Czech. (Wikidata codes (labels): cs (6,115,893))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Wordnets               | [BalkaNet](http://www.dblab.upatras.gr/balkanet/) (size not listed); [Czech WordNet](https://ufal-point.mff.cuni.cz/xmlui/handle/11858/00-097C-0000-0001-4880-3) (size not listed); licence: OLD VERSION: CC-BY-NC-SA.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                |
+|:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                    |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([ces1613](https://ebible.org/details.php?id=ces1613), Public Domain); New Testament ([cesnkb](https://ebible.org/details.php?id=cesnkb), by-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                 |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.978 (P 0.980, R 0.977, FPR 1.98e-04) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.959).
+- **Best model:** GlotLID — F1 0.978 (P 0.980, R 0.977, FPR 1.95e-04) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.959).
 
 **All models (averaged over datasets):**
 
@@ -46,12 +89,14 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.980 |    0.977 | 0.978 | 0.000 | ✓                |
 | cld2         |       0.964 |    0.954 | 0.959 | 0.000 | ✓                |
-| OpenLID-v2   |       0.882 |    0.967 | 0.916 | 0.001 | ✓                |
-| py3langid    |       0.880 |    0.968 | 0.916 | 0.002 | ✓                |
+| OpenLID-v2   |       0.881 |    0.967 | 0.916 | 0.001 | ✓                |
+| py3langid    |       0.879 |    0.968 | 0.915 | 0.002 | ✓                |
 | commonlingua |       0.912 |    0.879 | 0.895 | 0.001 | ✓                |
-| fasttext     |       0.826 |    0.978 | 0.886 | 0.002 | ✓                |
+| fasttext     |       0.825 |    0.978 | 0.886 | 0.002 | ✓                |
 | pyfranc      |       0.959 |    0.721 | 0.811 | 0.000 | ✓                |
-| funlangid    |       0.793 |    0.633 | 0.700 | 0.002 | ✓                |
+| cld3         |       0.737 |    0.932 | 0.809 | 0.005 | ✓                |
+| funlangid    |       0.791 |    0.633 | 0.699 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -92,45 +137,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      423 | ███████████████      |
 |   2026 |      582 | ████████████████████ |
 
-### Most popular models tagged for Czech
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct)             | 9,633,401              | 331,860               | 3.8B         |                   23 |   2025 | —                                      |
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [CohereLabs/aya-expanse-8b](https://huggingface.co/CohereLabs/aya-expanse-8b)                     | 1,136,081              | 22,682                | 8.0B         |                   23 |   2024 | —                                      |
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct) | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B             |
-| [BSC-LT/salamandra-7b-instruct](https://huggingface.co/BSC-LT/salamandra-7b-instruct)             | 713,529                | 36,481                | 7.8B         |                   33 |   2024 | BSC-LT/salamandra-7b                   |
-
-### Most popular models tagged *only* for Czech
-
-| model                                                                         | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                |
-|:------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------------|
-| [jinymusim/gpt-czech-poet](https://huggingface.co/jinymusim/gpt-czech-poet)   | 131,443                | 120                   | 124.4M       |                    1 |   2023 | lchaloupsky/czech-gpt2-oscar |
-| [MU-NLPC/CzeGPT-2](https://huggingface.co/MU-NLPC/CzeGPT-2)                   | 83,698                 | 2,039                 | 137.0M       |                    1 |   2022 | —                            |
-| [StanfordAIMI/CheXagent-8b](https://huggingface.co/StanfordAIMI/CheXagent-8b) | 68,934                 | 918                   | 8.4B         |                    1 |   2023 | —                            |
-| [BUT-FIT/csmpt7b](https://huggingface.co/BUT-FIT/csmpt7b)                     | 24,434                 | 798                   | 6.7B         |                    1 |   2024 | —                            |
-| [fav-kky/gpt2-small-cs](https://huggingface.co/fav-kky/gpt2-small-cs)         | 14,466                 | 888                   | 42.9M        |                    1 |   2022 | —                            |
-
 ### Largest models tagged for Czech
 
-| model                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                       | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                           | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)                         | 604                    | 604                   | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
-| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)                           | 23,979                 | 3,521                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16) | 122,649                | 9,704                 | 123.6B       |                   20 |   2026 | —                                      |
+| model                                                                                                                           | parameters   |   # languages tagged |   year | derivative of                          |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                       | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                           | 856.0B       |                  143 |   2025 | —                                      |
+| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)                         | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)                           | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16) | 123.6B       |                   20 |   2026 | —                                      |
 
 ### Largest models tagged *only* for Czech
 
-| model                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [OJBLCZ/Qwen3.8-27B-Czech-4bit](https://huggingface.co/OJBLCZ/Qwen3.8-27B-Czech-4bit)                         | 58                     |                    58 | 26.9B        |                    1 |   2026 | oriyonay/Qwen3.8-27B-bnb-4bit |
-| [vishinvents/OpenEuroLLM-Czech-Ollama-GGUF](https://huggingface.co/vishinvents/OpenEuroLLM-Czech-Ollama-GGUF) | 6,689                  |                   867 | 12.2B        |                    1 |   2026 | —                             |
-| [Neptune1722/CheXagent-nf4-quantized](https://huggingface.co/Neptune1722/CheXagent-nf4-quantized)             | 106                    |                    16 | 8.6B         |                    1 |   2024 | —                             |
-| [StanfordAIMI/CheXagent-8b](https://huggingface.co/StanfordAIMI/CheXagent-8b)                                 | 68,934                 |                   918 | 8.4B         |                    1 |   2023 | —                             |
-| [ssmits/Falcon2-8B-Czech](https://huggingface.co/ssmits/Falcon2-8B-Czech)                                     | 274                    |                    14 | 8.1B         |                    1 |   2024 | tiiuae/falcon-11B             |
+| model                                                                                                         | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [OJBLCZ/Qwen3.8-27B-Czech-4bit](https://huggingface.co/OJBLCZ/Qwen3.8-27B-Czech-4bit)                         | 26.9B        |                    1 |   2026 | oriyonay/Qwen3.8-27B-bnb-4bit |
+| [vishinvents/OpenEuroLLM-Czech-Ollama-GGUF](https://huggingface.co/vishinvents/OpenEuroLLM-Czech-Ollama-GGUF) | 12.2B        |                    1 |   2026 | —                             |
+| [Neptune1722/CheXagent-nf4-quantized](https://huggingface.co/Neptune1722/CheXagent-nf4-quantized)             | 8.6B         |                    1 |   2024 | —                             |
+| [StanfordAIMI/CheXagent-8b](https://huggingface.co/StanfordAIMI/CheXagent-8b)                                 | 8.4B         |                    1 |   2023 | —                             |
+| [ssmits/Falcon2-8B-Czech](https://huggingface.co/ssmits/Falcon2-8B-Czech)                                     | 8.1B         |                    1 |   2024 | tiiuae/falcon-11B             |
 
 _97 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -161,15 +186,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [7]     \
+                 /   [7]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [5]        \
+         /      reasoning [5]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,7 +208,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                           | # test items   | Construction                                                     |
+| level                                  | task                           | dataset                                                                                                           | # test items   | construction                                                     |
 |:---------------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                                         | 1,213          | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                              | 4,256          | Treebank-based (automatic, UD + UniMorph)                        |
@@ -234,22 +259,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 452 of ~18,460 papers (2.45%) (rank 14 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 455 of ~18,498 papers (2.46%) (rank 14 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Czech
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 452):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 455):
 
-| title                                                                                                                  | paper                                                                  |
-|:-----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
-| IGenBench: Benchmarking the Reliability of Text-to-Infographic Generation                                              | [2026.acl-long.1713](https://aclanthology.org/2026.acl-long.1713/)     |
-| The Infrastructure behind Latvian National Corpora Collection                                                          | [2026.cmlc-1.5](https://aclanthology.org/2026.cmlc-1.5/)               |
-| Towards Consistent UMR Annotation of Deverbal Nouns: Evidence from Czech and Latin                                     | [2026.dmr-1.6](https://aclanthology.org/2026.dmr-1.6/)                 |
-| Leveraging Routing Dynamics in Mixture-of-Experts Models for Efficient Language Adaptation                             | [2026.emnlp-main.2407](https://aclanthology.org/2026.emnlp-main.2407/) |
-| AIC CTU@AVerImaTeC: dual-retriever RAG for image-text fact checking                                                    | [2026.fever-1.11](https://aclanthology.org/2026.fever-1.11/)           |
-| SlovKE: A Large-Scale Dataset and LLM Evaluation for Slovak Keyphrase Extraction                                       | [2026.lrec-1.283](https://aclanthology.org/2026.lrec-1.283/)           |
-| From CHAT to Coded CoNLL-U: A Reproducible Pipeline for the Syntactic Annotation and Querying of Child Language Data   | [2026.lrec-1.901](https://aclanthology.org/2026.lrec-1.901/)           |
-| POS Tagging with Generative LLMs for Historical Germanic Low-Resource Languages: An Evaluation Against Fine-Tuned BERT | [2026.lt4hala-1.12](https://aclanthology.org/2026.lt4hala-1.12/)       |
-| A Proposal for a More Universal Annotation of Relative Clauses in Universal Dependencies                               | [2026.udw-1.16](https://aclanthology.org/2026.udw-1.16/)               |
-| Gathering valency frames for annotation and batch corrections                                                          | [2026.udw-1.26](https://aclanthology.org/2026.udw-1.26/)               |
+| title                                                                                                                            | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| IGenBench: Benchmarking the Reliability of Text-to-Infographic Generation                                                        | [2026.acl-long.1713](https://aclanthology.org/2026.acl-long.1713/)             |
+| CorPipe at CRAC 2026: Empty Nodes and Cross-Lingual Transfer in Multilingual Coreference Resolution                              | [2026.codi-1.27](https://aclanthology.org/2026.codi-1.27/)                     |
+| Generative Models Enhanced by Sequence Labelling and Aspect-Code Switching Improve Cross-lingual Aspect-Based Sentiment Analysis | [2026.emnlp-main.1531](https://aclanthology.org/2026.emnlp-main.1531/)         |
+| Assessment of Generative Named Entity Recognition in the Era of Large Language Models                                            | [2026.findings-emnlp.1706](https://aclanthology.org/2026.findings-emnlp.1706/) |
+| Large Language Models for Citation Function Classification                                                                       | [2026.lrec-1.191](https://aclanthology.org/2026.lrec-1.191/)                   |
+| The MultiplEYE Text Corpus: Towards a Diverse and Ever-Expanding Multilingual Text Corpus                                        | [2026.lrec-1.534](https://aclanthology.org/2026.lrec-1.534/)                   |
+| Proffiliadur: Welsh Language Text Profiling Toolkit                                                                              | [2026.lrec-1.88](https://aclanthology.org/2026.lrec-1.88/)                     |
+| Fluency and Faithfulness in Human and Machine Literary Translation                                                               | [2026.nlp4dh-1.17](https://aclanthology.org/2026.nlp4dh-1.17/)                 |
+| Overview of the SIGTURK 2026 Shared Task: Terminology-Aware Machine Translation for English–Turkish Scientific Texts             | [2026.sigturk-1.20](https://aclanthology.org/2026.sigturk-1.20/)               |
+| CUNI-UFAL at WMT26 Multilingual Instruction Shared Task                                                                          | [2026.wmt-main.130](https://aclanthology.org/2026.wmt-main.130/)               |
 
 {% endraw %}

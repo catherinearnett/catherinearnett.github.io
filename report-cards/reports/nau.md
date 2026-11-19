@@ -12,9 +12,35 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `nau`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Eastern Malayo-Polynesian › … › Kosraean-Nauruan ([Glottolog](https://glottolog.org/resource/languoid/id/naur1243))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (20% certain))
+
+**Speakers:** about 6,924 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 9,300 first-language + 1,000 second-language ([Wikidata](https://www.wikidata.org/wiki/Q13307#P1098), 2013)
+
 **Official / recognised in:** Nauru
 
 **Status:** Official language
+
+
+## What does Nauruan look and sound like?
+
+**Written (Nauruan)**, sample text from [Omniglot](https://www.omniglot.com/writing/nauruan.htm):
+
+> Ñaga ã eitsiõk õrig imim, Gott õrig ianweron me eb.
+> Me eitsiõk erig imin ñana bain eat eb, me eko õañan, mi itũr emek animwet ijited, ma Anin Gott õmakamakur animwet ebõk.
+> Me Gott ũge, Enim eaõ, me eaõen.
+> Me Gott ãt iaõ bwo omo, me Gott õekae iaõ mi itũr.
+> Me Gott eij eget iaõ bwa Aran, me E ij eget itũr bwa Anũbũmin. Ma antsiemerin ma antsioran ar eken ũrõr adamonit ibũm.
+> A recording of this text …
+
+*Translation:* In the beginning God created the heaven and the earth. And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters. And God said, Let there be light: and there was light. And God saw the light, that it was good: and God divided the light from the darkness. And God called the light Day, and the darkness he called …
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/nauruan/smp_nauruan.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/nau/) has 1 video of Nauruan speakers. Watch [Siro speaking Nauruan](https://wikitongues.org/videos/siro_20180512_nau/).
 
 
 ## Training Data
@@ -23,20 +49,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                       |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 0 articles in na.wikipedia; 1 active users                                                                                                                   |
-| Common Crawl 2026      | 738 pages per crawl on average, which is 0.0000% of the crawl. This is ~1/1,208,005 of English data and ranks 111 of 113 official languages in Common Crawl. |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                               |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                 |
+| Source                 | Amount                                                                                                                                                                |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 0 articles in na.wikipedia; 1 active users.                                                                                                                           |
+| Common Crawl           | 738 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/1,208,005 of English data and ranks 111 of 113 languages in the set in Common Crawl. |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                        |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **2 of 8** LangID models evaluated have this language code as a label that can be predicted: cld2, funlangid.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: cld2, funlangid.
 - **Eval datasets (1):** Tatoeba (n=11)
-- **Best model:** cld2 — F1 0.286 (P 0.667, R 0.182, FPR 4.08e-05) averaged over 1 dataset(s). Runner-up: GlotLID (F1 0.000).
+- **Best model:** cld2 — F1 0.286 (P 0.667, R 0.182, FPR 4.06e-05) averaged over 1 dataset(s). Runner-up: AfroLID (F1 0.000).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 **All models (averaged over datasets):**
@@ -44,8 +91,10 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | cld2         |       0.667 |    0.182 | 0.286 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | GlotLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✓                |
@@ -61,6 +110,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Nauruan and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Nauruan has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
 
 
 ## What models are available for Nauruan?
@@ -77,21 +127,11 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2026 |        1 | ████████████████████ |
 
-### Most popular models tagged for Nauruan
-
-| model                                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:--------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [eagle0504/multireward-grpo-fintech-na-qwen2.5-1.5b](https://huggingface.co/eagle0504/multireward-grpo-fintech-na-qwen2.5-1.5b) |                    136 |                    27 | 1.5B         |                    2 |   2026 | Qwen/Qwen2.5-1.5B |
-
-### Most popular models tagged *only* for Nauruan
-
-_none_
-
 ### Largest models tagged for Nauruan
 
-| model                                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:--------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [eagle0504/multireward-grpo-fintech-na-qwen2.5-1.5b](https://huggingface.co/eagle0504/multireward-grpo-fintech-na-qwen2.5-1.5b) |                    136 |                    27 | 1.5B         |                    2 |   2026 | Qwen/Qwen2.5-1.5B |
+| model                                                                                                                           | parameters   |   # languages tagged |   year | derivative of     |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------|
+| [eagle0504/multireward-grpo-fintech-na-qwen2.5-1.5b](https://huggingface.co/eagle0504/multireward-grpo-fintech-na-qwen2.5-1.5b) | 1.5B         |                    2 |   2026 | Qwen/Qwen2.5-1.5B |
 
 ### Largest models tagged *only* for Nauruan
 
@@ -124,15 +164,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -146,7 +186,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                              |   # test items | Construction                                 |
+| level               | task                | dataset                                                                              |   # test items | construction                                 |
 |:--------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:---------------------------------------------|
 | Machine translation | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             20 | Native (crowdsourced Tatoeba sentence pairs) |
 
@@ -176,7 +216,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1 of ~18,460 papers (0.01%) (rank 217 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1 of ~18,498 papers (0.01%) (rank 241 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Nauruan
 
 Here are up to ten papers that were published mentioning this language in 2026:

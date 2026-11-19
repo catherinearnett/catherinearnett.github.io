@@ -12,11 +12,47 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kaz`
 
+**Language family:** **Turkic** › Common Turkic › Kipchak-Turkestan › … › South Kipchak ([Glottolog](https://glottolog.org/resource/languoid/id/kaza1248))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 14.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 12.9 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9252#P1098), 2009)
 
 **Official / recognised in:** Kazakhstan
 
 **Status:** Official language
+
+
+## What does Kazakh look and sound like?
+
+**Written (the Arabic alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/kazakh.htm):
+
+> بارلىق ادامدار تۋمىسىنان ازات جانە قادىر‐قاسىييەتى مەن كۇقىقتارى تەڭ بولىپ دۇنىييەگە كەلەدى. ادامدارعا اقىل‐پاراسات، ار‐وجدان بەرىلگەن، سوندىقتان ولار بىر‐بىرىمەن تۋىستىق، باۋىرمالدىق قارىم‐قاتىناس جاساۋلارى ٴتىيىس.
+
+**Written (the Latin alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/kazakh.htm):
+
+> Barlıq adamdar twmısınan azat jäne
+> qadir-qasïyeti men quqıqtarı teñ bolıp
+> dünïyege keledi. Adamdarğa aqıl-parasat,
+> ar-ojdan berilgen, sondıqtan olar bir-birimen twıstıq,
+> bawırmaldıq qarım-qatınas jasawları tïis.
+
+**Written (the Cyrillic alphabet)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/kazakh.htm):
+
+> Барлық адамдар тумысынан азат және қадір-қасиеті мен кұқықтары тең болып дүниеге келеді. Адамдарға ақыл-парасат, ар-ождан берілген, сондықтан олар бір-бірімен туыстық, бауырмалдық қарым-қатынас жасаулары тиіс.
+> Transliteration
+> Barlıq adamdar tumısınan azat jäne qadir qasyeti men kûqıqtarı teŋ bolıp dünyege keledi. Adamdarġa aqıl
+> parasat, ar ojdan berilgen, sondıqtan olar bir birimen tuıstıq, …
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. (Article 1 of the Universal Declaration of Human Rights) Improvements supplied by 이윤호
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_kazakh.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/kaz/) has 4 videos of Kazakh speakers. Watch [Yernur speaking Kazakh](https://wikitongues.org/videos/yernur_20180502_kaz/).
 
 
 ## Training Data
@@ -25,39 +61,64 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 245,945 articles in kk.wikipedia (rank 38 of 161 in the set) — ~1/31 of English; 505 active users                                                                                                                     |
-| Common Crawl 2026      | 860,796 pages per crawl on average, which is 0.0400% of the crawl. This is ~1/1,036 of English data and ranks 38 of 113 official languages in Common Crawl.                                                           |
-| FineWeb                | 6.86 GB (kaz_Cyrl (6.86)); which is equivalent to ≈3.89 GB English data after byte-premium scaling; 6.46 GB removed by filtering. This is ~1/7,783 of English data and ranks 44 of 248 official languages in FineWeb. |
-| Goldfish training data | 3.47 GB (kaz_cyrl) (rank 50 of 166 in the set)                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                        |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 245,945 articles in kk.wikipedia; 505 active users. This is ~1/31 of English data and ranks 39 of 168 languages in the set in Wikipedia.                                                                      |
+| Common Crawl           | 860,796 pages per crawl on average, which is 0.0400% of the crawl (2026). This is ~1/1,036 of English data and ranks 38 of 113 languages in the set in Common Crawl.                                          |
+| FineWeb                | 6.86 GB (kaz_Cyrl 6.86 GB), equivalent to ≈3.89 GB of English after byte-premium scaling; 6.46 GB removed by filtering. This is ~1/7,783 of English data and ranks 44 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 3.47 GB (kaz_Cyrl 3.47 GB) (rank 50 of 166 in the set)                                                                                                                                                        |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                             |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 1,078 sentences / 10,495 tokens in total: [UD_Kazakh-KTB](https://github.com/UniversalDependencies/UD_Kazakh-KTB) (1,078 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 26 lemmas, 357 inflected forms ([unimorph/kaz](https://github.com/unimorph/kaz))                                                                                                                                        |
+| Wikidata labels        | 690,801 Wikidata items have a label in Kazakh. (Wikidata codes (labels): kk-latn (690,801), kk (460,462), kk-cyrl (228,129), kk-arab (220,259))                                                                         |
+| Wordnets               | **None found**                                                                                                                                                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.988 (P 0.988, R 0.989, FPR 6.55e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.891).
+- **Best model:** GlotLID — F1 0.988 (P 0.987, R 0.990, FPR 7.59e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.890).
+
+> ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.988 |    0.989 | 0.988 | 0.000 | ✓                |
-| cld2         |       0.841 |    0.983 | 0.891 | 0.002 | ✓                |
-| commonlingua |       0.843 |    0.966 | 0.874 | 0.002 | ✓                |
-| pyfranc      |       0.833 |    0.923 | 0.873 | 0.003 | ✓                |
-| funlangid    |       0.853 |    0.889 | 0.868 | 0.002 | ✓                |
-| py3langid    |       0.774 |    0.991 | 0.839 | 0.005 | ✓                |
-| fasttext     |       0.734 |    0.993 | 0.811 | 0.005 | ✓                |
-| OpenLID-v2   |       0.698 |    0.991 | 0.787 | 0.005 | ✓                |
+| GlotLID      |       0.987 |    0.990 | 0.988 | 0.000 | ✓                |
+| cld2         |       0.839 |    0.981 | 0.890 | 0.002 | ✓                |
+| pyfranc      |       0.836 |    0.922 | 0.875 | 0.003 | ✓                |
+| commonlingua |       0.844 |    0.965 | 0.874 | 0.002 | ✓                |
+| funlangid    |       0.848 |    0.877 | 0.861 | 0.002 | ✓                |
+| py3langid    |       0.775 |    0.987 | 0.838 | 0.005 | ✓                |
+| fasttext     |       0.734 |    0.992 | 0.811 | 0.005 | ✓                |
+| OpenLID-v2   |       0.699 |    0.991 | 0.788 | 0.005 | ✓                |
+| cld3         |       0.418 |    0.981 | 0.576 | 0.017 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.973 |    0.950 | 0.961 |
+| Tatoeba   | 300 |       0.966 |    0.957 | 0.961 |
 | UDHR-LID  |  58 |       0.967 |    1.000 | 0.983 |
 | Wikipedia | 300 |       1.000 |    0.993 | 0.997 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
@@ -71,6 +132,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Kazakh and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Kazakh has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Kazakh?
@@ -91,45 +153,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       79 | ████████             |
 |   2026 |      195 | ████████████████████ |
 
-### Most popular models tagged for Kazakh
-
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                             | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —               |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                   | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)                   | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)                     | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-| [issai/LLama-3.1-KazLLM-1.0-8B](https://huggingface.co/issai/LLama-3.1-KazLLM-1.0-8B) | 143,872                | 186                   | 8.0B         |                    4 |   2024 | —               |
-
-### Most popular models tagged *only* for Kazakh
-
-| model                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of              |
-|:----------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------|
-| [Gen2B/Irbis-7b-Instruct_lora](https://huggingface.co/Gen2B/Irbis-7b-Instruct_lora)           | 1,827                  |                     8 | 7.0B         |                    1 |   2024 | —                          |
-| [crossroderick/dalat5](https://huggingface.co/crossroderick/dalat5)                           | 1,303                  |                    80 | 64.6M        |                    1 |   2025 | google-t5/t5-small         |
-| [silvermete0r/Gemma2_2B_QazPerry](https://huggingface.co/silvermete0r/Gemma2_2B_QazPerry)     | 893                    |                    90 | 2.0B         |                    1 |   2025 | google/gemma-2-2b          |
-| [pkupie/Qwen2.5-1.5B-kk-cpt](https://huggingface.co/pkupie/Qwen2.5-1.5B-kk-cpt)               | 795                    |                    44 | 1.5B         |                    1 |   2026 | Qwen/Qwen2.5-1.5B          |
-| [TilQazyna/llama-kaz-instruct-8B-1](https://huggingface.co/TilQazyna/llama-kaz-instruct-8B-1) | 768                    |                     0 | 8.0B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B |
-
 ### Largest models tagged for Kazakh
 
-| model                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                   |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                               | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                   | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                               |
-| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF) | 604                    |                   604 | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019 |
-| [issai/LLama-3.1-KazLLM-1.0-70B-AWQ4](https://huggingface.co/issai/LLama-3.1-KazLLM-1.0-70B-AWQ4)       | 549                    |                    13 | 70.6B        |                    4 |   2024 | —                               |
-| [issai/LLama-3.1-KazLLM-1.0-70B](https://huggingface.co/issai/LLama-3.1-KazLLM-1.0-70B)                 | 61,568                 |                     6 | 70.6B        |                    4 |   2024 | —                               |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                   |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                               | 1.9T         |                  143 |   2025 | —                               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                   | 856.0B       |                  143 |   2025 | —                               |
+| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF) | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019 |
+| [issai/LLama-3.1-KazLLM-1.0-70B](https://huggingface.co/issai/LLama-3.1-KazLLM-1.0-70B)                 | 70.6B        |                    4 |   2024 | —                               |
+| [issai/LLama-3.1-KazLLM-1.0-70B-AWQ4](https://huggingface.co/issai/LLama-3.1-KazLLM-1.0-70B-AWQ4)       | 70.6B        |                    4 |   2024 | —                               |
 
 ### Largest models tagged *only* for Kazakh
 
-| model                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of              |
-|:----------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------|
-| [TilQazyna/llama-kaz-instruct-8B-1](https://huggingface.co/TilQazyna/llama-kaz-instruct-8B-1) | 768                    |                     0 | 8.0B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B |
-| [Gen2B/Irbis-7b-Instruct_lora](https://huggingface.co/Gen2B/Irbis-7b-Instruct_lora)           | 1,827                  |                     8 | 7.0B         |                    1 |   2024 | —                          |
-| [AmanMussa/llama2-kazakh-7b](https://huggingface.co/AmanMussa/llama2-kazakh-7b)               | 546                    |                    13 | 6.7B         |                    1 |   2023 | —                          |
-| [pkupie/gemma-3-4b-kk-cpt](https://huggingface.co/pkupie/gemma-3-4b-kk-cpt)                   | 342                    |                     9 | 4.3B         |                    1 |   2026 | google/gemma-3-4b-pt       |
-| [alphaedge-ai/Qwen3.5-4B-kaz-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-kaz-32768) | 54                     |                    10 | 4.0B         |                    1 |   2026 | Qwen3.5-4B                 |
+| model                                                                                         | parameters   |   # languages tagged |   year | derivative of              |
+|:----------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------|
+| [TilQazyna/llama-kaz-instruct-8B-1](https://huggingface.co/TilQazyna/llama-kaz-instruct-8B-1) | 8.0B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B |
+| [Gen2B/Irbis-7b-Instruct_lora](https://huggingface.co/Gen2B/Irbis-7b-Instruct_lora)           | 7.0B         |                    1 |   2024 | —                          |
+| [AmanMussa/llama2-kazakh-7b](https://huggingface.co/AmanMussa/llama2-kazakh-7b)               | 6.7B         |                    1 |   2023 | —                          |
+| [pkupie/gemma-3-4b-kk-cpt](https://huggingface.co/pkupie/gemma-3-4b-kk-cpt)                   | 4.3B         |                    1 |   2026 | google/gemma-3-4b-pt       |
+| [alphaedge-ai/Qwen3.5-4B-kaz-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-kaz-32768) | 4.0B         |                    1 |   2026 | Qwen3.5-4B                 |
 
 _55 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -160,15 +202,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [3]     \
+                 /   [3]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [3]        \
+         /      reasoning [3]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -182,7 +224,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                             | # test items   | Construction                                                     |
+| level                                  | task                          | dataset                                                                                             | # test items   | construction                                                     |
 |:---------------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                         | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 173            | Treebank-based (automatic, UD + UniMorph)                        |
 | 2. Pragmatics, discourse & coreference | Figurative language & idioms  | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom)                              | —              | Native (curated by native speakers; generated contexts + MCQs)   |
@@ -192,8 +234,8 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 4. Reading comprehension               | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                 |
 | 4. Reading comprehension               | QA – extractive RC            | [KazCulture](https://huggingface.co/datasets/issai/KazCulture)                                      | 16,137         | Native (human-crafted)                                           |
 | 4. Reading comprehension               | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | KazMMLU                                                                                             | —              | Native                                                           |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ       | [TUMLU](https://github.com/ceferisbarov/TUMLU)                                                      | 700            | Native (school/entrance exams)                                   |
 | Machine translation                    | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
 | Machine translation                    | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
@@ -225,7 +267,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 130 of ~18,460 papers (0.70%) (rank 46 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 130 of ~18,498 papers (0.70%) (rank 48 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Kazakh
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 130):

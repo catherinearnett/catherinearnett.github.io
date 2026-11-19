@@ -12,9 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `pau`
 
+**Language family:** **Austronesian** › Malayo-Polynesian ([Glottolog](https://glottolog.org/resource/languoid/id/pala1344))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
+**Speakers:** about 16,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 17,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33776#P1098))
+
 **Official / recognised in:** Palau
 
 **Status:** Official language
+
+
+## What does Palauan look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/palauan.htm):
+
+> A rogui 'l chad el mechell a ngarngii a ilmokl er tir ra
+> diosisiu el llemalt. Ngarngii er tir a uldesuir mete mo
+> meruul el mo rar bebil lokiu a ungil 'l omeruul ra klauchad.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/pau/) has 1 video of Palauan speakers. Watch [Oluchel speaking Palauan](https://wikitongues.org/videos/oluchel_20160824_pau/).
 
 
 ## Training Data
@@ -23,20 +44,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                         |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                         |
-| FineWeb                | 1.5 MB (pau_Latn (0.00)); 6.5 MB removed by filtering. This is ~1/36,820,360 of English data and ranks 191 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                     |
+| Source                 | Amount                                                                                                                                        |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                      |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                      |
+| FineWeb                | 1.5 MB (pau_Latn 0); 6.5 MB removed by filtering. This is ~1/36,820,360 of English data and ranks 191 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                  |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                    |
+|:-----------------------|:-------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                 |
+| UniMorph               | **None found**                                                                 |
+| Wikidata labels        | 24 Wikidata items have a label in Palauan. (Wikidata codes (labels): pau (24)) |
+| Wordnets               | **None found**                                                                 |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
 - **Eval datasets (2):** Tatoeba (n=300), UDHR-LID (n=57)
-- **Best model:** GlotLID — F1 0.972 (P 1.000, R 0.947, FPR 0.00e+00) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.928).
+- **Best model:** GlotLID — F1 0.972 (P 1.000, R 0.947, FPR 0.00e+00) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.930).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -45,10 +87,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       1.000 |    0.947 | 0.972 | 0.000 | ✓                |
-| funlangid    |       0.957 |    0.903 | 0.928 | 0.001 | ✓                |
-| pyfranc      |       0.934 |    0.913 | 0.923 | 0.001 | ✓                |
+| funlangid    |       0.960 |    0.903 | 0.930 | 0.001 | ✓                |
+| pyfranc      |       0.940 |    0.913 | 0.926 | 0.001 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -68,6 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Palauan and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Palauan has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Palauan?
@@ -84,23 +129,12 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2023 |        2 | ████████████████████ |
 
-### Most popular models tagged for Palauan
-
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-
-### Most popular models tagged *only* for Palauan
-
-_none_
-
 ### Largest models tagged for Palauan
 
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
+| model                                                                   | parameters   |   # languages tagged |   year | derivative of   |
+|:------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
 
 ### Largest models tagged *only* for Palauan
 
@@ -133,15 +167,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -155,7 +189,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                              |   # test items | Construction                                 |
+| level               | task                | dataset                                                                              |   # test items | construction                                 |
 |:--------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:---------------------------------------------|
 | Machine translation | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             34 | Native (crowdsourced Tatoeba sentence pairs) |
 
@@ -185,7 +219,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 0 of ~18,460 papers (0.00%); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 0 of ~18,498 papers (0.00%); English is mentioned in 8,465.
 - Search terms: Palauan
 - **No ACL 2026 papers mention Palauan** — any published work would be a first.
 

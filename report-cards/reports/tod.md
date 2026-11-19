@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tod`
 
+**Language family:** **Mande** › Western Mande › Manding-Kpelle › … › Loma ([Glottolog](https://glottolog.org/resource/languoid/id/toma1245))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
+**Speakers:** no estimate found in CLDR or Wikidata
+
 **Official / recognised in:** Guinea
 
 **Status:** Official language
+
+
+## What does Toma look and sound like?
+
+**Written:** no Omniglot page found for Toma.
+
+**Spoken:** no Wikitongues video of Toma yet ([its Wikitongues page](https://wikitongues.org/languages/tod/) says how to contribute one).
 
 
 ## Training Data
@@ -23,18 +36,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                          |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 0.2 MB (tod_Latn (0.00)); 0.1 MB removed by filtering. This is ~1/257,458,404 of English data and ranks 223 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                      |
+| Source                 | Amount                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                       |
+| FineWeb                | 0.2 MB (tod_Latn 0); 0.1 MB removed by filtering. This is ~1/257,458,404 of English data and ranks 223 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                   |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                            |
+|:-----------------------------------|:-------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                |
+| Bible translations (eBible corpus) | **Portions only** — 1 translation: portions ([tod](https://ebible.org/details.php?id=tod), by-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                             |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- Support across the 8 evaluated LangID models is unknown: there is no labelled test data to run them on.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
 - **No labelled LangID eval data** for this language — creating some is a high-value contribution.
 - No model performance numbers are available.
 
@@ -46,6 +80,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Toma and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Toma has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/tod/) video of Toma yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Toma?
@@ -65,45 +101,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        1 | ███                  |
 |   2026 |        3 | █████████            |
 
-### Most popular models tagged for Toma
-
-| model                                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [InnerI/A-I-0xtom-7B-slerp](https://huggingface.co/InnerI/A-I-0xtom-7B-slerp)                                           | 12,099                 |                    56 | 7.2B         |                    1 |   2024 | tomaszki/nous-thirty |
-| [Okyanus/pomona-tomato-risk-reasoner-v0.1.7-MLX](https://huggingface.co/Okyanus/pomona-tomato-risk-reasoner-v0.1.7-MLX) | 491                    |                   239 | 494.0M       |                    2 |   2026 | Qwen/Qwen2.5-0.5B    |
-| [InnerI/InnerI-sn6-merge-7B-slerp](https://huggingface.co/InnerI/InnerI-sn6-merge-7B-slerp)                             | 75                     |                     9 | 7.2B         |                    1 |   2024 | lgodwangl/test6      |
-| [Sumail/Silver_Waves03_2b](https://huggingface.co/Sumail/Silver_Waves03_2b)                                             | 59                     |                     6 | 2.5B         |                    1 |   2024 | —                    |
-| [Sumail/Barista38](https://huggingface.co/Sumail/Barista38)                                                             | 56                     |                     7 | 1.6B         |                    1 |   2024 | coffie3/sa11         |
-
-### Most popular models tagged *only* for Toma
-
-| model                                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [InnerI/A-I-0xtom-7B-slerp](https://huggingface.co/InnerI/A-I-0xtom-7B-slerp)                                             | 12,099                 |                    56 | 7.2B         |                    1 |   2024 | tomaszki/nous-thirty |
-| [Okyanus/pomona-tomato-risk-reasoner-v0.1.7-lora](https://huggingface.co/Okyanus/pomona-tomato-risk-reasoner-v0.1.7-lora) | 234                    |                   109 | unknown      |                    1 |   2026 | Qwen/Qwen2.5-0.5B    |
-| [InnerI/InnerI-sn6-merge-7B-slerp](https://huggingface.co/InnerI/InnerI-sn6-merge-7B-slerp)                               | 75                     |                     9 | 7.2B         |                    1 |   2024 | lgodwangl/test6      |
-| [Sumail/Silver_Waves03_2b](https://huggingface.co/Sumail/Silver_Waves03_2b)                                               | 59                     |                     6 | 2.5B         |                    1 |   2024 | —                    |
-| [Sumail/Barista38](https://huggingface.co/Sumail/Barista38)                                                               | 56                     |                     7 | 1.6B         |                    1 |   2024 | coffie3/sa11         |
-
 ### Largest models tagged for Toma
 
-| model                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [OneJz/tomato-8b](https://huggingface.co/OneJz/tomato-8b)                                   | 55                     |                     6 | 8.0B         |                    1 |   2023 | —                    |
-| [Owhslp/tester1](https://huggingface.co/Owhslp/tester1)                                     | 55                     |                     7 | 7.2B         |                    1 |   2024 | tomaszki/mistral-0   |
-| [InnerI/InnerI-AI-sn6-7B-slerp](https://huggingface.co/InnerI/InnerI-AI-sn6-7B-slerp)       | 9,919                  |                    46 | 7.2B         |                    1 |   2024 | tomaszki/nous-thirty |
-| [InnerI/InnerI-sn6-merge-7B-slerp](https://huggingface.co/InnerI/InnerI-sn6-merge-7B-slerp) | 75                     |                     9 | 7.2B         |                    1 |   2024 | lgodwangl/test6      |
-| [Sumail/Silver_Waves03_2b](https://huggingface.co/Sumail/Silver_Waves03_2b)                 | 59                     |                     6 | 2.5B         |                    1 |   2024 | —                    |
+| model                                                                                       | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [OneJz/tomato-8b](https://huggingface.co/OneJz/tomato-8b)                                   | 8.0B         |                    1 |   2023 | —                    |
+| [InnerI/A-I-0xtom-7B-slerp](https://huggingface.co/InnerI/A-I-0xtom-7B-slerp)               | 7.2B         |                    1 |   2024 | tomaszki/nous-thirty |
+| [InnerI/InnerI-sn6-merge-7B-slerp](https://huggingface.co/InnerI/InnerI-sn6-merge-7B-slerp) | 7.2B         |                    1 |   2024 | lgodwangl/test6      |
+| [Owhslp/tester1](https://huggingface.co/Owhslp/tester1)                                     | 7.2B         |                    1 |   2024 | tomaszki/mistral-0   |
+| [Sumail/Silver_Waves03_2b](https://huggingface.co/Sumail/Silver_Waves03_2b)                 | 2.5B         |                    1 |   2024 | —                    |
 
 ### Largest models tagged *only* for Toma
 
-| model                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [OneJz/tomato-8b](https://huggingface.co/OneJz/tomato-8b)                                   | 55                     |                     6 | 8.0B         |                    1 |   2023 | —                    |
-| [Owhslp/tester1](https://huggingface.co/Owhslp/tester1)                                     | 55                     |                     7 | 7.2B         |                    1 |   2024 | tomaszki/mistral-0   |
-| [InnerI/InnerI-AI-sn6-7B-slerp](https://huggingface.co/InnerI/InnerI-AI-sn6-7B-slerp)       | 9,919                  |                    46 | 7.2B         |                    1 |   2024 | tomaszki/nous-thirty |
-| [InnerI/InnerI-sn6-merge-7B-slerp](https://huggingface.co/InnerI/InnerI-sn6-merge-7B-slerp) | 75                     |                     9 | 7.2B         |                    1 |   2024 | lgodwangl/test6      |
-| [Sumail/Silver_Waves03_2b](https://huggingface.co/Sumail/Silver_Waves03_2b)                 | 59                     |                     6 | 2.5B         |                    1 |   2024 | —                    |
+| model                                                                                       | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [OneJz/tomato-8b](https://huggingface.co/OneJz/tomato-8b)                                   | 8.0B         |                    1 |   2023 | —                    |
+| [InnerI/A-I-0xtom-7B-slerp](https://huggingface.co/InnerI/A-I-0xtom-7B-slerp)               | 7.2B         |                    1 |   2024 | tomaszki/nous-thirty |
+| [InnerI/InnerI-sn6-merge-7B-slerp](https://huggingface.co/InnerI/InnerI-sn6-merge-7B-slerp) | 7.2B         |                    1 |   2024 | lgodwangl/test6      |
+| [Owhslp/tester1](https://huggingface.co/Owhslp/tester1)                                     | 7.2B         |                    1 |   2024 | tomaszki/mistral-0   |
+| [Sumail/Silver_Waves03_2b](https://huggingface.co/Sumail/Silver_Waves03_2b)                 | 2.5B         |                    1 |   2024 | —                    |
 
 _2 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -134,15 +150,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -185,6 +201,15 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026: not reported.** The search term 'Toma' (common given name/surname) is ambiguous, so the raw count mostly reflects other uses of the word.
+- **Mentions in ACL papers in 2026:** 2 of ~18,498 papers (0.01%) (rank 227 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Toma
+- Because 'Toma' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
+
+Here are up to ten papers that were published mentioning this language in 2026:
+
+| title                                                                                                                                       | paper                                                                        |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Re:CAP - Auditing Retrieval Coverage in Production RAG Pipelines                                                                            | [2026.emnlp-industry.150](https://aclanthology.org/2026.emnlp-industry.150/) |
+| Conversion of the Clark Hall Dictionary of Old English to TEI with RDF: An End-to-end Pipeline for Lexicographic Resource Retrodigitization | [2026.lrec-1.561](https://aclanthology.org/2026.lrec-1.561/)                 |
 
 {% endraw %}

@@ -12,9 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ese`
 
+**Language family:** **Pano-Tacanan** › Tacanan › Takanik-Chamik ([Glottolog](https://glottolog.org/resource/languoid/id/esee1248))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: Glottolog)
+
+**Speakers:** 700 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q2980381#P1098), 2007)
+
 **Official / recognised in:** Bolivia
 
 **Status:** Official language
+
+
+## What does Ese Ejja look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/eseejja.htm):
+
+> Ojjaña esejja ojjaña oyaja yojjaya cuayani quiapame oyajayojjaya quiapame ojjaña eseya quiapame quia tai jjashauabataiquiani ecueya epejji jayo jjaya ojjaña jajji ojjañajaassi eseyajayojja.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Ese Ejja yet ([its Wikitongues page](https://wikitongues.org/languages/ese/) says how to contribute one).
 
 
 ## Training Data
@@ -23,18 +42,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                  |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                  |
-| FineWeb                | 0.3 MB (ese_Latn (0.00)); which is equivalent to ≈0.1 MB English data after byte-premium scaling; 0.8 MB removed by filtering. This is ~1/197,586,061 of English data and ranks 220 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                      |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                    |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                    |
+| FineWeb                | 0.3 MB (ese_Latn 0), equivalent to ≈0.1 MB of English after byte-premium scaling; 0.8 MB removed by filtering. This is ~1/197,586,061 of English data and ranks 220 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                              |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                  |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([eseNT](https://ebible.org/details.php?id=eseNT), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                               |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
 - **Eval datasets (1):** UDHR-LID (n=35)
 - **Best model:** GlotLID — F1 1.000 (P 1.000, R 1.000, FPR 0.00e+00) averaged over 1 dataset(s). Runner-up: pyfranc (F1 1.000).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
@@ -48,8 +88,10 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       1.000 |    1.000 | 1.000 | 0.000 | ✓                |
 | pyfranc      |       1.000 |    1.000 | 1.000 | 0.000 | ✓                |
 | funlangid    |       0.971 |    0.971 | 0.971 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -63,6 +105,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Ese Ejja and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Ese Ejja has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/ese/) video of Ese Ejja yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Ese Ejja?
@@ -98,15 +142,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -149,7 +193,7 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 0 of ~18,460 papers (0.00%); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 0 of ~18,498 papers (0.00%); English is mentioned in 8,465.
 - Search terms: Ese Ejja
 - **No ACL 2026 papers mention Ese Ejja** — any published work would be a first.
 

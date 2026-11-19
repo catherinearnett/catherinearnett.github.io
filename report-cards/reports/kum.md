@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kum`
 
+**Language family:** **Turkic** › Common Turkic › Kipchak-Turkestan › … › Kaukasus Kipchak ([Glottolog](https://glottolog.org/resource/languoid/id/kumy1244))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 282,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 426,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q36209#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Kumyk look and sound like?
+
+**Written:** no Omniglot page found for Kumyk.
+
+**Spoken:** no Wikitongues video of Kumyk yet ([its Wikitongues page](https://wikitongues.org/languages/kum/) says how to contribute one).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                         |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                         |
-| FineWeb                | 10.4 MB (kum_Cyrl (0.01)); 4.5 MB removed by filtering. This is ~1/5,118,611 of English data and ranks 147 of 248 official languages in FineWeb. |
-| Goldfish training data | 23.6 MB (kum_cyrl) (rank 148 of 166 in the set)                                                                                                  |
+| Source                 | Amount                                                                                                                                              |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                            |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                            |
+| FineWeb                | 10.4 MB (kum_Cyrl 10.0 MB); 4.5 MB removed by filtering. This is ~1/5,118,611 of English data and ranks 147 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 23.6 MB (kum_Cyrl 24.0 MB) (rank 148 of 166 in the set)                                                                                             |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | **None found**                                                                         |
+| Wikidata labels        | 153,204 Wikidata items have a label in Kumyk. (Wikidata codes (labels): kum (153,204)) |
+| Wordnets               | **None found**                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **2 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
 - **Eval datasets (1):** Tatoeba (n=157)
-- **Best model:** GlotLID — F1 0.915 (P 0.978, R 0.860, FPR 8.41e-05) averaged over 1 dataset(s). Runner-up: funlangid (F1 0.403).
+- **Best model:** GlotLID — F1 0.915 (P 0.978, R 0.860, FPR 8.28e-05) averaged over 1 dataset(s). Runner-up: funlangid (F1 0.404).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 **All models (averaged over datasets):**
@@ -46,9 +80,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.978 |    0.860 | 0.915 | 0.000 | ✓                |
-| funlangid    |       0.463 |    0.357 | 0.403 | 0.003 | ✓                |
+| funlangid    |       0.467 |    0.357 | 0.404 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -63,6 +99,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Kumyk and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Kumyk has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/kum/) video of Kumyk yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Kumyk?
@@ -80,30 +118,12 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2023 |        2 | █████████████        |
 |   2024 |        3 | ████████████████████ |
 
-### Most popular models tagged for Kumyk
-
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)               | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)               | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [goldfish-models/kum_cyrl_5mb](https://huggingface.co/goldfish-models/kum_cyrl_5mb)   | 406                    |                     5 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kum_cyrl_10mb](https://huggingface.co/goldfish-models/kum_cyrl_10mb) | 371                    |                    10 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kum_cyrl_full](https://huggingface.co/goldfish-models/kum_cyrl_full) | 347                    |                    12 | unknown      |                    1 |   2024 | —               |
-
-### Most popular models tagged *only* for Kumyk
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/kum_cyrl_5mb](https://huggingface.co/goldfish-models/kum_cyrl_5mb)   |                    406 |                     5 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kum_cyrl_10mb](https://huggingface.co/goldfish-models/kum_cyrl_10mb) |                    371 |                    10 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kum_cyrl_full](https://huggingface.co/goldfish-models/kum_cyrl_full) |                    347 |                    12 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Kumyk
 
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
+| model                                                                   | parameters   |   # languages tagged |   year | derivative of   |
+|:------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
 
 ### Largest models tagged *only* for Kumyk
 
@@ -138,15 +158,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -160,7 +180,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                              |   # test items | Construction                                 |
+| level               | task                | dataset                                                                              |   # test items | construction                                 |
 |:--------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:---------------------------------------------|
 | Machine translation | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |              8 | Native (crowdsourced Tatoeba sentence pairs) |
 
@@ -190,7 +210,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1 of ~18,460 papers (0.01%) (rank 217 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1 of ~18,498 papers (0.01%) (rank 241 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Kumyk
 
 Here are up to ten papers that were published mentioning this language in 2026:

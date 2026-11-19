@@ -12,11 +12,38 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mkd`
 
+**Language family:** **Indo-European** › Classical Indo-European › Balto-Slavic › … › Macedo-Bulgarian ([Glottolog](https://glottolog.org/resource/languoid/id/mace1250))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 1.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 2.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9296#P1098))
 
 **Official / recognised in:** North Macedonia
 
 **Status:** Official language
+
+
+## What does Macedonian look and sound like?
+
+**Written (Macedonian)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/macedonian.htm):
+
+> Ситe чoвeчки суштeствa сe рaѓaaт слoбoдни и eднaкви пo дoстoинствo и прaвa. Tиe сe oбдaрeни сo рaзум и сoвeст и трeбa дa сe oднeсувaaт eдeн кoн друг вo дуxoт нa oпштo чoвeчкaтa припaднoст.
+> A recording of this text by Aleksandar Miloeski
+> <h3>Transliteration (Nikol&#x010D;e Stojanoski's Latin alphabet for Macedonian)</h3>
+> <p>Site &#x010D;ove&#x010D;ki su&#x0161;testva se ragjaat slobodni i
+> ednakvi …
+
+*Transliteration:* Site chovechki sushtestva se ragjaat slobodni i ednakvi po dostoinstvo i prava. Tie se obdareni so razum i sovest i treba da se odnesuvaat eden kon drug vo duhot na opshto chovechkata pripadnost.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_macedonian.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/mkd/) has 1 video of Macedonian speakers. Watch [Dragan speaking Macedonian](https://wikitongues.org/videos/dragan_20151110_mkd/).
 
 
 ## Training Data
@@ -25,20 +52,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 166,069 articles in mk.wikipedia (rank 49 of 161 in the set) — ~1/45 of English; 339 active users                                                                                                                      |
-| Common Crawl 2026      | 832,253 pages per crawl on average, which is 0.0386% of the crawl. This is ~1/1,071 of English data and ranks 39 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 5.23 GB (mkd_Cyrl (5.23)); which is equivalent to ≈2.85 GB English data after byte-premium scaling; 4.47 GB removed by filtering. This is ~1/10,221 of English data and ranks 49 of 248 official languages in FineWeb. |
-| Goldfish training data | 3.25 GB (mkd_cyrl) (rank 53 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 166,069 articles in mk.wikipedia; 339 active users. This is ~1/45 of English data and ranks 50 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 832,253 pages per crawl on average, which is 0.0386% of the crawl (2026). This is ~1/1,071 of English data and ranks 39 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 5.23 GB (mkd_Cyrl 5.23 GB), equivalent to ≈2.85 GB of English after byte-premium scaling; 4.47 GB removed by filtering. This is ~1/10,221 of English data and ranks 49 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 3.25 GB (mkd_Cyrl 3.25 GB) (rank 53 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 155 sentences / 1,360 tokens in total: [UD_Macedonian-MTB](https://github.com/UniversalDependencies/UD_Macedonian-MTB) (155 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 10,313 lemmas, 168,057 inflected forms ([unimorph/mkd](https://github.com/unimorph/mkd))                                                                                                                                   |
+| Wikidata labels        | 650,695 Wikidata items have a label in Macedonian. (Wikidata codes (labels): mk (650,695))                                                                                                                                 |
+| Wordnets               | Macedonian WordNet (size not listed); licence: CC BY-NC 3.0.                                                                                                                                                               |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.989 (P 0.992, R 0.986, FPR 6.75e-05) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.981).
+- **Best model:** GlotLID — F1 0.990 (P 0.993, R 0.986, FPR 5.54e-05) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.983).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,24 +94,26 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.992 |    0.986 | 0.989 | 0.000 | ✓                |
-| fasttext     |       0.978 |    0.985 | 0.981 | 0.000 | ✓                |
-| OpenLID-v2   |       0.914 |    0.997 | 0.951 | 0.001 | ✓                |
-| py3langid    |       0.923 |    0.972 | 0.946 | 0.001 | ✓                |
+| GlotLID      |       0.993 |    0.986 | 0.990 | 0.000 | ✓                |
+| fasttext     |       0.981 |    0.985 | 0.983 | 0.000 | ✓                |
+| OpenLID-v2   |       0.916 |    0.997 | 0.952 | 0.001 | ✓                |
+| py3langid    |       0.925 |    0.972 | 0.947 | 0.001 | ✓                |
+| cld3         |       0.900 |    0.954 | 0.926 | 0.001 | ✓                |
 | commonlingua |       0.881 |    0.923 | 0.901 | 0.001 | ✓                |
-| cld2         |       0.978 |    0.796 | 0.872 | 0.000 | ✓                |
-| funlangid    |       0.757 |    0.880 | 0.800 | 0.002 | ✓                |
-| pyfranc      |       0.721 |    0.882 | 0.789 | 0.004 | ✓                |
+| cld2         |       0.981 |    0.796 | 0.873 | 0.000 | ✓                |
+| funlangid    |       0.759 |    0.880 | 0.801 | 0.002 | ✓                |
+| pyfranc      |       0.723 |    0.882 | 0.790 | 0.004 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.959 |    0.947 | 0.953 |
+| Tatoeba   | 300 |       0.966 |    0.947 | 0.956 |
 | Wikipedia | 300 |       1.000 |    0.983 | 0.992 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -93,45 +143,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       56 | ███████████          |
 |   2026 |       99 | ████████████████████ |
 
-### Most popular models tagged for Macedonian
-
-| model                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of    |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                                               | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)                                               | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —                |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)                                                 | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —                |
-| [Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed](https://huggingface.co/Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed) | 125,228                | 24,576                | 27.4B        |                    1 |   2026 | Qwen/Qwen3.8-27B |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)                                                     | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —                |
-
-### Most popular models tagged *only* for Macedonian
-
-| model                                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of           |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------|
-| [Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed](https://huggingface.co/Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed)     | 125,228                | 24,576                | 27.4B        |                    1 |   2026 | Qwen/Qwen3.8-27B        |
-| [Jiunsong/supergemma4-e4b-abliterated-mlx](https://huggingface.co/Jiunsong/supergemma4-e4b-abliterated-mlx)           | 16,730                 | 1,731                 | 7.5B         |                    1 |   2026 | google/gemma-4-E4B-it   |
-| [hellohazime/Kimi-K3-REAP-512GB-GGUF](https://huggingface.co/hellohazime/Kimi-K3-REAP-512GB-GGUF)                     | 10,388                 | 2,650                 | 1.8T         |                    1 |   2026 | unsloth/Kimi-K3-GGUF    |
-| [Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed](https://huggingface.co/Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed) | 9,785                  | 2,259                 | 126.2B       |                    1 |   2026 | Qwen/Qwen3.8-Flash-Next |
-| [macedonizer/mk-gpt2](https://huggingface.co/macedonizer/mk-gpt2)                                                     | 2,025                  | 26                    | unknown      |                    1 |   2022 | —                       |
-
 ### Largest models tagged for Macedonian
 
-| model                                                                                                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                      |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------------------|
-| [hellohazime/Kimi-K3-REAP640ja-IQ1_S-GGUF](https://huggingface.co/hellohazime/Kimi-K3-REAP640ja-IQ1_S-GGUF)                                             | 766                    | 40                    | 2.0T         |                    2 |   2026 | unsloth/Kimi-K3-GGUF               |
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                               | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                                   | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                  |
-| [drowzeys/keys-Mac-DeepSeek-V4-Flash-0731-MXFP4-MLX-Abliterated](https://huggingface.co/drowzeys/keys-Mac-DeepSeek-V4-Flash-0731-MXFP4-MLX-Abliterated) | 228                    | 35                    | 304.2B       |                    3 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731 |
-| [Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed](https://huggingface.co/Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed)                                   | 9,785                  | 2,259                 | 126.2B       |                    1 |   2026 | Qwen/Qwen3.8-Flash-Next            |
+| model                                                                                                                                                   | parameters   |   # languages tagged |   year | derivative of                      |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------|
+| [hellohazime/Kimi-K3-REAP640ja-IQ1_S-GGUF](https://huggingface.co/hellohazime/Kimi-K3-REAP640ja-IQ1_S-GGUF)                                             | 2.0T         |                    2 |   2026 | unsloth/Kimi-K3-GGUF               |
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                               | 1.9T         |                  143 |   2025 | —                                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                                   | 856.0B       |                  143 |   2025 | —                                  |
+| [drowzeys/keys-Mac-DeepSeek-V4-Flash-0731-MXFP4-MLX-Abliterated](https://huggingface.co/drowzeys/keys-Mac-DeepSeek-V4-Flash-0731-MXFP4-MLX-Abliterated) | 304.2B       |                    3 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731 |
+| [Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed](https://huggingface.co/Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed)                                   | 126.2B       |                    1 |   2026 | Qwen/Qwen3.8-Flash-Next            |
 
 ### Largest models tagged *only* for Macedonian
 
-| model                                                                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of            |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------|
-| [hellohazime/Kimi-K3-REAP-512GB-GGUF](https://huggingface.co/hellohazime/Kimi-K3-REAP-512GB-GGUF)                           | 10,388                 | 2,650                 | 1.8T         |                    1 |   2026 | unsloth/Kimi-K3-GGUF     |
-| [Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed](https://huggingface.co/Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed)       | 9,785                  | 2,259                 | 126.2B       |                    1 |   2026 | Qwen/Qwen3.8-Flash-Next  |
-| [npario/Qwen3.8-27B-MTPLX-Optimized-Quality](https://huggingface.co/npario/Qwen3.8-27B-MTPLX-Optimized-Quality)             | 438                    | 137                   | 27.4B        |                    1 |   2026 | Qwen/Qwen3.8-27B         |
-| [SWiesmann/ukisai-Swift-Qwen3.8-27b-Q4-FP16-MTPLX](https://huggingface.co/SWiesmann/ukisai-Swift-Qwen3.8-27b-Q4-FP16-MTPLX) | 765                    | 279                   | 27.4B        |                    1 |   2026 | ukisai/Swift-Qwen3.8-27b |
-| [MartinV/clement-mk-gemma-12b](https://huggingface.co/MartinV/clement-mk-gemma-12b)                                         | 1,115                  | 86                    | 11.9B        |                    1 |   2026 | google/gemma-4-12B       |
+| model                                                                                                                       | parameters   |   # languages tagged |   year | derivative of            |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------|
+| [hellohazime/Kimi-K3-REAP-512GB-GGUF](https://huggingface.co/hellohazime/Kimi-K3-REAP-512GB-GGUF)                           | 1.8T         |                    1 |   2026 | unsloth/Kimi-K3-GGUF     |
+| [Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed](https://huggingface.co/Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed)       | 126.2B       |                    1 |   2026 | Qwen/Qwen3.8-Flash-Next  |
+| [SWiesmann/ukisai-Swift-Qwen3.8-27b-Q4-FP16-MTPLX](https://huggingface.co/SWiesmann/ukisai-Swift-Qwen3.8-27b-Q4-FP16-MTPLX) | 27.4B        |                    1 |   2026 | ukisai/Swift-Qwen3.8-27b |
+| [Youssofal/Qwen3.8-27B-MTPLX-Bare-Speed](https://huggingface.co/Youssofal/Qwen3.8-27B-MTPLX-Bare-Speed)                     | 27.4B        |                    1 |   2026 | Qwen/Qwen3.8-27B         |
+| [MartinV/clement-mk-gemma-12b](https://huggingface.co/MartinV/clement-mk-gemma-12b)                                         | 11.9B        |                    1 |   2026 | google/gemma-4-12B       |
 
 _43 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +192,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [2]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [3]        \
+         /      reasoning [3]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +214,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                          | dataset                                                                                             | # test items   | Construction                                                     |
+| level                         | task                          | dataset                                                                                             | # test items   | construction                                                     |
 |:------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge       | BLiMP                         | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 39             | Treebank-based (automatic, UD + UniMorph)                        |
 | 3. Commonsense reasoning      | COPA                          | [COPA-MK](https://huggingface.co/datasets/classla/COPA-MK)                                          | 500            | Human translation                                                |
@@ -224,7 +254,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 39 of ~18,460 papers (0.21%) (rank 98 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 39 of ~18,498 papers (0.21%) (rank 103 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Macedonian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 39):

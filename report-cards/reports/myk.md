@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `myk`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › North Volta-Congo › … › North Senufo ([Glottolog](https://glottolog.org/resource/languoid/id/mama1271))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 4 (Educational))
+
+**Speakers:** no estimate found in CLDR or Wikidata
+
 **Official / recognised in:** Mali
 
 **Status:** Official language
+
+
+## What does Minyanka look and sound like?
+
+**Written:** no Omniglot page found for Minyanka.
+
+**Spoken:** no Wikitongues video of Minyanka yet ([its Wikitongues page](https://wikitongues.org/languages/myk/) says how to contribute one).
 
 
 ## Training Data
@@ -23,18 +36,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                  |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                  |
-| FineWeb                | 0.2 MB (myk_Latn (0.00)); which is equivalent to ≈0.2 MB English data after byte-premium scaling; 0.0 MB removed by filtering. This is ~1/268,635,922 of English data and ranks 224 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                      |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                    |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                    |
+| FineWeb                | 0.2 MB (myk_Latn 0), equivalent to ≈0.2 MB of English after byte-premium scaling; 0.0 MB removed by filtering. This is ~1/268,635,922 of English data and ranks 224 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                       |
+|:-----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                           |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament + parts of the Old Testament ([myk](https://ebible.org/details.php?id=myk), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                        |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- Support across the 8 evaluated LangID models is unknown: there is no labelled test data to run them on.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, funlangid.
 - **No labelled LangID eval data** for this language — creating some is a high-value contribution.
 - No model performance numbers are available.
 
@@ -46,6 +80,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Minyanka and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Minyanka has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/myk/) video of Minyanka yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Minyanka?
@@ -81,15 +117,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -132,7 +168,7 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 0 of ~18,460 papers (0.00%); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 0 of ~18,498 papers (0.00%); English is mentioned in 8,465.
 - Search terms: Mamara Senoufo | Minyanka
 - **No ACL 2026 papers mention Minyanka** — any published work would be a first.
 

@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mar`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Modern Marathi ([Glottolog](https://glottolog.org/resource/languoid/id/mara1378))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Deva`
+
+**Speakers:** about 98.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 83.1 million first-language + 3.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q1571#P1098), 2010)
 
 **Official / recognised in:** India
 
 **Status:** Regional official language
+
+
+## What does Marathi look and sound like?
+
+**Written:** Omniglot has [a page on Marathi](https://www.omniglot.com/writing/marathi.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/mar/) has 2 videos of Marathi speakers. Watch [Devika speaking English, Marwari, Marathi, Hindi](https://wikitongues.org/videos/devika_20141012_eng-rwr-mar-hin/).
 
 
 ## Training Data
@@ -25,20 +38,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                 |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 104,027 articles in mr.wikipedia (rank 55 of 161 in the set) — ~1/73 of English; 297 active users                                                                                                                                      |
-| Common Crawl 2026      | 642,705 pages per crawl on average, which is 0.0298% of the crawl. This is ~1/1,387 of English data and ranks 45 of 113 official languages in Common Crawl.                                                                            |
-| FineWeb                | 6.34 GB (mar_Deva (6.34); mar_Latn (0.00)); which is equivalent to ≈2.56 GB English data after byte-premium scaling; 3.45 GB removed by filtering. This is ~1/8,420 of English data and ranks 47 of 248 official languages in FineWeb. |
-| Goldfish training data | 8.14 GB (mar_deva) (rank 25 of 166 in the set)                                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                                    |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 104,027 articles in mr.wikipedia; 297 active users. This is ~1/73 of English data and ranks 56 of 168 languages in the set in Wikipedia.                                                                                  |
+| Common Crawl           | 642,705 pages per crawl on average, which is 0.0298% of the crawl (2026). This is ~1/1,387 of English data and ranks 45 of 113 languages in the set in Common Crawl.                                                      |
+| FineWeb                | 6.34 GB (mar_Deva 6.34 GB; mar_Latn 0), equivalent to ≈2.56 GB of English after byte-premium scaling; 3.45 GB removed by filtering. This is ~1/8,420 of English data and ranks 47 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 8.14 GB (mar_Deva 8.14 GB) (rank 25 of 166 in the set)                                                                                                                                                                    |
+
+**By writing system:**
+
+| Writing system      | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Devanagari (`Deva`) | 6.34 GB   | 2.56 GB                       | 8.14 GB      | 3.28 GB                        |
+| Latin (`Latn`)      | 0         | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                       |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 10,072 sentences / 121,704 tokens in total: [UD_Marathi-CMUPAN](https://github.com/UniversalDependencies/UD_Marathi-CMUPAN) (9,606 sentences), [UD_Marathi-UFAL](https://github.com/UniversalDependencies/UD_Marathi-UFAL) (466 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                    |
+| Wikidata labels        | 565,526 Wikidata items have a label in Marathi. (Wikidata codes (labels): mr (565,526))                                                                                                                                                                                                                                           |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; [Marathi WordNet](http://www.cfilt.iitb.ac.in/wordnet/webmwn/) (size not listed); licence: BROWSE OLINE ONLY.                                                                                                    |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                    |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                        |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([mar](https://ebible.org/details.php?id=mar), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                     |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.974 (P 0.974, R 0.974, FPR 2.75e-04) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.954).
+- **Best model:** GlotLID — F1 0.974 (P 0.974, R 0.974, FPR 2.70e-04) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.954).
 
 **All models (averaged over datasets):**
 
@@ -46,12 +89,14 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.974 |    0.974 | 0.974 | 0.000 | ✓                |
 | fasttext     |       0.933 |    0.976 | 0.954 | 0.001 | ✓                |
-| py3langid    |       0.958 |    0.947 | 0.952 | 0.001 | ✓                |
-| commonlingua |       0.973 |    0.908 | 0.936 | 0.000 | ✓                |
+| py3langid    |       0.957 |    0.947 | 0.952 | 0.001 | ✓                |
+| commonlingua |       0.972 |    0.908 | 0.936 | 0.000 | ✓                |
 | cld2         |       0.761 |    0.972 | 0.837 | 0.005 | ✓                |
-| funlangid    |       0.910 |    0.791 | 0.834 | 0.001 | ✓                |
+| funlangid    |       0.909 |    0.791 | 0.834 | 0.001 | ✓                |
 | OpenLID-v2   |       0.742 |    0.973 | 0.820 | 0.006 | ✓                |
-| pyfranc      |       0.730 |    0.886 | 0.783 | 0.006 | ✓                |
+| pyfranc      |       0.731 |    0.886 | 0.784 | 0.006 | ✓                |
+| cld3         |       0.370 |    0.957 | 0.517 | 0.025 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -61,8 +106,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Wikipedia | 300 |       0.946 |    0.983 | 0.964 |
 | Tatoeba   | 300 |       0.970 |    0.987 | 0.979 |
 | FLORES    | 300 |       0.984 |    1.000 | 0.992 |
-| UDHR-LID  |  59 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  59 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -72,6 +117,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Marathi and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Marathi has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Marathi?
@@ -92,45 +138,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      116 | █████████            |
 |   2026 |      265 | ████████████████████ |
 
-### Most popular models tagged for Marathi
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Marathi
-
-| model                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [l3cube-pune/marathi-gpt](https://huggingface.co/l3cube-pune/marathi-gpt)                               | 11,428                 |                   790 | 137.0M       |                    1 |   2022 | —               |
-| [l3cube-pune/marathi-gpt-gemma-2b](https://huggingface.co/l3cube-pune/marathi-gpt-gemma-2b)             | 6,418                  |                    21 | 2.5B         |                    1 |   2024 | —               |
-| [smallstepai/Misal-7B-instruct-v0.1](https://huggingface.co/smallstepai/Misal-7B-instruct-v0.1)         | 4,616                  |                    61 | 6.9B         |                    1 |   2024 | —               |
-| [marathi-llm/MahaMarathi-7B-v24.01-Base](https://huggingface.co/marathi-llm/MahaMarathi-7B-v24.01-Base) | 1,799                  |                     0 | 6.9B         |                    1 |   2024 | —               |
-| [smallstepai/Misal-1B-instruct-v0.1](https://huggingface.co/smallstepai/Misal-1B-instruct-v0.1)         | 1,585                  |                   538 | 1.2B         |                    1 |   2024 | —               |
-
 ### Largest models tagged for Marathi
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 135                    |                    31 | 176.2B       |                   35 |   2024 | —               |
-| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 109                    |                    13 | 176.2B       |                   35 |   2026 | —               |
-| [bigscience/bloomz-mt](https://huggingface.co/bigscience/bloomz-mt)                   | 28,969                 |                   329 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Marathi
 
-| model                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [l3cube-pune/marathi-gpt-gemma-7b](https://huggingface.co/l3cube-pune/marathi-gpt-gemma-7b)             | 491                    |                    25 | 8.5B         |                    1 |   2024 | —               |
-| [Echelon-AI/marathi-mistral-v0.1](https://huggingface.co/Echelon-AI/marathi-mistral-v0.1)               | 339                    |                    20 | 7.2B         |                    1 |   2024 | —               |
-| [Echelon-AI/marathi-mistral-v0.2](https://huggingface.co/Echelon-AI/marathi-mistral-v0.2)               | 234                    |                    12 | 7.2B         |                    1 |   2024 | —               |
-| [marathi-llm/MahaMarathi-7B-v24.01-Base](https://huggingface.co/marathi-llm/MahaMarathi-7B-v24.01-Base) | 1,799                  |                     0 | 6.9B         |                    1 |   2024 | —               |
-| [smallstepai/Misal-7B-instruct-v0.1](https://huggingface.co/smallstepai/Misal-7B-instruct-v0.1)         | 4,616                  |                    61 | 6.9B         |                    1 |   2024 | —               |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [l3cube-pune/marathi-gpt-gemma-7b](https://huggingface.co/l3cube-pune/marathi-gpt-gemma-7b)             | 8.5B         |                    1 |   2024 | —               |
+| [Echelon-AI/marathi-mistral-v0.1](https://huggingface.co/Echelon-AI/marathi-mistral-v0.1)               | 7.2B         |                    1 |   2024 | —               |
+| [Echelon-AI/marathi-mistral-v0.2](https://huggingface.co/Echelon-AI/marathi-mistral-v0.2)               | 7.2B         |                    1 |   2024 | —               |
+| [marathi-llm/MahaMarathi-7B-v24.01-Base](https://huggingface.co/marathi-llm/MahaMarathi-7B-v24.01-Base) | 6.9B         |                    1 |   2024 | —               |
+| [smallstepai/Misal-7B-base-v0.1](https://huggingface.co/smallstepai/Misal-7B-base-v0.1)                 | 6.9B         |                    1 |   2024 | —               |
 
 _65 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -150,7 +176,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**27** benchmark datasets in the survey include Marathi.
+**26** benchmark datasets in the survey include Marathi.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -161,15 +187,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [7]     \
+                 /   [6]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [4]   \
+            / comprehension [4]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,7 +209,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                    | # test items   | Construction                                                        |
+| level                                  | task                           | dataset                                                                                                    | # test items   | construction                                                        |
 |:---------------------------------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                       | 460            | Treebank-based (automatic, UD + UniMorph)                           |
 | 2. Pragmatics, discourse & coreference | WinoGrande                     | [Winogrande_translated (CognitiveLab)](https://huggingface.co/datasets/CognitiveLab/Winogrande_translated) | —              | Machine translation (method not stated)                             |
@@ -201,7 +227,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                                     | 6,924          | Native (Indian exams; some translated)                              |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                              | 11,829         | LLM translation + expert review                                     |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                     | —              | Machine translation (GPT-3.5, Okapi)                                |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                            | 250            | Native (locally sourced)                                            |
 | Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                | 854            | Human translation via English pivot                                 |
@@ -237,7 +262,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 157 of ~18,460 papers (0.85%) (rank 41 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 157 of ~18,498 papers (0.85%) (rank 42 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Marathi
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 157):

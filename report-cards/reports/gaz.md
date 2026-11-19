@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `gaz` · macrolanguage `orm`
 
+**Language family:** **Afro-Asiatic** › Cushitic › East Cushitic › … › Nuclear Oromo ([Glottolog](https://glottolog.org/resource/languoid/id/west2721))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 38.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `orm`, so includes other varieties · 24.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33864#P1098), 2007) — counted for the macrolanguage `orm`, so includes other varieties
 
 **Official / recognised in:** Ethiopia
 
 **Status:** Official language
+
+
+## What does Oromo look and sound like?
+
+**Written:** Omniglot has [a page on Oromo](https://www.omniglot.com/writing/oromo.htm) but no sample text.
+
+**Spoken:** no Wikitongues video of Oromo yet ([its Wikitongues page](https://wikitongues.org/languages/gaz/) says how to contribute one).
 
 
 ## Training Data
@@ -25,33 +38,56 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                 |
-| Common Crawl 2026      | 15,021 pages per crawl on average, which is 0.0007% of the crawl. ⚠️ NB: this is counted using `orm` (macrolanguage code), so this number is shared with other varieties and overstates Oromo.                           |
-| FineWeb                | 58.6 MB (gaz_Latn (0.06)); which is equivalent to ≈44.0 MB English data after byte-premium scaling; 0.17 GB removed by filtering. This is ~1/911,458 of English data and ranks 113 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.11 GB (gaz_latn) (rank 118 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,970 articles in om.wikipedia; 28 active users. ⚠️ NB: recorded under the macrolanguage code `orm`, which can include other varieties of Oromo.                                                                 |
+| Common Crawl           | 15,021 pages per crawl on average, which is 0.0007% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `orm`, which can include other varieties of Oromo.                                         |
+| FineWeb                | 58.6 MB (gaz_Latn 60.0 MB), equivalent to ≈44.0 MB of English after byte-premium scaling; 0.17 GB removed by filtering. This is ~1/911,458 of English data and ranks 113 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.11 GB (gaz_Latn 0.11 GB) (rank 118 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                          |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                       |
+| UniMorph               | 92 lemmas, 2,046 inflected forms ([unimorph/orm](https://github.com/unimorph/orm)) ⚠️ Listed under the macrolanguage code `orm`, so this may cover other varieties as well as Oromo. |
+| Wikidata labels        | 205,225 Wikidata items have a label in Oromo. (Wikidata codes (labels): om (205,225))                                                                                                |
+| Wordnets               | **None found**                                                                                                                                                                       |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (7):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=10), UDHR-LID (n=60), Wikipedia (n=300)
-- **Best model:** cld2 — F1 0.944 (P 0.938, R 0.952, FPR 1.26e-04) averaged over 7 dataset(s). Runner-up: GlotLID (F1 0.930).
+- **Best model:** cld2 — F1 0.944 (P 0.938, R 0.952, FPR 1.26e-04) averaged over 7 dataset(s). Runner-up: GlotLID (F1 0.924).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | cld2         |       0.938 |    0.952 | 0.944 | 0.000 | ✓                |
-| GlotLID      |       0.922 |    0.944 | 0.930 | 0.000 | ✓                |
-| pyfranc      |       0.810 |    0.880 | 0.828 | 0.001 | ✓                |
-| fasttext     |       0.759 |    0.973 | 0.811 | 0.003 | ✓                |
-| funlangid    |       0.875 |    0.719 | 0.782 | 0.000 | ✓                |
-| OpenLID-v2   |       0.702 |    0.991 | 0.768 | 0.005 | ✓                |
-| commonlingua |       0.719 |    0.851 | 0.746 | 0.003 | ✓                |
-| py3langid    |       0.653 |    0.990 | 0.721 | 0.009 | ✓                |
+| GlotLID      |       0.913 |    0.944 | 0.924 | 0.000 | ✓                |
+| pyfranc      |       0.810 |    0.880 | 0.829 | 0.001 | ✓                |
+| fasttext     |       0.761 |    0.973 | 0.813 | 0.003 | ✓                |
+| funlangid    |       0.872 |    0.719 | 0.780 | 0.000 | ✓                |
+| OpenLID-v2   |       0.703 |    0.991 | 0.770 | 0.005 | ✓                |
+| commonlingua |       0.717 |    0.851 | 0.745 | 0.003 | ✓                |
+| py3langid    |       0.651 |    0.990 | 0.720 | 0.009 | ✓                |
+| AfroLID      |       0.242 |    0.937 | 0.360 | 0.155 | ✓                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (cld2) by dataset**:
 
@@ -73,6 +109,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Oromo and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Oromo has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/gaz/) video of Oromo yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Oromo?
@@ -92,35 +130,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       22 | ██████████           |
 |   2026 |       42 | ████████████████████ |
 
-### Most popular models tagged for Oromo
-
-| model                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------|
-| [UBC-NLP/cheetah-base](https://huggingface.co/UBC-NLP/cheetah-base)                 | 25,910                 | 577                   | unknown      |                   17 |   2024 | —                    |
-| [LLaMAX/LLaMAX3-8B-Alpaca](https://huggingface.co/LLaMAX/LLaMAX3-8B-Alpaca)         | 25,588                 | 60                    | 8.0B         |                   88 |   2024 | —                    |
-| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)     | 20,964                 | 1,255                 | 14.8B        |                   19 |   2026 | Qwen/Qwen3-14B-Base  |
-| [McGill-NLP/AfriqueQwen3.5-4B](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B) | 11,943                 | 810                   | 5.2B         |                   19 |   2026 | Qwen/Qwen3.5-4B-Base |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)             | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                    |
-
-### Most popular models tagged *only* for Oromo
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/orm_latn_10mb](https://huggingface.co/goldfish-models/orm_latn_10mb)   |                    431 |                    14 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/orm_latn_full](https://huggingface.co/goldfish-models/orm_latn_full)   |                    412 |                    17 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/gaz_latn_5mb](https://huggingface.co/goldfish-models/gaz_latn_5mb)     |                    406 |                    14 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/gaz_latn_full](https://huggingface.co/goldfish-models/gaz_latn_full)   |                    386 |                     8 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/orm_latn_100mb](https://huggingface.co/goldfish-models/orm_latn_100mb) |                    383 |                    14 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Oromo
 
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of         |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                     |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                     |
-| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B) | 834                    | 141                   | 27.4B        |                   20 |   2026 | Qwen/Qwen3.8-27B      |
-| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)       | 20,964                 | 1,255                 | 14.8B        |                   19 |   2026 | Qwen/Qwen3-14B-Base   |
-| [McGill-NLP/AfriqueGemma-12B](https://huggingface.co/McGill-NLP/AfriqueGemma-12B)     | 5,840                  | 315                   | 12.2B        |                   19 |   2026 | google/gemma-3-12b-pt |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of         |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —                     |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —                     |
+| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B) | 27.4B        |                   24 |   2026 | Qwen/Qwen3.8-27B      |
+| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)       | 14.8B        |                   21 |   2026 | Qwen/Qwen3-14B-Base   |
+| [McGill-NLP/AfriqueGemma-12B](https://huggingface.co/McGill-NLP/AfriqueGemma-12B)     | 12.2B        |                   21 |   2026 | google/gemma-3-12b-pt |
 
 ### Largest models tagged *only* for Oromo
 
@@ -144,7 +162,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**12** benchmark datasets in the survey include Oromo.
+**11** benchmark datasets in the survey include Oromo.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -155,15 +173,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [3]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -177,12 +195,11 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                | # test items   | Construction                                                        |
+| level                         | task                           | dataset                                                                                | # test items   | construction                                                        |
 |:------------------------------|:-------------------------------|:---------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 4. Reading comprehension      | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                          | 900            | Human translation (professional)                                    |
 | 4. Reading comprehension      | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)             | 4,458          | Synthetic (LLM-generated) on native Wikipedia                       |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [AfriMMLU (IrokoBench)](https://huggingface.co/datasets/masakhane/afrimmlu)            | 500            | Human translation (professional)                                    |
-| 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles) | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles) | 100            | Native (community-written, peer-verified)                           |
 | Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                            | 854            | Human translation via English pivot                                 |
 | Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                | 1,012          | Human translation (professional, from English Wikimedia sources)    |
@@ -216,7 +233,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 39 of ~18,460 papers (0.21%) (rank 98 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 39 of ~18,498 papers (0.21%) (rank 103 of 278 in the set); English is mentioned in 8,465.
 - Search terms: West Central Oromo | Oromo
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 39):

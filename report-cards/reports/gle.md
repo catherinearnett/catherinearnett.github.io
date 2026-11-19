@@ -12,11 +12,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `gle`
 
+**Language family:** **Indo-European** › Classical Indo-European › Celtic › … › Modern Goidelic ([Glottolog](https://glottolog.org/resource/languoid/id/iris1253))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: Glottolog)
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 1.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 141,000 first-language + 1.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q9142#P1098), 1841)
 
 **Official / recognised in:** Ireland, United Kingdom
 
-**Status:** Official language; Regional official language
+**Status:** Regional official language; Official language
+
+
+## What does Irish look and sound like?
+
+**Written (Irish)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/irish.htm):
+
+> Saolaítear na daoine uile saor agus comhionann ina ndínit
+> agus ina gcearta. Tá bua an réasúin agus an choinsiasa
+> acu agus dlíd iad féin d'iompar de mheon bráithreachais
+> i leith a chéile.
+> A recording of this text by Seán Ó Súilleabháin (from county Kerry)
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_irish.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/gle/) has 7 videos of Irish speakers. Watch [See all](https://wikitongues.org/videos/?language=gle).
 
 
 ## Training Data
@@ -25,20 +50,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 64,578 articles in ga.wikipedia (rank 64 of 161 in the set) — ~1/117 of English; 106 active users                                                                                                                      |
-| Common Crawl 2026      | 147,705 pages per crawl on average, which is 0.0069% of the crawl. This is ~1/6,036 of English data and ranks 60 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 0.99 GB (gle_Latn (0.99)); which is equivalent to ≈0.50 GB English data after byte-premium scaling; 1.10 GB removed by filtering. This is ~1/53,884 of English data and ranks 72 of 248 official languages in FineWeb. |
-| Goldfish training data | 2.11 GB (gle_latn) (rank 59 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 64,578 articles in ga.wikipedia; 106 active users. This is ~1/117 of English data and ranks 65 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 147,705 pages per crawl on average, which is 0.0069% of the crawl (2026). This is ~1/6,036 of English data and ranks 60 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 0.99 GB (gle_Latn 0.99 GB), equivalent to ≈0.50 GB of English after byte-premium scaling; 1.10 GB removed by filtering. This is ~1/53,884 of English data and ranks 72 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 2.11 GB (gle_Latn 2.11 GB) (rank 59 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                        |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 3 treebanks, 7,699 sentences / 168,489 tokens in total: [UD_Irish-Cadhan](https://github.com/UniversalDependencies/UD_Irish-Cadhan) (193 sentences), [UD_Irish-IDT](https://github.com/UniversalDependencies/UD_Irish-IDT) (4,910 sentences), [UD_Irish-TwittIrish](https://github.com/UniversalDependencies/UD_Irish-TwittIrish) (2,596 sentences). All have POS tags, dependency syntax, lemmas. |
+| UniMorph               | 7,464 lemmas, 107,298 inflected forms ([unimorph/gle](https://github.com/unimorph/gle))                                                                                                                                                                                                                                                                                                            |
+| Wikidata labels        | 10,574,024 Wikidata items have a label in Irish. (Wikidata codes (labels): ga (10,574,024))                                                                                                                                                                                                                                                                                                        |
+| Wordnets               | [Líonra Séimeantach na Gaeilge (LSG) Irish Language Semantic Network](http://borel.slu.edu/lsg/index-en.html) (size not listed); licence: GNU GPL v3.                                                                                                                                                                                                                                              |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=56), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.995 (P 0.995, R 0.995, FPR 4.19e-05) averaged over 5 dataset(s). Runner-up: py3langid (F1 0.986).
+- **Best model:** GlotLID — F1 0.995 (P 0.995, R 0.994, FPR 3.57e-05) averaged over 5 dataset(s). Runner-up: py3langid (F1 0.984).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,24 +92,26 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.995 |    0.995 | 0.995 | 0.000 | ✓                |
-| py3langid    |       0.976 |    0.996 | 0.986 | 0.000 | ✓                |
-| cld2         |       0.977 |    0.971 | 0.973 | 0.000 | ✓                |
-| OpenLID-v2   |       0.935 |    0.995 | 0.962 | 0.001 | ✓                |
-| fasttext     |       0.918 |    0.995 | 0.953 | 0.001 | ✓                |
-| commonlingua |       0.967 |    0.913 | 0.935 | 0.000 | ✓                |
-| funlangid    |       0.933 |    0.896 | 0.913 | 0.001 | ✓                |
-| pyfranc      |       0.937 |    0.841 | 0.884 | 0.001 | ✓                |
+| GlotLID      |       0.995 |    0.994 | 0.995 | 0.000 | ✓                |
+| py3langid    |       0.974 |    0.994 | 0.984 | 0.000 | ✓                |
+| cld2         |       0.977 |    0.974 | 0.975 | 0.000 | ✓                |
+| OpenLID-v2   |       0.934 |    0.996 | 0.962 | 0.001 | ✓                |
+| fasttext     |       0.916 |    0.993 | 0.951 | 0.001 | ✓                |
+| commonlingua |       0.968 |    0.911 | 0.934 | 0.000 | ✓                |
+| funlangid    |       0.923 |    0.902 | 0.912 | 0.001 | ✓                |
+| pyfranc      |       0.935 |    0.843 | 0.885 | 0.001 | ✓                |
+| cld3         |       0.772 |    0.981 | 0.852 | 0.004 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.980 |    0.987 | 0.983 |
+| Tatoeba   | 300 |       0.983 |    0.980 | 0.982 |
 | Wikipedia | 300 |       0.993 |    0.990 | 0.992 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  56 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  56 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -93,45 +141,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      101 | █████████████        |
 |   2026 |      160 | ████████████████████ |
 
-### Most popular models tagged for Irish
-
-| model                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                  |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------------|
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct)         | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B     |
-| [BSC-LT/salamandra-7b-instruct](https://huggingface.co/BSC-LT/salamandra-7b-instruct)                     | 713,529                | 36,481                | 7.8B         |                   33 |   2024 | BSC-LT/salamandra-7b           |
-| [utter-project/EuroLLM-22B-Instruct-2512](https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512) | 603,901                | 7,106                 | 22.6B        |                   35 |   2025 | utter-project/EuroLLM-22B-2512 |
-| [kyutai/helium-1-2b](https://huggingface.co/kyutai/helium-1-2b)                                           | 551,842                | 1,269                 | 2.0B         |                   24 |   2025 | —                              |
-| [utter-project/EuroLLM-9B-Instruct](https://huggingface.co/utter-project/EuroLLM-9B-Instruct)             | 496,625                | 10,540                | 9.2B         |                   35 |   2024 | utter-project/EuroLLM-9B       |
-
-### Most popular models tagged *only* for Irish
-
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [goldfish-models/gle_latn_5mb](https://huggingface.co/goldfish-models/gle_latn_5mb)                     |                    490 |                    14 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/gle_latn_10mb](https://huggingface.co/goldfish-models/gle_latn_10mb)                   |                    443 |                    13 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/gle_latn_100mb](https://huggingface.co/goldfish-models/gle_latn_100mb)                 |                    420 |                    13 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/gle_latn_full](https://huggingface.co/goldfish-models/gle_latn_full)                   |                    390 |                    17 | unknown      |                    1 |   2024 | —                             |
-| [NikolayKozloff/kakugo-3B-gle-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-gle-Q8_0-GGUF) |                    105 |                    19 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-
 ### Largest models tagged for Irish
 
-| model                                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [diablomike20/command-a-plus-05-2026-GGUF](https://huggingface.co/diablomike20/command-a-plus-05-2026-GGUF)           | 2,352                  | 2,352                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [csala/ALIA-40b-Q3_K-GGUF](https://huggingface.co/csala/ALIA-40b-Q3_K-GGUF)                                           | 213                    | 26                    | 40.4B        |                   33 |   2025 | BSC-LT/ALIA-40b                        |
-| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 875                    | 175                   | 34.7B        |                   80 |   2026 | Qwen/Qwen3.6-35B-A3B                   |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                          |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                                      |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [csala/ALIA-40b-Q3_K-GGUF](https://huggingface.co/csala/ALIA-40b-Q3_K-GGUF)                                           | 40.4B        |                   33 |   2025 | BSC-LT/ALIA-40b                        |
+| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 34.7B        |                   82 |   2026 | Qwen/Qwen3.6-35B-A3B                   |
 
 ### Largest models tagged *only* for Irish
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/Qwen3.5-4B-gle-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-gle-32768)           |                     51 |                    10 | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
-| [alphaedge-ai/gemma-3-4b-it-gle-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-gle-32768)     |                     38 |                     6 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [NikolayKozloff/kakugo-3B-gle-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-gle-Q8_0-GGUF) |                    105 |                    19 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/Qwen3.5-2B-gle-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-gle-32768)           |                     54 |                    11 | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
-| [alphaedge-ai/Qwen3-1.7B-gle-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-gle-32768)           |                     39 |                     4 | 1.5B         |                    1 |   2026 | Qwen3-1.7B                    |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/Qwen3.5-4B-gle-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-gle-32768)           | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
+| [alphaedge-ai/gemma-3-4b-it-gle-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-gle-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [NikolayKozloff/kakugo-3B-gle-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-gle-Q8_0-GGUF) | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/Qwen3.5-2B-gle-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-gle-32768)           | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
+| [alphaedge-ai/Qwen3-1.7B-gle-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-gle-32768)           | 1.5B         |                    1 |   2026 | Qwen3-1.7B                    |
 
 _49 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +190,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,17 +212,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | Irish-BLiMP                                                                          | 1,020          | Hand-written (expert)                                            |
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 28             | Treebank-based (automatic, UD + UniMorph)                        |
-| 3. Commonsense reasoning | HellaSwag           | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                | 9,088          | Machine translation (GPT-4o, auto-checked)                       |
-| 3. Commonsense reasoning | StoryCloze          | [MuBench StoryCloze](https://github.com/aialt/MuBench)                               | 1,332          | Machine translation (GPT-4o, auto-checked)                       |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 1,913          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                | dataset                                                                              |   # test items | construction                                                     |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP               | Irish-BLiMP                                                                          |          1,020 | Hand-written (expert)                                            |
+| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |             28 | Treebank-based (automatic, UD + UniMorph)                        |
+| 3. Commonsense reasoning | HellaSwag           | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                |          9,088 | Machine translation (GPT-4o, auto-checked)                       |
+| 3. Commonsense reasoning | StoryCloze          | [MuBench StoryCloze](https://github.com/aialt/MuBench)                               |          1,332 | Machine translation (GPT-4o, auto-checked)                       |
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |          1,913 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -222,7 +250,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 143 of ~18,460 papers (0.77%) (rank 45 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 143 of ~18,498 papers (0.77%) (rank 46 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Irish
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 143):

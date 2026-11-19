@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ven` (also listed as: Venda)
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Nuclear Southern Bantu ([Glottolog](https://glottolog.org/resource/languoid/id/vend1245))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 1.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 1.3 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q32704#P1098), 2011)
 
 **Official / recognised in:** South Africa, Zimbabwe
 
 **Status:** Official language
+
+
+## What does Tshivenda look and sound like?
+
+**Written (Venda)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/venda.htm):
+
+> Vhathu vhoṱhe vha bebwa vhe na mbofholowo nahone vha tshi lingana siani ḽa tshirunzi na pfanelo. Vhathu vhoṱhe vho ṋewa mihumbulo na mvalo ngauralo vha tea u konou farana sa vhathu vhathihi.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ven/) has 1 video of Tshivenda speakers. Watch [Edna speaking TshiVenda](https://wikitongues.org/videos/edna_20250730_ven/).
 
 
 ## Training Data
@@ -25,18 +44,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                       |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 930 articles in ve.wikipedia (rank 149 of 161 in the set) — ~1/8,114 of English; 11 active users                                                             |
-| Common Crawl 2026      | 709 pages per crawl on average, which is 0.0000% of the crawl. This is ~1/1,257,415 of English data and ranks 112 of 113 official languages in Common Crawl. |
-| FineWeb                | 6.4 MB (ven_Latn (0.01)); 26.3 MB removed by filtering. This is ~1/8,357,812 of English data and ranks 155 of 248 official languages in FineWeb.             |
-| Goldfish training data | 17.1 MB (ven_latn) (rank 155 of 166 in the set)                                                                                                              |
+| Source                 | Amount                                                                                                                                                                |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 930 articles in ve.wikipedia; 11 active users. This is ~1/8,114 of English data and ranks 156 of 168 languages in the set in Wikipedia.                               |
+| Common Crawl           | 709 pages per crawl on average, which is 0.0000% of the crawl (2026). This is ~1/1,257,415 of English data and ranks 112 of 113 languages in the set in Common Crawl. |
+| FineWeb                | 6.4 MB (ven_Latn 10.0 MB); 26.3 MB removed by filtering. This is ~1/8,357,812 of English data and ranks 155 of 248 languages in the set in FineWeb.                   |
+| Goldfish training data | 17.1 MB (ven_Latn 17.0 MB) (rank 155 of 166 in the set)                                                                                                               |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                     |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                  |
+| UniMorph               | **None found**                                                                                                                                                                  |
+| Wikidata labels        | 583,328 Wikidata items have a label in Tshivenda. (Wikidata codes (labels): ve (583,328))                                                                                       |
+| Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **5 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, funlangid, pyfranc.
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, cld2, commonlingua, funlangid, pyfranc.
 - **Eval datasets (4):** NTREX (n=300), SmolSent (n=300), UDHR-LID (n=89), Wikipedia (n=300)
 - **Best model:** GlotLID — F1 0.993 (P 1.000, R 0.986, FPR 0.00e+00) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.989).
 
@@ -49,9 +89,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       1.000 |    0.986 | 0.993 | 0.000 | ✓                |
 | cld2         |       0.999 |    0.979 | 0.989 | 0.000 | ✓                |
 | pyfranc      |       0.983 |    0.972 | 0.977 | 0.000 | ✓                |
+| AfroLID      |       0.961 |    0.974 | 0.967 | 0.001 | ✓                |
 | funlangid    |       0.992 |    0.944 | 0.967 | 0.000 | ✓                |
-| commonlingua |       0.930 |    0.951 | 0.938 | 0.001 | ✓                |
+| commonlingua |       0.927 |    0.951 | 0.936 | 0.001 | ✓                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -72,6 +114,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tshivenda and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tshivenda has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Tshivenda?
@@ -91,33 +134,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        3 | ████                 |
 |   2026 |       14 | ████████████████████ |
 
-### Most popular models tagged for Tshivenda
-
-| model                                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------|
-| [uctnlp/mzansilm-125m](https://huggingface.co/uctnlp/mzansilm-125m)                     | 374,957                | 1,377                 | 125.0M       |                   11 |   2026 | —                    |
-| [UBC-NLP/cheetah-base](https://huggingface.co/UBC-NLP/cheetah-base)                     | 25,910                 | 577                   | unknown      |                   17 |   2024 | —                    |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                    |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —                    |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 425                    | 425                   | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
-
-### Most popular models tagged *only* for Tshivenda
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/ven_latn_10mb](https://huggingface.co/goldfish-models/ven_latn_10mb) |                    416 |                    13 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ven_latn_5mb](https://huggingface.co/goldfish-models/ven_latn_5mb)   |                    388 |                    16 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ven_latn_full](https://huggingface.co/goldfish-models/ven_latn_full) |                    372 |                    11 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Tshivenda
 
-| model                                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of             |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                         |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                         |
-| [AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4](https://huggingface.co/AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4) | 162                    |                    41 | 9.0B         |                   46 |   2026 | inclusionAI/UI-Venus-2-9B |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                               | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                         |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                               | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                         |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of             |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                         |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                         |
+| [AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4](https://huggingface.co/AMAImedia/Qwen3.5-VL-9B-UI-Venus-2-NOESIS-NF4) | 9.0B         |                   48 |   2026 | inclusionAI/UI-Venus-2-9B |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                               | 8.6B         |                  189 |   2023 | —                         |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                               | 8.6B         |                  189 |   2023 | —                         |
 
 ### Largest models tagged *only* for Tshivenda
 
@@ -152,15 +177,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -174,7 +199,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                    | # test items   | Construction                                                        |
+| level                    | task                | dataset                                                                    | # test items   | construction                                                        |
 |:-------------------------|:--------------------|:---------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 369            | Synthetic (LLM-generated) on native Wikipedia                       |
 | Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                | 854            | Human translation via English pivot                                 |
@@ -209,7 +234,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 10 of ~18,460 papers (0.05%) (rank 140 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 10 of ~18,498 papers (0.05%) (rank 149 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Tshivenda | Venda
 
 Here are up to ten papers that were published mentioning this language in 2026:

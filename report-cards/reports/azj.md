@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `azj` · macrolanguage `aze`
 
+**Language family:** **Turkic** › Common Turkic › Oghuz › … › Central Oghuz ([Glottolog](https://glottolog.org/resource/languoid/id/nort2697))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 33.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `aze`, so includes other varieties · 9.2 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q3515311#P1098), 2021)
 
 **Official / recognised in:** Azerbaijan, Russia
 
 **Status:** Official language; Regional official language
+
+
+## What does Azerbaijani look and sound like?
+
+**Written:** Omniglot has [a page on Azerbaijani](https://www.omniglot.com/writing/azeri.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/azj/) has 5 videos of Azerbaijani speakers. Watch [Tarlan speaking Azeri](https://wikitongues.org/videos/tarlan_20140729_azj/).
 
 
 ## Training Data
@@ -25,39 +38,71 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                   |
-| Common Crawl 2026      | 1,304,787 pages per crawl on average, which is 0.0606% of the crawl. ⚠️ NB: this is counted using `aze` (macrolanguage code), so this number is shared with other varieties and overstates Azerbaijani.                                    |
-| FineWeb                | 11.31 GB (azj_Cyrl (0.01); azj_Latn (11.30)); which is equivalent to ≈10.50 GB English data after byte-premium scaling; 22.86 GB removed by filtering. This is ~1/4,722 of English data and ranks 39 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.17 GB (azj_latn) (rank 111 of 166 in the set)                                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                       |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 218,952 articles in az.wikipedia; 878 active users. ⚠️ NB: counted under the macrolanguage code `aze`, so this number is shared with Turkmen (`azb`) and overstates Azerbaijani.                                                                                                                                                                             |
+| Common Crawl           | 1,304,787 pages per crawl on average, which is 0.0606% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `aze`, so this number is shared with Turkmen (`azb`) and overstates Azerbaijani.                                                                                                                                                     |
+| FineWeb                | 11.31 GB (azj_Latn 11.30 GB; azj_Cyrl 10.0 MB), equivalent to ≈10.50 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 22.86 GB removed by filtering. This is ~1/4,722 of English data and ranks 39 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.17 GB (azj_Latn 0.17 GB) (rank 111 of 166 in the set)                                                                                                                                                                                                                                                                                                      |
+
+**By writing system:**
+
+| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Latin (`Latn`)    | 11.30 GB  | 10.50 GB                      | 0.17 GB      | 0.15 GB                        |
+| Cyrillic (`Cyrl`) | 10.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 148 sentences / 902 tokens in total: [UD_Azerbaijani-TueCL](https://github.com/UniversalDependencies/UD_Azerbaijani-TueCL) (148 sentences). It has POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `aze`, so this may cover other varieties as well as Azerbaijani. |
+| UniMorph               | 340 lemmas, 8,004 inflected forms ([unimorph/aze](https://github.com/unimorph/aze)) ⚠️ Listed under the macrolanguage code `aze`, so this may cover other varieties as well as Azerbaijani.                                                                                                                                            |
+| Wikidata labels        | 799,086 Wikidata items have a label in Azerbaijani. (Wikidata codes (labels): az (799,086))                                                                                                                                                                                                                                            |
+| Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=114), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.980 (P 0.974, R 0.986, FPR 2.28e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.885).
+- **Best model:** GlotLID — F1 0.979 (P 0.973, R 0.986, FPR 2.34e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.884).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.974 |    0.986 | 0.980 | 0.000 | ✓                |
-| OpenLID-v2   |       0.863 |    0.910 | 0.885 | 0.002 | ✓                |
-| py3langid    |       0.863 |    0.898 | 0.878 | 0.003 | ✓                |
-| cld2         |       0.866 |    0.887 | 0.875 | 0.001 | ✓                |
-| commonlingua |       0.893 |    0.856 | 0.873 | 0.001 | ✓                |
-| pyfranc      |       0.879 |    0.816 | 0.843 | 0.001 | ✓                |
-| fasttext     |       0.783 |    0.908 | 0.837 | 0.003 | ✓                |
-| funlangid    |       0.874 |    0.783 | 0.820 | 0.001 | ✓                |
+| GlotLID      |       0.973 |    0.986 | 0.979 | 0.000 | ✓                |
+| OpenLID-v2   |       0.862 |    0.910 | 0.884 | 0.002 | ✓                |
+| cld2         |       0.865 |    0.887 | 0.874 | 0.001 | ✓                |
+| py3langid    |       0.853 |    0.898 | 0.873 | 0.003 | ✓                |
+| commonlingua |       0.886 |    0.856 | 0.869 | 0.001 | ✓                |
+| pyfranc      |       0.878 |    0.816 | 0.843 | 0.001 | ✓                |
+| fasttext     |       0.781 |    0.908 | 0.835 | 0.003 | ✓                |
+| funlangid    |       0.873 |    0.783 | 0.820 | 0.001 | ✓                |
+| cld3         |       0.494 |    0.894 | 0.626 | 0.017 | ✗                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.893 |    0.943 | 0.917 |
+| Tatoeba   | 300 |       0.887 |    0.943 | 0.914 |
 | Wikipedia | 300 |       0.980 |    0.987 | 0.983 |
 | CommonLID | 300 |       0.990 |    0.983 | 0.987 |
 | UDHR-LID  | 114 |       0.983 |    1.000 | 0.991 |
@@ -72,6 +117,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Azerbaijani and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Azerbaijani has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Azerbaijani?
@@ -92,45 +138,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       70 | ███████████████████  |
 |   2026 |       75 | ████████████████████ |
 
-### Most popular models tagged for Azerbaijani
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)           | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —               |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)       | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Azerbaijani
-
-| model                                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of         |
-|:----------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------------|
-| [LocalDoc/azerbaijani_spell_corrector](https://huggingface.co/LocalDoc/azerbaijani_spell_corrector)                   |                    964 |                    15 | 300.2M       |                    1 |   2024 | google/mt5-small      |
-| [learningmachineaz/cirtdan-azerbaijani-chatbot](https://huggingface.co/learningmachineaz/cirtdan-azerbaijani-chatbot) |                    780 |                    19 | 1.2B         |                    1 |   2023 | —                     |
-| [allmalab/gpt2-aze](https://huggingface.co/allmalab/gpt2-aze)                                                         |                    649 |                     0 | 135.0M       |                    1 |   2024 | openai-community/gpt2 |
-| [aghasalim/siba-meristem-native-0.5b-base](https://huggingface.co/aghasalim/siba-meristem-native-0.5b-base)           |                    644 |                   340 | 539.0M       |                    1 |   2026 | —                     |
-| [khazarai/Nizami-1.7B](https://huggingface.co/khazarai/Nizami-1.7B)                                                   |                    574 |                    35 | 1.7B         |                    1 |   2026 | unsloth/Qwen3-1.7B    |
-
 ### Largest models tagged for Azerbaijani
 
-| model                                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                    |
-| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) |                    875 |                   175 | 34.7B        |                   80 |   2026 | Qwen/Qwen3.6-35B-A3B |
-| [16th-research-lab-ai/actum-az-31b](https://huggingface.co/16th-research-lab-ai/actum-az-31b)                         |                      3 |                     0 | 31.3B        |                    3 |   2026 | —                    |
-| [vrashad/gpt-oss-20b-medical-az](https://huggingface.co/vrashad/gpt-oss-20b-medical-az)                               |                    186 |                    18 | 20.0B        |                    1 |   2025 | openai/gpt-oss-20b   |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                    |
+| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 34.7B        |                   82 |   2026 | Qwen/Qwen3.6-35B-A3B |
+| [16th-research-lab-ai/actum-az-31b](https://huggingface.co/16th-research-lab-ai/actum-az-31b)                         | 31.3B        |                    3 |   2026 | —                    |
+| [vrashad/gpt-oss-20b-medical-az](https://huggingface.co/vrashad/gpt-oss-20b-medical-az)                               | 20.0B        |                    1 |   2025 | openai/gpt-oss-20b   |
 
 ### Largest models tagged *only* for Azerbaijani
 
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [vrashad/gpt-oss-20b-medical-az](https://huggingface.co/vrashad/gpt-oss-20b-medical-az)             |                    186 |                    18 | 20.0B        |                    1 |   2025 | openai/gpt-oss-20b   |
-| [lmnglzd/az-spellfix-qwen35-9b-short](https://huggingface.co/lmnglzd/az-spellfix-qwen35-9b-short)   |                      0 |                     0 | 9.0B         |                    1 |   2026 | Qwen/Qwen3.5-9B      |
-| [omar07ibrahim/unt-8b](https://huggingface.co/omar07ibrahim/unt-8b)                                 |                    205 |                     3 | 8.0B         |                    1 |   2025 | —                    |
-| [alphaedge-ai/Qwen3.5-4B-aze-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-aze-32768)       |                     49 |                    11 | 4.0B         |                    1 |   2026 | Qwen3.5-4B           |
-| [alphaedge-ai/gemma-3-4b-it-aze-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-aze-32768) |                     46 |                     8 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [vrashad/gpt-oss-20b-medical-az](https://huggingface.co/vrashad/gpt-oss-20b-medical-az)             | 20.0B        |                    1 |   2025 | openai/gpt-oss-20b   |
+| [lmnglzd/az-spellfix-qwen35-9b-short](https://huggingface.co/lmnglzd/az-spellfix-qwen35-9b-short)   | 9.0B         |                    1 |   2026 | Qwen/Qwen3.5-9B      |
+| [omar07ibrahim/unt-8b](https://huggingface.co/omar07ibrahim/unt-8b)                                 | 8.0B         |                    1 |   2025 | —                    |
+| [alphaedge-ai/Qwen3.5-4B-aze-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-aze-32768)       | 4.0B         |                    1 |   2026 | Qwen3.5-4B           |
+| [alphaedge-ai/gemma-3-4b-it-aze-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-aze-32768) | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
 
 _67 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -150,7 +176,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**13** benchmark datasets in the survey include Azerbaijani (plus 2 labelled with the macrolanguage `aze`, included below).
+**11** benchmark datasets in the survey include Azerbaijani (plus 2 labelled with the macrolanguage `aze`, included below).
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -161,15 +187,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [3]     \
+                 /   [3]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [4]        \
+         /      reasoning [4]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -177,13 +203,13 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [6]         \
+ /         ✅ Machine translation [4]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                         | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 3. Commonsense reasoning      | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench) (as `aze`)                                    | 9,088          | Machine translation (GPT-4o, auto-checked)                       |
 | 3. Commonsense reasoning      | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                           |
@@ -194,10 +220,8 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
 | 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ        | [TUMLU](https://github.com/ceferisbarov/TUMLU)                                                      | 700            | Native (school/entrance exams)                                   |
 | 5. Knowledge & open-domain QA | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                             | 500            | Native (cultural; native-speaker answers)                        |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation           | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)                     | 1,708          | Human translation via English pivot                              |
+| Machine translation           | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)         | 2,024          | Human translation (professional, from English Wikimedia sources) |
 | Machine translation           | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
 | Machine translation           | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 2,659          | Native (crowdsourced Tatoeba sentence pairs)                     |
 
@@ -225,7 +249,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 63 of ~18,460 papers (0.34%) (rank 75 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 63 of ~18,498 papers (0.34%) (rank 78 of 278 in the set); English is mentioned in 8,465.
 - Search terms: North Azerbaijani | Azerbaijani
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 63):

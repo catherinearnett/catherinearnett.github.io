@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ton`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Eastern Malayo-Polynesian › … › Tongic ([Glottolog](https://glottolog.org/resource/languoid/id/tong1325))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 100,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 186,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34094#P1098), 2015)
 
 **Official / recognised in:** Tonga
 
 **Status:** Official language
+
+
+## What does Tongan look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/tonga.htm):
+
+> Bantu boonse balazyalwa kabaangulukide alimwi kabeelene alimwi akwaanguluka kucita zyobayanda. Balazyalwa amaanu akuyeeya, aakusala alimwi beelede kulanga bambi mbuli banabokwabo.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ton/) has 2 videos of Tongan speakers. Watch [Cookson and Sooalo speaking Tongan](https://wikitongues.org/videos/cookson-sooalo_20161025_ton/).
 
 
 ## Training Data
@@ -25,31 +44,54 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,047 articles in to.wikipedia (rank 135 of 161 in the set) — ~1/3,687 of English; 7 active users                                                                                                                        |
-| Common Crawl 2026      | 3,006 pages per crawl on average, which is 0.0001% of the crawl. This is ~1/296,576 of English data and ranks 101 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 9.9 MB (ton_Latn (0.01)); which is equivalent to ≈7.8 MB English data after byte-premium scaling; 14.2 MB removed by filtering. This is ~1/5,409,245 of English data and ranks 149 of 248 official languages in FineWeb. |
-| Goldfish training data | 25.6 MB (ton_latn) (rank 145 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,047 articles in to.wikipedia; 7 active users. This is ~1/3,687 of English data and ranks 140 of 168 languages in the set in Wikipedia.                                                                         |
+| Common Crawl           | 3,006 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/296,576 of English data and ranks 101 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 9.9 MB (ton_Latn 10.0 MB), equivalent to ≈7.8 MB of English after byte-premium scaling; 14.2 MB removed by filtering. This is ~1/5,409,245 of English data and ranks 149 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 25.6 MB (ton_Latn 26.0 MB) (rank 145 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | **None found**                                                                         |
+| Wikidata labels        | 476,274 Wikidata items have a label in Tongan. (Wikidata codes (labels): to (476,274)) |
+| Wordnets               | **None found**                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                        |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                            |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([ton](https://ebible.org/details.php?id=ton), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                         |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **6 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (4):** NTREX (n=300), Tatoeba (n=20), UDHR-LID (n=60), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.824 (P 0.882, R 0.814, FPR 9.58e-05) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.727).
+- **Best model:** GlotLID — F1 0.828 (P 0.887, R 0.814, FPR 8.75e-05) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.723).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.882 |    0.814 | 0.824 | 0.000 | ✓                |
-| cld2         |       0.819 |    0.722 | 0.727 | 0.001 | ✓                |
-| funlangid    |       0.789 |    0.629 | 0.677 | 0.000 | ✓                |
-| pyfranc      |       0.774 |    0.597 | 0.648 | 0.000 | ✓                |
-| commonlingua |       0.590 |    0.726 | 0.611 | 0.003 | ✓                |
+| GlotLID      |       0.887 |    0.814 | 0.828 | 0.000 | ✓                |
+| cld2         |       0.807 |    0.722 | 0.723 | 0.001 | ✓                |
+| funlangid    |       0.786 |    0.629 | 0.675 | 0.000 | ✓                |
+| pyfranc      |       0.776 |    0.597 | 0.649 | 0.000 | ✓                |
+| commonlingua |       0.589 |    0.726 | 0.610 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.001 | ✓                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -57,7 +99,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   |  20 |       0.536 |    0.750 | 0.625 |
+| Tatoeba   |  20 |       0.556 |    0.750 | 0.638 |
 | Wikipedia | 300 |       0.994 |    0.510 | 0.674 |
 | NTREX     | 300 |       1.000 |    0.997 | 0.998 |
 | UDHR-LID  |  60 |       1.000 |    1.000 | 1.000 |
@@ -70,6 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tongan and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tongan has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Tongan?
@@ -89,33 +132,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        3 | █████████            |
 |   2026 |        7 | ████████████████████ |
 
-### Most popular models tagged for Tongan
-
-| model                                                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                     | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                            |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                                     | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                            |
-| [Qrzysztof/functiongemma-270m-it-prepaid-cards-v2](https://huggingface.co/Qrzysztof/functiongemma-270m-it-prepaid-cards-v2) | 819                    |                    11 | 268.1M       |                   98 |   2026 | google/functiongemma-270m-it |
-| [goldfish-models/ton_latn_10mb](https://huggingface.co/goldfish-models/ton_latn_10mb)                                       | 387                    |                    10 | unknown      |                    1 |   2024 | —                            |
-| [goldfish-models/ton_latn_5mb](https://huggingface.co/goldfish-models/ton_latn_5mb)                                         | 386                    |                    13 | unknown      |                    1 |   2024 | —                            |
-
-### Most popular models tagged *only* for Tongan
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/ton_latn_10mb](https://huggingface.co/goldfish-models/ton_latn_10mb) |                    387 |                    10 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ton_latn_5mb](https://huggingface.co/goldfish-models/ton_latn_5mb)   |                    386 |                    13 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ton_latn_full](https://huggingface.co/goldfish-models/ton_latn_full) |                    366 |                    21 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Tongan
 
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                  |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                  |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                  |
-| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 164                    |                    25 | 8.2B         |                  140 |   2026 | Qwen/Qwen3-8B-Base |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of      |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 1.9T         |                  143 |   2025 | —                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 856.0B       |                  143 |   2025 | —                  |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 8.2B         |                  143 |   2026 | Qwen/Qwen3-8B-Base |
 
 ### Largest models tagged *only* for Tongan
 
@@ -150,15 +175,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -172,7 +197,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                   |
+| level                    | task                | dataset                                                                              | # test items   | construction                                   |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 1,187          | Synthetic (LLM-generated) on native Wikipedia  |
 | Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English) |
@@ -205,7 +230,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 3 of ~18,460 papers (0.02%) (rank 189 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 3 of ~18,498 papers (0.02%) (rank 210 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Tongan
 
 Here are up to ten papers that were published mentioning this language in 2026:

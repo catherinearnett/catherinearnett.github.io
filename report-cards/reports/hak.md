@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `hak` · macrolanguage `zho`
 
+**Language family:** **Sino-Tibetan** › Sinitic › Classical-Middle-Modern Sinitic › Middle-Modern Sinitic ([Glottolog](https://glottolog.org/resource/languoid/id/hakk1236))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
+**Speakers:** about 35.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 48.2 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33375#P1098), 2019)
+
 **Official / recognised in:** Taiwan
 
 **Status:** National language
+
+
+## What does Hakka look and sound like?
+
+**Written:** no Omniglot page found for Hakka.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/hak/) has 2 videos of Hakka speakers. Watch [Sanda speaking Hakka](https://wikitongues.org/videos/sanda_20181022_hak/).
 
 
 ## Training Data
@@ -23,30 +36,62 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                              |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,511 articles in hak.wikipedia (rank 99 of 161 in the set) — ~1/718 of English; 27 active users                                                                                                   |
-| Common Crawl 2026      | 100,182,847 pages per crawl on average, which is 4.6477% of the crawl. ⚠️ NB: this is counted using `zho` (macrolanguage code), so this number is shared with other varieties and overstates Hakka. |
-| FineWeb                | 2.1 MB (hak_Hani (0.00); hak_Latn (0.00)); 0.12 GB removed by filtering. This is ~1/25,432,776 of English data and ranks 181 of 248 official languages in FineWeb.                                  |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                        |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,511 articles in hak.wikipedia; 27 active users. This is ~1/718 of English data and ranks 103 of 168 languages in the set in Wikipedia.                                                                     |
+| Common Crawl           | 100,182,847 pages per crawl on average, which is 4.6477% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `zho`, so this number is shared with Standard Chinese (`cmn`) and overstates Hakka. |
+| FineWeb                | 2.1 MB (hak_Hani 0; hak_Latn 0); 0.12 GB removed by filtering. This is ~1/25,432,776 of English data and ranks 181 of 248 languages in the set in FineWeb.                                                    |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                  |
+
+**By writing system:**
+
+| Writing system   |   FineWeb | FineWeb, English-equivalent   |
+|:-----------------|----------:|:------------------------------|
+| Han (`Hani`)     |         0 | — (no byte premium yet)       |
+| Latin (`Latn`)   |         0 | — (no byte premium yet)       |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | **None found**                                                                         |
+| Wikidata labels        | 220,512 Wikidata items have a label in Hakka. (Wikidata codes (labels): hak (220,512)) |
+| Wordnets               | **None found**                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
 - **Eval datasets (3):** Tatoeba (n=64), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.494 (P 0.641, R 0.443, FPR 7.68e-05) averaged over 3 dataset(s). Runner-up: commonlingua (F1 0.336).
+- **Best model:** GlotLID — F1 0.494 (P 0.641, R 0.443, FPR 7.56e-05) averaged over 3 dataset(s). Runner-up: commonlingua (F1 0.336).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.641 |    0.443 | 0.494 | 0.000 | ✓                |
-| commonlingua |       0.339 |    0.334 | 0.336 | 0.001 | ✓                |
+| commonlingua |       0.338 |    0.334 | 0.336 | 0.001 | ✓                |
 | funlangid    |       0.333 |    0.326 | 0.329 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -67,6 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Hakka and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Hakka has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Hakka?
@@ -82,16 +128,6 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   year |   models |                      |
 |-------:|---------:|:---------------------|
 |   2026 |        1 | ████████████████████ |
-
-### Most popular models tagged for Hakka
-
-| model                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [wikilangs/hak](https://huggingface.co/wikilangs/hak) |                      0 |                     0 | unknown      |                    2 |   2026 | —               |
-
-### Most popular models tagged *only* for Hakka
-
-_none_
 
 ### Largest models tagged for Hakka
 
@@ -130,15 +166,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -152,9 +188,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                    | # test items   | Construction                                  |
-|:-------------------------|:-------------------|:---------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 1,945          | Synthetic (LLM-generated) on native Wikipedia |
+| level                    | task               | dataset                                                                    |   # test items | construction                                  |
+|:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |          1,945 | Synthetic (LLM-generated) on native Wikipedia |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -167,7 +203,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 ### Community benchmarks you can contribute to
 
 - **[Global PIQA](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)** (❌ not yet — contribute it!): Physical-commonsense questions written by native speakers about their own culture.
-- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (❌ not yet — contribute it!): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
+- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (✅ included): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
 - **[Cultural Riddles](https://culturalriddles.ai/)** (❌ not yet — contribute it!): Human-written, culturally grounded riddles (Cohere Labs Community); open contribution process.
 
 ### What can you do?
@@ -183,7 +219,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 12 of ~18,460 papers (0.06%) (rank 133 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 12 of ~18,498 papers (0.06%) (rank 142 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Hakka Chinese | Hakka
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 12):

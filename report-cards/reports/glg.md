@@ -12,11 +12,35 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `glg`
 
+**Language family:** **Indo-European** › Classical Indo-European › Italic › … › Galician Romance ([Glottolog](https://glottolog.org/resource/languoid/id/gali1258))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 3.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 2.4 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9307#P1098), 2012)
 
 **Official / recognised in:** Spain
 
 **Status:** Regional official language
+
+
+## What does Galician look and sound like?
+
+**Written (Galician)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/galician.htm):
+
+> Tódolos seres humanos nacen libres e iguais en dignidade e
+> dereitos e, dotados como están de razón e conciencia,
+> díbense comportar fraternalmente uns cos outros.
+> A recording of this text by Omar Carrillo
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_gl.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/glg/) has 3 videos of Galician speakers. Watch [Artur speaking Galician](https://wikitongues.org/videos/artur_20150101_glg/).
 
 
 ## Training Data
@@ -25,20 +49,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 248,056 articles in gl.wikipedia (rank 37 of 161 in the set) — ~1/30 of English; 441 active users                                                                                                                       |
-| Common Crawl 2026      | 719,220 pages per crawl on average, which is 0.0333% of the crawl. This is ~1/1,240 of English data and ranks 42 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 3.14 GB (glg_Latn (3.14)); which is equivalent to ≈2.97 GB English data after byte-premium scaling; 47.57 GB removed by filtering. This is ~1/17,004 of English data and ranks 59 of 248 official languages in FineWeb. |
-| Goldfish training data | 2.02 GB (glg_latn) (rank 60 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 248,056 articles in gl.wikipedia; 441 active users. This is ~1/30 of English data and ranks 38 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 719,220 pages per crawl on average, which is 0.0333% of the crawl (2026). This is ~1/1,240 of English data and ranks 42 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 3.14 GB (glg_Latn 3.14 GB), equivalent to ≈2.97 GB of English after byte-premium scaling; 47.57 GB removed by filtering. This is ~1/17,004 of English data and ranks 59 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 2.02 GB (glg_Latn 2.02 GB) (rank 60 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 3 treebanks, 5,993 sentences / 171,322 tokens in total: [UD_Galician-CTG](https://github.com/UniversalDependencies/UD_Galician-CTG) (3,993 sentences), [UD_Galician-PUD](https://github.com/UniversalDependencies/UD_Galician-PUD) (1,000 sentences), [UD_Galician-TreeGal](https://github.com/UniversalDependencies/UD_Galician-TreeGal) (1,000 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Wikidata labels        | 6,358,139 Wikidata items have a label in Galician. (Wikidata codes (labels): gl (6,358,139))                                                                                                                                                                                                                                                                                                                                          |
+| Wordnets               | [Multilingual Central Repository (Galician)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-gl-1.4.tar.xz): 19,312 synsets, 23,410 words, 27,138 senses; licence: https://creativecommons.org/licenses/by/3.0/.                                                                                                                                                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.957 (P 0.993, R 0.926, FPR 4.43e-05) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.948).
+- **Best model:** GlotLID — F1 0.957 (P 0.993, R 0.926, FPR 4.36e-05) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.947).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,13 +92,15 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.993 |    0.926 | 0.957 | 0.000 | ✓                |
-| OpenLID-v2   |       0.931 |    0.967 | 0.948 | 0.001 | ✓                |
-| fasttext     |       0.848 |    0.969 | 0.897 | 0.001 | ✓                |
-| cld2         |       0.892 |    0.874 | 0.878 | 0.001 | ✓                |
-| py3langid    |       0.781 |    0.969 | 0.858 | 0.003 | ✓                |
-| commonlingua |       0.839 |    0.852 | 0.844 | 0.002 | ✓                |
+| OpenLID-v2   |       0.928 |    0.967 | 0.947 | 0.001 | ✓                |
+| fasttext     |       0.846 |    0.969 | 0.896 | 0.001 | ✓                |
+| cld2         |       0.890 |    0.874 | 0.877 | 0.001 | ✓                |
+| py3langid    |       0.783 |    0.969 | 0.859 | 0.003 | ✓                |
+| commonlingua |       0.836 |    0.852 | 0.843 | 0.002 | ✓                |
 | pyfranc      |       0.752 |    0.778 | 0.761 | 0.003 | ✓                |
-| funlangid    |       0.760 |    0.703 | 0.721 | 0.002 | ✓                |
+| cld3         |       0.626 |    0.931 | 0.737 | 0.007 | ✓                |
+| funlangid    |       0.761 |    0.703 | 0.721 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -73,6 +120,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Galician and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Galician has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Galician?
@@ -93,45 +141,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       91 | █████████████        |
 |   2026 |      135 | ████████████████████ |
 
-### Most popular models tagged for Galician
-
-| model                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                  |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------------|
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct)         | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B     |
-| [BSC-LT/salamandra-7b-instruct](https://huggingface.co/BSC-LT/salamandra-7b-instruct)                     | 713,529                | 36,481                | 7.8B         |                   33 |   2024 | BSC-LT/salamandra-7b           |
-| [utter-project/EuroLLM-22B-Instruct-2512](https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512) | 603,901                | 7,106                 | 22.6B        |                   35 |   2025 | utter-project/EuroLLM-22B-2512 |
-| [utter-project/EuroLLM-9B-Instruct](https://huggingface.co/utter-project/EuroLLM-9B-Instruct)             | 496,625                | 10,540                | 9.2B         |                   35 |   2024 | utter-project/EuroLLM-9B       |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                                       | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                              |
-
-### Most popular models tagged *only* for Galician
-
-| model                                                                                                                           | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [proxectonos/Carballo-bloom-1.3B](https://huggingface.co/proxectonos/Carballo-bloom-1.3B)                                       | 28,902                 |                   139 | 1.3B         |                    1 |   2024 | —                       |
-| [irlab-udc/cabuxa-7b](https://huggingface.co/irlab-udc/cabuxa-7b)                                                               | 5,120                  |                    10 | 7.0B         |                    1 |   2023 | huggyllama/llama-7b     |
-| [proxectonos/Carballo-cerebras-1.3B](https://huggingface.co/proxectonos/Carballo-cerebras-1.3B)                                 | 3,219                  |                    35 | 1.3B         |                    1 |   2024 | —                       |
-| [irlab-udc/Llama-3.1-8B-Instruct-Galician-GPTQ-Int4](https://huggingface.co/irlab-udc/Llama-3.1-8B-Instruct-Galician-GPTQ-Int4) | 1,363                  |                    10 | 8.0B         |                    1 |   2024 | meta-llama/Llama-3.1-8B |
-| [goldfish-models/glg_latn_1000mb](https://huggingface.co/goldfish-models/glg_latn_1000mb)                                       | 575                    |                    27 | unknown      |                    1 |   2024 | —                       |
-
 ### Largest models tagged for Galician
 
-| model                                                                                                             |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of            |
-|:------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                         |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                        |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                             |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                        |
-| [itzune/Latxa-Llama-3.1-70B-Instruct-v2-GGUF](https://huggingface.co/itzune/Latxa-Llama-3.1-70B-Instruct-v2-GGUF) |                    494 |                    53 | 70.6B        |                    6 |   2026 | meta-llama/Llama-3.1-70B |
-| [montevive/ALIA-40b-fc-2605-NVFP4-GGUF](https://huggingface.co/montevive/ALIA-40b-fc-2605-NVFP4-GGUF)             |                    482 |                    37 | 40.4B        |                    5 |   2026 | BSC-LT/ALIA-40b          |
-| [langtech-innovation/ALIA-40b-instruct_Q8_0](https://huggingface.co/langtech-innovation/ALIA-40b-instruct_Q8_0)   |                    245 |                    31 | 40.4B        |                    5 |   2026 | BSC-LT/ALIA-40b-instruct |
+| model                                                                                                             | parameters   |   # languages tagged |   year | derivative of                 |
+|:------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                         | 1.9T         |                  143 |   2025 | —                             |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                             | 856.0B       |                  143 |   2025 | —                             |
+| [itzune/Latxa-Llama-3.1-70B-Instruct-v2-GGUF](https://huggingface.co/itzune/Latxa-Llama-3.1-70B-Instruct-v2-GGUF) | 70.6B        |                    6 |   2026 | meta-llama/Llama-3.1-70B      |
+| [montevive/ALIA-40b-fc-2605-NVFP4-GGUF](https://huggingface.co/montevive/ALIA-40b-fc-2605-NVFP4-GGUF)             | 40.4B        |                    5 |   2026 | BSC-LT/ALIA-40b               |
+| [alamios/ALIA-40b-instruct-2512-Q4_K_M-GGUF](https://huggingface.co/alamios/ALIA-40b-instruct-2512-Q4_K_M-GGUF)   | 40.4B        |                    5 |   2026 | BSC-LT/ALIA-40b-instruct-2512 |
 
 ### Largest models tagged *only* for Galician
 
-| model                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:----------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [HiTZ/gl_Qwen3-14B-Base](https://huggingface.co/HiTZ/gl_Qwen3-14B-Base)                       | 163                    |                    10 | 14.8B        |                    1 |   2025 | Qwen/Qwen3-14B-Base     |
-| [HiTZ/gl_Qwen3-8B-Base](https://huggingface.co/HiTZ/gl_Qwen3-8B-Base)                         | 242                    |                    25 | 8.2B         |                    1 |   2025 | Qwen/Qwen3-8B-Base      |
-| [carvalho-nos/CarvalhoChat_v4](https://huggingface.co/carvalho-nos/CarvalhoChat_v4)           | 751                    |                     5 | 8.0B         |                    1 |   2026 | meta-llama/Llama-3.1-8B |
-| [irlab-udc/cabuxa-7b](https://huggingface.co/irlab-udc/cabuxa-7b)                             | 5,120                  |                    10 | 7.0B         |                    1 |   2023 | huggyllama/llama-7b     |
-| [alphaedge-ai/Qwen3.5-4B-glg-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-glg-32768) | 57                     |                     9 | 4.0B         |                    1 |   2026 | Qwen3.5-4B              |
+| model                                                                                         | parameters   |   # languages tagged |   year | derivative of           |
+|:----------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------|
+| [HiTZ/gl_Qwen3-14B-Base](https://huggingface.co/HiTZ/gl_Qwen3-14B-Base)                       | 14.8B        |                    1 |   2025 | Qwen/Qwen3-14B-Base     |
+| [HiTZ/gl_Qwen3-8B-Base](https://huggingface.co/HiTZ/gl_Qwen3-8B-Base)                         | 8.2B         |                    1 |   2025 | Qwen/Qwen3-8B-Base      |
+| [HiTZ/gl_Llama-3.1-8B](https://huggingface.co/HiTZ/gl_Llama-3.1-8B)                           | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B |
+| [irlab-udc/cabuxa-7b](https://huggingface.co/irlab-udc/cabuxa-7b)                             | 7.0B         |                    1 |   2023 | huggyllama/llama-7b     |
+| [alphaedge-ai/Qwen3.5-4B-glg-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-glg-32768) | 4.0B         |                    1 |   2026 | Qwen3.5-4B              |
 
 _48 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +190,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [2]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [4]        \
+         /      reasoning [4]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +212,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                                    | # test items   | Construction                                                     |
+| level                                  | task                          | dataset                                                                                                    | # test items   | construction                                                     |
 |:---------------------------------------|:------------------------------|:-----------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                         | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                       | 753            | Treebank-based (automatic, UD + UniMorph)                        |
 | 2. Pragmatics, discourse & coreference | Figurative language & idioms  | [SemEval-2022 Task 2 (idiomaticity)](https://github.com/H-TayyarMadabushi/SemEval_2022_Task2-idiomaticity) | 776            | Native                                                           |
@@ -226,7 +254,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 101 of ~18,460 papers (0.55%) (rank 57 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 101 of ~18,498 papers (0.55%) (rank 59 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Galician
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 101):

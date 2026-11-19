@@ -12,11 +12,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `chm`
 
+**Language family:** **Uralic** (all 2 member languages of the macrolanguage) (Glottolog)
+
+**Endangerment:** threatened (all 2 member languages; Glottolog)
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 521,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 470,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q973685#P1098), 2012)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Hill Mari, Meadow Mari look and sound like?
+
+**Written (Mari)**, sample text from [Omniglot](https://www.omniglot.com/writing/mari.htm):
+
+> 1992 ий сентябрь гыч 1993 ий август марте мемнан республикыште Японий
+> гыч толшо самырык рвезе Такаси Танака илыш. Тудо Марий кугыжаныш
+> университетыште марий да финн-угор филологий отделенийысе
+> студент-влаклан англичан йылмым туныктен да шкежат марий йылмым
+> тунемын. Кызыт тудо адакат Марий республикыште. Ты гана Такаси шкетын
+> огыл, а Токио университетыште финн-угор йылмым шымлыше, …
+
+**Written (Meadow Mari)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/mari.htm):
+
+> Чыла еҥ шке лӱмнерже да праваже дене эрык да иктӧр шочеш. Нуно уш-акылышт да намысышт дене пойдаралтыныт да ива-шольо шӱлыш дене икте-весе шотышто ыштышаш улыт.
+
+*Transliteration:* Čəla eng ške lümnerže da pravaže dene erək da iktör šočeš. Nuno uš-akələšt da naməsəšt dene pojdaraltənət da iva-šolʹo šüləš dene ikte-vese šotəšto əštəšaš ulət
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: http://www.tooyoo.l.u-tokyo.ac.jp/~kmatsum/texts/mari/mari1.html.</sub>
+
+**Spoken:** no Wikitongues video of Hill Mari, Meadow Mari yet ([its Wikitongues page](https://wikitongues.org/languages/chm/) says how to contribute one).
 
 
 ## Training Data
@@ -25,20 +55,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                   |
-|:-----------------------|:---------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics** |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                           |
-| Goldfish training data | 96.4 MB (chm_cyrl) (rank 121 of 166 in the set)          |
+| Source                 | Amount                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------|
+| Wikipedia              | 21,765 articles in mhr, mrj.wikipedia; 33 active users. NB: counted as `mhr` + `mrj` together. |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                       |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                 |
+| Goldfish training data | 96.4 MB (chm_Cyrl 96.0 MB) (rank 121 of 166 in the set)                                        |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                              |
+| UniMorph               | **None found**                                                                              |
+| Wikidata labels        | 1 Wikidata items have a label in Hill Mari, Meadow Mari. (Wikidata codes (labels): chm (1)) |
+| Wordnets               | **None found**                                                                              |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
 - **Eval datasets (3):** FLORES (n=300), Tatoeba (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.981 (P 0.972, R 0.991, FPR 2.23e-04) averaged over 3 dataset(s). Runner-up: funlangid (F1 0.886).
+- **Best model:** GlotLID — F1 0.984 (P 0.973, R 0.994, FPR 2.10e-04) averaged over 3 dataset(s). Runner-up: funlangid (F1 0.896).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,11 +97,13 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.972 |    0.991 | 0.981 | 0.000 | ✓                |
-| funlangid    |       0.904 |    0.870 | 0.886 | 0.001 | ✓                |
-| commonlingua |       0.791 |    0.881 | 0.826 | 0.004 | ✓                |
+| GlotLID      |       0.973 |    0.994 | 0.984 | 0.000 | ✓                |
+| funlangid    |       0.906 |    0.891 | 0.896 | 0.001 | ✓                |
+| commonlingua |       0.791 |    0.883 | 0.827 | 0.004 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -59,7 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.943 |    0.987 | 0.964 |
+| Tatoeba   | 300 |       0.946 |    0.997 | 0.971 |
 | Wikipedia | 300 |       0.974 |    0.987 | 0.980 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
 
@@ -71,6 +124,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Hill Mari, Meadow Mari and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Hill Mari, Meadow Mari has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/chm/) video of Hill Mari, Meadow Mari yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Hill Mari, Meadow Mari?
@@ -90,45 +145,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       13 | ██                   |
 |   2026 |      162 | ████████████████████ |
 
-### Most popular models tagged for Hill Mari, Meadow Mari
-
-| model                                                                                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                                     | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —               |
-| [laion/snowball-67b-a2b-sft-s3-nemotron-terminal-step1888](https://huggingface.co/laion/snowball-67b-a2b-sft-s3-nemotron-terminal-step1888) | 7,932                  | 262                   | 67.1B        |                    1 |   2026 | —               |
-| [open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21](https://huggingface.co/open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21)         | 6,794                  | 2,392                 | 67.1B        |                    1 |   2026 | —               |
-| [marin-community/delphi-3e18-447Mparams-1.2Btokens](https://huggingface.co/marin-community/delphi-3e18-447Mparams-1.2Btokens)               | 3,871                  | 107                   | 447.2M       |                    2 |   2026 | —               |
-| [marin-community/delphi-9e18-550Mparams-2.9Btokens](https://huggingface.co/marin-community/delphi-9e18-550Mparams-2.9Btokens)               | 2,834                  | 45                    | 550.3M       |                    2 |   2026 | —               |
-
-### Most popular models tagged *only* for Hill Mari, Meadow Mari
-
-| model                                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of         |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------|
-| [laion/snowball-67b-a2b-sft-s3-nemotron-terminal-step1888](https://huggingface.co/laion/snowball-67b-a2b-sft-s3-nemotron-terminal-step1888)     | 7,932                  | 262                   | 67.1B        |                    1 |   2026 | —                     |
-| [open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21](https://huggingface.co/open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21)             | 6,794                  | 2,392                 | 67.1B        |                    1 |   2026 | —                     |
-| [penfever/grug-67b-a2b-sft-s2-thinking-step630](https://huggingface.co/penfever/grug-67b-a2b-sft-s2-thinking-step630)                           | 2,197                  | 22                    | 67.1B        |                    1 |   2026 | marin-community/marin |
-| [open-athena/Snowball-67B-A2B-Identity-PathB-A3-2026.10.30](https://huggingface.co/open-athena/Snowball-67B-A2B-Identity-PathB-A3-2026.10.30)   | 1,727                  | 1,727                 | 67.1B        |                    1 |   2026 | —                     |
-| [open-athena/Snowball-67B-A2B-Identity-PathB-A13-2026.10.30](https://huggingface.co/open-athena/Snowball-67B-A2B-Identity-PathB-A13-2026.10.30) | 1,715                  | 1,715                 | 67.1B        |                    1 |   2026 | —                     |
-
 ### Largest models tagged for Hill Mari, Meadow Mari
 
-| model                                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of            |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------|
-| [open-athena/Marin-Mochi-535B-A23B](https://huggingface.co/open-athena/Marin-Mochi-535B-A23B)                                                   | 100                    | 100                   | 535.0B       |                    1 |   2026 | —                        |
-| [DSAKAI/llamarine-GGUF](https://huggingface.co/DSAKAI/llamarine-GGUF)                                                                           | 816                    | 80                    | 70.6B        |                    2 |   2026 | meta-llama/Llama-3.1-70B |
-| [open-athena/Snowball-67B-A2B-Identity-PathB-A11-2026.10.30](https://huggingface.co/open-athena/Snowball-67B-A2B-Identity-PathB-A11-2026.10.30) | 288                    | 288                   | 67.1B        |                    1 |   2026 | —                        |
-| [penfever/grug-67b-a2b-sft-s2-thinking-step630](https://huggingface.co/penfever/grug-67b-a2b-sft-s2-thinking-step630)                           | 2,197                  | 22                    | 67.1B        |                    1 |   2026 | marin-community/marin    |
-| [open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.10.05](https://huggingface.co/open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.10.05)             | 1,692                  | 1,471                 | 67.1B        |                    1 |   2026 | —                        |
+| model                                                                                                                                             | parameters   |   # languages tagged |   year | derivative of            |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------|
+| [open-athena/Marin-Mochi-535B-A23B](https://huggingface.co/open-athena/Marin-Mochi-535B-A23B)                                                     | 535.0B       |                    1 |   2026 | —                        |
+| [DSAKAI/llamarine-GGUF](https://huggingface.co/DSAKAI/llamarine-GGUF)                                                                             | 70.6B        |                    2 |   2026 | meta-llama/Llama-3.1-70B |
+| [laion/sft-repro-thinking-step630-nemotron-terminal-step1888](https://huggingface.co/laion/sft-repro-thinking-step630-nemotron-terminal-step1888) | 67.1B        |                    1 |   2026 | —                        |
+| [laion/snowball-67b-a2b-cooldown-step105149](https://huggingface.co/laion/snowball-67b-a2b-cooldown-step105149)                                   | 67.1B        |                    1 |   2026 | —                        |
+| [laion/snowball-67b-a2b-sft-s1-chat-step257](https://huggingface.co/laion/snowball-67b-a2b-sft-s1-chat-step257)                                   | 67.1B        |                    1 |   2026 | —                        |
 
 ### Largest models tagged *only* for Hill Mari, Meadow Mari
 
-| model                                                                                                                                             |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                        |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------------------------|
-| [open-athena/Marin-Mochi-535B-A23B](https://huggingface.co/open-athena/Marin-Mochi-535B-A23B)                                                     |                    100 |                   100 | 535.0B       |                    1 |   2026 | —                                                    |
-| [laion/snowball-67b-a2b-sft-s1-chat-step257](https://huggingface.co/laion/snowball-67b-a2b-sft-s1-chat-step257)                                   |                    467 |                    28 | 67.1B        |                    1 |   2026 | —                                                    |
-| [laion/sft-repro-thinking-step630-nemotron-terminal-step1888](https://huggingface.co/laion/sft-repro-thinking-step630-nemotron-terminal-step1888) |                    433 |                    16 | 67.1B        |                    1 |   2026 | —                                                    |
-| [laion/snowball-67b-a2b-cooldown-step105149](https://huggingface.co/laion/snowball-67b-a2b-cooldown-step105149)                                   |                    788 |                    24 | 67.1B        |                    1 |   2026 | —                                                    |
-| [open-athena/Grug-67B-A2B-GLM53-RLVR1-Async-Step48](https://huggingface.co/open-athena/Grug-67B-A2B-GLM53-RLVR1-Async-Step48)                     |                    397 |                    89 | 67.1B        |                    1 |   2026 | open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21 |
+| model                                                                                                                                             | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [open-athena/Marin-Mochi-535B-A23B](https://huggingface.co/open-athena/Marin-Mochi-535B-A23B)                                                     | 535.0B       |                    1 |   2026 | —               |
+| [laion/sft-repro-thinking-step630-nemotron-terminal-step1888](https://huggingface.co/laion/sft-repro-thinking-step630-nemotron-terminal-step1888) | 67.1B        |                    1 |   2026 | —               |
+| [laion/snowball-67b-a2b-cooldown-step105149](https://huggingface.co/laion/snowball-67b-a2b-cooldown-step105149)                                   | 67.1B        |                    1 |   2026 | —               |
+| [laion/snowball-67b-a2b-sft-s1-chat-step257](https://huggingface.co/laion/snowball-67b-a2b-sft-s1-chat-step257)                                   | 67.1B        |                    1 |   2026 | —               |
+| [laion/snowball-67b-a2b-sft-s2-thinking-step630](https://huggingface.co/laion/snowball-67b-a2b-sft-s2-thinking-step630)                           | 67.1B        |                    1 |   2026 | —               |
 
 _16 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -148,7 +183,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**6** benchmark datasets in the survey include Hill Mari, Meadow Mari.
+**5** benchmark datasets in the survey include Hill Mari, Meadow Mari.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -159,15 +194,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -181,14 +216,13 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                        |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 4,194          | Synthetic (LLM-generated) on native Wikipedia                       |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English)                      |
-| Machine translation      | Machine translation | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 73             | Native (crowdsourced Tatoeba sentence pairs)                        |
+| level                    | task                | dataset                                                                                        | # test items   | construction                                                        |
+|:-------------------------|:--------------------|:-----------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) (2 varieties/pairs) | 9,194          | Synthetic (LLM-generated) on native Wikipedia                       |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                        | 1,012          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                  | —              | Human translation (professional, from English)                      |
+| Machine translation      | Machine translation | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                  | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)           | 73             | Native (crowdsourced Tatoeba sentence pairs)                        |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -216,6 +250,23 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026: not reported.** The search term 'Mari' (common given name) is ambiguous, so the raw count mostly reflects other uses of the word.
+- **Mentions in ACL papers in 2026:** 37 of ~18,498 papers (0.20%) (rank 105 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Meadow Mari | Hill Mari | Mari
+- Because 'Mari' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
+
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 37):
+
+| title                                                                                                                                                | paper                                                                      |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Benchmarking Source-Sensitive Reasoning in Turkish: Humans and LLMs under Evidential Trust Manipulation                                              | [2026.cmcl-1.25](https://aclanthology.org/2026.cmcl-1.25/)                 |
+| Adapting Where It Matters: Depth-Aware Adaptation for Efficient Multilingual Speech Recognition in Low-Resource Languages                            | [2026.findings-acl.827](https://aclanthology.org/2026.findings-acl.827/)   |
+| TIPA: Typologically Informed Parameter Aggregation                                                                                                   | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/) |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                              | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
+| University Speaking for Everyone: Assessing Changes in Italian Higher Education Statutes toward Gender-Inclusive Language                            | [2026.lrec-1.321](https://aclanthology.org/2026.lrec-1.321/)               |
+| SciLaD: A Large-Scale, Transparent, Reproducible Dataset for Natural Scientific Language Processing                                                  | [2026.lrec-1.603](https://aclanthology.org/2026.lrec-1.603/)               |
+| A Typology of Synthetic Datasets for Dialogue Processing in Clinical Contexts                                                                        | [2026.lrec-1.653](https://aclanthology.org/2026.lrec-1.653/)               |
+| Pragmatic Modelling in Language Learning: Caregiver Question-Answer Feedback in Child-Directed Dialogue                                              | [2026.lrec-1.897](https://aclanthology.org/2026.lrec-1.897/)               |
+| Do Lexical and Contextual Coreference Resolution Systems Degrade Differently under Mention Noise? An Empirical Study on Scientific Software Mentions | [2026.nslp-1.10](https://aclanthology.org/2026.nslp-1.10/)                 |
+| Frequency modulates structural choice in Turkish suspended affixation: a latent-process account                                                      | [2026.scil-main.32](https://aclanthology.org/2026.scil-main.32/)           |
 
 {% endraw %}

@@ -12,9 +12,29 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mic`
 
+**Language family:** **Algic** › Algonquian-Blackfoot › Algonquian › … › Micmacic ([Glottolog](https://glottolog.org/resource/languoid/id/mikm1235))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (20% certain))
+
+**Speakers:** about 9,311 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 8,270 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q13321#P1098), 2011)
+
 **Official / recognised in:** Canada
 
 **Status:** Regional official language
+
+
+## What does Mi'kmawi'simk look and sound like?
+
+**Written (Mi'kmaq)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/mikmaq.htm):
+
+> Msit mimajulnu'k weskwijinu'ltijik alsumsultijik aqq newte' tett wkpimte'tmut aqq koqwajo'taqnn wejkul'aqmititl.
+> (Article 1, Wtui'katikn wjit Koqwajo'taqann Mimajuinu'k Wejkuaqmi'tij)
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Mi'kmawi'simk yet ([its Wikitongues page](https://wikitongues.org/languages/mic/) says how to contribute one).
 
 
 ## Training Data
@@ -23,30 +43,53 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                 |
-| FineWeb                | 0.6 MB (mic_Latn (0.00)); which is equivalent to ≈0.4 MB English data after byte-premium scaling; 2.4 MB removed by filtering. This is ~1/95,288,524 of English data and ranks 208 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                     |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                   |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                   |
+| FineWeb                | 0.6 MB (mic_Latn 0), equivalent to ≈0.4 MB of English after byte-premium scaling; 2.4 MB removed by filtering. This is ~1/95,288,524 of English data and ranks 208 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                               |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                        |
+|:-----------------------|:-----------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                     |
+| UniMorph               | **None found**                                                                     |
+| Wikidata labels        | 6 Wikidata items have a label in Mi'kmawi'simk. (Wikidata codes (labels): mic (6)) |
+| Wordnets               | **None found**                                                                     |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                    |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                        |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([micMIQNT](https://ebible.org/details.php?id=micMIQNT), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                     |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
 - **Eval datasets (2):** Tatoeba (n=18), UDHR-LID (n=59)
-- **Best model:** GlotLID — F1 0.780 (P 0.901, R 0.716, FPR 1.67e-04) averaged over 2 dataset(s). Runner-up: pyfranc (F1 0.530).
+- **Best model:** GlotLID — F1 0.780 (P 0.901, R 0.716, FPR 1.67e-04) averaged over 2 dataset(s). Runner-up: pyfranc (F1 0.531).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.901 |    0.716 | 0.780 | 0.000 | ✓                |
-| pyfranc      |       0.533 |    0.528 | 0.530 | 0.000 | ✓                |
-| funlangid    |       0.750 |    0.318 | 0.435 | 0.000 | ✓                |
+| pyfranc      |       0.536 |    0.528 | 0.531 | 0.000 | ✓                |
+| funlangid    |       0.700 |    0.318 | 0.431 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -66,6 +109,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Mi'kmawi'simk and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Mi'kmawi'simk has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/mic/) video of Mi'kmawi'simk yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Mi'kmawi'simk?
@@ -101,15 +146,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -123,7 +168,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                              |   # test items | Construction                                 |
+| level               | task                | dataset                                                                              |   # test items | construction                                 |
 |:--------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:---------------------------------------------|
 | Machine translation | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             12 | Native (crowdsourced Tatoeba sentence pairs) |
 
@@ -153,7 +198,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1 of ~18,460 papers (0.01%) (rank 217 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1 of ~18,498 papers (0.01%) (rank 241 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Mi'kmawi'simk | Mi'kmaq
 
 Here are up to ten papers that were published mentioning this language in 2026:

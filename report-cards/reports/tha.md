@@ -12,11 +12,34 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tha`
 
+**Language family:** **Tai-Kadai** › Kam-Tai › Daic-Beic › … › Lao-Thai ([Glottolog](https://glottolog.org/resource/languoid/id/thai1261))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Thai`
+
+**Speakers:** about 55.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 20.7 million first-language + 40.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q9217#P1098), 2019)
 
 **Official / recognised in:** Thailand
 
 **Status:** Official language
+
+
+## What does Thai look and sound like?
+
+**Written (Thai)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/thai.htm):
+
+> A recording of this text by Jo S.
+
+*Transliteration:* Rao túk kon gèrt maa yàang ìt-sà-rà, rao túk kon mee kwaam kît láe kwaam kâo jai bpen kŏng rao ayng. Rao túk kon kuan dâi ráp gaan bpà-dtì-bàt nai taang dieow gan.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. (Article 1 of the Universal Declaration of Human Rights) [top]
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_th.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors: Transliteration by http://www.thai2english.com/online/.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tha/) has 4 videos of Thai speakers. Watch [Tao speaking Thai](https://wikitongues.org/videos/tao_20180327_tha/).
 
 
 ## Training Data
@@ -25,20 +48,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 189,539 articles in th.wikipedia (rank 46 of 161 in the set) — ~1/40 of English; 2,471 active users                                                                                                                      |
-| Common Crawl 2026      | 8,082,765 pages per crawl on average, which is 0.3748% of the crawl. This is ~1/110 of English data and ranks 23 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 75.11 GB (tha_Thai (75.11)); which is equivalent to ≈27.40 GB English data after byte-premium scaling; 104.56 GB removed by filtering. This is ~1/711 of English data and ranks 23 of 248 official languages in FineWeb. |
-| Goldfish training data | 13.14 GB (tha_thai) (rank 3 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 189,539 articles in th.wikipedia; 2,471 active users. This is ~1/40 of English data and ranks 47 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 8,082,765 pages per crawl on average, which is 0.3748% of the crawl (2026). This is ~1/110 of English data and ranks 23 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 75.11 GB (tha_Thai 75.11 GB), equivalent to ≈27.40 GB of English after byte-premium scaling; 104.56 GB removed by filtering. This is ~1/711 of English data and ranks 23 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 13.14 GB (tha_Thai 13.14 GB) (rank 3 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                              |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 3 treebanks, 4,866 sentences / 105,351 tokens in total: [UD_Thai-PUD](https://github.com/UniversalDependencies/UD_Thai-PUD) (1,000 sentences), [UD_Thai-TDT](https://github.com/UniversalDependencies/UD_Thai-TDT) (239 sentences), [UD_Thai-TUD](https://github.com/UniversalDependencies/UD_Thai-TUD) (3,627 sentences). All have POS tags, dependency syntax, morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                                                           |
+| Wikidata labels        | 698,881 Wikidata items have a label in Thai. (Wikidata codes (labels): th (698,881))                                                                                                                                                                                                                                                                                                     |
+| Wordnets               | [Thai Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-th-1.4.tar.xz): 73,350 synsets, 83,481 words, 95,517 senses; licence: wordnet; [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD.                                                                                                                                            |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                             |
+|:-----------------------------------|:--------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                 |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([thaKJV](https://ebible.org/details.php?id=thaKJV), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                              |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=114), Wikipedia (n=300)
-- **Best model:** py3langid — F1 0.997 (P 0.999, R 0.995, FPR 1.04e-05) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.996).
+- **Best model:** py3langid — F1 0.997 (P 0.999, R 0.995, FPR 1.02e-05) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.996).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -53,7 +97,9 @@ Language identification (LangID or LID) is a classification task that identifies
 | commonlingua |       0.996 |    0.993 | 0.994 | 0.000 | ✓                |
 | fasttext     |       0.997 |    0.989 | 0.993 | 0.000 | ✓                |
 | pyfranc      |       1.000 |    0.971 | 0.985 | 0.000 | ✗                |
+| cld3         |       0.996 |    0.951 | 0.971 | 0.000 | ✓                |
 | funlangid    |       1.000 |    0.886 | 0.933 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (py3langid) by dataset**:
 
@@ -62,9 +108,9 @@ Language identification (LangID or LID) is a classification task that identifies
 | CommonLID | 300 |       0.997 |    0.980 | 0.988 |
 | Wikipedia | 300 |       1.000 |    0.990 | 0.995 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  | 114 |       1.000 |    1.000 | 1.000 |
-| Tatoeba   | 300 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| Tatoeba   | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  | 114 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -74,6 +120,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Thai and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Thai has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Thai?
@@ -94,45 +141,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |     1450 | ███████████████████  |
 |   2026 |     1242 | ████████████████     |
 
-### Most popular models tagged for Thai
-
-| model                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of           |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------|
-| [meta-llama/Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)                                     | 193,587,916            | 4,504,499             | 8.0B         |                    8 |   2024 | meta-llama/Llama-3.1-8B |
-| [meta-llama/Llama-3.2-1B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct)                                     | 109,758,422            | 1,331,481             | 1.2B         |                    8 |   2024 | —                       |
-| [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B)                                                       | 60,177,779             | 477,238               | 1.2B         |                    8 |   2024 | —                       |
-| [meta-llama/Llama-3.2-3B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)                                     | 50,920,320             | 872,223               | 3.2B         |                    8 |   2024 | —                       |
-| [context-labs/meta-llama-Llama-3.2-3B-Instruct-FP16](https://huggingface.co/context-labs/meta-llama-Llama-3.2-3B-Instruct-FP16) | 27,918,610             | 132                   | 3.2B         |                    8 |   2025 | —                       |
-
-### Most popular models tagged *only* for Thai
-
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [typhoon-ai/typhoon-7b](https://huggingface.co/typhoon-ai/typhoon-7b)                 | 124,601                | 1,065                 | 7.3B         |                    1 |   2023 | —               |
-| [flax-community/gpt2-base-thai](https://huggingface.co/flax-community/gpt2-base-thai) | 66,473                 | 788                   | unknown      |                    1 |   2022 | —               |
-| [wannaphong/han-llm-7b-v1](https://huggingface.co/wannaphong/han-llm-7b-v1)           | 10,077                 | 67                    | 7.3B         |                    1 |   2024 | —               |
-| [wannaphong/han-llm-7b-v2](https://huggingface.co/wannaphong/han-llm-7b-v2)           | 9,842                  | 55                    | 7.3B         |                    1 |   2024 | —               |
-| [wannaphong/han-llm-7b-v3](https://huggingface.co/wannaphong/han-llm-7b-v3)           | 9,335                  | 55                    | 7.3B         |                    1 |   2024 | —               |
-
 ### Largest models tagged for Thai
 
-| model                                                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                   |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                 | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                               |
-| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)                               | 604                    |                   604 | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019 |
-| [hugging-quants/Meta-Llama-3.1-405B-Instruct-BNB-NF4](https://huggingface.co/hugging-quants/Meta-Llama-3.1-405B-Instruct-BNB-NF4)     | 6,898                  |                    22 | 422.8B       |                    8 |   2024 | meta-llama/Llama-3.1-405B       |
-| [hugging-quants/Meta-Llama-3.1-405B-Instruct-GPTQ-INT4](https://huggingface.co/hugging-quants/Meta-Llama-3.1-405B-Instruct-GPTQ-INT4) | 36,449                 |                   105 | 410.1B       |                    8 |   2024 | —                               |
+| model                                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                   |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                             | 1.9T         |                  143 |   2025 | —                               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                 | 856.0B       |                  143 |   2025 | —                               |
+| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)                               | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019 |
+| [hugging-quants/Meta-Llama-3.1-405B-Instruct-BNB-NF4](https://huggingface.co/hugging-quants/Meta-Llama-3.1-405B-Instruct-BNB-NF4)     | 422.8B       |                    8 |   2024 | meta-llama/Llama-3.1-405B       |
+| [hugging-quants/Meta-Llama-3.1-405B-Instruct-GPTQ-INT4](https://huggingface.co/hugging-quants/Meta-Llama-3.1-405B-Instruct-GPTQ-INT4) | 410.1B       |                    8 |   2024 | —                               |
 
 ### Largest models tagged *only* for Thai
 
-| model                                                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                            |
-|:--------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------------|
-| [ThaiLLM/ThaiLLM-30B-IQ](https://huggingface.co/ThaiLLM/ThaiLLM-30B-IQ)                                                               |                    143 |                    14 | 30.5B        |                    1 |   2026 | —                                        |
-| [ThaiLLM/ThaiLLM-8B-SFT-IQ](https://huggingface.co/ThaiLLM/ThaiLLM-8B-SFT-IQ)                                                         |                    316 |                    24 | 8.2B         |                    1 |   2026 | —                                        |
-| [kunzaka001/LangTaiLLM-8B-Instruct](https://huggingface.co/kunzaka001/LangTaiLLM-8B-Instruct)                                         |                      0 |                     0 | 8.0B         |                    1 |   2026 | Qwen/Qwen3-8B-Base                       |
-| [aminomewza/Llama-3.1-Typhoon2-8B-LoRA-NorthernThai-v2](https://huggingface.co/aminomewza/Llama-3.1-Typhoon2-8B-LoRA-NorthernThai-v2) |                    101 |                     9 | 8.0B         |                    1 |   2026 | typhoon-ai/llama3.1-typhoon2-8b-instruct |
-| [wannaphong/llama-3-8b-han-16bit](https://huggingface.co/wannaphong/llama-3-8b-han-16bit)                                             |                    337 |                     8 | 8.0B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B               |
+| model                                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                            |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------------|
+| [ThaiLLM/ThaiLLM-30B-IQ](https://huggingface.co/ThaiLLM/ThaiLLM-30B-IQ)                                                               | 30.5B        |                    1 |   2026 | —                                        |
+| [ThaiLLM/ThaiLLM-8B-SFT-IQ](https://huggingface.co/ThaiLLM/ThaiLLM-8B-SFT-IQ)                                                         | 8.2B         |                    1 |   2026 | —                                        |
+| [Jnx03/kanitakorn-qwen3-8b-sft-v1](https://huggingface.co/Jnx03/kanitakorn-qwen3-8b-sft-v1)                                           | 8.0B         |                    1 |   2026 | Qwen/Qwen3-8B-Base                       |
+| [aminomewza/Llama-3.1-Typhoon2-8B-LoRA-NorthernThai-v2](https://huggingface.co/aminomewza/Llama-3.1-Typhoon2-8B-LoRA-NorthernThai-v2) | 8.0B         |                    1 |   2026 | typhoon-ai/llama3.1-typhoon2-8b-instruct |
+| [wannaphong/llama-3-8b-han-16bit](https://huggingface.co/wannaphong/llama-3-8b-han-16bit)                                             | 8.0B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B               |
 
 _137 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +179,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**24** benchmark datasets in the survey include Thai.
+**23** benchmark datasets in the survey include Thai.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,15 +190,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [8]     \
+                 /   [7]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [5]        \
+         /      reasoning [5]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -185,7 +212,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                             | # test items   | Construction                                                        |
+| level                                  | task                           | dataset                                                                                             | # test items   | construction                                                        |
 |:---------------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 2. Pragmatics, discourse & coreference | WSC                            | [Thai Winograd Schemas](https://huggingface.co/datasets/pakphum/winograd_th)                        | 285            | Human translation (professional) + native review                    |
 | 3. Commonsense reasoning               | COPA                           | [XCOPA](https://huggingface.co/datasets/cambridgeltl/xcopa)                                         | 500            | Human translation                                                   |
@@ -200,7 +227,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                       | 11,829         | LLM translation + expert review                                     |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [NOVA-63](https://huggingface.co/datasets/zjy1298/NOVA-63)                                          | —              | Native (local exams/publications)                                   |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [ThaiExam](https://huggingface.co/datasets/scb10x/thai_exam)                                        | —              | Native (ONET, TGAT, TPAT, IC, A-Level)                              |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                            | 10,000         | Human translation                                                   |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                            |
@@ -236,22 +262,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 412 of ~18,460 papers (2.23%) (rank 18 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 413 of ~18,498 papers (2.23%) (rank 18 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Thai
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 412):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 413):
 
-| title                                                                                                      | paper                                                                        |
-|:-----------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| FahMai-TeleBench: A Thai Grounded Tool-Use Benchmark for the Deployable Model Tier                         | [2026.aacl-short.15](https://aclanthology.org/2026.aacl-short.15/)           |
-| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                  | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/)           |
-| Mirrored Frames: LLM-Based Narrative Framing Analysis of Thai-Cambodian Border Conflict Coverage           | [2026.findings-aacl.45](https://aclanthology.org/2026.findings-aacl.45/)     |
-| SEA-SafeguardBench: Culturally Grounded Safety Benchmark for Southeast Asian Languages                     | [2026.findings-acl.194](https://aclanthology.org/2026.findings-acl.194/)     |
-| SEATauBench: Progressively Adapting Tool-Agent-User Evaluation Into Low-Resource Southeast Asian Languages | [2026.findings-emnlp.502](https://aclanthology.org/2026.findings-emnlp.502/) |
-| Off the Hamster Wheel: Rethinking Dialogue Research through a Meta-Analysis of the ACL Anthology 2024      | [2026.lrec-1.207](https://aclanthology.org/2026.lrec-1.207/)                 |
-| Where Are Language-Specific Features Represented in Multilingual LLMs? Everywhere                          | [2026.mrl-1.27](https://aclanthology.org/2026.mrl-1.27/)                     |
-| An Empirical Study of Evidence Retrieval for Retrieval Augmented Generation over the Thai Royal Gazette    | [2026.nllp-1.19](https://aclanthology.org/2026.nllp-1.19/)                   |
-| Probing the Dynamics of Syntactic Ability Acquisition Throughout LLM Pretraining                           | [2026.udw-1.1](https://aclanthology.org/2026.udw-1.1/)                       |
-| Full-Video Context and Anonymous Candidate Selection for WMT26 Video Subtitle Translation                  | [2026.wmt-main.207](https://aclanthology.org/2026.wmt-main.207/)             |
+| title                                                                                                       | paper                                                                        |
+|:------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| FahMai-TeleBench: A Thai Grounded Tool-Use Benchmark for the Deployable Model Tier                          | [2026.aacl-short.15](https://aclanthology.org/2026.aacl-short.15/)           |
+| Knowledge Beyond Language: Bridging the Gap in Multilingual Machine Unlearning Evaluation                   | [2026.acl-long.1105](https://aclanthology.org/2026.acl-long.1105/)           |
+| Mirrored Frames: LLM-Based Narrative Framing Analysis of Thai-Cambodian Border Conflict Coverage            | [2026.findings-aacl.45](https://aclanthology.org/2026.findings-aacl.45/)     |
+| SEA-SafeguardBench: Culturally Grounded Safety Benchmark for Southeast Asian Languages                      | [2026.findings-acl.194](https://aclanthology.org/2026.findings-acl.194/)     |
+| SEATauBench: Progressively Adapting Tool-Agent-User Evaluation Into Low-Resource Southeast Asian Languages  | [2026.findings-emnlp.502](https://aclanthology.org/2026.findings-emnlp.502/) |
+| Off the Hamster Wheel: Rethinking Dialogue Research through a Meta-Analysis of the ACL Anthology 2024       | [2026.lrec-1.207](https://aclanthology.org/2026.lrec-1.207/)                 |
+| Where Are Language-Specific Features Represented in Multilingual LLMs? Everywhere                           | [2026.mrl-1.27](https://aclanthology.org/2026.mrl-1.27/)                     |
+| An Empirical Study of Evidence Retrieval for Retrieval Augmented Generation over the Thai Royal Gazette     | [2026.nllp-1.19](https://aclanthology.org/2026.nllp-1.19/)                   |
+| R1-T1: Fully Incentivizing Translation Capability in LLMs via Reasoning Learning                            | [2026.tacl-1.95](https://aclanthology.org/2026.tacl-1.95/)                   |
+| Laniqo at WMT26 Video Subtitle Translation Shared Task: Multi-Objective Fusion of Pareto-Optimal Candidates | [2026.wmt-main.204](https://aclanthology.org/2026.wmt-main.204/)             |
 
 {% endraw %}

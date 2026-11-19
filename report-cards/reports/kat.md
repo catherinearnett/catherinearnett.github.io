@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kat`
 
+**Language family:** **Kartvelian** › Georgian-Zan › Georgic ([Glottolog](https://glottolog.org/resource/languoid/id/nucl1302))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Geor`
+
+**Speakers:** about 4.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 3.7 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q8108#P1098), 2014)
 
 **Official / recognised in:** Georgia
 
 **Status:** Official language
+
+
+## What does Georgian look and sound like?
+
+**Written:** Omniglot has [a page on Georgian](https://www.omniglot.com/writing/georgian.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/kat/) has 2 videos of Georgian speakers. Watch [Nikoloz speaking Georgian](https://wikitongues.org/videos/nikoloz_20150609_kat/).
 
 
 ## Training Data
@@ -25,18 +38,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 201,194 articles in ka.wikipedia (rank 42 of 161 in the set) — ~1/38 of English; 421 active users                                                                                                                     |
-| Common Crawl 2026      | 974,459 pages per crawl on average, which is 0.0452% of the crawl. This is ~1/915 of English data and ranks 37 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 6.85 GB (kat_Geor (6.85)); which is equivalent to ≈1.58 GB English data after byte-premium scaling; 8.02 GB removed by filtering. This is ~1/7,794 of English data and ranks 45 of 248 official languages in FineWeb. |
-| Goldfish training data | 5.80 GB (kat_geor) (rank 34 of 166 in the set)                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                        |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 201,194 articles in ka.wikipedia; 421 active users. This is ~1/38 of English data and ranks 43 of 168 languages in the set in Wikipedia.                                                                      |
+| Common Crawl           | 974,459 pages per crawl on average, which is 0.0452% of the crawl (2026). This is ~1/915 of English data and ranks 37 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 6.85 GB (kat_Geor 6.85 GB), equivalent to ≈1.58 GB of English after byte-premium scaling; 8.02 GB removed by filtering. This is ~1/7,794 of English data and ranks 45 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 5.80 GB (kat_Geor 5.80 GB) (rank 34 of 166 in the set)                                                                                                                                                        |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 5,042 sentences / 79,599 tokens in total: [UD_Georgian-GLC](https://github.com/UniversalDependencies/UD_Georgian-GLC) (3,164 sentences), [UD_Georgian-GNC](https://github.com/UniversalDependencies/UD_Georgian-GNC) (1,878 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 3,852 lemmas, 92,095 inflected forms ([unimorph/kat](https://github.com/unimorph/kat))                                                                                                                                                                                                                                        |
+| Wikidata labels        | 522,947 Wikidata items have a label in Georgian. (Wikidata codes (labels): ka (522,947))                                                                                                                                                                                                                                      |
+| Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
 - **Best model:** GlotLID — F1 0.999 (P 1.000, R 0.999, FPR 0.00e+00) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.999).
 
@@ -51,9 +85,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | fasttext     |       0.999 |    0.999 | 0.999 | 0.000 | ✓                |
 | py3langid    |       0.999 |    0.999 | 0.999 | 0.000 | ✓                |
 | cld2         |       0.998 |    0.999 | 0.998 | 0.000 | ✓                |
+| cld3         |       1.000 |    0.989 | 0.994 | 0.000 | ✓                |
 | pyfranc      |       1.000 |    0.969 | 0.984 | 0.000 | ✗                |
 | commonlingua |       0.995 |    0.967 | 0.980 | 0.000 | ✓                |
 | funlangid    |       0.999 |    0.921 | 0.952 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -61,9 +97,9 @@ Language identification (LangID or LID) is a classification task that identifies
 |:----------|----:|------------:|---------:|------:|
 | Wikipedia | 300 |       1.000 |    0.993 | 0.997 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
-| Tatoeba   | 300 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| Tatoeba   | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -73,6 +109,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Georgian and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Georgian has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Georgian?
@@ -93,45 +130,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       78 | ████████████████████ |
 |   2026 |       72 | ██████████████████   |
 
-### Most popular models tagged for Georgian
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)           | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —               |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)       | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Georgian
-
-| model                                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                |
-|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------------|
-| [Nargizi/screeve-lemmatizer](https://huggingface.co/Nargizi/screeve-lemmatizer)                                           | 42,911                 | 65                    | unknown      |                    1 |   2023 | —                            |
-| [DarkKitsune/Qwen3.6-Candid-Coder-35B-A3B](https://huggingface.co/DarkKitsune/Qwen3.6-Candid-Coder-35B-A3B)               | 7,492                  | 7,492                 | 36.0B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B         |
-| [DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF](https://huggingface.co/DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF) | 6,552                  | 6,139                 | 35.5B        |                    1 |   2026 | AllSpark-Research/CompoWorld |
-| [Nargizi/screeve-pos-lemmatizer](https://huggingface.co/Nargizi/screeve-pos-lemmatizer)                                   | 1,185                  | 27                    | unknown      |                    1 |   2023 | —                            |
-| [majentik/KAT-Coder-V2.5-Dev-MLX-MXFP4](https://huggingface.co/majentik/KAT-Coder-V2.5-Dev-MLX-MXFP4)                     | 1,114                  | 121                   | 34.7B        |                    1 |   2026 | Qwen3.6-35B-A3B              |
-
 ### Largest models tagged for Georgian
 
-| model                                                                                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                                                                     |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------------------------------------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                   | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                                                                 |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                       | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                                                                 |
-| [DarkKitsune/Qwen3.6-Candid-Coder-35B-A3B](https://huggingface.co/DarkKitsune/Qwen3.6-Candid-Coder-35B-A3B)                                 | 7,492                  | 7,492                 | 36.0B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B                                                              |
-| [jakeroxs/KAT-Coder-V2.5-Dev-35B-A3B-MTP-ABLITERATED-GGUF](https://huggingface.co/jakeroxs/KAT-Coder-V2.5-Dev-35B-A3B-MTP-ABLITERATED-GGUF) | 6,096                  | 1,182                 | 35.5B        |                    3 |   2026 | KridgeDookie/KAT-Coder-V2.5-Dev-35B-A3B-ABLITERATED-UNCENSORED-PHILADELPHIA-CLASS |
-| [DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF](https://huggingface.co/DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF)                   | 6,552                  | 6,139                 | 35.5B        |                    1 |   2026 | AllSpark-Research/CompoWorld                                                      |
+| model                                                                                                                                       | parameters   |   # languages tagged |   year | derivative of                                                                     |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------------------------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                   | 1.9T         |                  143 |   2025 | —                                                                                 |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                       | 856.0B       |                  143 |   2025 | —                                                                                 |
+| [DarkKitsune/Qwen3.6-Candid-Coder-35B-A3B](https://huggingface.co/DarkKitsune/Qwen3.6-Candid-Coder-35B-A3B)                                 | 36.0B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B                                                              |
+| [DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF](https://huggingface.co/DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF)                   | 35.5B        |                    1 |   2026 | AllSpark-Research/CompoWorld                                                      |
+| [jakeroxs/KAT-Coder-V2.5-Dev-35B-A3B-MTP-ABLITERATED-GGUF](https://huggingface.co/jakeroxs/KAT-Coder-V2.5-Dev-35B-A3B-MTP-ABLITERATED-GGUF) | 35.5B        |                    3 |   2026 | KridgeDookie/KAT-Coder-V2.5-Dev-35B-A3B-ABLITERATED-UNCENSORED-PHILADELPHIA-CLASS |
 
 ### Largest models tagged *only* for Georgian
 
-| model                                                                                                                                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                                                                     |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------------------------------------------------------------------|
-| [DarkKitsune/Qwen3.6-Candid-Coder-V1.1-35B-A3B](https://huggingface.co/DarkKitsune/Qwen3.6-Candid-Coder-V1.1-35B-A3B)                                                                               | 1,484                  | 1,484                 | 36.0B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B                                                              |
-| [DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF](https://huggingface.co/DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF)                                                                           | 6,552                  | 6,139                 | 35.5B        |                    1 |   2026 | AllSpark-Research/CompoWorld                                                      |
-| [hakunokina/KAT-Coder-V2.5-Dev-35B-A3B-ABLITERATED-UNCENSORED-PHILADELPHIA-CLASS-oQ8e](https://huggingface.co/hakunokina/KAT-Coder-V2.5-Dev-35B-A3B-ABLITERATED-UNCENSORED-PHILADELPHIA-CLASS-oQ8e) | 447                    | 447                   | 34.7B        |                    1 |   2026 | KridgeDookie/KAT-Coder-V2.5-Dev-35B-A3B-ABLITERATED-UNCENSORED-PHILADELPHIA-CLASS |
-| [majentik/KAT-Coder-V2.5-Dev-MLX-MXFP4](https://huggingface.co/majentik/KAT-Coder-V2.5-Dev-MLX-MXFP4)                                                                                               | 1,114                  | 121                   | 34.7B        |                    1 |   2026 | Qwen3.6-35B-A3B                                                                   |
-| [Wildstash/geo-compliance-gpt-oss-20b](https://huggingface.co/Wildstash/geo-compliance-gpt-oss-20b)                                                                                                 | 115                    | 14                    | 20.0B        |                    1 |   2025 | openai/gpt-oss-20b                                                                |
+| model                                                                                                                                                                                               | parameters   |   # languages tagged |   year | derivative of                                                                     |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------------------------------------------------------|
+| [DarkKitsune/Qwen3.6-Candid-Coder-35B-A3B](https://huggingface.co/DarkKitsune/Qwen3.6-Candid-Coder-35B-A3B)                                                                                         | 36.0B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B                                                              |
+| [DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF](https://huggingface.co/DarkKitsune/Qwen3.6-Qworus-35B-A3B-V1-APEX-GGUF)                                                                           | 35.5B        |                    1 |   2026 | AllSpark-Research/CompoWorld                                                      |
+| [hakunokina/KAT-Coder-V2.5-Dev-35B-A3B-ABLITERATED-UNCENSORED-PHILADELPHIA-CLASS-oQ8e](https://huggingface.co/hakunokina/KAT-Coder-V2.5-Dev-35B-A3B-ABLITERATED-UNCENSORED-PHILADELPHIA-CLASS-oQ8e) | 34.7B        |                    1 |   2026 | KridgeDookie/KAT-Coder-V2.5-Dev-35B-A3B-ABLITERATED-UNCENSORED-PHILADELPHIA-CLASS |
+| [majentik/KAT-Coder-V2.5-Dev-MLX-4bit](https://huggingface.co/majentik/KAT-Coder-V2.5-Dev-MLX-4bit)                                                                                                 | 34.7B        |                    1 |   2026 | Qwen3.6-35B-A3B                                                                   |
+| [Wildstash/geo-compliance-gpt-oss-20b](https://huggingface.co/Wildstash/geo-compliance-gpt-oss-20b)                                                                                                 | 20.0B        |                    1 |   2025 | openai/gpt-oss-20b                                                                |
 
 _55 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +201,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                          | dataset                                                                                                    | # test items   | Construction                                                     |
+| level                         | task                          | dataset                                                                                                    | # test items   | construction                                                     |
 |:------------------------------|:------------------------------|:-----------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge       | BLiMP                         | [Gallagher & Heyer (Georgian)](https://huggingface.co/datasets/DanielGallagherIRE/georgian-case-alignment) | 370            | Treebank-based (GLC UD) + native-speaker forms                   |
 | 1. Linguistic knowledge       | BLiMP                         | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                       | 204            | Treebank-based (automatic, UD + UniMorph)                        |
@@ -223,7 +240,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 90 of ~18,460 papers (0.49%) (rank 60 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 90 of ~18,498 papers (0.49%) (rank 62 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Georgian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 90):

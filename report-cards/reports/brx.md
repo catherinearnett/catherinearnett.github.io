@@ -12,9 +12,38 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `brx`
 
+**Language family:** **Sino-Tibetan** › Brahmaputran › Bodo-Garo › … › Bodo-Mech-Kachari ([Glottolog](https://glottolog.org/resource/languoid/id/bodo1269))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Severely endangered)
+
+**Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 1.5 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33223#P1098), 2011)
+
 **Official / recognised in:** India
 
 **Status:** Regional official language
+
+
+## What does Bodo look and sound like?
+
+**Written (Devanagari alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/bodo.htm):
+
+> गासै सुबुं आनो उदांयै मान सनमान आरो मोनथाय लाना जोनोम लायो। बिसोरो मोजां- गाज्रि सान्नो हानाय गोहो आरो सोलो दं। बिसोरो गावखौनो गाव बिदा फंबाय बायदि बाहाय लायनांगौ।
+
+**Written (Assamese alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/bodo.htm):
+
+> গাসৈ সুবুঙানৗ উদাংয়ৈ মান সনমান-আৰৗ মৗনথায় লানা জৗনৗম লায়ৗ। বিসৗৰৗ মৗজাং-গাজ্ৰি সান্নৗ হানায় গৗহৗ আৰৗ সৗলৗ দং। বিসৗৰৗ গাও খৌনৗ গাও বিদা ফংবায় বায়দি বাহায় লায়নাংগৌ।
+
+*Transliteration:* Gāswi subuṅg ānŵ udāṅgywi mān sanmān ārŵ mŵnthāy lānā jŵnŵm lāyŵ. Bisŵrā mŵzāṅg-gājri sānnŵ hānāy gŵhŵ ārŵ sŵlŵ doṅg. bisŵrŵ gāo khwunŵ gāo bidā phoṅgbāy bāydi bāhāy lāynāṅgŵu.
+
+**Written (Latin alphabet)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/bodo.htm):
+
+> Gaswi subung anw udangwi man sanman arw mwnthai lana jwnwm layw (jayw). Biswrw mwjang-gajri sannw hanai gwhw arw swlw dong. Biswrw gaokhwunw gao bida phongbai baidi bahai lainangwu.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. (Article 1 of the Universal Declaration of Human Rights) Details of provided by Wolfram Siegel (PDF), and Biswajit Mandal (biswajitmandal[dot]bm90[at]gmail[dot]com). Sample text translated by Man Pratim Ramchiary
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/brx/) has 1 video of Bodo speakers. Watch [Biki speaking Bodo](https://wikitongues.org/videos/biki_20190405_brx/).
 
 
 ## Training Data
@@ -23,29 +52,52 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                         |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                         |
-| FineWeb                | 3.3 MB (brx_Deva (0.00)); 1.8 MB removed by filtering. This is ~1/16,281,568 of English data and ranks 169 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                     |
+| Source                 | Amount                                                                                                                                        |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                      |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                      |
+| FineWeb                | 3.3 MB (brx_Deva 0); 1.8 MB removed by filtering. This is ~1/16,281,568 of English data and ranks 169 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                  |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                      |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                   |
+| UniMorph               | **None found**                                                                                                   |
+| Wikidata labels        | **None found**                                                                                                   |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **2 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
 - **Eval datasets (3):** FLORES (n=300), SmolSent (n=300), Tatoeba (n=11)
-- **Best model:** GlotLID — F1 0.952 (P 0.967, R 0.939, FPR 9.31e-06) averaged over 3 dataset(s). Runner-up: funlangid (F1 0.734).
+- **Best model:** GlotLID — F1 0.952 (P 0.967, R 0.939, FPR 9.17e-06) averaged over 3 dataset(s). Runner-up: funlangid (F1 0.736).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.967 |    0.939 | 0.952 | 0.000 | ✓                |
-| funlangid    |       0.713 |    0.781 | 0.734 | 0.000 | ✓                |
+| funlangid    |       0.716 |    0.781 | 0.736 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -67,6 +119,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Bodo and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Bodo has no UD treebank, UniMorph data or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
 
 
 ## What models are available for Bodo?
@@ -74,7 +127,7 @@ Language identification (LangID or LID) is a classification task that identifies
 We scraped all `text-generation` models on Hugging Face and analyzed the metadata. We counted how many models are explicitly tagged for Bodo (and whether the model is exclusively tagged for Bodo or tagged for multiple languages). We note which models are fine-tunes or have been derived from other (most likely massively multilingual) models.
 
 - **517** text-generation models are explicitly tagged for Bodo (393 original uploads, 124 fine-tunes/quantisations/merges).
-- **199** are tagged *only* for Bodo.
+- **194** are tagged *only* for Bodo.
 - Including tags inherited from base models: **537**.
 
 **Uploads by year**
@@ -86,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       78 | ████                 |
 |   2026 |      437 | ████████████████████ |
 
-### Most popular models tagged for Bodo
-
-| model                                                                                                                         | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                      |
-|:------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------------------|
-| [bharatgenai/Param2-17B-A2.4B-Thinking](https://huggingface.co/bharatgenai/Param2-17B-A2.4B-Thinking)                         | 166,640                | 9,968                 | 17.2B        |                   22 |   2026 | —                                  |
-| [apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8](https://huggingface.co/apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8) | 37,849                 | 687                   | 304.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731 |
-| [Carlosian/Qwen3.5-35B-A3B-Abliterated](https://huggingface.co/Carlosian/Qwen3.5-35B-A3B-Abliterated)                         | 12,112                 | 419                   | 34.7B        |                    2 |   2026 | Qwen/Qwen3.5-A3B-Base              |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                       | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                                  |
-| [eastlondoner/nanochat-wasm-fused-preview-01](https://huggingface.co/eastlondoner/nanochat-wasm-fused-preview-01)             | 4,495                  | 53                    | unknown      |                    2 |   2026 | —                                  |
-
-### Most popular models tagged *only* for Bodo
-
-| model                                                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                      |
-|:----------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------|
-| [apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8](https://huggingface.co/apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8)     | 37,849                 |                   687 | 304.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731 |
-| [treadon/granite-4.1-8b-Abliterated-AND-Disinhibited](https://huggingface.co/treadon/granite-4.1-8b-Abliterated-AND-Disinhibited) | 1,413                  |                    68 | 8.4B         |                    1 |   2026 | ibm-granite/granite-4.1-8b         |
-| [Ftm23/cbd-gemma2-4pair](https://huggingface.co/Ftm23/cbd-gemma2-4pair)                                                           | 995                    |                     5 | 2.6B         |                    1 |   2026 | google/gemma-2-2b                  |
-| [bedderautomation/qwen25-3b-abliterated](https://huggingface.co/bedderautomation/qwen25-3b-abliterated)                           | 992                    |                   111 | 3.1B         |                    1 |   2026 | Qwen/Qwen2.5-3B                    |
-| [treadon/granite-4.1-3b-Abliterated-AND-Disinhibited](https://huggingface.co/treadon/granite-4.1-3b-Abliterated-AND-Disinhibited) | 950                    |                    76 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.1-3b         |
-
 ### Largest models tagged for Bodo
 
-| model                                                                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                          |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------------------------------------------|
-| [rax4901/DeepSeek-V4-Flash-0731-Abliterated-FP8](https://huggingface.co/rax4901/DeepSeek-V4-Flash-0731-Abliterated-FP8)                     | 120                    |                   120 | 304.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731                     |
-| [marx161-cmd/geometric-abliteration-adapters-gpt-oss-120b](https://huggingface.co/marx161-cmd/geometric-abliteration-adapters-gpt-oss-120b) | 0                      |                     0 | 120.0B       |                    1 |   2026 | mshojaei77/gpt-oss-120b                                |
-| [prathmeshadsod/BondShift-Llama-3.3-70B-Instruct](https://huggingface.co/prathmeshadsod/BondShift-Llama-3.3-70B-Instruct)                   | 32                     |                     5 | 70.0B        |                    3 |   2026 | togethercomputer/Meta-Llama-3.3-70B-Instruct-Reference |
-| [Carlosian/Qwen3.5-35B-A3B-Abliterated](https://huggingface.co/Carlosian/Qwen3.5-35B-A3B-Abliterated)                                       | 12,112                 |                   419 | 34.7B        |                    2 |   2026 | Qwen/Qwen3.5-A3B-Base                                  |
-| [Reinforce-ai/sarvam-30b-Spiral](https://huggingface.co/Reinforce-ai/sarvam-30b-Spiral)                                                     | 2,419                  |                   123 | 30.0B        |                   20 |   2026 | sarvamai/sarvam-30b                                    |
+| model                                                                                                                                       | parameters   |   # languages tagged |   year | derivative of                                          |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------------------------------------|
+| [apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8](https://huggingface.co/apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8)               | 304.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731                     |
+| [marx161-cmd/geometric-abliteration-adapters-gpt-oss-120b](https://huggingface.co/marx161-cmd/geometric-abliteration-adapters-gpt-oss-120b) | 120.0B       |                    1 |   2026 | mshojaei77/gpt-oss-120b                                |
+| [prathmeshadsod/BondShift-Llama-3.3-70B-Instruct](https://huggingface.co/prathmeshadsod/BondShift-Llama-3.3-70B-Instruct)                   | 70.0B        |                    3 |   2026 | togethercomputer/Meta-Llama-3.3-70B-Instruct-Reference |
+| [Carlosian/Qwen3.5-35B-A3B-Abliterated](https://huggingface.co/Carlosian/Qwen3.5-35B-A3B-Abliterated)                                       | 34.7B        |                    2 |   2026 | Qwen/Qwen3.5-A3B-Base                                  |
+| [Reinforce-ai/sarvam-30b-Spiral](https://huggingface.co/Reinforce-ai/sarvam-30b-Spiral)                                                     | 30.0B        |                   20 |   2026 | sarvamai/sarvam-30b                                    |
 
 ### Largest models tagged *only* for Bodo
 
-| model                                                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                      |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------|
-| [apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8](https://huggingface.co/apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8)                 | 37,849                 |                   687 | 304.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731 |
-| [marx161-cmd/geometric-abliteration-adapters-gpt-oss-120b](https://huggingface.co/marx161-cmd/geometric-abliteration-adapters-gpt-oss-120b)   | 0                      |                     0 | 120.0B       |                    1 |   2026 | mshojaei77/gpt-oss-120b            |
-| [THU-KEG/SAEVerbalizer-27B](https://huggingface.co/THU-KEG/SAEVerbalizer-27B)                                                                 | 702                    |                    28 | 27.4B        |                    1 |   2026 | google/gemma-3-27b-it              |
-| [caiovicentino1/qwen36-27b-sae-multilayer](https://huggingface.co/caiovicentino1/qwen36-27b-sae-multilayer)                                   | 0                      |                     0 | 27.0B        |                    1 |   2026 | Qwen/Qwen3.6-27B                   |
-| [VecToRoTceV/Qwen3-14B-Global-Refusal-Direction-alpha-0.75](https://huggingface.co/VecToRoTceV/Qwen3-14B-Global-Refusal-Direction-alpha-0.75) | 201                    |                     3 | 14.8B        |                    1 |   2026 | Qwen/Qwen3-14B-Base                |
+| model                                                                                                                                         | parameters   |   # languages tagged |   year | derivative of                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------|
+| [apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8](https://huggingface.co/apetersson/DeepSeek-V4-Flash-0731-Abliterated-FP8)                 | 304.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731 |
+| [marx161-cmd/geometric-abliteration-adapters-gpt-oss-120b](https://huggingface.co/marx161-cmd/geometric-abliteration-adapters-gpt-oss-120b)   | 120.0B       |                    1 |   2026 | mshojaei77/gpt-oss-120b            |
+| [THU-KEG/SAEVerbalizer-27B](https://huggingface.co/THU-KEG/SAEVerbalizer-27B)                                                                 | 27.4B        |                    1 |   2026 | google/gemma-3-27b-it              |
+| [caiovicentino1/qwen36-27b-sae-multilayer](https://huggingface.co/caiovicentino1/qwen36-27b-sae-multilayer)                                   | 27.0B        |                    1 |   2026 | Qwen/Qwen3.6-27B                   |
+| [VecToRoTceV/Qwen3-14B-Global-Refusal-Direction-alpha-0.75](https://huggingface.co/VecToRoTceV/Qwen3-14B-Global-Refusal-Direction-alpha-0.75) | 14.8B        |                    1 |   2026 | Qwen/Qwen3-14B-Base                |
 
 _388 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -155,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -177,7 +210,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                              | # test items   | Construction                                                     |
+| level               | task                | dataset                                                                              | # test items   | construction                                                     |
 |:--------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | Machine translation | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
 | Machine translation | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | —              | Human translation (professional, from English Wikimedia sources) |
@@ -211,7 +244,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 45 of ~18,460 papers (0.24%) (rank 87 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 45 of ~18,498 papers (0.24%) (rank 91 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Bodo
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 45):

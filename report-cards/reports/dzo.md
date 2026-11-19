@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `dzo`
 
+**Language family:** **Sino-Tibetan** › Bodic › Bodish › … › Nuclear Dzongkhic ([Glottolog](https://glottolog.org/resource/languoid/id/dzon1239))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Tibt`
+
+**Speakers:** about 419,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 237,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33081#P1098), 2010)
 
 **Official / recognised in:** Bhutan
 
 **Status:** Official language
+
+
+## What does Dzongkha look and sound like?
+
+**Written:** no Omniglot page found for Dzongkha.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/dzo/) has 1 video of Dzongkha speakers. Watch [Kinley speaking Dzongkha](https://wikitongues.org/videos/kinley_20160816_dzo/).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 387 articles in dz.wikipedia (rank 155 of 161 in the set) — ~1/19,500 of English; 13 active users                                                                                                                         |
-| Common Crawl 2026      | 2,261 pages per crawl on average, which is 0.0001% of the crawl. This is ~1/394,298 of English data and ranks 105 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 30.9 MB (dzo_Tibt (0.03)); which is equivalent to ≈9.5 MB English data after byte-premium scaling; 37.2 MB removed by filtering. This is ~1/1,726,890 of English data and ranks 124 of 248 official languages in FineWeb. |
-| Goldfish training data | 56.9 MB (dzo_tibt) (rank 132 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                            |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 387 articles in dz.wikipedia; 13 active users. This is ~1/19,500 of English data and ranks 162 of 168 languages in the set in Wikipedia.                                                                          |
+| Common Crawl           | 2,261 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/394,298 of English data and ranks 105 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 30.9 MB (dzo_Tibt 30.0 MB), equivalent to ≈9.5 MB of English after byte-premium scaling; 37.2 MB removed by filtering. This is ~1/1,726,890 of English data and ranks 124 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 56.9 MB (dzo_Tibt 57.0 MB) (rank 132 of 166 in the set)                                                                                                                                                           |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                              |
+|:-----------------------|:-----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                           |
+| UniMorph               | **None found**                                                                           |
+| Wikidata labels        | 251,829 Wikidata items have a label in Dzongkha. (Wikidata codes (labels): dz (251,829)) |
+| Wordnets               | **None found**                                                                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), NTREX (n=300), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.936 (P 0.933, R 0.941, FPR 4.06e-04) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.863).
+- **Best model:** GlotLID — F1 0.936 (P 0.933, R 0.941, FPR 4.00e-04) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.863).
 
 **All models (averaged over datasets):**
 
@@ -48,10 +82,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | OpenLID-v2   |       0.791 |    0.951 | 0.863 | 0.002 | ✓                |
 | fasttext     |       1.000 |    0.783 | 0.856 | 0.000 | ✓                |
 | commonlingua |       0.888 |    0.831 | 0.850 | 0.001 | ✓                |
-| pyfranc      |       0.835 |    0.806 | 0.818 | 0.002 | ✓                |
+| pyfranc      |       0.835 |    0.806 | 0.818 | 0.001 | ✓                |
 | py3langid    |       0.497 |    0.986 | 0.661 | 0.009 | ✓                |
 | funlangid    |       0.731 |    0.389 | 0.501 | 0.001 | ✓                |
 | cld2         |       0.219 |    0.006 | 0.011 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -70,6 +106,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Dzongkha and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Dzongkha has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Dzongkha?
@@ -90,45 +127,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      216 | ███████████          |
 |   2026 |      388 | ████████████████████ |
 
-### Most popular models tagged for Dzongkha
-
-| model                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of           |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------|
-| [GroNLP/gpt2-small-dutch](https://huggingface.co/GroNLP/gpt2-small-dutch)                                 | 345,920                | 18,325                | 129.1M       |                    2 |   2022 | —                       |
-| [GroNLP/gpt2-small-italian](https://huggingface.co/GroNLP/gpt2-small-italian)                             | 235,364                | 1,521                 | 121.5M       |                    2 |   2022 | —                       |
-| [lemuralabs/Llama-3.2-3B-Uncensored-GGUF](https://huggingface.co/lemuralabs/Llama-3.2-3B-Uncensored-GGUF) | 119,721                | 12,776                | 3.2B         |                    1 |   2024 | meta-llama/Llama-3.2-3B |
-| [ystemsrx/Qwen2.5-Sex](https://huggingface.co/ystemsrx/Qwen2.5-Sex)                                       | 100,429                | 3,444                 | 1.5B         |                    2 |   2024 | Qwen/Qwen2.5-1.5B       |
-| [ruv/ruvltra-claude-code](https://huggingface.co/ruv/ruvltra-claude-code)                                 | 56,890                 | 1,461                 | 494.0M       |                    4 |   2026 | —                       |
-
-### Most popular models tagged *only* for Dzongkha
-
-| model                                                                                                                                         | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of               |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------------|
-| [lemuralabs/Llama-3.2-3B-Uncensored-GGUF](https://huggingface.co/lemuralabs/Llama-3.2-3B-Uncensored-GGUF)                                     | 119,721                | 12,776                | 3.2B         |                    1 |   2024 | meta-llama/Llama-3.2-3B     |
-| [MaziyarPanahi/Nous-Hermes-2-Mixtral-8x7B-SFT-Wikihow-GGUF](https://huggingface.co/MaziyarPanahi/Nous-Hermes-2-Mixtral-8x7B-SFT-Wikihow-GGUF) | 16,813                 | 1,239                 | 46.7B        |                    1 |   2024 | mistralai/Mixtral-8x7B-v0.1 |
-| [Technoculture/Medchator-2x7b](https://huggingface.co/Technoculture/Medchator-2x7b)                                                           | 12,082                 | 79                    | 11.1B        |                    1 |   2024 | —                           |
-| [Aicraftar/Tharo.G-Eco](https://huggingface.co/Aicraftar/Tharo.G-Eco)                                                                         | 10,104                 | 85                    | 14.7B        |                    1 |   2025 | hexgrad/Kokoro-82M          |
-| [amazon/ALoDLM-8B](https://huggingface.co/amazon/ALoDLM-8B)                                                                                   | 2,631                  | 2,021                 | 8.2B         |                    1 |   2026 | —                           |
-
 ### Largest models tagged for Dzongkha
 
-| model                                                                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                          |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-------------------------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                           |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                               |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                                                      |
-| [narendarcodes/adaption-gpt-oss-120b-telugu-instruct](https://huggingface.co/narendarcodes/adaption-gpt-oss-120b-telugu-instruct)                   |                    117 |                    16 | 120.0B       |                    2 |   2026 | togethercomputer/gpt-oss-120b-bf16                     |
-| [morningstarxcdcode/adaption-medical-reasoning-sft-120b-model](https://huggingface.co/morningstarxcdcode/adaption-medical-reasoning-sft-120b-model) |                     46 |                     4 | 120.0B       |                    2 |   2026 | togethercomputer/Meta-Llama-3.3-70B-Instruct-Reference |
-| [narendarcodes/adaption-sec-financial-arithmetic-109b](https://huggingface.co/narendarcodes/adaption-sec-financial-arithmetic-109b)                 |                     75 |                     9 | 109.0B       |                    2 |   2026 | meta-llama/Llama-4-Scout-17B-16E-Instruct              |
+| model                                                                                                                                               | parameters   |   # languages tagged |   year | derivative of                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                           | 1.9T         |                  143 |   2025 | —                                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                               | 856.0B       |                  143 |   2025 | —                                                      |
+| [morningstarxcdcode/adaption-medical-reasoning-sft-120b-model](https://huggingface.co/morningstarxcdcode/adaption-medical-reasoning-sft-120b-model) | 120.0B       |                    2 |   2026 | togethercomputer/Meta-Llama-3.3-70B-Instruct-Reference |
+| [narendarcodes/adaption-gpt-oss-120b-telugu-instruct](https://huggingface.co/narendarcodes/adaption-gpt-oss-120b-telugu-instruct)                   | 120.0B       |                    2 |   2026 | togethercomputer/gpt-oss-120b-bf16                     |
+| [narendarcodes/adaption-contract-clause-analyzer-109b](https://huggingface.co/narendarcodes/adaption-contract-clause-analyzer-109b)                 | 109.0B       |                    2 |   2026 | meta-llama/Llama-4-Scout-17B-16E-Instruct              |
 
 ### Largest models tagged *only* for Dzongkha
 
-| model                                                                                                                             |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                               |
-|:----------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------------------------------|
-| [jay2219/Q-Route-70B](https://huggingface.co/jay2219/Q-Route-70B)                                                                 |                     34 |                     6 | 70.0B        |                    1 |   2026 | meta-llama/Llama-3.3-70B-Instruct-Reference |
-| [MaziyarPanahi/Nous-Hermes-2-Mixtral-8x7B-SFT-Alpaca](https://huggingface.co/MaziyarPanahi/Nous-Hermes-2-Mixtral-8x7B-SFT-Alpaca) |                    552 |                    12 | 56.0B        |                    1 |   2024 | mistralai/Mixtral-8x7B-v0.1                 |
-| [hassanshka/Biomni-R0-32B-LoRA-Dequantized-Rank256](https://huggingface.co/hassanshka/Biomni-R0-32B-LoRA-Dequantized-Rank256)     |                     76 |                    11 | 32.0B        |                    1 |   2026 | Qwen/Qwen3-32B                              |
-| [forkjoin-ai/buleyean-qwen2.5-32b-builder](https://huggingface.co/forkjoin-ai/buleyean-qwen2.5-32b-builder)                       |                      0 |                     0 | 32.0B        |                    1 |   2026 | Qwen/Qwen2.5-32B                            |
-| [Taimwe/securecoder-30b-pro](https://huggingface.co/Taimwe/securecoder-30b-pro)                                                   |                     39 |                    39 | 30.0B        |                    1 |   2026 | Qwen/Qwen3-Coder-30B-A3B-Instruct           |
+| model                                                                                                                             | parameters   |   # languages tagged |   year | derivative of                               |
+|:----------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------------------|
+| [jay2219/Q-Route-70B](https://huggingface.co/jay2219/Q-Route-70B)                                                                 | 70.0B        |                    1 |   2026 | meta-llama/Llama-3.3-70B-Instruct-Reference |
+| [MaziyarPanahi/Nous-Hermes-2-Mixtral-8x7B-SFT-Alpaca](https://huggingface.co/MaziyarPanahi/Nous-Hermes-2-Mixtral-8x7B-SFT-Alpaca) | 56.0B        |                    1 |   2024 | mistralai/Mixtral-8x7B-v0.1                 |
+| [forkjoin-ai/buleyean-qwen2.5-32b-anxious](https://huggingface.co/forkjoin-ai/buleyean-qwen2.5-32b-anxious)                       | 32.0B        |                    1 |   2026 | Qwen/Qwen2.5-32B                            |
+| [hassanshka/Biomni-R0-32B-LoRA-Dequantized-Rank256](https://huggingface.co/hassanshka/Biomni-R0-32B-LoRA-Dequantized-Rank256)     | 32.0B        |                    1 |   2026 | Qwen/Qwen3-32B                              |
+| [Taimwe/securecoder-30b-pro](https://huggingface.co/Taimwe/securecoder-30b-pro)                                                   | 30.0B        |                    1 |   2026 | Qwen/Qwen3-Coder-30B-A3B-Instruct           |
 
 _397 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -159,15 +176,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -181,7 +198,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                    | # test items   | Construction                                                     |
+| level                    | task                | dataset                                                                    | # test items   | construction                                                     |
 |:-------------------------|:--------------------|:---------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 2,679          | Synthetic (LLM-generated) on native Wikipedia                    |
 | Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                | 854            | Human translation via English pivot                              |
@@ -215,7 +232,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 13 of ~18,460 papers (0.07%) (rank 132 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 13 of ~18,498 papers (0.07%) (rank 140 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Dzongkha
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 13):

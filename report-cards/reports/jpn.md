@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `jpn`
 
+**Language family:** **Japonic** › Japanesic › Honshu › Japan-Taiwan Japanese ([Glottolog](https://glottolog.org/resource/languoid/id/nucl1643))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Jpan`
+
+**Speakers:** about 117.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 128.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q5287#P1098), 2019)
 
 **Official / recognised in:** Japan
 
 **Status:** De facto official language
+
+
+## What does Japanese look and sound like?
+
+**Written:** Omniglot has [a page on Japanese](https://www.omniglot.com/writing/japanese.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/jpn/) has 7 videos of Japanese speakers. Watch [See all](https://wikitongues.org/videos/?language=jpn).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                      |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,526,339 articles in ja.wikipedia (rank 11 of 161 in the set) — ~1/5 of English; 23,391 active users                                                                                                                       |
-| Common Crawl 2026      | 116,145,534 pages per crawl on average, which is 5.3887% of the crawl. This is ~1/8 of English data and ranks 4 of 113 official languages in Common Crawl.                                                                  |
-| FineWeb                | 716.70 GB (jpn_Jpan (716.70)); which is equivalent to ≈542.14 GB English data after byte-premium scaling; 1,292.06 GB removed by filtering. This is ~1/75 of English data and ranks 5 of 248 official languages in FineWeb. |
-| Goldfish training data | 13.59 GB (jpn_jpan) (rank 2 of 166 in the set)                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                              |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,526,339 articles in ja.wikipedia; 23,391 active users. This is ~1/5 of English data and ranks 11 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 116,145,534 pages per crawl on average, which is 5.3887% of the crawl (2026). This is ~1/8 of English data and ranks 4 of 113 languages in the set in Common Crawl.                                                 |
+| FineWeb                | 716.70 GB (jpn_Jpan 716.70 GB), equivalent to ≈542.14 GB of English after byte-premium scaling; 1,292.06 GB removed by filtering. This is ~1/75 of English data and ranks 5 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 13.59 GB (jpn_Jpan 13.59 GB) (rank 2 of 166 in the set)                                                                                                                                                             |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 6 treebanks, 132,418 sentences / 2,645,130 tokens in total: [UD_Japanese-BCCWJ](https://github.com/UniversalDependencies/UD_Japanese-BCCWJ) (57,109 sentences), [UD_Japanese-BCCWJLUW](https://github.com/UniversalDependencies/UD_Japanese-BCCWJLUW) (57,109 sentences), [UD_Japanese-GSD](https://github.com/UniversalDependencies/UD_Japanese-GSD) (8,100 sentences), [UD_Japanese-GSDLUW](https://github.com/UniversalDependencies/UD_Japanese-GSDLUW) (8,100 sentences), [UD_Japanese-PUD](https://github.com/UniversalDependencies/UD_Japanese-PUD) (1,000 sentences), [UD_Japanese-PUDLUW](https://github.com/UniversalDependencies/UD_Japanese-PUDLUW) (1,000 sentences). All have POS tags, dependency syntax, morphological features. |
+| UniMorph               | 107 lemmas, 12,687 inflected forms ([unimorph/jpn](https://github.com/unimorph/jpn))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Wikidata labels        | 4,065,075 Wikidata items have a label in Japanese. (Wikidata codes (labels): ja (4,065,075))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Wordnets               | [Japanese Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-ja-1.4.tar.xz): 57,184 synsets, 94,002 words, 158,069 senses; licence: wordnet; [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD; [Multi-Lingual Semantic Network project](http://dcook.org/mlsn/about/) (size not listed); licence: MIT License (equivalent to the BSD and LGPL).                                                                                                                                                                                                                                                                                                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                   |
+|:-----------------------------------|:--------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                       |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([jpn1965](https://ebible.org/details.php?id=jpn1965), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                    |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=143), Wikipedia (n=300)
-- **Best model:** py3langid — F1 0.995 (P 0.996, R 0.994, FPR 3.84e-05) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.992).
+- **Best model:** py3langid — F1 0.995 (P 0.996, R 0.994, FPR 3.74e-05) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.992).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -50,10 +84,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.991 |    0.992 | 0.992 | 0.000 | ✓                |
 | pyfranc      |       0.998 |    0.967 | 0.982 | 0.000 | ✗                |
 | commonlingua |       0.965 |    0.994 | 0.979 | 0.001 | ✓                |
-| funlangid    |       0.962 |    0.991 | 0.976 | 0.000 | ✓                |
 | cld2         |       0.959 |    0.996 | 0.975 | 0.000 | ✓                |
+| funlangid    |       0.959 |    0.991 | 0.974 | 0.001 | ✓                |
 | OpenLID-v2   |       0.941 |    0.993 | 0.965 | 0.001 | ✓                |
 | fasttext     |       0.914 |    0.905 | 0.897 | 0.002 | ✓                |
+| cld3         |       0.640 |    0.984 | 0.749 | 0.015 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (py3langid) by dataset**:
 
@@ -62,9 +98,9 @@ Language identification (LangID or LID) is a classification task that identifies
 | CommonLID | 300 |       1.000 |    0.967 | 0.983 |
 | Wikipedia | 300 |       0.977 |    1.000 | 0.988 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  | 143 |       1.000 |    1.000 | 1.000 |
-| Tatoeba   | 300 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| Tatoeba   | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  | 143 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -81,7 +117,7 @@ Language identification (LangID or LID) is a classification task that identifies
 We scraped all `text-generation` models on Hugging Face and analyzed the metadata. We counted how many models are explicitly tagged for Japanese (and whether the model is exclusively tagged for Japanese or tagged for multiple languages). We note which models are fine-tunes or have been derived from other (most likely massively multilingual) models.
 
 - **7,448** text-generation models are explicitly tagged for Japanese (1,940 original uploads, 5,508 fine-tunes/quantisations/merges).
-- **1,080** are tagged *only* for Japanese.
+- **1,079** are tagged *only* for Japanese.
 - Including tags inherited from base models: **16,414**.
 
 **Uploads by year**
@@ -94,45 +130,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |     2019 | ████████████         |
 |   2026 |     3335 | ████████████████████ |
 
-### Most popular models tagged for Japanese
-
-| model                                                                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16)         | 11,885,844             | 1,586,743             | 31.6B        |                    6 |   2025 | —               |
-| [nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4) | 10,754,911             | 445,133               | 67.2B        |                    7 |   2026 | —               |
-| [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct)                                   | 9,633,401              | 331,860               | 3.8B         |                   23 |   2025 | —               |
-| [nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16)   | 7,708,737              | 1,042,412             | 123.6B       |                    7 |   2026 | —               |
-| [rinna/japanese-gpt-neox-small](https://huggingface.co/rinna/japanese-gpt-neox-small)                                   | 5,106,466              | 519,734               | 203.6M       |                    1 |   2022 | —               |
-
-### Most popular models tagged *only* for Japanese
-
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [rinna/japanese-gpt-neox-small](https://huggingface.co/rinna/japanese-gpt-neox-small) | 5,106,466              | 519,734               | 203.6M       |                    1 |   2022 | —               |
-| [cyberagent/open-calm-3b](https://huggingface.co/cyberagent/open-calm-3b)             | 1,434,723              | 655                   | 3.0B         |                    1 |   2023 | —               |
-| [abeja/gpt-neox-japanese-2.7b](https://huggingface.co/abeja/gpt-neox-japanese-2.7b)   | 995,347                | 3,332                 | 2.7B         |                    1 |   2022 | —               |
-| [rinna/japanese-gpt2-medium](https://huggingface.co/rinna/japanese-gpt2-medium)       | 807,021                | 5,004                 | 361.3M       |                    1 |   2022 | —               |
-| [rinna/japanese-gpt-1b](https://huggingface.co/rinna/japanese-gpt-1b)                 | 785,767                | 1,533                 | 1.3B         |                    1 |   2022 | —               |
-
 ### Largest models tagged for Japanese
 
-| model                                                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                     |
-|:------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------------------|
-| [GrEarl/Kimi-K3-Abliterated-V1-Q2_K-GGUF](https://huggingface.co/GrEarl/Kimi-K3-Abliterated-V1-Q2_K-GGUF)   | 291                    | 72                    | 2.8T         |                    3 |   2026 | Uniboshi/Kimi-K3-Abliterated-V1   |
-| [hellohazime/Kimi-K3-REAP640ja-IQ1_S-GGUF](https://huggingface.co/hellohazime/Kimi-K3-REAP640ja-IQ1_S-GGUF) | 766                    | 40                    | 2.0T         |                    2 |   2026 | unsloth/Kimi-K3-GGUF              |
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                   | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                 |
-| [sakamakismile/Nex-N2.5-Max-GGUF](https://huggingface.co/sakamakismile/Nex-N2.5-Max-GGUF)                   | 292                    | 21                    | 1.6T         |                    3 |   2026 | nex-agi/Nex-N2.5-Max              |
-| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF)   | 1,316                  | 1,316                 | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
+| model                                                                                                       | parameters   |   # languages tagged |   year | derivative of                     |
+|:------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------|
+| [GrEarl/Kimi-K3-Abliterated-V1-Q2_K-GGUF](https://huggingface.co/GrEarl/Kimi-K3-Abliterated-V1-Q2_K-GGUF)   | 2.8T         |                    3 |   2026 | Uniboshi/Kimi-K3-Abliterated-V1   |
+| [hellohazime/Kimi-K3-REAP640ja-IQ1_S-GGUF](https://huggingface.co/hellohazime/Kimi-K3-REAP640ja-IQ1_S-GGUF) | 2.0T         |                    2 |   2026 | unsloth/Kimi-K3-GGUF              |
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                   | 1.9T         |                  143 |   2025 | —                                 |
+| [sakamakismile/Nex-N2.5-Max-GGUF](https://huggingface.co/sakamakismile/Nex-N2.5-Max-GGUF)                   | 1.6T         |                    3 |   2026 | nex-agi/Nex-N2.5-Max              |
+| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF)   | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
 
 ### Largest models tagged *only* for Japanese
 
-| model                                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                      |
-|:--------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------|
-| [mmnga-o/Kimi-K3-REAP50-UD-gguf](https://huggingface.co/mmnga-o/Kimi-K3-REAP50-UD-gguf)                                         |                    728 |                    39 | 1.4T         |                    1 |   2026 | unsloth/Kimi-K3-GGUF               |
-| [weblab-LLM-M/Weblab-MedLLM-GLM-4.7](https://huggingface.co/weblab-LLM-M/Weblab-MedLLM-GLM-4.7)                                 |                    115 |                    25 | 352.8B       |                    1 |   2026 | —                                  |
-| [weblab-llm-competition-2025-bridge/RAMEN-SHIO-235B](https://huggingface.co/weblab-llm-competition-2025-bridge/RAMEN-SHIO-235B) |                    176 |                    13 | 235.1B       |                    1 |   2025 | Qwen/Qwen3-235B-A22B-Thinking-2507 |
-| [team-suzuki/Qwen3-235B-A22B_SFT_004_origin_1](https://huggingface.co/team-suzuki/Qwen3-235B-A22B_SFT_004_origin_1)             |                    188 |                    10 | 235.1B       |                    1 |   2025 | Qwen/Qwen3-235B-A22B               |
-| [weblab-LLM-M/Weblab-MedLLM-Qwen3-235B-Instruct](https://huggingface.co/weblab-LLM-M/Weblab-MedLLM-Qwen3-235B-Instruct)         |                     16 |                     8 | 235.1B       |                    1 |   2026 | —                                  |
+| model                                                                                                                                                                           | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [mmnga-o/Kimi-K3-REAP50-UD-gguf](https://huggingface.co/mmnga-o/Kimi-K3-REAP50-UD-gguf)                                                                                         | 1.4T         |                    1 |   2026 | unsloth/Kimi-K3-GGUF |
+| [weblab-LLM-M/Weblab-MedLLM-GLM-4.7](https://huggingface.co/weblab-LLM-M/Weblab-MedLLM-GLM-4.7)                                                                                 | 352.8B       |                    1 |   2026 | —                    |
+| [weblab-LLM-M/Weblab-MedLLM-Qwen3-235B-Instruct](https://huggingface.co/weblab-LLM-M/Weblab-MedLLM-Qwen3-235B-Instruct)                                                         | 235.1B       |                    1 |   2026 | —                    |
+| [weblab-LLM-M/Weblab-MedLLM-Qwen3-235B-Thinking](https://huggingface.co/weblab-LLM-M/Weblab-MedLLM-Qwen3-235B-Thinking)                                                         | 235.1B       |                    1 |   2026 | —                    |
+| [weblab-LLM-M/medicalpj-Qwen3-235B-A22B-Instruct-exp10-Base-Instruction-dft](https://huggingface.co/weblab-LLM-M/medicalpj-Qwen3-235B-A22B-Instruct-exp10-Base-Instruction-dft) | 235.1B       |                    1 |   2026 | —                    |
 
 _546 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +168,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**34** benchmark datasets in the survey include Japanese.
+**33** benchmark datasets in the survey include Japanese.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [11]    \
+                 /   [10]   \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [5]        \
+         /      reasoning [5]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -185,7 +201,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                                | dataset                                                                                             | # test items   | Construction                                                        |
+| level                                  | task                                | dataset                                                                                             | # test items   | construction                                                        |
 |:---------------------------------------|:------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                               | [JBLiMP](https://github.com/osekilab/JBLiMP)                                                        | 331            | Existing material (extracted from linguistics journals)             |
 | 2. Pragmatics, discourse & coreference | Figurative language & idioms        | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom)                              | —              | Native (curated by native speakers; generated contexts + MCQs)      |
@@ -209,7 +225,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ             | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                       | 11,829         | LLM translation + expert review                                     |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ             | [MMMLU (OpenAI)](https://huggingface.co/datasets/openai/MMMLU)                                      | 14,042         | Human translation (professional)                                    |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ             | [NOVA-63](https://huggingface.co/datasets/zjy1298/NOVA-63)                                          | —              | Native (local exams/publications)                                   |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [MKQA](https://github.com/apple/ml-mkqa)                                                            | 10,000         | Human translation                                                   |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                            |
@@ -246,22 +261,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1,111 of ~18,460 papers (6.01%) (rank 6 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1,116 of ~18,498 papers (6.03%) (rank 6 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Japanese
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 1,111):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 1,116):
 
-| title                                                                                                                                          | paper                                                                      |
-|:-----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| Somatic in the East, Psychological in the West?: A Clinically-Grounded Evaluation of Cross-Cultural Depression Symptoms in LLMs                | [2026.c3nlp-1.2](https://aclanthology.org/2026.c3nlp-1.2/)                 |
-| A Method for Learning Large-Scale Computational Construction Grammars from Semantically Annotated Corpora                                      | [2026.conll-main.13](https://aclanthology.org/2026.conll-main.13/)         |
-| Portuguese-IFEval: Instruction-Following Evaluation in Portuguese                                                                              | [2026.emnlp-main.742](https://aclanthology.org/2026.emnlp-main.742/)       |
-| Subjective and Hierarchical Annotation of Text Difficulty in Japanese                                                                          | [2026.emnlp-main.926](https://aclanthology.org/2026.emnlp-main.926/)       |
-| ILSIC: Corpora for Identifying Indian Legal Statutes from Queries by Laymen                                                                    | [2026.findings-eacl.354](https://aclanthology.org/2026.findings-eacl.354/) |
-| Investigating the Automatic Translation of Korean Honorifics                                                                                   | [2026.iaai-1.3](https://aclanthology.org/2026.iaai-1.3/)                   |
-| Evaluating Discriminability of Vision-Language Models                                                                                          | [2026.lrec-1.736](https://aclanthology.org/2026.lrec-1.736/)               |
-| PAINT: A Framework for Multilingual Pain Representation from Medical Licensing Exams to Real-World Clinical Texts                              | [2026.mrl-1.51](https://aclanthology.org/2026.mrl-1.51/)                   |
-| Scmhl5 at SemEval-2026 Task 3: Uncertainty-Aware Adversarial Learning for Embedding Enhancement in Dimensional Aspect-Based Sentiment Analysis | [2026.semeval-1.222](https://aclanthology.org/2026.semeval-1.222/)         |
-| Quantifying Social Sentiment in Hostels Using A Domain-Specific Transformer Pipeline                                                           | [2026.wassa-1.3](https://aclanthology.org/2026.wassa-1.3/)                 |
+| title                                                                                                                                     | paper                                                                      |
+|:------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| Soft Prompts for Adapting LLMs to Cultural Commonsense Knowledge                                                                          | [2026.c3nlp-1.6](https://aclanthology.org/2026.c3nlp-1.6/)                 |
+| Multi-Agent Debate for Machine Translation: A Case Study on English-Japanese Translation                                                  | [2026.eamt-1.16](https://aclanthology.org/2026.eamt-1.16/)                 |
+| MM-COMPLIANCE: A Multilingual Multimodal Dataset for Sustainability Compliance Auditing                                                   | [2026.emnlp-main.802](https://aclanthology.org/2026.emnlp-main.802/)       |
+| The Overlooked Role of Graded Relevance Thresholds in Multilingual Dense Retrieval                                                        | [2026.findings-acl.382](https://aclanthology.org/2026.findings-acl.382/)   |
+| ILSIC: Corpora for Identifying Indian Legal Statutes from Queries by Laymen                                                               | [2026.findings-eacl.354](https://aclanthology.org/2026.findings-eacl.354/) |
+| Adapting Pretrained Models to Endangered Languages in Japan: A Comparative Study on Ryukyuan and Ainu Speech Recognition                  | [2026.lrec-1.112](https://aclanthology.org/2026.lrec-1.112/)               |
+| Revisiting the Effectiveness of Word-level Tokenization in Language Model Pretraining                                                     | [2026.mrl-1.44](https://aclanthology.org/2026.mrl-1.44/)                   |
+| Borrowed Words, Borrowed Minds: Probing LLM Choice of English-Derived Loanwords in Japanese                                               | [2026.nlpcss-1.2](https://aclanthology.org/2026.nlpcss-1.2/)               |
+| Takoyaki at SemEval-2026 Task 3: Ensembling LLM Predictions using Demonstration Retrieval for Dimensional Aspect-based Sentiment Analysis | [2026.semeval-1.219](https://aclanthology.org/2026.semeval-1.219/)         |
+| Do Multilingual Encoders Produce Language-Consistent Semantic IDs?                                                                        | [2026.winlp-main.12](https://aclanthology.org/2026.winlp-main.12/)         |
 
 {% endraw %}

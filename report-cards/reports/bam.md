@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `bam`
 
-**Writing systems:** `Latn`
+**Language family:** **Mande** › Western Mande › Manding-Kpelle › … › East Manding ([Glottolog](https://glottolog.org/resource/languoid/id/bamb1269))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
+**Speakers:** about 10.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 4.2 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33243#P1098), 2012)
 
 **Official / recognised in:** Mali
 
 **Status:** Official language
+
+
+## What does Bambara look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/bambara.htm):
+
+> Hadamaden bɛɛ danmakɛɲɛnen bɛ bange,
+> danbe ni josira la. Hakili ni taasi b'u bɛɛ la, wa u ka
+> kan ka badenɲasira de waleya u ni ɲɔgɔn cɛ.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/bam/) has 1 video of Bambara speakers. Watch [Hugues speaking Bamanankan](https://wikitongues.org/videos/hugues_20250409_bam/).
 
 
 ## Training Data
@@ -25,32 +44,55 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
+| Source                 | Amount                                                                                                                                                                                                      |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 930 articles in bm.wikipedia; 13 active users. This is ~1/8,114 of English data and ranks 156 of 168 languages in the set in Wikipedia.                                                                     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                    |
+| FineWeb                | 2.1 MB (bam_Latn 0), equivalent to ≈1.7 MB of English after byte-premium scaling; 97.1 MB removed by filtering. This is ~1/25,690,060 of English data and ranks 184 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 16.9 MB (bam_Latn 17.0 MB) (rank 156 of 166 in the set)                                                                                                                                                     |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                               |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 930 articles in bm.wikipedia (rank 149 of 161 in the set) — ~1/8,114 of English; 13 active users                                                                                                                          |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                  |
-| FineWeb                | 2.1 MB (bam_Latn (0.00)); which is equivalent to ≈1.7 MB English data after byte-premium scaling; 97.1 MB removed by filtering. This is ~1/25,690,060 of English data and ranks 184 of 248 official languages in FineWeb. |
-| Goldfish training data | 16.9 MB (bam_latn) (rank 156 of 166 in the set)                                                                                                                                                                           |
+| Universal Dependencies | 1 treebank, 1,026 sentences / 13,823 tokens in total: [UD_Bambara-CRB](https://github.com/UniversalDependencies/UD_Bambara-CRB) (1,026 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                            |
+| Wikidata labels        | 617,420 Wikidata items have a label in Bambara. (Wikidata codes (labels): bm (617,420))                                                                                                                                   |
+| Wordnets               | **None found**                                                                                                                                                                                                            |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **6 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid, pyfranc.
+- **7 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), SmolSent (n=300), Tatoeba (n=63), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.824 (P 0.819, R 0.864, FPR 2.05e-03) averaged over 5 dataset(s). Runner-up: pyfranc (F1 0.685).
+- **Best model:** GlotLID — F1 0.824 (P 0.819, R 0.864, FPR 1.92e-03) averaged over 5 dataset(s). Runner-up: pyfranc (F1 0.681).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.819 |    0.864 | 0.824 | 0.002 | ✓                |
-| pyfranc      |       0.661 |    0.730 | 0.685 | 0.007 | ✓                |
-| OpenLID-v2   |       0.596 |    0.851 | 0.664 | 0.009 | ✓                |
-| funlangid    |       0.661 |    0.647 | 0.620 | 0.005 | ✓                |
+| pyfranc      |       0.652 |    0.730 | 0.681 | 0.007 | ✓                |
+| OpenLID-v2   |       0.594 |    0.851 | 0.663 | 0.009 | ✓                |
+| funlangid    |       0.656 |    0.647 | 0.618 | 0.005 | ✓                |
 | fasttext     |       0.605 |    0.746 | 0.582 | 0.011 | ✓                |
-| commonlingua |       0.491 |    0.846 | 0.560 | 0.020 | ✓                |
+| commonlingua |       0.425 |    0.846 | 0.510 | 0.021 | ✓                |
+| AfroLID      |       0.056 |    0.004 | 0.007 | 0.010 | ✓                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -71,6 +113,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Bambara and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Bambara has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Bambara?
@@ -91,42 +134,22 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       28 | ███████████████████  |
 |   2026 |       21 | ██████████████       |
 
-### Most popular models tagged for Bambara
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Bambara
-
-| model                                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of             |
-|:----------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------------|
-| [goldfish-models/bam_latn_5mb](https://huggingface.co/goldfish-models/bam_latn_5mb)                                   |                    424 |                    22 | unknown      |                    1 |   2024 | —                         |
-| [goldfish-models/bam_latn_full](https://huggingface.co/goldfish-models/bam_latn_full)                                 |                    406 |                    17 | unknown      |                    1 |   2024 | —                         |
-| [goldfish-models/bam_latn_10mb](https://huggingface.co/goldfish-models/bam_latn_10mb)                                 |                    375 |                    12 | unknown      |                    1 |   2024 | —                         |
-| [MALIBA-AI/maliba-llm](https://huggingface.co/MALIBA-AI/maliba-llm)                                                   |                    263 |                     0 | 5.4B         |                    1 |   2025 | google/gemma-3n-E2B-it    |
-| [djelia/bm-mistral-7b-transcription-correction](https://huggingface.co/djelia/bm-mistral-7b-transcription-correction) |                      1 |                     0 | 7.2B         |                    1 |   2025 | mistralai/Mistral-7B-v0.3 |
-
 ### Largest models tagged for Bambara
 
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      | 0                     | 856.0B       |                  140 |   2025 | —               |
-| [bigscience/bloomz](https://huggingface.co/bigscience/bloomz)                         | 163,618                | 983                   | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloomz-p3](https://huggingface.co/bigscience/bloomz-p3)                   | 8,063                  | 187                   | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)                           | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Bambara
 
-| model                                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of             |
-|:----------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------------|
-| [djelia/bm-mistral-7b-transcription-correction](https://huggingface.co/djelia/bm-mistral-7b-transcription-correction) |                      1 |                     0 | 7.2B         |                    1 |   2025 | mistralai/Mistral-7B-v0.3 |
-| [MALIBA-AI/maliba-llm](https://huggingface.co/MALIBA-AI/maliba-llm)                                                   |                    263 |                     0 | 5.4B         |                    1 |   2025 | google/gemma-3n-E2B-it    |
+| model                                                                         | parameters   |   # languages tagged |   year | derivative of             |
+|:------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------|
+| [djelia/bm-mistral-7b-base](https://huggingface.co/djelia/bm-mistral-7b-base) | 7.2B         |                    1 |   2025 | mistralai/Mistral-7B-v0.3 |
+| [MALIBA-AI/maliba-llm](https://huggingface.co/MALIBA-AI/maliba-llm)           | 5.4B         |                    1 |   2025 | google/gemma-3n-E2B-it    |
 
 _24 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -157,15 +180,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -179,7 +202,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                                           | # test items   | Construction                                                        |
+| level                                  | task                          | dataset                                                                                                           | # test items   | construction                                                        |
 |:---------------------------------------|:------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 2. Pragmatics, discourse & coreference | WinoGrande                    | [WinoGrande-afr (Alhanai et al.)](https://huggingface.co/datasets/Institute-Disease-Modeling/mmlu-winogrande-afr) | —              | Human translation                                                   |
 | 3. Commonsense reasoning               | PIQA                          | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)               | 100            | Native                                                              |
@@ -218,7 +241,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 43 of ~18,460 papers (0.23%) (rank 92 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 43 of ~18,498 papers (0.23%) (rank 96 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Bambara
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 43):

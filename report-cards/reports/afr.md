@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `afr`
 
+**Language family:** **Indo-European** › Classical Indo-European › Germanic › … › Afrikaansic ([Glottolog](https://glottolog.org/resource/languoid/id/afri1274))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 10.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 10.3 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q14196#P1098), 2016)
 
 **Official / recognised in:** South Africa
 
 **Status:** Official language
+
+
+## What does Afrikaans look and sound like?
+
+**Written:** Omniglot has [a page on Afrikaans](https://www.omniglot.com/writing/afrikaans.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/afr/) has 7 videos of Afrikaans speakers. Watch [See all](https://wikitongues.org/videos/?language=afr).
 
 
 ## Training Data
@@ -25,40 +38,63 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 143,882 articles in af.wikipedia (rank 50 of 161 in the set) — ~1/52 of English; 279 active users                                                                                                                      |
-| Common Crawl 2026      | 178,281 pages per crawl on average, which is 0.0083% of the crawl. This is ~1/5,001 of English data and ranks 58 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 3.68 GB (afr_Latn (3.68)); which is equivalent to ≈3.55 GB English data after byte-premium scaling; 4.11 GB removed by filtering. This is ~1/14,508 of English data and ranks 54 of 248 official languages in FineWeb. |
-| Goldfish training data | 5.35 GB (afr_latn) (rank 38 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 143,882 articles in af.wikipedia; 279 active users. This is ~1/52 of English data and ranks 51 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 178,281 pages per crawl on average, which is 0.0083% of the crawl (2026). This is ~1/5,001 of English data and ranks 58 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 3.68 GB (afr_Latn 3.68 GB), equivalent to ≈3.55 GB of English after byte-premium scaling; 4.11 GB removed by filtering. This is ~1/14,508 of English data and ranks 54 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 5.35 GB (afr_Latn 5.35 GB) (rank 38 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                               |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 1,934 sentences / 49,258 tokens in total: [UD_Afrikaans-AfriBooms](https://github.com/UniversalDependencies/UD_Afrikaans-AfriBooms) (1,934 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 175,799 lemmas, 335,067 inflected forms ([unimorph/afr](https://github.com/unimorph/afr))                                                                                                                                                 |
+| Wikidata labels        | 1,800,116 Wikidata items have a label in Afrikaans. (Wikidata codes (labels): af (1,800,116))                                                                                                                                             |
+| Wordnets               | **None found**                                                                                                                                                                                                                            |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (7):** CommonLID (n=88), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=60), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.976 (P 0.985, R 0.968, FPR 1.18e-04) averaged over 7 dataset(s). Runner-up: py3langid (F1 0.945).
+- **Best model:** GlotLID — F1 0.975 (P 0.984, R 0.968, FPR 1.19e-04) averaged over 7 dataset(s). Runner-up: py3langid (F1 0.946).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.985 |    0.968 | 0.976 | 0.000 | ✓                |
-| py3langid    |       0.928 |    0.968 | 0.945 | 0.001 | ✓                |
-| cld2         |       0.973 |    0.918 | 0.943 | 0.000 | ✓                |
-| fasttext     |       0.914 |    0.972 | 0.941 | 0.001 | ✓                |
-| OpenLID-v2   |       0.891 |    0.982 | 0.931 | 0.001 | ✓                |
-| funlangid    |       0.923 |    0.856 | 0.888 | 0.001 | ✓                |
+| GlotLID      |       0.984 |    0.968 | 0.975 | 0.000 | ✓                |
+| py3langid    |       0.928 |    0.968 | 0.946 | 0.001 | ✓                |
+| cld2         |       0.972 |    0.918 | 0.942 | 0.000 | ✓                |
+| fasttext     |       0.910 |    0.972 | 0.939 | 0.001 | ✓                |
+| OpenLID-v2   |       0.888 |    0.982 | 0.929 | 0.001 | ✓                |
+| cld3         |       0.866 |    0.939 | 0.899 | 0.002 | ✓                |
+| funlangid    |       0.921 |    0.856 | 0.887 | 0.001 | ✓                |
 | pyfranc      |       0.842 |    0.865 | 0.853 | 0.002 | ✓                |
-| commonlingua |       0.956 |    0.775 | 0.848 | 0.000 | ✓                |
+| commonlingua |       0.954 |    0.775 | 0.847 | 0.000 | ✓                |
+| AfroLID      |       0.380 |    0.970 | 0.509 | 0.102 | ✓                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | CommonLID |  88 |       0.974 |    0.841 | 0.902 |
-| Tatoeba   | 300 |       0.941 |    0.963 | 0.952 |
+| Tatoeba   | 300 |       0.938 |    0.963 | 0.951 |
 | Wikipedia | 300 |       0.980 |    0.983 | 0.982 |
 | NTREX     | 300 |       1.000 |    0.993 | 0.997 |
 | FLORES    | 300 |       1.000 |    0.997 | 0.998 |
@@ -73,6 +109,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Afrikaans and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Afrikaans has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Afrikaans?
@@ -93,45 +130,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       58 | ██████████████       |
 |   2026 |       82 | ████████████████████ |
 
-### Most popular models tagged for Afrikaans
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)           | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —               |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [uctnlp/mzansilm-125m](https://huggingface.co/uctnlp/mzansilm-125m) | 374,957                | 1,377                 | 125.0M       |                   11 |   2026 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Afrikaans
-
-| model                                                                                     |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of           |
-|:------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------|
-| [goldfish-models/afr_latn_1000mb](https://huggingface.co/goldfish-models/afr_latn_1000mb) |                    575 |                    25 | unknown      |                    1 |   2024 | —                       |
-| [goldfish-models/afr_latn_100mb](https://huggingface.co/goldfish-models/afr_latn_100mb)   |                    550 |                    15 | unknown      |                    1 |   2024 | —                       |
-| [goldfish-models/afr_latn_5mb](https://huggingface.co/goldfish-models/afr_latn_5mb)       |                    484 |                    16 | unknown      |                    1 |   2024 | —                       |
-| [goldfish-models/afr_latn_10mb](https://huggingface.co/goldfish-models/afr_latn_10mb)     |                    465 |                    16 | unknown      |                    1 |   2024 | —                       |
-| [DGurgurov/llama-3.1-8b-afr_latn](https://huggingface.co/DGurgurov/llama-3.1-8b-afr_latn) |                    102 |                    13 | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B |
-
 ### Largest models tagged for Afrikaans
 
-| model                                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                       |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                           |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                    |
-| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF)           |                    875 |                   175 | 34.7B        |                   80 |   2026 | Qwen/Qwen3.6-35B-A3B |
-| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B)                                           |                    834 |                   141 | 27.4B        |                   20 |   2026 | Qwen/Qwen3.8-27B     |
-| [rubricreward/mR3-Qwen3-14B-tgt-prompt-tgt-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-14B-tgt-prompt-tgt-thinking) |                    169 |                    22 | 14.8B        |                   64 |   2025 | Qwen/Qwen3-14B-Base  |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                    |
+| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 34.7B        |                   82 |   2026 | Qwen/Qwen3.6-35B-A3B |
+| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B)                                 | 27.4B        |                   24 |   2026 | Qwen/Qwen3.8-27B     |
+| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)                                       | 14.8B        |                   21 |   2026 | Qwen/Qwen3-14B-Base  |
 
 ### Largest models tagged *only* for Afrikaans
 
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of             |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------------|
-| [DGurgurov/llama-3.1-8b-afr_latn](https://huggingface.co/DGurgurov/llama-3.1-8b-afr_latn)           |                    102 |                    13 | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B   |
-| [DGurgurov/aya-expanse-8b-afr_latn](https://huggingface.co/DGurgurov/aya-expanse-8b-afr_latn)       |                     78 |                     5 | 8.0B         |                    1 |   2026 | CohereLabs/aya-expanse-8b |
-| [alphaedge-ai/Qwen3.5-4B-afr-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-afr-32768)       |                     50 |                    10 | 4.0B         |                    1 |   2026 | Qwen3.5-4B                |
-| [alphaedge-ai/gemma-3-4b-it-afr-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-afr-32768) |                     48 |                     8 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it      |
-| [alphaedge-ai/Qwen3.5-2B-afr-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-afr-32768)       |                     50 |                     9 | 1.8B         |                    1 |   2026 | Qwen3.5-2B                |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of             |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------|
+| [DGurgurov/llama-3.1-8b-afr_latn](https://huggingface.co/DGurgurov/llama-3.1-8b-afr_latn)           | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B   |
+| [DGurgurov/aya-expanse-8b-afr_latn](https://huggingface.co/DGurgurov/aya-expanse-8b-afr_latn)       | 8.0B         |                    1 |   2026 | CohereLabs/aya-expanse-8b |
+| [alphaedge-ai/Qwen3.5-4B-afr-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-afr-32768)       | 4.0B         |                    1 |   2026 | Qwen3.5-4B                |
+| [alphaedge-ai/gemma-3-4b-it-afr-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-afr-32768) | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it      |
+| [alphaedge-ai/Qwen3.5-2B-afr-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-afr-32768)       | 1.8B         |                    1 |   2026 | Qwen3.5-2B                |
 
 _29 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [2]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +201,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                                           | # test items   | Construction                                                        |
+| level                                  | task                          | dataset                                                                                                           | # test items   | construction                                                        |
 |:---------------------------------------|:------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 2. Pragmatics, discourse & coreference | WinoGrande                    | [WinoGrande-afr (Alhanai et al.)](https://huggingface.co/datasets/Institute-Disease-Modeling/mmlu-winogrande-afr) | —              | Human translation                                                   |
 | 3. Commonsense reasoning               | HellaSwag                     | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                                             | 9,088          | Machine translation (GPT-4o, auto-checked)                          |
@@ -225,7 +242,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 64 of ~18,460 papers (0.35%) (rank 74 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 64 of ~18,498 papers (0.35%) (rank 77 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Afrikaans
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 64):

@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `rma`
 
+**Language family:** **Chibchan** › Core Chibchan › Votic Chibchan ([Glottolog](https://glottolog.org/resource/languoid/id/rama1270))
+
+**Endangerment:** 🔴 moribund (level 4 of 6 on Glottolog’s scale; source: ElCat: Severely Endangered (20% certain))
+
+**Speakers:** 740 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q3444486#P1098), 2009)
+
 **Official / recognised in:** Nicaragua
 
 **Status:** Regional official language
+
+
+## What does Rama look and sound like?
+
+**Written:** Omniglot has [a page on Rama](https://www.omniglot.com/writing/rama.htm) but no sample text.
+
+**Spoken:** no Wikitongues video of Rama yet ([its Wikitongues page](https://wikitongues.org/languages/rma/) says how to contribute one).
 
 
 ## Training Data
@@ -26,15 +39,36 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                   |
 |:-----------------------|:---------------------------------------------------------|
 | Wikipedia              | **No Wikipedia edition**                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics** |
+| Common Crawl           | **Not identified in Common Crawl's language statistics** |
 | FineWeb                | **Not in FineWeb / FineWeb-2**                           |
 | Goldfish training data | **No Goldfish model / data**                             |
 
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- Support across the 8 evaluated LangID models is unknown: there is no labelled test data to run them on.
+- **0 of 10** LangID models evaluated have this language code as a label that can be predicted.
 - **No labelled LangID eval data** for this language — creating some is a high-value contribution.
 - No model performance numbers are available.
 
@@ -46,6 +80,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Rama and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Rama has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/rma/) video of Rama yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Rama?
@@ -62,31 +98,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2026 |        8 | ████████████████████ |
 
-### Most popular models tagged for Rama
-
-| model                                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                    |
-|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------------|
-| [SriRamanaAtmic/AtmicIntelv1](https://huggingface.co/SriRamanaAtmic/AtmicIntelv1)                                         | 1,528                  |                   101 | 3.8B         |                    2 |   2026 | microsoft/Phi-3-mini-4k-instruct |
-| [Dhruvil8/SanskritGPT-Itihasa](https://huggingface.co/Dhruvil8/SanskritGPT-Itihasa)                                       | 611                    |                    46 | 41.9M        |                    2 |   2026 | —                                |
-| [knc6/ramangpt_dft_model](https://huggingface.co/knc6/ramangpt_dft_model)                                                 | 85                     |                    39 | unknown      |                    1 |   2026 | unsloth/mistral-7b-bnb-4bit      |
-| [namanadep/foundational-llama-scratch-epic-model](https://huggingface.co/namanadep/foundational-llama-scratch-epic-model) | 63                     |                     9 | 9.3M         |                    3 |   2026 | —                                |
-| [namanadep/qwen2.5-0.5b-ramayana-epic](https://huggingface.co/namanadep/qwen2.5-0.5b-ramayana-epic)                       | 0                      |                     0 | 500.0M       |                    3 |   2026 | Qwen/Qwen2.5-0.5B                |
-
-### Most popular models tagged *only* for Rama
-
-| model                                                                     |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of               |
-|:--------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------------------|
-| [knc6/ramangpt_dft_model](https://huggingface.co/knc6/ramangpt_dft_model) |                     85 |                    39 | unknown      |                    1 |   2026 | unsloth/mistral-7b-bnb-4bit |
-
 ### Largest models tagged for Rama
 
-| model                                                                                                                     |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                    |
-|:--------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------------------|
-| [namanadep/qwen2.5-7b-ramayana-mahabharata-epic](https://huggingface.co/namanadep/qwen2.5-7b-ramayana-mahabharata-epic)   |                      0 |                     0 | 7.0B         |                    2 |   2026 | Qwen/Qwen2.5-7B                  |
-| [SriRamanaAtmic/AtmicIntelv2](https://huggingface.co/SriRamanaAtmic/AtmicIntelv2)                                         |                    865 |                   597 | 3.8B         |                    2 |   2026 | microsoft/Phi-3-mini-4k-instruct |
-| [namanadep/qwen2.5-0.5b-ramayana-epic](https://huggingface.co/namanadep/qwen2.5-0.5b-ramayana-epic)                       |                      0 |                     0 | 500.0M       |                    3 |   2026 | Qwen/Qwen2.5-0.5B                |
-| [Dhruvil8/SanskritGPT-Itihasa](https://huggingface.co/Dhruvil8/SanskritGPT-Itihasa)                                       |                    611 |                    46 | 41.9M        |                    2 |   2026 | —                                |
-| [namanadep/foundational-llama-scratch-epic-model](https://huggingface.co/namanadep/foundational-llama-scratch-epic-model) |                     63 |                     9 | 9.3M         |                    3 |   2026 | —                                |
+| model                                                                                                                     | parameters   |   # languages tagged |   year | derivative of                    |
+|:--------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------|
+| [namanadep/qwen2.5-7b-ramayana-mahabharata-epic](https://huggingface.co/namanadep/qwen2.5-7b-ramayana-mahabharata-epic)   | 7.0B         |                    2 |   2026 | Qwen/Qwen2.5-7B                  |
+| [SriRamanaAtmic/AtmicIntel_test](https://huggingface.co/SriRamanaAtmic/AtmicIntel_test)                                   | 3.8B         |                    2 |   2026 | microsoft/Phi-3-mini-4k-instruct |
+| [namanadep/qwen2.5-0.5b-ramayana-epic](https://huggingface.co/namanadep/qwen2.5-0.5b-ramayana-epic)                       | 500.0M       |                    3 |   2026 | Qwen/Qwen2.5-0.5B                |
+| [Dhruvil8/SanskritGPT-Itihasa](https://huggingface.co/Dhruvil8/SanskritGPT-Itihasa)                                       | 41.9M        |                    2 |   2026 | —                                |
+| [namanadep/foundational-llama-scratch-epic-model](https://huggingface.co/namanadep/foundational-llama-scratch-epic-model) | 9.3M         |                    3 |   2026 | —                                |
 
 ### Largest models tagged *only* for Rama
 
@@ -121,15 +141,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -172,6 +192,21 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026: not reported.** The search term 'Rama' (common given name) is ambiguous, so the raw count mostly reflects other uses of the word.
+- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Rama
+- Because 'Rama' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
+
+Here are up to ten papers that were published mentioning this language in 2026:
+
+| title                                                                                                                              | paper                                                              |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| Media Bias within Information Disorder: Bridging Two Research Communities through a Systematic Review                              | [2026.indor-1.5](https://aclanthology.org/2026.indor-1.5/)         |
+| Sentential Parsing of Upamā                                                                                                        | [2026.iscls-1.17](https://aclanthology.org/2026.iscls-1.17/)       |
+| Transparency as Architecture: Structural Compliance Gaps in EU AI Act Article 50 II                                                | [2026.legal-1.1](https://aclanthology.org/2026.legal-1.1/)         |
+| SACRED: A Faithful Annotated Multimedia Multimodal Multilingual Dataset for Classifying Connectedness Types in Online Spirituality | [2026.llms4ssh-1.13](https://aclanthology.org/2026.llms4ssh-1.13/) |
+| HNS2CF: A Mapping Tool from HamNoSys to SL CatForm                                                                                 | [2026.signlang-1.30](https://aclanthology.org/2026.signlang-1.30/) |
+| Improving phonological distance measures for signs: the CatFormCompare tool                                                        | [2026.signlang-1.36](https://aclanthology.org/2026.signlang-1.36/) |
+| The SignBeach Dataset of Dutch Sign Language (NGT) signs                                                                           | [2026.signlang-1.46](https://aclanthology.org/2026.signlang-1.46/) |
+| Naamah: A Large Scale Synthetic Sanskrit NER Corpus via DBpedia Seeding and LLM Generation                                         | [2026.wildre-1.11](https://aclanthology.org/2026.wildre-1.11/)     |
 
 {% endraw %}

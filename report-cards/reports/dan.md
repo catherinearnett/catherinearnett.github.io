@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `dan`
 
+**Language family:** **Indo-European** › Classical Indo-European › Germanic › … › South Scandinavian ([Glottolog](https://glottolog.org/resource/languoid/id/dani1285))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 7.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 5.6 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9035#P1098), 2012)
 
 **Official / recognised in:** Denmark
 
 **Status:** Official language
+
+
+## What does Danish look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/danish.htm):
+
+> Alle mennesker er født frie og lige i værdighed og rettigheder. De er udstyret med fornuft og samvittighed, og de bør handle mod hverandre i en broderskabets ånd.
+> A recording of this text
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_dk.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/dan/) has 4 videos of Danish speakers. Watch [Riike speaking Danish](https://wikitongues.org/videos/riike_20140729_dan/).
 
 
 ## Training Data
@@ -25,28 +47,51 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 316,593 articles in da.wikipedia (rank 32 of 161 in the set) — ~1/24 of English; 1,497 active users                                                                                                                     |
-| Common Crawl 2026      | 11,221,514 pages per crawl on average, which is 0.5208% of the crawl. This is ~1/79 of English data and ranks 21 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 70.63 GB (dan_Latn (70.63)); which is equivalent to ≈69.18 GB English data after byte-premium scaling; 79.04 GB removed by filtering. This is ~1/756 of English data and ranks 24 of 248 official languages in FineWeb. |
-| Goldfish training data | 7.79 GB (dan_latn) (rank 28 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 316,593 articles in da.wikipedia; 1,497 active users. This is ~1/24 of English data and ranks 33 of 168 languages in the set in Wikipedia.                                                                      |
+| Common Crawl           | 11,221,514 pages per crawl on average, which is 0.5208% of the crawl (2026). This is ~1/79 of English data and ranks 21 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 70.63 GB (dan_Latn 70.63 GB), equivalent to ≈69.18 GB of English after byte-premium scaling; 79.04 GB removed by filtering. This is ~1/756 of English data and ranks 24 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 7.79 GB (dan_Latn 7.79 GB) (rank 28 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                              |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 5,512 sentences / 100,733 tokens in total: [UD_Danish-DDT](https://github.com/UniversalDependencies/UD_Danish-DDT) (5,512 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 4,182 lemmas, 31,903 inflected forms ([unimorph/dan](https://github.com/unimorph/dan))                                                                                                                                   |
+| Wikidata labels        | 4,725,654 Wikidata items have a label in Danish. (Wikidata codes (labels): da (4,725,654))                                                                                                                               |
+| Wordnets               | [DanNet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-da-1.4.tar.xz): 4,476 synsets, 4,521 words, 5,859 senses; licence: wordnet.                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                    |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([dan1931](https://ebible.org/details.php?id=dan1931), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                 |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: cld2, funlangid, py3langid.
+- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: cld2, cld3, funlangid, py3langid.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=61), Wikipedia (n=300)
-- **Best model:** py3langid — F1 0.957 (P 0.942, R 0.972, FPR 6.09e-04) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.899).
+- **Best model:** py3langid — F1 0.957 (P 0.943, R 0.972, FPR 5.94e-04) averaged over 5 dataset(s). Runner-up: cld3 (F1 0.895).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| py3langid    |       0.942 |    0.972 | 0.957 | 0.001 | ✓                |
-| cld2         |       0.910 |    0.894 | 0.899 | 0.001 | ✓                |
+| py3langid    |       0.943 |    0.972 | 0.957 | 0.001 | ✓                |
+| cld3         |       0.882 |    0.909 | 0.895 | 0.002 | ✓                |
+| cld2         |       0.901 |    0.894 | 0.895 | 0.001 | ✓                |
 | funlangid    |       0.841 |    0.523 | 0.643 | 0.001 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | GlotLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -57,7 +102,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.884 |    0.917 | 0.900 |
+| Tatoeba   | 300 |       0.887 |    0.917 | 0.902 |
 | UDHR-LID  |  61 |       0.923 |    0.984 | 0.952 |
 | Wikipedia | 300 |       0.927 |    0.980 | 0.953 |
 | NTREX     | 300 |       0.987 |    0.987 | 0.987 |
@@ -91,45 +136,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      284 | ███████████████████  |
 |   2026 |      306 | ████████████████████ |
 
-### Most popular models tagged for Danish
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct)             | 9,633,401              | 331,860               | 3.8B         |                   23 |   2025 | —                                      |
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [bineric/lynx-instruct-30b](https://huggingface.co/bineric/lynx-instruct-30b)                     | 1,242,663              | 1,313                 | 30.5B        |                    5 |   2026 | Qwen/Qwen3-30B-A3B-Instruct-2507       |
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct) | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B             |
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                         | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                                      |
-
-### Most popular models tagged *only* for Danish
-
-| model                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of               |
-|:------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------|
-| [flax-community/dansk-gpt-wiki](https://huggingface.co/flax-community/dansk-gpt-wiki)     | 131,378                |                   266 | 137.0M       |                    1 |   2022 | —                           |
-| [mhenrichsen/danskgpt-tiny](https://huggingface.co/mhenrichsen/danskgpt-tiny)             | 38,335                 |                   734 | 1.1B         |                    1 |   2024 | —                           |
-| [mhenrichsen/hestenettetLM](https://huggingface.co/mhenrichsen/hestenettetLM)             | 27,689                 |                    48 | 7.2B         |                    1 |   2023 | —                           |
-| [KennethTM/gpt2-medium-danish](https://huggingface.co/KennethTM/gpt2-medium-danish)       | 10,008                 |                   211 | 354.8M       |                    1 |   2023 | —                           |
-| [afrideva/gpt2-small-danish-GGUF](https://huggingface.co/afrideva/gpt2-small-danish-GGUF) | 4,482                  |                   617 | 163.0M       |                    1 |   2023 | KennethTM/gpt2-small-danish |
-
 ### Largest models tagged for Danish
 
-| model                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                       | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                           | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)                           | 23,979                 | 3,521                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16) | 122,649                | 9,704                 | 123.6B       |                   20 |   2026 | —                                      |
-| [Unbabel/Tower-Plus-72B](https://huggingface.co/Unbabel/Tower-Plus-72B)                                                         | 13,521                 | 95                    | 72.7B        |                   22 |   2025 | Qwen/Qwen2.5-72B                       |
+| model                                                                                                                           | parameters   |   # languages tagged |   year | derivative of                          |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                       | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                           | 856.0B       |                  143 |   2025 | —                                      |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)                           | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16) | 123.6B       |                   20 |   2026 | —                                      |
+| [Unbabel/Tower-Plus-72B](https://huggingface.co/Unbabel/Tower-Plus-72B)                                                         | 72.7B        |                   22 |   2025 | Qwen/Qwen2.5-72B                       |
 
 ### Largest models tagged *only* for Danish
 
-| model                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of              |
-|:--------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------|
-| [syvai/danskgpt-v4-31b](https://huggingface.co/syvai/danskgpt-v4-31b)                                         | 219                    |                    41 | 30.7B        |                    1 |   2026 | google/gemma-4-31B-it      |
-| [Hodfa71/viking-13b-da-saga-delta-dpo](https://huggingface.co/Hodfa71/viking-13b-da-saga-delta-dpo)           | 37                     |                     6 | 13.0B        |                    1 |   2026 | LumiOpen/Viking-13B        |
-| [syvai/danskgpt-v4-12b](https://huggingface.co/syvai/danskgpt-v4-12b)                                         | 400                    |                    36 | 11.9B        |                    1 |   2026 | google/gemma-4-12B-it      |
-| [DenisTheDev/Openchat-Passthrough-SLERP](https://huggingface.co/DenisTheDev/Openchat-Passthrough-SLERP)       | 83                     |                    10 | 10.7B        |                    1 |   2024 | —                          |
-| [emillykkejensen/Llama-3-8B-instruct-dansk](https://huggingface.co/emillykkejensen/Llama-3-8B-instruct-dansk) | 1,431                  |                    30 | 8.0B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B |
+| model                                                                                                                           | parameters   |   # languages tagged |   year | derivative of              |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------|
+| [syvai/danskgpt-v4-31b](https://huggingface.co/syvai/danskgpt-v4-31b)                                                           | 30.7B        |                    1 |   2026 | google/gemma-4-31B-it      |
+| [Hodfa71/viking-13b-da-saga-delta-dpo](https://huggingface.co/Hodfa71/viking-13b-da-saga-delta-dpo)                             | 13.0B        |                    1 |   2026 | LumiOpen/Viking-13B        |
+| [syvai/danskgpt-v4-12b](https://huggingface.co/syvai/danskgpt-v4-12b)                                                           | 11.9B        |                    1 |   2026 | google/gemma-4-12B-it      |
+| [DenisTheDev/Openchat-Passthrough-SLERP](https://huggingface.co/DenisTheDev/Openchat-Passthrough-SLERP)                         | 10.7B        |                    1 |   2024 | —                          |
+| [NikolayKozloff/Llama-3-8B-instruct-dansk-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/Llama-3-8B-instruct-dansk-Q8_0-GGUF) | 8.0B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B |
 
 _77 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -160,15 +185,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [5]     \
+                 /   [5]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -182,7 +207,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                         | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge       | BLiMP                          | [ACS](https://github.com/igorsterner/acs)                                                           | 330            | Corpus-extracted + automatic manipulation                        |
 | 1. Linguistic knowledge       | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                           | 55             | Treebank-based (automatic)                                       |
@@ -231,7 +256,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 214 of ~18,460 papers (1.16%) (rank 31 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 214 of ~18,498 papers (1.16%) (rank 31 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Danish
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 214):

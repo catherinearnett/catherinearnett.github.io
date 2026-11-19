@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `fuf` · macrolanguage `ful`
 
+**Language family:** **Atlantic-Congo** › North-Central Atlantic › Fula-Sereer › Fula ([Glottolog](https://glottolog.org/resource/languoid/id/pula1262))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
+**Speakers:** about 9.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `ful`, so includes other varieties · 24.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33454#P1098), 2007) — counted for the macrolanguage `ful`, so includes other varieties
+
 **Official / recognised in:** Guinea
 
 **Status:** Official language
+
+
+## What does Fulani look and sound like?
+
+**Written:** no Omniglot page found for Fulani.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/fuf/) has 3 videos of Fulani speakers. Watch [Ibrahima speaking Pular](https://wikitongues.org/videos/ibrahima_20190807_fuf/).
 
 
 ## Training Data
@@ -23,20 +36,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                 |
-| FineWeb                | 2.2 MB (fuf_Latn (0.00)); which is equivalent to ≈2.1 MB English data after byte-premium scaling; 3.3 MB removed by filtering. This is ~1/24,668,626 of English data and ranks 178 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                     |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 22,743 articles in ff.wikipedia; 36 active users. ⚠️ NB: counted under the macrolanguage code `ful`, so this number is shared with Fula (`ffm`) and overstates Fulani.                                     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                   |
+| FineWeb                | 2.2 MB (fuf_Latn 0), equivalent to ≈2.1 MB of English after byte-premium scaling; 3.3 MB removed by filtering. This is ~1/24,668,626 of English data and ranks 178 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                               |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                 |
+|:-----------------------|:----------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                              |
+| UniMorph               | **None found**                                                              |
+| Wikidata labels        | 3 Wikidata items have a label in Fulani. (Wikidata codes (labels): fuf (3)) |
+| Wordnets               | **None found**                                                              |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                       |
+|:-----------------------------------|:--------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                           |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([fuf](https://ebible.org/details.php?id=fuf), by-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                        |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
+- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, funlangid, pyfranc.
 - **Eval datasets (1):** UDHR-LID (n=116)
-- **Best model:** GlotLID — F1 0.915 (P 0.900, R 0.931, FPR 6.15e-04) averaged over 1 dataset(s). Runner-up: pyfranc (F1 0.637).
+- **Best model:** GlotLID — F1 0.915 (P 0.900, R 0.931, FPR 6.14e-04) averaged over 1 dataset(s). Runner-up: pyfranc (F1 0.637).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 **All models (averaged over datasets):**
@@ -46,8 +80,10 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.900 |    0.931 | 0.915 | 0.001 | ✓                |
 | pyfranc      |       0.879 |    0.500 | 0.637 | 0.000 | ✓                |
 | funlangid    |       0.939 |    0.267 | 0.416 | 0.000 | ✓                |
+| AfroLID      |       1.000 |    0.017 | 0.034 | 0.000 | ✓                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -61,6 +97,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Fulani and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Fulani has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Fulani?
@@ -68,8 +105,6 @@ Language identification (LangID or LID) is a classification task that identifies
 We scraped all `text-generation` models on Hugging Face and analyzed the metadata. We counted how many models are explicitly tagged for Fulani (and whether the model is exclusively tagged for Fulani or tagged for multiple languages). We note which models are fine-tunes or have been derived from other (most likely massively multilingual) models.
 
 **No text-generation models on the Hugging Face Hub are tagged for Fulani.**
-
-63 models are tagged with the macrolanguage `ful`, which may or may not cover it.
 
 ## What evals are available?
 
@@ -87,7 +122,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**0** benchmark datasets in the survey include Fulani (plus 12 labelled with the macrolanguage `ful`, included below).
+**0** benchmark datasets in the survey include Fulani.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -98,15 +133,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
-             /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+             /   ❌ 4. Reading    \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -114,32 +149,21 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /        ✅ Machine translation [10]         \
+ /         ❌ Machine translation [0]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                                         | # test items   | Construction                                                        |
-|:-------------------------|:------------------------------|:------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
-| 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele) (as `ful`)                        | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) (as `ful`)           | 2,701          | Synthetic (LLM-generated) on native Wikipedia                       |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (as `ful`)                          | 854            | Human translation via English pivot                                 |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (as `ful`)                          | 854            | Human translation via English pivot                                 |
-| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (as `ful`)              | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation      | Machine translation           | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol) (as `ful`)                        | —              | Human translation (professional, from English)                      |
-| Machine translation      | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX) (as `ful`)                            | 1,997          | Human translation (professional, from English)                      |
-| Machine translation      | Machine translation           | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol) (as `ful`)                        | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation      | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) (as `ful`)                       | —              | Human translation (professional, from English)                      |
-| Machine translation      | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) (as `ful`)                       | —              | Human translation (professional, from English)                      |
-| Machine translation      | Machine translation           | [TICO-19](https://github.com/tico-19/tico-19.github.io) (as `ful`)                              | 2,100          | Human translation (professional/volunteer, from English)            |
-| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) (as `ful`) | 41             | Native (crowdsourced Tatoeba sentence pairs)                        |
+_None found._
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
 - **2. Pragmatics, discourse & coreference:** Coherence & discourse, Figurative language & idioms, Gender-bias diagnostic (Winograd-format), Implicature & indirect answers, Negation, Presupposition & scalar implicature, Pronoun/coref (WSC-style), WNLI, WSC, WinoGrande
 - **3. Commonsense reasoning:** COPA, HellaSwag, PIQA, Physical commonsense, Social commonsense, StoryCloze, Temporal reasoning, World knowledge
+- **4. Reading comprehension:** Multiple-choice reading comprehension (Belebele-style), Extractive reading comprehension (SQuAD-style)
 - **5. Knowledge & open-domain QA:** Knowledge/exam MCQ (MMLU-style), Open-domain / closed-book QA
+- **Machine translation:** Machine translation
 
 ### Community benchmarks you can contribute to
 
@@ -160,7 +184,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 12 of ~18,460 papers (0.06%) (rank 133 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 12 of ~18,498 papers (0.06%) (rank 142 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Fulani | Pular
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 12):

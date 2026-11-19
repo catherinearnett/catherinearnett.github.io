@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `prs` · macrolanguage `fas`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Eastern Farsic ([Glottolog](https://glottolog.org/resource/languoid/id/dari1249))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Arab`
+
+**Speakers:** about 20.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 9.6 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q178440#P1098), 2011)
 
 **Official / recognised in:** Afghanistan
 
 **Status:** Official language
+
+
+## What does Dari look and sound like?
+
+**Written:** Omniglot has [a page on Dari](https://www.omniglot.com/writing/dari.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/prs/) has 2 videos of Dari speakers. Watch [Islem speaking Dari](https://wikitongues.org/videos/islem_20160827_prs/).
 
 
 ## Training Data
@@ -25,31 +38,54 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                          |
-| Common Crawl 2026      | 10,945,849 pages per crawl on average, which is 0.5082% of the crawl. ⚠️ NB: this is counted using `fas` (macrolanguage code), so this number is shared with other varieties and overstates Dari. |
-| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                    |
-| Goldfish training data | 0.28 GB (prs_arab) (rank 104 of 166 in the set)                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                             |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,101,428 articles in fa.wikipedia; 8,324 active users. ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Persian (`pes`) and overstates Dari.                      |
+| Common Crawl           | 10,945,849 pages per crawl on average, which is 0.5082% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `fas`, so this number is shared with Persian (`pes`) and overstates Dari. |
+| FineWeb                | **Not in FineWeb / FineWeb-2**                                                                                                                                                                     |
+| Goldfish training data | 0.28 GB (prs_Arab 0.28 GB) (rank 104 of 166 in the set)                                                                                                                                            |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 35,104 sentences / 645,790 tokens in total: [UD_Persian-PerDT](https://github.com/UniversalDependencies/UD_Persian-PerDT) (29,107 sentences), [UD_Persian-Seraji](https://github.com/UniversalDependencies/UD_Persian-Seraji) (5,997 sentences). All have POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `fas`, so this may cover other varieties as well as Dari. |
+| UniMorph               | 273 lemmas, 37,128 inflected forms ([unimorph/fas](https://github.com/unimorph/fas)) ⚠️ Listed under the macrolanguage code `fas`, so this may cover other varieties as well as Dari.                                                                                                                                                                                                                                                   |
+| Wikidata labels        | 3 Wikidata items have a label in Dari. (Wikidata codes (labels): prs (3))                                                                                                                                                                                                                                                                                                                                                               |
+| Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **4 of 8** LangID models evaluated have this language code as a label that can be predicted: OpenLID-v2, fasttext, funlangid, pyfranc.
+- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: OpenLID-v2, fasttext, funlangid, pyfranc.
 - **Eval datasets (3):** FLORES (n=300), NTREX (n=300), UDHR-LID (n=56)
-- **Best model:** funlangid — F1 0.562 (P 0.529, R 0.603, FPR 3.84e-03) averaged over 3 dataset(s). Runner-up: OpenLID-v2 (F1 0.526).
+- **Best model:** funlangid — F1 0.561 (P 0.528, R 0.603, FPR 3.79e-03) averaged over 3 dataset(s). Runner-up: OpenLID-v2 (F1 0.526).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| funlangid    |       0.529 |    0.603 | 0.562 | 0.004 | ✓                |
+| funlangid    |       0.528 |    0.603 | 0.561 | 0.004 | ✓                |
 | OpenLID-v2   |       0.735 |    0.411 | 0.526 | 0.001 | ✓                |
-| pyfranc      |       0.468 |    0.671 | 0.525 | 0.010 | ✓                |
+| pyfranc      |       0.467 |    0.671 | 0.525 | 0.010 | ✓                |
 | fasttext     |       0.767 |    0.199 | 0.311 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | GlotLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -58,7 +94,7 @@ Language identification (LangID or LID) is a classification task that identifies
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | UDHR-LID  |  56 |       0.483 |    0.518 | 0.500 |
-| FLORES    | 300 |       0.511 |    0.673 | 0.581 |
+| FLORES    | 300 |       0.510 |    0.673 | 0.580 |
 | NTREX     | 300 |       0.591 |    0.617 | 0.604 |
 
 ### What can you do?
@@ -69,6 +105,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Dari and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Dari has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Dari?
@@ -87,29 +124,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        4 | ████████████████████ |
 |   2026 |        1 | █████                |
 
-### Most popular models tagged for Dari
-
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [Loom-Labs/Apollo-1-2B](https://huggingface.co/Loom-Labs/Apollo-1-2B)                 | 1,129                  |                    41 | 1.7B         |                   90 |   2025 | Qwen/Qwen3-1.7B-Base |
-| [Loom-Labs/Apollo-1-8B](https://huggingface.co/Loom-Labs/Apollo-1-8B)                 | 1,062                  |                    28 | 8.2B         |                   90 |   2025 | Qwen/Qwen3-8B-Base   |
-| [goldfish-models/prs_arab_5mb](https://huggingface.co/goldfish-models/prs_arab_5mb)   | 974                    |                   248 | unknown      |                    2 |   2024 | —                    |
-| [goldfish-models/prs_arab_10mb](https://huggingface.co/goldfish-models/prs_arab_10mb) | 806                    |                   192 | unknown      |                    2 |   2024 | —                    |
-| [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)                 | 795                    |                    33 | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base   |
-
-### Most popular models tagged *only* for Dari
-
-_none_
-
 ### Largest models tagged for Dari
 
-| model                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [Loom-Labs/Apollo-1-8B](https://huggingface.co/Loom-Labs/Apollo-1-8B)                                     | 1,062                  |                    28 | 8.2B         |                   90 |   2025 | Qwen/Qwen3-8B-Base   |
-| [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)                                     | 795                    |                    33 | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base   |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3)                   | 425                    |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
-| [Loom-Labs/Apollo-1-2B](https://huggingface.co/Loom-Labs/Apollo-1-2B)                                     | 1,129                  |                    41 | 1.7B         |                   90 |   2025 | Qwen/Qwen3-1.7B-Base |
-| [JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM](https://huggingface.co/JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM) | 534                    |                    49 | 751.6M       |                   89 |   2025 | Qwen/Qwen3-0.6B-Base |
+| model                                                                                                     | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [Loom-Labs/Apollo-1-8B](https://huggingface.co/Loom-Labs/Apollo-1-8B)                                     | 8.2B         |                   90 |   2025 | Qwen/Qwen3-8B-Base   |
+| [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)                                     | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base   |
+| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3)                   | 3.9B         |                  155 |   2026 | google/gemma-3-4b-it |
+| [Loom-Labs/Apollo-1-2B](https://huggingface.co/Loom-Labs/Apollo-1-2B)                                     | 1.7B         |                   90 |   2025 | Qwen/Qwen3-1.7B-Base |
+| [JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM](https://huggingface.co/JLouisBiz/Qwen3-0.6B-GGUF-for-24GB-VRAM) | 751.6M       |                   88 |   2025 | Qwen/Qwen3-0.6B-Base |
 
 ### Largest models tagged *only* for Dari
 
@@ -144,15 +167,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -166,7 +189,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                         | # test items   | Construction                                                     |
+| level                    | task                | dataset                                                                         | # test items   | construction                                                     |
 |:-------------------------|:--------------------|:--------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge  | BLiMP               | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data) (as `fas`)            | 449            | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `fas`) | 2,553          | Treebank-based (automatic, UD + UniMorph)                        |
@@ -187,7 +210,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 ### Community benchmarks you can contribute to
 
 - **[Global PIQA](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)** (❌ not yet — contribute it!): Physical-commonsense questions written by native speakers about their own culture.
-- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (❌ not yet — contribute it!): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
+- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (✅ included): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
 - **[Cultural Riddles](https://culturalriddles.ai/)** (❌ not yet — contribute it!): Human-written, culturally grounded riddles (Cohere Labs Community); open contribution process.
 
 ### What can you do?
@@ -203,22 +226,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 22 of ~18,460 papers (0.12%) (rank 113 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 23 of ~18,498 papers (0.12%) (rank 119 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Dari
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 22):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 23):
 
-| title                                                                                                                                         | paper                                                                      |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| Sharing is Caring: Advantages of Sharing a Language Background with Learners as an Annotator of Learner Data in UD                            | [2026.bea-1.35](https://aclanthology.org/2026.bea-1.35/)                   |
-| SrcMix: Mixing of Related Source Languages Benefits Extremely Low-resource Machine Translation                                                | [2026.findings-eacl.332](https://aclanthology.org/2026.findings-eacl.332/) |
-| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)             |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)               |
-| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)               |
-| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)               |
-| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                                                 | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)               |
-| Segmentation Strategy Matters: Benchmarking Whisper on Persian YouTube Content                                                                | [2026.silkroadnlp-1.13](https://aclanthology.org/2026.silkroadnlp-1.13/)   |
-| TajPersLexon: A Tajik–Persian Lexical Resource and Hybrid Model for Cross-Script Low-Resource NLP                                             | [2026.silkroadnlp-1.4](https://aclanthology.org/2026.silkroadnlp-1.4/)     |
-| APARSIN: A Multi-Variety Sentiment and Translation Benchmark for Iranic Languages                                                             | [2026.silkroadnlp-1.9](https://aclanthology.org/2026.silkroadnlp-1.9/)     |
+| title                                                                                                                                         | paper                                                                    |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| Sharing is Caring: Advantages of Sharing a Language Background with Learners as an Annotator of Learner Data in UD                            | [2026.bea-1.35](https://aclanthology.org/2026.bea-1.35/)                 |
+| Are Small Language Models the Silver Bullet to Low-Resource Languages Machine Translation?                                                    | [2026.loresmt-1.1](https://aclanthology.org/2026.loresmt-1.1/)           |
+| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)             |
+| Goldfish: Monolingual Language Models for 350 Languages                                                                                       | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)             |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                                                | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)             |
+| Is Machine Translation Ready for the Next Crisis or Pandemic?                                                                                 | [2026.lt4cpr-1.8](https://aclanthology.org/2026.lt4cpr-1.8/)             |
+| When Cross-Lingual Consistency Is Not Enough: Diagnostics for Low-Resource Political Actor Portrayal                                          | [2026.mrl-1.25](https://aclanthology.org/2026.mrl-1.25/)                 |
+| Segmentation Strategy Matters: Benchmarking Whisper on Persian YouTube Content                                                                | [2026.silkroadnlp-1.13](https://aclanthology.org/2026.silkroadnlp-1.13/) |
+| TajPersLexon: A Tajik–Persian Lexical Resource and Hybrid Model for Cross-Script Low-Resource NLP                                             | [2026.silkroadnlp-1.4](https://aclanthology.org/2026.silkroadnlp-1.4/)   |
+| APARSIN: A Multi-Variety Sentiment and Translation Benchmark for Iranic Languages                                                             | [2026.silkroadnlp-1.9](https://aclanthology.org/2026.silkroadnlp-1.9/)   |
 
 {% endraw %}

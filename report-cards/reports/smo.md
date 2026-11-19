@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `smo`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Eastern Malayo-Polynesian › … › Samoan-Tokelauan ([Glottolog](https://glottolog.org/resource/languoid/id/samo1305))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 253,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 169,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34011#P1098), 2015)
 
 **Official / recognised in:** Samoa, United States
 
 **Status:** Official language; Regional official language
+
+
+## What does Samoan look and sound like?
+
+**Written (Samoan)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/samoan.htm):
+
+> O tagata soifua uma ua saoloto lo latou fananau mai, ma e tutusa o
+> latou tulaga aloaia faapea a latou aia tatau. Ua faaeeina atu i a latou
+> le mafaufau lelei ma le loto fuatiaifo ma e tatau ona faatino le agaga
+> faauso i le va o le tasi i le isi.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/smo/) has 3 videos of Samoan speakers. Watch [Sooalo speaking Samoan](https://wikitongues.org/videos/sooalo_20161025_smo/).
 
 
 ## Training Data
@@ -25,32 +47,55 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,208 articles in sm.wikipedia (rank 143 of 161 in the set) — ~1/6,247 of English; 14 active users                                                                                                                       |
-| Common Crawl 2026      | 16,562 pages per crawl on average, which is 0.0008% of the crawl. This is ~1/53,828 of English data and ranks 94 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 0.16 GB (smo_Latn (0.16)); which is equivalent to ≈0.14 GB English data after byte-premium scaling; 0.17 GB removed by filtering. This is ~1/329,622 of English data and ranks 101 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.41 GB (smo_latn) (rank 98 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,208 articles in sm.wikipedia; 14 active users. This is ~1/6,247 of English data and ranks 150 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 16,562 pages per crawl on average, which is 0.0008% of the crawl (2026). This is ~1/53,828 of English data and ranks 94 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 0.16 GB (smo_Latn 0.16 GB), equivalent to ≈0.14 GB of English after byte-premium scaling; 0.17 GB removed by filtering. This is ~1/329,622 of English data and ranks 101 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.41 GB (smo_Latn 0.41 GB) (rank 98 of 166 in the set)                                                                                                                                                           |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | **None found**                                                                         |
+| Wikidata labels        | 481,776 Wikidata items have a label in Samoan. (Wikidata codes (labels): sm (481,776)) |
+| Wordnets               | **None found**                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=78), UDHR-LID (n=63), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.971 (P 0.982, R 0.961, FPR 4.17e-05) averaged over 5 dataset(s). Runner-up: pyfranc (F1 0.901).
+- **Best model:** GlotLID — F1 0.971 (P 0.982, R 0.961, FPR 4.10e-05) averaged over 5 dataset(s). Runner-up: pyfranc (F1 0.900).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.982 |    0.961 | 0.971 | 0.000 | ✓                |
-| pyfranc      |       0.888 |    0.917 | 0.901 | 0.001 | ✓                |
-| funlangid    |       0.890 |    0.912 | 0.900 | 0.001 | ✓                |
-| cld2         |       0.900 |    0.892 | 0.894 | 0.000 | ✓                |
-| commonlingua |       0.822 |    0.849 | 0.834 | 0.001 | ✓                |
-| fasttext     |       0.692 |    0.959 | 0.795 | 0.003 | ✓                |
-| OpenLID-v2   |       0.626 |    0.982 | 0.749 | 0.005 | ✓                |
+| pyfranc      |       0.887 |    0.917 | 0.900 | 0.001 | ✓                |
+| funlangid    |       0.885 |    0.912 | 0.898 | 0.001 | ✓                |
+| cld2         |       0.898 |    0.892 | 0.893 | 0.000 | ✓                |
+| commonlingua |       0.820 |    0.849 | 0.832 | 0.001 | ✓                |
+| cld3         |       0.703 |    0.940 | 0.799 | 0.004 | ✓                |
+| fasttext     |       0.690 |    0.959 | 0.794 | 0.003 | ✓                |
+| OpenLID-v2   |       0.626 |    0.982 | 0.748 | 0.005 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -71,6 +116,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Samoan and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Samoan has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Samoan?
@@ -91,45 +137,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        9 | ██                   |
 |   2026 |       83 | ████████████████████ |
 
-### Most popular models tagged for Samoan
-
-| model                                                                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of             |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:--------------------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                                                                                               | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                         |
-| [AEON-7/Gemma-4-26B-A4B-it-Uncensored-NVFP4](https://huggingface.co/AEON-7/Gemma-4-26B-A4B-it-Uncensored-NVFP4)                                                   | 375,457                | 8,281                 | 25.8B        |                    2 |   2026 | google/gemma-4-26B-A4B-it |
-| [AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-Multimodal-NVFP4-MTP-XS](https://huggingface.co/AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-Multimodal-NVFP4-MTP-XS) | 272,202                | 3,705                 | 15.6B        |                    3 |   2026 | Qwen/Qwen3.6-27B          |
-| [AEON-7/Gemma-4-E4B-DECKARD-HERETIC-NVFP4](https://huggingface.co/AEON-7/Gemma-4-E4B-DECKARD-HERETIC-NVFP4)                                                       | 258,482                | 2,615                 | 6.0B         |                    2 |   2026 | google/gemma-4-e4b-it     |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)                                                                                               | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —                         |
-
-### Most popular models tagged *only* for Samoan
-
-| model                                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                      |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------------------|
-| [s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF](https://huggingface.co/s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF)               | 85,292                 | 1,771                 | 35.5B        |                    1 |   2026 | ornith-ai/Ornith-1.0-35B           |
-| [s-batman/Ornith-1.0-9B-NVFP4-MTP-GGUF](https://huggingface.co/s-batman/Ornith-1.0-9B-NVFP4-MTP-GGUF)                 | 17,338                 | 393                   | 9.2B         |                    1 |   2026 | ornith-ai/Ornith-1.0-9B            |
-| [iggerask/DeepSeek-V4-Flash-2bit-GB10](https://huggingface.co/iggerask/DeepSeek-V4-Flash-2bit-GB10)                   | 1,681                  | 26                    | 4.7B         |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash      |
-| [Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8](https://huggingface.co/Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8) | 669                    | 162                   | 159.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731 |
-| [goldfish-models/smo_latn_full](https://huggingface.co/goldfish-models/smo_latn_full)                                 | 397                    | 19                    | unknown      |                    1 |   2024 | —                                  |
-
 ### Largest models tagged for Samoan
 
-| model                                                                                                                                         | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                      |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                     | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                         | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                  |
-| [Jon-Nielsen/DeepSeek-V4-Flash-0731-Abliterated-MXFP4-INT8](https://huggingface.co/Jon-Nielsen/DeepSeek-V4-Flash-0731-Abliterated-MXFP4-INT8) | 520                    | 106                   | 159.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731 |
-| [JasonW2025/Hy3-295B-A21B-R2fc](https://huggingface.co/JasonW2025/Hy3-295B-A21B-R2fc)                                                         | 9                      | 0                     | 94.7B        |                    2 |   2026 | tencent/Hy3-295B-A21B              |
-| [s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF](https://huggingface.co/s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF)                                       | 85,292                 | 1,771                 | 35.5B        |                    1 |   2026 | ornith-ai/Ornith-1.0-35B           |
+| model                                                                                                                                         | parameters   |   # languages tagged |   year | derivative of                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                     | 1.9T         |                  143 |   2025 | —                                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                         | 856.0B       |                  143 |   2025 | —                                  |
+| [Jon-Nielsen/DeepSeek-V4-Flash-0731-Abliterated-MXFP4-INT8](https://huggingface.co/Jon-Nielsen/DeepSeek-V4-Flash-0731-Abliterated-MXFP4-INT8) | 159.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731 |
+| [JasonW2025/Hy3-295B-A21B-R2fc](https://huggingface.co/JasonW2025/Hy3-295B-A21B-R2fc)                                                         | 94.7B        |                    2 |   2026 | tencent/Hy3-295B-A21B              |
+| [s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF](https://huggingface.co/s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF)                                       | 35.5B        |                    1 |   2026 | ornith-ai/Ornith-1.0-35B           |
 
 ### Largest models tagged *only* for Samoan
 
-| model                                                                                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                                           |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:--------------------------------------------------------|
-| [Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8](https://huggingface.co/Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8)                               | 669                    | 162                   | 159.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731                      |
-| [s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF](https://huggingface.co/s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF)                                             | 85,292                 | 1,771                 | 35.5B        |                    1 |   2026 | ornith-ai/Ornith-1.0-35B                                |
-| [jajmangold/Ornith-1.0-35B-fni8](https://huggingface.co/jajmangold/Ornith-1.0-35B-fni8)                                                             | 0                      | 0                     | 35.0B        |                    1 |   2026 | deepreinforce-ai/Ornith-1.0-35B                         |
-| [jajmangold/Qwen3-30B-A3B-fni8](https://huggingface.co/jajmangold/Qwen3-30B-A3B-fni8)                                                               | 0                      | 0                     | 30.0B        |                    1 |   2026 | Qwen/Qwen3-30B-A3B-Base                                 |
-| [nuiun/Ternary-Bonsai-2-27B-Heretic-NInfer-RTX3080-16G-Bundle](https://huggingface.co/nuiun/Ternary-Bonsai-2-27B-Heretic-NInfer-RTX3080-16G-Bundle) | 115                    | 115                   | 27.0B        |                    1 |   2026 | emiltsoi/Ternary-Bonsai-2-27B-Uncensored-Heretic-NInfer |
+| model                                                                                                                                               | parameters   |   # languages tagged |   year | derivative of                                           |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------------------------------|
+| [Jon-Nielsen/DeepSeek-V4-Flash-0731-Abliterated-MXFP4-INT8](https://huggingface.co/Jon-Nielsen/DeepSeek-V4-Flash-0731-Abliterated-MXFP4-INT8)       | 159.2B       |                    1 |   2026 | deepseek-ai/DeepSeek-V4-Flash-0731                      |
+| [s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF](https://huggingface.co/s-batman/Ornith-1.0-35B-NVFP4-MTP-GGUF)                                             | 35.5B        |                    1 |   2026 | ornith-ai/Ornith-1.0-35B                                |
+| [jajmangold/Ornith-1.0-35B-fni8](https://huggingface.co/jajmangold/Ornith-1.0-35B-fni8)                                                             | 35.0B        |                    1 |   2026 | deepreinforce-ai/Ornith-1.0-35B                         |
+| [jajmangold/Qwen3-30B-A3B-fni8](https://huggingface.co/jajmangold/Qwen3-30B-A3B-fni8)                                                               | 30.0B        |                    1 |   2026 | Qwen/Qwen3-30B-A3B-Base                                 |
+| [nuiun/Ternary-Bonsai-2-27B-Heretic-NInfer-RTX3080-16G-Bundle](https://huggingface.co/nuiun/Ternary-Bonsai-2-27B-Heretic-NInfer-RTX3080-16G-Bundle) | 27.0B        |                    1 |   2026 | emiltsoi/Ternary-Bonsai-2-27B-Uncensored-Heretic-NInfer |
 
 _15 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -160,15 +186,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -182,12 +208,12 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 1,278          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 78             | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                | dataset                                                                              |   # test items | construction                                                     |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          1,278 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             78 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -215,7 +241,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 10 of ~18,460 papers (0.05%) (rank 140 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 10 of ~18,498 papers (0.05%) (rank 149 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Samoan
 
 Here are up to ten papers that were published mentioning this language in 2026:

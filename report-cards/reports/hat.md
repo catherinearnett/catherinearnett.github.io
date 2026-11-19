@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `hat`
 
+**Language family:** **Indo-European** › Classical Indo-European › Italic › … › Circum-Caribbean French ([Glottolog](https://glottolog.org/resource/languoid/id/hait1244))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 9.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 9.6 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33491#P1098), 2007)
 
 **Official / recognised in:** Haiti
 
 **Status:** Official language
+
+
+## What does Haitian Creole look and sound like?
+
+**Written (Haitian Creole)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/haitiancreole.htm):
+
+> Tout moun fèt lib, egal ego pou diyite kou wè dwa. Nou gen la rezon ak la konsyans epi nou fèt pou nou aji youn ak lot ak yon lespri fwatènite.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/hat/) has 3 videos of Haitian Creole speakers. Watch [Margaret speaking Haitian](https://wikitongues.org/videos/margaret_20160806_hat/).
 
 
 ## Training Data
@@ -25,33 +44,56 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 72,139 articles in ht.wikipedia (rank 61 of 161 in the set) — ~1/105 of English; 74 active users                                                                                                                        |
-| Common Crawl 2026      | 56,206 pages per crawl on average, which is 0.0026% of the crawl. This is ~1/15,861 of English data and ranks 75 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 0.30 GB (hat_Latn (0.30)); which is equivalent to ≈0.31 GB English data after byte-premium scaling; 2.99 GB removed by filtering. This is ~1/178,127 of English data and ranks 91 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.82 GB (hat_latn) (rank 78 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 72,139 articles in ht.wikipedia; 74 active users. This is ~1/105 of English data and ranks 62 of 168 languages in the set in Wikipedia.                                                                         |
+| Common Crawl           | 56,206 pages per crawl on average, which is 0.0026% of the crawl (2026). This is ~1/15,861 of English data and ranks 75 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 0.30 GB (hat_Latn 0.30 GB), equivalent to ≈0.31 GB of English after byte-premium scaling; 2.99 GB removed by filtering. This is ~1/178,127 of English data and ranks 91 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.82 GB (hat_Latn 0.81 GB) (rank 78 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                             |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 3,458 sentences / 75,013 tokens in total: [UD_Haitian_Creole-Adolphe](https://github.com/UniversalDependencies/UD_Haitian_Creole-Adolphe) (3,314 sentences), [UD_Haitian_Creole-Autogramm](https://github.com/UniversalDependencies/UD_Haitian_Creole-Autogramm) (144 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                                          |
+| Wikidata labels        | 562,272 Wikidata items have a label in Haitian Creole. (Wikidata codes (labels): ht (562,272))                                                                                                                                                                                                                                                                          |
+| Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                     |
+|:-----------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                         |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([hat](https://ebible.org/details.php?id=hat), Public Domain); full Bible ([hatbsa](https://ebible.org/details.php?id=hatbsa), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                      |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), Tatoeba (n=163), UDHR-LID (n=117), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.950 (P 0.960, R 0.944, FPR 2.28e-04) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.924).
+- **Best model:** GlotLID — F1 0.950 (P 0.960, R 0.944, FPR 2.26e-04) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.923).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.960 |    0.944 | 0.950 | 0.000 | ✓                |
-| cld2         |       0.969 |    0.895 | 0.924 | 0.000 | ✓                |
+| cld2         |       0.967 |    0.895 | 0.923 | 0.000 | ✓                |
 | fasttext     |       0.821 |    0.952 | 0.869 | 0.003 | ✓                |
 | funlangid    |       0.927 |    0.803 | 0.850 | 0.000 | ✓                |
-| py3langid    |       0.739 |    0.948 | 0.818 | 0.005 | ✓                |
-| pyfranc      |       0.826 |    0.825 | 0.815 | 0.001 | ✓                |
-| commonlingua |       0.784 |    0.839 | 0.801 | 0.002 | ✓                |
-| OpenLID-v2   |       0.677 |    0.981 | 0.774 | 0.008 | ✓                |
+| pyfranc      |       0.829 |    0.825 | 0.815 | 0.001 | ✓                |
+| py3langid    |       0.731 |    0.948 | 0.813 | 0.005 | ✓                |
+| commonlingua |       0.776 |    0.839 | 0.796 | 0.002 | ✓                |
+| OpenLID-v2   |       0.669 |    0.981 | 0.769 | 0.008 | ✓                |
+| cld3         |       0.514 |    0.934 | 0.643 | 0.017 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -70,6 +112,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Haitian Creole and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Haitian Creole has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Haitian Creole?
@@ -90,45 +133,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       43 | ████████████████████ |
 |   2026 |       37 | █████████████████    |
 
-### Most popular models tagged for Haitian Creole
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [facebook/xglm-564M](https://huggingface.co/facebook/xglm-564M)     | 1,709,301              | 8,655                 | 564.0M       |                   30 |   2022 | —               |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [facebook/xglm-4.5B](https://huggingface.co/facebook/xglm-4.5B)     | 195,644                | 495                   | 5.1B         |                   30 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Haitian Creole
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [goldfish-models/hat_latn_5mb](https://huggingface.co/goldfish-models/hat_latn_5mb)     |                    470 |                    13 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/hat_latn_100mb](https://huggingface.co/goldfish-models/hat_latn_100mb) |                    447 |                    12 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/hat_latn_10mb](https://huggingface.co/goldfish-models/hat_latn_10mb)   |                    434 |                    12 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/hat_latn_full](https://huggingface.co/goldfish-models/hat_latn_full)   |                    414 |                    11 | unknown      |                    1 |   2024 | —                             |
-| [ptrdvn/kakugo-3B-hat](https://huggingface.co/ptrdvn/kakugo-3B-hat)                     |                     82 |                    21 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-
 ### Largest models tagged for Haitian Creole
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                 | 84                     |                     7 | 13.9B        |                   90 |   2024 | —               |
-| [bigscience/mt0-xxl-p3](https://huggingface.co/bigscience/mt0-xxl-p3)                 | 4,719                  |                   107 | 13.9B        |                   90 |   2022 | —               |
-| [bigscience/mt0-xxl-mt](https://huggingface.co/bigscience/mt0-xxl-mt)                 | 66,063                 |                   168 | 13.9B        |                   90 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                 | 13.9B        |                   92 |   2024 | —               |
+| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)                       | 13.9B        |                   92 |   2022 | —               |
+| [bigscience/mt0-xxl-mt](https://huggingface.co/bigscience/mt0-xxl-mt)                 | 13.9B        |                   92 |   2022 | —               |
 
 ### Largest models tagged *only* for Haitian Creole
 
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/Qwen3.5-4B-hat-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-hat-32768)       |                     54 |                     8 | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
-| [alphaedge-ai/gemma-3-4b-it-hat-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-hat-32768) |                     50 |                     7 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-hat](https://huggingface.co/ptrdvn/kakugo-3B-hat)                                 |                     82 |                    21 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/Qwen3.5-2B-hat-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-hat-32768)       |                     52 |                    10 | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
-| [alphaedge-ai/Qwen3-1.7B-hat-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-hat-32768)       |                     60 |                     8 | 1.5B         |                    1 |   2026 | Qwen3-1.7B                    |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of                 |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/Qwen3.5-4B-hat-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-hat-32768)       | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
+| [alphaedge-ai/gemma-3-4b-it-hat-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-hat-32768) | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [ptrdvn/kakugo-3B-hat](https://huggingface.co/ptrdvn/kakugo-3B-hat)                                 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/Qwen3.5-2B-hat-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-hat-32768)       | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
+| [alphaedge-ai/Qwen3-1.7B-hat-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-hat-32768)       | 1.5B         |                    1 |   2026 | Qwen3-1.7B                    |
 
 _42 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -159,15 +182,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [1]        \
+         /      reasoning [1]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -181,14 +204,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 3. Commonsense reasoning | COPA                          | [XCOPA](https://huggingface.co/datasets/cambridgeltl/xcopa)                          | 500            | Human translation                                                |
-| 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        | 900            | Human translation (professional)                                 |
-| 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 75             | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                          | dataset                                                                              |   # test items | construction                                                     |
+|:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 3. Commonsense reasoning | COPA                          | [XCOPA](https://huggingface.co/datasets/cambridgeltl/xcopa)                          |            500 | Human translation                                                |
+| 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        |            900 | Human translation (professional)                                 |
+| 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
+| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             75 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -215,7 +238,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 29 of ~18,460 papers (0.16%) (rank 107 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 29 of ~18,498 papers (0.16%) (rank 113 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Haitian Creole
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 29):

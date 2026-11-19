@@ -12,11 +12,34 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `krl`
 
+**Language family:** **Uralic** › Finnic › Coastal Finnic › … › Ladogan ([Glottolog](https://glottolog.org/resource/languoid/id/kare1335))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (60% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 115,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 36,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q33557#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Karelian look and sound like?
+
+**Written (Latin alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/karelian.htm):
+
+> Kai rahvas roittahes vällinny da taza-arvozinnu omas arvos da oigevuksis. Jogahizele heis on annettu mieli da omatundo da heil vältämättäh pidäy olla keskenäh, kui vellil.
+
+**Written (Cyrillic alphabet)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/karelian.htm):
+
+> Каи рахвас роиттахeс вäллиннÿ да таза-арвозинну омас арвос да оигeвуксис. Ёгахизeлe хeис он аннeтту миeли да оматундо да хeил вäлтäмäттäх пидäÿ олла кeскeнäх, куи вeллил.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Karelian yet ([its Wikitongues page](https://wikitongues.org/languages/krl/) says how to contribute one).
 
 
 ## Training Data
@@ -25,29 +48,52 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                         |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                         |
-| FineWeb                | 6.9 MB (krl_Latn (0.01)); 0.12 GB removed by filtering. This is ~1/7,786,829 of English data and ranks 154 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                     |
+| Source                 | Amount                                                                                                                                              |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                            |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                            |
+| FineWeb                | 6.9 MB (krl_Latn 10.0 MB); 0.12 GB removed by filtering. This is ~1/7,786,829 of English data and ranks 154 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                        |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                              |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 228 sentences / 3,094 tokens in total: [UD_Karelian-KKPP](https://github.com/UniversalDependencies/UD_Karelian-KKPP) (228 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 20 lemmas, 682 inflected forms ([unimorph/krl](https://github.com/unimorph/krl))                                                                                                                                         |
+| Wikidata labels        | 428,467 Wikidata items have a label in Karelian. (Wikidata codes (labels): krl (428,467))                                                                                                                                |
+| Wordnets               | **None found**                                                                                                                                                                                                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **2 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, pyfranc.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, pyfranc.
 - **Eval datasets (2):** Tatoeba (n=196), UDHR-LID (n=183)
-- **Best model:** pyfranc — F1 0.638 (P 0.764, R 0.592, FPR 8.78e-04) averaged over 2 dataset(s). Runner-up: GlotLID (F1 0.158).
+- **Best model:** pyfranc — F1 0.637 (P 0.761, R 0.592, FPR 8.93e-04) averaged over 2 dataset(s). Runner-up: GlotLID (F1 0.158).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| pyfranc      |       0.764 |    0.592 | 0.638 | 0.001 | ✓                |
+| pyfranc      |       0.761 |    0.592 | 0.637 | 0.001 | ✓                |
 | GlotLID      |       0.487 |    0.094 | 0.158 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -57,7 +103,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 196 |       0.529 |    0.189 | 0.278 |
+| Tatoeba   | 196 |       0.521 |    0.189 | 0.277 |
 | UDHR-LID  | 183 |       1.000 |    0.995 | 0.997 |
 
 ### What can you do?
@@ -68,6 +114,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Karelian and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Karelian has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/krl/) video of Karelian yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Karelian?
@@ -103,15 +151,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -125,7 +173,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                   | task                | dataset                                                                              |   # test items | Construction                                 |
+| level                   | task                | dataset                                                                              |   # test items | construction                                 |
 |:------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:---------------------------------------------|
 | 1. Linguistic knowledge | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |            260 | Treebank-based (automatic, UD + UniMorph)    |
 | Machine translation     | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |            149 | Native (crowdsourced Tatoeba sentence pairs) |
@@ -156,7 +204,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 3 of ~18,460 papers (0.02%) (rank 189 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 3 of ~18,498 papers (0.02%) (rank 210 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Karelian
 
 Here are up to ten papers that were published mentioning this language in 2026:

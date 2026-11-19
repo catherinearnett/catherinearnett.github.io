@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `cym`
 
+**Language family:** **Indo-European** › Classical Indo-European › Celtic › … › Old-Modern Welsh ([Glottolog](https://glottolog.org/resource/languoid/id/wels1247))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable (60% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 921,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 724,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9309#P1098))
 
 **Official / recognised in:** United Kingdom
 
 **Status:** Regional official language
+
+
+## What does Welsh look and sound like?
+
+**Written ( Testun enghraifft yn y Gymraeg)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/welsh.htm):
+
+> Genir pawb yn rhydd ac yn gydradd â'i gilydd mewn urddas a hawliau. Fe'u cynysgaeddir â rheswm a chydwybod, a dylai pawb ymddwyn y naill at y llall mewn ysbryd cymodlon.
+> (Datganiad Cyffredinol O Hawliau Dynol)
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr2_cy.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://udhr.audio/UDHR_Video.asp?lng=cym&p=1.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/cym/) has 3 videos of Welsh speakers. Watch [Nigel speaking Welsh](https://wikitongues.org/videos/nigel_20150630_cym/).
 
 
 ## Training Data
@@ -25,20 +47,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 284,843 articles in cy.wikipedia (rank 34 of 161 in the set) — ~1/26 of English; 146 active users                                                                                                                      |
-| Common Crawl 2026      | 234,120 pages per crawl on average, which is 0.0109% of the crawl. This is ~1/3,808 of English data and ranks 54 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 1.20 GB (cym_Latn (1.20)); which is equivalent to ≈1.17 GB English data after byte-premium scaling; 1.21 GB removed by filtering. This is ~1/44,585 of English data and ranks 70 of 248 official languages in FineWeb. |
-| Goldfish training data | 1.86 GB (cym_latn) (rank 63 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 284,843 articles in cy.wikipedia; 146 active users. This is ~1/26 of English data and ranks 35 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 234,120 pages per crawl on average, which is 0.0109% of the crawl (2026). This is ~1/3,808 of English data and ranks 54 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 1.20 GB (cym_Latn 1.20 GB), equivalent to ≈1.17 GB of English after byte-premium scaling; 1.21 GB removed by filtering. This is ~1/44,585 of English data and ranks 70 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 1.86 GB (cym_Latn 1.86 GB) (rank 63 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                           |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 2,717 sentences / 53,842 tokens in total: [UD_Welsh-CCG](https://github.com/UniversalDependencies/UD_Welsh-CCG) (2,717 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 183 lemmas, 10,641 inflected forms ([unimorph/cym](https://github.com/unimorph/cym))                                                                                                                                  |
+| Wikidata labels        | 2,544,669 Wikidata items have a label in Welsh. (Wikidata codes (labels): cy (2,544,669))                                                                                                                             |
+| Wordnets               | **None found**                                                                                                                                                                                                        |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=60), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.932 (P 0.994, R 0.894, FPR 2.74e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.918).
+- **Best model:** GlotLID — F1 0.933 (P 0.994, R 0.897, FPR 2.70e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.923).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,21 +89,23 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.994 |    0.894 | 0.932 | 0.000 | ✓                |
-| cld2         |       0.999 |    0.867 | 0.918 | 0.000 | ✓                |
-| OpenLID-v2   |       0.875 |    0.934 | 0.893 | 0.001 | ✓                |
-| fasttext     |       0.897 |    0.890 | 0.876 | 0.001 | ✓                |
-| py3langid    |       0.866 |    0.897 | 0.868 | 0.001 | ✓                |
-| pyfranc      |       0.991 |    0.799 | 0.867 | 0.000 | ✓                |
-| funlangid    |       0.986 |    0.769 | 0.847 | 0.000 | ✓                |
-| commonlingua |       0.954 |    0.772 | 0.839 | 0.000 | ✓                |
+| GlotLID      |       0.994 |    0.897 | 0.933 | 0.000 | ✓                |
+| cld2         |       0.999 |    0.875 | 0.923 | 0.000 | ✓                |
+| OpenLID-v2   |       0.874 |    0.937 | 0.894 | 0.001 | ✓                |
+| fasttext     |       0.897 |    0.897 | 0.880 | 0.001 | ✓                |
+| py3langid    |       0.868 |    0.901 | 0.871 | 0.001 | ✓                |
+| pyfranc      |       0.988 |    0.803 | 0.870 | 0.000 | ✓                |
+| funlangid    |       0.984 |    0.781 | 0.856 | 0.000 | ✓                |
+| commonlingua |       0.954 |    0.779 | 0.844 | 0.000 | ✓                |
+| cld3         |       0.703 |    0.871 | 0.754 | 0.006 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | Wikipedia | 300 |       0.976 |    0.547 | 0.701 |
-| Tatoeba   | 300 |       0.993 |    0.927 | 0.959 |
+| Tatoeba   | 300 |       0.993 |    0.943 | 0.968 |
 | NTREX     | 300 |       1.000 |    0.997 | 0.998 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
 | UDHR-LID  |  60 |       1.000 |    1.000 | 1.000 |
@@ -73,6 +118,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Welsh and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Welsh has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Welsh?
@@ -93,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       62 | ██████████           |
 |   2026 |      119 | ████████████████████ |
 
-### Most popular models tagged for Welsh
-
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------|
-| [BSC-LT/salamandra-7b-instruct](https://huggingface.co/BSC-LT/salamandra-7b-instruct) | 713,529                | 36,481                | 7.8B         |                   33 |   2024 | BSC-LT/salamandra-7b |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                   | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                    |
-| [BSC-LT/ALIA-40b](https://huggingface.co/BSC-LT/ALIA-40b)                             | 453,657                | 988                   | 40.4B        |                   33 |   2024 | —                    |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)                   | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —                    |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)                     | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —                    |
-
-### Most popular models tagged *only* for Welsh
-
-| model                                                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of          |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------|
-| [goldfish-models/cym_latn_10mb](https://huggingface.co/goldfish-models/cym_latn_10mb)                                                     | 1,948                  |                    21 | unknown      |                    1 |   2024 | —                      |
-| [goldfish-models/cym_latn_5mb](https://huggingface.co/goldfish-models/cym_latn_5mb)                                                       | 1,588                  |                    10 | unknown      |                    1 |   2024 | —                      |
-| [goldfish-models/cym_latn_1000mb](https://huggingface.co/goldfish-models/cym_latn_1000mb)                                                 | 955                    |                   204 | unknown      |                    1 |   2024 | —                      |
-| [mechramc/kalavai-cross-lingual-welsh-specialist-seed137](https://huggingface.co/mechramc/kalavai-cross-lingual-welsh-specialist-seed137) | 474                    |                     9 | 405.3M       |                    1 |   2026 | EleutherAI/pythia-410m |
-| [goldfish-models/cym_latn_100mb](https://huggingface.co/goldfish-models/cym_latn_100mb)                                                   | 449                    |                    19 | unknown      |                    1 |   2024 | —                      |
-
 ### Largest models tagged for Welsh
 
-| model                                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                 |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                                             |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                                             |
-| [locailabs/Jupiter-N-120B](https://huggingface.co/locailabs/Jupiter-N-120B)                                           | 8,455                  |                    16 | 120.7B       |                    8 |   2026 | nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16 |
-| [csala/ALIA-40b-Q3_K-GGUF](https://huggingface.co/csala/ALIA-40b-Q3_K-GGUF)                                           | 213                    |                    26 | 40.4B        |                   33 |   2025 | BSC-LT/ALIA-40b                               |
-| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 875                    |                   175 | 34.7B        |                   80 |   2026 | Qwen/Qwen3.6-35B-A3B                          |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                                 |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                                             |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                                             |
+| [locailabs/Jupiter-N-120B](https://huggingface.co/locailabs/Jupiter-N-120B)                                           | 120.7B       |                    8 |   2026 | nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16 |
+| [csala/ALIA-40b-Q3_K-GGUF](https://huggingface.co/csala/ALIA-40b-Q3_K-GGUF)                                           | 40.4B        |                   33 |   2025 | BSC-LT/ALIA-40b                               |
+| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 34.7B        |                   82 |   2026 | Qwen/Qwen3.6-35B-A3B                          |
 
 ### Largest models tagged *only* for Welsh
 
-| model                                                                                                       |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of             |
-|:------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------------|
-| [DGurgurov/llama-3.1-8b-cym_latn](https://huggingface.co/DGurgurov/llama-3.1-8b-cym_latn)                   |                    137 |                    36 | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B   |
-| [DGurgurov/aya-expanse-8b-cym_latn](https://huggingface.co/DGurgurov/aya-expanse-8b-cym_latn)               |                     81 |                     3 | 8.0B         |                    1 |   2026 | CohereLabs/aya-expanse-8b |
-| [BangorAI/mistral-7b-cy-tokenizer-train-6](https://huggingface.co/BangorAI/mistral-7b-cy-tokenizer-train-6) |                    304 |                    30 | 7.3B         |                    1 |   2023 | —                         |
-| [BangorAI/cyfieithydd-7b-fersiwn-3](https://huggingface.co/BangorAI/cyfieithydd-7b-fersiwn-3)               |                    323 |                    18 | 7.0B         |                    1 |   2024 | —                         |
-| [BangorAI/mistral-7b-cy-train-6](https://huggingface.co/BangorAI/mistral-7b-cy-train-6)                     |                     51 |                     7 | 7.0B         |                    1 |   2023 | —                         |
+| model                                                                                                         | parameters   |   # languages tagged |   year | derivative of             |
+|:--------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------|
+| [DGurgurov/llama-3.1-8b-cym_latn](https://huggingface.co/DGurgurov/llama-3.1-8b-cym_latn)                     | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B   |
+| [DGurgurov/aya-expanse-8b-cym_latn](https://huggingface.co/DGurgurov/aya-expanse-8b-cym_latn)                 | 8.0B         |                    1 |   2026 | CohereLabs/aya-expanse-8b |
+| [BangorAI/mistral-7b-cy-tokenizer-train-6](https://huggingface.co/BangorAI/mistral-7b-cy-tokenizer-train-6)   | 7.3B         |                    1 |   2023 | —                         |
+| [BangorAI/Cyfieithu-Mistral-7b-cyffredin-1](https://huggingface.co/BangorAI/Cyfieithu-Mistral-7b-cyffredin-1) | 7.0B         |                    1 |   2023 | —                         |
+| [BangorAI/Cyfieithu-Mistral-7b-tocynnydd-1](https://huggingface.co/BangorAI/Cyfieithu-Mistral-7b-tocynnydd-1) | 7.0B         |                    1 |   2023 | —                         |
 
 _42 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,14 +210,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 1,120          | Treebank-based (automatic, UD + UniMorph)                        |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 1,007          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                | dataset                                                                              |   # test items | construction                                                     |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |          1,120 | Treebank-based (automatic, UD + UniMorph)                        |
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |          1,007 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -219,7 +245,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 65 of ~18,460 papers (0.35%) (rank 72 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 65 of ~18,498 papers (0.35%) (rank 75 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Welsh
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 65):

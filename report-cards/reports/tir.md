@@ -12,11 +12,37 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tir`
 
+**Language family:** **Afro-Asiatic** › Semitic › West Semitic › Ethiosemitic ([Glottolog](https://glottolog.org/resource/languoid/id/tigr1271))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
 **Writing systems:** `Ethi`
+
+**Speakers:** about 10.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 7.5 million first-language + 152,000 second-language ([Wikidata](https://www.wikidata.org/wiki/Q34124#P1098), 2019)
 
 **Official / recognised in:** Eritrea, Ethiopia
 
-**Status:** Official language; De facto official language
+**Status:** De facto official language; Official language
+
+
+## What does Tigrinya look and sound like?
+
+**Written (Tigrinya)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/tigrinya.htm):
+
+> Transliteration
+> Bəmäns̤ər kəbrən mäsälen kulom
+> säbat əntəwläṣu näs̤an maʿərän
+> əyom. Məstəwʿalen ḥəlenan zətäʿadälom
+> bəməxʷanom bəḥəwnätawi mänfäs
+> kətäḥalaläyu aläwom.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_tigrinya.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tir/) has 4 videos of Tigrinya speakers. Watch [Meninet speaking Tigrigna](https://wikitongues.org/videos/meninet_20200424_tir/).
 
 
 ## Training Data
@@ -25,20 +51,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 374 articles in ti.wikipedia; 14 active users. This is ~1/20,178 of English data and ranks 165 of 168 languages in the set in Wikipedia.                                                                         |
+| Common Crawl           | 16,574 pages per crawl on average, which is 0.0008% of the crawl (2026). This is ~1/53,790 of English data and ranks 93 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 0.13 GB (tir_Ethi 0.13 GB), equivalent to ≈74.9 MB of English after byte-premium scaling; 1.96 GB removed by filtering. This is ~1/404,308 of English data and ranks 105 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.48 GB (tir_Ethi 0.48 GB) (rank 90 of 166 in the set)                                                                                                                                                           |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                              |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 374 articles in ti.wikipedia (rank 158 of 161 in the set) — ~1/20,178 of English; 14 active users                                                                                                                        |
-| Common Crawl 2026      | 16,574 pages per crawl on average, which is 0.0008% of the crawl. This is ~1/53,790 of English data and ranks 93 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 0.13 GB (tir_Ethi (0.13)); which is equivalent to ≈74.9 MB English data after byte-premium scaling; 1.96 GB removed by filtering. This is ~1/404,308 of English data and ranks 105 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.48 GB (tir_ethi) (rank 90 of 166 in the set)                                                                                                                                                                           |
+| Universal Dependencies | 1 treebank, 221 sentences / 1,287 tokens in total: [UD_Tigrinya-TiTB](https://github.com/UniversalDependencies/UD_Tigrinya-TiTB) (221 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                           |
+| Wikidata labels        | 155,614 Wikidata items have a label in Tigrinya. (Wikidata codes (labels): ti (155,614))                                                                                                                                 |
+| Wordnets               | **None found**                                                                                                                                                                                                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** OpenLID-v2 — F1 0.992 (P 0.998, R 0.987, FPR 1.79e-05) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.992).
+- **Best model:** OpenLID-v2 — F1 0.992 (P 0.998, R 0.987, FPR 1.76e-05) averaged over 6 dataset(s). Runner-up: GlotLID (F1 0.992).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -49,10 +96,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | OpenLID-v2   |       0.998 |    0.987 | 0.992 | 0.000 | ✓                |
 | GlotLID      |       1.000 |    0.984 | 0.992 | 0.000 | ✓                |
 | fasttext     |       0.989 |    0.986 | 0.987 | 0.000 | ✓                |
+| AfroLID      |       0.984 |    0.982 | 0.983 | 0.001 | ✓                |
 | commonlingua |       0.977 |    0.968 | 0.972 | 0.000 | ✓                |
 | cld2         |       1.000 |    0.934 | 0.965 | 0.000 | ✓                |
 | funlangid    |       0.988 |    0.899 | 0.939 | 0.000 | ✓                |
-| pyfranc      |       0.686 |    0.943 | 0.782 | 0.008 | ✓                |
+| pyfranc      |       0.686 |    0.943 | 0.782 | 0.007 | ✓                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (OpenLID-v2) by dataset**:
@@ -62,9 +111,9 @@ Language identification (LangID or LID) is a classification task that identifies
 | Wikipedia | 300 |       1.000 |    0.927 | 0.962 |
 | Tatoeba   | 300 |       0.990 |    0.993 | 0.992 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
+| NTREX     | 300 |       1.000 |    1.000 | 1.000 |
 | SmolSent  | 300 |       1.000 |    1.000 | 1.000 |
 | UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
-| NTREX     | 300 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -74,6 +123,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tigrinya and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tigrinya has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Tigrinya?
@@ -93,45 +143,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        7 | ████                 |
 |   2026 |       33 | ████████████████████ |
 
-### Most popular models tagged for Tigrinya
-
-| model                                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------|
-| [UBC-NLP/cheetah-base](https://huggingface.co/UBC-NLP/cheetah-base)                 | 25,910                 | 577                   | unknown      |                   17 |   2024 | —                    |
-| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)     | 20,964                 | 1,255                 | 14.8B        |                   19 |   2026 | Qwen/Qwen3-14B-Base  |
-| [McGill-NLP/AfriqueQwen3.5-4B](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B) | 11,943                 | 810                   | 5.2B         |                   19 |   2026 | Qwen/Qwen3.5-4B-Base |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)             | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                    |
-| [McGill-NLP/AfriqueQwen-8B](https://huggingface.co/McGill-NLP/AfriqueQwen-8B)       | 9,488                  | 549                   | 8.2B         |                   19 |   2026 | Qwen/Qwen3-8B-Base   |
-
-### Most popular models tagged *only* for Tigrinya
-
-| model                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                      |
-|:------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------|
-| [mewaeltsegay/desta_1b](https://huggingface.co/mewaeltsegay/desta_1b)         | 6,539                  |                    18 | 1.1B         |                    1 |   2026 | TinyLlama/TinyLlama-1.1B-Chat-v1.0 |
-| [luel/gemma-3-4b-tigrinya](https://huggingface.co/luel/gemma-3-4b-tigrinya)   | 3,005                  |                    11 | 3.9B         |                    1 |   2025 | google/gemma-3-4b-pt               |
-| [luel/gpt2-tigrinya-medium](https://huggingface.co/luel/gpt2-tigrinya-medium) | 1,407                  |                    86 | 51.9M        |                    1 |   2024 | —                                  |
-| [Ha-Te-21/sft_v1_q4km](https://huggingface.co/Ha-Te-21/sft_v1_q4km)           | 599                    |                   293 | 7.5B         |                    1 |   2026 | google/gemma-4-E4B-it              |
-| [luel/gpt2-tigrinya-small](https://huggingface.co/luel/gpt2-tigrinya-small)   | 530                    |                    39 | 16.8M        |                    1 |   2024 | —                                  |
-
 ### Largest models tagged for Tigrinya
 
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of         |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                     |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                     |
-| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)       | 20,964                 | 1,255                 | 14.8B        |                   19 |   2026 | Qwen/Qwen3-14B-Base   |
-| [McGill-NLP/AfriqueGemma-12B](https://huggingface.co/McGill-NLP/AfriqueGemma-12B)     | 5,840                  | 315                   | 12.2B        |                   19 |   2026 | google/gemma-3-12b-pt |
-| [DawitShibabaw/zuman.ai](https://huggingface.co/DawitShibabaw/zuman.ai)               | 52                     | 52                    | 12.0B        |                    5 |   2026 | —                     |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of         |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —                     |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —                     |
+| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)       | 14.8B        |                   21 |   2026 | Qwen/Qwen3-14B-Base   |
+| [McGill-NLP/AfriqueGemma-12B](https://huggingface.co/McGill-NLP/AfriqueGemma-12B)     | 12.2B        |                   21 |   2026 | google/gemma-3-12b-pt |
+| [DawitShibabaw/zuman.ai](https://huggingface.co/DawitShibabaw/zuman.ai)               | 12.0B        |                    5 |   2026 | —                     |
 
 ### Largest models tagged *only* for Tigrinya
 
-| model                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                      |
-|:--------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------|
-| [Ha-Te-21/sft_v1_q4km](https://huggingface.co/Ha-Te-21/sft_v1_q4km)                                           | 599                    |                   293 | 7.5B         |                    1 |   2026 | google/gemma-4-E4B-it              |
-| [tensorblock/luel_gemma-3-4b-tigrinya-GGUF](https://huggingface.co/tensorblock/luel_gemma-3-4b-tigrinya-GGUF) | 2,714                  |                   131 | 3.9B         |                    1 |   2025 | google/gemma-3-4b-pt               |
-| [ptrdvn/kakugo-3B-tir](https://huggingface.co/ptrdvn/kakugo-3B-tir)                                           | 95                     |                    16 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro      |
-| [mewaeltsegay/desta_1b](https://huggingface.co/mewaeltsegay/desta_1b)                                         | 6,539                  |                    18 | 1.1B         |                    1 |   2026 | TinyLlama/TinyLlama-1.1B-Chat-v1.0 |
-| [luel/gpt2-tigrinya-medium](https://huggingface.co/luel/gpt2-tigrinya-medium)                                 | 1,407                  |                    86 | 51.9M        |                    1 |   2024 | —                                  |
+| model                                                                         | parameters   |   # languages tagged |   year | derivative of                      |
+|:------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------|
+| [Ha-Te-21/sft_v1_q4km](https://huggingface.co/Ha-Te-21/sft_v1_q4km)           | 7.5B         |                    1 |   2026 | google/gemma-4-E4B-it              |
+| [luel/gemma-3-4b-tigrinya](https://huggingface.co/luel/gemma-3-4b-tigrinya)   | 3.9B         |                    1 |   2025 | google/gemma-3-4b-pt               |
+| [ptrdvn/kakugo-3B-tir](https://huggingface.co/ptrdvn/kakugo-3B-tir)           | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro      |
+| [mewaeltsegay/desta_1b](https://huggingface.co/mewaeltsegay/desta_1b)         | 1.1B         |                    1 |   2026 | TinyLlama/TinyLlama-1.1B-Chat-v1.0 |
+| [luel/gpt2-tigrinya-medium](https://huggingface.co/luel/gpt2-tigrinya-medium) | 51.9M        |                    1 |   2024 | —                                  |
 
 _13 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -151,7 +181,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**12** benchmark datasets in the survey include Tigrinya.
+**10** benchmark datasets in the survey include Tigrinya.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -162,15 +192,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -178,13 +208,13 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /        ✅ Machine translation [10]         \
+ /         ✅ Machine translation [8]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                              | # test items   | Construction                                                        |
+| level                    | task                          | dataset                                                                              | # test items   | construction                                                        |
 |:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        | 900            | Human translation (professional)                                    |
 | 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 385            | Synthetic (LLM-generated) on native Wikipedia                       |
@@ -194,9 +224,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 | Machine translation      | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                      |
 | Machine translation      | Machine translation           | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional) of LLM-generated English documents |
 | Machine translation      | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                       | —              | Human translation (professional, from English)                      |
-| Machine translation      | Machine translation           | [TICO-19](https://github.com/tico-19/tico-19.github.io)                              | 2,100          | Human translation (professional/volunteer, from English)            |
-| Machine translation      | Machine translation           | [TICO-19](https://github.com/tico-19/tico-19.github.io)                              | 2,100          | Human translation (professional/volunteer, from English)            |
-| Machine translation      | Machine translation           | [TICO-19](https://github.com/tico-19/tico-19.github.io)                              | 2,100          | Human translation (professional/volunteer, from English)            |
+| Machine translation      | Machine translation           | [TICO-19](https://github.com/tico-19/tico-19.github.io) (3 varieties/pairs)          | 6,300          | Human translation (professional/volunteer, from English)            |
 | Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 70             | Native (crowdsourced Tatoeba sentence pairs)                        |
 
 ### What tasks are missing?
@@ -224,22 +252,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 40 of ~18,460 papers (0.22%) (rank 97 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 41 of ~18,498 papers (0.22%) (rank 101 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Tigrinya
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 40):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 41):
 
-| title                                                                                                          | paper                                                                          |
-|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages         | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)               |
-| MaTIAS – Machine Translation to Inform Asylum Seekers: final results                                           | [2026.eamt-2.2](https://aclanthology.org/2026.eamt-2.2/)                       |
-| Parallel Tokenizers: Rethinking Vocabulary Design in Cross-Lingual Transfer of Low-Resource Languages          | [2026.emnlp-main.117](https://aclanthology.org/2026.emnlp-main.117/)           |
-| The Language–Energy Divide: Measuring Energy Costs of Multilingual LLM Inference                               | [2026.emnlp-main.2113](https://aclanthology.org/2026.emnlp-main.2113/)         |
-| TIPA: Typologically Informed Parameter Aggregation                                                             | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
-| Is Multilingual LLM Watermarking Truly Multilingual? Scaling Robustness to 100+ Languages via Back-Translation | [2026.findings-emnlp.1115](https://aclanthology.org/2026.findings-emnlp.1115/) |
-| Yeswa-Stories: A Three-Way Parallel Dataset of Female African Figures in Low-Web Data Languages                | [2026.gitt-1.7](https://aclanthology.org/2026.gitt-1.7/)                       |
-| Mining Naturally Romanized Seed Corpora without Romanizations                                                  | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)                   |
-| Enhancing Multi-Label Emotion Analysis and Corresponding Intensities for Ethiopian Languages                   | [2026.lrec-1.639](https://aclanthology.org/2026.lrec-1.639/)                   |
-| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages                     | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)                   |
+| title                                                                                                  | paper                                                                |
+|:-------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
+| AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages | [2026.acl-long.267](https://aclanthology.org/2026.acl-long.267/)     |
+| MaTIAS – Machine Translation to Inform Asylum Seekers: final results                                   | [2026.eamt-2.2](https://aclanthology.org/2026.eamt-2.2/)             |
+| Parallel Tokenizers: Rethinking Vocabulary Design in Cross-Lingual Transfer of Low-Resource Languages  | [2026.emnlp-main.117](https://aclanthology.org/2026.emnlp-main.117/) |
+| Mining Naturally Romanized Seed Corpora without Romanizations                                          | [2026.lrec-1.234](https://aclanthology.org/2026.lrec-1.234/)         |
+| Amharic DBpedia Chapter: A Knowledge Graph for a Low-Resource Language                                 | [2026.lrec-1.627](https://aclanthology.org/2026.lrec-1.627/)         |
+| SiniticMTError: A Machine Translation Dataset with Error Annotations for Sinitic Languages             | [2026.lrec-1.683](https://aclanthology.org/2026.lrec-1.683/)         |
+| What Triggers My Model? Contrastive Explanations Inform Gender Choices by Translation Models           | [2026.lrec-1.686](https://aclanthology.org/2026.lrec-1.686/)         |
+| LGSE: Lexically Grounded Subword Embedding Initialization for Low-Resource Language Adaptation         | [2026.lrec-1.812](https://aclanthology.org/2026.lrec-1.812/)         |
+| Reclaiming African Voices: Surveying Indigenous Writing Systems for Inclusive NLP                      | [2026.rail-1.10](https://aclanthology.org/2026.rail-1.10/)           |
+| Open but Unvetted: The Ethics of African Language Data                                                 | [2026.rail-1.13](https://aclanthology.org/2026.rail-1.13/)           |
 
 {% endraw %}

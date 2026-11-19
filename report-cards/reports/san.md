@@ -12,11 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `san`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › Indo-Aryan ([Glottolog](https://glottolog.org/resource/languoid/id/sans1269))
+
+**Endangerment:** ⚫ extinct (level 6 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 10 (Extinct))
+
 **Writing systems:** `Deva` and `Latn`
+
+**Speakers:** about 17,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 26,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q11059#P1098), 2001)
 
 **Official / recognised in:** India, South Africa
 
-**Status:** Official language; Regional official language
+**Status:** Regional official language; Official language
+
+
+## What does Sanskrit look and sound like?
+
+**Written (Sanskrit)**, sample text from [Omniglot](https://www.omniglot.com/writing/sanskrit.htm):
+
+> Translated into Sanskrit by Arvind Iyengar
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/san/) has 2 videos of Sanskrit speakers. Watch [Sushyanth and Anonymous speaking Sanskrit](https://wikitongues.org/videos/sushyanth-anonymous_20210523_san/).
 
 
 ## Training Data
@@ -25,20 +42,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                    |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 12,587 articles in sa.wikipedia (rank 93 of 161 in the set) — ~1/600 of English; 82 active users                                                                                                                                          |
-| Common Crawl 2026      | 80,639 pages per crawl on average, which is 0.0037% of the crawl. This is ~1/11,056 of English data and ranks 67 of 113 official languages in Common Crawl.                                                                               |
-| FineWeb                | 0.11 GB (san_Deva (0.09); san_Latn (0.03)); which is equivalent to ≈61.3 MB English data after byte-premium scaling; 0.78 GB removed by filtering. This is ~1/465,494 of English data and ranks 108 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.35 GB (san_deva) (rank 101 of 166 in the set)                                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                                             |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 12,587 articles in sa.wikipedia; 82 active users. This is ~1/600 of English data and ranks 97 of 168 languages in the set in Wikipedia.                                                                                            |
+| Common Crawl           | 80,639 pages per crawl on average, which is 0.0037% of the crawl (2026). This is ~1/11,056 of English data and ranks 67 of 113 languages in the set in Common Crawl.                                                               |
+| FineWeb                | 0.11 GB (san_Deva 90.0 MB; san_Latn 30.0 MB), equivalent to ≈61.3 MB of English after byte-premium scaling; 0.78 GB removed by filtering. This is ~1/465,494 of English data and ranks 108 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.35 GB (san_Deva 0.35 GB) (rank 101 of 166 in the set)                                                                                                                                                                            |
+
+**By writing system:**
+
+| Writing system      | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:--------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Devanagari (`Deva`) | 90.0 MB   | — (no byte premium yet)       | 0.35 GB      | 0.14 GB                        |
+| Latin (`Latn`)      | 30.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                          |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 27,412 sentences / 207,914 tokens in total: [UD_Sanskrit-UFAL](https://github.com/UniversalDependencies/UD_Sanskrit-UFAL) (230 sentences), [UD_Sanskrit-Vedic](https://github.com/UniversalDependencies/UD_Sanskrit-Vedic) (27,182 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 917 lemmas, 33,847 inflected forms ([unimorph/san](https://github.com/unimorph/san))                                                                                                                                                                                                                                                 |
+| Wikidata labels        | 469,249 Wikidata items have a label in Sanskrit. (Wikidata codes (labels): sa (469,249))                                                                                                                                                                                                                                             |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; [Sanskrit Wordnet](http://www.cfilt.iitb.ac.in/wordnet/webswn/english_version.php) (size not listed); licence: GNU FDL; [ilts-utkal.org](http://ilts-utkal.org/) (size not listed).                                 |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Bible translations (eBible corpus) | **Yes** — 20 translations: New Testament ([sanasm](https://ebible.org/details.php?id=sanasm), by-sa 4.0); New Testament ([santib](https://ebible.org/details.php?id=santib), by-sa 4.0); New Testament ([santha](https://ebible.org/details.php?id=santha), by-sa 4.0); New Testament ([santel](https://ebible.org/details.php?id=santel), by-sa 4.0); New Testament ([santam](https://ebible.org/details.php?id=santam), by-sa 4.0); New Testament ([sansin](https://ebible.org/details.php?id=sansin), by-sa 4.0); New Testament ([sanpun](https://ebible.org/details.php?id=sanpun), by-sa 4.0); New Testament ([sanori](https://ebible.org/details.php?id=sanori), by-sa 4.0); New Testament ([sanmal](https://ebible.org/details.php?id=sanmal), by-sa 4.0); New Testament ([sankhm](https://ebible.org/details.php?id=sankhm), by-sa 4.0); New Testament ([sanitr](https://ebible.org/details.php?id=sanitr), by-sa 4.0); New Testament ([saniso](https://ebible.org/details.php?id=saniso), by-sa 4.0); New Testament ([sanias](https://ebible.org/details.php?id=sanias), by-sa 4.0); New Testament ([sanhk](https://ebible.org/details.php?id=sanhk), by-sa 4.0); New Testament ([sanguj](https://ebible.org/details.php?id=sanguj), by-sa 4.0); New Testament ([sandev](https://ebible.org/details.php?id=sandev), by-sa 4.0); New Testament ([sanbur](https://ebible.org/details.php?id=sanbur), by-sa 4.0); New Testament ([sanben](https://ebible.org/details.php?id=sanben), by-sa 4.0); New Testament ([sanurd](https://ebible.org/details.php?id=sanurd), by-sa 4.0); New Testament ([sanvel](https://ebible.org/details.php?id=sanvel), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), SmolSent (n=300), Tatoeba (n=167), UDHR-LID (n=106), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.968 (P 0.992, R 0.947, FPR 4.52e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.908).
+- **Best model:** GlotLID — F1 0.968 (P 0.992, R 0.947, FPR 4.46e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.907).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,13 +94,15 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.992 |    0.947 | 0.968 | 0.000 | ✓                |
-| OpenLID-v2   |       0.978 |    0.867 | 0.908 | 0.000 | ✓                |
-| py3langid    |       0.965 |    0.847 | 0.892 | 0.000 | ✓                |
-| fasttext     |       0.985 |    0.788 | 0.865 | 0.000 | ✓                |
-| cld2         |       0.934 |    0.793 | 0.852 | 0.001 | ✓                |
-| commonlingua |       0.931 |    0.748 | 0.814 | 0.001 | ✓                |
-| pyfranc      |       0.908 |    0.721 | 0.789 | 0.001 | ✓                |
-| funlangid    |       0.866 |    0.694 | 0.759 | 0.001 | ✓                |
+| OpenLID-v2   |       0.977 |    0.867 | 0.907 | 0.000 | ✓                |
+| py3langid    |       0.965 |    0.847 | 0.891 | 0.000 | ✓                |
+| fasttext     |       0.984 |    0.788 | 0.865 | 0.000 | ✓                |
+| cld2         |       0.933 |    0.793 | 0.851 | 0.001 | ✓                |
+| commonlingua |       0.928 |    0.748 | 0.812 | 0.001 | ✓                |
+| pyfranc      |       0.909 |    0.721 | 0.790 | 0.001 | ✓                |
+| funlangid    |       0.872 |    0.694 | 0.760 | 0.001 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -93,45 +142,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       59 | █████████            |
 |   2026 |      135 | ████████████████████ |
 
-### Most popular models tagged for Sanskrit
-
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [sarvamai/sarvam-30b](https://huggingface.co/sarvamai/sarvam-30b)                                     | 588,834                | 4,329                 | 32.2B        |                   23 |   2026 | —               |
-| [sarvamai/sarvam-105b](https://huggingface.co/sarvamai/sarvam-105b)                                   | 206,543                | 5,765                 | 106.0B       |                   23 |   2026 | —               |
-| [bharatgenai/Param2-17B-A2.4B-Thinking](https://huggingface.co/bharatgenai/Param2-17B-A2.4B-Thinking) | 166,640                | 9,968                 | 17.2B        |                   22 |   2026 | —               |
-| [aoxo/sarvam-105b-uncensored](https://huggingface.co/aoxo/sarvam-105b-uncensored)                     | 132,751                | 55                    | 55.7B        |                   23 |   2026 | —               |
-| [aoxo/sarvam-30b-uncensored](https://huggingface.co/aoxo/sarvam-30b-uncensored)                       | 97,121                 | 89                    | 32.2B        |                   23 |   2026 | —               |
-
-### Most popular models tagged *only* for Sanskrit
-
-| model                                                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of               |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------|
-| [mradermacher/Sanskrit-Qwen2.5-7B-base-GGUF](https://huggingface.co/mradermacher/Sanskrit-Qwen2.5-7B-base-GGUF)             | 2,877                  |                   273 | 7.6B         |                    1 |   2025 | Qwen/Qwen2.5-7B             |
-| [saucam/Rudra-7b](https://huggingface.co/saucam/Rudra-7b)                                                                   | 1,353                  |                    17 | 8.5B         |                    1 |   2024 | —                           |
-| [sraivante/Sanskrit-322M-Base](https://huggingface.co/sraivante/Sanskrit-322M-Base)                                         | 753                    |                   244 | 322.2M       |                    1 |   2026 | —                           |
-| [notyost/claudius-purus-110m-g](https://huggingface.co/notyost/claudius-purus-110m-g)                                       | 669                    |                    65 | 111.0M       |                    1 |   2026 | —                           |
-| [diabolic6045/Sanskrit-Qwen2.5-VL-7B-Instruct-OCR](https://huggingface.co/diabolic6045/Sanskrit-Qwen2.5-VL-7B-Instruct-OCR) | 662                    |                    35 | 8.3B         |                    1 |   2025 | Qwen/Qwen2.5-VL-7B-Instruct |
-
 ### Largest models tagged for Sanskrit
 
-| model                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                   | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)       | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                    |
-| [RedHatAI/sarvam-105b-FP8-dynamic](https://huggingface.co/RedHatAI/sarvam-105b-FP8-dynamic) | 1,337                  |                   117 | 106.1B       |                   23 |   2026 | sarvamai/sarvam-105b |
-| [mygitphase/guhan1-105b-gguf](https://huggingface.co/mygitphase/guhan1-105b-gguf)           | 45                     |                     2 | 106.0B       |                   23 |   2026 | —                    |
-| [mygitphase/guhan-105b-gguf](https://huggingface.co/mygitphase/guhan-105b-gguf)             | 78                     |                     2 | 106.0B       |                   23 |   2026 | —                    |
+| model                                                                                       | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                   | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)       | 856.0B       |                  143 |   2025 | —                    |
+| [RedHatAI/sarvam-105b-FP8-dynamic](https://huggingface.co/RedHatAI/sarvam-105b-FP8-dynamic) | 106.1B       |                   23 |   2026 | sarvamai/sarvam-105b |
+| [DurgaPrasad04/sarvam-105b](https://huggingface.co/DurgaPrasad04/sarvam-105b)               | 106.0B       |                   23 |   2026 | —                    |
+| [anipleades/sarvam-105b](https://huggingface.co/anipleades/sarvam-105b)                     | 106.0B       |                   23 |   2026 | —                    |
 
 ### Largest models tagged *only* for Sanskrit
 
-| model                                                                                                               | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of               |
-|:--------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------|
-| [saucam/Rudra-7b](https://huggingface.co/saucam/Rudra-7b)                                                           | 1,353                  |                    17 | 8.5B         |                    1 |   2024 | —                           |
-| [snskrt/qwen2-5-vl-sanskrit-ocr](https://huggingface.co/snskrt/qwen2-5-vl-sanskrit-ocr)                             | 205                    |                    13 | 8.3B         |                    1 |   2025 | Qwen/Qwen2.5-VL-7B-Instruct |
-| [swarup3204/llama-3.1-8B-it-anvaya-ift-10perm](https://huggingface.co/swarup3204/llama-3.1-8B-it-anvaya-ift-10perm) | 61                     |                     9 | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B     |
-| [mradermacher/Sanskrit-Qwen2.5-7B-base-GGUF](https://huggingface.co/mradermacher/Sanskrit-Qwen2.5-7B-base-GGUF)     | 2,877                  |                   273 | 7.6B         |                    1 |   2025 | Qwen/Qwen2.5-7B             |
-| [snskrt/gemma-3-4b-it-sanskrit-ocr](https://huggingface.co/snskrt/gemma-3-4b-it-sanskrit-ocr)                       | 185                    |                     9 | 4.3B         |                    1 |   2025 | google/gemma-3-4b-it        |
+| model                                                                                                                       | parameters   |   # languages tagged |   year | derivative of               |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------|
+| [saucam/Rudra-7b](https://huggingface.co/saucam/Rudra-7b)                                                                   | 8.5B         |                    1 |   2024 | —                           |
+| [diabolic6045/Sanskrit-Qwen2.5-VL-7B-Instruct-OCR](https://huggingface.co/diabolic6045/Sanskrit-Qwen2.5-VL-7B-Instruct-OCR) | 8.3B         |                    1 |   2025 | Qwen/Qwen2.5-VL-7B-Instruct |
+| [swarup3204/llama-3.1-8B-it-anvaya-ift-10perm](https://huggingface.co/swarup3204/llama-3.1-8B-it-anvaya-ift-10perm)         | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B     |
+| [diabolic6045/Sanskrit-Qwen2.5-7B-base](https://huggingface.co/diabolic6045/Sanskrit-Qwen2.5-7B-base)                       | 7.6B         |                    1 |   2025 | Qwen/Qwen2.5-7B             |
+| [snskrt/gemma-3-4b-it-sanskrit-ocr](https://huggingface.co/snskrt/gemma-3-4b-it-sanskrit-ocr)                               | 4.3B         |                    1 |   2025 | google/gemma-3-4b-it        |
 
 _53 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +191,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [1]        \
+         /      reasoning [1]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +213,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
+| level                    | task                | dataset                                                                              | # test items   | construction                                                     |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 4,442          | Treebank-based (automatic, UD + UniMorph)                        |
 | 3. Commonsense reasoning | COPA                | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                     | 500            | Human translation                                                |
@@ -220,7 +249,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 106 of ~18,460 papers (0.57%) (rank 55 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 106 of ~18,498 papers (0.57%) (rank 57 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Sanskrit
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 106):

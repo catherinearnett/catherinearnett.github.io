@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `xho`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Southern Ndebele-Lowland ([Glottolog](https://glottolog.org/resource/languoid/id/xhos1239))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 10.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 8.2 million first-language + 11.0 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q13218#P1098), 2011)
 
 **Official / recognised in:** South Africa, Zimbabwe
 
 **Status:** Official language
+
+
+## What does Xhosa look and sound like?
+
+**Written (Xhosa)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/xhosa.htm):
+
+> Bonke abantu bazalwa bekhululekile belingana ngesidima
+> nangokweemfanelo. Bonke abantu banesiphiwo sesazela nesizathu
+> sokwenza isenzo ongathanda ukuba senziwe kumzalwane wakho.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. (Article 1 of the Universal Declaration of Human Rights) Some corrections to this page by Michael Peter Füstumum
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Xhosa yet ([its Wikitongues page](https://wikitongues.org/languages/xho/) says how to contribute one).
 
 
 ## Training Data
@@ -25,39 +46,62 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,604 articles in xh.wikipedia (rank 131 of 161 in the set) — ~1/2,898 of English; 23 active users                                                                                                                      |
-| Common Crawl 2026      | 19,993 pages per crawl on average, which is 0.0009% of the crawl. This is ~1/44,591 of English data and ranks 89 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 0.29 GB (xho_Latn (0.29)); which is equivalent to ≈0.24 GB English data after byte-premium scaling; 2.82 GB removed by filtering. This is ~1/183,338 of English data and ranks 93 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.60 GB (xho_latn) (rank 84 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,604 articles in xh.wikipedia; 23 active users. This is ~1/2,898 of English data and ranks 135 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 19,993 pages per crawl on average, which is 0.0009% of the crawl (2026). This is ~1/44,591 of English data and ranks 89 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 0.29 GB (xho_Latn 0.29 GB), equivalent to ≈0.24 GB of English after byte-premium scaling; 2.82 GB removed by filtering. This is ~1/183,338 of English data and ranks 93 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.60 GB (xho_Latn 0.60 GB) (rank 84 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                     |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                  |
+| UniMorph               | **None found**                                                                                                                                                                  |
+| Wikidata labels        | 750,323 Wikidata items have a label in Xhosa. (Wikidata codes (labels): xh (750,323))                                                                                           |
+| Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
-- **Eval datasets (7):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=259), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.947 (P 0.949, R 0.946, FPR 4.89e-04) averaged over 7 dataset(s). Runner-up: fasttext (F1 0.892).
+- **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **Eval datasets (7):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=260), UDHR-LID (n=58), Wikipedia (n=300)
+- **Best model:** GlotLID — F1 0.947 (P 0.949, R 0.946, FPR 4.64e-04) averaged over 7 dataset(s). Runner-up: cld2 (F1 0.885).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.949 |    0.946 | 0.947 | 0.000 | ✓                |
-| fasttext     |       0.855 |    0.946 | 0.892 | 0.002 | ✓                |
-| cld2         |       0.886 |    0.894 | 0.886 | 0.002 | ✓                |
-| OpenLID-v2   |       0.784 |    0.960 | 0.852 | 0.004 | ✓                |
-| py3langid    |       0.610 |    0.892 | 0.688 | 0.014 | ✓                |
-| commonlingua |       0.681 |    0.685 | 0.651 | 0.005 | ✓                |
-| funlangid    |       0.735 |    0.609 | 0.635 | 0.004 | ✓                |
+| cld2         |       0.885 |    0.895 | 0.885 | 0.002 | ✓                |
+| fasttext     |       0.841 |    0.946 | 0.882 | 0.003 | ✓                |
+| OpenLID-v2   |       0.775 |    0.960 | 0.844 | 0.004 | ✓                |
+| AfroLID      |       0.835 |    0.855 | 0.841 | 0.009 | ✓                |
+| py3langid    |       0.604 |    0.892 | 0.684 | 0.014 | ✓                |
+| cld3         |       0.563 |    0.878 | 0.660 | 0.020 | ✓                |
+| commonlingua |       0.677 |    0.686 | 0.649 | 0.005 | ✓                |
+| funlangid    |       0.734 |    0.609 | 0.634 | 0.003 | ✓                |
 | pyfranc      |       0.790 |    0.478 | 0.566 | 0.003 | ✓                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 259 |       0.918 |    0.861 | 0.888 |
+| Tatoeba   | 260 |       0.918 |    0.862 | 0.889 |
 | Wikipedia | 300 |       0.911 |    0.883 | 0.897 |
 | NTREX     | 300 |       0.948 |    0.963 | 0.955 |
 | CommonLID | 300 |       0.993 |    0.943 | 0.968 |
@@ -73,6 +117,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Xhosa and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Xhosa has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/xho/) video of Xhosa yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Xhosa?
@@ -93,44 +139,24 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       59 | ███████████          |
 |   2026 |      103 | ████████████████████ |
 
-### Most popular models tagged for Xhosa
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Xhosa
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [goldfish-models/xho_latn_5mb](https://huggingface.co/goldfish-models/xho_latn_5mb)     |                    459 |                    23 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/xho_latn_10mb](https://huggingface.co/goldfish-models/xho_latn_10mb)   |                    433 |                    16 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/xho_latn_100mb](https://huggingface.co/goldfish-models/xho_latn_100mb) |                    399 |                    19 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/xho_latn_full](https://huggingface.co/goldfish-models/xho_latn_full)   |                    391 |                    13 | unknown      |                    1 |   2024 | —                             |
-| [ptrdvn/kakugo-3B-xho](https://huggingface.co/ptrdvn/kakugo-3B-xho)                     |                     65 |                    12 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-
 ### Largest models tagged for Xhosa
 
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      | 0                     | 856.0B       |                  140 |   2025 | —               |
-| [itssarjunhere/bloom](https://huggingface.co/itssarjunhere/bloom)                     | 70                     | 5                     | 176.2B       |                   35 |   2026 | —               |
-| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 135                    | 31                    | 176.2B       |                   35 |   2024 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)                           | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Xhosa
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/gemma-3-4b-it-xho-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-xho-32768)     |                     37 |                     6 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-xho](https://huggingface.co/ptrdvn/kakugo-3B-xho)                                     |                     65 |                    12 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/gemma-3-1b-it-xho-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-xho-32768)     |                     51 |                     8 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
-| [alphaedge-ai/gemma-3-270m-it-xho-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-xho-32768) |                     53 |                     9 | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/gemma-3-4b-it-xho-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-xho-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [ptrdvn/kakugo-3B-xho](https://huggingface.co/ptrdvn/kakugo-3B-xho)                                     | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/gemma-3-1b-it-xho-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-xho-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
+| [alphaedge-ai/gemma-3-270m-it-xho-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-xho-32768) | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
 
 _45 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -161,15 +187,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [1]        \
+         /      reasoning [1]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,7 +209,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                                           | # test items   | Construction                                                        |
+| level                                  | task                          | dataset                                                                                                           | # test items   | construction                                                        |
 |:---------------------------------------|:------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 2. Pragmatics, discourse & coreference | WinoGrande                    | [WinoGrande-afr (Alhanai et al.)](https://huggingface.co/datasets/Institute-Disease-Modeling/mmlu-winogrande-afr) | —              | Human translation                                                   |
 | 3. Commonsense reasoning               | PIQA                          | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                      | 103            | MT + human post-editing                                             |
@@ -222,7 +248,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 42 of ~18,460 papers (0.23%) (rank 95 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 42 of ~18,498 papers (0.23%) (rank 100 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Xhosa
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 42):

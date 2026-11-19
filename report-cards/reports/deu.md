@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `deu`
 
+**Language family:** **Indo-European** › Classical Indo-European › Germanic › … › Global German ([Glottolog](https://glottolog.org/resource/languoid/id/stan1295))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 141.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 76.5 million first-language + 58.5 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q188#P1098), 2019)
 
 **Official / recognised in:** Austria, Belgium, Germany, Italy, Liechtenstein, Luxembourg, South Africa, Switzerland
 
 **Status:** Official language; Regional official language
+
+
+## What does German look and sound like?
+
+**Written (German)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/german.htm):
+
+> Alle Menschen sind frei und gleich an Würde und Rechten geboren. Sie sind mit Vernunft und Gewissen begabt und sollen einander im Geist der Brüderlichkeit begegnen.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_de.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/deu/) has 7 videos of German speakers. Watch [See all](https://wikitongues.org/videos/?language=deu).
 
 
 ## Training Data
@@ -25,33 +46,56 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 3,163,898 articles in de.wikipedia (rank 3 of 161 in the set) — ~1/2 of English; 34,030 active users                                                                                                                      |
-| Common Crawl 2026      | 126,858,212 pages per crawl on average, which is 5.8857% of the crawl. This is ~1/7 of English data and ranks 3 of 113 official languages in Common Crawl.                                                                |
-| FineWeb                | 772.21 GB (deu_Latn (772.21)); which is equivalent to ≈732.89 GB English data after byte-premium scaling; 536.30 GB removed by filtering. This is ~1/69 of English data and ranks 4 of 248 official languages in FineWeb. |
-| Goldfish training data | 9.75 GB (deu_latn) (rank 12 of 166 in the set)                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                            |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,163,898 articles in de.wikipedia; 34,030 active users. This is ~1/2 of English data and ranks 3 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 126,858,212 pages per crawl on average, which is 5.8857% of the crawl (2026). This is ~1/7 of English data and ranks 3 of 113 languages in the set in Common Crawl.                                               |
+| FineWeb                | 772.21 GB (deu_Latn 772.21 GB), equivalent to ≈732.89 GB of English after byte-premium scaling; 536.30 GB removed by filtering. This is ~1/69 of English data and ranks 4 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 9.75 GB (deu_Latn 9.75 GB) (rank 12 of 166 in the set)                                                                                                                                                            |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 4 treebanks, 208,437 sentences / 3,748,439 tokens in total: [UD_German-GSD](https://github.com/UniversalDependencies/UD_German-GSD) (15,589 sentences), [UD_German-HDT](https://github.com/UniversalDependencies/UD_German-HDT) (189,928 sentences), [UD_German-LIT](https://github.com/UniversalDependencies/UD_German-LIT) (1,920 sentences), [UD_German-PUD](https://github.com/UniversalDependencies/UD_German-PUD) (1,000 sentences). All have POS tags, dependency syntax, lemmas and morphological features.                                       |
+| UniMorph               | 39,373 lemmas, 519,143 inflected forms ([unimorph/deu](https://github.com/unimorph/deu))                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Wikidata labels        | 20,040,530 Wikidata items have a label in German. (Wikidata codes (labels): de (20,040,530), de-ch (1,608,211), de-at (1,592,447))                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Wordnets               | [Offenes Deutsches WordNet](https://github.com/hdaSprachtechnologie/odenet/releases/download/v1.3/odenet-1.3.tar.xz): 36,159 synsets, 119,773 words, 144,185 senses; licence: https://creativecommons.org/licenses/by-sa/4.0/; EuroWordNet German (size not listed); licence: RESTRICTED; [GermaNet](http://www.sfs.uni-tuebingen.de/GermaNet/index.shtml) (size not listed); licence: FOR ACADEMIC USE; [Multi-Lingual Semantic Network project](http://dcook.org/mlsn/about/) (size not listed); licence: MIT License (equivalent to the BSD and LGPL). |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                                                                                                                                                                            |
+|:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                                |
+| Bible translations (eBible corpus) | **Yes** — 4 translations: full Bible ([deu1912](https://ebible.org/details.php?id=deu1912), Public Domain); full Bible ([deu1951](https://ebible.org/details.php?id=deu1951), by 4.0); full Bible ([deuelo](https://ebible.org/details.php?id=deuelo), Public Domain); full Bible ([deutkw](https://ebible.org/details.php?id=deutkw), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                             |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=67), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.963 (P 0.963, R 0.966, FPR 3.27e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.928).
+- **Best model:** GlotLID — F1 0.963 (P 0.963, R 0.966, FPR 3.22e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.927).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.963 |    0.966 | 0.963 | 0.000 | ✓                |
-| OpenLID-v2   |       0.921 |    0.947 | 0.928 | 0.001 | ✓                |
+| OpenLID-v2   |       0.920 |    0.947 | 0.927 | 0.001 | ✓                |
 | cld2         |       0.907 |    0.948 | 0.924 | 0.001 | ✓                |
-| py3langid    |       0.876 |    0.974 | 0.917 | 0.002 | ✓                |
+| py3langid    |       0.876 |    0.974 | 0.916 | 0.002 | ✓                |
 | pyfranc      |       0.883 |    0.893 | 0.886 | 0.002 | ✓                |
+| cld3         |       0.836 |    0.949 | 0.883 | 0.003 | ✓                |
 | commonlingua |       0.852 |    0.897 | 0.872 | 0.002 | ✓                |
 | funlangid    |       0.897 |    0.835 | 0.863 | 0.001 | ✓                |
-| fasttext     |       0.789 |    0.972 | 0.860 | 0.003 | ✓                |
+| fasttext     |       0.788 |    0.972 | 0.860 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -92,45 +136,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |     2524 | ████████████████     |
 |   2026 |     3203 | ████████████████████ |
 
-### Most popular models tagged for German
-
-| model                                                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of           |
-|:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------|
-| [meta-llama/Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)                                     | 193,587,916            | 4,504,499             | 8.0B         |                    8 |   2024 | meta-llama/Llama-3.1-8B |
-| [meta-llama/Llama-3.2-1B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct)                                     | 109,758,422            | 1,331,481             | 1.2B         |                    8 |   2024 | —                       |
-| [meta-llama/Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B)                                                       | 60,177,779             | 477,238               | 1.2B         |                    8 |   2024 | —                       |
-| [meta-llama/Llama-3.2-3B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)                                     | 50,920,320             | 872,223               | 3.2B         |                    8 |   2024 | —                       |
-| [context-labs/meta-llama-Llama-3.2-3B-Instruct-FP16](https://huggingface.co/context-labs/meta-llama-Llama-3.2-3B-Instruct-FP16) | 27,918,610             | 132                   | 3.2B         |                    8 |   2025 | —                       |
-
-### Most popular models tagged *only* for German
-
-| model                                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [grabbe-gymnasium-detmold/grabbe-ai](https://huggingface.co/grabbe-gymnasium-detmold/grabbe-ai) | 8,191,728              | 933                   | 9.2B         |                    1 |   2024 | —               |
-| [LSX-UniWue/LLaMmlein_1B_prerelease](https://huggingface.co/LSX-UniWue/LLaMmlein_1B_prerelease) | 1,335,593              | 1,975                 | 1.1B         |                    1 |   2024 | —               |
-| [dbmdz/german-gpt2](https://huggingface.co/dbmdz/german-gpt2)                                   | 963,795                | 3,303                 | 136.6M       |                    1 |   2022 | —               |
-| [benjamin/gpt2-wechsel-german](https://huggingface.co/benjamin/gpt2-wechsel-german)             | 228,943                | 393                   | unknown      |                    1 |   2022 | —               |
-| [anonymous-german-nlp/german-gpt2](https://huggingface.co/anonymous-german-nlp/german-gpt2)     | 154,897                | 941                   | unknown      |                    1 |   2022 | —               |
-
 ### Largest models tagged for German
 
-| model                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                     |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                         | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                 |
-| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF)         | 1,316                  | 1,316                 | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                             | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                 |
-| [Blackfrost-AI/GLM-5.3-DERISKED-Int4-Int8Mix](https://huggingface.co/Blackfrost-AI/GLM-5.3-DERISKED-Int4-Int8Mix) | 1,552                  | 454                   | 779.2B       |                    3 |   2026 | zai-org/GLM-5.3                   |
-| [defiobi00/GLM-5.3-DERISKED-Int4-Int8Mix](https://huggingface.co/defiobi00/GLM-5.3-DERISKED-Int4-Int8Mix)         | 3                      | 0                     | 779.2B       |                    3 |   2026 | zai-org/GLM-5.3-BF16              |
+| model                                                                                                             | parameters   |   # languages tagged |   year | derivative of                     |
+|:------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                         | 1.9T         |                  143 |   2025 | —                                 |
+| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF)         | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                             | 856.0B       |                  143 |   2025 | —                                 |
+| [Blackfrost-AI/GLM-5.3-DERISKED-Int4-Int8Mix](https://huggingface.co/Blackfrost-AI/GLM-5.3-DERISKED-Int4-Int8Mix) | 779.2B       |                    3 |   2026 | zai-org/GLM-5.3                   |
+| [defiobi00/GLM-5.3-DERISKED-Int4-Int8Mix](https://huggingface.co/defiobi00/GLM-5.3-DERISKED-Int4-Int8Mix)         | 779.2B       |                    3 |   2026 | zai-org/GLM-5.3-BF16              |
 
 ### Largest models tagged *only* for German
 
-| model                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                     |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------------|
-| [jphme/em_german_70b_v01_gptq](https://huggingface.co/jphme/em_german_70b_v01_gptq)                   | 619                    |                    14 | 70.0B        |                    1 |   2023 | —                                 |
-| [ass-a2s/em_german_70b_v01](https://huggingface.co/ass-a2s/em_german_70b_v01)                         | 64                     |                    14 | 70.0B        |                    1 |   2023 | —                                 |
-| [jphme/em_german_70b_v01](https://huggingface.co/jphme/em_german_70b_v01)                             | 907                    |                    19 | 70.0B        |                    1 |   2023 | —                                 |
-| [TheBloke/KafkaLM-70B-German-V0.1-GPTQ](https://huggingface.co/TheBloke/KafkaLM-70B-German-V0.1-GPTQ) | 17,521                 |                    40 | 69.0B        |                    1 |   2024 | seedboxai/KafkaLM-70B-German-V0.1 |
-| [miweru/leolm-70b-chat-Q5_K_M-gguf](https://huggingface.co/miweru/leolm-70b-chat-Q5_K_M-gguf)         | 9,976                  |                    13 | 69.0B        |                    1 |   2024 | LeoLM/leo-hessianai-70b-chat      |
+| model                                                                                                 | parameters   |   # languages tagged |   year | derivative of                     |
+|:------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------|
+| [ass-a2s/em_german_70b_v01](https://huggingface.co/ass-a2s/em_german_70b_v01)                         | 70.0B        |                    1 |   2023 | —                                 |
+| [jphme/em_german_70b_v01](https://huggingface.co/jphme/em_german_70b_v01)                             | 70.0B        |                    1 |   2023 | —                                 |
+| [jphme/em_german_70b_v01_gptq](https://huggingface.co/jphme/em_german_70b_v01_gptq)                   | 70.0B        |                    1 |   2023 | —                                 |
+| [TheBloke/KafkaLM-70B-German-V0.1-GPTQ](https://huggingface.co/TheBloke/KafkaLM-70B-German-V0.1-GPTQ) | 69.0B        |                    1 |   2024 | seedboxai/KafkaLM-70B-German-V0.1 |
+| [miweru/leolm-70b-chat-Q5_K_M-gguf](https://huggingface.co/miweru/leolm-70b-chat-Q5_K_M-gguf)         | 69.0B        |                    1 |   2024 | LeoLM/leo-hessianai-70b-chat      |
 
 _536 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -150,7 +174,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**49** benchmark datasets in the survey include German.
+**47** benchmark datasets in the survey include German.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -161,21 +185,21 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [14]    \
+                 /   [13]   \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [3]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [7]        \
+         /      reasoning [7]       \
         /______________________________\
        /               |                \
       /                |                 \
      /                 |                  \
     / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [8]   |  & discourse [12]  \
+   /   knowledge [7]   |  & discourse [12]  \
   /____________________|_____________________\
  /         ✅ Machine translation [5]         \
 /______________________________________________\
@@ -183,10 +207,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                    | # test items   | Construction                                                                       |
+| level                                  | task                           | dataset                                                                                                    | # test items   | construction                                                                       |
 |:---------------------------------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------------------------|
-| 1. Linguistic knowledge                | BLiMP                          | [ACS](https://github.com/igorsterner/acs)                                                                  | 1,000          | Corpus-extracted + automatic manipulation                                          |
-| 1. Linguistic knowledge                | BLiMP                          | [ACS](https://github.com/igorsterner/acs)                                                                  | 216            | Corpus-extracted + automatic manipulation                                          |
+| 1. Linguistic knowledge                | BLiMP                          | [ACS](https://github.com/igorsterner/acs) (2 varieties/pairs)                                              | 1,216          | Corpus-extracted + automatic manipulation                                          |
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                                  | 428            | Treebank-based (automatic)                                                         |
 | 1. Linguistic knowledge                | BLiMP                          | [CLAMS](https://github.com/aaronmueller/clams)                                                             | 47,800         | Template-based (Marvin & Linzen grammars, translated)                              |
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                       | 2,298          | Treebank-based (automatic, UD + UniMorph)                                          |
@@ -196,8 +219,8 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 2. Pragmatics, discourse & coreference | Coherence & discourse          | [Discourse probing (Koto et al.) – connective prediction](https://github.com/fajri91/discourse_probing)    | 159            | Native (treebank)                                                                  |
 | 2. Pragmatics, discourse & coreference | Coherence & discourse          | [Discourse probing (Koto et al.) – next-sentence prediction](https://github.com/fajri91/discourse_probing) | 1,000          | Native (Wikipedia)                                                                 |
 | 2. Pragmatics, discourse & coreference | Coherence & discourse          | [Discourse probing (Koto et al.) – sentence ordering](https://github.com/fajri91/discourse_probing)        | 1,000          | Native (Wikipedia)                                                                 |
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MAPS (proverbs)](https://github.com/UKPLab/maps)                                                          | 334            | Native (Wikiquote/Wiktionary proverbs; GPT-3.5 seed contexts rewritten by natives) |
 | 2. Pragmatics, discourse & coreference | Figurative language & idioms   | MIDAS                                                                                                      | —              | Native (dictionaries; LLM-refined meanings checked by natives)                     |
+| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MAPS (proverbs)](https://github.com/UKPLab/maps)                                                          | 334            | Native (Wikiquote/Wiktionary proverbs; GPT-3.5 seed contexts rewritten by natives) |
 | 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MultiPICo (irony)](https://huggingface.co/datasets/Multilingual-Perspectivist-NLU/MultiPICo)              | 2,375          | Native (Reddit/Twitter, native-speaker annotation)                                 |
 | 2. Pragmatics, discourse & coreference | Implicature & indirect answers | [InQA+](https://github.com/mainlp/Multilingual-IQA)                                                        | 438            | Parallel subtitles (aligned)                                                       |
 | 2. Pragmatics, discourse & coreference | Implicature & indirect answers | [MultiPragEval](https://github.com/DojunPark/MultiPragEval)                                                | 300            | Translation from Korean (DeepL + human verification)                               |
@@ -225,7 +248,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMMLU (OpenAI)](https://huggingface.co/datasets/openai/MMMLU)                                             | 14,042         | Human translation (professional)                                                   |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [NOVA-63](https://huggingface.co/datasets/zjy1298/NOVA-63)                                                 | —              | Native (local exams/publications)                                                  |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                     | —              | Machine translation (GPT-3.5, Okapi)                                               |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                                          |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                     | 100            | Native (community-written, peer-verified)                                          |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                                   | 10,000         | Human translation                                                                  |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                            | 250            | Native (locally sourced)                                                           |
@@ -258,22 +280,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 2,084 of ~18,460 papers (11.28%) (rank 2 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 2,098 of ~18,498 papers (11.34%) (rank 2 of 278 in the set); English is mentioned in 8,465.
 - Search terms: German
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 2,084):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 2,098):
 
-| title                                                                                                                                         | paper                                                                          |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Evaluating Robustness of Large Language Models Against Multilingual Typographical Errors                                                      | [2026.acl-long.729](https://aclanthology.org/2026.acl-long.729/)               |
-| Failure at BEA 2026 Shared Task 1: One Pipeline, Three L1s: A Unified Language-Agnostic System for Vocabulary Difficulty Prediction           | [2026.bea-1.73](https://aclanthology.org/2026.bea-1.73/)                       |
-| Unveiling Affective Polarization Trends in Parliamentary Proceedings                                                                          | [2026.cl-3.5](https://aclanthology.org/2026.cl-3.5/)                           |
-| Modelling Idiomatic Expressions in Abstract Meaning Representation                                                                            | [2026.dmr-1.3](https://aclanthology.org/2026.dmr-1.3/)                         |
-| Behaviorally Grounded User Profiles from the Wild for Personalized Alignment and Multi-Perspective Reasoning                                  | [2026.findings-aacl.201](https://aclanthology.org/2026.findings-aacl.201/)     |
-| Mask Tokens as Prophet: Fine-Grained Cache Eviction for Efficient dLLM Inference                                                              | [2026.findings-acl.170](https://aclanthology.org/2026.findings-acl.170/)       |
-| What Matters When Building Universal Multilingual Named Entity Recognition Models?                                                            | [2026.findings-emnlp.2403](https://aclanthology.org/2026.findings-emnlp.2403/) |
-| HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
-| Joint Identification and Induction of Semantic Frames with Scalable Semi-Supervised Graph Clustering                                          | [2026.lrec-1.786](https://aclanthology.org/2026.lrec-1.786/)                   |
-| Thematic Landscapes of the Past: Analysing Slovene Historical Periodicals With Topic Modeling                                                 | [2026.pressmint-1.14](https://aclanthology.org/2026.pressmint-1.14/)           |
+| title                                                                                                                 | paper                                                                        |
+|:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Multilingual and Cross-Lingual Citation Needed Detection on Wikipedia for Lower-Resource Languages                    | [2026.acl-long.1291](https://aclanthology.org/2026.acl-long.1291/)           |
+| Developing and Validating an Automatic Scoring Model for Chatbot-Based Conversational Speech                          | [2026.aimecon-main.11](https://aclanthology.org/2026.aimecon-main.11/)       |
+| AMResources: Cataloging Argument Mining Datasets                                                                      | [2026.argmining-1.5](https://aclanthology.org/2026.argmining-1.5/)           |
+| Similar, but why? A Toolkit for Explaining Text Similarity                                                            | [2026.eacl-demo.16](https://aclanthology.org/2026.eacl-demo.16/)             |
+| When to Defer: Scope-Aware Cascades for Structured Attribute Generation in E-commerce Product Catalogs                | [2026.emnlp-industry.187](https://aclanthology.org/2026.emnlp-industry.187/) |
+| Reviewing the Reviewer : LLM-Assisted Reviewer Feedback Generation for Guideline Compliance                           | [2026.emnlp-main.1317](https://aclanthology.org/2026.emnlp-main.1317/)       |
+| Cross-Lingual Alignment Without Joint Training: Do Monolingual Language Models Converge on Universal Representations? | [2026.emnlp-main.947](https://aclanthology.org/2026.emnlp-main.947/)         |
+| Reasoning about In-Context Samples for Machine-Translation                                                            | [2026.findings-emnlp.168](https://aclanthology.org/2026.findings-emnlp.168/) |
+| What Do We Talk About When We Talk About Tokenization?                                                                | [2026.mrl-1.26](https://aclanthology.org/2026.mrl-1.26/)                     |
+| HU at SemEval-2026 Task 6: A Hybrid Discriminative Modeling of Political Clarity and Evasion                          | [2026.semeval-1.34](https://aclanthology.org/2026.semeval-1.34/)             |
 
 {% endraw %}

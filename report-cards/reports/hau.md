@@ -12,11 +12,34 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `hau`
 
+**Language family:** **Afro-Asiatic** › Chadic › West Chadic › … › West Chadic A.1 ([Glottolog](https://glottolog.org/resource/languoid/id/haus1257))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Latn`
 
-**Official / recognised in:** Niger
+**Speakers:** about 45.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 43.9 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q56475#P1098), 2019)
 
-**Status:** Official language
+**Official / recognised in:** Niger, Nigeria
+
+**Status:** Official language; Major language (added to the set; not official)
+
+
+## What does Hausa look and sound like?
+
+**Written (ajami)**, sample text from [Omniglot](https://www.omniglot.com/writing/hausa.htm):
+
+> A verse from Aljiyu Namangi, Imfiraji, Part 3 (Verse 3)
+
+**Written (boko)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/hausa.htm):
+
+> Su dai yan-adam, ana haifuwarsu ne duka yantattu, kuma kowannensu na da mutunci da hakkoki daidai da na kowa. Suna da hankali da tunani, saboda haka duk abin da za su aikata wa juna, ya kamata su yi shi a cikin yan-uwanci.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/hau/) has 3 videos of Hausa speakers. Watch [Ali speaking Hausa and Kanuri](https://wikitongues.org/videos/ali_20150626_hau-knc/).
 
 
 ## Training Data
@@ -25,20 +48,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 121,601 articles in ha.wikipedia (rank 52 of 161 in the set) — ~1/62 of English; 310 active users                                                                                                                      |
-| Common Crawl 2026      | 73,201 pages per crawl on average, which is 0.0034% of the crawl. This is ~1/12,179 of English data and ranks 70 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 0.60 GB (hau_Latn (0.60)); which is equivalent to ≈0.51 GB English data after byte-premium scaling; 1.09 GB removed by filtering. This is ~1/89,463 of English data and ranks 78 of 248 official languages in FineWeb. |
-| Goldfish training data | 1.32 GB (hau_latn) (rank 70 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 121,601 articles in ha.wikipedia; 310 active users. This is ~1/62 of English data and ranks 53 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 73,201 pages per crawl on average, which is 0.0034% of the crawl (2026). This is ~1/12,179 of English data and ranks 70 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 0.60 GB (hau_Latn 0.60 GB), equivalent to ≈0.51 GB of English after byte-premium scaling; 1.09 GB removed by filtering. This is ~1/89,463 of English data and ranks 78 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 1.32 GB (hau_Latn 1.32 GB) (rank 70 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 4 treebanks, 4,342 sentences / 53,069 tokens in total: [UD_Hausa-EasternAutogramm](https://github.com/UniversalDependencies/UD_Hausa-EasternAutogramm) (335 sentences), [UD_Hausa-NorthernAutogramm](https://github.com/UniversalDependencies/UD_Hausa-NorthernAutogramm) (1,305 sentences), [UD_Hausa-SouthernAutogramm](https://github.com/UniversalDependencies/UD_Hausa-SouthernAutogramm) (1,927 sentences), [UD_Hausa-WesternAutogramm](https://github.com/UniversalDependencies/UD_Hausa-WesternAutogramm) (775 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Wikidata labels        | 703,219 Wikidata items have a label in Hausa. (Wikidata codes (labels): ha (703,219))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                        |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                            |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([hausa](https://ebible.org/details.php?id=hausa), by-sa 4.0); New Testament ([hauulb](https://ebible.org/details.php?id=hauulb), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                         |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (7):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=155), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.988 (P 0.995, R 0.980, FPR 4.30e-05) averaged over 7 dataset(s). Runner-up: cld2 (F1 0.971).
+- **Best model:** GlotLID — F1 0.987 (P 0.994, R 0.980, FPR 5.34e-05) averaged over 7 dataset(s). Runner-up: cld2 (F1 0.968).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,14 +90,16 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.995 |    0.980 | 0.988 | 0.000 | ✓                |
-| cld2         |       0.988 |    0.955 | 0.971 | 0.000 | ✓                |
-| fasttext     |       0.921 |    0.973 | 0.940 | 0.002 | ✓                |
-| funlangid    |       0.925 |    0.888 | 0.904 | 0.001 | ✓                |
-| commonlingua |       0.906 |    0.907 | 0.899 | 0.002 | ✓                |
-| OpenLID-v2   |       0.835 |    0.988 | 0.893 | 0.004 | ✓                |
-| pyfranc      |       0.843 |    0.939 | 0.885 | 0.002 | ✓                |
-| py3langid    |       0.668 |    0.982 | 0.777 | 0.013 | ✓                |
+| GlotLID      |       0.994 |    0.980 | 0.987 | 0.000 | ✓                |
+| cld2         |       0.983 |    0.955 | 0.968 | 0.000 | ✓                |
+| fasttext     |       0.907 |    0.973 | 0.933 | 0.002 | ✓                |
+| funlangid    |       0.917 |    0.888 | 0.900 | 0.001 | ✓                |
+| commonlingua |       0.891 |    0.907 | 0.892 | 0.002 | ✓                |
+| OpenLID-v2   |       0.812 |    0.988 | 0.879 | 0.005 | ✓                |
+| pyfranc      |       0.824 |    0.939 | 0.874 | 0.003 | ✓                |
+| py3langid    |       0.609 |    0.982 | 0.730 | 0.017 | ✓                |
+| cld3         |       0.498 |    0.966 | 0.622 | 0.037 | ✓                |
+| AfroLID      |       0.146 |    0.975 | 0.241 | 0.339 | ✓                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -61,11 +107,11 @@ Language identification (LangID or LID) is a classification task that identifies
 |:----------|----:|------------:|---------:|------:|
 | CommonLID | 300 |       1.000 |    0.920 | 0.958 |
 | Wikipedia | 300 |       0.993 |    0.963 | 0.978 |
-| Tatoeba   | 300 |       0.993 |    0.980 | 0.987 |
+| Tatoeba   | 300 |       0.983 |    0.980 | 0.982 |
 | FLORES    | 300 |       0.993 |    1.000 | 0.997 |
 | UDHR-LID  | 155 |       0.994 |    1.000 | 0.997 |
-| SmolSent  | 300 |       0.997 |    1.000 | 0.998 |
 | NTREX     | 300 |       0.997 |    1.000 | 0.998 |
+| SmolSent  | 300 |       0.997 |    1.000 | 0.998 |
 
 ### What can you do?
 
@@ -75,6 +121,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Hausa and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Hausa has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Hausa?
@@ -95,45 +142,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       63 | ████████             |
 |   2026 |      153 | ████████████████████ |
 
-### Most popular models tagged for Hausa
-
-| model                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of            |
-|:--------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)             | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                        |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)             | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —                        |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)               | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —                        |
-| [CohereLabs/tiny-aya-global](https://huggingface.co/CohereLabs/tiny-aya-global) | 145,769                | 21,318                | 3.3B         |                   63 |   2026 | CohereLabs/tiny-aya-base |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)                   | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —                        |
-
-### Most popular models tagged *only* for Hausa
-
-| model                                                                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                                      |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------------------|
-| [AIconjured/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-MTP-GGUF-NVFP4](https://huggingface.co/AIconjured/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-MTP-GGUF-NVFP4) | 7,894                  | 3,967                 | 456.0M       |                    1 |   2026 | HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive |
-| [goldfish-models/hau_latn_1000mb](https://huggingface.co/goldfish-models/hau_latn_1000mb)                                                                         | 806                    | 34                    | unknown      |                    1 |   2024 | —                                                  |
-| [goldfish-models/hau_latn_5mb](https://huggingface.co/goldfish-models/hau_latn_5mb)                                                                               | 416                    | 22                    | unknown      |                    1 |   2024 | —                                                  |
-| [goldfish-models/hau_latn_100mb](https://huggingface.co/goldfish-models/hau_latn_100mb)                                                                           | 405                    | 14                    | unknown      |                    1 |   2024 | —                                                  |
-| [ChrisToukmaji/llama_hausa_LAFT](https://huggingface.co/ChrisToukmaji/llama_hausa_LAFT)                                                                           | 403                    | 13                    | unknown      |                    1 |   2023 | —                                                  |
-
 ### Largest models tagged for Hausa
 
-| model                                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                        |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                                    |
-| [bartowski/Tower-Babel_Babel-83B-Chat-GGUF](https://huggingface.co/bartowski/Tower-Babel_Babel-83B-Chat-GGUF)         | 13,458                 |                   800 | 83.2B        |                   24 |   2025 | Tower-Babel/Babel-83B-Chat           |
-| [k0ns0l/mixtral-8x7b-hausa-lora-v1](https://huggingface.co/k0ns0l/mixtral-8x7b-hausa-lora-v1)                         | 33                     |                     4 | 56.0B        |                    1 |   2026 | mistralai/Mixtral-8x7B-Instruct-v0.1 |
-| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 875                    |                   175 | 34.7B        |                   80 |   2026 | Qwen/Qwen3.6-35B-A3B                 |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                        |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                                    |
+| [bartowski/Tower-Babel_Babel-83B-Chat-GGUF](https://huggingface.co/bartowski/Tower-Babel_Babel-83B-Chat-GGUF)         | 83.2B        |                   24 |   2025 | Tower-Babel/Babel-83B-Chat           |
+| [k0ns0l/mixtral-8x7b-hausa-lora-v1](https://huggingface.co/k0ns0l/mixtral-8x7b-hausa-lora-v1)                         | 56.0B        |                    1 |   2026 | mistralai/Mixtral-8x7B-Instruct-v0.1 |
+| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 34.7B        |                   82 |   2026 | Qwen/Qwen3.6-35B-A3B                 |
 
 ### Largest models tagged *only* for Hausa
 
-| model                                                                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                                      |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------------------|
-| [k0ns0l/mixtral-8x7b-hausa-lora-v1](https://huggingface.co/k0ns0l/mixtral-8x7b-hausa-lora-v1)                                                                     | 33                     | 4                     | 56.0B        |                    1 |   2026 | mistralai/Mixtral-8x7B-Instruct-v0.1               |
-| [NikolayKozloff/kakugo-3B-hau-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-hau-Q8_0-GGUF)                                                           | 185                    | 57                    | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro                      |
-| [lhkhiem28/Qwen2.5-3B-ha_grpo](https://huggingface.co/lhkhiem28/Qwen2.5-3B-ha_grpo)                                                                               | 178                    | 39                    | 3.1B         |                    1 |   2026 | Qwen/Qwen2.5-3B                                    |
-| [AIconjured/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-MTP-GGUF-NVFP4](https://huggingface.co/AIconjured/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-MTP-GGUF-NVFP4) | 7,894                  | 3,967                 | 456.0M       |                    1 |   2026 | HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive |
-| [msmaje/hikaf-hausa-mt5-small](https://huggingface.co/msmaje/hikaf-hausa-mt5-small)                                                                               | 50                     | 5                     | 300.2M       |                    1 |   2026 | google/mt5-small                                   |
+| model                                                                                                                                                             | parameters   |   # languages tagged |   year | derivative of                                      |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------------------|
+| [k0ns0l/mixtral-8x7b-hausa-lora-v1](https://huggingface.co/k0ns0l/mixtral-8x7b-hausa-lora-v1)                                                                     | 56.0B        |                    1 |   2026 | mistralai/Mixtral-8x7B-Instruct-v0.1               |
+| [NikolayKozloff/kakugo-3B-hau-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-hau-Q8_0-GGUF)                                                           | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro                      |
+| [lhkhiem28/Qwen2.5-3B-ha_grpo](https://huggingface.co/lhkhiem28/Qwen2.5-3B-ha_grpo)                                                                               | 3.1B         |                    1 |   2026 | Qwen/Qwen2.5-3B                                    |
+| [AIconjured/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-MTP-GGUF-NVFP4](https://huggingface.co/AIconjured/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-MTP-GGUF-NVFP4) | 456.0M       |                    1 |   2026 | HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive |
+| [msmaje/hikaf-hausa-mt5-small](https://huggingface.co/msmaje/hikaf-hausa-mt5-small)                                                                               | 300.2M       |                    1 |   2026 | google/mt5-small                                   |
 
 _54 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -164,15 +191,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [4]     \
+                 /   [4]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -186,7 +213,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                             | # test items   | Construction                                                        |
+| level                         | task                           | dataset                                                                                             | # test items   | construction                                                        |
 |:------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 3. Commonsense reasoning      | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                              |
 | 3. Commonsense reasoning      | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                             |
@@ -228,7 +255,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 180 of ~18,460 papers (0.97%) (rank 34 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 180 of ~18,498 papers (0.97%) (rank 34 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Hausa
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 180):

@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ell`
 
+**Language family:** **Indo-European** › Classical Indo-European › Graeco-Phrygian › … › Nuclear Modern Greek ([Glottolog](https://glottolog.org/resource/languoid/id/mode1248))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Grek`
+
+**Speakers:** about 12.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 15.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q36510#P1098))
 
 **Official / recognised in:** Cyprus, Greece, South Africa
 
 **Status:** Official language
+
+
+## What does Greek look and sound like?
+
+**Written (handwritten Greek)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/greek.htm):
+
+> Font from: http://boboss.gr/2009/12/13/greek-handwriting-font/
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. (Article 1 of the Universal Declaration of Human Rights) Corrections and notes on pronunciation provided by Δημήτρης Χριστούλιας (Dimitris Christoulias) [top]
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ell/) has 7 videos of Greek speakers. Watch [See all](https://wikitongues.org/videos/?language=ell).
 
 
 ## Training Data
@@ -25,20 +44,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 275,091 articles in el.wikipedia (rank 35 of 161 in the set) — ~1/27 of English; 2,113 active users                                                                                                                      |
-| Common Crawl 2026      | 11,595,458 pages per crawl on average, which is 0.5380% of the crawl. This is ~1/77 of English data and ranks 19 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 78.61 GB (ell_Grek (78.61)); which is equivalent to ≈39.96 GB English data after byte-premium scaling; 100.72 GB removed by filtering. This is ~1/680 of English data and ranks 22 of 248 official languages in FineWeb. |
-| Goldfish training data | 12.84 GB (ell_grek) (rank 4 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 275,091 articles in el.wikipedia; 2,113 active users. This is ~1/27 of English data and ranks 36 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 11,595,458 pages per crawl on average, which is 0.5380% of the crawl (2026). This is ~1/77 of English data and ranks 19 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 78.61 GB (ell_Grek 78.61 GB), equivalent to ≈39.96 GB of English after byte-premium scaling; 100.72 GB removed by filtering. This is ~1/680 of English data and ranks 22 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 12.84 GB (ell_Grek 12.84 GB) (rank 4 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 8 treebanks, 6,204 sentences / 111,412 tokens in total: [UD_Greek-Cretan](https://github.com/UniversalDependencies/UD_Greek-Cretan) (270 sentences), [UD_Greek-Cypriot](https://github.com/UniversalDependencies/UD_Greek-Cypriot) (100 sentences), [UD_Greek-GDT](https://github.com/UniversalDependencies/UD_Greek-GDT) (2,521 sentences), [UD_Greek-GLCII](https://github.com/UniversalDependencies/UD_Greek-GLCII) (671 sentences), [UD_Greek-GUD](https://github.com/UniversalDependencies/UD_Greek-GUD) (1,807 sentences), [UD_Greek-Griko](https://github.com/UniversalDependencies/UD_Greek-Griko) (100 sentences), [UD_Greek-Lesbian](https://github.com/UniversalDependencies/UD_Greek-Lesbian) (625 sentences), [UD_Greek-Messinian](https://github.com/UniversalDependencies/UD_Greek-Messinian) (110 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 11,906 lemmas, 199,757 inflected forms ([unimorph/ell](https://github.com/unimorph/ell))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Wikidata labels        | 1,316,022 Wikidata items have a label in Greek. (Wikidata codes (labels): el (1,316,022))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Wordnets               | [Greek Wordnet](https://github.com/omwn/omw-data/releases/download/v1.4/omw-el-1.4.tar.xz): 18,049 synsets, 18,264 words, 24,106 senses; licence: https://opensource.org/licenses/Apache-2.0; [BalkaNet](http://www.dblab.upatras.gr/balkanet/) (size not listed).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=116), Wikipedia (n=300)
-- **Best model:** OpenLID-v2 — F1 0.997 (P 0.997, R 0.997, FPR 2.82e-05) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.997).
+- **Best model:** OpenLID-v2 — F1 0.997 (P 0.997, R 0.997, FPR 2.78e-05) averaged over 5 dataset(s). Runner-up: fasttext (F1 0.997).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -52,8 +92,10 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.997 |    0.989 | 0.993 | 0.000 | ✓                |
 | cld2         |       0.956 |    0.997 | 0.974 | 0.000 | ✓                |
 | py3langid    |       0.996 |    0.895 | 0.929 | 0.000 | ✓                |
-| funlangid    |       0.959 |    0.904 | 0.925 | 0.000 | ✓                |
-| commonlingua |       0.995 |    0.866 | 0.914 | 0.000 | ✓                |
+| funlangid    |       0.958 |    0.904 | 0.924 | 0.000 | ✓                |
+| commonlingua |       0.995 |    0.866 | 0.913 | 0.000 | ✓                |
+| cld3         |       0.832 |    0.993 | 0.902 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (OpenLID-v2) by dataset**:
 
@@ -61,9 +103,9 @@ Language identification (LangID or LID) is a classification task that identifies
 |:----------|----:|------------:|---------:|------:|
 | Wikipedia | 300 |       0.983 |    0.983 | 0.983 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  | 116 |       1.000 |    1.000 | 1.000 |
-| Tatoeba   | 300 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| Tatoeba   | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  | 116 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -93,45 +135,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      213 | ████████████████     |
 |   2026 |      272 | ████████████████████ |
 
-### Most popular models tagged for Greek
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [facebook/xglm-564M](https://huggingface.co/facebook/xglm-564M)                                   | 1,709,301              | 8,655                 | 564.0M       |                   30 |   2022 | —                                      |
-| [CohereLabs/aya-expanse-8b](https://huggingface.co/CohereLabs/aya-expanse-8b)                     | 1,136,081              | 22,682                | 8.0B         |                   23 |   2024 | —                                      |
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct) | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B             |
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                         | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                                      |
-
-### Most popular models tagged *only* for Greek
-
-| model                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of         |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------|
-| [lighteternal/gpt2-finetuned-greek](https://huggingface.co/lighteternal/gpt2-finetuned-greek)             | 23,586                 |                   195 | unknown      |                    1 |   2022 | —                     |
-| [nikokons/gpt2-greek](https://huggingface.co/nikokons/gpt2-greek)                                         | 19,256                 |                   814 | unknown      |                    1 |   2022 | openai-community/gpt2 |
-| [AUEB-NLP/ByT5_g2g](https://huggingface.co/AUEB-NLP/ByT5_g2g)                                             | 18,570                 |                   333 | unknown      |                    1 |   2024 | —                     |
-| [lighteternal/gpt2-finetuned-greek-small](https://huggingface.co/lighteternal/gpt2-finetuned-greek-small) | 7,346                  |                   859 | unknown      |                    1 |   2022 | —                     |
-| [goldfish-models/ell_grek_1000mb](https://huggingface.co/goldfish-models/ell_grek_1000mb)                 | 4,088                  |                    91 | unknown      |                    1 |   2024 | —                     |
-
 ### Largest models tagged for Greek
 
-| model                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                 | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                     | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)   | 604                    | 604                   | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
-| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)     | 23,979                 | 3,521                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [unsloth/c4ai-command-a-03-2025-bnb-4bit](https://huggingface.co/unsloth/c4ai-command-a-03-2025-bnb-4bit) | 51,547                 | 503                   | 114.4B       |                   23 |   2025 | CohereLabs/c4ai-command-a-03-2025      |
+| model                                                                                                               | parameters   |   # languages tagged |   year | derivative of                          |
+|:--------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                           | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                               | 856.0B       |                  143 |   2025 | —                                      |
+| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)             | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)               | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [Tonic/c4ai-command-a-03-2025-4bit_nf4_double](https://huggingface.co/Tonic/c4ai-command-a-03-2025-4bit_nf4_double) | 114.4B       |                   23 |   2025 | CohereLabs/c4ai-command-a-03-2025      |
 
 ### Largest models tagged *only* for Greek
 
-| model                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                   |
-|:------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------------------------|
-| [MikCil/PREMOVE_llama3.3-70b_float16](https://huggingface.co/MikCil/PREMOVE_llama3.3-70b_float16)     |                    311 |                    28 | 70.6B        |                    1 |   2026 | unsloth/llama-3.3-70b-instruct-unsloth-bnb-4bit |
-| [Efso/Nemotron-3-Nano-30B-A3B-GR](https://huggingface.co/Efso/Nemotron-3-Nano-30B-A3B-GR)             |                    117 |                    50 | 31.6B        |                    1 |   2026 | nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16      |
-| [d-michail/Mitos-Qwen3-14B-Process](https://huggingface.co/d-michail/Mitos-Qwen3-14B-Process)         |                    157 |                   157 | 14.8B        |                    1 |   2026 | Qwen/Qwen3-14B-Base                             |
-| [IMISLab/Maistros-8B-Instruct-4bit](https://huggingface.co/IMISLab/Maistros-8B-Instruct-4bit)         |                    304 |                    11 | 9.2B         |                    1 |   2026 | mistralai/Ministral-3-8B-Instruct-2512-BF16     |
-| [themetron/Krikri-Cypriot-8B-v0.1-GGUF](https://huggingface.co/themetron/Krikri-Cypriot-8B-v0.1-GGUF) |                     93 |                    93 | 8.2B         |                    1 |   2026 | ilsp/Llama-Krikri-8B-Base                       |
+| model                                                                                                 | parameters   |   # languages tagged |   year | derivative of                                   |
+|:------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------------------------|
+| [MikCil/PREMOVE_llama3.3-70b_float16](https://huggingface.co/MikCil/PREMOVE_llama3.3-70b_float16)     | 70.6B        |                    1 |   2026 | unsloth/llama-3.3-70b-instruct-unsloth-bnb-4bit |
+| [Efso/Nemotron-3-Nano-30B-A3B-GR](https://huggingface.co/Efso/Nemotron-3-Nano-30B-A3B-GR)             | 31.6B        |                    1 |   2026 | nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16      |
+| [d-michail/Mitos-Qwen3-14B-Dialogue](https://huggingface.co/d-michail/Mitos-Qwen3-14B-Dialogue)       | 14.8B        |                    1 |   2026 | Qwen/Qwen3-14B-Base                             |
+| [IMISLab/Maistros-8B-Instruct-4bit](https://huggingface.co/IMISLab/Maistros-8B-Instruct-4bit)         | 9.2B         |                    1 |   2026 | mistralai/Ministral-3-8B-Instruct-2512-BF16     |
+| [themetron/Krikri-Cypriot-8B-v0.1-GGUF](https://huggingface.co/themetron/Krikri-Cypriot-8B-v0.1-GGUF) | 8.2B         |                    1 |   2026 | ilsp/Llama-Krikri-8B-Base                       |
 
 _75 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +184,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [6]     \
+                 /   [6]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +206,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                         | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge       | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                           | 87             | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge       | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 1,096          | Treebank-based (automatic, UD + UniMorph)                        |
@@ -233,22 +255,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 422 of ~18,460 papers (2.28%) (rank 17 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 426 of ~18,498 papers (2.30%) (rank 17 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Greek
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 422):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 426):
 
-| title                                                                                                                   | paper                                                                          |
-|:------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                    | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             |
-| Macaron: Controlled, Human-Written Benchmark for Multilingual and Multicultural Reasoning via Template-Filling          | [2026.acl-long.2211](https://aclanthology.org/2026.acl-long.2211/)             |
-| GreekMMLU: A Native-Sourced Multitask Benchmark for Evaluating Language Models in Greek                                 | [2026.findings-acl.448](https://aclanthology.org/2026.findings-acl.448/)       |
-| Thinking While Speaking: Inference-Time Knowledge Transfer for Responsive and Intelligent Conversational Voice Agents   | [2026.findings-emnlp.1371](https://aclanthology.org/2026.findings-emnlp.1371/) |
-| Fables-DTR: A Corpus of Fables Annotated for Discourse and Temporal Relations                                           | [2026.lrec-1.145](https://aclanthology.org/2026.lrec-1.145/)                   |
-| MultiCoS: A Multilingual Dataset of Connective Semantics with Context–Sentence Compatibility                            | [2026.lrec-1.381](https://aclanthology.org/2026.lrec-1.381/)                   |
-| Ancient Greek to Modern Greek Machine Translation: A Novel Benchmark and Fine-Tuning Experiments on LLMs and NMT Models | [2026.lrec-1.684](https://aclanthology.org/2026.lrec-1.684/)                   |
-| ITUNLP2 at MWE-2026 AdMIRe 2: Modular Zero-Shot Pipelines for Multimodal Idiom Grounding and Ranking                    | [2026.mwe-1.32](https://aclanthology.org/2026.mwe-1.32/)                       |
-| The Linguist’s Lie Detector: Linguistic Knowledge in Large Language Models                                              | [2026.nslp-1.23](https://aclanthology.org/2026.nslp-1.23/)                     |
-| Probing the Dynamics of Syntactic Ability Acquisition Throughout LLM Pretraining                                        | [2026.udw-1.1](https://aclanthology.org/2026.udw-1.1/)                         |
+| title                                                                                                                 | paper                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Mitigating Tokenization-Induced Distance Distortion in Long-Context Multilingual Machine Translation                  | [2026.acl-long.1696](https://aclanthology.org/2026.acl-long.1696/)             |
+| Hellenic National Corpus: The Current State                                                                           | [2026.cmlc-1.7](https://aclanthology.org/2026.cmlc-1.7/)                       |
+| MuBench: Assessment of Multilingual Capabilities of Large Language Models Across 61 Languages                         | [2026.findings-acl.794](https://aclanthology.org/2026.findings-acl.794/)       |
+| Thinking While Speaking: Inference-Time Knowledge Transfer for Responsive and Intelligent Conversational Voice Agents | [2026.findings-emnlp.1371](https://aclanthology.org/2026.findings-emnlp.1371/) |
+| ConvDeck: Conversational Paper-to-Slide Generation via Stage-Specific User Feedback                                   | [2026.findings-emnlp.541](https://aclanthology.org/2026.findings-emnlp.541/)   |
+| Universal NER v2: Towards a Massively Multilingual Named Entity Recognition Benchmark                                 | [2026.lrec-1.525](https://aclanthology.org/2026.lrec-1.525/)                   |
+| WikIPA: Integrating WikiPron and Lingua Libre for Multilingual IPA Transcription                                      | [2026.lrec-1.668](https://aclanthology.org/2026.lrec-1.668/)                   |
+| Building a Corpus and Database for Rare and Undeciphered Scripts                                                      | [2026.lt4hala-1.17](https://aclanthology.org/2026.lt4hala-1.17/)               |
+| When Retrieval Hurts: Evidence Utilization, Script Fidelity, and Knowledge Conflicts in Multilingual RAG              | [2026.mellm-1.9](https://aclanthology.org/2026.mellm-1.9/)                     |
+| Decoding News Narratives: A Critical Analysis of Large Language Models in Framing Detection                           | [2026.politicalnlp-1.2](https://aclanthology.org/2026.politicalnlp-1.2/)       |
 
 {% endraw %}

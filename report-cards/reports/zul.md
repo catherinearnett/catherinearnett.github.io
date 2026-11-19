@@ -12,11 +12,34 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `zul`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Southern Ndebele-Lowland ([Glottolog](https://glottolog.org/resource/languoid/id/zulu1248))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 15.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 12.1 million first-language + 15.7 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q10179#P1098), 2019)
 
 **Official / recognised in:** South Africa
 
 **Status:** Official language
+
+
+## What does Zulu look and sound like?
+
+**Written (Zulu)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/zulu.htm):
+
+> Bonke abantu bazalwa bekhululekile belingana ngesithunzi nangamalungelo. Bahlanganiswe
+> wumcabango nangunembeza futhi kufanele baphathane ngomoya wobunye.
+> A recording of this text by Cynthia Nozwelo
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_zulu.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/zul/) has 1 video of Zulu speakers. Watch [Lolly speaking Zulu](https://wikitongues.org/videos/lolly_20130920_zul/).
 
 
 ## Training Data
@@ -25,33 +48,56 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 13,010 articles in zu.wikipedia (rank 91 of 161 in the set) — ~1/580 of English; 44 active users                                                                                                                         |
-| Common Crawl 2026      | 32,559 pages per crawl on average, which is 0.0015% of the crawl. This is ~1/27,381 of English data and ranks 83 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 0.22 GB (zul_Latn (0.22)); which is equivalent to ≈0.19 GB English data after byte-premium scaling; 11.39 GB removed by filtering. This is ~1/242,761 of English data and ranks 97 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.95 GB (zul_latn) (rank 76 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 13,010 articles in zu.wikipedia; 44 active users. This is ~1/580 of English data and ranks 95 of 168 languages in the set in Wikipedia.                                                                          |
+| Common Crawl           | 32,559 pages per crawl on average, which is 0.0015% of the crawl (2026). This is ~1/27,381 of English data and ranks 83 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 0.22 GB (zul_Latn 0.22 GB), equivalent to ≈0.19 GB of English after byte-premium scaling; 11.39 GB removed by filtering. This is ~1/242,761 of English data and ranks 97 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.95 GB (zul_Latn 0.95 GB) (rank 76 of 166 in the set)                                                                                                                                                           |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                     |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                  |
+| UniMorph               | 566 lemmas, 49,119 inflected forms ([unimorph/zul](https://github.com/unimorph/zul))                                                                                            |
+| Wikidata labels        | 1,525,050 Wikidata items have a label in Zulu. (Wikidata codes (labels): zu (1,525,050))                                                                                        |
+| Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=99), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.888 (P 0.872, R 0.916, FPR 1.97e-03) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.751).
+- **Best model:** GlotLID — F1 0.888 (P 0.872, R 0.916, FPR 1.82e-03) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.751).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.872 |    0.916 | 0.888 | 0.002 | ✓                |
-| fasttext     |       0.665 |    0.942 | 0.751 | 0.011 | ✓                |
-| OpenLID-v2   |       0.646 |    0.956 | 0.743 | 0.011 | ✓                |
-| cld2         |       0.657 |    0.858 | 0.705 | 0.012 | ✓                |
+| fasttext     |       0.665 |    0.942 | 0.751 | 0.010 | ✓                |
+| OpenLID-v2   |       0.644 |    0.956 | 0.741 | 0.011 | ✓                |
+| cld2         |       0.657 |    0.858 | 0.705 | 0.011 | ✓                |
 | commonlingua |       0.444 |    0.861 | 0.558 | 0.017 | ✓                |
-| funlangid    |       0.576 |    0.554 | 0.555 | 0.006 | ✓                |
+| funlangid    |       0.576 |    0.554 | 0.555 | 0.005 | ✓                |
 | pyfranc      |       0.616 |    0.520 | 0.548 | 0.006 | ✓                |
-| py3langid    |       0.355 |    0.924 | 0.499 | 0.032 | ✓                |
+| py3langid    |       0.355 |    0.924 | 0.498 | 0.031 | ✓                |
+| AfroLID      |       0.373 |    0.713 | 0.482 | 0.053 | ✓                |
+| cld3         |       0.298 |    0.899 | 0.436 | 0.050 | ✓                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -72,6 +118,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Zulu and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Zulu has no UD treebank yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/).
 
 
 ## What models are available for Zulu?
@@ -92,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       68 | █████████████        |
 |   2026 |      105 | ████████████████████ |
 
-### Most popular models tagged for Zulu
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Zulu
-
-| model                                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:--------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [goldfish-models/zul_latn_5mb](https://huggingface.co/goldfish-models/zul_latn_5mb)                                             |                    454 |                    15 | unknown      |                    1 |   2024 | —                 |
-| [ChallengerSpaceShuttle/continued-trained-gemma2-2b](https://huggingface.co/ChallengerSpaceShuttle/continued-trained-gemma2-2b) |                    419 |                     8 | 2.0B         |                    1 |   2024 | google/gemma-2-2b |
-| [goldfish-models/zul_latn_100mb](https://huggingface.co/goldfish-models/zul_latn_100mb)                                         |                    392 |                    10 | unknown      |                    1 |   2024 | —                 |
-| [goldfish-models/zul_latn_full](https://huggingface.co/goldfish-models/zul_latn_full)                                           |                    390 |                    12 | unknown      |                    1 |   2024 | —                 |
-| [goldfish-models/zul_latn_10mb](https://huggingface.co/goldfish-models/zul_latn_10mb)                                           |                    371 |                    13 | unknown      |                    1 |   2024 | —                 |
-
 ### Largest models tagged for Zulu
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 109                    |                    13 | 176.2B       |                   35 |   2026 | —               |
-| [itssarjunhere/bloom](https://huggingface.co/itssarjunhere/bloom)                     | 70                     |                     5 | 176.2B       |                   35 |   2026 | —               |
-| [bigscience/bloomz-p3](https://huggingface.co/bigscience/bloomz-p3)                   | 8,063                  |                   187 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Zulu
 
-| model                                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/gemma-3-4b-it-zul-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-zul-32768)                             |                     33 |                     8 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-zul](https://huggingface.co/ptrdvn/kakugo-3B-zul)                                                             |                     76 |                    17 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [ChallengerSpaceShuttle/continued-trained-gemma2-2b](https://huggingface.co/ChallengerSpaceShuttle/continued-trained-gemma2-2b) |                    419 |                     8 | 2.0B         |                    1 |   2024 | google/gemma-2-2b             |
-| [alphaedge-ai/gemma-3-1b-it-zul-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-zul-32768)                             |                     57 |                    10 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
-| [alphaedge-ai/gemma-3-270m-it-zul-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-zul-32768)                         |                     44 |                     5 | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
+| model                                                                                                                           | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/gemma-3-4b-it-zul-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-zul-32768)                             | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [ptrdvn/kakugo-3B-zul](https://huggingface.co/ptrdvn/kakugo-3B-zul)                                                             | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [ChallengerSpaceShuttle/continued-trained-gemma2-2b](https://huggingface.co/ChallengerSpaceShuttle/continued-trained-gemma2-2b) | 2.0B         |                    1 |   2024 | google/gemma-2-2b             |
+| [alphaedge-ai/gemma-3-1b-it-zul-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-zul-32768)                             | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
+| [alphaedge-ai/gemma-3-270m-it-zul-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-zul-32768)                         | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
 
 _46 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -161,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [3]     \
+                 /   [3]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,7 +210,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                           | # test items   | Construction                                                        |
+| level                                  | task                           | dataset                                                                                                           | # test items   | construction                                                        |
 |:---------------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 2. Pragmatics, discourse & coreference | WinoGrande                     | [WinoGrande-afr (Alhanai et al.)](https://huggingface.co/datasets/Institute-Disease-Modeling/mmlu-winogrande-afr) | —              | Human translation                                                   |
 | 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)               | 100            | Native                                                              |
@@ -226,7 +253,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 74 of ~18,460 papers (0.40%) (rank 67 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 74 of ~18,498 papers (0.40%) (rank 70 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Zulu
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 74):

@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `taq` · macrolanguage `tmh`
 
+**Language family:** **Afro-Asiatic** › Berber › Tuareg › Southern Tuareg ([Glottolog](https://glottolog.org/resource/languoid/id/tama1365))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
+**Speakers:** about 2.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `tmh`, so includes other varieties · 500,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q4670066#P1098), 2023)
+
 **Official / recognised in:** Mali
 
 **Status:** Official language
+
+
+## What does Tamasheq look and sound like?
+
+**Written:** Omniglot has [a page on Tamasheq](https://www.omniglot.com/writing/tamasheq.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/taq/) has 1 video of Tamasheq speakers. Watch [Ibrahim speaking French, Zarma, Gourmanchéma, Hassaniyya, Tamasheq, Maasina Fulfulde](https://wikitongues.org/videos/ibrahim_20160229_fra-dje-gux-mey-taq-ffm/).
 
 
 ## Training Data
@@ -23,18 +36,48 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                     |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                   |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                   |
-| FineWeb                | 1.2 MB (taq_Latn (0.00); taq_Tfng (0.00)); which is equivalent to ≈0.9 MB English data after byte-premium scaling; 36.6 MB removed by filtering. This is ~1/43,313,998 of English data and ranks 196 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                                  |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                |
+| FineWeb                | 1.2 MB (taq_Latn 0; taq_Tfng 0), equivalent to ≈0.9 MB of English after byte-premium scaling; 36.6 MB removed by filtering. This is ~1/43,313,998 of English data and ranks 196 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                            |
+
+**By writing system:**
+
+| Writing system    |   FineWeb | FineWeb, English-equivalent   |
+|:------------------|----------:|:------------------------------|
+| Latin (`Latn`)    |         0 | — (no byte premium yet)       |
+| Tifinagh (`Tfng`) |         0 | — (no byte premium yet)       |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                   |
+|:-----------------------|:------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                |
+| UniMorph               | **None found**                                                                |
+| Wikidata labels        | 3 Wikidata items have a label in Tamasheq. (Wikidata codes (labels): tmh (3)) |
+| Wordnets               | **None found**                                                                |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **4 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, fasttext, funlangid.
+- **5 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, fasttext, funlangid.
 - **Eval datasets (1):** FLORES (n=300)
 - **Best model:** GlotLID — F1 0.985 (P 1.000, R 0.970, FPR 0.00e+00) averaged over 1 dataset(s). Runner-up: OpenLID-v2 (F1 0.831).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
@@ -47,9 +90,11 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       1.000 |    0.970 | 0.985 | 0.000 | ✓                |
 | OpenLID-v2   |       0.926 |    0.753 | 0.831 | 0.000 | ✓                |
-| fasttext     |       0.995 |    0.697 | 0.820 | 0.000 | ✓                |
+| fasttext     |       0.991 |    0.697 | 0.818 | 0.000 | ✓                |
 | funlangid    |       0.530 |    0.650 | 0.584 | 0.004 | ✓                |
+| AfroLID      |       0.427 |    0.127 | 0.195 | 0.007 | ✓                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -63,6 +108,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tamasheq and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tamasheq has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Tamasheq?
@@ -79,25 +125,13 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2026 |        3 | ████████████████████ |
 
-### Most popular models tagged for Tamasheq
-
-| model                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of          |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------|
-| [McGill-NLP/AfriqueQwen3.5-4B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B-50Langs)     | 5,618                  |                   499 | 5.2B         |                   29 |   2026 | Qwen/Qwen3.5-4B-Base   |
-| [McGill-NLP/AfriqueQwen3.5-0.8B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-0.8B-50Langs) | 1,530                  |                   691 | 1.1B         |                   29 |   2026 | Qwen/Qwen3.5-0.8B-Base |
-| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs)     | 602                    |                    99 | 9.4B         |                   29 |   2026 | Qwen/Qwen3.5-9B-Base   |
-
-### Most popular models tagged *only* for Tamasheq
-
-_none_
-
 ### Largest models tagged for Tamasheq
 
-| model                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of          |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------|
-| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs)     | 602                    |                    99 | 9.4B         |                   29 |   2026 | Qwen/Qwen3.5-9B-Base   |
-| [McGill-NLP/AfriqueQwen3.5-4B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B-50Langs)     | 5,618                  |                   499 | 5.2B         |                   29 |   2026 | Qwen/Qwen3.5-4B-Base   |
-| [McGill-NLP/AfriqueQwen3.5-0.8B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-0.8B-50Langs) | 1,530                  |                   691 | 1.1B         |                   29 |   2026 | Qwen/Qwen3.5-0.8B-Base |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of          |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------|
+| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs)     | 9.4B         |                   32 |   2026 | Qwen/Qwen3.5-9B-Base   |
+| [McGill-NLP/AfriqueQwen3.5-4B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B-50Langs)     | 5.2B         |                   32 |   2026 | Qwen/Qwen3.5-4B-Base   |
+| [McGill-NLP/AfriqueQwen3.5-0.8B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-0.8B-50Langs) | 1.1B         |                   32 |   2026 | Qwen/Qwen3.5-0.8B-Base |
 
 ### Largest models tagged *only* for Tamasheq
 
@@ -119,7 +153,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**4** benchmark datasets in the survey include Tamasheq.
+**2** benchmark datasets in the survey include Tamasheq.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -130,15 +164,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -146,18 +180,16 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [4]         \
+ /         ✅ Machine translation [2]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                 | # test items   | Construction                                                     |
-|:--------------------|:--------------------|:------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| Machine translation | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)             | 854            | Human translation via English pivot                              |
-| Machine translation | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)             | 854            | Human translation via English pivot                              |
-| Machine translation | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| level               | task                | dataset                                                                                     |   # test items | construction                                                     |
+|:--------------------|:--------------------|:--------------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| Machine translation | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)             |          1,708 | Human translation via English pivot                              |
+| Machine translation | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs) |          2,024 | Human translation (professional, from English Wikimedia sources) |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -185,7 +217,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 9 of ~18,460 papers (0.05%) (rank 146 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 9 of ~18,498 papers (0.05%) (rank 155 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Tamasheq
 
 Here are up to ten papers that were published mentioning this language in 2026:

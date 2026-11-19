@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mey`
 
+**Language family:** **Afro-Asiatic** › Semitic › West Semitic › … › Western Middle Arabic ([Glottolog](https://glottolog.org/resource/languoid/id/hass1238))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
+**Speakers:** about 7,162 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 3.8 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q56231#P1098))
+
 **Official / recognised in:** Mali
 
 **Status:** Official language
+
+
+## What does Hassaniya look and sound like?
+
+**Written:** no Omniglot page found for Hassaniya.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/mey/) has 1 video of Hassaniya speakers. Watch [Ibrahim speaking French, Zarma, Gourmanchéma, Hassaniyya, Tamasheq, Maasina Fulfulde](https://wikitongues.org/videos/ibrahim_20160229_fra-dje-gux-mey-taq-ffm/).
 
 
 ## Training Data
@@ -26,26 +39,49 @@ Let's consider some of the most popular sources of training data:
 | Source                 | Amount                                                   |
 |:-----------------------|:---------------------------------------------------------|
 | Wikipedia              | **No Wikipedia edition**                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics** |
+| Common Crawl           | **Not identified in Common Crawl's language statistics** |
 | FineWeb                | **Not in FineWeb / FineWeb-2**                           |
 | Goldfish training data | **No Goldfish model / data**                             |
 
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
+
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **0 of 8** LangID models evaluated have this language code as a label that can be predicted.
+- **0 of 10** LangID models evaluated have this language code as a label that can be predicted.
 - **Eval datasets (1):** NTREX (n=300)
-- **Best model:** GlotLID — F1 0.000 (P 0.000, R 0.000, FPR 0.00e+00) averaged over 1 dataset(s). Runner-up: OpenLID-v2 (F1 0.000).
+- **Best model:** AfroLID — F1 0.000 (P 0.000, R 0.000, FPR 0.00e+00) averaged over 1 dataset(s). Runner-up: GlotLID (F1 0.000).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | GlotLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -61,6 +97,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Hassaniya and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Hassaniya has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
 
 
 ## What models are available for Hassaniya?
@@ -77,23 +114,12 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2023 |        2 | ████████████████████ |
 
-### Most popular models tagged for Hassaniya
-
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-
-### Most popular models tagged *only* for Hassaniya
-
-_none_
-
 ### Largest models tagged for Hassaniya
 
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
+| model                                                                   | parameters   |   # languages tagged |   year | derivative of   |
+|:------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
 
 ### Largest models tagged *only* for Hassaniya
 
@@ -126,15 +152,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -148,10 +174,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                     | # test items   | Construction                                   |
-|:--------------------|:--------------------|:------------------------------------------------------------|:---------------|:-----------------------------------------------|
-| Machine translation | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) | 854            | Human translation via English pivot            |
-| Machine translation | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)   | 1,997          | Human translation (professional, from English) |
+| level               | task                | dataset                                                     |   # test items | construction                                   |
+|:--------------------|:--------------------|:------------------------------------------------------------|---------------:|:-----------------------------------------------|
+| Machine translation | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) |            854 | Human translation via English pivot            |
+| Machine translation | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)   |          1,997 | Human translation (professional, from English) |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -179,7 +205,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 6 of ~18,460 papers (0.03%) (rank 166 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 6 of ~18,498 papers (0.03%) (rank 180 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Hassaniyya Arabic | Hassaniya
 
 Here are up to ten papers that were published mentioning this language in 2026:

@@ -12,9 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `sus`
 
+**Language family:** **Mande** › Western Mande › Manding-Kpelle › … › Susu-Yalunka ([Glottolog](https://glottolog.org/resource/languoid/id/susu1250))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
+**Speakers:** about 1.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 2.4 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33990#P1098), 2019)
+
 **Official / recognised in:** Guinea
 
 **Status:** Official language
+
+
+## What does Susu look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/susu.htm):
+
+> Adamadie birin barixinɛ e lan yɛtɛralui kui, yɛtɛ kolonyi nun yɛtɛ suxu kima. Fondoe nun faxamui na e bɛ boresuxu kima bariboreya fanyi kui.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Susu yet ([its Wikitongues page](https://wikitongues.org/languages/sus/) says how to contribute one).
 
 
 ## Training Data
@@ -23,20 +42,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                    |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                  |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                  |
-| FineWeb                | 1.7 MB (sus_Arab (0.00); sus_Latn (0.00)); which is equivalent to ≈1.3 MB English data after byte-premium scaling; 1.5 MB removed by filtering. This is ~1/30,532,030 of English data and ranks 188 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                                 |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                               |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                               |
+| FineWeb                | 1.7 MB (sus_Arab 0; sus_Latn 0), equivalent to ≈1.3 MB of English after byte-premium scaling; 1.5 MB removed by filtering. This is ~1/30,532,030 of English data and ranks 188 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                           |
+
+**By writing system:**
+
+| Writing system   |   FineWeb | FineWeb, English-equivalent   |
+|:-----------------|----------:|:------------------------------|
+| Arabic (`Arab`)  |         0 | — (no byte premium yet)       |
+| Latin (`Latn`)   |         0 | — (no byte premium yet)       |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                   |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                       |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([sus](https://ebible.org/details.php?id=sus), by-nc-nd 4.0); full Bible ([susa](https://ebible.org/details.php?id=susa), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                    |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
+- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, funlangid, pyfranc.
 - **Eval datasets (2):** SmolSent (n=300), UDHR-LID (n=58)
-- **Best model:** GlotLID — F1 0.960 (P 1.000, R 0.927, FPR 0.00e+00) averaged over 2 dataset(s). Runner-up: pyfranc (F1 0.927).
+- **Best model:** GlotLID — F1 0.960 (P 1.000, R 0.927, FPR 0.00e+00) averaged over 2 dataset(s). Runner-up: pyfranc (F1 0.925).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -45,10 +94,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       1.000 |    0.927 | 0.960 | 0.000 | ✓                |
-| pyfranc      |       0.987 |    0.882 | 0.927 | 0.000 | ✓                |
+| pyfranc      |       0.981 |    0.882 | 0.925 | 0.000 | ✓                |
 | funlangid    |       0.972 |    0.810 | 0.881 | 0.000 | ✓                |
+| AfroLID      |       0.946 |    0.658 | 0.751 | 0.001 | ✓                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -68,6 +119,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Susu and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Susu has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/sus/) video of Susu yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Susu?
@@ -87,25 +140,13 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        0 |                      |
 |   2026 |        1 | ██████████           |
 
-### Most popular models tagged for Susu
-
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [Dasuperhub/DA](https://huggingface.co/Dasuperhub/DA)                   | 94                     |                     5 | 596.0M       |                    3 |   2026 | Qwen/Qwen3-0.6B-Base |
-
-### Most popular models tagged *only* for Susu
-
-_none_
-
 ### Largest models tagged for Susu
 
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [Dasuperhub/DA](https://huggingface.co/Dasuperhub/DA)                   | 94                     |                     5 | 596.0M       |                    3 |   2026 | Qwen/Qwen3-0.6B-Base |
+| model                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —                    |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —                    |
+| [Dasuperhub/DA](https://huggingface.co/Dasuperhub/DA)                   | 596.0M       |                    3 |   2026 | Qwen/Qwen3-0.6B-Base |
 
 ### Largest models tagged *only* for Susu
 
@@ -138,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -160,7 +201,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                        | # test items   | Construction                                                        |
+| level               | task                | dataset                                                        | # test items   | construction                                                        |
 |:--------------------|:--------------------|:---------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | Machine translation | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional, from English)                      |
 | Machine translation | Machine translation | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional) of LLM-generated English documents |
@@ -192,6 +233,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026: not reported.** The search term 'Susu' (Malay/Indonesian word ('milk')) is ambiguous, so the raw count mostly reflects other uses of the word.
+- **Mentions in ACL papers in 2026:** 4 of ~18,498 papers (0.02%) (rank 199 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Susu
+- Because 'Susu' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
+
+Here are up to ten papers that were published mentioning this language in 2026:
+
+| title                                                                                                             | paper                                                                          |
+|:------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Grammar as Control: Modular Language Generation for the Long Tail                                                 | [2026.acl-long.1725](https://aclanthology.org/2026.acl-long.1725/)             |
+| Evaluating Machine Translation and Automatic Metrics in Subtitling: A Case Study on Spanish Multiword Expressions | [2026.eamt-1.29](https://aclanthology.org/2026.eamt-1.29/)                     |
+| AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                            | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
+| Representation Learning Enables Language Identification in Zero - and Few -Shot Settings                          | [2026.tacl-1.118](https://aclanthology.org/2026.tacl-1.118/)                   |
 
 {% endraw %}

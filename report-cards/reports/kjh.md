@@ -12,11 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kjh`
 
-**Writing systems:** `Cyrl`
+**Language family:** **Turkic** › Common Turkic › South Siberian Turkic › … › Yenisey Turkic ([Glottolog](https://glottolog.org/resource/languoid/id/khak1248))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (80% certain))
+
+**Speakers:** 43,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33575#P1098))
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Khakas look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/khakas.htm):
+
+> Полған на кiзi пос паза тиң тöрiпче паза тиң постың синiн пiлiнгенiн паза тöрелерiнiңде полча. Олардың сағынғаны паза арығ сағыс пар паза харындастар чiли тудынарға киректер.
+
+*Transliteration:* Polğan na kïzï pos paza tiŋ törïpçe paza tiŋ postıŋ sinïn pïlïngenïn paza törelerïnïŋde polça. Olardıŋ sağınğanı paza arığ sağıç par paza xarındastar çïli tudınarğa kirekter.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Khakas yet ([its Wikitongues page](https://wikitongues.org/languages/kjh/) says how to contribute one).
 
 
 ## Training Data
@@ -25,30 +44,53 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                          |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 1.8 MB (kjh_Cyrl (0.00)); 69.5 MB removed by filtering. This is ~1/30,424,249 of English data and ranks 187 of 248 official languages in FineWeb. |
-| Goldfish training data | 12.8 MB (kjh_cyrl) (rank 159 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                       |
+| FineWeb                | 1.8 MB (kjh_Cyrl 0); 69.5 MB removed by filtering. This is ~1/30,424,249 of English data and ranks 187 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 12.8 MB (kjh_Cyrl 13.0 MB) (rank 159 of 166 in the set)                                                                                        |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                        |
+|:-----------------------|:-----------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                     |
+| UniMorph               | 75 lemmas, 1,200 inflected forms ([unimorph/kjh](https://github.com/unimorph/kjh)) |
+| Wikidata labels        | 30 Wikidata items have a label in Khakas. (Wikidata codes (labels): kjh (30))      |
+| Wordnets               | **None found**                                                                     |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
 - **Eval datasets (2):** Tatoeba (n=92), UDHR-LID (n=57)
-- **Best model:** GlotLID — F1 0.975 (P 0.989, R 0.962, FPR 2.80e-05) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.712).
+- **Best model:** GlotLID — F1 0.975 (P 0.989, R 0.962, FPR 2.76e-05) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.705).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.989 |    0.962 | 0.975 | 0.000 | ✓                |
-| funlangid    |       0.691 |    0.750 | 0.712 | 0.001 | ✓                |
-| pyfranc      |       0.597 |    0.734 | 0.637 | 0.005 | ✓                |
+| funlangid    |       0.673 |    0.750 | 0.705 | 0.001 | ✓                |
+| pyfranc      |       0.600 |    0.734 | 0.641 | 0.004 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -68,6 +110,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Khakas and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Khakas has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/kjh/) video of Khakas yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Khakas?
@@ -85,28 +129,12 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2023 |        2 | ████████████████████ |
 |   2024 |        2 | ████████████████████ |
 
-### Most popular models tagged for Khakas
-
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)               | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)               | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [goldfish-models/kjh_cyrl_5mb](https://huggingface.co/goldfish-models/kjh_cyrl_5mb)   | 360                    |                    15 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kjh_cyrl_full](https://huggingface.co/goldfish-models/kjh_cyrl_full) | 358                    |                    13 | unknown      |                    1 |   2024 | —               |
-
-### Most popular models tagged *only* for Khakas
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/kjh_cyrl_5mb](https://huggingface.co/goldfish-models/kjh_cyrl_5mb)   |                    360 |                    15 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kjh_cyrl_full](https://huggingface.co/goldfish-models/kjh_cyrl_full) |                    358 |                    13 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Khakas
 
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
+| model                                                                   | parameters   |   # languages tagged |   year | derivative of   |
+|:------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
 
 ### Largest models tagged *only* for Khakas
 
@@ -141,15 +169,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -163,7 +191,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                                              | # test items   | Construction                                                     |
+| level               | task                | dataset                                                                              | # test items   | construction                                                     |
 |:--------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | Machine translation | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Community-contributed translation                                |
 | Machine translation | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
@@ -197,7 +225,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 2 of ~18,460 papers (0.01%) (rank 204 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 2 of ~18,498 papers (0.01%) (rank 227 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Khakas
 
 Here are up to ten papers that were published mentioning this language in 2026:

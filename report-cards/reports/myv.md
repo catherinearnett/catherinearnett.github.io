@@ -12,11 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `myv`
 
+**Language family:** **Uralic** › Mordvin ([Glottolog](https://glottolog.org/resource/languoid/id/erzy1239))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Threatened (80% certain))
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 437,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 37,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q29952#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Erzya look and sound like?
+
+**Written (Erzya)**, sample text from [Omniglot](https://www.omniglot.com/writing/erzya.htm):
+
+> Весе ломантне чачить олякс, ёнчинь ды правань коряс вейкетекс. Сынст улить превест ды чамачист, вейкень-вейкень коряс пряст сыненст ветяма ялгань ёжо марто.
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://myv.wikipedia.org/wiki/Ломанень_прават.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/myv/) has 2 videos of Erzya speakers. Watch [Naoki speaking Kalmyk](https://wikitongues.org/videos/naoki_20161227_ryu-myv-xal-prg/).
 
 
 ## Training Data
@@ -25,20 +42,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 7,878 articles in myv.wikipedia (rank 107 of 161 in the set) — ~1/958 of English; 15 active users                                                 |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 15.4 MB (myv_Cyrl (0.02)); 64.3 MB removed by filtering. This is ~1/3,461,149 of English data and ranks 135 of 248 official languages in FineWeb. |
-| Goldfish training data | 32.4 MB (myv_cyrl) (rank 140 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 7,878 articles in myv.wikipedia; 15 active users. This is ~1/958 of English data and ranks 111 of 168 languages in the set in Wikipedia.             |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
+| FineWeb                | 15.4 MB (myv_Cyrl 20.0 MB); 64.3 MB removed by filtering. This is ~1/3,461,149 of English data and ranks 135 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 32.4 MB (myv_Cyrl 32.0 MB) (rank 140 of 166 in the set)                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                         |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 2,152 sentences / 20,729 tokens in total: [UD_Erzya-JR](https://github.com/UniversalDependencies/UD_Erzya-JR) (2,152 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                      |
+| Wikidata labels        | 176,584 Wikidata items have a label in Erzya. (Wikidata codes (labels): myv (176,584))                                                                                                                              |
+| Wordnets               | **None found**                                                                                                                                                                                                      |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
 - **Eval datasets (3):** FLORES (n=300), Tatoeba (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.977 (P 0.995, R 0.960, FPR 3.49e-05) averaged over 3 dataset(s). Runner-up: funlangid (F1 0.805).
+- **Best model:** GlotLID — F1 0.976 (P 0.994, R 0.960, FPR 4.36e-05) averaged over 3 dataset(s). Runner-up: funlangid (F1 0.803).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,11 +84,13 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.995 |    0.960 | 0.977 | 0.000 | ✓                |
-| funlangid    |       0.908 |    0.733 | 0.805 | 0.001 | ✓                |
-| commonlingua |       0.880 |    0.743 | 0.798 | 0.001 | ✓                |
+| GlotLID      |       0.994 |    0.960 | 0.976 | 0.000 | ✓                |
+| funlangid    |       0.904 |    0.733 | 0.803 | 0.001 | ✓                |
+| commonlingua |       0.889 |    0.743 | 0.800 | 0.001 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -59,7 +99,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.989 |    0.900 | 0.942 |
+| Tatoeba   | 300 |       0.985 |    0.900 | 0.941 |
 | Wikipedia | 300 |       0.997 |    0.980 | 0.988 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
 
@@ -71,6 +111,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Erzya and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Erzya has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Erzya?
@@ -90,31 +131,13 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        0 |                      |
 |   2026 |        5 | ████████████████████ |
 
-### Most popular models tagged for Erzya
-
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [goldfish-models/myv_cyrl_10mb](https://huggingface.co/goldfish-models/myv_cyrl_10mb)   | 425                    |                    15 | unknown      |                    1 |   2024 | —                    |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 425                    |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
-| [goldfish-models/myv_cyrl_5mb](https://huggingface.co/goldfish-models/myv_cyrl_5mb)     | 410                    |                    23 | unknown      |                    1 |   2024 | —                    |
-
-### Most popular models tagged *only* for Erzya
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/myv_cyrl_10mb](https://huggingface.co/goldfish-models/myv_cyrl_10mb) |                    425 |                    15 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/myv_cyrl_5mb](https://huggingface.co/goldfish-models/myv_cyrl_5mb)   |                    410 |                    23 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/myv_cyrl_full](https://huggingface.co/goldfish-models/myv_cyrl_full) |                    393 |                    17 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Erzya
 
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 425                    |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
+| model                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 8.6B         |                  189 |   2023 | —                    |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 8.6B         |                  189 |   2023 | —                    |
+| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 3.9B         |                  155 |   2026 | google/gemma-3-4b-it |
 
 ### Largest models tagged *only* for Erzya
 
@@ -149,15 +172,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -171,12 +194,12 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 464            | Treebank-based (automatic, UD + UniMorph)                        |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 26             | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                | dataset                                                                              |   # test items | construction                                                     |
+|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 |            464 | Treebank-based (automatic, UD + UniMorph)                        |
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |             26 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -204,7 +227,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 10 of ~18,460 papers (0.05%) (rank 140 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 10 of ~18,498 papers (0.05%) (rank 149 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Erzya
 
 Here are up to ten papers that were published mentioning this language in 2026:

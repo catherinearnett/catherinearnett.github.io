@@ -12,11 +12,36 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `bel`
 
+**Language family:** **Indo-European** › Classical Indo-European › Balto-Slavic › … › East Slavic ([Glottolog](https://glottolog.org/resource/languoid/id/bela1254))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 10.0 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 7.6 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9091#P1098), 2009)
 
 **Official / recognised in:** Belarus
 
 **Status:** Official language
+
+
+## What does Belarusian look and sound like?
+
+**Written (Cyrillic alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/belarusian.htm):
+
+> Усе людзі нараджаюцца свабоднымі і роўнымі ў сваёй годнасці і правах. Яны надзелены розумам і сумленнем і павінны ставіцца адзін да аднаго ў духу брацтва.
+
+**Written (Latin alphabet)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/belarusian.htm):
+
+> Usie ludzi naradžajucca svabodnymi i roŭnymi ŭ svajoj hodnaści i pravach. Jany nadzieleny rozumam i sumleńniem i pavinny stavicca adzin da adnaho ŭ duchu bractva.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_be.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/bel/) has 2 videos of Belarusian speakers. Watch [Pavel speaking Belarusan](https://wikitongues.org/videos/pavel_20151105_bel/).
 
 
 ## Training Data
@@ -25,20 +50,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 361,833 articles in be, be-tarask.wikipedia (rank 30 of 161 in the set) — ~1/21 of English; 540 active users                                                                                                           |
-| Common Crawl 2026      | 351,227 pages per crawl on average, which is 0.0163% of the crawl. This is ~1/2,538 of English data and ranks 50 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 4.19 GB (bel_Cyrl (4.19)); which is equivalent to ≈2.09 GB English data after byte-premium scaling; 3.20 GB removed by filtering. This is ~1/12,735 of English data and ranks 51 of 248 official languages in FineWeb. |
-| Goldfish training data | 5.24 GB (bel_cyrl) (rank 39 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 361,833 articles in be, be-tarask.wikipedia; 540 active users. This is ~1/21 of English data and ranks 31 of 168 languages in the set in Wikipedia.                                                            |
+| Common Crawl           | 351,227 pages per crawl on average, which is 0.0163% of the crawl (2026). This is ~1/2,538 of English data and ranks 50 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 4.19 GB (bel_Cyrl 4.19 GB), equivalent to ≈2.09 GB of English after byte-premium scaling; 3.20 GB removed by filtering. This is ~1/12,735 of English data and ranks 51 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 5.24 GB (bel_Cyrl 5.24 GB) (rank 39 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                        |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 25,231 sentences / 305,109 tokens in total: [UD_Belarusian-HSE](https://github.com/UniversalDependencies/UD_Belarusian-HSE) (25,231 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 1,027 lemmas, 16,113 inflected forms ([unimorph/bel](https://github.com/unimorph/bel))                                                                                                                                             |
+| Wikidata labels        | 849,504 Wikidata items have a label in Belarusian. (Wikidata codes (labels): be (849,504), be-tarask (678,309))                                                                                                                    |
+| Wordnets               | **None found**                                                                                                                                                                                                                     |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                             |
+|:-----------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                 |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([bel](https://ebible.org/details.php?id=bel), by-nc 4.0); New Testament + parts of the Old Testament ([beln](https://ebible.org/details.php?id=beln), by-nc 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                              |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.996 (P 0.995, R 0.998, FPR 4.19e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.977).
+- **Best model:** GlotLID — F1 0.996 (P 0.995, R 0.998, FPR 4.12e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.978).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,13 +93,15 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.995 |    0.998 | 0.996 | 0.000 | ✓                |
-| cld2         |       0.973 |    0.982 | 0.977 | 0.000 | ✓                |
-| commonlingua |       0.937 |    0.959 | 0.947 | 0.001 | ✓                |
-| pyfranc      |       0.917 |    0.940 | 0.928 | 0.001 | ✓                |
-| fasttext     |       0.862 |    0.997 | 0.919 | 0.002 | ✓                |
-| py3langid    |       0.725 |    0.999 | 0.820 | 0.005 | ✓                |
-| funlangid    |       0.896 |    0.778 | 0.816 | 0.001 | ✓                |
-| OpenLID-v2   |       0.642 |    0.997 | 0.744 | 0.007 | ✓                |
+| cld2         |       0.974 |    0.982 | 0.978 | 0.000 | ✓                |
+| commonlingua |       0.936 |    0.959 | 0.947 | 0.001 | ✓                |
+| pyfranc      |       0.918 |    0.940 | 0.929 | 0.001 | ✓                |
+| fasttext     |       0.863 |    0.997 | 0.920 | 0.001 | ✓                |
+| py3langid    |       0.726 |    0.999 | 0.822 | 0.005 | ✓                |
+| funlangid    |       0.892 |    0.778 | 0.814 | 0.001 | ✓                |
+| OpenLID-v2   |       0.645 |    0.997 | 0.746 | 0.007 | ✓                |
+| cld3         |       0.592 |    0.990 | 0.701 | 0.013 | ✗                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -62,8 +110,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Tatoeba   | 300 |       0.980 |    0.990 | 0.985 |
 | Wikipedia | 300 |       0.993 |    1.000 | 0.997 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -73,6 +121,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Belarusian and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Belarusian has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Belarusian?
@@ -93,45 +142,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       86 | ████████████████████ |
 |   2026 |       80 | ███████████████████  |
 
-### Most popular models tagged for Belarusian
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                         | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                                      |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                               | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                                      |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)                               | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —                                      |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)                                 | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —                                      |
-
-### Most popular models tagged *only* for Belarusian
-
-| model                                                                                     |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [goldfish-models/bel_cyrl_1000mb](https://huggingface.co/goldfish-models/bel_cyrl_1000mb) |                    919 |                   425 | unknown      |                    1 |   2024 | —                  |
-| [goldfish-models/bel_cyrl_5mb](https://huggingface.co/goldfish-models/bel_cyrl_5mb)       |                    549 |                    15 | unknown      |                    1 |   2024 | —                  |
-| [goldfish-models/bel_cyrl_100mb](https://huggingface.co/goldfish-models/bel_cyrl_100mb)   |                    486 |                    14 | unknown      |                    1 |   2024 | —                  |
-| [goldfish-models/bel_cyrl_10mb](https://huggingface.co/goldfish-models/bel_cyrl_10mb)     |                    471 |                    12 | unknown      |                    1 |   2024 | —                  |
-| [ewxxyyzz/zorka-vieniera-12b](https://huggingface.co/ewxxyyzz/zorka-vieniera-12b)         |                    246 |                   246 | 13.0B        |                    1 |   2026 | google/gemma-4-12B |
-
 ### Largest models tagged for Belarusian
 
-| model                                                                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                             |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                                 |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                    |
-| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6)       |                    694 |                    69 | 46.7B        |                   19 |   2023 | —                    |
-| [ArtCloud/Zubr1.0-35B-A3B-AWQ](https://huggingface.co/ArtCloud/Zubr1.0-35B-A3B-AWQ)                                                                   |                     73 |                     9 | 36.0B        |                    3 |   2026 | Qwen/Qwen3.6-35B-A3B |
-| [rubricreward/mR3-Qwen3-14B-tgt-prompt-tgt-thinking-translated](https://huggingface.co/rubricreward/mR3-Qwen3-14B-tgt-prompt-tgt-thinking-translated) |                    133 |                    13 | 14.8B        |                   64 |   2025 | Qwen/Qwen3-14B-Base  |
+| model                                                                                                                                           | parameters   |   # languages tagged |   year | derivative of        |
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 856.0B       |                  143 |   2025 | —                    |
+| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6) | 46.7B        |                   19 |   2023 | —                    |
+| [ArtCloud/Zubr1.0-35B-A3B-AWQ](https://huggingface.co/ArtCloud/Zubr1.0-35B-A3B-AWQ)                                                             | 36.0B        |                    3 |   2026 | Qwen/Qwen3.6-35B-A3B |
+| [rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking](https://huggingface.co/rubricreward/mR3-Qwen3-14B-en-prompt-en-thinking)                     | 14.8B        |                   64 |   2025 | Qwen/Qwen3-14B-Base  |
 
 ### Largest models tagged *only* for Belarusian
 
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [ewxxyyzz/zorka-vieniera-12b](https://huggingface.co/ewxxyyzz/zorka-vieniera-12b)                   |                    246 |                   246 | 13.0B        |                    1 |   2026 | google/gemma-4-12B   |
-| [alphaedge-ai/Qwen3.5-4B-bel-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-bel-32768)       |                     49 |                     9 | 4.0B         |                    1 |   2026 | Qwen3.5-4B           |
-| [alphaedge-ai/gemma-3-4b-it-bel-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-bel-32768) |                     40 |                     7 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-| [alphaedge-ai/Qwen3.5-2B-bel-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-bel-32768)       |                     44 |                     8 | 1.8B         |                    1 |   2026 | Qwen3.5-2B           |
-| [alphaedge-ai/Qwen3-1.7B-bel-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-bel-32768)       |                     54 |                    14 | 1.5B         |                    1 |   2026 | Qwen3-1.7B           |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [ewxxyyzz/zorka-vieniera-12b](https://huggingface.co/ewxxyyzz/zorka-vieniera-12b)                   | 13.0B        |                    1 |   2026 | google/gemma-4-12B   |
+| [alphaedge-ai/Qwen3.5-4B-bel-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-bel-32768)       | 4.0B         |                    1 |   2026 | Qwen3.5-4B           |
+| [alphaedge-ai/gemma-3-4b-it-bel-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-bel-32768) | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
+| [alphaedge-ai/Qwen3.5-2B-bel-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-bel-32768)       | 1.8B         |                    1 |   2026 | Qwen3.5-2B           |
+| [alphaedge-ai/Qwen3-1.7B-bel-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-bel-32768)       | 1.5B         |                    1 |   2026 | Qwen3-1.7B           |
 
 _47 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -151,7 +180,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**13** benchmark datasets in the survey include Belarusian.
+**12** benchmark datasets in the survey include Belarusian.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -162,15 +191,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [3]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +213,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                                  | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:---------------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                           | 171            | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 2,570          | Treebank-based (automatic, UD + UniMorph)                        |
@@ -193,7 +222,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                          |
 | 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
 | Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
@@ -225,7 +253,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 53 of ~18,460 papers (0.29%) (rank 80 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 53 of ~18,498 papers (0.29%) (rank 84 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Belarusian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 53):

@@ -12,9 +12,26 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `quh` · macrolanguage `que`
 
+**Language family:** **Quechuan** › Southern Quechua › Bolivian-Argentinian Quechua › South Bolivian-Argentinian Quechua ([Glottolog](https://glottolog.org/resource/languoid/id/sout2991))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: ElCat: At risk (20% certain))
+
+**Speakers:** about 11.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `que`, so includes other varieties · 1.6 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q1307730#P1098), 2004)
+
 **Official / recognised in:** Bolivia
 
 **Status:** Official language
+
+
+## What does Quechua look and sound like?
+
+**Written**, sample text from [Omniglot](https://www.omniglot.com/writing/southbolivianquechua.htm):
+
+> Simi yachaqkunaqa rimanakun, qhichwa simi hukllachu achkachu rimay. SIL International ñisqa tantanakuy ñinmi, 42 rimaymi, nispa. Qhichwa Simi Hamut'ana Kuraq Sunturtaq ñinmi, huklla simi, Qusqu llaqtap rimayninmi huklla allin qhichwa simi, ñispa. Ichataq Chanka rimaqqa manam Wanka rimayta hap'inchu, Wankataq manam Chanka rimaytachu. Chayraykum ñinku, manam hukllachu rimay, ichataq achka qhichwa …
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://qu.wikipedia.org/wiki/Qhichwa_simi.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/quh/) has 1 video of Quechua speakers. Watch [Nicaela speaking South Bolivian Quechua](https://wikitongues.org/videos/nicaela_20250213_quh/).
 
 
 ## Training Data
@@ -23,20 +40,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                     |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                   |
-| Common Crawl 2026      | 19,258 pages per crawl on average, which is 0.0009% of the crawl. ⚠️ NB: this is counted using `que` (macrolanguage code), so this number is shared with other varieties and overstates Quechua.                           |
-| FineWeb                | 0.5 MB (quh_Latn (0.00)); which is equivalent to ≈0.4 MB English data after byte-premium scaling; 0.37 GB removed by filtering. This is ~1/109,178,280 of English data and ranks 210 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                               |
+| Source                 | Amount                                                                                                                                                                                                       |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 24,672 articles in qu.wikipedia; 66 active users. ⚠️ NB: recorded under the macrolanguage code `que`, which can include other varieties of Quechua.                                                          |
+| Common Crawl           | 19,258 pages per crawl on average, which is 0.0009% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `que`, which can include other varieties of Quechua.                                   |
+| FineWeb                | 0.5 MB (quh_Latn 0), equivalent to ≈0.4 MB of English after byte-premium scaling; 0.37 GB removed by filtering. This is ~1/109,178,280 of English data and ranks 210 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                 |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                              |
+| UniMorph               | 1,006 lemmas, 180,004 inflected forms ([unimorph/que](https://github.com/unimorph/que)) ⚠️ Listed under the macrolanguage code `que`, so this may cover other varieties as well as Quechua. |
+| Wikidata labels        | 514,810 Wikidata items have a label in Quechua. (Wikidata codes (labels): qu (514,810)) ⚠️ Listed under the macrolanguage code `que`, so this may cover other varieties as well as Quechua. |
+| Wordnets               | **None found**                                                                                                                                                                              |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                              |
+|:-----------------------------------|:---------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                  |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([quhNT](https://ebible.org/details.php?id=quhNT), by-nc-nd 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                               |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **1 of 8** LangID models evaluated have this language code as a label that can be predicted: pyfranc.
+- **1 of 10** LangID models evaluated have this language code as a label that can be predicted: pyfranc.
 - **Eval datasets (1):** UDHR-LID (n=57)
-- **Best model:** pyfranc — F1 1.000 (P 1.000, R 1.000, FPR 0.00e+00) averaged over 1 dataset(s). Runner-up: GlotLID (F1 0.000).
+- **Best model:** pyfranc — F1 1.000 (P 1.000, R 1.000, FPR 0.00e+00) averaged over 1 dataset(s). Runner-up: AfroLID (F1 0.000).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
@@ -46,9 +84,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | pyfranc      |       1.000 |    1.000 | 1.000 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | GlotLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -63,6 +103,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Quechua and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Quechua has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Quechua?
@@ -72,7 +113,6 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 - **2** text-generation models are explicitly tagged for Quechua (2 original uploads, 0 fine-tunes/quantisations/merges).
 - **0** are tagged *only* for Quechua.
 - Including tags inherited from base models: **2**.
-- A further 51 are tagged with the macrolanguage `que`.
 
 **Uploads by year**
 
@@ -80,23 +120,12 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2023 |        2 | ████████████████████ |
 
-### Most popular models tagged for Quechua
-
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-
-### Most popular models tagged *only* for Quechua
-
-_none_
-
 ### Largest models tagged for Quechua
 
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
+| model                                                                   | parameters   |   # languages tagged |   year | derivative of   |
+|:------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 8.6B         |                  189 |   2023 | —               |
 
 ### Largest models tagged *only* for Quechua
 
@@ -118,7 +147,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**6** benchmark datasets in the survey include Quechua (plus 1 labelled with the macrolanguage `que`, included below).
+**5** benchmark datasets in the survey include Quechua.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -129,15 +158,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
-             /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+             /   ❌ 4. Reading    \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -145,27 +174,25 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [6]         \
+ /         ✅ Machine translation [5]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                               | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:--------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) (as `que`) | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                           | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                           | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)               | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                         | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)  | 258            | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level               | task                | dataset                                                                              | # test items   | construction                                                     |
+|:--------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
+| Machine translation | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (2 varieties/pairs)      | 1,708          | Human translation via English pivot                              |
+| Machine translation | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English)                   |
+| Machine translation | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                       | —              | Human translation (professional, from English)                   |
+| Machine translation | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 258            | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
 - **2. Pragmatics, discourse & coreference:** Coherence & discourse, Figurative language & idioms, Gender-bias diagnostic (Winograd-format), Implicature & indirect answers, Negation, Presupposition & scalar implicature, Pronoun/coref (WSC-style), WNLI, WSC, WinoGrande
 - **3. Commonsense reasoning:** COPA, HellaSwag, PIQA, Physical commonsense, Social commonsense, StoryCloze, Temporal reasoning, World knowledge
-- **4. Reading comprehension:** Multiple-choice reading comprehension (Belebele-style)
+- **4. Reading comprehension:** Multiple-choice reading comprehension (Belebele-style), Extractive reading comprehension (SQuAD-style)
 - **5. Knowledge & open-domain QA:** Knowledge/exam MCQ (MMLU-style), Open-domain / closed-book QA
 
 ### Community benchmarks you can contribute to
@@ -187,7 +214,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 44 of ~18,460 papers (0.24%) (rank 89 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 44 of ~18,498 papers (0.24%) (rank 93 of 278 in the set); English is mentioned in 8,465.
 - Search terms: South Bolivian Quechua | Quechua
 - ⚠️ The name *Quechua* is shared with Quechua (`que`), so this count covers all of them.
 

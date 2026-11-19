@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `plt` · macrolanguage `mlg`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Basap-Greater Barito › … › Central-Eastern Malagasic ([Glottolog](https://glottolog.org/resource/languoid/id/plat1254))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 26.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `mlg`, so includes other varieties · 18.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q7930#P1098), 2010) — counted for the macrolanguage `mlg`, so includes other varieties
 
 **Official / recognised in:** Madagascar
 
 **Status:** Official language
+
+
+## What does Malagasy look and sound like?
+
+**Written (Malagasy)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/malagasy.htm):
+
+> Teraka afaka sy mitovy zo sy fahamendrehana ny olombelona rehetra. Samy
+> manan-tsaina sy fieritreretana ka tokony hifampitondra ampirahalahiana.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_malagasy.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/plt/) has 4 videos of Malagasy speakers. Watch [Haingo speaking Plateau Malagasy](https://wikitongues.org/videos/haingo_20180904_plt/).
 
 
 ## Training Data
@@ -25,20 +47,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                |
-| Common Crawl 2026      | 95,715 pages per crawl on average, which is 0.0045% of the crawl. ⚠️ NB: this is counted using `mlg` (macrolanguage code), so this number is shared with other varieties and overstates Malagasy.                       |
-| FineWeb                | 0.39 GB (plt_Latn (0.39)); which is equivalent to ≈0.34 GB English data after byte-premium scaling; 0.29 GB removed by filtering. This is ~1/138,005 of English data and ranks 85 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.44 GB (plt_latn) (rank 93 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 104,282 articles in mg.wikipedia; 67 active users. ⚠️ NB: recorded under the macrolanguage code `mlg`, which can include other varieties of Malagasy.                                                           |
+| Common Crawl           | 95,715 pages per crawl on average, which is 0.0045% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `mlg`, which can include other varieties of Malagasy.                                     |
+| FineWeb                | 0.39 GB (plt_Latn 0.39 GB), equivalent to ≈0.34 GB of English after byte-premium scaling; 0.29 GB removed by filtering. This is ~1/138,005 of English data and ranks 85 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.44 GB (plt_Latn 0.44 GB) (rank 93 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                         |
+| UniMorph               | 159 lemmas, 644 inflected forms ([unimorph/mlg](https://github.com/unimorph/mlg)) ⚠️ Listed under the macrolanguage code `mlg`, so this may cover other varieties as well as Malagasy. |
+| Wikidata labels        | 1,333,196 Wikidata items have a label in Malagasy. (Wikidata codes (labels): mg (1,333,196))                                                                                           |
+| Wordnets               | **None found**                                                                                                                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **10 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (7):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=74), UDHR-LID (n=53), Wikipedia (n=300)
-- **Best model:** OpenLID-v2 — F1 0.970 (P 0.979, R 0.962, FPR 7.42e-05) averaged over 7 dataset(s). Runner-up: GlotLID (F1 0.968).
+- **Best model:** OpenLID-v2 — F1 0.970 (P 0.979, R 0.962, FPR 7.33e-05) averaged over 7 dataset(s). Runner-up: GlotLID (F1 0.968).
 
 **All models (averaged over datasets):**
 
@@ -49,9 +92,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | py3langid    |       0.959 |    0.965 | 0.962 | 0.000 | ✓                |
 | fasttext     |       0.951 |    0.978 | 0.962 | 0.000 | ✓                |
 | cld2         |       0.988 |    0.927 | 0.954 | 0.000 | ✓                |
-| pyfranc      |       0.909 |    0.938 | 0.919 | 0.001 | ✓                |
-| commonlingua |       0.860 |    0.861 | 0.856 | 0.001 | ✓                |
-| funlangid    |       0.940 |    0.757 | 0.837 | 0.000 | ✓                |
+| pyfranc      |       0.908 |    0.938 | 0.919 | 0.001 | ✓                |
+| commonlingua |       0.857 |    0.861 | 0.854 | 0.001 | ✓                |
+| cld3         |       0.789 |    0.951 | 0.852 | 0.003 | ✓                |
+| funlangid    |       0.939 |    0.757 | 0.836 | 0.000 | ✓                |
+| AfroLID      |       0.944 |    0.711 | 0.810 | 0.002 | ✓                |
 
 **Best model (OpenLID-v2) by dataset**:
 
@@ -62,8 +107,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Wikipedia | 300 |       0.996 |    0.917 | 0.955 |
 | UDHR-LID  |  53 |       0.964 |    1.000 | 0.981 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| SmolSent  | 300 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| SmolSent  | 300 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -73,6 +118,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Malagasy and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Malagasy has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Malagasy?
@@ -93,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       34 | ████████             |
 |   2026 |       83 | ████████████████████ |
 
-### Most popular models tagged for Malagasy
-
-| model                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of            |
-|:--------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)             | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                        |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)             | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —                        |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)               | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —                        |
-| [CohereLabs/tiny-aya-global](https://huggingface.co/CohereLabs/tiny-aya-global) | 145,769                | 21,318                | 3.3B         |                   63 |   2026 | CohereLabs/tiny-aya-base |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)                   | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —                        |
-
-### Most popular models tagged *only* for Malagasy
-
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/mlg_latn_full](https://huggingface.co/goldfish-models/mlg_latn_full)   | 2,864                  |                    14 | unknown      |                    1 |   2024 | —               |
-| [benjamin/gpt2-wechsel-malagasy](https://huggingface.co/benjamin/gpt2-wechsel-malagasy) | 716                    |                    30 | unknown      |                    1 |   2022 | —               |
-| [goldfish-models/mlg_latn_100mb](https://huggingface.co/goldfish-models/mlg_latn_100mb) | 427                    |                    19 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/tdx_latn_full](https://huggingface.co/goldfish-models/tdx_latn_full)   | 417                    |                    16 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/plt_latn_100mb](https://huggingface.co/goldfish-models/plt_latn_100mb) | 403                    |                    15 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Malagasy
 
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of       |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:--------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                   |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                   |
-| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B) | 834                    | 141                   | 27.4B        |                   20 |   2026 | Qwen/Qwen3.8-27B    |
-| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)       | 20,964                 | 1,255                 | 14.8B        |                   19 |   2026 | Qwen/Qwen3-14B-Base |
-| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                 | 84                     | 7                     | 13.9B        |                   90 |   2024 | —                   |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of       |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —                   |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —                   |
+| [Sunbird/Sunflower-Qwen3.8-27B](https://huggingface.co/Sunbird/Sunflower-Qwen3.8-27B) | 27.4B        |                   24 |   2026 | Qwen/Qwen3.8-27B    |
+| [McGill-NLP/AfriqueQwen-14B](https://huggingface.co/McGill-NLP/AfriqueQwen-14B)       | 14.8B        |                   21 |   2026 | Qwen/Qwen3-14B-Base |
+| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                 | 13.9B        |                   92 |   2024 | —                   |
 
 ### Largest models tagged *only* for Malagasy
 
-| model                                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [Lo-Renz-O/Mistral-7B-CPT-Malagasy-v2-bnb-4bit](https://huggingface.co/Lo-Renz-O/Mistral-7B-CPT-Malagasy-v2-bnb-4bit) |                      4 |                     0 | 7.5B         |                    1 |   2025 | mistralai/Mistral-7B-v0.3     |
-| [alphaedge-ai/gemma-3-4b-it-mlg-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-mlg-32768)                   |                     45 |                     9 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-plt](https://huggingface.co/ptrdvn/kakugo-3B-plt)                                                   |                     92 |                    21 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/gemma-3-1b-it-mlg-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-mlg-32768)                   |                     50 |                     9 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
-| [alphaedge-ai/gemma-3-270m-it-mlg-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-mlg-32768)               |                     51 |                     6 | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                 |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [Lo-Renz-O/Mistral-7B-CPT-Malagasy-v2-bnb-4bit](https://huggingface.co/Lo-Renz-O/Mistral-7B-CPT-Malagasy-v2-bnb-4bit) | 7.5B         |                    1 |   2025 | mistralai/Mistral-7B-v0.3     |
+| [alphaedge-ai/gemma-3-4b-it-mlg-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-mlg-32768)                   | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [ptrdvn/kakugo-3B-plt](https://huggingface.co/ptrdvn/kakugo-3B-plt)                                                   | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/gemma-3-1b-it-mlg-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-mlg-32768)                   | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
+| [alphaedge-ai/gemma-3-270m-it-mlg-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-mlg-32768)               | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
 
 _37 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +210,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                          | dataset                                                                                             | # test items   | Construction                                                        |
+| level                         | task                          | dataset                                                                                             | # test items   | construction                                                        |
 |:------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 3. Commonsense reasoning      | PIQA                          | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                              |
 | 3. Commonsense reasoning      | PIQA                          | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                             |
@@ -223,7 +249,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 16 of ~18,460 papers (0.09%) (rank 125 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 16 of ~18,498 papers (0.09%) (rank 133 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Plateau Malagasy | Malagasy
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 16):

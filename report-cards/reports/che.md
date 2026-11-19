@@ -12,11 +12,40 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `che`
 
+**Language family:** **Nakh-Daghestanian** › Nakh › Chechen-Ingush ([Glottolog](https://glottolog.org/resource/languoid/id/chec1245))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 929,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 1.4 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33350#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Chechen look and sound like?
+
+**Written (Chechen)**, sample text from [Omniglot](https://www.omniglot.com/writing/chechen.htm):
+
+> Ламанах духдуьйлу шал шийла шовданш
+> Шиэн бекъачу кийрана Ӏаббалца ца молуш,
+> Ӏин кӀоргиэ буьйлш, мела муж муьйлуш,
+> Варшан йистиэ йолу маргӀал сийна буц
+> Шиэн оьздачу зоьрхана буззалца ца юуш,
+> Орцал лахабуьйлуш, сема ладуьйгӀш,
+> Иччархочун тоьпуо лацарна, кхоьруш,
+> Дехачу диэгана буткъага мотт хьоькхуш,
+> Мокхазан бердах куьрана га хьоькхуш,
+> Попан орамах торгӀала тӀа детташ,
+> Лергаш дуьхьал туьйсуш, кур …
+
+*Translation:* From the depths of the mountains gush the ice-cold springs, But he doesn't fill his lean stomach there. Rather he descends to the depths of the ravine and drinks from a warm puddle. The wooded slope is bordered by rising fresh blue grass, But he doesn't fill his noble belly there. Coming out below the wooded hills, he listens carefully, Anxious to avoid the dreaded hunter's gun. Licking his long …
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/che/) has 2 videos of Chechen speakers. Watch [Movsar speaking Chechen](https://wikitongues.org/videos/movsar_20170713_che/).
 
 
 ## Training Data
@@ -25,31 +54,54 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 871,420 articles in ce.wikipedia (rank 16 of 161 in the set) — ~1/9 of English; 95 active users                                                   |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 39.5 MB (che_Cyrl (0.04)); 0.13 GB removed by filtering. This is ~1/1,351,620 of English data and ranks 121 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.17 GB (che_cyrl) (rank 109 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 871,420 articles in ce.wikipedia; 95 active users. This is ~1/9 of English data and ranks 17 of 168 languages in the set in Wikipedia.               |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
+| FineWeb                | 39.5 MB (che_Cyrl 40.0 MB); 0.13 GB removed by filtering. This is ~1/1,351,620 of English data and ranks 121 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.17 GB (che_Cyrl 0.17 GB) (rank 109 of 166 in the set)                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 489 sentences / 3,048 tokens in total: [UD_Chechen-MottDT](https://github.com/UniversalDependencies/UD_Chechen-MottDT) (489 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                             |
+| Wikidata labels        | 999,585 Wikidata items have a label in Chechen. (Wikidata codes (labels): ce (999,585))                                                                                                                                    |
+| Wordnets               | **None found**                                                                                                                                                                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **4 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, fasttext, funlangid.
+- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, fasttext, funlangid.
 - **Eval datasets (2):** Tatoeba (n=47), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.928 (P 0.938, R 0.918, FPR 1.21e-04) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.565).
+- **Best model:** GlotLID — F1 0.928 (P 0.938, R 0.918, FPR 1.19e-04) averaged over 2 dataset(s). Runner-up: funlangid (F1 0.572).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.938 |    0.918 | 0.928 | 0.000 | ✓                |
-| funlangid    |       0.504 |    0.670 | 0.565 | 0.003 | ✓                |
-| commonlingua |       0.529 |    0.611 | 0.539 | 0.003 | ✓                |
-| fasttext     |       0.281 |    0.907 | 0.415 | 0.009 | ✓                |
+| funlangid    |       0.512 |    0.670 | 0.572 | 0.003 | ✓                |
+| commonlingua |       0.527 |    0.611 | 0.537 | 0.003 | ✓                |
+| fasttext     |       0.283 |    0.907 | 0.418 | 0.009 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -68,6 +120,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Chechen and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Chechen has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Chechen?
@@ -87,43 +140,23 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        7 | █████████████        |
 |   2026 |       11 | ████████████████████ |
 
-### Most popular models tagged for Chechen
-
-| model                                                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------|
-| [or4cl3ai/Aiden_t5](https://huggingface.co/or4cl3ai/Aiden_t5)                                                               | 31,774                 |                   203 | unknown      |                   18 |   2023 | —                            |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                     | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                            |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                                     | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                            |
-| [ZeppelinCorp/Charm_15](https://huggingface.co/ZeppelinCorp/Charm_15)                                                       | 962                    |                   307 | unknown      |                   87 |   2025 | mattshumer/mistral-8x7b-chat |
-| [Qrzysztof/functiongemma-270m-it-prepaid-cards-v2](https://huggingface.co/Qrzysztof/functiongemma-270m-it-prepaid-cards-v2) | 819                    |                    11 | 268.1M       |                   98 |   2026 | google/functiongemma-270m-it |
-
-### Most popular models tagged *only* for Chechen
-
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [goldfish-models/che_cyrl_full](https://huggingface.co/goldfish-models/che_cyrl_full)                   |                    544 |                    14 | unknown      |                    1 |   2024 | —                    |
-| [goldfish-models/che_cyrl_10mb](https://huggingface.co/goldfish-models/che_cyrl_10mb)                   |                    408 |                    11 | unknown      |                    1 |   2024 | —                    |
-| [goldfish-models/che_cyrl_5mb](https://huggingface.co/goldfish-models/che_cyrl_5mb)                     |                    385 |                     6 | unknown      |                    1 |   2024 | —                    |
-| [alphaedge-ai/gemma-3-1b-it-che-16384](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-che-16384)     |                     55 |                    10 | 716.8M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [alphaedge-ai/gemma-3-270m-it-che-16384](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-che-16384) |                     49 |                     9 | 110.8M       |                    1 |   2026 | google/gemma-3-270m  |
-
 ### Largest models tagged for Chechen
 
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                  |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                  |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                  |
-| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 164                    |                    25 | 8.2B         |                  140 |   2026 | Qwen/Qwen3-8B-Base |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of      |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 1.9T         |                  143 |   2025 | —                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 856.0B       |                  143 |   2025 | —                  |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 8.2B         |                  143 |   2026 | Qwen/Qwen3-8B-Base |
 
 ### Largest models tagged *only* for Chechen
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [alphaedge-ai/gemma-3-4b-it-che-16384](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-che-16384)     |                     40 |                     7 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-| [alphaedge-ai/gemma-3-1b-it-che-16384](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-che-16384)     |                     55 |                    10 | 716.8M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [alphaedge-ai/gemma-3-270m-it-che-16384](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-che-16384) |                     49 |                     9 | 110.8M       |                    1 |   2026 | google/gemma-3-270m  |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [alphaedge-ai/gemma-3-4b-it-che-16384](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-che-16384)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
+| [alphaedge-ai/gemma-3-1b-it-che-16384](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-che-16384)     | 716.8M       |                    1 |   2026 | google/gemma-3-1b-pt |
+| [alphaedge-ai/gemma-3-270m-it-che-16384](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-che-16384) | 110.8M       |                    1 |   2026 | google/gemma-3-270m  |
 
 _12 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -154,15 +187,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -176,7 +209,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                   |
+| level                    | task                | dataset                                                                              | # test items   | construction                                   |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia  |
 | Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Community-contributed translation              |
@@ -211,7 +244,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 7 of ~18,460 papers (0.04%) (rank 160 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 7 of ~18,498 papers (0.04%) (rank 172 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Chechen
 
 Here are up to ten papers that were published mentioning this language in 2026:

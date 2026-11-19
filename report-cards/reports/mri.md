@@ -12,11 +12,38 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mri`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Eastern Malayo-Polynesian › … › Maoric ([Glottolog](https://glottolog.org/resource/languoid/id/maor1246))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Endangered (100% certain))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 145,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 214,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q36451#P1098), 2023)
 
 **Official / recognised in:** New Zealand
 
 **Status:** Official language
+
+
+## What does Māori look and sound like?
+
+**Written (Māori)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/maori.htm):
+
+> Ko te katoa o nga tangata i te whanaungatanga mai e watea ana
+> i nga here katoa; e tauriterite ana hoki nga mana me nga tika. E
+> whakawhiwhia ana hoki ki a ratou te ngakau whai whakaaro me te
+> hinengaro mohio ki te tika me te he, a e tika ana kia meinga te
+> mahi a tetahi ki tetahi me ma roto atu i te wairua o te noho tahi,
+> ano he teina he tuakana i ringa i te whakaaro kotahi.
+> A recording of this text …
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_maori.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/mri/) has 2 videos of Māori speakers. Watch [Cookson speaking Maori](https://wikitongues.org/videos/cookson_20161025_mri/).
 
 
 ## Training Data
@@ -25,20 +52,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 8,068 articles in mi.wikipedia (rank 105 of 161 in the set) — ~1/935 of English; 13 active users                                                                                                                        |
-| Common Crawl 2026      | 32,093 pages per crawl on average, which is 0.0015% of the crawl. This is ~1/27,779 of English data and ranks 84 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 0.21 GB (mri_Latn (0.21)); which is equivalent to ≈0.18 GB English data after byte-premium scaling; 0.30 GB removed by filtering. This is ~1/249,984 of English data and ranks 98 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.60 GB (mri_latn) (rank 86 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 8,068 articles in mi.wikipedia; 13 active users. This is ~1/935 of English data and ranks 109 of 168 languages in the set in Wikipedia.                                                                         |
+| Common Crawl           | 32,093 pages per crawl on average, which is 0.0015% of the crawl (2026). This is ~1/27,779 of English data and ranks 84 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 0.21 GB (mri_Latn 0.21 GB), equivalent to ≈0.18 GB of English after byte-premium scaling; 0.30 GB removed by filtering. This is ~1/249,984 of English data and ranks 98 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.60 GB (mri_Latn 0.60 GB) (rank 86 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                           |
+|:-----------------------|:--------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                        |
+| UniMorph               | **None found**                                                                        |
+| Wikidata labels        | 669,958 Wikidata items have a label in Māori. (Wikidata codes (labels): mi (669,958)) |
+| Wordnets               | **None found**                                                                        |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.981 (P 0.996, R 0.967, FPR 2.66e-05) averaged over 5 dataset(s). Runner-up: funlangid (F1 0.921).
+- **Best model:** GlotLID — F1 0.981 (P 0.996, R 0.967, FPR 2.62e-05) averaged over 5 dataset(s). Runner-up: funlangid (F1 0.921).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -47,12 +95,14 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.996 |    0.967 | 0.981 | 0.000 | ✓                |
-| funlangid    |       0.968 |    0.884 | 0.921 | 0.000 | ✓                |
-| pyfranc      |       0.894 |    0.895 | 0.893 | 0.001 | ✓                |
-| cld2         |       0.856 |    0.967 | 0.886 | 0.002 | ✓                |
-| commonlingua |       0.907 |    0.821 | 0.856 | 0.001 | ✓                |
-| fasttext     |       0.739 |    0.912 | 0.776 | 0.004 | ✓                |
-| OpenLID-v2   |       0.663 |    0.993 | 0.755 | 0.008 | ✓                |
+| funlangid    |       0.965 |    0.887 | 0.921 | 0.000 | ✓                |
+| pyfranc      |       0.891 |    0.893 | 0.891 | 0.001 | ✓                |
+| cld2         |       0.856 |    0.966 | 0.885 | 0.002 | ✓                |
+| commonlingua |       0.906 |    0.821 | 0.856 | 0.001 | ✓                |
+| fasttext     |       0.739 |    0.914 | 0.777 | 0.004 | ✓                |
+| OpenLID-v2   |       0.662 |    0.993 | 0.755 | 0.008 | ✓                |
+| cld3         |       0.468 |    0.873 | 0.573 | 0.018 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -73,6 +123,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Māori and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Māori has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Māori?
@@ -93,45 +144,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       23 | ████                 |
 |   2026 |      114 | ████████████████████ |
 
-### Most popular models tagged for Māori
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)       | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —               |
-| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)     | 81,196                 | 228                   | 13.9B        |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Māori
-
-| model                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/mri_latn_10mb](https://huggingface.co/goldfish-models/mri_latn_10mb)       | 1,494                  |                    19 | unknown      |                    1 |   2024 | —               |
-| [dehanalkautsar/gpt2-mi-wikimulti](https://huggingface.co/dehanalkautsar/gpt2-mi-wikimulti) | 1,055                  |                   323 | 124.4M       |                    1 |   2026 | —               |
-| [goldfish-models/mri_latn_5mb](https://huggingface.co/goldfish-models/mri_latn_5mb)         | 498                    |                    16 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/mri_latn_100mb](https://huggingface.co/goldfish-models/mri_latn_100mb)     | 426                    |                    14 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/mri_latn_full](https://huggingface.co/goldfish-models/mri_latn_full)       | 415                    |                    16 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Māori
 
-| model                                                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                       |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                                   |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                                   |
-| [AbteeXAILab/lumynax-reasoning-deepseek-prover-v2-671b-gguf](https://huggingface.co/AbteeXAILab/lumynax-reasoning-deepseek-prover-v2-671b-gguf) |                    209 |                    39 | 671.0B       |                    2 |   2026 | deepseek-ai/DeepSeek-Prover-V2-671B |
-| [AbteeXAILab/lumynax-frontier-coder-qwen3-480b-a35b-gguf](https://huggingface.co/AbteeXAILab/lumynax-frontier-coder-qwen3-480b-a35b-gguf)       |                    290 |                    44 | 480.2B       |                    2 |   2026 | Qwen/Qwen3-Coder-480B-A35B-Instruct |
-| [AbteeXAILab/lumynax-reasoning-glm46-355b-moe](https://huggingface.co/AbteeXAILab/lumynax-reasoning-glm46-355b-moe)                             |                    140 |                    37 | 356.8B       |                    2 |   2026 | zai-org/GLM-4.6                     |
+| model                                                                                                                                           | parameters   |   # languages tagged |   year | derivative of                       |
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 1.9T         |                  143 |   2025 | —                                   |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 856.0B       |                  143 |   2025 | —                                   |
+| [AbteeXAILab/lumynax-reasoning-deepseek-prover-v2-671b-gguf](https://huggingface.co/AbteeXAILab/lumynax-reasoning-deepseek-prover-v2-671b-gguf) | 671.0B       |                    2 |   2026 | deepseek-ai/DeepSeek-Prover-V2-671B |
+| [AbteeXAILab/lumynax-frontier-coder-qwen3-480b-a35b-gguf](https://huggingface.co/AbteeXAILab/lumynax-frontier-coder-qwen3-480b-a35b-gguf)       | 480.2B       |                    2 |   2026 | Qwen/Qwen3-Coder-480B-A35B-Instruct |
+| [AbteeXAILab/lumynax-reasoning-glm46-355b-moe](https://huggingface.co/AbteeXAILab/lumynax-reasoning-glm46-355b-moe)                             | 356.8B       |                    2 |   2026 | zai-org/GLM-4.6                     |
 
 ### Largest models tagged *only* for Māori
 
-| model                                                                                                     |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                    |
-|:----------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------------------|
-| [alphaedge-ai/gemma-3-4b-it-mri-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-mri-32768)       |                     43 |                     9 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it             |
-| [ptrdvn/kakugo-3B-mri](https://huggingface.co/ptrdvn/kakugo-3B-mri)                                       |                    114 |                    15 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro    |
-| [roshans89/Llama-3.2-1B-Grade9-V2-Merged](https://huggingface.co/roshans89/Llama-3.2-1B-Grade9-V2-Merged) |                     40 |                    13 | 1.2B         |                    1 |   2026 | meta-llama/Llama-3.2-1B-Instruct |
-| [alphaedge-ai/gemma-3-1b-it-mri-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-mri-32768)       |                     51 |                     8 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt             |
-| [dehanalkautsar/gpt2-medium-mi-wikimulti](https://huggingface.co/dehanalkautsar/gpt2-medium-mi-wikimulti) |                     48 |                    48 | 354.8M       |                    1 |   2026 | —                                |
+| model                                                                                                     | parameters   |   # languages tagged |   year | derivative of                    |
+|:----------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------|
+| [alphaedge-ai/gemma-3-4b-it-mri-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-mri-32768)       | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it             |
+| [ptrdvn/kakugo-3B-mri](https://huggingface.co/ptrdvn/kakugo-3B-mri)                                       | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro    |
+| [roshans89/Llama-3.2-1B-Grade9-V2-Merged](https://huggingface.co/roshans89/Llama-3.2-1B-Grade9-V2-Merged) | 1.2B         |                    1 |   2026 | meta-llama/Llama-3.2-1B-Instruct |
+| [alphaedge-ai/gemma-3-1b-it-mri-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-mri-32768)       | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt             |
+| [dehanalkautsar/gpt2-medium-mi-wikimulti](https://huggingface.co/dehanalkautsar/gpt2-medium-mi-wikimulti) | 354.8M       |                    1 |   2026 | —                                |
 
 _16 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +193,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,14 +215,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        | 900            | Human translation (professional)                                 |
-| 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 1,419          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 367            | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                          | dataset                                                                              |   # test items | construction                                                     |
+|:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        |            900 | Human translation (professional)                                 |
+| 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          1,419 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
+| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |            367 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -218,7 +249,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 18 of ~18,460 papers (0.10%) (rank 121 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 18 of ~18,498 papers (0.10%) (rank 129 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Maori
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 18):

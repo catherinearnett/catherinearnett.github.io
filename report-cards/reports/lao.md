@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `lao`
 
+**Language family:** **Tai-Kadai** › Kam-Tai › Daic-Beic › … › Lao-Thai ([Glottolog](https://glottolog.org/resource/languoid/id/laoo1244))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Laoo`
+
+**Speakers:** about 5.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 5.2 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9211#P1098), 2006)
 
 **Official / recognised in:** Laos
 
 **Status:** Official language
+
+
+## What does Lao look and sound like?
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/lao.htm):
+
+> Transliteration
+> Manut thuk khôn kœ̄t māmīkẏat sâk sī, sitthi, sēlī phôp læ khwôm smœ̄ phôp thàw thẏam kân. Thuk thuk khôn mīhēt phôn læ khwômkhit khwôm hian swàn tôw khɔ̄̄ṅ phai khɔ̄ṅ mân, tǣ̀vồ manut thuk thuk khôn khwan paphʉt tàṁ kân khʉ̄ kân kâp pianốy nɔ̄́ṅ kân.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_lao.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/lao/) has 3 videos of Lao speakers. Watch [Maly speaking Lao](https://wikitongues.org/videos/maly_20191108_lao/).
 
 
 ## Training Data
@@ -25,18 +47,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 5,651 articles in lo.wikipedia (rank 115 of 161 in the set) — ~1/1,335 of English; 59 active users                                                                                                                     |
-| Common Crawl 2026      | 111,108 pages per crawl on average, which is 0.0051% of the crawl. This is ~1/8,024 of English data and ranks 64 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 0.60 GB (lao_Laoo (0.60)); which is equivalent to ≈0.22 GB English data after byte-premium scaling; 0.44 GB removed by filtering. This is ~1/89,341 of English data and ranks 77 of 248 official languages in FineWeb. |
-| Goldfish training data | 1.58 GB (lao_laoo) (rank 66 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 5,651 articles in lo.wikipedia; 59 active users. This is ~1/1,335 of English data and ranks 119 of 168 languages in the set in Wikipedia.                                                                      |
+| Common Crawl           | 111,108 pages per crawl on average, which is 0.0051% of the crawl (2026). This is ~1/8,024 of English data and ranks 64 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 0.60 GB (lao_Laoo 0.60 GB), equivalent to ≈0.22 GB of English after byte-premium scaling; 0.44 GB removed by filtering. This is ~1/89,341 of English data and ranks 77 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 1.58 GB (lao_Laoo 1.58 GB) (rank 66 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                         |
+|:-----------------------|:------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                      |
+| UniMorph               | **None found**                                                                      |
+| Wikidata labels        | 276,013 Wikidata items have a label in Lao. (Wikidata codes (labels): lo (276,013)) |
+| Wordnets               | [Asian WordNet](http://www.asianwordnet.org/about) (size not listed); licence: BSD. |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=231), UDHR-LID (n=57), Wikipedia (n=300)
 - **Best model:** commonlingua — F1 0.997 (P 1.000, R 0.994, FPR 0.00e+00) averaged over 5 dataset(s). Runner-up: py3langid (F1 0.996).
 
@@ -53,7 +96,9 @@ Language identification (LangID or LID) is a classification task that identifies
 | OpenLID-v2   |       1.000 |    0.989 | 0.995 | 0.000 | ✓                |
 | fasttext     |       0.999 |    0.988 | 0.994 | 0.000 | ✓                |
 | pyfranc      |       1.000 |    0.982 | 0.991 | 0.000 | ✗                |
+| cld3         |       1.000 |    0.951 | 0.974 | 0.000 | ✓                |
 | funlangid    |       0.999 |    0.913 | 0.952 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (commonlingua) by dataset**:
 
@@ -61,9 +106,9 @@ Language identification (LangID or LID) is a classification task that identifies
 |:----------|----:|------------:|---------:|------:|
 | Wikipedia | 300 |       1.000 |    0.970 | 0.985 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  57 |       1.000 |    1.000 | 1.000 |
-| Tatoeba   | 231 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| Tatoeba   | 231 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  57 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -73,6 +118,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Lao and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Lao has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Lao?
@@ -93,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       96 | ████████████████████ |
 |   2026 |       85 | ██████████████████   |
 
-### Most popular models tagged for Lao
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [SeaLLMs/SeaLLM-7B-v2.5](https://huggingface.co/SeaLLMs/SeaLLM-7B-v2.5) | 474,458                | 9,316                 | 8.5B         |                   10 |   2024 | —               |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)     | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [SeaLLMs/SeaLLM-7B-v2](https://huggingface.co/SeaLLMs/SeaLLM-7B-v2)     | 279,260                | 9,358                 | 7.4B         |                   10 |   2024 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)     | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)       | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Lao
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [goldfish-models/lao_laoo_full](https://huggingface.co/goldfish-models/lao_laoo_full)   |                    472 |                    14 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/lao_laoo_5mb](https://huggingface.co/goldfish-models/lao_laoo_5mb)     |                    449 |                    12 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/lao_laoo_100mb](https://huggingface.co/goldfish-models/lao_laoo_100mb) |                    420 |                    16 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/lao_laoo_10mb](https://huggingface.co/goldfish-models/lao_laoo_10mb)   |                    413 |                    20 | unknown      |                    1 |   2024 | —                             |
-| [ptrdvn/kakugo-3B-lao](https://huggingface.co/ptrdvn/kakugo-3B-lao)                     |                    175 |                    49 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-
 ### Largest models tagged for Lao
 
-| model                                                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                      |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                                                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                 | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                                                  |
-| [aisingapore/Nemotron-SEA-LION-v4.8-120B-A12B-Base](https://huggingface.co/aisingapore/Nemotron-SEA-LION-v4.8-120B-A12B-Base)         | 101                    |                    62 | 120.7B       |                   10 |   2026 | nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16 |
-| [Sakalti/ultiima-72B](https://huggingface.co/Sakalti/ultiima-72B)                                                                     | 5,251                  |                    86 | 72.7B        |                   29 |   2025 | Qwen/Qwen2.5-72B                                   |
-| [tensorblock/aisingapore_Llama-SEA-LION-v3-70B-IT-GGUF](https://huggingface.co/tensorblock/aisingapore_Llama-SEA-LION-v3-70B-IT-GGUF) | 2,024                  |                   190 | 70.6B        |                   11 |   2025 | meta-llama/Llama-3.1-70B                           |
+| model                                                                                                                         | parameters   |   # languages tagged |   year | derivative of                                      |
+|:------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                     | 1.9T         |                  143 |   2025 | —                                                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                         | 856.0B       |                  143 |   2025 | —                                                  |
+| [aisingapore/Nemotron-SEA-LION-v4.8-120B-A12B-Base](https://huggingface.co/aisingapore/Nemotron-SEA-LION-v4.8-120B-A12B-Base) | 120.7B       |                   10 |   2026 | nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16 |
+| [Sakalti/ultiima-72B](https://huggingface.co/Sakalti/ultiima-72B)                                                             | 72.7B        |                   29 |   2025 | Qwen/Qwen2.5-72B                                   |
+| [aisingapore/Llama-SEA-LION-v3-70B-IT-GGUF](https://huggingface.co/aisingapore/Llama-SEA-LION-v3-70B-IT-GGUF)                 | 70.6B        |                   11 |   2024 | meta-llama/Llama-3.1-70B                           |
 
 ### Largest models tagged *only* for Lao
 
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/Qwen3.5-4B-lao-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-lao-32768)       |                     52 |                    11 | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
-| [alphaedge-ai/gemma-3-4b-it-lao-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-lao-32768) |                     46 |                    10 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-lao](https://huggingface.co/ptrdvn/kakugo-3B-lao)                                 |                    175 |                    49 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/Qwen3.5-2B-lao-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-lao-32768)       |                     58 |                    13 | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
-| [alphaedge-ai/Qwen3-1.7B-lao-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-lao-32768)       |                     48 |                     7 | 1.5B         |                    1 |   2026 | Qwen3-1.7B                    |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of                 |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/Qwen3.5-4B-lao-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-lao-32768)       | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
+| [alphaedge-ai/gemma-3-4b-it-lao-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-lao-32768) | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [ptrdvn/kakugo-3B-lao](https://huggingface.co/ptrdvn/kakugo-3B-lao)                                 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/Qwen3.5-2B-lao-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-lao-32768)       | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
+| [alphaedge-ai/Qwen3-1.7B-lao-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-lao-32768)       | 1.5B         |                    1 |   2026 | Qwen3-1.7B                    |
 
 _33 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,14 +210,14 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        | 900            | Human translation (professional)                                 |
-| 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 166            | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                          | dataset                                                                              |   # test items | construction                                                     |
+|:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        |            900 | Human translation (professional)                                 |
+| 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          |            854 | Human translation via English pivot                              |
+| Machine translation      | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            |          1,997 | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) |            166 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -218,6 +244,23 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026: not reported.** The search term 'Lao' (common surname) is ambiguous, so the raw count mostly reflects other uses of the word.
+- **Mentions in ACL papers in 2026:** 56 of ~18,498 papers (0.30%) (rank 82 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Lao
+- Because 'Lao' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
+
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 56):
+
+| title                                                                                                                | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| LaoBench: A Large-Scale Multidimensional Lao Benchmark for Large Language Models                                     | [2026.acl-long.1088](https://aclanthology.org/2026.acl-long.1088/)             |
+| DeepSEA: A Multilingual Evaluation Benchmark for Southeast Asia                                                      | [2026.emnlp-main.1](https://aclanthology.org/2026.emnlp-main.1/)               |
+| TIPA: Typologically Informed Parameter Aggregation                                                                   | [2026.findings-eacl.119](https://aclanthology.org/2026.findings-eacl.119/)     |
+| Which Language Should a Skeleton Speak? Language Choices in Multilingual Reasoning                                   | [2026.findings-emnlp.1500](https://aclanthology.org/2026.findings-emnlp.1500/) |
+| OpenSeal: Good, Fast, and Cheap Construction of an Open-Source Southeast Asian LLM via Parallel Data                 | [2026.findings-emnlp.2205](https://aclanthology.org/2026.findings-emnlp.2205/) |
+| Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation         | [2026.findings-emnlp.279](https://aclanthology.org/2026.findings-emnlp.279/)   |
+| Goldfish: Monolingual Language Models for 350 Languages                                                              | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                   |
+| CREST: Universal Safety Guardrails through Cluster-Guided Cross-Lingual Transfer                                     | [2026.lrec-1.701](https://aclanthology.org/2026.lrec-1.701/)                   |
+| Communicating with the Entire Population: Machine Translation of Emergency Alerts and Warnings                       | [2026.lt4cpr-1.6](https://aclanthology.org/2026.lt4cpr-1.6/)                   |
+| One Vector, Thirty-Eight Languages: Benchmark-Derived Anti-Sycophancy Steering Works Worst Where Sycophancy Is Worst | [2026.oracle-main.12](https://aclanthology.org/2026.oracle-main.12/)           |
 
 {% endraw %}

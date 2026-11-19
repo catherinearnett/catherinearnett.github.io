@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `arb` · macrolanguage `ara`
 
+**Language family:** **Afro-Asiatic** › Semitic › West Semitic › … › Arabic ([Glottolog](https://glottolog.org/resource/languoid/id/stan1318))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Arab`
+
+**Speakers:** about 378.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `ara`, so includes other varieties · 335.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q122602987#P1098), 2023)
 
 **Official / recognised in:** Algeria, Bahrain, Chad, Comoros, Djibouti, Egypt, Eritrea, Iraq, Jordan, Kuwait, Lebanon, Libya, Mauritania, Morocco, Oman, Palestine, Qatar, Saudi Arabia, Somalia, South Africa, Sudan, Syria, Tunisia, United Arab Emirates, Yemen
 
-**Status:** Official language; Official and national language; De facto official language
+**Status:** Official language; De facto official language; Official and national language
+
+
+## What does Arabic look and sound like?
+
+**Written:** Omniglot has [a page on Arabic](https://www.omniglot.com/writing/arabic.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/arb/) has 5 videos of Arabic speakers. Watch [Souleymane speaking Nanerigé Sénoufo, French, Standard Arabic, Mandinka](https://wikitongues.org/videos/souleymane_20151201_sen-fra-arb-mnk/).
 
 
 ## Training Data
@@ -25,40 +38,72 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                      |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                    |
-| Common Crawl 2026      | 14,185,767 pages per crawl on average, which is 0.6580% of the crawl. ⚠️ NB: this is counted using `ara` (macrolanguage code), so this number is shared with other varieties and overstates Arabic.                                         |
-| FineWeb                | 106.04 GB (arb_Arab (106.04); arb_Latn (0.00)); which is equivalent to ≈72.38 GB English data after byte-premium scaling; 119.94 GB removed by filtering. This is ~1/504 of English data and ranks 16 of 248 official languages in FineWeb. |
-| Goldfish training data | 11.62 GB (arb_arab) (rank 7 of 166 in the set)                                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                                         |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,339,150 articles in ar.wikipedia; 5,501 active users. ⚠️ NB: recorded under the macrolanguage code `ara`, which can include other varieties of Arabic.                                                                       |
+| Common Crawl           | 14,185,767 pages per crawl on average, which is 0.6580% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ara`, which can include other varieties of Arabic.                                                  |
+| FineWeb                | 106.04 GB (arb_Arab 106.04 GB; arb_Latn 0), equivalent to ≈72.38 GB of English after byte-premium scaling; 119.94 GB removed by filtering. This is ~1/504 of English data and ranks 16 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 11.62 GB (arb_Arab 11.62 GB) (rank 7 of 166 in the set)                                                                                                                                                                        |
+
+**By writing system:**
+
+| Writing system   | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:-----------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Arabic (`Arab`)  | 106.04 GB | — (no byte premium yet)       | 11.62 GB     | 7.93 GB                        |
+| Latin (`Latn`)   | 0         | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 3 treebanks, 28,402 sentences / 892,098 tokens in total: [UD_Arabic-NYUAD](https://github.com/UniversalDependencies/UD_Arabic-NYUAD) (19,738 sentences), [UD_Arabic-PADT](https://github.com/UniversalDependencies/UD_Arabic-PADT) (7,664 sentences), [UD_Arabic-PUD](https://github.com/UniversalDependencies/UD_Arabic-PUD) (1,000 sentences). All have POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `ara`, so this may cover other varieties as well as Arabic. |
+| UniMorph               | 4,134 lemmas, 140,003 inflected forms ([unimorph/ara](https://github.com/unimorph/ara)) ⚠️ Listed under the macrolanguage code `ara`, so this may cover other varieties as well as Arabic.                                                                                                                                                                                                                                                                                                                                   |
+| Wikidata labels        | 6,026,700 Wikidata items have a label in Arabic. (Wikidata codes (labels): ar (6,026,700))                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Wordnets               | [Arabic WordNet (AWN v2)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-arb-1.4.tar.xz): 9,916 synsets, 18,003 words, 37,342 senses; licence: https://creativecommons.org/licenses/by-sa/3.0/.                                                                                                                                                                                                                                                                                                                 |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                            |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                |
+| Bible translations (eBible corpus) | **Yes** — 2 translations: full Bible ([arb-vd](https://ebible.org/details.php?id=arb-vd)); full Bible ([arbnav](https://ebible.org/details.php?id=arbnav), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                             |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.871 (P 0.815, R 0.971, FPR 3.00e-03) averaged over 6 dataset(s). Runner-up: commonlingua (F1 0.791).
+- **Best model:** GlotLID — F1 0.871 (P 0.815, R 0.971, FPR 2.95e-03) averaged over 6 dataset(s). Runner-up: commonlingua (F1 0.785).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.815 |    0.971 | 0.871 | 0.003 | ✓                |
-| commonlingua |       0.753 |    0.857 | 0.791 | 0.004 | ✓                |
-| py3langid    |       0.714 |    0.911 | 0.786 | 0.006 | ✓                |
-| cld2         |       0.724 |    0.864 | 0.767 | 0.006 | ✓                |
-| pyfranc      |       0.683 |    0.875 | 0.751 | 0.007 | ✓                |
-| funlangid    |       0.721 |    0.806 | 0.750 | 0.004 | ✓                |
-| OpenLID-v2   |       0.833 |    0.702 | 0.742 | 0.002 | ✓                |
-| fasttext     |       0.585 |    0.997 | 0.723 | 0.008 | ✓                |
+| commonlingua |       0.746 |    0.857 | 0.785 | 0.004 | ✓                |
+| py3langid    |       0.705 |    0.911 | 0.779 | 0.006 | ✓                |
+| cld2         |       0.724 |    0.864 | 0.766 | 0.006 | ✓                |
+| pyfranc      |       0.679 |    0.875 | 0.748 | 0.007 | ✓                |
+| funlangid    |       0.716 |    0.806 | 0.748 | 0.004 | ✓                |
+| OpenLID-v2   |       0.828 |    0.702 | 0.740 | 0.002 | ✓                |
+| fasttext     |       0.576 |    0.997 | 0.716 | 0.008 | ✓                |
+| cld3         |       0.582 |    0.897 | 0.695 | 0.011 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | NTREX     | 300 |       0.584 |    0.997 | 0.736 |
-| FLORES    | 300 |       0.594 |    1.000 | 0.745 |
+| FLORES    | 300 |       0.593 |    1.000 | 0.744 |
 | CommonLID | 300 |       0.744 |    0.980 | 0.846 |
 | Tatoeba   | 300 |       0.996 |    0.853 | 0.919 |
 | Wikipedia | 300 |       0.971 |    0.993 | 0.982 |
@@ -92,45 +137,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |     1291 | ███████████          |
 |   2026 |     2303 | ████████████████████ |
 
-### Most popular models tagged for Arabic
-
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m)               | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —                             |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)                 | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —                             |
-| [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct) | 9,633,401              | 331,860               | 3.8B         |                   23 |   2025 | —                             |
-| [HuggingFaceTB/SmolLM3-3B](https://huggingface.co/HuggingFaceTB/SmolLM3-3B)           | 6,683,971              | 386,350               | 3.1B         |                    8 |   2025 | HuggingFaceTB/SmolLM3-3B-Base |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)                           | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —                             |
-
-### Most popular models tagged *only* for Arabic
-
-| model                                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [aubmindlab/aragpt2-base](https://huggingface.co/aubmindlab/aragpt2-base)                                             | 847,912                | 35,548                | 147.6M       |                    1 |   2022 | —               |
-| [MohamedRashad/Arabic-Orpo-Llama-3-8B-Instruct](https://huggingface.co/MohamedRashad/Arabic-Orpo-Llama-3-8B-Instruct) | 334,119                | 51                    | 8.0B         |                    1 |   2024 | —               |
-| [aubmindlab/aragpt2-medium](https://huggingface.co/aubmindlab/aragpt2-medium)                                         | 319,379                | 1,025                 | 394.1M       |                    1 |   2022 | —               |
-| [aubmindlab/aragpt2-large](https://huggingface.co/aubmindlab/aragpt2-large)                                           | 246,476                | 243                   | 829.4M       |                    1 |   2022 | —               |
-| [aubmindlab/aragpt2-mega](https://huggingface.co/aubmindlab/aragpt2-mega)                                             | 225,128                | 252                   | 1.5B         |                    1 |   2022 | —               |
-
 ### Largest models tagged for Arabic
 
-| model                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                     |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                 | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                 |
-| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF) | 1,316                  | 1,316                 | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                     | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                 |
-| [cidr/GLM-5.3-CYBERSECURITY-FP8](https://huggingface.co/cidr/GLM-5.3-CYBERSECURITY-FP8)                   | 48                     | 25                    | 753.3B       |                   10 |   2026 | JANGQ-AI/GLM-5.3-FP8              |
-| [Devopsopraiz/Baanzon-Revgarden-V5-R](https://huggingface.co/Devopsopraiz/Baanzon-Revgarden-V5-R)         | 46                     | 46                    | 753.3B       |                   10 |   2026 | —                                 |
+| model                                                                                                     | parameters   |   # languages tagged |   year | derivative of                     |
+|:----------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                 | 1.9T         |                  143 |   2025 | —                                 |
+| [orcarouter/Mistral-Large-4-1T-A52B-GGUF](https://huggingface.co/orcarouter/Mistral-Large-4-1T-A52B-GGUF) | 1.0T         |                   11 |   2026 | mistralai/Mistral-Large-4-1T-A52B |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                     | 856.0B       |                  143 |   2025 | —                                 |
+| [Devopsopraiz/Baanzon-Revgarden-V5-R](https://huggingface.co/Devopsopraiz/Baanzon-Revgarden-V5-R)         | 753.3B       |                   10 |   2026 | —                                 |
+| [AleaiactaEst1/GLM-5.3-CYBERSECURITY-FP8](https://huggingface.co/AleaiactaEst1/GLM-5.3-CYBERSECURITY-FP8) | 753.3B       |                   10 |   2026 | JANGQ-AI/GLM-5.3-FP8              |
 
 ### Largest models tagged *only* for Arabic
 
-| model                                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of         |
-|:------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------|
-| [UnstableLlama/Laguna-S-2.1-Heretic](https://huggingface.co/UnstableLlama/Laguna-S-2.1-Heretic)                         | 184                    |                    37 | 117.6B       |                    1 |   2026 | poolside/Laguna-S-2.1 |
-| [BiMediX/BiMediX-Ara](https://huggingface.co/BiMediX/BiMediX-Ara)                                                       | 1,925                  |                    17 | 46.6B        |                    1 |   2024 | —                     |
-| [lafintiger/Ornith-1.5-35B-A3B-heretic-ja-tiiny](https://huggingface.co/lafintiger/Ornith-1.5-35B-A3B-heretic-ja-tiiny) | 38                     |                    38 | 35.1B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B  |
-| [OS-Software/Ornith-1.5-35B-A3B-heretic-ja](https://huggingface.co/OS-Software/Ornith-1.5-35B-A3B-heretic-ja)           | 569                    |                    44 | 35.1B        |                    1 |   2026 | —                     |
-| [OS-Software/Ornith-1.5-35B-A3B-heretic-ja-GGUF](https://huggingface.co/OS-Software/Ornith-1.5-35B-A3B-heretic-ja-GGUF) | 1,543                  |                   313 | 34.7B        |                    1 |   2026 | —                     |
+| model                                                                                                                   | parameters   |   # languages tagged |   year | derivative of         |
+|:------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------|
+| [UnstableLlama/Laguna-S-2.1-Heretic](https://huggingface.co/UnstableLlama/Laguna-S-2.1-Heretic)                         | 117.6B       |                    1 |   2026 | poolside/Laguna-S-2.1 |
+| [BiMediX/BiMediX-Ara](https://huggingface.co/BiMediX/BiMediX-Ara)                                                       | 46.6B        |                    1 |   2024 | —                     |
+| [OS-Software/Ornith-1.5-35B-A3B-heretic-ja](https://huggingface.co/OS-Software/Ornith-1.5-35B-A3B-heretic-ja)           | 35.1B        |                    1 |   2026 | —                     |
+| [lafintiger/Ornith-1.5-35B-A3B-heretic-ja-tiiny](https://huggingface.co/lafintiger/Ornith-1.5-35B-A3B-heretic-ja-tiiny) | 35.1B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B  |
+| [OS-Software/Ornith-1.5-35B-A3B-heretic-ja-GGUF](https://huggingface.co/OS-Software/Ornith-1.5-35B-A3B-heretic-ja-GGUF) | 34.7B        |                    1 |   2026 | —                     |
 
 _415 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -150,7 +175,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**91** benchmark datasets in the survey include Arabic.
+**43** benchmark datasets in the survey include Arabic.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -161,121 +186,73 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [25]    \
+                 /   [14]   \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [9]   \
+            / comprehension [3]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [9]        \
+         /      reasoning [9]       \
         /______________________________\
        /               |                \
       /                |                 \
      /                 |                  \
     / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [2]   |  & discourse [11]  \
+   /   knowledge [2]   |  & discourse [6]   \
   /____________________|_____________________\
- /        ✅ Machine translation [35]         \
+ /         ✅ Machine translation [9]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                             | # test items   | Construction                                                        |
-|:---------------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
-| 1. Linguistic knowledge                | BLiMP                          | Alrajhi et al. (Arabic)                                                                             | 3,000          | Not reported                                                        |
-| 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 1,215          | Treebank-based (automatic, UD + UniMorph)                           |
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | Jawaher                                                                                             | —              | Native (multidialectal proverbs)                                    |
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | MIDAS                                                                                               | —              | Native idioms; meanings MT from English + native review             |
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom)                              | —              | Native (curated by native speakers; generated contexts + MCQs)      |
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom)                              | —              | Native (curated by native speakers; generated contexts + MCQs)      |
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom)                              | —              | Native (curated by native speakers; generated contexts + MCQs)      |
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom)                              | —              | Native (curated by native speakers; generated contexts + MCQs)      |
-| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MultiPICo (irony)](https://huggingface.co/datasets/Multilingual-Perspectivist-NLU/MultiPICo)       | 2,181          | Native (Reddit/Twitter, native-speaker annotation)                  |
-| 2. Pragmatics, discourse & coreference | WinoGrande                     | [AraDiCE-WinoGrande](https://huggingface.co/datasets/QCRI/AraDiCE-WinoGrande)                       | 1,267          | MT + human post-editing                                             |
-| 2. Pragmatics, discourse & coreference | WinoGrande                     | [AraDiCE-WinoGrande](https://huggingface.co/datasets/QCRI/AraDiCE-WinoGrande)                       | 1,267          | MT + human post-editing                                             |
-| 2. Pragmatics, discourse & coreference | WinoGrande                     | [AraDiCE-WinoGrande](https://huggingface.co/datasets/QCRI/AraDiCE-WinoGrande)                       | 1,267          | MT + human post-editing                                             |
-| 2. Pragmatics, discourse & coreference | WinoGrande                     | [EgyptianWinoGrande (Nile-Chat)](https://hf.co/datasets/MBZUAI-Paris/EgyptianWinoGrande)            | —              | Machine translation (Claude)                                        |
-| 3. Commonsense reasoning               | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                               | 9,088          | Machine translation (GPT-4o, auto-checked)                          |
-| 3. Commonsense reasoning               | HellaSwag                      | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)            | 9,176          | Machine translation (GPT-3.5-turbo)                                 |
-| 3. Commonsense reasoning               | PIQA                           | [AraDiCE-PIQA](https://huggingface.co/datasets/QCRI/AraDiCE-PIQA)                                   | 1,838          | MT + human post-editing                                             |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                              |
-| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                             |
-| 3. Commonsense reasoning               | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench)                                              | 1,332          | Machine translation (GPT-4o, auto-checked)                          |
-| 3. Commonsense reasoning               | StoryCloze                     | [XStoryCloze](https://huggingface.co/datasets/juletxara/xstory_cloze)                               | 1,511          | Human translation (professional)                                    |
-| 3. Commonsense reasoning               | Temporal reasoning             | Arabic temporal commonsense (MC-TACO translation)                                                   | —              | Machine translation (Google) + native proofreading                  |
-| 3. Commonsense reasoning               | Temporal reasoning             | Temporal Reasoning Dataset (TRD)                                                                    | 10,400         | Template-generated with native-curated carrier phrases              |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension               | QA – extractive RC             | [ARCD](https://huggingface.co/datasets/hsseinmz/arcd)                                               | 1,395          | Native                                                              |
-| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | AraSTEM                                                                                             | 11,637         | Native                                                              |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [ArabicMMLU](https://huggingface.co/datasets/MBZUAI/ArabicMMLU)                                     | 14,575         | Native (school exams)                                               |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [EXAMS](https://github.com/mhardalov/exams-qa)                                                      | 562            | Native (high-school exams)                                          |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                               | 14,042         | Human translation (professional)                                    |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                                |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                       | 11,829         | LLM translation + expert review                                     |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMMLU (OpenAI)](https://huggingface.co/datasets/openai/MMMLU)                                      | 14,042         | Human translation (professional)                                    |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [NOVA-63](https://huggingface.co/datasets/zjy1298/NOVA-63)                                          | —              | Native (local exams/publications)                                   |
-| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)              | —              | Machine translation (GPT-3.5, Okapi)                                |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                             | 500            | Native (cultural; native-speaker answers)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                           |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                            | 10,000         | Human translation                                                   |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                     | 250            | Native (locally sourced)                                            |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [XOR-TyDi QA](https://github.com/AkariAsai/XORQA)                                                   | 1,270          | Native (TyDi questions)                                             |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Original (pivot language, linguist-written) + translations          |
-| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                                 |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation                    | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                      |
-| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                             | 2,100          | Human translation (professional/volunteer, from English)            |
-| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 13,290         | Native (crowdsourced Tatoeba sentence pairs)                        |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                       |
-| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp)                                           | 998            | Human translation (professional) + post-edits                       |
+| level                                  | task                           | dataset                                                                                                    | # test items   | construction                                                        |
+|:---------------------------------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
+| 1. Linguistic knowledge                | BLiMP                          | Alrajhi et al. (Arabic)                                                                                    | 3,000          | Not reported                                                        |
+| 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                       | 1,215          | Treebank-based (automatic, UD + UniMorph)                           |
+| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | Jawaher                                                                                                    | —              | Native (multidialectal proverbs)                                    |
+| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | MIDAS                                                                                                      | —              | Native idioms; meanings MT from English + native review             |
+| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MIDI / MultIdiom](https://huggingface.co/datasets/Almheiri/MultIdiom) (4 varieties/pairs)                 | —              | Native (curated by native speakers; generated contexts + MCQs)      |
+| 2. Pragmatics, discourse & coreference | Figurative language & idioms   | [MultiPICo (irony)](https://huggingface.co/datasets/Multilingual-Perspectivist-NLU/MultiPICo)              | 2,181          | Native (Reddit/Twitter, native-speaker annotation)                  |
+| 2. Pragmatics, discourse & coreference | WinoGrande                     | [AraDiCE-WinoGrande](https://huggingface.co/datasets/QCRI/AraDiCE-WinoGrande) (3 varieties/pairs)          | 3,801          | MT + human post-editing                                             |
+| 2. Pragmatics, discourse & coreference | WinoGrande                     | [EgyptianWinoGrande (Nile-Chat)](https://hf.co/datasets/MBZUAI-Paris/EgyptianWinoGrande)                   | —              | Machine translation (Claude)                                        |
+| 3. Commonsense reasoning               | HellaSwag                      | [MuBench HellaSwag](https://github.com/aialt/MuBench)                                                      | 9,088          | Machine translation (GPT-4o, auto-checked)                          |
+| 3. Commonsense reasoning               | HellaSwag                      | [Okapi HellaSwag (m_hellaswag)](https://huggingface.co/datasets/jon-tow/okapi_hellaswag)                   | 9,176          | Machine translation (GPT-3.5-turbo)                                 |
+| 3. Commonsense reasoning               | PIQA                           | [AraDiCE-PIQA](https://huggingface.co/datasets/QCRI/AraDiCE-PIQA)                                          | 1,838          | MT + human post-editing                                             |
+| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)        | 100            | Native                                                              |
+| 3. Commonsense reasoning               | PIQA                           | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)               | 103            | MT + human post-editing                                             |
+| 3. Commonsense reasoning               | StoryCloze                     | [MuBench StoryCloze](https://github.com/aialt/MuBench)                                                     | 1,332          | Machine translation (GPT-4o, auto-checked)                          |
+| 3. Commonsense reasoning               | StoryCloze                     | [XStoryCloze](https://huggingface.co/datasets/juletxara/xstory_cloze)                                      | 1,511          | Human translation (professional)                                    |
+| 3. Commonsense reasoning               | Temporal reasoning             | Arabic temporal commonsense (MC-TACO translation)                                                          | —              | Machine translation (Google) + native proofreading                  |
+| 3. Commonsense reasoning               | Temporal reasoning             | Temporal Reasoning Dataset (TRD)                                                                           | 10,400         | Template-generated with native-curated carrier phrases              |
+| 4. Reading comprehension               | QA – MC reading comprehension  | [Belebele](https://huggingface.co/datasets/facebook/belebele) (7 varieties/pairs)                          | 6,300          | Human translation (professional)                                    |
+| 4. Reading comprehension               | QA – extractive RC             | [ARCD](https://huggingface.co/datasets/hsseinmz/arcd)                                                      | 1,395          | Native                                                              |
+| 4. Reading comprehension               | QA – extractive RC             | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                 | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | AraSTEM                                                                                                    | 11,637         | Native                                                              |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [ArabicMMLU](https://huggingface.co/datasets/MBZUAI/ArabicMMLU)                                            | 14,575         | Native (school exams)                                               |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [EXAMS](https://github.com/mhardalov/exams-qa)                                                             | 562            | Native (high-school exams)                                          |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                                      | 14,042         | Human translation (professional)                                    |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                            | —              | Native (local exams)                                                |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                              | 11,829         | LLM translation + expert review                                     |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMMLU (OpenAI)](https://huggingface.co/datasets/openai/MMMLU)                                             | 14,042         | Human translation (professional)                                    |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [NOVA-63](https://huggingface.co/datasets/zjy1298/NOVA-63)                                                 | —              | Native (local exams/publications)                                   |
+| 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)                     | —              | Machine translation (GPT-3.5, Okapi)                                |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [BLEnD (short-answer)](https://huggingface.co/datasets/nayeon212/BLEnD)                                    | 500            | Native (cultural; native-speaker answers)                           |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles) (6 varieties/pairs) | 600            | Native (community-written, peer-verified)                           |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                                   | 10,000         | Human translation                                                   |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                            | 250            | Native (locally sourced)                                            |
+| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [XOR-TyDi QA](https://github.com/AkariAsai/XORQA)                                                          | 1,270          | Native (TyDi questions)                                             |
+| Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet) (3 varieties/pairs)                            | 2,562          | Human translation via English pivot                                 |
+| Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (11 varieties/pairs)               | 11,132         | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation                    | Machine translation            | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol) (6 varieties/pairs)                          | —              | Human translation (professional, from English)                      |
+| Machine translation                    | Machine translation            | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                                  | 1,997          | Human translation (professional, from English)                      |
+| Machine translation                    | Machine translation            | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol) (5 varieties/pairs)                          | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation                    | Machine translation            | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol) (5 varieties/pairs)                         | —              | Human translation (professional, from English)                      |
+| Machine translation                    | Machine translation            | [TICO-19](https://github.com/tico-19/tico-19.github.io)                                                    | 2,100          | Human translation (professional/volunteer, from English)            |
+| Machine translation                    | Machine translation            | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                       | 13,290         | Native (crowdsourced Tatoeba sentence pairs)                        |
+| Machine translation                    | Machine translation            | [WMT24++](https://huggingface.co/datasets/google/wmt24pp) (2 varieties/pairs)                              | 1,996          | Human translation (professional) + post-edits                       |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -285,7 +262,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 ### Community benchmarks you can contribute to
 
 - **[Global PIQA](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)** (✅ included): Physical-commonsense questions written by native speakers about their own culture.
-- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (❌ not yet — contribute it!): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
+- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (✅ included): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
 - **[Cultural Riddles](https://culturalriddles.ai/)** (✅ included): Human-written, culturally grounded riddles (Cohere Labs Community); open contribution process.
 
 ### What can you do?
@@ -301,22 +278,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1,554 of ~18,460 papers (8.41%) (rank 4 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1,556 of ~18,498 papers (8.41%) (rank 4 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Modern Standard Arabic | Arabic
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 1,554):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 1,556):
 
-| title                                                                                                   | paper                                                                      |
-|:--------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|
-| TLPO: Token-Level Policy Optimization for Mitigating Language Confusion in Large Language Models        | [2026.acl-long.1976](https://aclanthology.org/2026.acl-long.1976/)         |
-| AfriVox: Probing Multilingual and Accent Robustness of Speech LLMs                                      | [2026.eacl-long.122](https://aclanthology.org/2026.eacl-long.122/)         |
-| PTEB: Towards Robust Text Embedding Evaluation via Stochastic Paraphrasing at Evaluation Time with LLMs | [2026.eacl-long.130](https://aclanthology.org/2026.eacl-long.130/)         |
-| LLMs in the Real World: Evaluating “AI” in Emergency Contexts                                           | [2026.findings-acl.1779](https://aclanthology.org/2026.findings-acl.1779/) |
-| Which Pieces Does Unigram Tokenization Really Need?                                                     | [2026.findings-acl.316](https://aclanthology.org/2026.findings-acl.316/)   |
-| Towards Robust Evaluation for Privacy QA Systems                                                        | [2026.legal-1.2](https://aclanthology.org/2026.legal-1.2/)                 |
-| Building a Dataset for French Accent Classification Evaluation: Are We There Yet?                       | [2026.lrec-1.450](https://aclanthology.org/2026.lrec-1.450/)               |
-| What Triggers My Model? Contrastive Explanations Inform Gender Choices by Translation Models            | [2026.lrec-1.686](https://aclanthology.org/2026.lrec-1.686/)               |
-| ARB: A Comprehensive Arabic Multimodal Reasoning Benchmark                                              | [2026.lrec-1.723](https://aclanthology.org/2026.lrec-1.723/)               |
-| A Comparative Linguistic Analysis of Ottoman and Modern Turkish through UD Treebanks                    | [2026.udw-1.9](https://aclanthology.org/2026.udw-1.9/)                     |
+| title                                                                                                            | paper                                                                                      |
+|:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|
+| AKARROUCH at DialectSentEval 2026: A Generate-and-Rerank Approach for Arabic Dialect Sentiment Swapping          | [2026.arabicnlp-sharedtasks.174](https://aclanthology.org/2026.arabicnlp-sharedtasks.174/) |
+| Tarjih at StanceEval-2026: Argument-Guided Arabic Stance Detection                                               | [2026.arabicnlp-sharedtasks.69](https://aclanthology.org/2026.arabicnlp-sharedtasks.69/)   |
+| Lightweight Multilingual Coreference Resolution without LLMs @CRAC2026                                           | [2026.codi-1.26](https://aclanthology.org/2026.codi-1.26/)                                 |
+| Do Political Opinions Transfer Between Western Languages? An Analysis of Unaligned and Aligned Multilingual LLMs | [2026.eacl-long.14](https://aclanthology.org/2026.eacl-long.14/)                           |
+| Artificial intelligence language technologies in multilingual healthcare: Grand challenges ahead                 | [2026.eamt-1.48](https://aclanthology.org/2026.eamt-1.48/)                                 |
+| MultiSynt/MT: Trillion-Token Multi-Parallel Pretraining Data Translated Across 36 Languages                      | [2026.emnlp-main.2185](https://aclanthology.org/2026.emnlp-main.2185/)                     |
+| A Survey of Incorporating Gaze Data into Natural Language Processing Models and Applications                     | [2026.gaze4nlp-1.10](https://aclanthology.org/2026.gaze4nlp-1.10/)                         |
+| Goldfish: Monolingual Language Models for 350 Languages                                                          | [2026.lrec-1.300](https://aclanthology.org/2026.lrec-1.300/)                               |
+| Using Valency Inheritance in Building a Valency Lexicon                                                          | [2026.lrec-1.900](https://aclanthology.org/2026.lrec-1.900/)                               |
+| Hate Speech as a Conflict-Period Marker: Evidence from Arabic Telegram in Sudan                                  | [2026.nlp4pi-1.20](https://aclanthology.org/2026.nlp4pi-1.20/)                             |
 
 {% endraw %}

@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `sag`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › North Volta-Congo › … › Sangoic ([Glottolog](https://glottolog.org/resource/languoid/id/sang1328))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 2.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 599,000 first-language + 4.6 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q33954#P1098), 2017)
 
 **Official / recognised in:** Central African Republic
 
 **Status:** Official language
+
+
+## What does Sango look and sound like?
+
+**Written:** no Omniglot page found for Sango.
+
+**Spoken:** no Wikitongues video of Sango yet ([its Wikitongues page](https://wikitongues.org/languages/sag/) says how to contribute one).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 376 articles in sg.wikipedia (rank 157 of 161 in the set) — ~1/20,070 of English; 13 active users                                                                                                                        |
-| Common Crawl 2026      | 15,054 pages per crawl on average, which is 0.0007% of the crawl. This is ~1/59,221 of English data and ranks 96 of 113 official languages in Common Crawl.                                                              |
-| FineWeb                | 7.0 MB (sag_Latn (0.01)); which is equivalent to ≈6.0 MB English data after byte-premium scaling; 57.5 MB removed by filtering. This is ~1/7,621,630 of English data and ranks 152 of 248 official languages in FineWeb. |
-| Goldfish training data | 21.9 MB (sag_latn) (rank 150 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 376 articles in sg.wikipedia; 13 active users. This is ~1/20,070 of English data and ranks 164 of 168 languages in the set in Wikipedia.                                                                         |
+| Common Crawl           | 15,054 pages per crawl on average, which is 0.0007% of the crawl (2026). This is ~1/59,221 of English data and ranks 96 of 113 languages in the set in Common Crawl.                                             |
+| FineWeb                | 7.0 MB (sag_Latn 10.0 MB), equivalent to ≈6.0 MB of English after byte-premium scaling; 57.5 MB removed by filtering. This is ~1/7,621,630 of English data and ranks 152 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 21.9 MB (sag_Latn 22.0 MB) (rank 150 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                           |
+|:-----------------------|:--------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                        |
+| UniMorph               | **None found**                                                                        |
+| Wikidata labels        | 474,343 Wikidata items have a label in Sango. (Wikidata codes (labels): sg (474,343)) |
+| Wordnets               | **None found**                                                                        |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **6 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, fasttext, funlangid, pyfranc.
+- **7 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, fasttext, funlangid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), Tatoeba (n=12), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.838 (P 0.912, R 0.783, FPR 3.37e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.779).
+- **Best model:** GlotLID — F1 0.838 (P 0.912, R 0.783, FPR 3.34e-05) averaged over 4 dataset(s). Runner-up: OpenLID-v2 (F1 0.779).
 
 **All models (averaged over datasets):**
 
@@ -46,10 +80,12 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.912 |    0.783 | 0.838 | 0.000 | ✓                |
 | OpenLID-v2   |       0.779 |    0.840 | 0.779 | 0.001 | ✓                |
-| funlangid    |       0.788 |    0.763 | 0.769 | 0.000 | ✓                |
+| funlangid    |       0.791 |    0.763 | 0.771 | 0.000 | ✓                |
 | cld2         |       0.998 |    0.548 | 0.622 | 0.000 | ✓                |
 | pyfranc      |       0.850 |    0.544 | 0.617 | 0.000 | ✓                |
-| fasttext     |       0.739 |    0.429 | 0.459 | 0.000 | ✓                |
+| fasttext     |       0.712 |    0.429 | 0.454 | 0.000 | ✓                |
+| AfroLID      |       0.749 |    0.277 | 0.316 | 0.000 | ✓                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -70,6 +106,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Sango and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Sango has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/sag/) video of Sango yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Sango?
@@ -89,33 +127,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        5 | ████████             |
 |   2026 |       13 | ████████████████████ |
 
-### Most popular models tagged for Sango
-
-| model                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of          |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                 | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                      |
-| [McGill-NLP/AfriqueQwen3.5-4B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B-50Langs)     | 5,618                  |                   499 | 5.2B         |                   29 |   2026 | Qwen/Qwen3.5-4B-Base   |
-| [gradient-spaces/respace-sg-llm-1.5b](https://huggingface.co/gradient-spaces/respace-sg-llm-1.5b)       | 3,622                  |                    88 | 1.5B         |                    2 |   2025 | Qwen/Qwen2.5-1.5B      |
-| [McGill-NLP/AfriqueQwen3.5-0.8B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-0.8B-50Langs) | 1,530                  |                   691 | 1.1B         |                   29 |   2026 | Qwen/Qwen3.5-0.8B-Base |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                 | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                      |
-
-### Most popular models tagged *only* for Sango
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/sag_latn_5mb](https://huggingface.co/goldfish-models/sag_latn_5mb)   |                    417 |                     9 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/sag_latn_10mb](https://huggingface.co/goldfish-models/sag_latn_10mb) |                    398 |                    31 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/sag_latn_full](https://huggingface.co/goldfish-models/sag_latn_full) |                    382 |                     6 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Sango
 
-| model                                                                                               | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                           | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)               | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                    |
-| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs) | 602                    |                    99 | 9.4B         |                   29 |   2026 | Qwen/Qwen3.5-9B-Base |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                             | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                             | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                           | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)               | 856.0B       |                  143 |   2025 | —                    |
+| [McGill-NLP/AfriqueQwen3.5-9B-50Langs](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-9B-50Langs) | 9.4B         |                   32 |   2026 | Qwen/Qwen3.5-9B-Base |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                             | 8.6B         |                  189 |   2023 | —                    |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                             | 8.6B         |                  189 |   2023 | —                    |
 
 ### Largest models tagged *only* for Sango
 
@@ -150,15 +170,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -172,7 +192,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
+| level                    | task                | dataset                                                                              | # test items   | construction                                                     |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 83             | Synthetic (LLM-generated) on native Wikipedia                    |
 | Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
@@ -205,7 +225,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 7 of ~18,460 papers (0.04%) (rank 160 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 7 of ~18,498 papers (0.04%) (rank 172 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Sango
 
 Here are up to ten papers that were published mentioning this language in 2026:

@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `uzs` · macrolanguage `uzb`
 
+**Language family:** **Turkic** › Common Turkic › Kipchak-Turkestan › … › Uzbek ([Glottolog](https://glottolog.org/resource/languoid/id/sout2699))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
 **Writing systems:** `Arab`
+
+**Speakers:** about 38.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `uzb`, so includes other varieties · 4.2 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q1066787#P1098))
 
 **Official / recognised in:** Afghanistan
 
 **Status:** Regional official language
+
+
+## What does Uzbek look and sound like?
+
+**Written:** Omniglot has [a page on Uzbek](https://www.omniglot.com/writing/uzbek.htm) but no sample text.
+
+**Spoken:** no Wikitongues video of Uzbek yet ([its Wikitongues page](https://wikitongues.org/languages/uzs/) says how to contribute one).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                          |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                        |
-| Common Crawl 2026      | 597,343 pages per crawl on average, which is 0.0277% of the crawl. ⚠️ NB: this is counted using `uzb` (macrolanguage code), so this number is shared with other varieties and overstates Uzbek. |
-| FineWeb                | 12.5 MB (uzs_Arab (0.01)); 0.21 GB removed by filtering. This is ~1/4,281,857 of English data and ranks 142 of 248 official languages in FineWeb.                                               |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                    |
+| Source                 | Amount                                                                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 371,861 articles in uz.wikipedia; 718 active users. ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzn`) and overstates Uzbek.                       |
+| Common Crawl           | 597,343 pages per crawl on average, which is 0.0277% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `uzb`, so this number is shared with Uzbek (`uzn`) and overstates Uzbek. |
+| FineWeb                | 12.5 MB (uzs_Arab 10.0 MB); 0.21 GB removed by filtering. This is ~1/4,281,857 of English data and ranks 142 of 248 languages in the set in FineWeb.                                           |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                   |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 3 treebanks, 1,332 sentences / 14,451 tokens in total: [UD_Uzbek-TueCL](https://github.com/UniversalDependencies/UD_Uzbek-TueCL) (148 sentences), [UD_Uzbek-UT](https://github.com/UniversalDependencies/UD_Uzbek-UT) (500 sentences), [UD_Uzbek-UzUDT](https://github.com/UniversalDependencies/UD_Uzbek-UzUDT) (684 sentences). All have POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `uzb`, so this may cover other varieties as well as Uzbek. |
+| UniMorph               | 15 lemmas, 1,260 inflected forms ([unimorph/uzb](https://github.com/unimorph/uzb)) ⚠️ Listed under the macrolanguage code `uzb`, so this may cover other varieties as well as Uzbek.                                                                                                                                                                                                                                                                                                                         |
+| Wikidata labels        | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **1 of 8** LangID models evaluated have this language code as a label that can be predicted: py3langid.
+- **1 of 10** LangID models evaluated have this language code as a label that can be predicted: py3langid.
 - **Eval datasets (1):** FLORES (n=300)
-- **Best model:** py3langid — F1 0.768 (P 0.624, R 1.000, FPR 5.75e-03) averaged over 1 dataset(s). Runner-up: GlotLID (F1 0.000).
+- **Best model:** py3langid — F1 0.768 (P 0.624, R 1.000, FPR 5.66e-03) averaged over 1 dataset(s). Runner-up: AfroLID (F1 0.000).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
@@ -48,9 +82,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | py3langid    |       0.624 |    1.000 | 0.768 | 0.006 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | GlotLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -65,6 +101,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Uzbek and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Uzbek has no wordnet or Wikidata labels yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/uzs/) video of Uzbek yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Uzbek?
@@ -81,37 +119,21 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2026 |        6 | ████████████████████ |
 
-### Most popular models tagged for Uzbek
-
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [alphaedge-ai/gemma-3-270m-it-uzs-16384](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-uzs-16384) |                     69 |                    10 | 110.8M       |                    1 |   2026 | google/gemma-3-270m  |
-| [alphaedge-ai/gemma-3-1b-it-uzs-16384](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-uzs-16384)     |                     54 |                     9 | 716.8M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [alphaedge-ai/gemma-3-4b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-uzs-32768)     |                     46 |                    13 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-
-### Most popular models tagged *only* for Uzbek
-
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [alphaedge-ai/gemma-3-270m-it-uzs-16384](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-uzs-16384) |                     69 |                    10 | 110.8M       |                    1 |   2026 | google/gemma-3-270m  |
-| [alphaedge-ai/gemma-3-1b-it-uzs-16384](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-uzs-16384)     |                     54 |                     9 | 716.8M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [alphaedge-ai/gemma-3-4b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-uzs-32768)     |                     46 |                    13 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-
 ### Largest models tagged for Uzbek
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [alphaedge-ai/gemma-3-4b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-uzs-32768)     |                     46 |                    13 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-| [alphaedge-ai/gemma-3-1b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-uzs-32768)     |                     51 |                    12 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [alphaedge-ai/gemma-3-270m-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-uzs-32768) |                     60 |                     9 | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [alphaedge-ai/gemma-3-4b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-uzs-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
+| [alphaedge-ai/gemma-3-1b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-uzs-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
+| [alphaedge-ai/gemma-3-270m-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-uzs-32768) | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
 
 ### Largest models tagged *only* for Uzbek
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [alphaedge-ai/gemma-3-4b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-uzs-32768)     |                     46 |                    13 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
-| [alphaedge-ai/gemma-3-1b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-uzs-32768)     |                     51 |                    12 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
-| [alphaedge-ai/gemma-3-270m-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-uzs-32768) |                     60 |                     9 | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [alphaedge-ai/gemma-3-4b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-uzs-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it |
+| [alphaedge-ai/gemma-3-1b-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-uzs-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt |
+| [alphaedge-ai/gemma-3-270m-it-uzs-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-uzs-32768) | 121.3M       |                    1 |   2026 | google/gemma-3-270m  |
 
 ## What evals are available?
 
@@ -129,7 +151,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**5** benchmark datasets in the survey include Uzbek (plus 3 labelled with the macrolanguage `uzb`, included below).
+**4** benchmark datasets in the survey include Uzbek (plus 3 labelled with the macrolanguage `uzb`, included below).
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -140,15 +162,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -156,22 +178,21 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ✅ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [1]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [5]         \
+ /         ✅ Machine translation [4]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `uzb`)      | 50             | Treebank-based (automatic, UD + UniMorph)                        |
-| 3. Commonsense reasoning | HellaSwag           | [MuBench HellaSwag](https://github.com/aialt/MuBench) (as `uzb`)                     | 9,088          | Machine translation (GPT-4o, auto-checked)                       |
-| 3. Commonsense reasoning | StoryCloze          | [MuBench StoryCloze](https://github.com/aialt/MuBench) (as `uzb`)                    | 1,332          | Machine translation (GPT-4o, auto-checked)                       |
-| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                              |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 480            | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                | dataset                                                                                     |   # test items | construction                                                     |
+|:-------------------------|:--------------------|:--------------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `uzb`)             |             50 | Treebank-based (automatic, UD + UniMorph)                        |
+| 3. Commonsense reasoning | HellaSwag           | [MuBench HellaSwag](https://github.com/aialt/MuBench) (as `uzb`)                            |          9,088 | Machine translation (GPT-4o, auto-checked)                       |
+| 3. Commonsense reasoning | StoryCloze          | [MuBench StoryCloze](https://github.com/aialt/MuBench) (as `uzb`)                           |          1,332 | Machine translation (GPT-4o, auto-checked)                       |
+| Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                 |            854 | Human translation via English pivot                              |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs) |          2,024 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                   |          1,997 | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)        |            480 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -199,7 +220,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 52 of ~18,460 papers (0.28%) (rank 83 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 52 of ~18,498 papers (0.28%) (rank 87 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Southern Uzbek | Northern Uzbek | Uzbek
 - ⚠️ The name *Uzbek* is shared with Uzbek (`uzn`), so this count covers all of them.
 

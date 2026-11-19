@@ -12,9 +12,22 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `zyb` · macrolanguage `zha`
 
+**Language family:** **Tai-Kadai** › Kam-Tai › Daic-Beic › … › Yongnan-Yongbei ([Glottolog](https://glottolog.org/resource/languoid/id/yong1276))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
+**Speakers:** about 4.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `zha`, so includes other varieties · 2.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q8054983#P1098), 2007)
+
 **Official / recognised in:** People's Republic of China
 
 **Status:** Regional official language
+
+
+## What does Zhuang look and sound like?
+
+**Written:** Omniglot has [a page on Zhuang](https://www.omniglot.com/writing/zhuang.htm) but no sample text.
+
+**Spoken:** no Wikitongues video of Zhuang yet ([its Wikitongues page](https://wikitongues.org/languages/zyb/) says how to contribute one).
 
 
 ## Training Data
@@ -23,20 +36,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                         |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                       |
-| Common Crawl 2026      | 1,784 pages per crawl on average, which is 0.0001% of the crawl. ⚠️ NB: this is counted using `zha` (macrolanguage code), so this number is shared with other varieties and overstates Zhuang. |
-| FineWeb                | 1.5 MB (zyb_Latn (0.00)); 6.6 MB removed by filtering. This is ~1/36,458,931 of English data and ranks 190 of 248 official languages in FineWeb.                                               |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                   |
+| Source                 | Amount                                                                                                                                                                   |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 3,028 articles in za.wikipedia; 14 active users. ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang.                        |
+| Common Crawl           | 1,784 pages per crawl on average, which is 0.0001% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `zha`, which can include other varieties of Zhuang. |
+| FineWeb                | 1.5 MB (zyb_Latn 0); 6.6 MB removed by filtering. This is ~1/36,458,931 of English data and ranks 190 of 248 languages in the set in FineWeb.                            |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                             |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | **None found**                                                                         |
+| Wikidata labels        | 529,928 Wikidata items have a label in Zhuang. (Wikidata codes (labels): za (529,928)) |
+| Wordnets               | **None found**                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **5 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, funlangid, pyfranc.
+- **5 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, cld2, commonlingua, funlangid, pyfranc.
 - **Eval datasets (2):** UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** pyfranc — F1 0.992 (P 0.998, R 0.987, FPR 1.44e-05) averaged over 2 dataset(s). Runner-up: cld2 (F1 0.989).
+- **Best model:** pyfranc — F1 0.992 (P 0.998, R 0.987, FPR 1.42e-05) averaged over 2 dataset(s). Runner-up: cld2 (F1 0.989).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -48,8 +82,10 @@ Language identification (LangID or LID) is a classification task that identifies
 | cld2         |       1.000 |    0.978 | 0.989 | 0.000 | ✓                |
 | funlangid    |       1.000 |    0.965 | 0.982 | 0.000 | ✓                |
 | GlotLID      |       0.932 |    0.992 | 0.959 | 0.000 | ✓                |
-| commonlingua |       0.774 |    0.973 | 0.842 | 0.002 | ✓                |
+| commonlingua |       0.771 |    0.973 | 0.840 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -68,6 +104,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Zhuang and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Zhuang has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/zyb/) video of Zhuang yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Zhuang?
@@ -87,29 +125,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        4 | ████████████████████ |
 |   2026 |        3 | ███████████████      |
 
-### Most popular models tagged for Zhuang
-
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                  |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                  |
-| [mattritchey/next-4b-Q4_K_M-GGUF](https://huggingface.co/mattritchey/next-4b-Q4_K_M-GGUF)         | 316                    |                    54 | 3.9B         |                   50 |   2025 | thelamapi/next-4b  |
-| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 164                    |                    25 | 8.2B         |                  140 |   2026 | Qwen/Qwen3-8B-Base |
-| [wikilangs/za](https://huggingface.co/wikilangs/za)                                               | 0                      |                     0 | unknown      |                    2 |   2026 | —                  |
-
-### Most popular models tagged *only* for Zhuang
-
-_none_
-
 ### Largest models tagged for Zhuang
 
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                  |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                  |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                  |
-| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 164                    |                    25 | 8.2B         |                  140 |   2026 | Qwen/Qwen3-8B-Base |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of      |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 1.9T         |                  143 |   2025 | —                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 856.0B       |                  143 |   2025 | —                  |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 8.2B         |                  143 |   2026 | Qwen/Qwen3-8B-Base |
 
 ### Largest models tagged *only* for Zhuang
 
@@ -144,15 +168,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -166,7 +190,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                    |   # test items | Construction                                  |
+| level                    | task               | dataset                                                                    |   # test items | construction                                  |
 |:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |            427 | Synthetic (LLM-generated) on native Wikipedia |
 
@@ -197,6 +221,23 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026: not reported.** The search term 'Zhuang' (common surname) is ambiguous, so the raw count mostly reflects other uses of the word.
+- **Mentions in ACL papers in 2026:** 20 of ~18,498 papers (0.11%) (rank 122 of 278 in the set); English is mentioned in 8,465.
+- Search terms: Standard Zhuang (Yongbei) | Standard Zhuang | Yongbei | Zhuang
+- Because 'Zhuang' is also a common word or name, those mentions only count when they appear in a language context (citations and people's names are skipped).
+
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 20):
+
+| title                                                                                                    | paper                                                                          |
+|:---------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Beyond Atomic Characters: Glyph-Aware Sub-character Alignment for Low-Resource Multilingual OCR          | [2026.acl-long.1392](https://aclanthology.org/2026.acl-long.1392/)             |
+| Diversity in Unity, Theory in Practice: Hierarchical Multitask Benchmarks for Chinese Minority Languages | [2026.acl-long.1684](https://aclanthology.org/2026.acl-long.1684/)             |
+| A Catalog of Basque Dialectal Resources: Online Collections and Standard-to-Dialectal Adaptations        | [2026.dialres-1.16](https://aclanthology.org/2026.dialres-1.16/)               |
+| SUNDER: Selective Unmasking for Text Understanding                                                       | [2026.emnlp-main.825](https://aclanthology.org/2026.emnlp-main.825/)           |
+| HiMed: Incentivizing Hindi Reasoning in Medical LLMs                                                     | [2026.findings-emnlp.117](https://aclanthology.org/2026.findings-emnlp.117/)   |
+| Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation                        | [2026.findings-emnlp.2096](https://aclanthology.org/2026.findings-emnlp.2096/) |
+| Reasoning over Object Descriptions Improves Coreference Resolution in Task-Based Dialogue Systems        | [2026.lrec-1.224](https://aclanthology.org/2026.lrec-1.224/)                   |
+| A Single Model Ensemble Framework for Neural Machine Translation Using Pivot Translation                 | [2026.lrec-1.672](https://aclanthology.org/2026.lrec-1.672/)                   |
+| ManufactuBERT: Efficient Continual Pretraining for Manufacturing                                         | [2026.lrec-1.827](https://aclanthology.org/2026.lrec-1.827/)                   |
+| What LID Systems Say About Dialectal Variation. The Case of Yiddish, Quechua and Mande                   | [2026.speakable-1.11](https://aclanthology.org/2026.speakable-1.11/)           |
 
 {% endraw %}

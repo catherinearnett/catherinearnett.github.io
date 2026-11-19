@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kir`
 
+**Language family:** **Turkic** › Common Turkic › Kipchak-Turkestan › … › East Kipchak ([Glottolog](https://glottolog.org/resource/languoid/id/kirg1245))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 3.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 4.6 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q9255#P1098), 2009)
 
 **Official / recognised in:** Kyrgyzstan
 
 **Status:** Official language
+
+
+## What does Kyrgyz look and sound like?
+
+**Written:** Omniglot has [a page on Kyrgyz](https://www.omniglot.com/writing/kirghiz.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/kir/) has 2 videos of Kyrgyz speakers. Watch [Azim speaking Kyrgyz](https://wikitongues.org/videos/azim_20180512_kir/).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                 |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 76,665 articles in ky.wikipedia (rank 60 of 161 in the set) — ~1/98 of English; 276 active users                                                                                                                       |
-| Common Crawl 2026      | 251,577 pages per crawl on average, which is 0.0117% of the crawl. This is ~1/3,544 of English data and ranks 52 of 113 official languages in Common Crawl.                                                            |
-| FineWeb                | 1.48 GB (kir_Cyrl (1.48)); which is equivalent to ≈0.75 GB English data after byte-premium scaling; 0.94 GB removed by filtering. This is ~1/36,039 of English data and ranks 66 of 248 official languages in FineWeb. |
-| Goldfish training data | 2.59 GB (kir_cyrl) (rank 56 of 166 in the set)                                                                                                                                                                         |
+| Source                 | Amount                                                                                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 76,665 articles in ky.wikipedia; 276 active users. This is ~1/98 of English data and ranks 61 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 251,577 pages per crawl on average, which is 0.0117% of the crawl (2026). This is ~1/3,544 of English data and ranks 52 of 113 languages in the set in Common Crawl.                                           |
+| FineWeb                | 1.48 GB (kir_Cyrl 1.48 GB), equivalent to ≈0.75 GB of English after byte-premium scaling; 0.94 GB removed by filtering. This is ~1/36,039 of English data and ranks 66 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 2.59 GB (kir_Cyrl 2.59 GB) (rank 56 of 166 in the set)                                                                                                                                                         |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                               |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 2,703 sentences / 25,342 tokens in total: [UD_Kyrgyz-KTMU](https://github.com/UniversalDependencies/UD_Kyrgyz-KTMU) (2,530 sentences), [UD_Kyrgyz-TueCL](https://github.com/UniversalDependencies/UD_Kyrgyz-TueCL) (173 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 98 lemmas, 5,544 inflected forms ([unimorph/kir](https://github.com/unimorph/kir))                                                                                                                                                                                                                                        |
+| Wikidata labels        | 253,819 Wikidata items have a label in Kyrgyz. (Wikidata codes (labels): ky (253,819))                                                                                                                                                                                                                                    |
+| Wordnets               | **None found**                                                                                                                                                                                                                                                                                                            |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.988 (P 0.981, R 0.995, FPR 1.64e-04) averaged over 5 dataset(s). Runner-up: commonlingua (F1 0.854).
+- **Best model:** GlotLID — F1 0.987 (P 0.981, R 0.995, FPR 1.67e-04) averaged over 5 dataset(s). Runner-up: commonlingua (F1 0.854).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,24 +80,26 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.981 |    0.995 | 0.988 | 0.000 | ✓                |
-| commonlingua |       0.848 |    0.865 | 0.854 | 0.001 | ✓                |
-| cld2         |       0.760 |    0.967 | 0.846 | 0.003 | ✓                |
-| funlangid    |       0.782 |    0.814 | 0.797 | 0.003 | ✓                |
-| pyfranc      |       0.647 |    0.871 | 0.716 | 0.009 | ✓                |
-| fasttext     |       0.535 |    0.990 | 0.669 | 0.009 | ✓                |
-| OpenLID-v2   |       0.428 |    0.995 | 0.551 | 0.017 | ✓                |
-| py3langid    |       0.384 |    0.979 | 0.496 | 0.027 | ✓                |
+| GlotLID      |       0.981 |    0.995 | 0.987 | 0.000 | ✓                |
+| commonlingua |       0.847 |    0.865 | 0.854 | 0.002 | ✓                |
+| cld2         |       0.759 |    0.967 | 0.845 | 0.003 | ✓                |
+| funlangid    |       0.784 |    0.814 | 0.798 | 0.003 | ✓                |
+| pyfranc      |       0.646 |    0.871 | 0.715 | 0.009 | ✓                |
+| fasttext     |       0.534 |    0.990 | 0.668 | 0.009 | ✓                |
+| OpenLID-v2   |       0.427 |    0.995 | 0.549 | 0.017 | ✓                |
+| py3langid    |       0.384 |    0.979 | 0.495 | 0.026 | ✓                |
+| cld3         |       0.231 |    0.979 | 0.360 | 0.045 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   | 300 |       0.916 |    0.983 | 0.949 |
+| Tatoeba   | 300 |       0.913 |    0.983 | 0.947 |
 | Wikipedia | 300 |       0.990 |    0.990 | 0.990 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -73,6 +109,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Kyrgyz and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Kyrgyz has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Kyrgyz?
@@ -93,45 +130,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       62 | ████████████████████ |
 |   2026 |       43 | ██████████████       |
 
-### Most popular models tagged for Kyrgyz
-
-| model                                                               | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)           | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —               |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small) | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —               |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large) | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —               |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)   | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —               |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)       | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —               |
-
-### Most popular models tagged *only* for Kyrgyz
-
-| model                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [DJKG/nano-kyrgyz](https://huggingface.co/DJKG/nano-kyrgyz)                               | 1,465                  |                   243 | 42.2M        |                    1 |   2026 | —               |
-| [metinovadilet/miti-2.3b-base-v1](https://huggingface.co/metinovadilet/miti-2.3b-base-v1) | 1,060                  |                   418 | 2.3B         |                    1 |   2025 | —               |
-| [goldfish-models/kir_cyrl_1000mb](https://huggingface.co/goldfish-models/kir_cyrl_1000mb) | 488                    |                    26 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kir_cyrl_5mb](https://huggingface.co/goldfish-models/kir_cyrl_5mb)       | 473                    |                    15 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/kir_cyrl_100mb](https://huggingface.co/goldfish-models/kir_cyrl_100mb)   | 443                    |                    20 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Kyrgyz
 
-| model                                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                    |
-| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 875                    |                   175 | 34.7B        |                   80 |   2026 | Qwen/Qwen3.6-35B-A3B |
-| [bigscience/mt0-xxl-p3](https://huggingface.co/bigscience/mt0-xxl-p3)                                                 | 4,719                  |                   107 | 13.9B        |                   90 |   2022 | —                    |
-| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                                                 | 84                     |                     7 | 13.9B        |                   90 |   2024 | —                    |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                    |
+| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 34.7B        |                   82 |   2026 | Qwen/Qwen3.6-35B-A3B |
+| [AIDSC/mt0-xxl](https://huggingface.co/AIDSC/mt0-xxl)                                                                 | 13.9B        |                   92 |   2024 | —                    |
+| [bigscience/mt0-xxl](https://huggingface.co/bigscience/mt0-xxl)                                                       | 13.9B        |                   92 |   2022 | —                    |
 
 ### Largest models tagged *only* for Kyrgyz
 
-| model                                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/gemma-3-4b-it-kir-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-kir-32768)     | 51                     |                    22 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [NikolayKozloff/kakugo-3B-kir-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-kir-Q8_0-GGUF) | 110                    |                    34 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [metinovadilet/miti-2.3b-base-v1](https://huggingface.co/metinovadilet/miti-2.3b-base-v1)               | 1,060                  |                   418 | 2.3B         |                    1 |   2025 | —                             |
-| [alphaedge-ai/gemma-3-1b-it-kir-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-kir-32768)     | 40                     |                     3 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
-| [ZSuranbaev/orfo](https://huggingface.co/ZSuranbaev/orfo)                                               | 245                    |                     6 | 556.3M       |                    1 |   2026 | google/mt5-small              |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/gemma-3-4b-it-kir-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-kir-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [NikolayKozloff/kakugo-3B-kir-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-kir-Q8_0-GGUF) | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [metinovadilet/miti-2.3b-base-v1](https://huggingface.co/metinovadilet/miti-2.3b-base-v1)               | 2.3B         |                    1 |   2025 | —                             |
+| [alphaedge-ai/gemma-3-1b-it-kir-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-kir-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
+| [ZSuranbaev/orfo](https://huggingface.co/ZSuranbaev/orfo)                                               | 556.3M       |                    1 |   2026 | google/mt5-small              |
 
 _35 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +201,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                             | # test items   | Construction                                                     |
+| level                                  | task                          | dataset                                                                                             | # test items   | construction                                                     |
 |:---------------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                         | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 185            | Treebank-based (automatic, UD + UniMorph)                        |
 | 2. Pragmatics, discourse & coreference | WinoGrande                    | [winogrande_kg (KyrgyzLLM-Bench)](https://huggingface.co/collections/TTimur/kyrgyzllm-bench)        | —              | MT + post-editing                                                |
@@ -223,7 +240,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 43 of ~18,460 papers (0.23%) (rank 92 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 43 of ~18,498 papers (0.23%) (rank 96 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Kyrgyz
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 43):

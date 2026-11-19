@@ -12,11 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `gug` · macrolanguage `grn` (also listed as: Guaraní)
 
+**Language family:** **Tupian** › Eastern Tupian › Maweti-Guarani › … › Paraguay-Brazil Guarani ([Glottolog](https://glottolog.org/resource/languoid/id/para1311))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 6.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `grn`, so includes other varieties · 4.8 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q17478066#P1098), 1995)
 
 **Official / recognised in:** Argentina, Paraguay
 
-**Status:** Official language; Regional official language
+**Status:** Regional official language; Official language
+
+
+## What does Guarani look and sound like?
+
+**Written (Guaraní)**, sample text from [Omniglot](https://www.omniglot.com/writing/guarani.htm):
+
+> Mayma yvypóra ou ko yvy ári iñapytyʼyre ha eteĩcha tekoruvicharenda ha akatúape jeguerekópe; ha ikatu rupi oikuaa añetéva ha añeteʼyva, iporãva ha ivaíva, tekotevẽ pehenguéicha oiko oñondivekuéra.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/gug/) has 1 video of Guarani speakers. Watch [María speaking Guarani](https://wikitongues.org/videos/maria_20150924_gug/).
 
 
 ## Training Data
@@ -25,20 +42,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                           |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                         |
-| Common Crawl 2026      | 18,175 pages per crawl on average, which is 0.0008% of the crawl. ⚠️ NB: this is counted using `grn` (macrolanguage code), so this number is shared with other varieties and overstates Guarani. |
-| FineWeb                | 18.5 MB (gug_Latn (0.02)); 0.32 GB removed by filtering. This is ~1/2,882,796 of English data and ranks 130 of 248 official languages in FineWeb.                                                |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                     |
+| Source                 | Amount                                                                                                                                                                                            |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 6,036 articles in gn.wikipedia; 26 active users. ⚠️ NB: counted under the macrolanguage code `grn`, so this number is shared with Guarani (`gui`) and overstates Guarani.                         |
+| Common Crawl           | 18,175 pages per crawl on average, which is 0.0008% of the crawl (2026). ⚠️ NB: counted under the macrolanguage code `grn`, so this number is shared with Guarani (`gui`) and overstates Guarani. |
+| FineWeb                | 18.5 MB (gug_Latn 20.0 MB); 0.32 GB removed by filtering. This is ~1/2,882,796 of English data and ranks 130 of 248 languages in the set in FineWeb.                                              |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                      |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 59 sentences / 212 tokens in total: [UD_Guarani-OldTuDeT](https://github.com/UniversalDependencies/UD_Guarani-OldTuDeT) (59 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                             |
+| Wikidata labels        | 592,742 Wikidata items have a label in Guarani. (Wikidata codes (labels): gn (592,742))                                                                                                                                    |
+| Wordnets               | **None found**                                                                                                                                                                                                             |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), SmolSent (n=300), Tatoeba (n=300), UDHR-LID (n=49), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.970 (P 0.996, R 0.948, FPR 3.70e-05) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.942).
+- **Best model:** GlotLID — F1 0.970 (P 0.996, R 0.948, FPR 3.63e-05) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.942).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -49,11 +87,13 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.996 |    0.948 | 0.970 | 0.000 | ✓                |
 | cld2         |       0.943 |    0.954 | 0.942 | 0.000 | ✓                |
 | py3langid    |       0.854 |    0.976 | 0.888 | 0.003 | ✓                |
-| OpenLID-v2   |       0.833 |    0.990 | 0.876 | 0.003 | ✓                |
-| pyfranc      |       0.988 |    0.804 | 0.874 | 0.000 | ✓                |
-| commonlingua |       0.836 |    0.885 | 0.837 | 0.002 | ✓                |
-| funlangid    |       0.989 |    0.750 | 0.836 | 0.000 | ✓                |
+| OpenLID-v2   |       0.836 |    0.990 | 0.878 | 0.003 | ✓                |
+| pyfranc      |       0.986 |    0.804 | 0.873 | 0.000 | ✓                |
+| commonlingua |       0.835 |    0.885 | 0.837 | 0.002 | ✓                |
+| funlangid    |       0.986 |    0.750 | 0.835 | 0.000 | ✓                |
 | fasttext     |       0.869 |    0.874 | 0.818 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -74,6 +114,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Guarani and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Guarani has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Guarani?
@@ -93,45 +134,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       23 | ████████████████████ |
 |   2026 |       22 | ███████████████████  |
 
-### Most popular models tagged for Guarani
-
-| model                                                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                       |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:------------------------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                                   | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                                   |
-| [AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16](https://huggingface.co/AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16)                     | 6,611                  | 1,111                 | 9.0B         |                   97 |   2026 | unsloth/Qwen3.5-9B                  |
-| [AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF](https://huggingface.co/AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF) | 3,464                  | 746                   | 9.0B         |                   97 |   2026 | Qwen/Qwen3.5-9B                     |
-| [mlx-community/mxbai-rerank-large-v2](https://huggingface.co/mlx-community/mxbai-rerank-large-v2)                                         | 1,580                  | 55                    | 1.5B         |                   94 |   2025 | mixedbread-ai/mxbai-rerank-large-v2 |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                                                   | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —                                   |
-
-### Most popular models tagged *only* for Guarani
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/grn_latn_5mb](https://huggingface.co/goldfish-models/grn_latn_5mb)   |                    426 |                    16 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/grn_latn_10mb](https://huggingface.co/goldfish-models/grn_latn_10mb) |                    410 |                    13 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/grn_latn_full](https://huggingface.co/goldfish-models/grn_latn_full) |                    400 |                    16 | unknown      |                    1 |   2024 | —               |
-| [guaran-ia/coreguapa-lm](https://huggingface.co/guaran-ia/coreguapa-lm)               |                    307 |                     5 | 9.2B         |                    1 |   2026 | —               |
-| [guaran-ia/gntweets-lm](https://huggingface.co/guaran-ia/gntweets-lm)                 |                    189 |                     6 | 9.2B         |                    1 |   2026 | —               |
-
 ### Largest models tagged for Guarani
 
-| model                                                                                       |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of             |
-|:--------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                   |                      0 |                     0 | 1.9T         |                  140 |   2025 | —                         |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)       |                      0 |                     0 | 856.0B       |                  140 |   2025 | —                         |
-| [ludolara/aya-vision-32b-americas](https://huggingface.co/ludolara/aya-vision-32b-americas) |                     73 |                     8 | 32.0B        |                    2 |   2026 | CohereLabs/aya-vision-32b |
-| [guaran-ia/gntweets-lm](https://huggingface.co/guaran-ia/gntweets-lm)                       |                    189 |                     6 | 9.2B         |                    1 |   2026 | —                         |
-| [guaran-ia/coreguapa-lm](https://huggingface.co/guaran-ia/coreguapa-lm)                     |                    307 |                     5 | 9.2B         |                    1 |   2026 | —                         |
+| model                                                                                       | parameters   |   # languages tagged |   year | derivative of             |
+|:--------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                   | 1.9T         |                  143 |   2025 | —                         |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)       | 856.0B       |                  143 |   2025 | —                         |
+| [ludolara/aya-vision-32b-americas](https://huggingface.co/ludolara/aya-vision-32b-americas) | 32.0B        |                    2 |   2026 | CohereLabs/aya-vision-32b |
+| [guaran-ia/coreguapa-lm](https://huggingface.co/guaran-ia/coreguapa-lm)                     | 9.2B         |                    1 |   2026 | —                         |
+| [guaran-ia/gntweets-lm](https://huggingface.co/guaran-ia/gntweets-lm)                       | 9.2B         |                    1 |   2026 | —                         |
 
 ### Largest models tagged *only* for Guarani
 
-| model                                                                                                                       |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [guaran-ia/gntweets-lm](https://huggingface.co/guaran-ia/gntweets-lm)                                                       |                    189 |                     6 | 9.2B         |                    1 |   2026 | —                             |
-| [guaran-ia/coreguapa-lm](https://huggingface.co/guaran-ia/coreguapa-lm)                                                     |                    307 |                     5 | 9.2B         |                    1 |   2026 | —                             |
-| [guaran-ia/llama-3.1-8b-guarani-initialized-mixed](https://huggingface.co/guaran-ia/llama-3.1-8b-guarani-initialized-mixed) |                     18 |                     2 | 8.0B         |                    1 |   2026 | meta-llama/Llama-3.1-8B       |
-| [ptrdvn/kakugo-3B-grn](https://huggingface.co/ptrdvn/kakugo-3B-grn)                                                         |                     71 |                    16 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [kiansheik/tupi-verb-anotation](https://huggingface.co/kiansheik/tupi-verb-anotation)                                       |                     70 |                    18 | 60.6M        |                    1 |   2024 | google-t5/t5-small            |
+| model                                                                                                                       | parameters   |   # languages tagged |   year | derivative of                 |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [guaran-ia/coreguapa-lm](https://huggingface.co/guaran-ia/coreguapa-lm)                                                     | 9.2B         |                    1 |   2026 | —                             |
+| [guaran-ia/gntweets-lm](https://huggingface.co/guaran-ia/gntweets-lm)                                                       | 9.2B         |                    1 |   2026 | —                             |
+| [guaran-ia/llama-3.1-8b-guarani-initialized-mixed](https://huggingface.co/guaran-ia/llama-3.1-8b-guarani-initialized-mixed) | 8.0B         |                    1 |   2026 | meta-llama/Llama-3.1-8B       |
+| [ptrdvn/kakugo-3B-grn](https://huggingface.co/ptrdvn/kakugo-3B-grn)                                                         | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [kiansheik/tupi-verb-anotation](https://huggingface.co/kiansheik/tupi-verb-anotation)                                       | 60.6M        |                    1 |   2024 | google-t5/t5-small            |
 
 _26 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -162,15 +183,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +205,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                              | # test items   | Construction                                                     |
+| level                    | task                          | dataset                                                                              | # test items   | construction                                                     |
 |:-------------------------|:------------------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        | 900            | Human translation (professional)                                 |
 | 4. Reading comprehension | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
@@ -219,7 +240,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 45 of ~18,460 papers (0.24%) (rank 87 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 45 of ~18,498 papers (0.24%) (rank 91 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Eastern Bolivian Guarani | Paraguayan Guarani | Guarani
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 45):

@@ -12,11 +12,34 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `bak`
 
+**Language family:** **Turkic** › Common Turkic › Kipchak-Turkestan › … › Bashkiric ([Glottolog](https://glottolog.org/resource/languoid/id/bash1264))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 1.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 1.2 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q13389#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Bashkir look and sound like?
+
+**Written (Cyrillic alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/bashkir.htm):
+
+> Барлыҡ кешеләр ирекле, дәрәжәләре һәм хоҡуҡтары тигеҙ булып тыуалар. Улар аҡыл һәм выждан эйәһе һәм бер-береһенә ҡарата ҡәрҙәшлек рухында хәрәкәт итергә тейештәр.
+
+**Written (Latin alphabet)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/bashkir.htm):
+
+> Barlıq keşelär irekle, däräjäläre häm xoquqtarı tiñ bulıp tıwalar. Ular aqıl häm wıjdan eyähe häm ber-berehenä qarata qärźäşlek ruxında xäräkät itergä teyeştär.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors: Transliteration by bababashqort.</sub>
+
+**Spoken:** no Wikitongues video of Bashkir yet ([its Wikitongues page](https://wikitongues.org/languages/bak/) says how to contribute one).
 
 
 ## Training Data
@@ -25,32 +48,55 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 64,317 articles in ba.wikipedia (rank 65 of 161 in the set) — ~1/117 of English; 88 active users                                                                                                                        |
-| Common Crawl 2026      | 67,437 pages per crawl on average, which is 0.0032% of the crawl. This is ~1/13,220 of English data and ranks 73 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 0.29 GB (bak_Cyrl (0.29)); which is equivalent to ≈0.13 GB English data after byte-premium scaling; 0.30 GB removed by filtering. This is ~1/182,328 of English data and ranks 92 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.98 GB (bak_cyrl) (rank 74 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 64,317 articles in ba.wikipedia; 88 active users. This is ~1/117 of English data and ranks 66 of 168 languages in the set in Wikipedia.                                                                         |
+| Common Crawl           | 67,437 pages per crawl on average, which is 0.0032% of the crawl (2026). This is ~1/13,220 of English data and ranks 73 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 0.29 GB (bak_Cyrl 0.29 GB), equivalent to ≈0.13 GB of English after byte-premium scaling; 0.30 GB removed by filtering. This is ~1/182,328 of English data and ranks 92 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.98 GB (bak_Cyrl 0.98 GB) (rank 74 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | 1,084 lemmas, 12,168 inflected forms ([unimorph/bak](https://github.com/unimorph/bak))  |
+| Wikidata labels        | 393,898 Wikidata items have a label in Bashkir. (Wikidata codes (labels): ba (393,898)) |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **7 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (5):** CommonLID (n=46), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.977 (P 0.982, R 0.973, FPR 9.65e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.957).
+- **Best model:** GlotLID — F1 0.977 (P 0.981, R 0.972, FPR 9.49e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.958).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.982 |    0.973 | 0.977 | 0.000 | ✓                |
-| cld2         |       0.984 |    0.934 | 0.957 | 0.000 | ✓                |
-| fasttext     |       0.920 |    0.958 | 0.936 | 0.001 | ✓                |
-| commonlingua |       0.943 |    0.921 | 0.931 | 0.000 | ✓                |
-| funlangid    |       0.898 |    0.785 | 0.832 | 0.001 | ✓                |
-| OpenLID-v2   |       0.760 |    0.962 | 0.827 | 0.004 | ✓                |
-| py3langid    |       0.629 |    0.964 | 0.740 | 0.008 | ✓                |
+| GlotLID      |       0.981 |    0.972 | 0.977 | 0.000 | ✓                |
+| cld2         |       0.986 |    0.933 | 0.958 | 0.000 | ✓                |
+| fasttext     |       0.916 |    0.958 | 0.934 | 0.001 | ✓                |
+| commonlingua |       0.944 |    0.922 | 0.932 | 0.000 | ✓                |
+| funlangid    |       0.890 |    0.785 | 0.830 | 0.001 | ✓                |
+| OpenLID-v2   |       0.757 |    0.963 | 0.825 | 0.004 | ✓                |
+| py3langid    |       0.630 |    0.966 | 0.741 | 0.007 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -58,7 +104,7 @@ Language identification (LangID or LID) is a classification task that identifies
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | CommonLID |  46 |       0.955 |    0.913 | 0.933 |
-| Tatoeba   | 300 |       0.973 |    0.953 | 0.963 |
+| Tatoeba   | 300 |       0.973 |    0.950 | 0.961 |
 | Wikipedia | 300 |       0.984 |    0.997 | 0.990 |
 | NTREX     | 300 |       0.997 |    1.000 | 0.998 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
@@ -71,6 +117,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Bashkir and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Bashkir has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/bak/) video of Bashkir yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Bashkir?
@@ -91,45 +139,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       14 | ███████████          |
 |   2026 |       26 | ████████████████████ |
 
-### Most popular models tagged for Bashkir
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)               | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                    |
-| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)       | 63,267                 | 939                   | 13.0B        |                   58 |   2023 | —                    |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                    |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —                    |
-| [Loom-Labs/Apollo-1-2B](https://huggingface.co/Loom-Labs/Apollo-1-2B)   | 1,129                  | 41                    | 1.7B         |                   90 |   2025 | Qwen/Qwen3-1.7B-Base |
-
-### Most popular models tagged *only* for Bashkir
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/bak_cyrl_5mb](https://huggingface.co/goldfish-models/bak_cyrl_5mb)     |                    455 |                    14 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/bak_latn_5mb](https://huggingface.co/goldfish-models/bak_latn_5mb)     |                    441 |                    21 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/bak_cyrl_full](https://huggingface.co/goldfish-models/bak_cyrl_full)   |                    434 |                    14 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/bak_cyrl_10mb](https://huggingface.co/goldfish-models/bak_cyrl_10mb)   |                    426 |                    23 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/bak_cyrl_100mb](https://huggingface.co/goldfish-models/bak_cyrl_100mb) |                    420 |                    10 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Bashkir
 
-| model                                                                                                                                           | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6) | 694                    |                    69 | 46.7B        |                   19 |   2023 | —               |
-| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)                                                                               | 63,267                 |                   939 | 13.0B        |                   58 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                                         | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
+| model                                                                                                                                           | parameters   |   # languages tagged |   year | derivative of   |
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 856.0B       |                  143 |   2025 | —               |
+| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6) | 46.7B        |                   19 |   2023 | —               |
+| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)                                                                               | 13.0B        |                   59 |   2023 | —               |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                                         | 8.6B         |                  189 |   2023 | —               |
 
 ### Largest models tagged *only* for Bashkir
 
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/Qwen3.5-4B-bak-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-bak-32768)       |                     51 |                     7 | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
-| [alphaedge-ai/gemma-3-4b-it-bak-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-bak-32768) |                     46 |                     7 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-bak](https://huggingface.co/ptrdvn/kakugo-3B-bak)                                 |                     80 |                    15 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/Qwen3.5-2B-bak-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-bak-32768)       |                     50 |                    14 | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
-| [alphaedge-ai/Qwen3-1.7B-bak-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-bak-32768)       |                     47 |                     6 | 1.5B         |                    1 |   2026 | Qwen3-1.7B                    |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/Qwen3.5-4B-bak-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-4B-bak-32768)           | 4.0B         |                    1 |   2026 | Qwen3.5-4B                    |
+| [alphaedge-ai/gemma-3-4b-it-bak-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-bak-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [NikolayKozloff/kakugo-3B-bak-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/kakugo-3B-bak-Q8_0-GGUF) | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/Qwen3.5-2B-bak-32768](https://huggingface.co/alphaedge-ai/Qwen3.5-2B-bak-32768)           | 1.8B         |                    1 |   2026 | Qwen3.5-2B                    |
+| [alphaedge-ai/Qwen3-1.7B-bak-32768](https://huggingface.co/alphaedge-ai/Qwen3-1.7B-bak-32768)           | 1.5B         |                    1 |   2026 | Qwen3-1.7B                    |
 
 _19 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -160,15 +188,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -182,7 +210,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
+| level                    | task                | dataset                                                                              | # test items   | construction                                                     |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
 | Machine translation      | Machine translation | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Community-contributed translation                                |
@@ -217,7 +245,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 19 of ~18,460 papers (0.10%) (rank 116 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 19 of ~18,498 papers (0.10%) (rank 124 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Bashkir
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 19):

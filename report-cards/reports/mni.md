@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `mni`
 
+**Language family:** **Sino-Tibetan** › Kuki-Chin-Naga ([Glottolog](https://glottolog.org/resource/languoid/id/mani1292))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
 **Writing systems:** `Beng`
+
+**Speakers:** about 1.6 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 1.5 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33868#P1098), 2001)
 
 **Official / recognised in:** India
 
 **Status:** Regional official language
+
+
+## What does Manipuri (Meitei) look and sound like?
+
+**Written (Bengali alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/manipuri.htm):
+
+> মিওইবা খুদিংমক পোকপা মতমদা নিংতম্মী, অমদি ইজ্জৎ অমসুং হক মান্ননা লৌজৈ । মখোই পুম্নমক ৱাখল লৌশিং শেঙই, অফ ফত্তা খঙই, অদুনা অমনা অমগা লোইনবদা মচীন মনাওগুম্না লোইনগদবনি ।
+
+**Written (Meitei alphabet)**, sample text from [Omniglot](https://www.omniglot.com/writing/manipuri.htm):
+
+> ꯃꯤꯑꯣꯏꯕ ꯈꯨꯗꯤꯡꯃꯛ ꯄꯣꯛꯄ ꯃꯇꯝꯗ ꯅꯤꯡꯇꯝꯃꯤ, ꯑꯃꯗꯤ ꯏꯖꯖꯠ ꯑꯃꯁꯨꯡ ꯍꯛ ꯃꯥꯟꯅꯅ ꯂꯧꯖꯩ ꯫ ꯃꯈꯣꯏ ꯄꯨꯝꯅꯃꯛ ꯋꯥꯈꯜ ꯂꯧꯁꯤꯡ ꯁꯦꯡꯏ, ꯑꯐ ꯐꯠꯇ ꯈꯪꯏ, ꯑꯗꯨꯅ ꯑꯃꯅ ꯑꯃꯒ ꯂꯣꯏꯅꯕ ꯃꯇꯝꯗ ꯃꯆꯤꯟ ꯃꯅꯥꯎꯒꯨꯝꯅ ꯂꯣꯏꯅꯒꯗꯕꯅꯤ ꯫
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Manipuri (Meitei) yet ([its Wikitongues page](https://wikitongues.org/languages/mni/) says how to contribute one).
 
 
 ## Training Data
@@ -25,18 +46,49 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                      |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 10,531 articles in mni.wikipedia (rank 98 of 161 in the set) — ~1/717 of English; 31 active users                                                                                                                                                           |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                    |
-| FineWeb                | 14.7 MB (mni_Beng (0.01); mni_Latn (0.00); mni_Mtei (0.00)); which is equivalent to ≈6.7 MB English data after byte-premium scaling; 42.8 MB removed by filtering. This is ~1/3,626,982 of English data and ranks 138 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                                            |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 10,531 articles in mni.wikipedia; 31 active users. This is ~1/717 of English data and ranks 102 of 168 languages in the set in Wikipedia.                                                                                                                                                                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                                                                                                                                                                          |
+| FineWeb                | 14.7 MB (mni_Beng 10.0 MB; mni_Latn 0; mni_Mtei 0), equivalent to ≈6.7 MB of English after byte-premium scaling (⚠️ only 98% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 42.8 MB removed by filtering. This is ~1/3,626,982 of English data and ranks 138 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                                      |
+
+**By writing system:**
+
+| Writing system        | FineWeb   | FineWeb, English-equivalent   |
+|:----------------------|:----------|:------------------------------|
+| Bengali (`Beng`)      | 10.0 MB   | — (no byte premium yet)       |
+| Latin (`Latn`)        | 0         | — (no byte premium yet)       |
+| Meitei Mayek (`Mtei`) | 0         | — (no byte premium yet)       |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                      |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                   |
+| UniMorph               | **None found**                                                                                                   |
+| Wikidata labels        | 254,550 Wikidata items have a label in Manipuri (Meitei). (Wikidata codes (labels): mni (254,550))               |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY. |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **5 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid.
+- **5 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid.
 - **Eval datasets (3):** FLORES (n=300), Tatoeba (n=11), Wikipedia (n=300)
 - **Best model:** GlotLID — F1 0.982 (P 1.000, R 0.966, FPR 0.00e+00) averaged over 3 dataset(s). Runner-up: commonlingua (F1 0.852).
 
@@ -48,10 +100,12 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       1.000 |    0.966 | 0.982 | 0.000 | ✓                |
 | commonlingua |       1.000 |    0.759 | 0.852 | 0.000 | ✓                |
-| funlangid    |       0.779 |    0.831 | 0.798 | 0.000 | ✓                |
+| funlangid    |       0.765 |    0.831 | 0.788 | 0.000 | ✓                |
 | fasttext     |       0.333 |    0.176 | 0.230 | 0.000 | ✓                |
 | OpenLID-v2   |       0.329 |    0.176 | 0.229 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -71,6 +125,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Manipuri (Meitei) and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Manipuri (Meitei) has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/mni/) video of Manipuri (Meitei) yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Manipuri (Meitei)?
@@ -90,37 +146,21 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        2 | █                    |
 |   2026 |       59 | ████████████████████ |
 
-### Most popular models tagged for Manipuri (Meitei)
-
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [sarvamai/sarvam-30b](https://huggingface.co/sarvamai/sarvam-30b)                                     | 588,834                | 4,329                 | 32.2B        |                   23 |   2026 | —               |
-| [sarvamai/sarvam-105b](https://huggingface.co/sarvamai/sarvam-105b)                                   | 206,543                | 5,765                 | 106.0B       |                   23 |   2026 | —               |
-| [bharatgenai/Param2-17B-A2.4B-Thinking](https://huggingface.co/bharatgenai/Param2-17B-A2.4B-Thinking) | 166,640                | 9,968                 | 17.2B        |                   22 |   2026 | —               |
-| [aoxo/sarvam-105b-uncensored](https://huggingface.co/aoxo/sarvam-105b-uncensored)                     | 132,751                | 55                    | 55.7B        |                   23 |   2026 | —               |
-| [aoxo/sarvam-30b-uncensored](https://huggingface.co/aoxo/sarvam-30b-uncensored)                       | 97,121                 | 89                    | 32.2B        |                   23 |   2026 | —               |
-
-### Most popular models tagged *only* for Manipuri (Meitei)
-
-| model                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:--------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [nyobemedoc/spellmtei](https://huggingface.co/nyobemedoc/spellmtei) |                    212 |                    12 | 299.6M       |                    1 |   2026 | google/byt5-small |
-
 ### Largest models tagged for Manipuri (Meitei)
 
-| model                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:--------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [RedHatAI/sarvam-105b-FP8-dynamic](https://huggingface.co/RedHatAI/sarvam-105b-FP8-dynamic) | 1,337                  |                   117 | 106.1B       |                   23 |   2026 | sarvamai/sarvam-105b |
-| [anipleades/sarvam-105b](https://huggingface.co/anipleades/sarvam-105b)                     | 64                     |                    13 | 106.0B       |                   23 |   2026 | —                    |
-| [rsparihar1508/sarvam-105b](https://huggingface.co/rsparihar1508/sarvam-105b)               | 79                     |                     8 | 106.0B       |                   23 |   2026 | —                    |
-| [mygitphase/guhan-105b](https://huggingface.co/mygitphase/guhan-105b)                       | 65                     |                     6 | 106.0B       |                   23 |   2026 | —                    |
-| [sarvamai/sarvam-105b-gguf](https://huggingface.co/sarvamai/sarvam-105b-gguf)               | 2,337                  |                   197 | 106.0B       |                   23 |   2026 | —                    |
+| model                                                                                       | parameters   |   # languages tagged |   year | derivative of        |
+|:--------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [RedHatAI/sarvam-105b-FP8-dynamic](https://huggingface.co/RedHatAI/sarvam-105b-FP8-dynamic) | 106.1B       |                   23 |   2026 | sarvamai/sarvam-105b |
+| [DurgaPrasad04/sarvam-105b](https://huggingface.co/DurgaPrasad04/sarvam-105b)               | 106.0B       |                   23 |   2026 | —                    |
+| [anipleades/sarvam-105b](https://huggingface.co/anipleades/sarvam-105b)                     | 106.0B       |                   23 |   2026 | —                    |
+| [chinmaykumar-vyas/sarvam-105b](https://huggingface.co/chinmaykumar-vyas/sarvam-105b)       | 106.0B       |                   23 |   2026 | —                    |
+| [justkapoor/sarvam-105b](https://huggingface.co/justkapoor/sarvam-105b)                     | 106.0B       |                   23 |   2026 | —                    |
 
 ### Largest models tagged *only* for Manipuri (Meitei)
 
-| model                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:--------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [nyobemedoc/spellmtei](https://huggingface.co/nyobemedoc/spellmtei) |                    212 |                    12 | 299.6M       |                    1 |   2026 | google/byt5-small |
+| model                                                               | parameters   |   # languages tagged |   year | derivative of     |
+|:--------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------|
+| [nyobemedoc/spellmtei](https://huggingface.co/nyobemedoc/spellmtei) | 299.6M       |                    1 |   2026 | google/byt5-small |
 
 _3 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -140,7 +180,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**9** benchmark datasets in the survey include Manipuri (Meitei).
+**7** benchmark datasets in the survey include Manipuri (Meitei).
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -151,15 +191,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [3]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -167,23 +207,21 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [5]         \
+ /         ✅ Machine translation [4]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                                             | # test items   | Construction                                                     |
-|:-------------------------|:--------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                           |
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                           |
-| 3. Commonsense reasoning | PIQA                | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                          |
-| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 2,179          | Synthetic (LLM-generated) on native Wikipedia                    |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                       | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                      | —              | Human translation (professional, from English)                   |
-| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 1              | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                    | task                | dataset                                                                                                                 | # test items   | construction                                                     |
+|:-------------------------|:--------------------|:------------------------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
+| 3. Commonsense reasoning | PIQA                | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) (2 varieties/pairs) | 200            | Native                                                           |
+| 3. Commonsense reasoning | PIQA                | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)                            | 103            | MT + human post-editing                                          |
+| 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                                              | 2,179          | Synthetic (LLM-generated) on native Wikipedia                    |
+| Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs)                             | 2,024          | Human translation (professional, from English Wikimedia sources) |
+| Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                                                           | —              | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                                                          | —              | Human translation (professional, from English)                   |
+| Machine translation      | Machine translation | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                                    | 1              | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -211,7 +249,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 53 of ~18,460 papers (0.29%) (rank 80 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 53 of ~18,498 papers (0.29%) (rank 84 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Manipuri (Meitei) | Manipuri | Meitei
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 53):

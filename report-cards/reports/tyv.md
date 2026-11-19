@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tyv`
 
+**Language family:** **Turkic** › Common Turkic › South Siberian Turkic › … › Sayan ([Glottolog](https://glottolog.org/resource/languoid/id/tuvi1240))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: ElCat: At risk (20% certain))
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 183,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 297,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34119#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Tuvan look and sound like?
+
+**Written:** no Omniglot page found for Tuvan.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tyv/) has 1 video of Tuvan speakers. Watch [Aydyn speaking Tuva](https://wikitongues.org/videos/aydyn_20191102_tyv/).
 
 
 ## Training Data
@@ -25,31 +38,54 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 4,126 articles in tyv.wikipedia (rank 118 of 161 in the set) — ~1/1,829 of English; 16 active users                                               |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 31.5 MB (tyv_Cyrl (0.03)); 25.9 MB removed by filtering. This is ~1/1,697,758 of English data and ranks 123 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.14 GB (tyv_cyrl) (rank 113 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 4,126 articles in tyv.wikipedia; 16 active users. This is ~1/1,829 of English data and ranks 122 of 168 languages in the set in Wikipedia.           |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
+| FineWeb                | 31.5 MB (tyv_Cyrl 30.0 MB); 25.9 MB removed by filtering. This is ~1/1,697,758 of English data and ranks 123 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.14 GB (tyv_Cyrl 0.14 GB) (rank 113 of 166 in the set)                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | 5,032 lemmas, 586,180 inflected forms ([unimorph/tyv](https://github.com/unimorph/tyv)) |
+| Wikidata labels        | 159,781 Wikidata items have a label in Tuvan. (Wikidata codes (labels): tyv (159,781))  |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **4 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid, pyfranc.
+- **4 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), Tatoeba (n=88), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.976 (P 0.980, R 0.972, FPR 4.90e-05) averaged over 4 dataset(s). Runner-up: funlangid (F1 0.780).
+- **Best model:** GlotLID — F1 0.976 (P 0.980, R 0.972, FPR 4.82e-05) averaged over 4 dataset(s). Runner-up: funlangid (F1 0.779).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.980 |    0.972 | 0.976 | 0.000 | ✓                |
-| funlangid    |       0.777 |    0.794 | 0.780 | 0.001 | ✓                |
-| pyfranc      |       0.717 |    0.796 | 0.748 | 0.003 | ✓                |
-| commonlingua |       0.632 |    0.870 | 0.705 | 0.004 | ✓                |
+| funlangid    |       0.774 |    0.794 | 0.779 | 0.001 | ✓                |
+| pyfranc      |       0.718 |    0.796 | 0.749 | 0.003 | ✓                |
+| commonlingua |       0.629 |    0.870 | 0.702 | 0.004 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
@@ -70,6 +106,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Tuvan and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Tuvan has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Tuvan?
@@ -90,32 +127,14 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        1 | █████                |
 |   2026 |        1 | █████                |
 
-### Most popular models tagged for Tuvan
-
-| model                                                                           | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                       | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —               |
-| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)               | 63,267                 | 939                   | 13.0B        |                   58 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)         | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —               |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)         | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —               |
-| [ai-forever/mGPT-1.3B-tuvan](https://huggingface.co/ai-forever/mGPT-1.3B-tuvan) | 609                    | 64                    | 1.3B         |                    3 |   2023 | —               |
-
-### Most popular models tagged *only* for Tuvan
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/tyv_cyrl_5mb](https://huggingface.co/goldfish-models/tyv_cyrl_5mb)   |                    393 |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/tyv_cyrl_10mb](https://huggingface.co/goldfish-models/tyv_cyrl_10mb) |                    351 |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/tyv_cyrl_full](https://huggingface.co/goldfish-models/tyv_cyrl_full) |                     72 |                    12 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Tuvan
 
-| model                                                                           | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)               | 63,267                 |                   939 | 13.0B        |                   58 |   2023 | —               |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)         | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —               |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)         | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —               |
-| [ai-forever/mGPT-1.3B-tuvan](https://huggingface.co/ai-forever/mGPT-1.3B-tuvan) | 609                    |                    64 | 1.3B         |                    3 |   2023 | —               |
+| model                                                                           | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [ai-forever/mGPT-13B](https://huggingface.co/ai-forever/mGPT-13B)               | 13.0B        |                   59 |   2023 | —               |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)         | 8.6B         |                  189 |   2023 | —               |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)         | 8.6B         |                  189 |   2023 | —               |
+| [ai-forever/mGPT-1.3B-tuvan](https://huggingface.co/ai-forever/mGPT-1.3B-tuvan) | 1.3B         |                    3 |   2023 | —               |
 
 ### Largest models tagged *only* for Tuvan
 
@@ -150,15 +169,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -172,7 +191,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                        |
+| level                    | task                | dataset                                                                              | # test items   | construction                                                        |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia                       |
 | Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources)    |
@@ -207,7 +226,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 8 of ~18,460 papers (0.04%) (rank 151 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 8 of ~18,498 papers (0.04%) (rank 161 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Tuvan
 
 Here are up to ten papers that were published mentioning this language in 2026:

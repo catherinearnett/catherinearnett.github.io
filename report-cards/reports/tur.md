@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tur`
 
+**Language family:** **Turkic** › Common Turkic › Oghuz › … › West Oghuz ([Glottolog](https://glottolog.org/resource/languoid/id/nucl1301))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 82.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 82.2 million first-language + 5.9 million second-language ([Wikidata](https://www.wikidata.org/wiki/Q256#P1098), 2021)
 
 **Official / recognised in:** Cyprus, Turkey
 
 **Status:** Official language
+
+
+## What does Turkish look and sound like?
+
+**Written (Turkish)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/turkish.htm):
+
+> Bütün insanlar hür, haysiyet ve haklar bakımından eşit doğarlar. Akıl ve vicdana sahiptirler ve birbirlerine karşı kardeşlik zihniyeti ile hareket etmelidirler.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_tr.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tur/) has 5 videos of Turkish speakers. Watch [Recep speaking Turkish](https://wikitongues.org/videos/recep_20150606_tur/).
 
 
 ## Training Data
@@ -25,20 +46,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                      |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 710,117 articles in tr.wikipedia (rank 21 of 161 in the set) — ~1/11 of English; 4,129 active users                                                                                                                         |
-| Common Crawl 2026      | 27,100,157 pages per crawl on average, which is 1.2576% of the crawl. This is ~1/33 of English data and ranks 11 of 113 official languages in Common Crawl.                                                                 |
-| FineWeb                | 134.84 GB (tur_Latn (134.84)); which is equivalent to ≈129.10 GB English data after byte-premium scaling; 147.30 GB removed by filtering. This is ~1/396 of English data and ranks 13 of 248 official languages in FineWeb. |
-| Goldfish training data | 8.97 GB (tur_latn) (rank 19 of 166 in the set)                                                                                                                                                                              |
+| Source                 | Amount                                                                                                                                                                                                              |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 710,117 articles in tr.wikipedia; 4,129 active users. This is ~1/11 of English data and ranks 22 of 168 languages in the set in Wikipedia.                                                                          |
+| Common Crawl           | 27,100,157 pages per crawl on average, which is 1.2576% of the crawl (2026). This is ~1/33 of English data and ranks 11 of 113 languages in the set in Common Crawl.                                                |
+| FineWeb                | 134.84 GB (tur_Latn 134.84 GB), equivalent to ≈129.10 GB of English after byte-premium scaling; 147.30 GB removed by filtering. This is ~1/396 of English data and ranks 13 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 8.97 GB (tur_Latn 8.97 GB) (rank 19 of 166 in the set)                                                                                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 10 treebanks, 82,318 sentences / 729,419 tokens in total: [UD_Turkish-Atis](https://github.com/UniversalDependencies/UD_Turkish-Atis) (5,284 sentences), [UD_Turkish-BOUN](https://github.com/UniversalDependencies/UD_Turkish-BOUN) (9,761 sentences), [UD_Turkish-FrameNet](https://github.com/UniversalDependencies/UD_Turkish-FrameNet) (2,698 sentences), [UD_Turkish-GB](https://github.com/UniversalDependencies/UD_Turkish-GB) (2,880 sentences), [UD_Turkish-IMST](https://github.com/UniversalDependencies/UD_Turkish-IMST) (5,635 sentences), [UD_Turkish-Kenet](https://github.com/UniversalDependencies/UD_Turkish-Kenet) (18,687 sentences), [UD_Turkish-PUD](https://github.com/UniversalDependencies/UD_Turkish-PUD) (1,000 sentences), [UD_Turkish-Penn](https://github.com/UniversalDependencies/UD_Turkish-Penn) (16,395 sentences), [UD_Turkish-Tourism](https://github.com/UniversalDependencies/UD_Turkish-Tourism) (19,830 sentences), [UD_Turkish-TueCL](https://github.com/UniversalDependencies/UD_Turkish-TueCL) (148 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 3,579 lemmas, 570,420 inflected forms ([unimorph/tur](https://github.com/unimorph/tur))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Wikidata labels        | 4,260,794 Wikidata items have a label in Turkish. (Wikidata codes (labels): tr (4,260,794))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Wordnets               | [BalkaNet](http://www.dblab.upatras.gr/balkanet/) (size not listed).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                             |
+|:-----------------------------------|:----------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                 |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([turev](https://ebible.org/details.php?id=turev)). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._              |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=300), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.912 (P 0.856, R 0.996, FPR 1.16e-03) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.832).
+- **Best model:** GlotLID — F1 0.913 (P 0.857, R 0.996, FPR 1.13e-03) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.832).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,21 +88,23 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.856 |    0.996 | 0.912 | 0.001 | ✓                |
-| OpenLID-v2   |       0.761 |    0.988 | 0.832 | 0.004 | ✓                |
-| py3langid    |       0.746 |    0.987 | 0.826 | 0.005 | ✓                |
-| commonlingua |       0.744 |    0.910 | 0.812 | 0.004 | ✓                |
-| fasttext     |       0.693 |    0.992 | 0.780 | 0.006 | ✓                |
+| GlotLID      |       0.857 |    0.996 | 0.913 | 0.001 | ✓                |
+| OpenLID-v2   |       0.762 |    0.988 | 0.832 | 0.004 | ✓                |
+| py3langid    |       0.747 |    0.987 | 0.827 | 0.005 | ✓                |
+| commonlingua |       0.744 |    0.910 | 0.811 | 0.004 | ✓                |
+| fasttext     |       0.691 |    0.992 | 0.778 | 0.006 | ✓                |
 | cld2         |       0.641 |    0.968 | 0.750 | 0.007 | ✓                |
-| pyfranc      |       0.810 |    0.676 | 0.725 | 0.002 | ✓                |
-| funlangid    |       0.695 |    0.649 | 0.660 | 0.003 | ✓                |
+| pyfranc      |       0.812 |    0.676 | 0.726 | 0.002 | ✓                |
+| funlangid    |       0.697 |    0.649 | 0.660 | 0.003 | ✓                |
+| cld3         |       0.406 |    0.964 | 0.553 | 0.021 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | UDHR-LID  |  59 |       0.573 |    1.000 | 0.728 |
-| Tatoeba   | 300 |       0.733 |    1.000 | 0.846 |
+| Tatoeba   | 300 |       0.739 |    1.000 | 0.850 |
 | Wikipedia | 300 |       0.875 |    1.000 | 0.933 |
 | CommonLID | 300 |       0.961 |    0.977 | 0.969 |
 | NTREX     | 300 |       0.997 |    1.000 | 0.998 |
@@ -94,45 +138,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      673 | ████████████         |
 |   2026 |     1123 | ████████████████████ |
 
-### Most popular models tagged for Turkish
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct)             | 9,633,401              | 331,860               | 3.8B         |                   23 |   2025 | —                                      |
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [facebook/xglm-564M](https://huggingface.co/facebook/xglm-564M)                                   | 1,709,301              | 8,655                 | 564.0M       |                   30 |   2022 | —                                      |
-| [CohereLabs/aya-expanse-8b](https://huggingface.co/CohereLabs/aya-expanse-8b)                     | 1,136,081              | 22,682                | 8.0B         |                   23 |   2024 | —                                      |
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct) | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B             |
-
-### Most popular models tagged *only* for Turkish
-
-| model                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of              |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------------|
-| [ytu-ce-cosmos/turkish-gpt2-large](https://huggingface.co/ytu-ce-cosmos/turkish-gpt2-large)               | 109,779                |                   714 | 774.0M       |                    1 |   2024 | —                          |
-| [asafaya/kanarya-2b](https://huggingface.co/asafaya/kanarya-2b)                                           | 84,133                 |                   879 | 2.1B         |                    1 |   2024 | —                          |
-| [aerdincdal/CBDDO-LLM-8B-Instruct-v1](https://huggingface.co/aerdincdal/CBDDO-LLM-8B-Instruct-v1)         | 73,441                 |                    23 | 8.0B         |                    1 |   2024 | —                          |
-| [WiroAI/wiroai-turkish-llm-9b](https://huggingface.co/WiroAI/wiroai-turkish-llm-9b)                       | 71,032                 |                    41 | 9.2B         |                    1 |   2024 | google/gemma-2-9b          |
-| [ytu-ce-cosmos/Turkish-Llama-8b-DPO-v0.1](https://huggingface.co/ytu-ce-cosmos/Turkish-Llama-8b-DPO-v0.1) | 70,825                 |                   545 | 8.0B         |                    1 |   2024 | meta-llama/Meta-Llama-3-8B |
-
 ### Largest models tagged for Turkish
 
-| model                                                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                   | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                       | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF)     | 604                    | 604                   | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
-| [diablomike20/command-a-plus-05-2026-GGUF](https://huggingface.co/diablomike20/command-a-plus-05-2026-GGUF) | 2,352                  | 2,352                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
-| [olka-fi/Mistral-Medium-3.5-128B-MXFP4](https://huggingface.co/olka-fi/Mistral-Medium-3.5-128B-MXFP4)       | 1,950                  | 34                    | 127.7B       |                   24 |   2026 | mistralai/Mistral-Medium-3.5-128B      |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                          |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                               | 1.9T         |                  143 |   2025 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                   | 856.0B       |                  143 |   2025 | —                                      |
+| [AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF](https://huggingface.co/AMAImedia/Ling-3.1-Flash-1019-FP8-GGUF) | 572.1B       |                   30 |   2026 | inclusionAI/Ling-3.1-flash-1019        |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF)   | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| [olka-fi/Mistral-Medium-3.5-128B-MXFP4](https://huggingface.co/olka-fi/Mistral-Medium-3.5-128B-MXFP4)   | 127.7B       |                   24 |   2026 | mistralai/Mistral-Medium-3.5-128B      |
 
 ### Largest models tagged *only* for Turkish
 
-| model                                                                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                            |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------------|
-| [malhajar/Mixtral-8x7B-v0.1-turkish](https://huggingface.co/malhajar/Mixtral-8x7B-v0.1-turkish)                                                   | 668                    |                    17 | 46.7B        |                    1 |   2023 | —                                        |
-| [AlicanKiraz0/Titus-CybersecurityLLM-v1.0-Q4_K_M-No-MTP-GGUF](https://huggingface.co/AlicanKiraz0/Titus-CybersecurityLLM-v1.0-Q4_K_M-No-MTP-GGUF) | 6,912                  |                   380 | 34.7B        |                    1 |   2026 | AlicanKiraz0/Titus-CybersecurityLLM-v1.0 |
-| [ecloudtech/Erk-32B](https://huggingface.co/ecloudtech/Erk-32B)                                                                                   | 2,725                  |                   406 | 32.8B        |                    1 |   2026 | Qwen/Qwen3-32B                           |
-| [Creamory/qwen3-32b-turkish-headlines-merged](https://huggingface.co/Creamory/qwen3-32b-turkish-headlines-merged)                                 | 442                    |                    21 | 32.8B        |                    1 |   2026 | unsloth/qwen3-32b-bnb-4bit               |
-| [barandinho/aya-expanse-32b-turkish-reasoning-sft-ckpt5](https://huggingface.co/barandinho/aya-expanse-32b-turkish-reasoning-sft-ckpt5)           | 272                    |                     8 | 32.3B        |                    1 |   2025 | —                                        |
+| model                                                                                                                                             | parameters   |   # languages tagged |   year | derivative of                            |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------------------------|
+| [malhajar/Mixtral-8x7B-v0.1-turkish](https://huggingface.co/malhajar/Mixtral-8x7B-v0.1-turkish)                                                   | 46.7B        |                    1 |   2023 | —                                        |
+| [AlicanKiraz0/Titus-CybersecurityLLM-v1.0-Q4_K_M-No-MTP-GGUF](https://huggingface.co/AlicanKiraz0/Titus-CybersecurityLLM-v1.0-Q4_K_M-No-MTP-GGUF) | 34.7B        |                    1 |   2026 | AlicanKiraz0/Titus-CybersecurityLLM-v1.0 |
+| [Creamory/qwen3-32b-turkish-headlines-merged](https://huggingface.co/Creamory/qwen3-32b-turkish-headlines-merged)                                 | 32.8B        |                    1 |   2026 | unsloth/qwen3-32b-bnb-4bit               |
+| [ecloudtech/Erk-32B](https://huggingface.co/ecloudtech/Erk-32B)                                                                                   | 32.8B        |                    1 |   2026 | Qwen/Qwen3-32B                           |
+| [barandinho/aya-expanse-32b-turkish-reasoning-sft-ckpt5](https://huggingface.co/barandinho/aya-expanse-32b-turkish-reasoning-sft-ckpt5)           | 32.3B        |                    1 |   2025 | —                                        |
 
 _298 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -152,7 +176,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**33** benchmark datasets in the survey include Turkish.
+**31** benchmark datasets in the survey include Turkish.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -163,21 +187,21 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [9]     \
+                 /   [8]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [7]        \
+         /      reasoning [7]       \
         /______________________________\
        /               |                \
       /                |                 \
      /                 |                  \
     / ✅ 1. Linguistic | ✅ 2. Pragmatics  \
-   /   knowledge [5]   |  & discourse [5]   \
+   /   knowledge [4]   |  & discourse [5]   \
   /____________________|_____________________\
  /         ✅ Machine translation [5]         \
 /______________________________________________\
@@ -185,10 +209,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                                | dataset                                                                                                           | # test items   | Construction                                                     |
+| level                                  | task                                | dataset                                                                                                           | # test items   | construction                                                     |
 |:---------------------------------------|:------------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge                | BLiMP                               | [ACS](https://github.com/igorsterner/acs)                                                                         | 553            | Corpus-extracted + automatic manipulation                        |
-| 1. Linguistic knowledge                | BLiMP                               | [ACS](https://github.com/igorsterner/acs)                                                                         | 216            | Corpus-extracted + automatic manipulation                        |
+| 1. Linguistic knowledge                | BLiMP                               | [ACS](https://github.com/igorsterner/acs) (2 varieties/pairs)                                                     | 769            | Corpus-extracted + automatic manipulation                        |
 | 1. Linguistic knowledge                | BLiMP                               | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                                         | 813            | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge                | BLiMP                               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                              | 1,742          | Treebank-based (automatic, UD + UniMorph)                        |
 | 1. Linguistic knowledge                | BLiMP                               | [TurBLiMP](https://github.com/ezgibasar/turblimp)                                                                 | 16,000         | Template-based                                                   |
@@ -211,7 +234,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ             | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                   | —              | Native (local exams)                                             |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ             | [TUMLU](https://github.com/ceferisbarov/TUMLU)                                                                    | 700            | Native (school/entrance exams)                                   |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ             | [TurkishMMLU](https://github.com/ArdaYueksel/TurkishMMLU)                                                         | —              | Native (expert-written)                                          |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                            | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                            | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [MKQA](https://github.com/apple/ml-mkqa)                                                                          | 10,000         | Human translation                                                |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book      | [MultiLoKo](https://huggingface.co/datasets/facebook/multiloko)                                                   | 250            | Native (locally sourced)                                         |
@@ -245,22 +267,22 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 537 of ~18,460 papers (2.91%) (rank 13 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 540 of ~18,498 papers (2.92%) (rank 13 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Turkish
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 537):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 540):
 
-| title                                                                                                                  | paper                                                                          |
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| On the Design Fundamentals of Pixel Text Representation Learning                                                       | [2026.emnlp-main.2412](https://aclanthology.org/2026.emnlp-main.2412/)         |
-| DOA: Training-Free Decoder-Only Attention Policy for Long-Form Simultaneous Translation with SpeechLLMs                | [2026.emnlp-main.323](https://aclanthology.org/2026.emnlp-main.323/)           |
-| What Do Neural Speech Models Know About Phonology? Evidence from Structured Phoneme Confusions                         | [2026.findings-acl.1288](https://aclanthology.org/2026.findings-acl.1288/)     |
-| MorphBPE: Morphology-Aware Tokenization for Efficient LLM Training                                                     | [2026.findings-acl.2068](https://aclanthology.org/2026.findings-acl.2068/)     |
-| Improving Language Identification for Code-Switched Utterances with Integer Linear Programming                         | [2026.findings-emnlp.1429](https://aclanthology.org/2026.findings-emnlp.1429/) |
-| AssamLegalTrans: A Parallel Corpus, Benchmark and Analysis for English-Assamese Machine Translation of Legal Judgments | [2026.lrec-1.386](https://aclanthology.org/2026.lrec-1.386/)                   |
-| Quantifying mutual intelligibility gradients in Turkic languages using language models                                 | [2026.scil-main.41](https://aclanthology.org/2026.scil-main.41/)               |
-| TUNE: A Task For Turkish Machine Unlearning For Data Privacy                                                           | [2026.sigturk-1.3](https://aclanthology.org/2026.sigturk-1.3/)                 |
-| CorefInst: Leveraging LLMs for Multilingual Coreference Resolution                                                     | [2026.tacl-1.4](https://aclanthology.org/2026.tacl-1.4/)                       |
-| Second Workshop on Sign Language Processing (WSLP-2026)                                                                | [2026.wslp-1.1](https://aclanthology.org/2026.wslp-1.1/)                       |
+| title                                                                                                                         | paper                                                                          |
+|:------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Private-Use Area Characters in the Wild: Signal or Noise?                                                                     | [2026.cawl-1.2](https://aclanthology.org/2026.cawl-1.2/)                       |
+| When Does Hate Transfer? A Large-Scale Study of Cross-Lingual Hate Speech Detection                                           | [2026.emnlp-main.1491](https://aclanthology.org/2026.emnlp-main.1491/)         |
+| BioELX: Context-Aware Cross-lingual Biomedical Entity Linking without Task-Specific Supervision                               | [2026.findings-emnlp.1109](https://aclanthology.org/2026.findings-emnlp.1109/) |
+| Morphological Analysis and Disambiguation of Agglutinative Assamese through Rule-Based Synthesis and Neural Candidate Ranking | [2026.findings-emnlp.2118](https://aclanthology.org/2026.findings-emnlp.2118/) |
+| M4FC: a Multimodal, Multilingual, Multicultural, Multitask Real-World Fact-Checking Dataset                                   | [2026.findings-emnlp.42](https://aclanthology.org/2026.findings-emnlp.42/)     |
+| Diversity patterns run deep: Impact of diversity intake on multiword expression identification                                | [2026.mwe-1.13](https://aclanthology.org/2026.mwe-1.13/)                       |
+| ITUNLP at MWE-2026 AdMIRe 2: A Zero-Shot LLM Pipeline for Multimodal Idiom Understanding and Ranking                          | [2026.mwe-1.30](https://aclanthology.org/2026.mwe-1.30/)                       |
+| Tralaleros at SemEval-2026 Task 9: Multilingual Polarization Detection with Transformer-based Models                          | [2026.semeval-1.51](https://aclanthology.org/2026.semeval-1.51/)               |
+| SupraTok: Cross-Boundary Tokenization for Enhanced Language Model Performance                                                 | [2026.tacl-1.80](https://aclanthology.org/2026.tacl-1.80/)                     |
+| Multilingual Steering by Design: Multilingual Sparse Autoencoders and Principled Layer Selection                              | [2026.trustnlp-main.24](https://aclanthology.org/2026.trustnlp-main.24/)       |
 
 {% endraw %}

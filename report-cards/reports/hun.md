@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `hun`
 
+**Language family:** **Uralic** › Hungaric ([Glottolog](https://glottolog.org/resource/languoid/id/hung1274))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 12.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 12.6 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q9067#P1098), 2019)
 
 **Official / recognised in:** Austria, Hungary
 
-**Status:** Official language; Regional official language
+**Status:** Regional official language; Official language
+
+
+## What does Hungarian look and sound like?
+
+**Written (Hungarian)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/hungarian.htm):
+
+> Minden emberi lény szabadon születik és egyenlő méltósága és joga van. Az emberek, ésszel és lelkiismerettel bírván, egymással szemben testvéri szellemben kell hogy viseltessenek.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_hu.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/hun/) has 6 videos of Hungarian speakers. Watch [Norbert speaking Hungarian](https://wikitongues.org/videos/norbert_20180402_hun/).
 
 
 ## Training Data
@@ -25,20 +46,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 576,011 articles in hu.wikipedia (rank 26 of 161 in the set) — ~1/13 of English; 2,885 active users                                                                                                                     |
-| Common Crawl 2026      | 11,363,660 pages per crawl on average, which is 0.5273% of the crawl. This is ~1/78 of English data and ranks 20 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 98.57 GB (hun_Latn (98.57)); which is equivalent to ≈96.64 GB English data after byte-premium scaling; 89.43 GB removed by filtering. This is ~1/542 of English data and ranks 18 of 248 official languages in FineWeb. |
-| Goldfish training data | 7.36 GB (hun_latn) (rank 31 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 576,011 articles in hu.wikipedia; 2,885 active users. This is ~1/13 of English data and ranks 27 of 168 languages in the set in Wikipedia.                                                                      |
+| Common Crawl           | 11,363,660 pages per crawl on average, which is 0.5273% of the crawl (2026). This is ~1/78 of English data and ranks 20 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 98.57 GB (hun_Latn 98.57 GB), equivalent to ≈96.64 GB of English after byte-premium scaling; 89.43 GB removed by filtering. This is ~1/542 of English data and ranks 18 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 7.36 GB (hun_Latn 7.36 GB) (rank 31 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                         |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 1,800 sentences / 42,032 tokens in total: [UD_Hungarian-Szeged](https://github.com/UniversalDependencies/UD_Hungarian-Szeged) (1,800 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 19,424 lemmas, 1,036,931 inflected forms ([unimorph/hun](https://github.com/unimorph/hun))                                                                                                                                          |
+| Wikidata labels        | 2,650,298 Wikidata items have a label in Hungarian. (Wikidata codes (labels): hu (2,650,298))                                                                                                                                       |
+| Wordnets               | [Hungarian WordNet (HuWN)](http://www.inf.u-szeged.hu/rgai/HuWN) (size not listed); licence: OPEN FOR ACADEMIC USE MetaShare Commons NonCommercial-NoRedistribution (MSCommons_NoCOM-NC-NR).                                        |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                       |
+|:-----------------------------------|:--------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                           |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: New Testament ([hun](https://ebible.org/details.php?id=hun), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                        |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.992 (P 0.985, R 0.999, FPR 9.98e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.982).
+- **Best model:** GlotLID — F1 0.992 (P 0.985, R 0.999, FPR 9.84e-05) averaged over 5 dataset(s). Runner-up: cld2 (F1 0.982).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -49,11 +91,13 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.985 |    0.999 | 0.992 | 0.000 | ✓                |
 | cld2         |       0.988 |    0.977 | 0.982 | 0.000 | ✓                |
 | pyfranc      |       0.984 |    0.877 | 0.924 | 0.000 | ✓                |
-| py3langid    |       0.870 |    0.996 | 0.920 | 0.002 | ✓                |
+| py3langid    |       0.869 |    0.996 | 0.919 | 0.002 | ✓                |
 | funlangid    |       0.961 |    0.872 | 0.911 | 0.000 | ✓                |
-| commonlingua |       0.866 |    0.946 | 0.897 | 0.001 | ✓                |
+| commonlingua |       0.865 |    0.946 | 0.896 | 0.001 | ✓                |
 | OpenLID-v2   |       0.749 |    0.998 | 0.834 | 0.004 | ✓                |
-| fasttext     |       0.614 |    0.998 | 0.715 | 0.009 | ✓                |
+| fasttext     |       0.613 |    0.998 | 0.715 | 0.009 | ✓                |
+| cld3         |       0.576 |    0.977 | 0.689 | 0.015 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -93,45 +137,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      249 | ████████████████     |
 |   2026 |      312 | ████████████████████ |
 
-### Most popular models tagged for Hungarian
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct)             | 9,633,401              | 331,860               | 3.8B         |                   23 |   2025 | —                                      |
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct) | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B             |
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                         | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                                      |
-| [BSC-LT/salamandra-7b-instruct](https://huggingface.co/BSC-LT/salamandra-7b-instruct)             | 713,529                | 36,481                | 7.8B         |                   33 |   2024 | BSC-LT/salamandra-7b                   |
-
-### Most popular models tagged *only* for Hungarian
-
-| model                                                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of              |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------|
-| [NYTK/PULI-GPT-2](https://huggingface.co/NYTK/PULI-GPT-2)                                                                             | 22,332                 | 566                   | unknown      |                    1 |   2023 | —                          |
-| [NYTK/text-generation-news-gpt2-small-hungarian](https://huggingface.co/NYTK/text-generation-news-gpt2-small-hungarian)               | 18,787                 | 1,033                 | unknown      |                    1 |   2022 | —                          |
-| [NYTK/PULI-GPT-3SX](https://huggingface.co/NYTK/PULI-GPT-3SX)                                                                         | 14,820                 | 147                   | 6.9B         |                    1 |   2022 | —                          |
-| [NYTK/text-generation-poem-petofi-gpt2-small-hungarian](https://huggingface.co/NYTK/text-generation-poem-petofi-gpt2-small-hungarian) | 7,796                  | 284                   | unknown      |                    1 |   2022 | —                          |
-| [NYTK/PULI-HuBA-mamba-130M](https://huggingface.co/NYTK/PULI-HuBA-mamba-130M)                                                         | 4,090                  | 113                   | 130.0M       |                    1 |   2025 | state-spaces/mamba-130m-hf |
-
 ### Largest models tagged for Hungarian
 
-| model                                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                 | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                     | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [mindlab-research/Macaron-V1-Preview-744B-Merged](https://huggingface.co/mindlab-research/Macaron-V1-Preview-744B-Merged) | 610                    |                   248 | 753.9B       |                    4 |   2026 | zai-org/GLM-5.1 |
-| [mindlab-research/Macaron-V1-Venti](https://huggingface.co/mindlab-research/Macaron-V1-Venti)                             | 1,630                  |                   212 | 753.3B       |                    4 |   2026 | —               |
-| [mindlab-research/Macaron-V1-Coding-Venti](https://huggingface.co/mindlab-research/Macaron-V1-Coding-Venti)               | 1,610                  |                   241 | 753.3B       |                    4 |   2026 | —               |
+| model                                                                                                                     | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                 | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                     | 856.0B       |                  143 |   2025 | —               |
+| [mindlab-research/Macaron-V1-Preview-744B-Merged](https://huggingface.co/mindlab-research/Macaron-V1-Preview-744B-Merged) | 753.9B       |                    4 |   2026 | zai-org/GLM-5.1 |
+| [mindlab-research/Macaron-V1-Coding-Venti](https://huggingface.co/mindlab-research/Macaron-V1-Coding-Venti)               | 753.3B       |                    4 |   2026 | —               |
+| [mindlab-research/Macaron-V1-Venti](https://huggingface.co/mindlab-research/Macaron-V1-Venti)                             | 753.3B       |                    4 |   2026 | —               |
 
 ### Largest models tagged *only* for Hungarian
 
-| model                                                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                  |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------------------|
-| [emese-tech/folyo-mlx](https://huggingface.co/emese-tech/folyo-mlx)                                                   | 170                    |                    11 | 22.6B        |                    1 |   2026 | utter-project/EuroLLM-22B-2512 |
-| [emese-tech/patak-gguf](https://huggingface.co/emese-tech/patak-gguf)                                                 | 108                    |                    17 | 9.2B         |                    1 |   2026 | utter-project/EuroLLM-9B       |
-| [seyuyo/diktalo-e4b-GGUF](https://huggingface.co/seyuyo/diktalo-e4b-GGUF)                                             | 203                    |                    40 | 7.5B         |                    1 |   2026 | unsloth/gemma-4-E4B-it         |
-| [Bazsalanszky/Mistral-7b-0.1-alpaca-hun-gemini](https://huggingface.co/Bazsalanszky/Mistral-7b-0.1-alpaca-hun-gemini) | 3,140                  |                    86 | 7.2B         |                    1 |   2024 | unsloth/mistral-7b-bnb-4bit    |
-| [boapps/szurkemarha-mistral](https://huggingface.co/boapps/szurkemarha-mistral)                                       | 373                    |                     7 | 7.2B         |                    1 |   2024 | —                              |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                  |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------------|
+| [emese-tech/folyo](https://huggingface.co/emese-tech/folyo)                                                           | 22.6B        |                    1 |   2026 | utter-project/EuroLLM-22B-2512 |
+| [emese-tech/patak](https://huggingface.co/emese-tech/patak)                                                           | 9.2B         |                    1 |   2026 | utter-project/EuroLLM-9B       |
+| [seyuyo/diktalo-e4b-GGUF](https://huggingface.co/seyuyo/diktalo-e4b-GGUF)                                             | 7.5B         |                    1 |   2026 | unsloth/gemma-4-E4B-it         |
+| [boapps/szurkemarha-mistral](https://huggingface.co/boapps/szurkemarha-mistral)                                       | 7.2B         |                    1 |   2024 | —                              |
+| [Bazsalanszky/Mistral-7b-0.1-alpaca-hun-gemini](https://huggingface.co/Bazsalanszky/Mistral-7b-0.1-alpaca-hun-gemini) | 7.2B         |                    1 |   2024 | unsloth/mistral-7b-bnb-4bit    |
 
 _97 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -151,7 +175,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**28** benchmark datasets in the survey include Hungarian.
+**27** benchmark datasets in the survey include Hungarian.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -162,15 +186,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [10]    \
+                 /   [9]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -184,7 +208,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                             | # test items   | Construction                                                     |
+| level                                  | task                           | dataset                                                                                             | # test items   | construction                                                     |
 |:---------------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                           | 13             | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 845            | Treebank-based (automatic, UD + UniMorph)                        |
@@ -206,7 +230,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                     | —              | Native (local exams)                                             |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [MMLU-ProX](https://huggingface.co/datasets/li-lab/MMLU-ProX)                                       | 11,829         | LLM translation + expert review                                  |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [m_MMLU (Okapi / alexandrainst)](https://huggingface.co/datasets/alexandrainst/m_mmlu)              | —              | Machine translation (GPT-3.5, Okapi)                             |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)              | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [MKQA](https://github.com/apple/ml-mkqa)                                                            | 10,000         | Human translation                                                |
 | Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
@@ -239,7 +262,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 296 of ~18,460 papers (1.60%) (rank 25 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 296 of ~18,498 papers (1.60%) (rank 25 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Hungarian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 296):

@@ -12,9 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tay`
 
+**Language family:** **Austronesian** › Atayalic ([Glottolog](https://glottolog.org/resource/languoid/id/atay1247))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: ElCat: Vulnerable)
+
+**Speakers:** 80,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q715766#P1098))
+
 **Official / recognised in:** Taiwan
 
 **Status:** National language
+
+
+## What does Atayal look and sound like?
+
+**Written**, sample text from [Omniglot](https://www.omniglot.com/writing/atayal.htm):
+
+> Smoya' saku' musa' pqwasan biru'. Musa' saku' mqbaq matas biru', mqbaq biru', mqwas qwas ru mzyugi'. Mqas saku krryax. Blaq balay ktan qu pintasan maku'. Baq saku' balay biru' uzi. Soyan saku' nya' sinsi maku'. Maki' ngasal ga, soyan mung na yaba', yaya', qbsuyan mlikuy, sswe' kneril, qu qwas maku' ru mita' zyugi' maku'.
+
+*Translation:* I like to go to school and learn to draw, read, sing and dance. I am very happy every day. The picture I drew was very beautiful. I also read books very much, and the teacher likes me very much. At home, my father, mother, brother, and sister all like to listen to me singing and watching me dance. Sample text provided by Michael Peter Füstumum. Source: 賽考利克泰雅語
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tay/) has 1 video of Atayal speakers. Watch [Yutas and Maray speaking Atayal](https://wikitongues.org/videos/yutas-maray_20220823_tay/).
 
 
 ## Training Data
@@ -23,20 +42,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 2,587 articles in tay.wikipedia (rank 132 of 161 in the set) — ~1/2,917 of English; 29 active users                                               |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 0.6 MB (tay_Latn (0.00)); 0.27 GB removed by filtering. This is ~1/85,510,641 of English data and ranks 204 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                      |
+| Source                 | Amount                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 2,587 articles in tay.wikipedia; 29 active users. This is ~1/2,917 of English data and ranks 136 of 168 languages in the set in Wikipedia.     |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                       |
+| FineWeb                | 0.6 MB (tay_Latn 0); 0.27 GB removed by filtering. This is ~1/85,510,641 of English data and ranks 204 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                   |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                             |
+|:-----------------------|:----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                          |
+| UniMorph               | **None found**                                                                          |
+| Wikidata labels        | 157,916 Wikidata items have a label in Atayal. (Wikidata codes (labels): tay (157,916)) |
+| Wordnets               | **None found**                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **2 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua.
 - **Eval datasets (1):** Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.973 (P 1.000, R 0.947, FPR 0.00e+00) averaged over 1 dataset(s). Runner-up: commonlingua (F1 0.958).
+- **Best model:** GlotLID — F1 0.973 (P 1.000, R 0.947, FPR 0.00e+00) averaged over 1 dataset(s). Runner-up: commonlingua (F1 0.955).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
@@ -46,9 +86,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       1.000 |    0.947 | 0.973 | 0.000 | ✓                |
-| commonlingua |       0.960 |    0.957 | 0.958 | 0.000 | ✓                |
+| commonlingua |       0.953 |    0.957 | 0.955 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -63,6 +105,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Atayal and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Atayal has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Atayal?
@@ -78,16 +121,6 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   year |   models |                      |
 |-------:|---------:|:---------------------|
 |   2026 |        1 | ████████████████████ |
-
-### Most popular models tagged for Atayal
-
-| model                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [wikilangs/tay](https://huggingface.co/wikilangs/tay) |                      0 |                     0 | unknown      |                    2 |   2026 | —               |
-
-### Most popular models tagged *only* for Atayal
-
-_none_
 
 ### Largest models tagged for Atayal
 
@@ -126,15 +159,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -148,9 +181,9 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task               | dataset                                                                    | # test items   | Construction                                  |
-|:-------------------------|:-------------------|:---------------------------------------------------------------------------|:---------------|:----------------------------------------------|
-| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) | 3,049          | Synthetic (LLM-generated) on native Wikipedia |
+| level                    | task               | dataset                                                                    |   # test items | construction                                  |
+|:-------------------------|:-------------------|:---------------------------------------------------------------------------|---------------:|:----------------------------------------------|
+| 4. Reading comprehension | QA – extractive RC | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa) |          3,049 | Synthetic (LLM-generated) on native Wikipedia |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -179,7 +212,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 6 of ~18,460 papers (0.03%) (rank 166 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 6 of ~18,498 papers (0.03%) (rank 180 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Atayal
 
 Here are up to ten papers that were published mentioning this language in 2026:

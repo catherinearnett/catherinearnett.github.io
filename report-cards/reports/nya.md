@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `nya`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Nyanjaic ([Glottolog](https://glottolog.org/resource/languoid/id/nyan1308))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 18.9 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 12.0 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33273#P1098), 2007)
 
 **Official / recognised in:** Zimbabwe
 
 **Status:** Official language
+
+
+## What does Chewa look and sound like?
+
+**Written:** no Omniglot page found for Chewa.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/nya/) has 3 videos of Chewa speakers. Watch [Chabota speaking Simplified Nyanja](https://wikitongues.org/videos/chabota_20180728_nya/).
 
 
 ## Training Data
@@ -25,39 +38,62 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                  |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,161 articles in ny.wikipedia (rank 146 of 161 in the set) — ~1/6,500 of English; 14 active users                                                                                                                      |
-| Common Crawl 2026      | 17,025 pages per crawl on average, which is 0.0008% of the crawl. This is ~1/52,365 of English data and ranks 92 of 113 official languages in Common Crawl.                                                             |
-| FineWeb                | 0.17 GB (nya_Latn (0.17)); which is equivalent to ≈0.14 GB English data after byte-premium scaling; 0.26 GB removed by filtering. This is ~1/315,828 of English data and ranks 99 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.58 GB (nya_latn) (rank 87 of 166 in the set)                                                                                                                                                                          |
+| Source                 | Amount                                                                                                                                                                                                          |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,161 articles in ny.wikipedia; 14 active users. This is ~1/6,500 of English data and ranks 153 of 168 languages in the set in Wikipedia.                                                                       |
+| Common Crawl           | 17,025 pages per crawl on average, which is 0.0008% of the crawl (2026). This is ~1/52,365 of English data and ranks 92 of 113 languages in the set in Common Crawl.                                            |
+| FineWeb                | 0.17 GB (nya_Latn 0.17 GB), equivalent to ≈0.14 GB of English after byte-premium scaling; 0.26 GB removed by filtering. This is ~1/315,828 of English data and ranks 99 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.58 GB (nya_Latn 0.58 GB) (rank 87 of 166 in the set)                                                                                                                                                          |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                           |
+|:-----------------------|:--------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                        |
+| UniMorph               | 227 lemmas, 4,370 inflected forms ([unimorph/nya](https://github.com/unimorph/nya))   |
+| Wikidata labels        | 476,929 Wikidata items have a label in Chewa. (Wikidata codes (labels): ny (476,929)) |
+| Wordnets               | **None found**                                                                        |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                    |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                        |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([nya](https://ebible.org/details.php?id=nya), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                     |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=42), UDHR-LID (n=116), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.955 (P 0.952, R 0.958, FPR 8.37e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.910).
+- **Best model:** GlotLID — F1 0.957 (P 0.955, R 0.958, FPR 7.69e-05) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.908).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.952 |    0.958 | 0.955 | 0.000 | ✓                |
-| OpenLID-v2   |       0.857 |    0.979 | 0.910 | 0.002 | ✓                |
+| GlotLID      |       0.955 |    0.958 | 0.957 | 0.000 | ✓                |
+| OpenLID-v2   |       0.855 |    0.979 | 0.908 | 0.002 | ✓                |
 | cld2         |       0.876 |    0.930 | 0.898 | 0.002 | ✓                |
 | fasttext     |       0.878 |    0.860 | 0.862 | 0.001 | ✓                |
-| funlangid    |       0.864 |    0.758 | 0.805 | 0.001 | ✓                |
-| pyfranc      |       0.854 |    0.748 | 0.794 | 0.001 | ✓                |
-| commonlingua |       0.721 |    0.782 | 0.736 | 0.003 | ✓                |
+| AfroLID      |       0.973 |    0.764 | 0.846 | 0.000 | ✓                |
+| funlangid    |       0.864 |    0.758 | 0.805 | 0.000 | ✓                |
+| pyfranc      |       0.852 |    0.748 | 0.793 | 0.001 | ✓                |
+| commonlingua |       0.716 |    0.782 | 0.734 | 0.003 | ✓                |
+| cld3         |       0.405 |    0.958 | 0.544 | 0.032 | ✓                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   |  42 |       0.733 |    0.786 | 0.759 |
+| Tatoeba   |  42 |       0.750 |    0.786 | 0.767 |
 | Wikipedia | 300 |       0.993 |    0.967 | 0.980 |
 | UDHR-LID  | 116 |       0.991 |    1.000 | 0.996 |
 | FLORES    | 300 |       1.000 |    0.997 | 0.998 |
@@ -72,6 +108,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Chewa and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Chewa has no UD treebank or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Chewa?
@@ -92,44 +129,24 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       40 | ████████████         |
 |   2026 |       64 | ████████████████████ |
 
-### Most popular models tagged for Chewa
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Chewa
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [goldfish-models/nya_latn_5mb](https://huggingface.co/goldfish-models/nya_latn_5mb)     |                    417 |                    15 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/nya_latn_100mb](https://huggingface.co/goldfish-models/nya_latn_100mb) |                    413 |                    17 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/nya_latn_full](https://huggingface.co/goldfish-models/nya_latn_full)   |                    394 |                    25 | unknown      |                    1 |   2024 | —                             |
-| [goldfish-models/nya_latn_10mb](https://huggingface.co/goldfish-models/nya_latn_10mb)   |                    368 |                    15 | unknown      |                    1 |   2024 | —                             |
-| [ptrdvn/kakugo-3B-nya](https://huggingface.co/ptrdvn/kakugo-3B-nya)                     |                     97 |                    19 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-
 ### Largest models tagged for Chewa
 
-| model                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      | 0                     | 856.0B       |                  140 |   2025 | —               |
-| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 135                    | 31                    | 176.2B       |                   35 |   2024 | —               |
-| [bigscience/bloomz](https://huggingface.co/bigscience/bloomz)                         | 163,618                | 983                   | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)                           | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Chewa
 
-| model                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:--------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [alphaedge-ai/gemma-3-4b-it-nya-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-nya-32768)     |                     42 |                     5 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [ptrdvn/kakugo-3B-nya](https://huggingface.co/ptrdvn/kakugo-3B-nya)                                     |                     97 |                    19 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [alphaedge-ai/gemma-3-1b-it-nya-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-nya-32768)     |                     43 |                     5 | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
-| [alphaedge-ai/gemma-3-270m-it-nya-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-nya-32768) |                     67 |                    13 | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
+| model                                                                                                   | parameters   |   # languages tagged |   year | derivative of                 |
+|:--------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [alphaedge-ai/gemma-3-4b-it-nya-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-nya-32768)     | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [ptrdvn/kakugo-3B-nya](https://huggingface.co/ptrdvn/kakugo-3B-nya)                                     | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [alphaedge-ai/gemma-3-1b-it-nya-32768](https://huggingface.co/alphaedge-ai/gemma-3-1b-it-nya-32768)     | 735.6M       |                    1 |   2026 | google/gemma-3-1b-pt          |
+| [alphaedge-ai/gemma-3-270m-it-nya-32768](https://huggingface.co/alphaedge-ai/gemma-3-270m-it-nya-32768) | 121.3M       |                    1 |   2026 | google/gemma-3-270m           |
 
 _26 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -149,7 +166,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**10** benchmark datasets in the survey include Chewa.
+**9** benchmark datasets in the survey include Chewa.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -160,15 +177,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -176,24 +193,23 @@ The scope of this analysis did not include classification tasks or tasks designe
     / ❌ 1. Linguistic | ❌ 2. Pragmatics  \
    /   knowledge [0]   |  & discourse [0]   \
   /____________________|_____________________\
- /         ✅ Machine translation [7]         \
+ /         ✅ Machine translation [6]         \
 /______________________________________________\
 ```
 
 ### What tasks exist?
 
-| level                         | task                          | dataset                                                                              | # test items   | Construction                                                        |
-|:------------------------------|:------------------------------|:-------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
-| 4. Reading comprehension      | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                        | 900            | Human translation (professional)                                    |
-| 4. Reading comprehension      | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 2,751          | Synthetic (LLM-generated) on native Wikipedia                       |
-| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ       | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                | 14,042         | Machine translation (Google Translate)                              |
-| Machine translation           | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                          | 854            | Human translation via English pivot                                 |
-| Machine translation           | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation           | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources)    |
-| Machine translation           | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                            | 1,997          | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation           | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional) of LLM-generated English documents |
-| Machine translation           | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                       | —              | Human translation (professional, from English)                      |
-| Machine translation           | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge) | 23             | Native (crowdsourced Tatoeba sentence pairs)                        |
+| level                         | task                          | dataset                                                                                     | # test items   | construction                                                        |
+|:------------------------------|:------------------------------|:--------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
+| 4. Reading comprehension      | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                               | 900            | Human translation (professional)                                    |
+| 4. Reading comprehension      | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                  | 2,751          | Synthetic (LLM-generated) on native Wikipedia                       |
+| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ       | [Global-MMLU](https://huggingface.co/datasets/CohereLabs/Global-MMLU)                       | 14,042         | Machine translation (Google Translate)                              |
+| Machine translation           | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                 | 854            | Human translation via English pivot                                 |
+| Machine translation           | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) (2 varieties/pairs) | 2,024          | Human translation (professional, from English Wikimedia sources)    |
+| Machine translation           | Machine translation           | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                   | 1,997          | Human translation (professional, from English)                      |
+| Machine translation           | Machine translation           | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)                               | —              | Human translation (professional) of LLM-generated English documents |
+| Machine translation           | Machine translation           | [SMOL – SmolSent](https://huggingface.co/datasets/google/smol)                              | —              | Human translation (professional, from English)                      |
+| Machine translation           | Machine translation           | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)        | 23             | Native (crowdsourced Tatoeba sentence pairs)                        |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -220,7 +236,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 17 of ~18,460 papers (0.09%) (rank 123 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 17 of ~18,498 papers (0.09%) (rank 131 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Nyanja | Chewa
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 17):

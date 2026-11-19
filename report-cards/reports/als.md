@@ -12,11 +12,38 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `als` · macrolanguage `sqi`
 
+**Language family:** **Indo-European** › Classical Indo-European › Albanian › Albanian-Tosk ([Glottolog](https://glottolog.org/resource/languoid/id/tosk1239))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 6.8 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `sqi`, so includes other varieties · 3.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q180937#P1098))
 
 **Official / recognised in:** Albania, Kosovo, North Macedonia
 
-**Status:** Co-official language; Official language
+**Status:** Official language; Co-official language
+
+
+## What does Albanian look and sound like?
+
+**Written (Tosk)**, sample text from [Omniglot](https://www.omniglot.com/writing/albanian.htm):
+
+> Të gjithë njerëzit lindin të lirë dhe të barabartë në dinjitet dhe në të drejta. Ata kanë arsye dhe ndërgjegje dhe duhet të sillen ndaj njëri tjetrit me frymë vëllazërimi.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_sq.mp3) (Omniglot).
+
+**Written (Gheg)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/albanian.htm):
+
+> Zhdo njeri kan le t'lir mê njãjit dinjitêt edhê dreta. Ata jan të pajisun mê mênjê edhê vet-dijê edhê duhën të veprôjn ka njãni-tjetrin mê nji shpirt vllâznimit.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_albanian-gheg.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors: Translation by Gazmen Arifi from Skopje/Shkupi.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/als/) has 1 video of Albanian speakers. Watch [Enkelejd speaking Tosk Albanian](https://wikitongues.org/videos/enkelejd_20151027_als/).
 
 
 ## Training Data
@@ -25,33 +52,56 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                              |
-| Common Crawl 2026      | 1,076,326 pages per crawl on average, which is 0.0500% of the crawl. ⚠️ NB: this is counted using `sqi` (macrolanguage code), so this number is shared with other varieties and overstates Albanian.                  |
-| FineWeb                | 9.11 GB (als_Latn (9.11)); which is equivalent to ≈7.80 GB English data after byte-premium scaling; 5.91 GB removed by filtering. This is ~1/5,866 of English data and ranks 42 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.41 GB (als_latn) (rank 97 of 166 in the set)                                                                                                                                                                        |
+| Source                 | Amount                                                                                                                                                                                                        |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 106,386 articles in sq.wikipedia; 386 active users. ⚠️ NB: recorded under the macrolanguage code `sqi`, which can include other varieties of Albanian.                                                        |
+| Common Crawl           | 1,076,326 pages per crawl on average, which is 0.0500% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `sqi`, which can include other varieties of Albanian.                                |
+| FineWeb                | 9.11 GB (als_Latn 9.11 GB), equivalent to ≈7.80 GB of English after byte-premium scaling; 5.91 GB removed by filtering. This is ~1/5,866 of English data and ranks 42 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.41 GB (als_Latn 0.41 GB) (rank 97 of 166 in the set)                                                                                                                                                        |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 260 sentences / 4,421 tokens in total: [UD_Albanian-STAF](https://github.com/UniversalDependencies/UD_Albanian-STAF) (200 sentences), [UD_Albanian-TSA](https://github.com/UniversalDependencies/UD_Albanian-TSA) (60 sentences). All have POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `sqi`, so this may cover other varieties as well as Albanian. |
+| UniMorph               | 589 lemmas, 33,483 inflected forms ([unimorph/sqi](https://github.com/unimorph/sqi)) ⚠️ Listed under the macrolanguage code `sqi`, so this may cover other varieties as well as Albanian.                                                                                                                                                                                                                                    |
+| Wikidata labels        | 11,242,036 Wikidata items have a label in Albanian. (Wikidata codes (labels): sq (11,242,036), als (89,072))                                                                                                                                                                                                                                                                                                                 |
+| Wordnets               | [AlbaNet](http://fjalnet.com/) (size not listed); licence: (GPL).                                                                                                                                                                                                                                                                                                                                                            |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                               |
+|:-----------------------------------|:------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                   |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([alsSHQ](https://ebible.org/details.php?id=alsSHQ)). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** cld2 — F1 0.977 (P 0.987, R 0.969, FPR 1.11e-04) averaged over 5 dataset(s). Runner-up: pyfranc (F1 0.945).
+- **Best model:** cld2 — F1 0.977 (P 0.987, R 0.969, FPR 1.10e-04) averaged over 5 dataset(s). Runner-up: pyfranc (F1 0.946).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | cld2         |       0.987 |    0.969 | 0.977 | 0.000 | ✓                |
-| pyfranc      |       0.989 |    0.913 | 0.945 | 0.000 | ✓                |
-| GlotLID      |       0.946 |    0.934 | 0.934 | 0.000 | ✓                |
-| commonlingua |       0.897 |    0.933 | 0.900 | 0.001 | ✓                |
-| fasttext     |       0.845 |    0.983 | 0.882 | 0.002 | ✓                |
+| pyfranc      |       0.990 |    0.913 | 0.946 | 0.000 | ✓                |
+| GlotLID      |       0.945 |    0.934 | 0.934 | 0.000 | ✓                |
+| commonlingua |       0.896 |    0.933 | 0.899 | 0.001 | ✓                |
+| fasttext     |       0.846 |    0.983 | 0.883 | 0.002 | ✓                |
 | py3langid    |       0.837 |    0.983 | 0.881 | 0.003 | ✓                |
-| OpenLID-v2   |       0.812 |    0.988 | 0.847 | 0.005 | ✓                |
+| OpenLID-v2   |       0.811 |    0.988 | 0.846 | 0.005 | ✓                |
 | funlangid    |       0.983 |    0.669 | 0.784 | 0.000 | ✓                |
+| cld3         |       0.686 |    0.964 | 0.765 | 0.009 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (cld2) by dataset**:
 
@@ -91,45 +141,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       50 | ██████████████████   |
 |   2026 |       57 | ████████████████████ |
 
-### Most popular models tagged for Albanian
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [bigscience/mt0-small](https://huggingface.co/bigscience/mt0-small)                               | 460,248                | 4,349                 | 300.2M       |                   90 |   2022 | —                                      |
-| [bigscience/mt0-large](https://huggingface.co/bigscience/mt0-large)                               | 258,383                | 479                   | 1.2B         |                   90 |   2022 | —                                      |
-| [bigscience/mt0-base](https://huggingface.co/bigscience/mt0-base)                                 | 176,408                | 1,151                 | 582.4M       |                   90 |   2022 | —                                      |
-| [bigscience/mt0-xl](https://huggingface.co/bigscience/mt0-xl)                                     | 113,878                | 579                   | 3.7B         |                   90 |   2022 | —                                      |
-
-### Most popular models tagged *only* for Albanian
-
-| model                                                                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                      |
-|:----------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:-----------------------------------|
-| [klei1/bleta-meditor-27b](https://huggingface.co/klei1/bleta-meditor-27b)                                                               |                    729 |                    47 | 27.0B        |                    1 |   2025 | bleta-meditor-27b                  |
-| [goldfish-models/sqi_latn_1000mb](https://huggingface.co/goldfish-models/sqi_latn_1000mb)                                               |                    517 |                    31 | unknown      |                    1 |   2024 | —                                  |
-| [goldfish-models/sqi_latn_5mb](https://huggingface.co/goldfish-models/sqi_latn_5mb)                                                     |                    475 |                    16 | unknown      |                    1 |   2024 | —                                  |
-| [goldfish-models/als_latn_100mb](https://huggingface.co/goldfish-models/als_latn_100mb)                                                 |                    464 |                    17 | unknown      |                    1 |   2024 | —                                  |
-| [NikolayKozloff/Phi-3-mini-4k-instruct-sq-LORA-F16-GGUF](https://huggingface.co/NikolayKozloff/Phi-3-mini-4k-instruct-sq-LORA-F16-GGUF) |                    455 |                    30 | 29.9M        |                    1 |   2024 | Kushtrim/Phi-3-mini-4k-instruct-sq |
-
 ### Largest models tagged for Albanian
 
-| model                                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                    |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                    |
-| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 875                    | 175                   | 34.7B        |                   80 |   2026 | Qwen/Qwen3.6-35B-A3B |
-| [TildeAI/TildeOpen-30b-64k](https://huggingface.co/TildeAI/TildeOpen-30b-64k)                                         | 3,686                  | 548                   | 30.7B        |                   32 |   2026 | —                    |
-| [TildeAI/TildeOpen-30b](https://huggingface.co/TildeAI/TildeOpen-30b)                                                 | 102,333                | 2,097                 | 30.7B        |                   32 |   2025 | —                    |
+| model                                                                                                                 | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                             | 1.9T         |                  143 |   2025 | —                    |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                 | 856.0B       |                  143 |   2025 | —                    |
+| [FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF](https://huggingface.co/FreedomAISVR/Qwen3.6-35B-A3B-NVFP4-NoMTP-GGUF) | 34.7B        |                   82 |   2026 | Qwen/Qwen3.6-35B-A3B |
+| [TildeAI/TildeOpen-30b](https://huggingface.co/TildeAI/TildeOpen-30b)                                                 | 30.7B        |                   32 |   2025 | —                    |
+| [TildeAI/TildeOpen-30b-64k](https://huggingface.co/TildeAI/TildeOpen-30b-64k)                                         | 30.7B        |                   32 |   2026 | —                    |
 
 ### Largest models tagged *only* for Albanian
 
-| model                                                                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                 |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------------------------------------|
-| [klei1/bleta-meditor-27b](https://huggingface.co/klei1/bleta-meditor-27b)                                                                             |                    729 |                    47 | 27.0B        |                    1 |   2025 | bleta-meditor-27b                             |
-| [klei1/bleta-logjike-27b](https://huggingface.co/klei1/bleta-logjike-27b)                                                                             |                    358 |                    17 | 27.0B        |                    1 |   2025 | bleta-logjike-27b                             |
-| [NikolayKozloff/Llama-3.1-8B-Instruct-bnb-4bit-shqip-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/Llama-3.1-8B-Instruct-bnb-4bit-shqip-Q8_0-GGUF) |                    429 |                    49 | 8.0B         |                    1 |   2024 | Kushtrim/Llama-3.1-8B-Instruct-bnb-4bit-shqip |
-| [NikolayKozloff/Phi-3-medium-4k-instruct-sq-LORA-F16-GGUF](https://huggingface.co/NikolayKozloff/Phi-3-medium-4k-instruct-sq-LORA-F16-GGUF)           |                    428 |                    22 | 65.5M        |                    1 |   2024 | Kushtrim/Phi-3-medium-4k-instruct-sq          |
-| [mandododo/albanian-typing-lm-futo](https://huggingface.co/mandododo/albanian-typing-lm-futo)                                                         |                     79 |                    16 | 43.7M        |                    1 |   2026 | —                                             |
+| model                                                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                                 |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------------------|
+| [klei1/bleta-meditor-27b](https://huggingface.co/klei1/bleta-meditor-27b)                                                                             | 27.0B        |                    1 |   2025 | bleta-meditor-27b                             |
+| [klei1/bleta-logjike-27b](https://huggingface.co/klei1/bleta-logjike-27b)                                                                             | 27.0B        |                    1 |   2025 | bleta-logjike-27b                             |
+| [NikolayKozloff/Llama-3.1-8B-Instruct-bnb-4bit-shqip-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/Llama-3.1-8B-Instruct-bnb-4bit-shqip-Q8_0-GGUF) | 8.0B         |                    1 |   2024 | Kushtrim/Llama-3.1-8B-Instruct-bnb-4bit-shqip |
+| [NikolayKozloff/Phi-3-medium-4k-instruct-sq-LORA-F16-GGUF](https://huggingface.co/NikolayKozloff/Phi-3-medium-4k-instruct-sq-LORA-F16-GGUF)           | 65.5M        |                    1 |   2024 | Kushtrim/Phi-3-medium-4k-instruct-sq          |
+| [mandododo/albanian-typing-lm-futo](https://huggingface.co/mandododo/albanian-typing-lm-futo)                                                         | 43.7M        |                    1 |   2026 | —                                             |
 
 _40 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -160,15 +190,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [2]     \
+                 /   [2]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [4]        \
+         /      reasoning [4]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -182,7 +212,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                          | dataset                                                                                             | # test items   | Construction                                                     |
+| level                         | task                          | dataset                                                                                             | # test items   | construction                                                     |
 |:------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge       | BLiMP                         | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp) (as `sqi`)                     | 243            | Treebank-based (automatic, UD + UniMorph)                        |
 | 3. Commonsense reasoning      | HellaSwag                     | [MuBench HellaSwag](https://github.com/aialt/MuBench) (as `sqi`)                                    | 9,088          | Machine translation (GPT-4o, auto-checked)                       |
@@ -223,7 +253,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 56 of ~18,460 papers (0.30%) (rank 79 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 56 of ~18,498 papers (0.30%) (rank 82 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Standard Albanian (Tosk-based) | Standard Albanian | Albanian | Tosk
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 56):

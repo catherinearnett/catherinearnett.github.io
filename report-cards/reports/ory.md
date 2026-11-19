@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ory` · macrolanguage `ori`
 
+**Language family:** **Indo-European** › Classical Indo-European › Indo-Iranian › … › Macro-Oriya ([Glottolog](https://glottolog.org/resource/languoid/id/oriy1255))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 2 (Provincial))
+
 **Writing systems:** `Orya`
+
+**Speakers:** about 45.1 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `ori`, so includes other varieties · 34.5 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q33810#P1098), 2001)
 
 **Official / recognised in:** India
 
 **Status:** Regional official language
+
+
+## What does Odia look and sound like?
+
+**Written:** Omniglot has [a page on Odia](https://www.omniglot.com/writing/oriya.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ory/) has 1 video of Odia speakers. Watch [Musamoni speaking Balesori/Baleswari](https://wikitongues.org/videos/musamoni_20170426_ory/).
 
 
 ## Training Data
@@ -25,20 +38,50 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                  |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                                                                                                                |
-| Common Crawl 2026      | 154,474 pages per crawl on average, which is 0.0072% of the crawl. ⚠️ NB: this is counted using `ori` (macrolanguage code), so this number is shared with other varieties and overstates Odia.                                          |
-| FineWeb                | 1.39 GB (ory_Latn (0.00); ory_Orya (1.39)); which is equivalent to ≈0.55 GB English data after byte-premium scaling; 0.60 GB removed by filtering. This is ~1/38,382 of English data and ranks 68 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                                                                                                                              |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 21,187 articles in or.wikipedia; 55 active users. ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                                                    |
+| Common Crawl           | 154,474 pages per crawl on average, which is 0.0072% of the crawl (2026). ⚠️ NB: recorded under the macrolanguage code `ori`, which can include other varieties of Odia.                                                                                                                                                                            |
+| FineWeb                | 1.39 GB (ory_Orya 1.39 GB; ory_Latn 0), equivalent to ≈0.55 GB of English after byte-premium scaling (⚠️ only 100% of the bytes have a byte premium, so this undercounts; re-run `python -m lrc build sizes` to fill the gap); 0.60 GB removed by filtering. This is ~1/38,382 of English data and ranks 68 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                                                                                                                                                        |
+
+**By writing system:**
+
+| Writing system   | FineWeb   | FineWeb, English-equivalent   |
+|:-----------------|:----------|:------------------------------|
+| Odia (`Orya`)    | 1.39 GB   | — (no byte premium yet)       |
+| Latin (`Latn`)   | 0         | — (no byte premium yet)       |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                       |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 456 sentences / 5,818 tokens in total: [UD_Odia-ODTB](https://github.com/UniversalDependencies/UD_Odia-ODTB) (456 sentences). It has POS tags, dependency syntax, lemmas and morphological features. ⚠️ Listed under the macrolanguage code `ori`, so this may cover other varieties as well as Odia. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                    |
+| Wikidata labels        | 497,463 Wikidata items have a label in Odia. (Wikidata codes (labels): or (497,463))                                                                                                                                                                                                                              |
+| Wordnets               | [IndoWordNet](http://www.cfilt.iitb.ac.in/indowordnet/index.jsp) (size not listed); licence: BROWSE ONLINE ONLY; nan (size not listed).                                                                                                                                                                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                    |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                        |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([ory](https://ebible.org/details.php?id=ory), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                     |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
+- **7 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid.
 - **Eval datasets (4):** CommonLID (n=300), FLORES (n=300), Tatoeba (n=300), Wikipedia (n=300)
-- **Best model:** py3langid — F1 0.997 (P 0.999, R 0.995, FPR 8.24e-06) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.997).
+- **Best model:** py3langid — F1 0.997 (P 0.999, R 0.995, FPR 8.02e-06) averaged over 4 dataset(s). Runner-up: cld2 (F1 0.997).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -49,10 +92,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | py3langid    |       0.999 |    0.995 | 0.997 | 0.000 | ✓                |
 | cld2         |       1.000 |    0.993 | 0.997 | 0.000 | ✓                |
 | GlotLID      |       0.999 |    0.974 | 0.986 | 0.000 | ✓                |
-| OpenLID-v2   |       1.000 |    0.968 | 0.983 | 0.000 | ✓                |
-| commonlingua |       0.997 |    0.953 | 0.974 | 0.000 | ✓                |
-| fasttext     |       1.000 |    0.890 | 0.937 | 0.000 | ✓                |
-| funlangid    |       1.000 |    0.529 | 0.615 | 0.000 | ✓                |
+| OpenLID-v2   |       1.000 |    0.968 | 0.984 | 0.000 | ✓                |
+| commonlingua |       0.996 |    0.954 | 0.974 | 0.000 | ✓                |
+| fasttext     |       1.000 |    0.892 | 0.938 | 0.000 | ✓                |
+| funlangid    |       1.000 |    0.530 | 0.615 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (py3langid) by dataset**:
@@ -72,6 +117,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Odia and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Odia has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Odia?
@@ -92,45 +138,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      132 | ████████████████████ |
 |   2026 |      131 | ████████████████████ |
 
-### Most popular models tagged for Odia
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Odia
-
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [OdiaGenAI/odia_llama2_7B_base](https://huggingface.co/OdiaGenAI/odia_llama2_7B_base)   | 42,413                 |                    52 | 7.0B         |                    1 |   2023 | —               |
-| [SauravMahalik/kalinga-01](https://huggingface.co/SauravMahalik/kalinga-01)             | 756                    |                    13 | 2.5B         |                    1 |   2026 | —               |
-| [goldfish-models/ori_orya_5mb](https://huggingface.co/goldfish-models/ori_orya_5mb)     | 392                    |                    16 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ori_orya_100mb](https://huggingface.co/goldfish-models/ori_orya_100mb) | 375                    |                    12 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ori_orya_10mb](https://huggingface.co/goldfish-models/ori_orya_10mb)   | 370                    |                    14 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Odia
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [itssarjunhere/bloom](https://huggingface.co/itssarjunhere/bloom)                     | 70                     |                     5 | 176.2B       |                   35 |   2026 | —               |
-| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 135                    |                    31 | 176.2B       |                   35 |   2024 | —               |
-| [bigscience/bloomz-p3](https://huggingface.co/bigscience/bloomz-p3)                   | 8,063                  |                   187 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Odia
 
-| model                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of               |
-|:------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------|
-| [SauravMahalik/kalinga-04-GGUF](https://huggingface.co/SauravMahalik/kalinga-04-GGUF)     | 171                    |                   171 | 7.6B         |                    1 |   2026 | —                           |
-| [SauravMahalik/kalinga-03-GGUF](https://huggingface.co/SauravMahalik/kalinga-03-GGUF)     | 164                    |                   164 | 7.6B         |                    1 |   2026 | —                           |
-| [OdiaGenAI/odia_llama2_7B_base](https://huggingface.co/OdiaGenAI/odia_llama2_7B_base)     | 42,413                 |                    52 | 7.0B         |                    1 |   2023 | —                           |
-| [abhilash88/odia-mistral-7b-daft](https://huggingface.co/abhilash88/odia-mistral-7b-daft) | 0                      |                     0 | 7.0B         |                    1 |   2025 | unsloth/mistral-7b-bnb-4bit |
-| [SauravMahalik/kalinga-01](https://huggingface.co/SauravMahalik/kalinga-01)               | 756                    |                    13 | 2.5B         |                    1 |   2026 | —                           |
+| model                                                                                     | parameters   |   # languages tagged |   year | derivative of               |
+|:------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------|
+| [SauravMahalik/kalinga-03-GGUF](https://huggingface.co/SauravMahalik/kalinga-03-GGUF)     | 7.6B         |                    1 |   2026 | —                           |
+| [SauravMahalik/kalinga-04-GGUF](https://huggingface.co/SauravMahalik/kalinga-04-GGUF)     | 7.6B         |                    1 |   2026 | —                           |
+| [OdiaGenAI/odia_llama2_7B_base](https://huggingface.co/OdiaGenAI/odia_llama2_7B_base)     | 7.0B         |                    1 |   2023 | —                           |
+| [abhilash88/odia-mistral-7b-daft](https://huggingface.co/abhilash88/odia-mistral-7b-daft) | 7.0B         |                    1 |   2025 | unsloth/mistral-7b-bnb-4bit |
+| [SauravMahalik/kalinga-01](https://huggingface.co/SauravMahalik/kalinga-01)               | 2.5B         |                    1 |   2026 | —                           |
 
 _47 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -161,15 +187,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [4]   \
+            / comprehension [4]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [3]        \
+         /      reasoning [3]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,18 +209,18 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                          | dataset                                                                                             | # test items   | Construction                                                     |
-|:------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 3. Commonsense reasoning      | COPA                          | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                                    | 500            | Human translation                                                |
-| 3. Commonsense reasoning      | PIQA                          | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                           |
-| 3. Commonsense reasoning      | PIQA                          | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                          |
-| 4. Reading comprehension      | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       | 900            | Human translation (professional)                                 |
-| 4. Reading comprehension      | QA – extractive RC            | [Indic QA Benchmark](https://github.com/ayushayush591/IndicQA-Benchmark)                            | 10,604         | Mixed: mostly MT of English/Hindi sources + native IndicQA/chaii |
-| 4. Reading comprehension      | QA – extractive RC            | [IndicQA (AI4Bharat, IndicXTREME)](https://huggingface.co/datasets/ai4bharat/IndicQA)               | 1,680          | Native                                                           |
-| 4. Reading comprehension      | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ       | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                              | 4,525          | Native (Indian exams; some translated)                           |
-| Machine translation           | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation           | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
+| level                         | task                          | dataset                                                                                             |   # test items | construction                                                     |
+|:------------------------------|:------------------------------|:----------------------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 3. Commonsense reasoning      | COPA                          | [IndicCOPA](https://huggingface.co/datasets/ai4bharat/IndicCOPA)                                    |            500 | Human translation                                                |
+| 3. Commonsense reasoning      | PIQA                          | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) |            100 | Native                                                           |
+| 3. Commonsense reasoning      | PIQA                          | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        |            103 | MT + human post-editing                                          |
+| 4. Reading comprehension      | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                       |            900 | Human translation (professional)                                 |
+| 4. Reading comprehension      | QA – extractive RC            | [Indic QA Benchmark](https://github.com/ayushayush591/IndicQA-Benchmark)                            |         10,604 | Mixed: mostly MT of English/Hindi sources + native IndicQA/chaii |
+| 4. Reading comprehension      | QA – extractive RC            | [IndicQA (AI4Bharat, IndicXTREME)](https://huggingface.co/datasets/ai4bharat/IndicQA)               |          1,680 | Native                                                           |
+| 4. Reading comprehension      | QA – extractive RC            | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ       | [MILU](https://huggingface.co/datasets/ai4bharat/MILU)                                              |          4,525 | Native (Indian exams; some translated)                           |
+| Machine translation           | Machine translation           | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         |            854 | Human translation via English pivot                              |
+| Machine translation           | Machine translation           | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             |          1,012 | Human translation (professional, from English Wikimedia sources) |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** BLiMP, LAMBADA
@@ -205,7 +231,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 ### Community benchmarks you can contribute to
 
 - **[Global PIQA](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel)** (✅ included): Physical-commonsense questions written by native speakers about their own culture.
-- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (❌ not yet — contribute it!): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
+- **[Last Translation Benchmark](https://github.com/zouharvi/last-translation-benchmark)** (✅ included): Live benchmark of hard-to-translate inputs: submit a source, reference translation and verification rules that current MT systems fail; 10 accepted examples earns co-authorship.
 - **[Cultural Riddles](https://culturalriddles.ai/)** (❌ not yet — contribute it!): Human-written, culturally grounded riddles (Cohere Labs Community); open contribution process.
 
 ### What can you do?
@@ -221,7 +247,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 84 of ~18,460 papers (0.45%) (rank 62 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 84 of ~18,498 papers (0.45%) (rank 65 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Odia
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 84):

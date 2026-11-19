@@ -12,11 +12,33 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `fij`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Eastern Malayo-Polynesian › … › Viwa-Lomaiviti-East Viti Levu ([Glottolog](https://glottolog.org/resource/languoid/id/fiji1243))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 4 (Educational))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 371,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 330,000 first-language + 320,000 second-language ([Wikidata](https://www.wikidata.org/wiki/Q33295#P1098), 1996)
 
 **Official / recognised in:** Fiji
 
 **Status:** Official language
+
+
+## What does Fijian look and sound like?
+
+**Written (Fijian)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/fijian.htm):
+
+> Era sucu ena galala na tamata yadua, era tautauvata ena nodra dokai kei na nodra dodonu. E tiko na nodra vakasama kei na nodra lewaeloma, sa dodonu mera veidokadokai ena yalo ni veitacini.
+> A recording of this text by Tamati Taylor
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_fijian.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/fij/) has 2 videos of Fijian speakers. Watch [Ratulevu speaking Kadavu](https://wikitongues.org/videos/ratulevu_20150530_fij/).
 
 
 ## Training Data
@@ -25,20 +47,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                     |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 1,729 articles in fj.wikipedia (rank 136 of 161 in the set) — ~1/4,365 of English; 7 active users                                                                                                                          |
-| Common Crawl 2026      | 2,868 pages per crawl on average, which is 0.0001% of the crawl. This is ~1/310,846 of English data and ranks 102 of 113 official languages in Common Crawl.                                                               |
-| FineWeb                | 19.4 MB (fij_Latn (0.02)); which is equivalent to ≈16.0 MB English data after byte-premium scaling; 0.10 GB removed by filtering. This is ~1/2,759,614 of English data and ranks 129 of 248 official languages in FineWeb. |
-| Goldfish training data | 46.3 MB (fij_latn) (rank 135 of 166 in the set)                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                             |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 1,729 articles in fj.wikipedia; 7 active users. This is ~1/4,365 of English data and ranks 141 of 168 languages in the set in Wikipedia.                                                                           |
+| Common Crawl           | 2,868 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/310,846 of English data and ranks 102 of 113 languages in the set in Common Crawl.                                              |
+| FineWeb                | 19.4 MB (fij_Latn 20.0 MB), equivalent to ≈16.0 MB of English after byte-premium scaling; 0.10 GB removed by filtering. This is ~1/2,759,614 of English data and ranks 129 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 46.3 MB (fij_Latn 46.0 MB) (rank 135 of 166 in the set)                                                                                                                                                            |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                            |
+|:-----------------------|:---------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                         |
+| UniMorph               | **None found**                                                                         |
+| Wikidata labels        | 597,906 Wikidata items have a label in Fijian. (Wikidata codes (labels): fj (597,906)) |
+| Wordnets               | **None found**                                                                         |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **7 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=38), UDHR-LID (n=59), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.939 (P 0.966, R 0.916, FPR 3.60e-05) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.892).
+- **Best model:** GlotLID — F1 0.939 (P 0.966, R 0.916, FPR 3.55e-05) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.892).
 
 **All models (averaged over datasets):**
 
@@ -48,9 +91,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | OpenLID-v2   |       0.855 |    0.938 | 0.892 | 0.001 | ✓                |
 | fasttext     |       0.915 |    0.875 | 0.890 | 0.000 | ✓                |
 | cld2         |       0.985 |    0.818 | 0.873 | 0.000 | ✓                |
-| funlangid    |       0.850 |    0.798 | 0.819 | 0.000 | ✓                |
+| funlangid    |       0.852 |    0.798 | 0.820 | 0.000 | ✓                |
 | pyfranc      |       0.786 |    0.810 | 0.791 | 0.001 | ✓                |
 | commonlingua |       0.666 |    0.790 | 0.704 | 0.002 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -60,8 +105,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Tatoeba   |  38 |       0.839 |    0.684 | 0.754 |
 | Wikipedia | 300 |       0.993 |    0.893 | 0.940 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
-| UDHR-LID  |  59 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
+| UDHR-LID  |  59 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
 
@@ -71,6 +116,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Fijian and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Fijian has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Fijian?
@@ -90,33 +136,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        6 | █████████████████    |
 |   2026 |        7 | ████████████████████ |
 
-### Most popular models tagged for Fijian
-
-| model                                                                                                                       | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-----------------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                     | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                            |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                                     | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                            |
-| [ZeppelinCorp/Charm_15](https://huggingface.co/ZeppelinCorp/Charm_15)                                                       | 962                    |                   307 | unknown      |                   87 |   2025 | mattshumer/mistral-8x7b-chat |
-| [goldfish-models/fij_latn_5mb](https://huggingface.co/goldfish-models/fij_latn_5mb)                                         | 850                    |                   185 | unknown      |                    1 |   2024 | —                            |
-| [Qrzysztof/functiongemma-270m-it-prepaid-cards-v2](https://huggingface.co/Qrzysztof/functiongemma-270m-it-prepaid-cards-v2) | 819                    |                    11 | 268.1M       |                   98 |   2026 | google/functiongemma-270m-it |
-
-### Most popular models tagged *only* for Fijian
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/fij_latn_5mb](https://huggingface.co/goldfish-models/fij_latn_5mb)   |                    850 |                   185 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/fij_latn_10mb](https://huggingface.co/goldfish-models/fij_latn_10mb) |                    400 |                    11 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/fij_latn_full](https://huggingface.co/goldfish-models/fij_latn_full) |                    365 |                    13 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Fijian
 
-| model                                                                                             | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of      |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                  |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                  |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                  |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                  |
-| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 164                    |                    25 | 8.2B         |                  140 |   2026 | Qwen/Qwen3-8B-Base |
+| model                                                                                             | parameters   |   # languages tagged |   year | derivative of      |
+|:--------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                         | 1.9T         |                  143 |   2025 | —                  |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)             | 856.0B       |                  143 |   2025 | —                  |
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                           | 8.6B         |                  189 |   2023 | —                  |
+| [Kolyadual/Newton-bot-3-text-mini-8B](https://huggingface.co/Kolyadual/Newton-bot-3-text-mini-8B) | 8.2B         |                  143 |   2026 | Qwen/Qwen3-8B-Base |
 
 ### Largest models tagged *only* for Fijian
 
@@ -151,15 +179,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -173,7 +201,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                                     |
+| level                    | task                | dataset                                                                              | # test items   | construction                                                     |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 745            | Synthetic (LLM-generated) on native Wikipedia                    |
 | Machine translation      | Machine translation | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)              | 1,012          | Human translation (professional, from English Wikimedia sources) |
@@ -207,7 +235,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 11 of ~18,460 papers (0.06%) (rank 136 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 11 of ~18,498 papers (0.06%) (rank 145 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Fijian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 11):

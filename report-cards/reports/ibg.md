@@ -12,9 +12,35 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ibg`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Northern Luzon › … › Ibanagic ([Glottolog](https://glottolog.org/resource/languoid/id/iban1267))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 6b (Threatened))
+
+**Speakers:** 400,000 first-language ([Wikidata](https://www.wikidata.org/wiki/Q1775596#P1098), 2010)
+
 **Official / recognised in:** Philippines
 
 **Status:** Regional official language
+
+
+## What does Ibanag look and sound like?
+
+**Written (Cagayan provincial anthem)**, sample text from [Omniglot](https://www.omniglot.com/writing/ibanag.htm):
+
+> Cagayan, Davvun nga kakastan niakan,
+> Egga ka laran nakuan ta piam,
+> Nu kuruk tu maparrayyu ka niakan,
+> Ariat ta ka vuluvvuga nga kattamman.
+> Cagayan, Makemmemmi ka nga innan.
+> Cagayan, Awan tu kagittam.
+> Nu anni paga y kasta na davvun a karuan
+> Egga ka la ta futu' nga ideddukan.
+
+*Translation:* Cagayan, a beautiful land to me, You have done great things, If it were true that you will be away from me, I will not intently forget you. Cagayan, I adore looking at you, Cagayan, you are incomparable. Even if other lands are beautiful, You are in my heart to be loved.
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://en.wikipedia.org/wiki/Ibanag_language#Samples.</sub>
+
+**Spoken:** no Wikitongues video of Ibanag yet ([its Wikitongues page](https://wikitongues.org/languages/ibg/) says how to contribute one).
 
 
 ## Training Data
@@ -23,18 +49,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                             |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                           |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                           |
-| FineWeb                | 0.1 MB (ibg_Latn (0.00)); 10.9 MB removed by filtering. This is ~1/559,713,997 of English data and ranks 233 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                       |
+| Source                 | Amount                                                                                                                                          |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                        |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                        |
+| FineWeb                | 0.1 MB (ibg_Latn 0); 10.9 MB removed by filtering. This is ~1/559,713,997 of English data and ranks 233 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                    |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- Support across the 8 evaluated LangID models is unknown: there is no labelled test data to run them on.
+- **2 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
 - **No labelled LangID eval data** for this language — creating some is a high-value contribution.
 - No model performance numbers are available.
 
@@ -46,6 +93,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Ibanag and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Ibanag has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/ibg/) video of Ibanag yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Ibanag?
@@ -81,15 +130,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -132,7 +181,7 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 0 of ~18,460 papers (0.00%); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 0 of ~18,498 papers (0.00%); English is mentioned in 8,465.
 - Search terms: Ibanag
 - **No ACL 2026 papers mention Ibanag** — any published work would be a first.
 

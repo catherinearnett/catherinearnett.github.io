@@ -12,11 +12,32 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kpv` · macrolanguage `kom`
 
+**Language family:** **Uralic** › Permian › Komi ([Glottolog](https://glottolog.org/resource/languoid/id/komi1268))
+
+**Endangerment:** 🟡 threatened (level 2 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 6b (Threatened))
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 253,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) — counted for the macrolanguage `kom`, so includes other varieties · 156,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34114#P1098), 2010)
 
 **Official / recognised in:** Russia
 
 **Status:** Regional official language
+
+
+## What does Komi-Zyrian look and sound like?
+
+**Written**, sample text from [Omniglot](https://www.omniglot.com/writing/komi-zyrian.htm):
+
+> Эмöсь лунвылын мичаджык муяс, Сэнi кывтöны визувджык юяс. Сöмын мыйлакö пыр медся матыс Эзысь лысваöн дзирдалысь асыв. Катшасинъяс, Катшасинъяс, Мыйла восьсаöсь пыр тiян синъяс?
+
+*Transliteration:* Emös lunvylyn mičadžyk mujas, Seni kyvtöny vizuvdžyk jujas. Sömyn myjlakö pyr medsja matys Ezys lysvaön dzirdalys asyv. Katšasinjas, Katšasinjas, Myjla vossaös pyr tijan sinjas?
+
+*Translation:* There are more beautiful lands in the south, There are more flowing rivers. But for some reason, the morning, shining with silver snow, is always the closest. Cats, Cats, Why are your eyes always open?
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://en.wikipedia.org/wiki/Komi_language#Sample_text.</sub>
+
+**Spoken:** no Wikitongues video of Komi-Zyrian yet ([its Wikitongues page](https://wikitongues.org/languages/kpv/) says how to contribute one).
 
 
 ## Training Data
@@ -25,20 +46,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 5,831 articles in kv.wikipedia (rank 113 of 161 in the set) — ~1/1,294 of English; 20 active users                                                |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 23.0 MB (kpv_Cyrl (0.02)); 20.2 MB removed by filtering. This is ~1/2,323,173 of English data and ranks 126 of 248 official languages in FineWeb. |
-| Goldfish training data | 10.2 MB (kpv_cyrl) (rank 166 of 166 in the set)                                                                                                   |
+| Source                 | Amount                                                                                                                                               |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 5,831 articles in kv.wikipedia; 20 active users. This is ~1/1,294 of English data and ranks 117 of 168 languages in the set in Wikipedia.            |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                             |
+| FineWeb                | 23.0 MB (kpv_Cyrl 20.0 MB); 20.2 MB removed by filtering. This is ~1/2,323,173 of English data and ranks 126 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 10.2 MB (kpv_Cyrl 10.0 MB) (rank 166 of 166 in the set)                                                                                              |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 2 treebanks, 890 sentences / 10,472 tokens in total: [UD_Komi_Zyrian-IKDP](https://github.com/UniversalDependencies/UD_Komi_Zyrian-IKDP) (214 sentences), [UD_Komi_Zyrian-Lattice](https://github.com/UniversalDependencies/UD_Komi_Zyrian-Lattice) (676 sentences). All have POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                                                                                                                                                |
+| Wikidata labels        | 170,331 Wikidata items have a label in Komi-Zyrian. (Wikidata codes (labels): kv (170,331))                                                                                                                                                                                                                                                   |
+| Wordnets               | **None found**                                                                                                                                                                                                                                                                                                                                |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, commonlingua, funlangid.
 - **Eval datasets (2):** Tatoeba (n=84), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.930 (P 0.998, R 0.871, FPR 1.01e-05) averaged over 2 dataset(s). Runner-up: commonlingua (F1 0.710).
+- **Best model:** GlotLID — F1 0.927 (P 0.991, R 0.871, FPR 2.37e-05) averaged over 2 dataset(s). Runner-up: commonlingua (F1 0.704).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -46,11 +88,13 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.998 |    0.871 | 0.930 | 0.000 | ✓                |
-| commonlingua |       0.757 |    0.669 | 0.710 | 0.001 | ✓                |
-| funlangid    |       0.723 |    0.398 | 0.504 | 0.001 | ✓                |
+| GlotLID      |       0.991 |    0.871 | 0.927 | 0.000 | ✓                |
+| commonlingua |       0.743 |    0.669 | 0.704 | 0.001 | ✓                |
+| funlangid    |       0.750 |    0.398 | 0.514 | 0.001 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | pyfranc      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -59,7 +103,7 @@ Language identification (LangID or LID) is a classification task that identifies
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
-| Tatoeba   |  84 |       1.000 |    0.845 | 0.916 |
+| Tatoeba   |  84 |       0.986 |    0.845 | 0.910 |
 | Wikipedia | 300 |       0.996 |    0.897 | 0.944 |
 
 ### What can you do?
@@ -70,6 +114,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Komi-Zyrian and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Komi-Zyrian has no UniMorph data or wordnet yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/kpv/) video of Komi-Zyrian yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Komi-Zyrian?
@@ -89,45 +135,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       17 | ██                   |
 |   2026 |      192 | ████████████████████ |
 
-### Most popular models tagged for Komi-Zyrian
-
-| model                                                                                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                               |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:--------------------------------------------|
-| [deadbydawn101/gemma-4-E4B-Agentic-Opus-Reasoning-GeminiCLI-mlx-4bit](https://huggingface.co/deadbydawn101/gemma-4-E4B-Agentic-Opus-Reasoning-GeminiCLI-mlx-4bit) | 189,727                | 1,525                 | unknown      |                    2 |   2026 | deadbydawn101/gemma-4-E4B-mlx-4bit          |
-| [ruv/ruvltra-claude-code](https://huggingface.co/ruv/ruvltra-claude-code)                                                                                         | 56,890                 | 1,461                 | 494.0M       |                    4 |   2026 | —                                           |
-| [xFutureTechx/Osea-Identity2023](https://huggingface.co/xFutureTechx/Osea-Identity2023)                                                                           | 22,399                 | 2,381                 | unknown      |                    2 |   2023 | stable-diffusion-v1-5/stable-diffusion-v1-5 |
-| [majentik/Qwen3.6-35B-A3B-RotorQuant-MLX-2bit](https://huggingface.co/majentik/Qwen3.6-35B-A3B-RotorQuant-MLX-2bit)                                               | 14,548                 | 420                   | 35.1B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B                        |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                                                           | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                                           |
-
-### Most popular models tagged *only* for Komi-Zyrian
-
-| model                                                                                                               | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                     |
-|:--------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------------|
-| [majentik/Qwen3.6-35B-A3B-RotorQuant-MLX-2bit](https://huggingface.co/majentik/Qwen3.6-35B-A3B-RotorQuant-MLX-2bit) | 14,548                 |                   420 | 35.1B        |                    1 |   2026 | Qwen/Qwen3.6-35B-A3B              |
-| [alexcovo/qwen35-9b-mlx-turboquant-tq3](https://huggingface.co/alexcovo/qwen35-9b-mlx-turboquant-tq3)               | 6,158                  |                   188 | 9.4B         |                    1 |   2026 | mlx-community/Qwen3.5-9B-MLX-4bit |
-| [Sariel00/mindnano-ling3-compass](https://huggingface.co/Sariel00/mindnano-ling3-compass)                           | 5,423                  |                    13 | 7.9B         |                    1 |   2026 | —                                 |
-| [majentik/gpt-oss-120b-TurboQuant-MLX-4bit](https://huggingface.co/majentik/gpt-oss-120b-TurboQuant-MLX-4bit)       | 3,772                  |                   382 | 116.8B       |                    1 |   2026 | openai/gpt-oss-120b               |
-| [majentik/gpt-oss-20b-TurboQuant-MLX-4bit](https://huggingface.co/majentik/gpt-oss-20b-TurboQuant-MLX-4bit)         | 3,230                  |                   242 | 20.9B        |                    1 |   2026 | openai/gpt-oss-20b                |
-
 ### Largest models tagged for Komi-Zyrian
 
-| model                                                                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of            |
-|:--------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                     | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                        |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                         | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                        |
-| [majentik/Leanstral-TurboQuant-MLX-2bit](https://huggingface.co/majentik/Leanstral-TurboQuant-MLX-2bit)       | 1,371                  |                    30 | 238.4B       |                    1 |   2026 | mistralai/Leanstral-2603 |
-| [majentik/MiniMax-M2.7-TurboQuant-MLX-3bit](https://huggingface.co/majentik/MiniMax-M2.7-TurboQuant-MLX-3bit) | 2,552                  |                    32 | 228.7B       |                    1 |   2026 | MiniMaxAI/MiniMax-M2.7   |
-| [vcruz305/GLM-5.3-EXL3-3.38bpw](https://huggingface.co/vcruz305/GLM-5.3-EXL3-3.38bpw)                         | 791                    |                   635 | 159.5B       |                    1 |   2026 | zai-org/GLM-5.3          |
+| model                                                                                                         | parameters   |   # languages tagged |   year | derivative of            |
+|:--------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                     | 1.9T         |                  143 |   2025 | —                        |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                         | 856.0B       |                  143 |   2025 | —                        |
+| [majentik/Leanstral-TurboQuant-MLX-2bit](https://huggingface.co/majentik/Leanstral-TurboQuant-MLX-2bit)       | 238.4B       |                    1 |   2026 | mistralai/Leanstral-2603 |
+| [majentik/MiniMax-M2.7-TurboQuant-MLX-3bit](https://huggingface.co/majentik/MiniMax-M2.7-TurboQuant-MLX-3bit) | 228.7B       |                    1 |   2026 | MiniMaxAI/MiniMax-M2.7   |
+| [vcruz305/GLM-5.3-EXL3-3.38bpw](https://huggingface.co/vcruz305/GLM-5.3-EXL3-3.38bpw)                         | 159.5B       |                    1 |   2026 | zai-org/GLM-5.3          |
 
 ### Largest models tagged *only* for Komi-Zyrian
 
-| model                                                                                                                                           | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                                 |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------------------------------------|
-| [majentik/Leanstral-TurboQuant-MLX-2bit](https://huggingface.co/majentik/Leanstral-TurboQuant-MLX-2bit)                                         | 1,371                  |                    30 | 238.4B       |                    1 |   2026 | mistralai/Leanstral-2603                      |
-| [majentik/MiniMax-M2.7-TurboQuant-MLX-5bit](https://huggingface.co/majentik/MiniMax-M2.7-TurboQuant-MLX-5bit)                                   | 2,977                  |                    22 | 228.7B       |                    1 |   2026 | MiniMaxAI/MiniMax-M2.7                        |
-| [vcruz305/GLM-5.3-EXL3-3.38bpw](https://huggingface.co/vcruz305/GLM-5.3-EXL3-3.38bpw)                                                           | 791                    |                   635 | 159.5B       |                    1 |   2026 | zai-org/GLM-5.3                               |
-| [majentik/Nemotron-3-Super-120B-A12B-TurboQuant-GGUF-Q4_K_M](https://huggingface.co/majentik/Nemotron-3-Super-120B-A12B-TurboQuant-GGUF-Q4_K_M) | 1,047                  |                    65 | 120.7B       |                    1 |   2026 | nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16 |
-| [majentik/gpt-oss-120b-TurboQuant-MLX-4bit](https://huggingface.co/majentik/gpt-oss-120b-TurboQuant-MLX-4bit)                                   | 3,772                  |                   382 | 116.8B       |                    1 |   2026 | openai/gpt-oss-120b                           |
+| model                                                                                                                                       | parameters   |   # languages tagged |   year | derivative of                                 |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------------------------------------|
+| [majentik/Leanstral-TurboQuant-MLX-2bit](https://huggingface.co/majentik/Leanstral-TurboQuant-MLX-2bit)                                     | 238.4B       |                    1 |   2026 | mistralai/Leanstral-2603                      |
+| [majentik/MiniMax-M2.7-TurboQuant-MLX-3bit](https://huggingface.co/majentik/MiniMax-M2.7-TurboQuant-MLX-3bit)                               | 228.7B       |                    1 |   2026 | MiniMaxAI/MiniMax-M2.7                        |
+| [vcruz305/GLM-5.3-EXL3-3.38bpw](https://huggingface.co/vcruz305/GLM-5.3-EXL3-3.38bpw)                                                       | 159.5B       |                    1 |   2026 | zai-org/GLM-5.3                               |
+| [majentik/Nemotron-3-Super-120B-A12B-RotorQuant-GGUF-Q6_K](https://huggingface.co/majentik/Nemotron-3-Super-120B-A12B-RotorQuant-GGUF-Q6_K) | 120.7B       |                    1 |   2026 | nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16 |
+| [majentik/gpt-oss-120b-TurboQuant-MLX-4bit](https://huggingface.co/majentik/gpt-oss-120b-TurboQuant-MLX-4bit)                               | 116.8B       |                    1 |   2026 | openai/gpt-oss-120b                           |
 
 _37 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -158,15 +184,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -180,7 +206,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                   |
+| level                    | task                | dataset                                                                              | # test items   | construction                                   |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
 | 1. Linguistic knowledge  | BLiMP               | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                 | 320            | Treebank-based (automatic, UD + UniMorph)      |
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 5,000          | Synthetic (LLM-generated) on native Wikipedia  |
@@ -213,7 +239,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 6 of ~18,460 papers (0.03%) (rank 166 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 6 of ~18,498 papers (0.03%) (rank 180 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Komi-Zyrian
 
 Here are up to ten papers that were published mentioning this language in 2026:

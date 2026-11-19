@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `tsn` (also listed as: Tswana)
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Central Sotho-Tswana ([Glottolog](https://glottolog.org/resource/languoid/id/tswa1253))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 6.5 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 4.5 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q34137#P1098))
 
 **Official / recognised in:** South Africa, Zimbabwe
 
 **Status:** Official language
+
+
+## What does Setswana look and sound like?
+
+**Written:** no Omniglot page found for Setswana.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/tsn/) has 1 video of Setswana speakers. Watch [Donald speaking Tswana](https://wikitongues.org/videos/donald_20181213_tsn/).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 6,118 articles in tn.wikipedia (rank 111 of 161 in the set) — ~1/1,233 of English; 63 active users                                                                                                                        |
-| Common Crawl 2026      | 5,661 pages per crawl on average, which is 0.0003% of the crawl. This is ~1/157,482 of English data and ranks 99 of 113 official languages in Common Crawl.                                                               |
-| FineWeb                | 11.2 MB (tsn_Latn (0.01)); which is equivalent to ≈9.6 MB English data after byte-premium scaling; 0.64 GB removed by filtering. This is ~1/4,759,097 of English data and ranks 146 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.13 GB (tsn_latn) (rank 114 of 166 in the set)                                                                                                                                                                           |
+| Source                 | Amount                                                                                                                                                                                                            |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 6,118 articles in tn.wikipedia; 63 active users. This is ~1/1,233 of English data and ranks 115 of 168 languages in the set in Wikipedia.                                                                         |
+| Common Crawl           | 5,661 pages per crawl on average, which is 0.0003% of the crawl (2026). This is ~1/157,482 of English data and ranks 99 of 113 languages in the set in Common Crawl.                                              |
+| FineWeb                | 11.2 MB (tsn_Latn 10.0 MB), equivalent to ≈9.6 MB of English after byte-premium scaling; 0.64 GB removed by filtering. This is ~1/4,759,097 of English data and ranks 146 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.13 GB (tsn_Latn 0.12 GB) (rank 114 of 166 in the set)                                                                                                                                                           |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                  |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 50 sentences / 580 tokens in total: [UD_Tswana-Popapolelo](https://github.com/UniversalDependencies/UD_Tswana-Popapolelo) (50 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | **None found**                                                                                                                                                                                                               |
+| Wikidata labels        | 480,134 Wikidata items have a label in Setswana. (Wikidata codes (labels): tn (480,134))                                                                                                                                     |
+| Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).                                              |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **7 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (6):** FLORES (n=300), NTREX (n=300), SmolSent (n=300), Tatoeba (n=42), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.970 (P 0.970, R 0.970, FPR 1.70e-04) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.911).
+- **Best model:** GlotLID — F1 0.970 (P 0.970, R 0.970, FPR 1.61e-04) averaged over 6 dataset(s). Runner-up: cld2 (F1 0.911).
 
 **All models (averaged over datasets):**
 
@@ -46,11 +80,13 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       0.970 |    0.970 | 0.970 | 0.000 | ✓                |
 | cld2         |       0.897 |    0.934 | 0.911 | 0.001 | ✓                |
-| OpenLID-v2   |       0.858 |    0.979 | 0.910 | 0.001 | ✓                |
-| commonlingua |       0.937 |    0.850 | 0.878 | 0.000 | ✓                |
-| fasttext     |       0.737 |    0.983 | 0.840 | 0.004 | ✓                |
-| pyfranc      |       0.828 |    0.856 | 0.836 | 0.002 | ✓                |
-| funlangid    |       0.752 |    0.861 | 0.800 | 0.003 | ✓                |
+| OpenLID-v2   |       0.856 |    0.979 | 0.909 | 0.001 | ✓                |
+| commonlingua |       0.928 |    0.850 | 0.876 | 0.000 | ✓                |
+| fasttext     |       0.730 |    0.983 | 0.835 | 0.004 | ✓                |
+| pyfranc      |       0.814 |    0.856 | 0.831 | 0.002 | ✓                |
+| funlangid    |       0.752 |    0.861 | 0.800 | 0.002 | ✓                |
+| AfroLID      |       0.277 |    0.985 | 0.423 | 0.096 | ✓                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -60,8 +96,8 @@ Language identification (LangID or LID) is a classification task that identifies
 | Tatoeba   |  42 |       0.900 |    0.857 | 0.878 |
 | Wikipedia | 300 |       0.986 |    0.970 | 0.978 |
 | FLORES    | 300 |       0.974 |    1.000 | 0.987 |
-| SmolSent  | 300 |       0.980 |    0.997 | 0.988 |
 | NTREX     | 300 |       0.980 |    0.997 | 0.988 |
+| SmolSent  | 300 |       0.980 |    0.997 | 0.988 |
 | UDHR-LID  |  58 |       1.000 |    1.000 | 1.000 |
 
 ### What can you do?
@@ -72,6 +108,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Setswana and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Setswana has no UniMorph data yet. You could contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Setswana?
@@ -92,34 +129,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       35 | ██████████████       |
 |   2026 |       49 | ████████████████████ |
 
-### Most popular models tagged for Setswana
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Setswana
-
-| model                                                                                   |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/tsn_latn_100mb](https://huggingface.co/goldfish-models/tsn_latn_100mb) |                    415 |                    16 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/tsn_latn_10mb](https://huggingface.co/goldfish-models/tsn_latn_10mb)   |                    411 |                    15 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/tsn_latn_5mb](https://huggingface.co/goldfish-models/tsn_latn_5mb)     |                    385 |                    22 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/tsn_latn_full](https://huggingface.co/goldfish-models/tsn_latn_full)   |                    381 |                     9 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Setswana
 
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 0                      |                     0 | 1.9T         |                  140 |   2025 | —               |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 0                      |                     0 | 856.0B       |                  140 |   2025 | —               |
-| [bigscience/bloomz-mt](https://huggingface.co/bigscience/bloomz-mt)                   | 28,969                 |                   329 | 176.2B       |                   35 |   2022 | —               |
-| [itssarjunhere/bloom](https://huggingface.co/itssarjunhere/bloom)                     | 70                     |                     5 | 176.2B       |                   35 |   2026 | —               |
-| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 135                    |                    31 | 176.2B       |                   35 |   2024 | —               |
+| model                                                                                 | parameters   |   # languages tagged |   year | derivative of   |
+|:--------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)             | 1.9T         |                  143 |   2025 | —               |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b) | 856.0B       |                  143 |   2025 | —               |
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)                 | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)                 | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork)           | 176.2B       |                   37 |   2024 | —               |
 
 ### Largest models tagged *only* for Setswana
 
@@ -154,15 +172,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -176,7 +194,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                                           | # test items   | Construction                                                        |
+| level                                  | task                          | dataset                                                                                                           | # test items   | construction                                                        |
 |:---------------------------------------|:------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 2. Pragmatics, discourse & coreference | WinoGrande                    | [WinoGrande-afr (Alhanai et al.)](https://huggingface.co/datasets/Institute-Disease-Modeling/mmlu-winogrande-afr) | —              | Human translation                                                   |
 | 4. Reading comprehension               | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                     | 900            | Human translation (professional)                                    |
@@ -214,10 +232,10 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 28 of ~18,460 papers (0.15%) (rank 108 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 29 of ~18,498 papers (0.16%) (rank 113 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Setswana | Tswana
 
-Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 28):
+Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 29):
 
 | title                                                                                                                                         | paper                                                                          |
 |:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
@@ -226,10 +244,10 @@ Here are up to ten papers that were published mentioning this language in 2026 (
 | Pseudo2Real: Task Arithmetic for Pseudo-Label Correction in Automatic Speech Recognition                                                      | [2026.findings-acl.59](https://aclanthology.org/2026.findings-acl.59/)         |
 | When Audit Quality Fails to Predict Downstream Utility: Synthetic-Data Selection for Low-Resource Classification                              | [2026.findings-emnlp.1184](https://aclanthology.org/2026.findings-emnlp.1184/) |
 | AFROSCOPE: A Framework for Studying the Linguistic Landscape of Africa                                                                        | [2026.findings-emnlp.1308](https://aclanthology.org/2026.findings-emnlp.1308/) |
-| Learning from Scarcity: Building and Benchmarking Speech Technology for Sukuma.                                                               | [2026.loreslm-1.25](https://aclanthology.org/2026.loreslm-1.25/)               |
 | HPLT 3.0: Very Large-Scale Multilingual Resources for LLMs and MT. Mono- and Bi-lingual Data, Multilingual Evaluation, and Pre-Trained Models | [2026.lrec-1.110](https://aclanthology.org/2026.lrec-1.110/)                   |
-| Beyond Catalogue Counts: The Dataset Visibility Asymmetry in Low-Resource Multilingual NLP                                                    | [2026.lrec-1.481](https://aclanthology.org/2026.lrec-1.481/)                   |
-| RunyaNER: Auxiliary Language Selection for Runyankore NER                                                                                     | [2026.mrl-1.38](https://aclanthology.org/2026.mrl-1.38/)                       |
+| Code-Switching in End-to-End Automatic Speech Recognition: A Systematic Literature Review                                                     | [2026.lrec-1.768](https://aclanthology.org/2026.lrec-1.768/)                   |
+| How Much of Native Language Identification Is Corpus Artifact? A Cross-Corpus Audit of SVMs and LLMs on TOEFL11 and ICLEv3                    | [2026.nlp4call-1.1](https://aclanthology.org/2026.nlp4call-1.1/)               |
 | Extension of Linguistic Resources for South African Languages: Part-of-Speech Annotated Domain-Specific Data                                  | [2026.rail-1.2](https://aclanthology.org/2026.rail-1.2/)                       |
+| Benchmarking Text Embedding Models for South African Languages                                                                                | [2026.rail-1.5](https://aclanthology.org/2026.rail-1.5/)                       |
 
 {% endraw %}

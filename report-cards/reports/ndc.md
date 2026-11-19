@@ -12,9 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ndc`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Core Shona ([Glottolog](https://glottolog.org/resource/languoid/id/ndau1241))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
+**Speakers:** about 4.3 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html))
+
 **Official / recognised in:** Zimbabwe
 
 **Status:** Official language
+
+
+## What does Ndau look and sound like?
+
+**Written**, sample text from [Omniglot](https://www.omniglot.com/writing/ndau.htm):
+
+> Iye wakati kwavari, “Naapo mwookumbira, muti: Baba, ngariremeredzwe zina renyu. Umambo hwenyu ngahuuye.
+> Tipei zuva ngezuva kudya kwedu.
+> Tirekererei zvishaishi zvedu, ngokuti isusuwo tinorekerera veshe avo vanendaa kwetiri. Musatipinza mukuedzwa.”
+
+*Translation:* And he said unto them, When ye pray, say, Our Father which art in heaven, Hallowed be thy name. Thy kingdom come. Thy will be done, as in heaven, so in earth. Give us day by day our daily bread. And forgive us our sins; for we also forgive every one that is indebted to us. And lead us not into temptation; but deliver us from evil. The Lord's Prayer - Luke 11: 2-4
+
+<sub>Text © Omniglot / Simon Ager and contributors: Source: https://www.bible.com/bible/1694/LUK.11.NDAU; Source: https://www.bible.com/bible/1/LUK.11.KJV.</sub>
+
+**Spoken:** no Wikitongues video of Ndau yet ([its Wikitongues page](https://wikitongues.org/languages/ndc/) says how to contribute one).
 
 
 ## Training Data
@@ -23,20 +44,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                            |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                          |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                          |
-| FineWeb                | 1.4 MB (ndc_Latn (0.00)); 15.4 MB removed by filtering. This is ~1/38,142,108 of English data and ranks 194 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                      |
+| Source                 | Amount                                                                                                                                         |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                       |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                       |
+| FineWeb                | 1.4 MB (ndc_Latn 0); 15.4 MB removed by filtering. This is ~1/38,142,108 of English data and ranks 194 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                   |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **2 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, funlangid.
 - **Eval datasets (1):** SmolSent (n=300)
-- **Best model:** funlangid — F1 0.620 (P 0.775, R 0.517, FPR 4.06e-03) averaged over 1 dataset(s). Runner-up: GlotLID (F1 0.511).
+- **Best model:** funlangid — F1 0.620 (P 0.775, R 0.517, FPR 3.65e-03) averaged over 1 dataset(s). Runner-up: GlotLID (F1 0.511).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 **All models (averaged over datasets):**
@@ -45,8 +87,10 @@ Language identification (LangID or LID) is a classification task that identifies
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | funlangid    |       0.775 |    0.517 | 0.620 | 0.004 | ✓                |
 | GlotLID      |       1.000 |    0.343 | 0.511 | 0.000 | ✓                |
+| AfroLID      |       0.948 |    0.183 | 0.307 | 0.000 | ✓                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -61,6 +105,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Ndau and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Ndau has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/ndc/) video of Ndau yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Ndau?
@@ -77,21 +123,11 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |-------:|---------:|:---------------------|
 |   2026 |        5 | ████████████████████ |
 
-### Most popular models tagged for Ndau
-
-| model                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of       |
-|:----------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------|
-| [BeardedMonster/gemma-3-270m-translate-rl2c](https://huggingface.co/BeardedMonster/gemma-3-270m-translate-rl2c) |                     28 |                    28 | 270.0M       |                   29 |   2026 | google/gemma-3-270m |
-
-### Most popular models tagged *only* for Ndau
-
-_none_
-
 ### Largest models tagged for Ndau
 
-| model                                                                                                           |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of       |
-|:----------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------|
-| [BeardedMonster/gemma-3-270m-translate-rl2c](https://huggingface.co/BeardedMonster/gemma-3-270m-translate-rl2c) |                     28 |                    28 | 270.0M       |                   29 |   2026 | google/gemma-3-270m |
+| model                                                                                                           | parameters   |   # languages tagged |   year | derivative of       |
+|:----------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------|
+| [BeardedMonster/gemma-3-270m-translate-rl2c](https://huggingface.co/BeardedMonster/gemma-3-270m-translate-rl2c) | 270.0M       |                   37 |   2026 | google/gemma-3-270m |
 
 ### Largest models tagged *only* for Ndau
 
@@ -126,15 +162,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -148,7 +184,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level               | task                | dataset                                                        | # test items   | Construction                                                        |
+| level               | task                | dataset                                                        | # test items   | construction                                                        |
 |:--------------------|:--------------------|:---------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | Machine translation | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional, from English)                      |
 | Machine translation | Machine translation | [SMOL – SmolDoc](https://huggingface.co/datasets/google/smol)  | —              | Human translation (professional) of LLM-generated English documents |
@@ -180,7 +216,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 2 of ~18,460 papers (0.01%) (rank 204 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 2 of ~18,498 papers (0.01%) (rank 227 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Ndau
 
 Here are up to ten papers that were published mentioning this language in 2026:

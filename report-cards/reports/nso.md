@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `nso`
 
+**Language family:** **Atlantic-Congo** › Volta-Congo › Benue-Congo › … › Sepedic ([Glottolog](https://glottolog.org/resource/languoid/id/pedi1238))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 5.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 4.1 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33890#P1098))
 
 **Official / recognised in:** South Africa
 
 **Status:** Official language
+
+
+## What does Sepedi look and sound like?
+
+**Written:** no Omniglot page found for Sepedi.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/nso/) has 1 video of Sepedi speakers. Watch [Edgar speaking Northern Sotho](https://wikitongues.org/videos/edgar_20190709_nso/).
 
 
 ## Training Data
@@ -25,20 +38,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                     |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 9,137 articles in nso.wikipedia (rank 102 of 161 in the set) — ~1/826 of English; 20 active users                                                                                                                          |
-| Common Crawl 2026      | 2,372 pages per crawl on average, which is 0.0001% of the crawl. This is ~1/375,846 of English data and ranks 104 of 113 official languages in Common Crawl.                                                               |
-| FineWeb                | 11.7 MB (nso_Latn (0.01)); which is equivalent to ≈10.5 MB English data after byte-premium scaling; 0.40 GB removed by filtering. This is ~1/4,547,120 of English data and ranks 144 of 248 official languages in FineWeb. |
-| Goldfish training data | 70.5 MB (nso_latn) (rank 127 of 166 in the set)                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                             |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 9,137 articles in nso.wikipedia; 20 active users. This is ~1/826 of English data and ranks 106 of 168 languages in the set in Wikipedia.                                                                           |
+| Common Crawl           | 2,372 pages per crawl on average, which is 0.0001% of the crawl (2026). This is ~1/375,846 of English data and ranks 104 of 113 languages in the set in Common Crawl.                                              |
+| FineWeb                | 11.7 MB (nso_Latn 10.0 MB), equivalent to ≈10.5 MB of English after byte-premium scaling; 0.40 GB removed by filtering. This is ~1/4,547,120 of English data and ranks 144 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 70.5 MB (nso_Latn 71.0 MB) (rank 127 of 166 in the set)                                                                                                                                                            |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                     |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                                                                                                                  |
+| UniMorph               | **None found**                                                                                                                                                                  |
+| Wikidata labels        | 483,305 Wikidata items have a label in Sepedi. (Wikidata codes (labels): nso (483,305))                                                                                         |
+| Wordnets               | [African Wordnet](https://africanwordnet.wordpress.com/) (size not listed); licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=99), FLORES (n=300), NTREX (n=300), SmolSent (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.820 (P 0.951, R 0.824, FPR 1.79e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.806).
+- **Best model:** GlotLID — F1 0.820 (P 0.951, R 0.824, FPR 1.74e-04) averaged over 6 dataset(s). Runner-up: OpenLID-v2 (F1 0.806).
 
 **All models (averaged over datasets):**
 
@@ -47,11 +81,13 @@ Language identification (LangID or LID) is a classification task that identifies
 | GlotLID      |       0.951 |    0.824 | 0.820 | 0.000 | ✓                |
 | OpenLID-v2   |       0.908 |    0.832 | 0.806 | 0.001 | ✓                |
 | fasttext     |       0.913 |    0.805 | 0.803 | 0.000 | ✓                |
-| commonlingua |       0.788 |    0.773 | 0.780 | 0.001 | ✓                |
+| commonlingua |       0.787 |    0.773 | 0.780 | 0.001 | ✓                |
 | funlangid    |       0.884 |    0.741 | 0.763 | 0.001 | ✓                |
 | pyfranc      |       0.822 |    0.706 | 0.739 | 0.001 | ✓                |
 | cld2         |       0.825 |    0.525 | 0.604 | 0.000 | ✓                |
-| py3langid    |       0.452 |    0.825 | 0.561 | 0.015 | ✓                |
+| AfroLID      |       0.983 |    0.499 | 0.591 | 0.000 | ✓                |
+| py3langid    |       0.452 |    0.825 | 0.561 | 0.014 | ✓                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
@@ -72,6 +108,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Sepedi and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Sepedi has no UD treebank or UniMorph data yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/).
 
 
 ## What models are available for Sepedi?
@@ -92,40 +129,21 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       18 | ██████████           |
 |   2026 |       36 | ████████████████████ |
 
-### Most popular models tagged for Sepedi
-
-| model                                                                   | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [bigscience/bloomz-560m](https://huggingface.co/bigscience/bloomz-560m) | 63,206,595             | 599,299               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom-560m](https://huggingface.co/bigscience/bloom-560m)   | 27,007,025             | 377,922               | 559.2M       |                   35 |   2022 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)             | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
-| [bigscience/bloom-7b1](https://huggingface.co/bigscience/bloom-7b1)     | 3,688,796              | 2,877                 | 7.1B         |                   35 |   2022 | —               |
-| [bigscience/bloom-1b7](https://huggingface.co/bigscience/bloom-1b7)     | 3,135,379              | 2,904                 | 1.7B         |                   35 |   2022 | —               |
-
-### Most popular models tagged *only* for Sepedi
-
-| model                                                                                 | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:--------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [Sedibaai/SedibaLM](https://huggingface.co/Sedibaai/SedibaLM)                         | 47,341                 |                   657 | 1.5B         |                    1 |   2026 | Qwen/Qwen2.5-1.5B |
-| [goldfish-models/nso_latn_5mb](https://huggingface.co/goldfish-models/nso_latn_5mb)   | 406                    |                     9 | unknown      |                    1 |   2024 | —                 |
-| [goldfish-models/nso_latn_full](https://huggingface.co/goldfish-models/nso_latn_full) | 399                    |                    13 | unknown      |                    1 |   2024 | —                 |
-| [goldfish-models/nso_latn_10mb](https://huggingface.co/goldfish-models/nso_latn_10mb) | 368                    |                    14 | unknown      |                    1 |   2024 | —                 |
-
 ### Largest models tagged for Sepedi
 
-| model                                                                       | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of   |
-|:----------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:----------------|
-| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)       | 89                     | 15                    | 176.2B       |                   35 |   2026 | —               |
-| [bigscience/bloomz](https://huggingface.co/bigscience/bloomz)               | 163,618                | 983                   | 176.2B       |                   35 |   2022 | —               |
-| [itssarjunhere/bloom](https://huggingface.co/itssarjunhere/bloom)           | 70                     | 5                     | 176.2B       |                   35 |   2026 | —               |
-| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork) | 135                    | 31                    | 176.2B       |                   35 |   2024 | —               |
-| [bigscience/bloom](https://huggingface.co/bigscience/bloom)                 | 4,907,569              | 9,383                 | 176.2B       |                   35 |   2022 | —               |
+| model                                                                       | parameters   |   # languages tagged |   year | derivative of   |
+|:----------------------------------------------------------------------------|:-------------|---------------------:|-------:|:----------------|
+| [0xtest1231/bloom-copy](https://huggingface.co/0xtest1231/bloom-copy)       | 176.2B       |                   37 |   2026 | —               |
+| [AbdulElahGwaith/bloom](https://huggingface.co/AbdulElahGwaith/bloom)       | 176.2B       |                   37 |   2026 | —               |
+| [Methamera/bloomz-mt-fork](https://huggingface.co/Methamera/bloomz-mt-fork) | 176.2B       |                   37 |   2024 | —               |
+| [bigscience/bloom](https://huggingface.co/bigscience/bloom)                 | 176.2B       |                   37 |   2022 | —               |
+| [bigscience/bloomz](https://huggingface.co/bigscience/bloomz)               | 176.2B       |                   37 |   2022 | —               |
 
 ### Largest models tagged *only* for Sepedi
 
-| model                                                         | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:--------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [Sedibaai/SedibaLM](https://huggingface.co/Sedibaai/SedibaLM) | 47,341                 |                   657 | 1.5B         |                    1 |   2026 | Qwen/Qwen2.5-1.5B |
+| model                                                         | parameters   |   # languages tagged |   year | derivative of     |
+|:--------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------|
+| [Sedibaai/SedibaLM](https://huggingface.co/Sedibaai/SedibaLM) | 1.5B         |                    1 |   2026 | Qwen/Qwen2.5-1.5B |
 
 _22 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -156,15 +174,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -178,7 +196,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                          | dataset                                                                                                           | # test items   | Construction                                                        |
+| level                                  | task                          | dataset                                                                                                           | # test items   | construction                                                        |
 |:---------------------------------------|:------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
 | 2. Pragmatics, discourse & coreference | WinoGrande                    | [WinoGrande-afr (Alhanai et al.)](https://huggingface.co/datasets/Institute-Disease-Modeling/mmlu-winogrande-afr) | —              | Human translation                                                   |
 | 4. Reading comprehension               | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                                     | 900            | Human translation (professional)                                    |
@@ -215,7 +233,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 22 of ~18,460 papers (0.12%) (rank 113 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 22 of ~18,498 papers (0.12%) (rank 121 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Northern Sotho | Sepedi
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 22):

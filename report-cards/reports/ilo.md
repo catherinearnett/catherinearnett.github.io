@@ -12,11 +12,28 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `ilo`
 
+**Language family:** **Austronesian** › Malayo-Polynesian › Northern Luzon ([Glottolog](https://glottolog.org/resource/languoid/id/ilok1237))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 3 (Wider communication))
+
 **Writing systems:** `Latn`
+
+**Speakers:** about 11.4 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 9.1 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q35936#P1098), 2007)
 
 **Official / recognised in:** Philippines
 
 **Status:** Regional official language
+
+
+## What does Ilocano look and sound like?
+
+**Written (Iloko)**, sample text from [Omniglot](https://www.omniglot.com/writing/ilocano.htm):
+
+> Amin nga tao nga sibibiag ket naiyanak a siwawayawaya ken addaan iti agpapada nga dayaw ken kalintegan. Naikkanda ti panagikalintegan ken konsensya a nasken ti panagtitinnulong iti meysa ken meysa iti espiritu nga nainkak-absatan.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/ilo/) has 1 video of Ilocano speakers. Watch [June speaking Ilocano](https://wikitongues.org/videos/june_20190220_ilo/).
 
 
 ## Training Data
@@ -25,32 +42,55 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                     |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 15,527 articles in ilo.wikipedia (rank 86 of 161 in the set) — ~1/486 of English; 26 active users                                                                                                                          |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                   |
-| FineWeb                | 22.8 MB (ilo_Latn (0.02)); which is equivalent to ≈21.2 MB English data after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/2,338,522 of English data and ranks 127 of 248 official languages in FineWeb. |
-| Goldfish training data | 0.11 GB (ilo_latn) (rank 116 of 166 in the set)                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                             |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 15,527 articles in ilo.wikipedia; 26 active users. This is ~1/486 of English data and ranks 90 of 168 languages in the set in Wikipedia.                                                                           |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                           |
+| FineWeb                | 22.8 MB (ilo_Latn 20.0 MB), equivalent to ≈21.2 MB of English after byte-premium scaling; 0.50 GB removed by filtering. This is ~1/2,338,522 of English data and ranks 127 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 0.11 GB (ilo_Latn 0.11 GB) (rank 116 of 166 in the set)                                                                                                                                                            |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                              |
+|:-----------------------|:-----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                           |
+| UniMorph               | **None found**                                                                           |
+| Wikidata labels        | 526,112 Wikidata items have a label in Ilocano. (Wikidata codes (labels): ilo (526,112)) |
+| Wordnets               | **None found**                                                                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                          |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                              |
+| Bible translations (eBible corpus) | **Yes** — 1 translation: full Bible ([iloulb](https://ebible.org/details.php?id=iloulb), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                           |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **6 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid, pyfranc.
+- **6 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, commonlingua, fasttext, funlangid, pyfranc.
 - **Eval datasets (4):** FLORES (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.965 (P 0.951, R 0.981, FPR 2.79e-04) averaged over 4 dataset(s). Runner-up: funlangid (F1 0.908).
+- **Best model:** GlotLID — F1 0.961 (P 0.950, R 0.975, FPR 2.82e-04) averaged over 4 dataset(s). Runner-up: fasttext (F1 0.899).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.951 |    0.981 | 0.965 | 0.000 | ✓                |
-| funlangid    |       0.934 |    0.898 | 0.908 | 0.000 | ✓                |
-| fasttext     |       0.843 |    0.982 | 0.903 | 0.002 | ✓                |
-| pyfranc      |       0.820 |    0.880 | 0.841 | 0.002 | ✓                |
-| commonlingua |       0.866 |    0.830 | 0.835 | 0.001 | ✓                |
-| OpenLID-v2   |       0.612 |    0.992 | 0.716 | 0.008 | ✓                |
+| GlotLID      |       0.950 |    0.975 | 0.961 | 0.000 | ✓                |
+| fasttext     |       0.841 |    0.974 | 0.899 | 0.001 | ✓                |
+| funlangid    |       0.929 |    0.884 | 0.897 | 0.000 | ✓                |
+| pyfranc      |       0.819 |    0.875 | 0.837 | 0.002 | ✓                |
+| commonlingua |       0.857 |    0.820 | 0.825 | 0.001 | ✓                |
+| OpenLID-v2   |       0.612 |    0.989 | 0.716 | 0.008 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
@@ -58,7 +98,7 @@ Language identification (LangID or LID) is a classification task that identifies
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | Wikipedia | 300 |       0.888 |    0.973 | 0.928 |
-| Tatoeba   | 300 |       0.983 |    0.950 | 0.966 |
+| Tatoeba   | 300 |       0.979 |    0.927 | 0.952 |
 | UDHR-LID  |  58 |       0.935 |    1.000 | 0.967 |
 | FLORES    | 300 |       0.997 |    1.000 | 0.998 |
 
@@ -70,6 +110,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Ilocano and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Ilocano has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Ilocano?
@@ -89,33 +130,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |        4 | ████████████████████ |
 |   2026 |        2 | ██████████           |
 
-### Most popular models tagged for Ilocano
-
-| model                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm) | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm) | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [Loom-Labs/Apollo-1-2B](https://huggingface.co/Loom-Labs/Apollo-1-2B)   | 1,129                  |                    41 | 1.7B         |                   90 |   2025 | Qwen/Qwen3-1.7B-Base |
-| [Loom-Labs/Apollo-1-8B](https://huggingface.co/Loom-Labs/Apollo-1-8B)   | 1,062                  |                    28 | 8.2B         |                   90 |   2025 | Qwen/Qwen3-8B-Base   |
-| [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)   | 795                    |                    33 | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base   |
-
-### Most popular models tagged *only* for Ilocano
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of   |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:----------------|
-| [goldfish-models/ilo_latn_10mb](https://huggingface.co/goldfish-models/ilo_latn_10mb) |                    432 |                     8 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ilo_latn_5mb](https://huggingface.co/goldfish-models/ilo_latn_5mb)   |                    432 |                    14 | unknown      |                    1 |   2024 | —               |
-| [goldfish-models/ilo_latn_full](https://huggingface.co/goldfish-models/ilo_latn_full) |                    377 |                     7 | unknown      |                    1 |   2024 | —               |
-
 ### Largest models tagged for Ilocano
 
-| model                                                                                   | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of        |
-|:----------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:---------------------|
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 1,443                  |                    59 | 8.6B         |                  185 |   2023 | —                    |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 11,812                 |                   600 | 8.6B         |                  185 |   2023 | —                    |
-| [Loom-Labs/Apollo-1-8B](https://huggingface.co/Loom-Labs/Apollo-1-8B)                   | 1,062                  |                    28 | 8.2B         |                   90 |   2025 | Qwen/Qwen3-8B-Base   |
-| [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)                   | 795                    |                    33 | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base   |
-| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 425                    |                   425 | 3.9B         |                  152 |   2026 | google/gemma-3-4b-it |
+| model                                                                                   | parameters   |   # languages tagged |   year | derivative of        |
+|:----------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------|
+| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                 | 8.6B         |                  189 |   2023 | —                    |
+| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                 | 8.6B         |                  189 |   2023 | —                    |
+| [Loom-Labs/Apollo-1-8B](https://huggingface.co/Loom-Labs/Apollo-1-8B)                   | 8.2B         |                   90 |   2025 | Qwen/Qwen3-8B-Base   |
+| [Loom-Labs/Apollo-1-4B](https://huggingface.co/Loom-Labs/Apollo-1-4B)                   | 4.0B         |                   90 |   2025 | Qwen/Qwen3-4B-Base   |
+| [EXAiStudio/EX-Ai1-3.88B-Gemma3](https://huggingface.co/EXAiStudio/EX-Ai1-3.88B-Gemma3) | 3.9B         |                  155 |   2026 | google/gemma-3-4b-it |
 
 ### Largest models tagged *only* for Ilocano
 
@@ -150,15 +173,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [1]        \
+         /      reasoning [1]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -172,7 +195,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                          | dataset                                                                                      | # test items   | Construction                                                     |
+| level                    | task                          | dataset                                                                                      | # test items   | construction                                                     |
 |:-------------------------|:------------------------------|:---------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 3. Commonsense reasoning | PIQA                          | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel) | 103            | MT + human post-editing                                          |
 | 4. Reading comprehension | QA – MC reading comprehension | [Belebele](https://huggingface.co/datasets/facebook/belebele)                                | 900            | Human translation (professional)                                 |
@@ -207,7 +230,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 9 of ~18,460 papers (0.05%) (rank 146 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 9 of ~18,498 papers (0.05%) (rank 155 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Ilocano
 
 Here are up to ten papers that were published mentioning this language in 2026:

@@ -12,11 +12,24 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `uig`
 
+**Language family:** **Turkic** › Common Turkic › Kipchak-Turkestan › … › Uyghuric ([Glottolog](https://glottolog.org/resource/languoid/id/uigh1240))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
 **Writing systems:** `Arab` and `Latn` and `Cyrl`
+
+**Speakers:** about 8.2 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 10.4 million first-language ([Wikidata](https://www.wikidata.org/wiki/Q13263#P1098), 2010)
 
 **Official / recognised in:** People's Republic of China
 
 **Status:** Regional official language
+
+
+## What does Uyghur look and sound like?
+
+**Written:** Omniglot has [a page on Uyghur](https://www.omniglot.com/writing/uyghur.htm) but no sample text.
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/uig/) has 1 video of Uyghur speakers. Watch [Mustafa, Gulnisa and Elise speaking Uyghur](https://wikitongues.org/videos/mustafa-gulnisa-elise_20190306_uig/).
 
 
 ## Training Data
@@ -25,40 +38,73 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                                                    |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 9,765 articles in ug.wikipedia (rank 101 of 161 in the set) — ~1/773 of English; 32 active users                                                                                                                                                          |
-| Common Crawl 2026      | 40,585 pages per crawl on average, which is 0.0019% of the crawl. This is ~1/21,966 of English data and ranks 80 of 113 official languages in Common Crawl.                                                                                               |
-| FineWeb                | 0.41 GB (uig_Arab (0.33); uig_Cyrl (0.03); uig_Latn (0.05)); which is equivalent to ≈0.20 GB English data after byte-premium scaling; 0.34 GB removed by filtering. This is ~1/131,701 of English data and ranks 83 of 248 official languages in FineWeb. |
-| Goldfish training data | 1.02 GB (uig_arab) (rank 72 of 166 in the set)                                                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                                                              |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 9,765 articles in ug.wikipedia; 32 active users. This is ~1/773 of English data and ranks 105 of 168 languages in the set in Wikipedia.                                                                                                             |
+| Common Crawl           | 40,585 pages per crawl on average, which is 0.0019% of the crawl (2026). This is ~1/21,966 of English data and ranks 80 of 113 languages in the set in Common Crawl.                                                                                |
+| FineWeb                | 0.41 GB (uig_Arab 0.33 GB; uig_Latn 50.0 MB; uig_Cyrl 30.0 MB), equivalent to ≈0.20 GB of English after byte-premium scaling; 0.34 GB removed by filtering. This is ~1/131,701 of English data and ranks 83 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 1.02 GB (uig_Arab 1.02 GB) (rank 72 of 166 in the set)                                                                                                                                                                                              |
+
+**By writing system:**
+
+| Writing system    | FineWeb   | FineWeb, English-equivalent   | Goldfish     | Goldfish, English-equivalent   |
+|:------------------|:----------|:------------------------------|:-------------|:-------------------------------|
+| Arabic (`Arab`)   | 0.33 GB   | — (no byte premium yet)       | 1.02 GB      | 0.44 GB                        |
+| Latin (`Latn`)    | 50.0 MB   | — (no byte premium yet)       | not included | —                              |
+| Cyrillic (`Cyrl`) | 30.0 MB   | — (no byte premium yet)       | not included | —                              |
+
+_Common Crawl and Wikipedia statistics are not broken down by writing system._ _Goldfish ignores a Latin-script file when it looks like romanisation of a language's main script; see `KEEP_LATIN` in `lrc/build/sizes.py`._
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                             |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 3,456 sentences / 40,236 tokens in total: [UD_Uyghur-UDT](https://github.com/UniversalDependencies/UD_Uyghur-UDT) (3,456 sentences). It has POS tags, dependency syntax, lemmas and morphological features. |
+| UniMorph               | 90 lemmas, 8,178 inflected forms ([unimorph/uig](https://github.com/unimorph/uig))                                                                                                                                      |
+| Wikidata labels        | 274,638 Wikidata items have a label in Uyghur. (Wikidata codes (labels): ug (274,638))                                                                                                                                  |
+| Wordnets               | **None found**                                                                                                                                                                                                          |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                                                                                                                                                                                               |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                                                                                                                                                                                                   |
+| Bible translations (eBible corpus) | **Yes** — 4 translations: full Bible ([uigara](https://ebible.org/details.php?id=uigara), by-sa 4.0); full Bible ([uigcyr](https://ebible.org/details.php?id=uigcyr), by-sa 4.0); full Bible ([uiglat](https://ebible.org/details.php?id=uiglat), by-sa 4.0); full Bible ([uigpin](https://ebible.org/details.php?id=uigpin), by-sa 4.0). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                                                                                                                                                                                                |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **8 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (5):** FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=117), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.976 (P 0.981, R 0.974, FPR 1.46e-04) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.910).
+- **Best model:** GlotLID — F1 0.976 (P 0.980, R 0.974, FPR 1.50e-04) averaged over 5 dataset(s). Runner-up: OpenLID-v2 (F1 0.910).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.981 |    0.974 | 0.976 | 0.000 | ✓                |
+| GlotLID      |       0.980 |    0.974 | 0.976 | 0.000 | ✓                |
 | OpenLID-v2   |       0.998 |    0.860 | 0.910 | 0.000 | ✓                |
 | py3langid    |       0.999 |    0.859 | 0.910 | 0.000 | ✓                |
 | fasttext     |       0.997 |    0.858 | 0.908 | 0.000 | ✓                |
-| pyfranc      |       0.870 |    0.955 | 0.906 | 0.002 | ✓                |
-| commonlingua |       0.961 |    0.865 | 0.897 | 0.000 | ✓                |
+| pyfranc      |       0.869 |    0.955 | 0.905 | 0.002 | ✓                |
+| commonlingua |       0.960 |    0.865 | 0.897 | 0.000 | ✓                |
 | cld2         |       0.966 |    0.851 | 0.896 | 0.000 | ✓                |
-| funlangid    |       0.971 |    0.794 | 0.862 | 0.000 | ✓                |
+| funlangid    |       0.970 |    0.794 | 0.862 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | Wikipedia | 300 |       1.000 |    0.877 | 0.934 |
-| Tatoeba   | 300 |       0.952 |    0.993 | 0.972 |
+| Tatoeba   | 300 |       0.949 |    0.993 | 0.971 |
 | UDHR-LID  | 117 |       0.951 |    1.000 | 0.975 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
 | NTREX     | 300 |       1.000 |    1.000 | 1.000 |
@@ -71,6 +117,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Uyghur and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Uyghur has no wordnet yet. You could build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Uyghur?
@@ -91,45 +138,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       22 | ████████             |
 |   2026 |       56 | ████████████████████ |
 
-### Most popular models tagged for Uyghur
-
-| model                                                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of          |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------|
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                                   | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                      |
-| [GrahLnn/Hy-MT2-30B-A3B-4bit-GGUF](https://huggingface.co/GrahLnn/Hy-MT2-30B-A3B-4bit-GGUF)                                               | 10,850                 | 979                   | 30.1B        |                   37 |   2026 | tencent/Hy-MT2-30B-A3B |
-| [AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16](https://huggingface.co/AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16)                     | 6,611                  | 1,111                 | 9.0B         |                   97 |   2026 | unsloth/Qwen3.5-9B     |
-| [mlx-community/HY-MT1.5-1.8B-8bit](https://huggingface.co/mlx-community/HY-MT1.5-1.8B-8bit)                                               | 5,715                  | 233                   | 1.8B         |                   36 |   2026 | tencent/HY-MT1.5-1.8B  |
-| [AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF](https://huggingface.co/AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF) | 3,464                  | 746                   | 9.0B         |                   97 |   2026 | Qwen/Qwen3.5-9B        |
-
-### Most popular models tagged *only* for Uyghur
-
-| model                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of     |
-|:--------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------|
-| [benjamin/gpt2-wechsel-uyghur](https://huggingface.co/benjamin/gpt2-wechsel-uyghur)   |                    802 |                    34 | unknown      |                    1 |   2022 | —                 |
-| [pkupie/Qwen2.5-1.5B-ug-cpt](https://huggingface.co/pkupie/Qwen2.5-1.5B-ug-cpt)       |                    593 |                    44 | 1.5B         |                    1 |   2026 | Qwen/Qwen2.5-1.5B |
-| [pkupie/Qwen2.5-3B-ug-cpt](https://huggingface.co/pkupie/Qwen2.5-3B-ug-cpt)           |                    578 |                    44 | 3.1B         |                    1 |   2026 | Qwen/Qwen2.5-3B   |
-| [goldfish-models/uig_arab_full](https://huggingface.co/goldfish-models/uig_arab_full) |                    524 |                    16 | unknown      |                    1 |   2024 | —                 |
-| [goldfish-models/uig_arab_5mb](https://huggingface.co/goldfish-models/uig_arab_5mb)   |                    489 |                    18 | unknown      |                    1 |   2024 | —                 |
-
 ### Largest models tagged for Uyghur
 
-| model                                                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of          |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-----------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                 | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                     | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                      |
-| [GrahLnn/Hy-MT2-30B-A3B-4bit-GGUF](https://huggingface.co/GrahLnn/Hy-MT2-30B-A3B-4bit-GGUF)                                               | 10,850                 | 979                   | 30.1B        |                   37 |   2026 | tencent/Hy-MT2-30B-A3B |
-| [AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16](https://huggingface.co/AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16)                     | 6,611                  | 1,111                 | 9.0B         |                   97 |   2026 | unsloth/Qwen3.5-9B     |
-| [AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF](https://huggingface.co/AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF) | 3,464                  | 746                   | 9.0B         |                   97 |   2026 | Qwen/Qwen3.5-9B        |
+| model                                                                                                                                     | parameters   |   # languages tagged |   year | derivative of          |
+|:------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-----------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                 | 1.9T         |                  143 |   2025 | —                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                     | 856.0B       |                  143 |   2025 | —                      |
+| [GrahLnn/Hy-MT2-30B-A3B-4bit-GGUF](https://huggingface.co/GrahLnn/Hy-MT2-30B-A3B-4bit-GGUF)                                               | 30.1B        |                   37 |   2026 | tencent/Hy-MT2-30B-A3B |
+| [AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16](https://huggingface.co/AMAImedia/NOESIS-Qwopus3.5-9B-Coder-v3.5-BF16)                     | 9.0B         |                   99 |   2026 | unsloth/Qwen3.5-9B     |
+| [AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF](https://huggingface.co/AMAImedia/Qwen3.5-9B-NeoHorse1-Heretic-NOESIS-BF16-GGUF) | 9.0B         |                   99 |   2026 | Qwen/Qwen3.5-9B        |
 
 ### Largest models tagged *only* for Uyghur
 
-| model                                                                                               |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                 |
-|:----------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:------------------------------|
-| [pkupie/gemma-3-4b-ug-cpt](https://huggingface.co/pkupie/gemma-3-4b-ug-cpt)                         |                    433 |                    15 | 4.3B         |                    1 |   2026 | google/gemma-3-4b-pt          |
-| [alphaedge-ai/gemma-3-4b-it-uig-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-uig-32768) |                     41 |                     8 | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
-| [Rekipjan/kakugo-3B-uig-Q8_0-GGUF](https://huggingface.co/Rekipjan/kakugo-3B-uig-Q8_0-GGUF)         |                    107 |                    27 | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
-| [pkupie/Qwen2.5-3B-ug-cpt](https://huggingface.co/pkupie/Qwen2.5-3B-ug-cpt)                         |                    578 |                    44 | 3.1B         |                    1 |   2026 | Qwen/Qwen2.5-3B               |
-| [pkupie/Qwen2.5-1.5B-ug-cpt](https://huggingface.co/pkupie/Qwen2.5-1.5B-ug-cpt)                     |                    593 |                    44 | 1.5B         |                    1 |   2026 | Qwen/Qwen2.5-1.5B             |
+| model                                                                                               | parameters   |   # languages tagged |   year | derivative of                 |
+|:----------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:------------------------------|
+| [pkupie/gemma-3-4b-ug-cpt](https://huggingface.co/pkupie/gemma-3-4b-ug-cpt)                         | 4.3B         |                    1 |   2026 | google/gemma-3-4b-pt          |
+| [alphaedge-ai/gemma-3-4b-it-uig-32768](https://huggingface.co/alphaedge-ai/gemma-3-4b-it-uig-32768) | 3.7B         |                    1 |   2026 | google/gemma-3-4b-it          |
+| [Rekipjan/kakugo-3B-uig-Q4_K_M-GGUF](https://huggingface.co/Rekipjan/kakugo-3B-uig-Q4_K_M-GGUF)     | 3.4B         |                    1 |   2026 | ibm-granite/granite-4.0-micro |
+| [pkupie/Qwen2.5-3B-ug-cpt](https://huggingface.co/pkupie/Qwen2.5-3B-ug-cpt)                         | 3.1B         |                    1 |   2026 | Qwen/Qwen2.5-3B               |
+| [pkupie/Qwen2.5-1.5B-ug-cpt](https://huggingface.co/pkupie/Qwen2.5-1.5B-ug-cpt)                     | 1.5B         |                    1 |   2026 | Qwen/Qwen2.5-1.5B             |
 
 _32 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -160,15 +187,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [1]     \
+                 /   [1]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [2]        \
+         /      reasoning [2]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -182,17 +209,17 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                         | task                    | dataset                                                                                             | # test items   | Construction                                                     |
-|:------------------------------|:------------------------|:----------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
-| 1. Linguistic knowledge       | BLiMP                   | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                | 758            | Treebank-based (automatic, UD + UniMorph)                        |
-| 3. Commonsense reasoning      | PIQA                    | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) | 100            | Native                                                           |
-| 3. Commonsense reasoning      | PIQA                    | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        | 103            | MT + human post-editing                                          |
-| 4. Reading comprehension      | QA – extractive RC      | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          | 5,000          | Synthetic (LLM-generated) on native Wikipedia                    |
-| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ | [TUMLU](https://github.com/ceferisbarov/TUMLU)                                                      | 494            | Native (school/entrance exams)                                   |
-| Machine translation           | Machine translation     | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         | 854            | Human translation via English pivot                              |
-| Machine translation           | Machine translation     | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             | 1,012          | Human translation (professional, from English Wikimedia sources) |
-| Machine translation           | Machine translation     | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           | 1,997          | Human translation (professional, from English)                   |
-| Machine translation           | Machine translation     | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                | 3,024          | Native (crowdsourced Tatoeba sentence pairs)                     |
+| level                         | task                    | dataset                                                                                             |   # test items | construction                                                     |
+|:------------------------------|:------------------------|:----------------------------------------------------------------------------------------------------|---------------:|:-----------------------------------------------------------------|
+| 1. Linguistic knowledge       | BLiMP                   | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                |            758 | Treebank-based (automatic, UD + UniMorph)                        |
+| 3. Commonsense reasoning      | PIQA                    | [Global PIQA (non-parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-nonparallel) |            100 | Native                                                           |
+| 3. Commonsense reasoning      | PIQA                    | [Global PIQA (parallel)](https://huggingface.co/datasets/mrlbenchmarks/global-piqa-parallel)        |            103 | MT + human post-editing                                          |
+| 4. Reading comprehension      | QA – extractive RC      | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)                          |          5,000 | Synthetic (LLM-generated) on native Wikipedia                    |
+| 5. Knowledge & open-domain QA | QA – knowledge/exam MCQ | [TUMLU](https://github.com/ceferisbarov/TUMLU)                                                      |            494 | Native (school/entrance exams)                                   |
+| Machine translation           | Machine translation     | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                         |            854 | Human translation via English pivot                              |
+| Machine translation           | Machine translation     | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                             |          1,012 | Human translation (professional, from English Wikimedia sources) |
+| Machine translation           | Machine translation     | [NTREX-128](https://github.com/MicrosoftTranslator/NTREX)                                           |          1,997 | Human translation (professional, from English)                   |
+| Machine translation           | Machine translation     | [Tatoeba Challenge (v2023-09-26)](https://github.com/Helsinki-NLP/Tatoeba-Challenge)                |          3,024 | Native (crowdsourced Tatoeba sentence pairs)                     |
 
 ### What tasks are missing?
 - **1. Linguistic knowledge:** LAMBADA
@@ -220,7 +247,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 43 of ~18,460 papers (0.23%) (rank 92 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 43 of ~18,498 papers (0.23%) (rank 96 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Uyghur
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 43):

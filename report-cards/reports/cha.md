@@ -12,9 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `cha`
 
+**Language family:** **Austronesian** › Malayo-Polynesian ([Glottolog](https://glottolog.org/resource/languoid/id/cham1312))
+
+**Endangerment:** 🟠 shifting (level 3 of 6 on Glottolog’s scale; source: ElCat: Endangered (100% certain))
+
+**Speakers:** about 46,000 first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 64,000 (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q33262#P1098))
+
 **Official / recognised in:** United States
 
 **Status:** Regional official language
+
+
+## What does Chamorro look and sound like?
+
+**Written (Chamorro)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/chamorro.htm):
+
+> Manmåfañågu todu i taotao siha manlibettao yan
+> mamårehu gi diknidåt yan direcho siha, manmånå'i
+> siha nu hinasso yan konsiensia ya debi di u fanafa'maolek.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/cha/) has 1 video of Chamorro speakers. Watch [Jesus speaking Chamorro](https://wikitongues.org/videos/jesus_20220715_cha/).
 
 
 ## Training Data
@@ -23,20 +44,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                   |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 581 articles in ch.wikipedia (rank 154 of 161 in the set) — ~1/12,989 of English; 18 active users                                                                                                                        |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                                                                                                 |
-| FineWeb                | 1.8 MB (cha_Latn (0.00)); which is equivalent to ≈1.8 MB English data after byte-premium scaling; 1.4 MB removed by filtering. This is ~1/29,695,762 of English data and ranks 185 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                                             |
+| Source                 | Amount                                                                                                                                                                                                     |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 581 articles in ch.wikipedia; 18 active users. This is ~1/12,989 of English data and ranks 161 of 168 languages in the set in Wikipedia.                                                                   |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                                                                                   |
+| FineWeb                | 1.8 MB (cha_Latn 0), equivalent to ≈1.8 MB of English after byte-premium scaling; 1.4 MB removed by filtering. This is ~1/29,695,762 of English data and ranks 185 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                                                                               |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                              |
+|:-----------------------|:-----------------------------------------------------------------------------------------|
+| Universal Dependencies | **None found**                                                                           |
+| UniMorph               | **None found**                                                                           |
+| Wikidata labels        | 476,324 Wikidata items have a label in Chamorro. (Wikidata codes (labels): ch (476,324)) |
+| Wordnets               | **None found**                                                                           |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                    |
+| Bible translations (eBible corpus) | **Portions only** — 1 translation: portions ([cha](https://ebible.org/details.php?id=cha), Public Domain). |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                 |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **3 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, funlangid, pyfranc.
 - **Eval datasets (3):** Tatoeba (n=300), UDHR-LID (n=57), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.869 (P 1.000, R 0.780, FPR 0.00e+00) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.729).
+- **Best model:** GlotLID — F1 0.869 (P 1.000, R 0.780, FPR 0.00e+00) averaged over 3 dataset(s). Runner-up: pyfranc (F1 0.727).
 
 > ⚠️ **These scores are almost certainly an over-estimate.** Scores ≥ 0.99 come from small, clean, mostly single-domain test sets (often parallel data like FLORES that some models were trained on). Real web text is noisier, shorter, code-switched and full of closely related languages, so expect noticeably lower precision in practice.
 
@@ -45,10 +87,12 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | GlotLID      |       1.000 |    0.780 | 0.869 | 0.000 | ✓                |
-| pyfranc      |       0.800 |    0.701 | 0.729 | 0.001 | ✓                |
-| funlangid    |       0.808 |    0.426 | 0.534 | 0.000 | ✓                |
+| pyfranc      |       0.790 |    0.701 | 0.727 | 0.002 | ✓                |
+| funlangid    |       0.812 |    0.426 | 0.534 | 0.000 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | py3langid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -69,6 +113,7 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Chamorro and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Chamorro has no UD treebank, UniMorph data or wordnet yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/).
 
 
 ## What models are available for Chamorro?
@@ -88,29 +133,15 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |       11 | ████████████████████ |
 |   2026 |       11 | ████████████████████ |
 
-### Most popular models tagged for Chamorro
-
-| model                                                                                                                                     | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                  |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:-------------------------------|
-| [ykarout/Qwen3.5-9b-Opus-Openclaw-Distilled-GGUF](https://huggingface.co/ykarout/Qwen3.5-9b-Opus-Openclaw-Distilled-GGUF)                 | 21,362                 | 1,273                 | 9.0B         |                    8 |   2026 | agentscope-ai/CoPaw-Flash-9B   |
-| [mradermacher/Qwen3.5-9b-Opus-Openclaw-Distilled-i1-GGUF](https://huggingface.co/mradermacher/Qwen3.5-9b-Opus-Openclaw-Distilled-i1-GGUF) | 15,756                 | 813                   | 9.0B         |                    8 |   2026 | agentscope-ai/QwenPaw-Flash-9B |
-| [google/madlad400-8b-lm](https://huggingface.co/google/madlad400-8b-lm)                                                                   | 11,812                 | 600                   | 8.6B         |                  185 |   2023 | —                              |
-| [jbochi/madlad400-8b-lm](https://huggingface.co/jbochi/madlad400-8b-lm)                                                                   | 1,443                  | 59                    | 8.6B         |                  185 |   2023 | —                              |
-| [ZeppelinCorp/Charm_15](https://huggingface.co/ZeppelinCorp/Charm_15)                                                                     | 962                    | 307                   | unknown      |                   87 |   2025 | mattshumer/mistral-8x7b-chat   |
-
-### Most popular models tagged *only* for Chamorro
-
-_none_
-
 ### Largest models tagged for Chamorro
 
-| model                                                                                                                                           | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                  |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:-------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 0                      |                     0 | 1.9T         |                  140 |   2025 | —                              |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 0                      |                     0 | 856.0B       |                  140 |   2025 | —                              |
-| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6) | 694                    |                    69 | 46.7B        |                   19 |   2023 | —                              |
-| [TeamDelta/Re-ultiima-14B](https://huggingface.co/TeamDelta/Re-ultiima-14B)                                                                     | 108                    |                    32 | 14.8B        |                    2 |   2025 | Qwen/Qwen2.5-14B               |
-| [ykarout/Qwen3.5-9b-Opus-Openclaw-Distilled](https://huggingface.co/ykarout/Qwen3.5-9b-Opus-Openclaw-Distilled)                                 | 2,392                  |                   176 | 9.4B         |                    8 |   2026 | agentscope-ai/QwenPaw-Flash-9B |
+| model                                                                                                                                           | parameters   |   # languages tagged |   year | derivative of                  |
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:-------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                                                                       | 1.9T         |                  143 |   2025 | —                              |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                                                           | 856.0B       |                  143 |   2025 | —                              |
+| [Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6](https://huggingface.co/Satyam-Singh/LLaVa-Large-Language-Virtual-Assistant-v2.1.6) | 46.7B        |                   19 |   2023 | —                              |
+| [TeamDelta/Re-ultiima-14B](https://huggingface.co/TeamDelta/Re-ultiima-14B)                                                                     | 14.8B        |                    2 |   2025 | Qwen/Qwen2.5-14B               |
+| [ykarout/Qwen3.5-9b-Opus-Openclaw-Distilled](https://huggingface.co/ykarout/Qwen3.5-9b-Opus-Openclaw-Distilled)                                 | 9.4B         |                    8 |   2026 | agentscope-ai/QwenPaw-Flash-9B |
 
 ### Largest models tagged *only* for Chamorro
 
@@ -145,15 +176,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [1]   \
+            / comprehension [1]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -167,7 +198,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                    | task                | dataset                                                                              | # test items   | Construction                                   |
+| level                    | task                | dataset                                                                              | # test items   | construction                                   |
 |:-------------------------|:--------------------|:-------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------|
 | 4. Reading comprehension | QA – extractive RC  | [MultiWikiQA](https://huggingface.co/datasets/alexandrainst/multi-wiki-qa)           | 135            | Synthetic (LLM-generated) on native Wikipedia  |
 | Machine translation      | Machine translation | [GATITOS (SMOL)](https://huggingface.co/datasets/google/smol)                        | —              | Human translation (professional, from English) |
@@ -199,7 +230,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 3 of ~18,460 papers (0.02%) (rank 189 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 3 of ~18,498 papers (0.02%) (rank 210 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Chamorro
 
 Here are up to ten papers that were published mentioning this language in 2026:

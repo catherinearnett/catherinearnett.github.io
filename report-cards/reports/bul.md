@@ -12,11 +12,39 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `bul`
 
+**Language family:** **Indo-European** › Classical Indo-European › Balto-Slavic › … › Macedo-Bulgarian ([Glottolog](https://glottolog.org/resource/languoid/id/bulg1262))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 1 (National))
+
 **Writing systems:** `Cyrl`
+
+**Speakers:** about 7.7 million first- and second-language speakers ([CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html)) · 9.0 million (first/second language not stated) ([Wikidata](https://www.wikidata.org/wiki/Q7918#P1098), 2014)
 
 **Official / recognised in:** Bulgaria
 
 **Status:** Official language
+
+
+## What does Bulgarian look and sound like?
+
+**Written**, sample text from [Omniglot](https://www.omniglot.com/writing/bulgarian.htm):
+
+> Recordings on this page by Стефан Валериев
+> Станчев (Stefan Valeriev Stančev)
+
+**Written**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/bulgarian.htm):
+
+> Всички хора се раждат свободни и равни по достойнство и права. Tе са надарени с разум и съвест и следва да се отнасят помежду си в дух на братство.
+
+*Transliteration:* Vsichki hora se razhdat svobodni i ravni po dostoynstvo i prava. Te sa nadareni s razum i savest i sledva da se otnasyat pomezhdu si v duh na bratstvo. Listen to a recording of this text by Стефан Валериев Станчев
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+[Hear this text read aloud](https://www.omniglot.com/soundfiles/udhr/udhr_bg.mp3) (Omniglot).
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** [Wikitongues](https://wikitongues.org/languages/bul/) has 4 videos of Bulgarian speakers. Watch [Dr. Karel Oliva speaking Czech, English, Bulgarian, Italian, Standard German, Russian](https://wikitongues.org/videos/dr-kareloliva_20160330_ces-eng-bul-ita-deu-rus/).
 
 
 ## Training Data
@@ -25,40 +53,63 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                                                                                                    |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | 312,933 articles in bg.wikipedia (rank 33 of 161 in the set) — ~1/24 of English; 1,806 active users                                                                                                                       |
-| Common Crawl 2026      | 6,062,008 pages per crawl on average, which is 0.2814% of the crawl. This is ~1/147 of English data and ranks 26 of 113 official languages in Common Crawl.                                                               |
-| FineWeb                | 49.12 GB (bul_Cyrl (49.12)); which is equivalent to ≈27.10 GB English data after byte-premium scaling; 40.66 GB removed by filtering. This is ~1/1,088 of English data and ranks 26 of 248 official languages in FineWeb. |
-| Goldfish training data | 9.69 GB (bul_cyrl) (rank 13 of 166 in the set)                                                                                                                                                                            |
+| Source                 | Amount                                                                                                                                                                                                            |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | 312,933 articles in bg.wikipedia; 1,806 active users. This is ~1/24 of English data and ranks 34 of 168 languages in the set in Wikipedia.                                                                        |
+| Common Crawl           | 6,062,008 pages per crawl on average, which is 0.2814% of the crawl (2026). This is ~1/147 of English data and ranks 26 of 113 languages in the set in Common Crawl.                                              |
+| FineWeb                | 49.12 GB (bul_Cyrl 49.12 GB), equivalent to ≈27.10 GB of English after byte-premium scaling; 40.66 GB removed by filtering. This is ~1/1,088 of English data and ranks 26 of 248 languages in the set in FineWeb. |
+| Goldfish training data | 9.69 GB (bul_Cyrl 9.69 GB) (rank 13 of 166 in the set)                                                                                                                                                            |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists                                                                                                                                                                                                                                                                                                                                                                |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Universal Dependencies | 1 treebank, 11,138 sentences / 156,149 tokens in total: [UD_Bulgarian-BTB](https://github.com/UniversalDependencies/UD_Bulgarian-BTB) (11,138 sentences). It has POS tags, dependency syntax, lemmas and morphological features.                                                                                                                                           |
+| UniMorph               | 2,468 lemmas, 55,730 inflected forms ([unimorph/bul](https://github.com/unimorph/bul))                                                                                                                                                                                                                                                                                     |
+| Wikidata labels        | 4,843,524 Wikidata items have a label in Bulgarian. (Wikidata codes (labels): bg (4,843,524))                                                                                                                                                                                                                                                                              |
+| Wordnets               | [BulTreeBank Wordnet (BTB-WN)](https://github.com/omwn/omw-data/releases/download/v1.4/omw-bg-1.4.tar.xz): 4,959 synsets, 6,737 words, 8,936 senses; licence: https://creativecommons.org/licenses/by/3.0/; [BalkaNet](http://www.dblab.upatras.gr/balkanet/) (size not listed); [BulNet](http://dcl.bas.bg/BulNet/wordnet_en.html) (size not listed); licence: CC By 3.0. |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **8 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, commonlingua, fasttext, funlangid, py3langid, pyfranc.
+- **9 of 10** LangID models evaluated have this language code as a label that can be predicted: GlotLID, OpenLID-v2, cld2, cld3, commonlingua, fasttext, funlangid, py3langid, pyfranc.
 - **Eval datasets (6):** CommonLID (n=109), FLORES (n=300), NTREX (n=300), Tatoeba (n=300), UDHR-LID (n=58), Wikipedia (n=300)
-- **Best model:** GlotLID — F1 0.983 (P 0.985, R 0.982, FPR 1.17e-04) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.958).
+- **Best model:** GlotLID — F1 0.983 (P 0.984, R 0.982, FPR 1.20e-04) averaged over 6 dataset(s). Runner-up: fasttext (F1 0.959).
 
 **All models (averaged over datasets):**
 
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
-| GlotLID      |       0.985 |    0.982 | 0.983 | 0.000 | ✓                |
-| fasttext     |       0.936 |    0.986 | 0.958 | 0.001 | ✓                |
-| cld2         |       0.951 |    0.899 | 0.922 | 0.000 | ✓                |
-| commonlingua |       0.922 |    0.883 | 0.901 | 0.001 | ✓                |
-| OpenLID-v2   |       0.849 |    0.974 | 0.897 | 0.002 | ✓                |
-| py3langid    |       0.780 |    0.962 | 0.849 | 0.004 | ✓                |
-| pyfranc      |       0.725 |    0.821 | 0.768 | 0.004 | ✓                |
-| funlangid    |       0.719 |    0.806 | 0.752 | 0.003 | ✓                |
+| GlotLID      |       0.984 |    0.982 | 0.983 | 0.000 | ✓                |
+| fasttext     |       0.938 |    0.986 | 0.959 | 0.001 | ✓                |
+| cld2         |       0.950 |    0.899 | 0.921 | 0.000 | ✓                |
+| commonlingua |       0.921 |    0.883 | 0.901 | 0.001 | ✓                |
+| OpenLID-v2   |       0.851 |    0.974 | 0.899 | 0.002 | ✓                |
+| py3langid    |       0.782 |    0.962 | 0.850 | 0.004 | ✓                |
+| pyfranc      |       0.726 |    0.821 | 0.768 | 0.004 | ✓                |
+| cld3         |       0.664 |    0.938 | 0.763 | 0.007 | ✓                |
+| funlangid    |       0.718 |    0.806 | 0.752 | 0.003 | ✓                |
+| AfroLID      |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 
 **Best model (GlotLID) by dataset**:
 
 | dataset   |   n |   precision |   recall |    f1 |
 |:----------|----:|------------:|---------:|------:|
 | CommonLID | 109 |       0.971 |    0.917 | 0.943 |
-| Tatoeba   | 300 |       0.951 |    0.980 | 0.966 |
+| Tatoeba   | 300 |       0.948 |    0.980 | 0.964 |
 | Wikipedia | 300 |       0.990 |    1.000 | 0.995 |
 | NTREX     | 300 |       0.997 |    0.997 | 0.997 |
 | FLORES    | 300 |       1.000 |    1.000 | 1.000 |
@@ -92,45 +143,25 @@ We scraped all `text-generation` models on Hugging Face and analyzed the metadat
 |   2025 |      151 | ████████████████     |
 |   2026 |      194 | ████████████████████ |
 
-### Most popular models tagged for Bulgarian
-
-| model                                                                                             | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:--------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [speakleash/Bielik-11B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) | 2,509,473              | 30,615                | 11.2B        |                   31 |   2025 | speakleash/Bielik-11B-v3-Base-20250730 |
-| [facebook/xglm-564M](https://huggingface.co/facebook/xglm-564M)                                   | 1,709,301              | 8,655                 | 564.0M       |                   30 |   2022 | —                                      |
-| [utter-project/EuroLLM-1.7B-Instruct](https://huggingface.co/utter-project/EuroLLM-1.7B-Instruct) | 945,088                | 19,557                | 1.7B         |                   35 |   2024 | utter-project/EuroLLM-1.7B             |
-| [ai-forever/mGPT](https://huggingface.co/ai-forever/mGPT)                                         | 933,850                | 3,003                 | unknown      |                   58 |   2022 | —                                      |
-| [BSC-LT/salamandra-7b-instruct](https://huggingface.co/BSC-LT/salamandra-7b-instruct)             | 713,529                | 36,481                | 7.8B         |                   33 |   2024 | BSC-LT/salamandra-7b                   |
-
-### Most popular models tagged *only* for Bulgarian
-
-| model                                                                                                     | downloads (all time)   |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of             |
-|:----------------------------------------------------------------------------------------------------------|:-----------------------|----------------------:|:-------------|---------------------:|-------:|:--------------------------|
-| [INSAIT-Institute/BgGPT-7B-Instruct-v0.1](https://huggingface.co/INSAIT-Institute/BgGPT-7B-Instruct-v0.1) | 13,084                 |                    46 | 7.3B         |                    1 |   2024 | mistralai/Mistral-7B-v0.1 |
-| [rmihaylov/gpt2-medium-bg](https://huggingface.co/rmihaylov/gpt2-medium-bg)                               | 2,774                  |                   108 | unknown      |                    1 |   2022 | —                         |
-| [YanaS/llama2-bg-GGUF](https://huggingface.co/YanaS/llama2-bg-GGUF)                                       | 2,306                  |                   177 | 6.7B         |                    1 |   2023 | —                         |
-| [rmihaylov/gpt2-small-bg](https://huggingface.co/rmihaylov/gpt2-small-bg)                                 | 1,771                  |                   101 | unknown      |                    1 |   2022 | —                         |
-| [usmiva/gpt-web-bg](https://huggingface.co/usmiva/gpt-web-bg)                                             | 1,211                  |                    40 | 137.0M       |                    1 |   2023 | —                         |
-
 ### Largest models tagged for Bulgarian
 
-| model                                                                                                 | downloads (all time)   | downloads (30 days)   | parameters   |   # languages tagged |   year | derivative of                          |
-|:------------------------------------------------------------------------------------------------------|:-----------------------|:----------------------|:-------------|---------------------:|-------:|:---------------------------------------|
-| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                             | 0                      | 0                     | 1.9T         |                  140 |   2025 | —                                      |
-| [nu11secur1ty/DeepSeek-V4-Pro-Base](https://huggingface.co/nu11secur1ty/DeepSeek-V4-Pro-Base)         | 536                    | 33                    | 1.6T         |                    2 |   2026 | —                                      |
-| [nu11secur1ty/DeepSeek-V4-Pro](https://huggingface.co/nu11secur1ty/DeepSeek-V4-Pro)                   | 85                     | 9                     | 861.6B       |                    2 |   2026 | —                                      |
-| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                 | 0                      | 0                     | 856.0B       |                  140 |   2025 | —                                      |
-| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF) | 23,979                 | 3,521                 | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
+| model                                                                                                 | parameters   |   # languages tagged |   year | derivative of                          |
+|:------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:---------------------------------------|
+| [misterlakaz/Midas-1922b](https://huggingface.co/misterlakaz/Midas-1922b)                             | 1.9T         |                  143 |   2025 | —                                      |
+| [nu11secur1ty/DeepSeek-V4-Pro-Base](https://huggingface.co/nu11secur1ty/DeepSeek-V4-Pro-Base)         | 1.6T         |                    2 |   2026 | —                                      |
+| [nu11secur1ty/DeepSeek-V4-Pro](https://huggingface.co/nu11secur1ty/DeepSeek-V4-Pro)                   | 861.6B       |                    2 |   2026 | —                                      |
+| [misterlakaz/Ceramic-Base-856b](https://huggingface.co/misterlakaz/Ceramic-Base-856b)                 | 856.0B       |                  143 |   2025 | —                                      |
+| [bartowski/command-a-plus-05-2026-GGUF](https://huggingface.co/bartowski/command-a-plus-05-2026-GGUF) | 218.3B       |                   48 |   2026 | CohereLabs/command-a-plus-05-2026-bf16 |
 
 ### Largest models tagged *only* for Bulgarian
 
-| model                                                                                                                                                 |   downloads (all time) |   downloads (30 days) | parameters   |   # languages tagged |   year | derivative of                               |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------:|----------------------:|:-------------|---------------------:|-------:|:--------------------------------------------|
-| [burgasdotpro/bgGPT-DeepSeek-R1-Distill-Qwen-14B](https://huggingface.co/burgasdotpro/bgGPT-DeepSeek-R1-Distill-Qwen-14B)                             |                    293 |                    20 | 14.8B        |                    1 |   2025 | deepseek-ai/DeepSeek-R1-Distill-Qwen-14B    |
-| [burgasdotpro/bgGPT-Phi-4](https://huggingface.co/burgasdotpro/bgGPT-Phi-4)                                                                           |                    149 |                    18 | 14.7B        |                    1 |   2025 | unsloth/Phi-4-unsloth-bnb-4bit              |
-| [NikolayKozloff/LLMBG-Llama-3.1-8B-BG-Reasoning-v0.1-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/LLMBG-Llama-3.1-8B-BG-Reasoning-v0.1-Q8_0-GGUF) |                    614 |                   338 | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B                     |
-| [burgasdotpro/bgGPT-GRPO-Llama-3.1-8B-Inst](https://huggingface.co/burgasdotpro/bgGPT-GRPO-Llama-3.1-8B-Inst)                                         |                    230 |                    11 | 8.0B         |                    1 |   2025 | unsloth/meta-llama-3.1-8b-instruct-bnb-4bit |
-| [burgasdotpro/bgGPT-llama-3.1-8B](https://huggingface.co/burgasdotpro/bgGPT-llama-3.1-8B)                                                             |                    461 |                    62 | 8.0B         |                    1 |   2024 | unsloth/meta-llama-3.1-8b-bnb-4bit          |
+| model                                                                                                                                                 | parameters   |   # languages tagged |   year | derivative of                               |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|---------------------:|-------:|:--------------------------------------------|
+| [burgasdotpro/bgGPT-DeepSeek-R1-Distill-Qwen-14B](https://huggingface.co/burgasdotpro/bgGPT-DeepSeek-R1-Distill-Qwen-14B)                             | 14.8B        |                    1 |   2025 | deepseek-ai/DeepSeek-R1-Distill-Qwen-14B    |
+| [burgasdotpro/bgGPT-Phi-4](https://huggingface.co/burgasdotpro/bgGPT-Phi-4)                                                                           | 14.7B        |                    1 |   2025 | unsloth/Phi-4-unsloth-bnb-4bit              |
+| [NikolayKozloff/LLMBG-Llama-3.1-8B-BG-Reasoning-v0.1-Q8_0-GGUF](https://huggingface.co/NikolayKozloff/LLMBG-Llama-3.1-8B-BG-Reasoning-v0.1-Q8_0-GGUF) | 8.0B         |                    1 |   2025 | meta-llama/Llama-3.1-8B                     |
+| [burgasdotpro/bgGPT-GRPO-Llama-3.1-8B-Inst](https://huggingface.co/burgasdotpro/bgGPT-GRPO-Llama-3.1-8B-Inst)                                         | 8.0B         |                    1 |   2025 | unsloth/meta-llama-3.1-8b-instruct-bnb-4bit |
+| [burgasdotpro/bgGPT-llama-3.1-8B](https://huggingface.co/burgasdotpro/bgGPT-llama-3.1-8B)                                                             | 8.0B         |                    1 |   2024 | unsloth/meta-llama-3.1-8b-bnb-4bit          |
 
 _60 tagged models have unknown parameter counts and are not ranked by size._
 
@@ -150,7 +181,7 @@ We ordered these roughly in level of complexity and plot them in a pyramid shape
 
 The scope of this analysis did not include classification tasks or tasks designed for bidirectional models, nor does it include post-trained model evals (e.g. instruction following) or tasks about reasoning, coding, and domain-specific material, e.g. medical or legal topics.
 
-**24** benchmark datasets in the survey include Bulgarian.
+**23** benchmark datasets in the survey include Bulgarian.
 
 ### The pyramid (bottom = basic linguistic competence, top = knowledge-heavy tasks)
 
@@ -161,15 +192,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ✅ 5. QA \
-                 /    [7]     \
+                 /   [6]    \
                 /______________\
                /                \
               /                  \
              /   ✅ 4. Reading    \
-            /  comprehension [2]   \
+            / comprehension [2]  \
            /________________________\
           /    ✅ 3. Commonsense     \
-         /       reasoning [6]        \
+         /      reasoning [6]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -183,7 +214,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ### What tasks exist?
 
-| level                                  | task                           | dataset                                                                                                           | # test items   | Construction                                                     |
+| level                                  | task                           | dataset                                                                                                           | # test items   | construction                                                     |
 |:---------------------------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------|:---------------|:-----------------------------------------------------------------|
 | 1. Linguistic knowledge                | BLiMP                          | [BLiMPPI](https://github.com/arzuburcuguven/blimppi-data)                                                         | 131            | Treebank-based (automatic)                                       |
 | 1. Linguistic knowledge                | BLiMP                          | [MultiBLiMP 1.0](https://huggingface.co/datasets/jumelet/multiblimp)                                              | 2,458          | Treebank-based (automatic, UD + UniMorph)                        |
@@ -202,7 +233,6 @@ The scope of this analysis did not include classification tasks or tasks designe
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [EU20-TruthfulQA](https://hf.co/collections/openGPT-X/eu20-benchmarks-67093b13db8ff192dc39312d)                   | —              | Machine translation (DeepL)                                      |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [EXAMS](https://github.com/mhardalov/exams-qa)                                                                    | 2,937          | Native (high-school exams)                                       |
 | 5. Knowledge & open-domain QA          | QA – knowledge/exam MCQ        | [INCLUDE (base-44)](https://huggingface.co/datasets/CohereLabs/include-base-44)                                   | —              | Native (local exams)                                             |
-| 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                            | 100            | Native (community-written, peer-verified)                        |
 | 5. Knowledge & open-domain QA          | QA – open-domain / closed-book | [CulturalRiddles](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)                            | 100            | Native (community-written, peer-verified)                        |
 | Machine translation                    | Machine translation            | [BOUQuET](https://huggingface.co/datasets/facebook/bouquet)                                                       | 854            | Human translation via English pivot                              |
 | Machine translation                    | Machine translation            | [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus)                                           | 1,012          | Human translation (professional, from English Wikimedia sources) |
@@ -234,7 +264,7 @@ The scope of this analysis did not include classification tasks or tasks designe
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 144 of ~18,460 papers (0.78%) (rank 44 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 144 of ~18,498 papers (0.78%) (rank 45 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Bulgarian
 
 Here are up to ten papers that were published mentioning this language in 2026 (randomly sampled from 144):

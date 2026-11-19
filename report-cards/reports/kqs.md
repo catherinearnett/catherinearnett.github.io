@@ -12,9 +12,30 @@ This report is designed to help compile existing resources to give you an idea o
 
 **ISO 639-3:** `kqs`
 
+**Language family:** **Atlantic-Congo** › Mel › Southern Mel › Kissi ([Glottolog](https://glottolog.org/resource/languoid/id/nort2765))
+
+**Endangerment:** 🟢 not endangered (level 1 of 6 on Glottolog’s scale; source: Ethnologue EGIDS 5 (Developing))
+
+**Speakers:** no estimate found in CLDR or Wikidata
+
 **Official / recognised in:** Guinea
 
 **Status:** Official language
+
+
+## What does Kissi look and sound like?
+
+**Written (Kissi)**, Article 1 of the Universal Declaration of Human Rights from [Omniglot](https://www.omniglot.com/writing/kissi.htm):
+
+> wanda tu cio ME pilOO o wolOO ni, le waa o ba ndOO cio, o bEElen kenando ni, o tOngdo ni, bEtu nOn yiyando a kullo, o kon ni naan tu dua mim maalyan kalapilOyEyi ni.
+> Another version of this text:
+> Wanda tu cio mbɛ pilɔɔ o wolɔɔ ni, le waa o ba ndɔɔ cio, o bɛɛlen kenando ni, o tɔŋdo ni, bɛtu nɔn yiyando a kullo, o kon ni naan tu dua mim maalyan kalapilɔyɛyi ni.
+
+*Translation:* All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+<sub>Text © Omniglot / Simon Ager and contributors.</sub>
+
+**Spoken:** no Wikitongues video of Kissi yet ([its Wikitongues page](https://wikitongues.org/languages/kqs/) says how to contribute one).
 
 
 ## Training Data
@@ -23,20 +44,41 @@ This report is designed to help compile existing resources to give you an idea o
 
 Let's consider some of the most popular sources of training data:
 
-| Source                 | Amount                                                                                                                                              |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wikipedia              | **No Wikipedia edition**                                                                                                                            |
-| Common Crawl 2026      | **Not identified in Common Crawl's language statistics**                                                                                            |
-| FineWeb                | 0.0 MB (kqs_Latn (0.00)); 0.0 MB removed by filtering. This is ~1/3,400,470,079 of English data and ranks 245 of 248 official languages in FineWeb. |
-| Goldfish training data | **No Goldfish model / data**                                                                                                                        |
+| Source                 | Amount                                                                                                                                           |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wikipedia              | **No Wikipedia edition**                                                                                                                         |
+| Common Crawl           | **Not identified in Common Crawl's language statistics**                                                                                         |
+| FineWeb                | 0.0 MB (kqs_Latn 0); 0.0 MB removed by filtering. This is ~1/3,400,470,079 of English data and ranks 245 of 248 languages in the set in FineWeb. |
+| Goldfish training data | **No Goldfish model / data**                                                                                                                     |
+
+### Structured and annotated data
+
+Beyond raw text, annotated and lexical resources are useful for training, evaluation and tools: treebanks (syntax, part-of-speech, lemmas, morphology), inflection tables, knowledge-base labels and wordnets.
+
+| Resource               | What exists    |
+|:-----------------------|:---------------|
+| Universal Dependencies | **None found** |
+| UniMorph               | **None found** |
+| Wikidata labels        | **None found** |
+| Wordnets               | **None found** |
+
+### Parallel data (for machine translation)
+
+Text aligned with translations in other languages, mostly English: the basis for training and adapting translation systems.
+
+| Resource                           | What exists                                                                                                                                                 |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPUS                               | _Not computed yet: run `python -m lrc build parallel --parallel opus`._                                                                                     |
+| Bible translations (eBible corpus) | **None in the eBible corpus.** It only includes openly licensed translations from [ebible.org](https://ebible.org), so a Bible translation may still exist. |
+| Tatoeba                            | _Not computed yet: run `python -m lrc build parallel --parallel tatoeba`._                                                                                  |
 
 ### How good are we at identifying data?
 
-Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 8 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
+Language identification (LangID or LID) is a classification task that identifies what language a text is in and it remains a challenging task for many languages. We consider a set of 10 popular models and test on samples of 7 common eval datasets. We ask which models can even predict this language (i.e. how many of them have the language code as one of their labels), whether the language is represented in any or all of the eval datasets, and how well the models do.
 
-- **2 of 8** LangID models evaluated have this language code as a label that can be predicted: GlotLID, pyfranc.
+- **3 of 10** LangID models evaluated have this language code as a label that can be predicted: AfroLID, GlotLID, pyfranc.
 - **Eval datasets (1):** UDHR-LID (n=58)
-- **Best model:** pyfranc — F1 0.870 (P 0.781, R 0.983, FPR 7.14e-04) averaged over 1 dataset(s). Runner-up: GlotLID (F1 0.766).
+- **Best model:** pyfranc — F1 0.870 (P 0.781, R 0.983, FPR 7.12e-04) averaged over 1 dataset(s). Runner-up: AfroLID (F1 0.800).
 - ⚠️ Only one eval dataset — treat the ranking as indicative only.
 
 **All models (averaged over datasets):**
@@ -44,9 +86,11 @@ Language identification (LangID or LID) is a classification task that identifies
 | model        |   precision |   recall |    f1 |   fpr | supports label   |
 |:-------------|------------:|---------:|------:|------:|:-----------------|
 | pyfranc      |       0.781 |    0.983 | 0.870 | 0.001 | ✓                |
+| AfroLID      |       0.846 |    0.759 | 0.800 | 0.002 | ✓                |
 | GlotLID      |       1.000 |    0.621 | 0.766 | 0.000 | ✓                |
 | OpenLID-v2   |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | cld2         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
+| cld3         |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | commonlingua |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | fasttext     |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
 | funlangid    |       0.000 |    0.000 | 0.000 | 0.000 | ✗                |
@@ -61,6 +105,8 @@ Language identification (LangID or LID) is a classification task that identifies
   - Look for datasets built for other purposes (UD treebanks, ASR transcripts, etc.) that contain high-quality text reliably in Kissi and compile them ready for training data.
   - Find books or other materials that can be digitised, OCRed, or otherwise made available (check the license!).
   - Make them available on Hugging Face and tag them for the language.
+- **Create structured data:** Kissi has no UD treebank, UniMorph data, wordnet or Wikidata labels yet. You could start a [Universal Dependencies treebank](https://universaldependencies.org/contributing/); contribute inflection tables to [UniMorph](https://unimorph.github.io/); build or link a wordnet via the [Open Multilingual Wordnet](https://omwn.org/); add Wikidata labels in the language (e.g. through [Wikidata](https://www.wikidata.org) label-a-thons).
+- **Record a speaker:** there's no [Wikitongues](https://wikitongues.org/languages/kqs/) video of Kissi yet. Openly licensed recordings help speech work and show what the language sounds like.
 
 
 ## What models are available for Kissi?
@@ -96,15 +142,15 @@ The scope of this analysis did not include classification tasks or tasks designe
                     /      \
                    /        \
                   / ❌ 5. QA \
-                 /    [0]     \
+                 /   [0]    \
                 /______________\
                /                \
               /                  \
              /   ❌ 4. Reading    \
-            /  comprehension [0]   \
+            / comprehension [0]  \
            /________________________\
           /    ❌ 3. Commonsense     \
-         /       reasoning [0]        \
+         /      reasoning [0]       \
         /______________________________\
        /               |                \
       /                |                 \
@@ -147,7 +193,7 @@ _None found._
 
 ## How much research is being done on this language?
 
-- **Mentions in ACL papers in 2026:** 1 of ~18,460 papers (0.01%) (rank 217 of 252 in the set); English is mentioned in 8,441.
+- **Mentions in ACL papers in 2026:** 1 of ~18,498 papers (0.01%) (rank 241 of 278 in the set); English is mentioned in 8,465.
 - Search terms: Northern Kissi | Kissi
 
 Here are up to ten papers that were published mentioning this language in 2026:
